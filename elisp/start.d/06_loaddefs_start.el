@@ -2861,6 +2861,217 @@ Display and switch Emacs window configurations.
 
 ;;;***
 
+;;;### (autoloads nil "../plugin/el-get/el-get" "../plugin/el-get/el-get.el"
+;;;;;;  (22026 35523 697054 971000))
+;;; Generated autoloads from ../plugin/el-get/el-get.el
+
+(autoload 'el-get-version "../plugin/el-get/el-get" "\
+Message the current el-get version
+
+\(fn)" t nil)
+
+(autoload 'el-get-install "../plugin/el-get/el-get" "\
+Cause the named PACKAGE to be installed after all of its
+dependencies (if any).
+
+PACKAGE may be either a string or the corresponding symbol.
+
+\(fn PACKAGE)" t nil)
+
+(autoload 'el-get-update "../plugin/el-get/el-get" "\
+Update PACKAGE.
+
+\(fn PACKAGE)" t nil)
+
+(autoload 'el-get-update-all "../plugin/el-get/el-get" "\
+Performs update of all installed packages.
+
+\(fn &optional NO-PROMPT)" t nil)
+
+(autoload 'el-get-update-packages-of-type "../plugin/el-get/el-get" "\
+Update all installed packages of type TYPE.
+
+\(fn TYPE)" t nil)
+
+(autoload 'el-get-self-update "../plugin/el-get/el-get" "\
+Update el-get itself.  The standard recipe takes care of reloading the code.
+
+\(fn)" t nil)
+
+(autoload 'el-get-remove "../plugin/el-get/el-get" "\
+Remove any PACKAGE that is know to be installed or required.
+
+\(fn PACKAGE)" t nil)
+
+(autoload 'el-get-reinstall "../plugin/el-get/el-get" "\
+Remove PACKAGE and then install it again.
+
+\(fn PACKAGE)" t nil)
+
+(autoload 'el-get-cd "../plugin/el-get/el-get" "\
+Open dired in the package directory.
+
+\(fn PACKAGE)" t nil)
+
+(autoload 'el-get-make-recipes "../plugin/el-get/el-get" "\
+Loop over `el-get-sources' and write a recipe file for each
+entry which is not a symbol and is not already a known recipe.
+
+\(fn &optional DIR)" t nil)
+
+(autoload 'el-get-checksum "../plugin/el-get/el-get" "\
+Compute the checksum of the given package, and put it in the kill-ring
+
+\(fn PACKAGE)" t nil)
+
+(autoload 'el-get-self-checksum "../plugin/el-get/el-get" "\
+Compute the checksum of the running version of el-get itself.
+
+Also put the checksum in the kill-ring.
+
+\(fn)" t nil)
+
+(autoload 'el-get "../plugin/el-get/el-get" "\
+Ensure that packages have been downloaded once and init them as needed.
+
+This will not update the sources by using `apt-get install' or
+`git pull', but it will ensure that:
+
+* the packages have been installed
+* load-path is set so their elisp files can be found
+* Info-directory-list is set so their info files can be found
+* Autoloads have been prepared and evaluated for each package
+* Any post-installation setup (e.g. `(require 'feature)') happens
+
+When SYNC is nil (the default), all installations run
+concurrently, in the background.
+
+When SYNC is 'sync, each package will be installed synchronously,
+and any error will stop it all.
+
+Please note that the `el-get-init' part of `el-get' is always
+done synchronously. There's `byte-compile' support though, and
+the packages you use are welcome to use `autoload' too.
+
+PACKAGES is expected to be a list of packages you want to install
+or init.  When PACKAGES is omited (the default), the list of
+already installed packages is considered.
+
+\(fn &optional SYNC &rest PACKAGES)" nil nil)
+
+;;;***
+
+;;;### (autoloads nil "../plugin/el-get/el-get-bundle" "../plugin/el-get/el-get-bundle.el"
+;;;;;;  (22026 35523 689054 971000))
+;;; Generated autoloads from ../plugin/el-get/el-get-bundle.el
+
+(autoload 'el-get-bundle-el-get "../plugin/el-get/el-get-bundle" "\
+
+
+\(fn SRC)" nil nil)
+
+(autoload 'el-get-bundle "../plugin/el-get/el-get-bundle" "\
+Install PACKAGE and run initialization FORM.
+
+PACKAGE can be either a simple package name or a package name
+with a modifier before the name to specify local recipe source
+information:
+
+* `<owner>/' : specifies a Github owner name
+* `gist:<id>' : specifies a Gist ID
+* `<type>:' : specifies a type of the package source
+
+If `FEATURE in PACKAGE' form is used instead of PACKAGE, then
+that FEATURE is `require'd after installing PACKAGE.  You can
+also use `el-get-bundle!' macro if FEATURE and PACKAGE are the
+same.  If you wish to `require' more than one feature, then use
+`:features' property in FORM.
+
+The initialization FORM may start with a property list that
+describes a local recipe.  The FORM after the property list is
+treated as initialization code, which is actually an `:after'
+property of the local recipe.
+
+A copy of the initialization code is stored in a directory
+specified by `el-get-bundle-init-directory' and its byte-compiled
+version is used if `el-get-bundle-byte-compile' is non-nil.
+
+\(fn PACKAGE &rest FORM)" nil t)
+
+(function-put 'el-get-bundle 'lisp-indent-function 'defun)
+
+(autoload 'el-get-bundle! "../plugin/el-get/el-get-bundle" "\
+Install PACKAGE and run initialization form.
+It is the same as `el-get-bundle' except that PACKAGE is explicitly
+required.
+
+\(fn PACKAGE &rest ARGS)" nil t)
+
+(function-put 'el-get-bundle! 'lisp-indent-function 'defun)
+
+;;;***
+
+;;;### (autoloads nil "../plugin/el-get/el-get-check" "../plugin/el-get/el-get-check.el"
+;;;;;;  (22026 35523 690054 971000))
+;;; Generated autoloads from ../plugin/el-get/el-get-check.el
+
+(autoload 'el-get-check-recipe "../plugin/el-get/el-get-check" "\
+Check the format of the recipe.
+Please run this command before sending a pull request.
+Usage: M-x el-get-check-recipe RET
+
+You can run this function from checker script like this:
+    test/check-recipe.el PATH/TO/RECIPE.rcp
+
+When used as a lisp function, FILE-OR-BUFFER must be a buffer
+object or a file path.
+
+\(fn FILE-OR-BUFFER)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "../plugin/el-get/el-get-list-packages" "../plugin/el-get/el-get-list-packages.el"
+;;;;;;  (22026 35523 693054 971000))
+;;; Generated autoloads from ../plugin/el-get/el-get-list-packages.el
+
+(autoload 'el-get-list-packages "../plugin/el-get/el-get-list-packages" "\
+Display a list of packages.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "../plugin/el-get/methods/el-get-elpa" "../plugin/el-get/methods/el-get-elpa.el"
+;;;;;;  (22026 35523 11054 988000))
+;;; Generated autoloads from ../plugin/el-get/methods/el-get-elpa.el
+
+(autoload 'el-get-elpa-build-local-recipes "../plugin/el-get/methods/el-get-elpa" "\
+retrieves list of ELPA packages and turn them to local recipe set.
+TARGET-DIR is the target directory
+DO-NOT-UPDATE will not update the package archive contents before running this.
+
+\(fn &optional TARGET-DIR DO-NOT-UPDATE)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "../plugin/el-get/methods/el-get-emacswiki"
+;;;;;;  "../plugin/el-get/methods/el-get-emacswiki.el" (22026 35523
+;;;;;;  11054 988000))
+;;; Generated autoloads from ../plugin/el-get/methods/el-get-emacswiki.el
+
+(autoload 'el-get-emacswiki-refresh "../plugin/el-get/methods/el-get-emacswiki" "\
+Generate recipes for all lisp files on Emacswiki.
+
+By default, this is done in a separate process so that you can
+continue to work while the recipes are being updated. If this
+fails, you can force the update to be done in-process by running
+this with a prefix arg (noninteractively: set optional arg
+`in-process' non-nil).
+
+\(fn &optional TARGET-DIR IN-PROCESS)" t nil)
+
+;;;***
+
 ;;;### (autoloads nil "../plugin/eval-expr" "../plugin/eval-expr.el"
 ;;;;;;  (22026 35731 150049 996000))
 ;;; Generated autoloads from ../plugin/eval-expr.el
@@ -8540,7 +8751,7 @@ For `eval-after-load' python-pep8 function.
 ;;;***
 
 ;;;### (autoloads nil "python_mode_start" "python_mode_start.el"
-;;;;;;  (22026 35731 265049 994000))
+;;;;;;  (22026 37688 281003 62000))
 ;;; Generated autoloads from python_mode_start.el
 
 (autoload 'python-mode-custom-predefine "python_mode_start" "\
@@ -9109,7 +9320,54 @@ Predefine for Snippet Major Mode.
 ;;;;;;  "../plugin/cython-mode.el" "../plugin/descbinds-anything.el"
 ;;;;;;  "../plugin/doc-view-extension.el" "../plugin/duplicate-line.el"
 ;;;;;;  "../plugin/edit-list.el" "../plugin/edit-server.el" "../plugin/editable-help.el"
-;;;;;;  "../plugin/ee-0.1.0/ee-autoloads.el" "../plugin/eldoc-extension.el"
+;;;;;;  "../plugin/ee-0.1.0/ee-autoloads.el" "../plugin/el-get/el-get-autoloading.el"
+;;;;;;  "../plugin/el-get/el-get-build.el" "../plugin/el-get/el-get-byte-compile.el"
+;;;;;;  "../plugin/el-get/el-get-core.el" "../plugin/el-get/el-get-custom.el"
+;;;;;;  "../plugin/el-get/el-get-dependencies.el" "../plugin/el-get/el-get-install.el"
+;;;;;;  "../plugin/el-get/el-get-methods.el" "../plugin/el-get/el-get-notify.el"
+;;;;;;  "../plugin/el-get/el-get-recipes.el" "../plugin/el-get/el-get-status.el"
+;;;;;;  "../plugin/el-get/methods/el-get-apt-get.el" "../plugin/el-get/methods/el-get-brew.el"
+;;;;;;  "../plugin/el-get/methods/el-get-builtin.el" "../plugin/el-get/methods/el-get-bzr.el"
+;;;;;;  "../plugin/el-get/methods/el-get-cvs.el" "../plugin/el-get/methods/el-get-darcs.el"
+;;;;;;  "../plugin/el-get/methods/el-get-emacsmirror.el" "../plugin/el-get/methods/el-get-fink.el"
+;;;;;;  "../plugin/el-get/methods/el-get-fossil.el" "../plugin/el-get/methods/el-get-git-svn.el"
+;;;;;;  "../plugin/el-get/methods/el-get-git.el" "../plugin/el-get/methods/el-get-github-tar.el"
+;;;;;;  "../plugin/el-get/methods/el-get-github-zip.el" "../plugin/el-get/methods/el-get-github.el"
+;;;;;;  "../plugin/el-get/methods/el-get-go.el" "../plugin/el-get/methods/el-get-hg.el"
+;;;;;;  "../plugin/el-get/methods/el-get-http-tar.el" "../plugin/el-get/methods/el-get-http-zip.el"
+;;;;;;  "../plugin/el-get/methods/el-get-http.el" "../plugin/el-get/methods/el-get-pacman.el"
+;;;;;;  "../plugin/el-get/methods/el-get-svn.el" "../plugin/el-get/recipes/ac-ghc-mod.el"
+;;;;;;  "../plugin/el-get/test/caching-speedtest.el" "../plugin/el-get/test/check-recipe.el"
+;;;;;;  "../plugin/el-get/test/el-get-issue-1006.el" "../plugin/el-get/test/el-get-issue-1028.el"
+;;;;;;  "../plugin/el-get/test/el-get-issue-1189.el" "../plugin/el-get/test/el-get-issue-1348.el"
+;;;;;;  "../plugin/el-get/test/el-get-issue-1389.el" "../plugin/el-get/test/el-get-issue-1454.el"
+;;;;;;  "../plugin/el-get/test/el-get-issue-1472.el" "../plugin/el-get/test/el-get-issue-1562.el"
+;;;;;;  "../plugin/el-get/test/el-get-issue-1615.el" "../plugin/el-get/test/el-get-issue-1752.el"
+;;;;;;  "../plugin/el-get/test/el-get-issue-176.el" "../plugin/el-get/test/el-get-issue-1920.el"
+;;;;;;  "../plugin/el-get/test/el-get-issue-1939.el" "../plugin/el-get/test/el-get-issue-200.el"
+;;;;;;  "../plugin/el-get/test/el-get-issue-284.el" "../plugin/el-get/test/el-get-issue-289.el"
+;;;;;;  "../plugin/el-get/test/el-get-issue-303.el" "../plugin/el-get/test/el-get-issue-310.el"
+;;;;;;  "../plugin/el-get/test/el-get-issue-400.el" "../plugin/el-get/test/el-get-issue-407.el"
+;;;;;;  "../plugin/el-get/test/el-get-issue-418.el" "../plugin/el-get/test/el-get-issue-432.el"
+;;;;;;  "../plugin/el-get/test/el-get-issue-446.el" "../plugin/el-get/test/el-get-issue-513.el"
+;;;;;;  "../plugin/el-get/test/el-get-issue-535.el" "../plugin/el-get/test/el-get-issue-541.el"
+;;;;;;  "../plugin/el-get/test/el-get-issue-548.el" "../plugin/el-get/test/el-get-issue-559.el"
+;;;;;;  "../plugin/el-get/test/el-get-issue-579.el" "../plugin/el-get/test/el-get-issue-581.el"
+;;;;;;  "../plugin/el-get/test/el-get-issue-583.el" "../plugin/el-get/test/el-get-issue-586.el"
+;;;;;;  "../plugin/el-get/test/el-get-issue-589.el" "../plugin/el-get/test/el-get-issue-592.el"
+;;;;;;  "../plugin/el-get/test/el-get-issue-594.el" "../plugin/el-get/test/el-get-issue-596.el"
+;;;;;;  "../plugin/el-get/test/el-get-issue-613.el" "../plugin/el-get/test/el-get-issue-615.el"
+;;;;;;  "../plugin/el-get/test/el-get-issue-619.el" "../plugin/el-get/test/el-get-issue-628.el"
+;;;;;;  "../plugin/el-get/test/el-get-issue-632.el" "../plugin/el-get/test/el-get-issue-640.el"
+;;;;;;  "../plugin/el-get/test/el-get-issue-642.el" "../plugin/el-get/test/el-get-issue-650.el"
+;;;;;;  "../plugin/el-get/test/el-get-issue-652.el" "../plugin/el-get/test/el-get-issue-656.el"
+;;;;;;  "../plugin/el-get/test/el-get-issue-659.el" "../plugin/el-get/test/el-get-issue-672.el"
+;;;;;;  "../plugin/el-get/test/el-get-issue-683.el" "../plugin/el-get/test/el-get-issue-730.el"
+;;;;;;  "../plugin/el-get/test/el-get-issue-772.el" "../plugin/el-get/test/el-get-issue-809.el"
+;;;;;;  "../plugin/el-get/test/el-get-issue-810.el" "../plugin/el-get/test/el-get-issue-835.el"
+;;;;;;  "../plugin/el-get/test/el-get-issue-new-2.el" "../plugin/el-get/test/el-get-issue-new.el"
+;;;;;;  "../plugin/el-get/test/issue-741-elpa-install-error.el" "../plugin/el-get/test/test-setup.el"
+;;;;;;  "../plugin/el-get/test/test.el" "../plugin/eldoc-extension.el"
 ;;;;;;  "../plugin/expand-region/cc-mode-expansions.el" "../plugin/expand-region/clojure-mode-expansions.el"
 ;;;;;;  "../plugin/expand-region/css-mode-expansions.el" "../plugin/expand-region/erlang-mode-expansions.el"
 ;;;;;;  "../plugin/expand-region/expand-region-core.el" "../plugin/expand-region/expand-region-pkg.el"
@@ -9186,7 +9444,7 @@ Predefine for Snippet Major Mode.
 ;;;;;;  "Windows_start.el" "_60_c-includes_plugin_start.el" "_60_gccsense_plugin_start.el"
 ;;;;;;  "_61_tempbuf_plugin_start.el" "_70_cvs_mode_start.el" "anything-complete_plugin_start.el"
 ;;;;;;  "header2_plugin_start.el" "subroutines_start.el" "test_start.el")
-;;;;;;  (22026 36284 873193 365000))
+;;;;;;  (22026 39280 332898 544000))
 
 ;;;***
 

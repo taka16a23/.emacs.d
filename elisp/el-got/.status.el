@@ -15,7 +15,7 @@
  (auto-complete-yasnippet status "installed" recipe
                           (:name auto-complete-yasnippet :description "Auto-complete sources for YASnippet" :type http :url "http://www.cx4a.org/pub/auto-complete-yasnippet.el" :depends
                                  (auto-complete yasnippet)))
- (cl-lib status "installed" recipe
+ (cl-lib status "required" recipe
          (:name cl-lib :builtin "24.3" :type elpa :description "Properly prefixed CL functions and macros" :url "http://elpa.gnu.org/packages/cl-lib.html"))
  (crontab-mode status "installed" recipe
                (:name crontab-mode :description "Mode for editing crontab files" :type http :url "http://web.archive.org/web/20080716014153/http://www.mahalito.net/~harley/elisp/crontab-mode.el"))
@@ -68,10 +68,12 @@
                   (dash pkg-info let-alist cl-lib)))
  (fuzzy status "installed" recipe
         (:name fuzzy :website "https://github.com/auto-complete/fuzzy-el" :description "Fuzzy matching utilities for GNU Emacs" :type github :pkgname "auto-complete/fuzzy-el"))
+ (header2 status "installed" recipe
+          (:name header2 :description "Support for creation and update of file headers." :type emacswiki :features "header2"))
  (jedi status "installed" recipe
        (:name jedi :description "An awesome Python auto-completion for Emacs" :type github :pkgname "tkf/emacs-jedi" :submodule nil :depends
               (epc auto-complete python-environment)))
- (let-alist status "installed" recipe
+ (let-alist status "required" recipe
             (:name let-alist :description "Easily let-bind values of an assoc-list by their names." :builtin "25.0.50" :type http :url "http://git.savannah.gnu.org/cgit/emacs/elpa.git/plain/packages/let-alist/let-alist.el"))
  (magit status "installed" recipe
         (:name magit :website "https://github.com/magit/magit#readme" :description "It's Magit! An Emacs mode for Git." :type github :pkgname "magit/magit" :branch "master" :minimum-emacs-version "24.4" :depends

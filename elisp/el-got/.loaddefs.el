@@ -4,7 +4,7 @@
 
 
 ;;;### (autoloads nil "apache-mode/apache-mode" "apache-mode/apache-mode.el"
-;;;;;;  (22013 57018 455422 300000))
+;;;;;;  (22026 35520 564055 46000))
 ;;; Generated autoloads from apache-mode/apache-mode.el
 
 (autoload 'apache-mode "apache-mode/apache-mode" "\
@@ -20,7 +20,7 @@ Major mode for editing Apache configuration files.
 ;;;***
 
 ;;;### (autoloads nil "auto-complete/auto-complete" "auto-complete/auto-complete.el"
-;;;;;;  (22013 6528 193977 600000))
+;;;;;;  (22026 35520 569055 46000))
 ;;; Generated autoloads from auto-complete/auto-complete.el
 
 (autoload 'auto-complete "auto-complete/auto-complete" "\
@@ -57,7 +57,7 @@ See `auto-complete-mode' for more information on Auto-Complete mode.
 ;;;***
 
 ;;;### (autoloads nil "auto-complete/auto-complete-config" "auto-complete/auto-complete-config.el"
-;;;;;;  (22013 6528 192977 600000))
+;;;;;;  (22026 35520 568055 46000))
 ;;; Generated autoloads from auto-complete/auto-complete-config.el
 
 (autoload 'ac-config-default "auto-complete/auto-complete-config" "\
@@ -68,7 +68,7 @@ See `auto-complete-mode' for more information on Auto-Complete mode.
 ;;;***
 
 ;;;### (autoloads nil "crontab-mode/crontab-mode" "crontab-mode/crontab-mode.el"
-;;;;;;  (22013 57018 458422 300000))
+;;;;;;  (22026 35520 648055 44000))
 ;;; Generated autoloads from crontab-mode/crontab-mode.el
 
 (autoload 'crontab-mode "crontab-mode/crontab-mode" "\
@@ -87,8 +87,8 @@ Get the crontab for the HOST into a buffer.
 
 ;;;***
 
-;;;### (autoloads nil "dired+/dired+" "dired+/dired+.el" (22013 24306
-;;;;;;  754108 941000))
+;;;### (autoloads nil "dired+/dired+" "dired+/dired+.el" (22026 35730
+;;;;;;  926050 2000))
 ;;; Generated autoloads from dired+/dired+.el
 
 (defvar diff-switches "-c" "\
@@ -1980,8 +1980,8 @@ Send a bug report about a Dired+ problem.
 
 ;;;***
 
-;;;### (autoloads nil "dmacro/dmacro" "dmacro/dmacro.el" (12597 58483
-;;;;;;  0 0))
+;;;### (autoloads nil "dmacro/dmacro" "dmacro/dmacro.el" (22026 35730
+;;;;;;  928050 2000))
 ;;; Generated autoloads from dmacro/dmacro.el
 
 (autoload 'dmacro-build "dmacro-bld" "\
@@ -2059,8 +2059,8 @@ If there aren't that many markers in the dmacro, the first one is used.
 
 ;;;***
 
-;;;### (autoloads nil "e2wm/e2wm" "e2wm/e2wm.el" (22013 35638 183087
-;;;;;;  3000))
+;;;### (autoloads nil "e2wm/e2wm" "e2wm/e2wm.el" (22026 35521 72055
+;;;;;;  34000))
 ;;; Generated autoloads from e2wm/e2wm.el
 
 (autoload 'e2wm:start-management "e2wm/e2wm" "\
@@ -2078,8 +2078,8 @@ would be called at `e2wm:pst-change'. Then, NOT-PST-CHANGE is not
 
 ;;;***
 
-;;;### (autoloads nil "e2wm/e2wm-vcs" "e2wm/e2wm-vcs.el" (22013 35638
-;;;;;;  180087 3000))
+;;;### (autoloads nil "e2wm/e2wm-vcs" "e2wm/e2wm-vcs.el" (22026 35521
+;;;;;;  69055 34000))
 ;;; Generated autoloads from e2wm/e2wm-vcs.el
 
 (autoload 'e2wm:dp-magit "e2wm/e2wm-vcs" "\
@@ -2100,7 +2100,7 @@ would be called at `e2wm:pst-change'. Then, NOT-PST-CHANGE is not
 ;;;***
 
 ;;;### (autoloads nil "emacs-w3m/bookmark-w3m" "emacs-w3m/bookmark-w3m.el"
-;;;;;;  (19648 52975 0 0))
+;;;;;;  (22026 35730 954050 1000))
 ;;; Generated autoloads from emacs-w3m/bookmark-w3m.el
 
 (autoload 'bookmark-w3m-bookmark-jump "emacs-w3m/bookmark-w3m" "\
@@ -2111,7 +2111,7 @@ Default bookmark handler for w3m buffers.
 ;;;***
 
 ;;;### (autoloads nil "emacs-w3m/mime-w3m" "emacs-w3m/mime-w3m.el"
-;;;;;;  (20927 43680 0 0))
+;;;;;;  (22026 35730 994050 0))
 ;;; Generated autoloads from emacs-w3m/mime-w3m.el
 
 (autoload 'mime-w3m-preview-text/html "emacs-w3m/mime-w3m" "\
@@ -2121,8 +2121,8 @@ Default bookmark handler for w3m buffers.
 
 ;;;***
 
-;;;### (autoloads nil "emacs-w3m/octet" "emacs-w3m/octet.el" (21841
-;;;;;;  20772 0 0))
+;;;### (autoloads nil "emacs-w3m/octet" "emacs-w3m/octet.el" (22026
+;;;;;;  35730 995050 0))
 ;;; Generated autoloads from emacs-w3m/octet.el
 
 (autoload 'octet-buffer "emacs-w3m/octet" "\
@@ -2154,8 +2154,8 @@ Octet setting for MIME module.
 
 ;;;***
 
-;;;### (autoloads nil "emacs-w3m/w3m" "emacs-w3m/w3m.el" (22013 57019
-;;;;;;  384422 400000))
+;;;### (autoloads nil "emacs-w3m/w3m" "emacs-w3m/w3m.el" (22026 35731
+;;;;;;  66049 998000))
 ;;; Generated autoloads from emacs-w3m/w3m.el
 
 (autoload 'w3m-retrieve "emacs-w3m/w3m" "\
@@ -2313,7 +2313,7 @@ See `w3m-region' for the optional arguments.
 ;;;***
 
 ;;;### (autoloads nil "emacs-w3m/w3m-antenna" "emacs-w3m/w3m-antenna.el"
-;;;;;;  (19187 58267 0 0))
+;;;;;;  (22026 35731 45049 999000))
 ;;; Generated autoloads from emacs-w3m/w3m-antenna.el
 
 (autoload 'w3m-about-antenna "emacs-w3m/w3m-antenna" "\
@@ -2329,7 +2329,7 @@ Report changes of WEB sites, which is specified in `w3m-antenna-sites'.
 ;;;***
 
 ;;;### (autoloads nil "emacs-w3m/w3m-bookmark" "emacs-w3m/w3m-bookmark.el"
-;;;;;;  (20597 64488 0 0))
+;;;;;;  (22026 35731 48049 999000))
 ;;; Generated autoloads from emacs-w3m/w3m-bookmark.el
 
 (autoload 'w3m-bookmark-add-this-url "emacs-w3m/w3m-bookmark" "\
@@ -2376,7 +2376,7 @@ Setup w3m bookmark items in menubar.
 ;;;***
 
 ;;;### (autoloads nil "emacs-w3m/w3m-cookie" "emacs-w3m/w3m-cookie.el"
-;;;;;;  (19449 53703 0 0))
+;;;;;;  (22026 35731 48049 999000))
 ;;; Generated autoloads from emacs-w3m/w3m-cookie.el
 
 (autoload 'w3m-cookie-shutdown "emacs-w3m/w3m-cookie" "\
@@ -2408,7 +2408,7 @@ Make the html contents to display and to enable you to manage cookies.
 ;;;***
 
 ;;;### (autoloads nil "emacs-w3m/w3m-dtree" "emacs-w3m/w3m-dtree.el"
-;;;;;;  (18964 36505 0 0))
+;;;;;;  (22026 35731 49049 999000))
 ;;; Generated autoloads from emacs-w3m/w3m-dtree.el
 
 (autoload 'w3m-about-dtree "emacs-w3m/w3m-dtree" "\
@@ -2424,8 +2424,8 @@ If called with 'prefix argument', display all directorys and files.
 
 ;;;***
 
-;;;### (autoloads nil "emacs-w3m/w3m-fb" "emacs-w3m/w3m-fb.el" (22013
-;;;;;;  57019 342422 400000))
+;;;### (autoloads nil "emacs-w3m/w3m-fb" "emacs-w3m/w3m-fb.el" (22026
+;;;;;;  35731 50049 999000))
 ;;; Generated autoloads from emacs-w3m/w3m-fb.el
 
 (defvar w3m-fb-mode nil "\
@@ -2446,7 +2446,7 @@ This allows frame-local lists of buffers (tabs).
 ;;;***
 
 ;;;### (autoloads nil "emacs-w3m/w3m-filter" "emacs-w3m/w3m-filter.el"
-;;;;;;  (21762 45261 0 0))
+;;;;;;  (22026 35731 50049 999000))
 ;;; Generated autoloads from emacs-w3m/w3m-filter.el
 
 (autoload 'w3m-filter "emacs-w3m/w3m-filter" "\
@@ -2457,7 +2457,7 @@ Apply filtering rule of URL against a content in this buffer.
 ;;;***
 
 ;;;### (autoloads nil "emacs-w3m/w3m-form" "emacs-w3m/w3m-form.el"
-;;;;;;  (21245 23557 0 0))
+;;;;;;  (22026 35731 51049 999000))
 ;;; Generated autoloads from emacs-w3m/w3m-form.el
 
 (autoload 'w3m-fontify-forms "emacs-w3m/w3m-form" "\
@@ -2468,7 +2468,7 @@ Process half-dumped data and fontify forms in this buffer.
 ;;;***
 
 ;;;### (autoloads nil "emacs-w3m/w3m-lnum" "emacs-w3m/w3m-lnum.el"
-;;;;;;  (21621 11507 0 0))
+;;;;;;  (22026 35731 53049 999000))
 ;;; Generated autoloads from emacs-w3m/w3m-lnum.el
 
 (autoload 'w3m-lnum-mode "emacs-w3m/w3m-lnum" "\
@@ -2560,7 +2560,7 @@ If no link under point, activate numbering and ask for one.
 ;;;***
 
 ;;;### (autoloads nil "emacs-w3m/w3m-namazu" "emacs-w3m/w3m-namazu.el"
-;;;;;;  (18964 36505 0 0))
+;;;;;;  (22026 35731 54049 999000))
 ;;; Generated autoloads from emacs-w3m/w3m-namazu.el
 
 (autoload 'w3m-about-namazu "emacs-w3m/w3m-namazu" "\
@@ -2576,7 +2576,7 @@ Search indexed files with Namazu.
 ;;;***
 
 ;;;### (autoloads nil "emacs-w3m/w3m-perldoc" "emacs-w3m/w3m-perldoc.el"
-;;;;;;  (18197 61165 0 0))
+;;;;;;  (22026 35731 54049 999000))
 ;;; Generated autoloads from emacs-w3m/w3m-perldoc.el
 
 (autoload 'w3m-about-perldoc "emacs-w3m/w3m-perldoc" "\
@@ -2592,7 +2592,7 @@ View Perl documents.
 ;;;***
 
 ;;;### (autoloads nil "emacs-w3m/w3m-search" "emacs-w3m/w3m-search.el"
-;;;;;;  (20697 1486 0 0))
+;;;;;;  (22026 35731 55049 999000))
 ;;; Generated autoloads from emacs-w3m/w3m-search.el
 
 (autoload 'w3m-search "emacs-w3m/w3m-search" "\
@@ -2618,7 +2618,7 @@ Generate query string for ENGINE from URI matched by last search.
 ;;;***
 
 ;;;### (autoloads nil "emacs-w3m/w3m-session" "emacs-w3m/w3m-session.el"
-;;;;;;  (20839 34704 0 0))
+;;;;;;  (22026 35731 56049 999000))
 ;;; Generated autoloads from emacs-w3m/w3m-session.el
 
 (autoload 'w3m-session-save "emacs-w3m/w3m-session" "\
@@ -2654,7 +2654,7 @@ Setup w3m session items in menubar.
 ;;;***
 
 ;;;### (autoloads nil "emacs-w3m/w3m-symbol" "emacs-w3m/w3m-symbol.el"
-;;;;;;  (18791 2971 0 0))
+;;;;;;  (22026 35731 56049 999000))
 ;;; Generated autoloads from emacs-w3m/w3m-symbol.el
 
 (autoload 'w3m-replace-symbol "emacs-w3m/w3m-symbol" "\
@@ -2665,7 +2665,7 @@ Setup w3m session items in menubar.
 ;;;***
 
 ;;;### (autoloads nil "emacs-w3m/w3m-weather" "emacs-w3m/w3m-weather.el"
-;;;;;;  (20486 20998 0 0))
+;;;;;;  (22026 35731 60049 998000))
 ;;; Generated autoloads from emacs-w3m/w3m-weather.el
 
 (autoload 'w3m-weather "emacs-w3m/w3m-weather" "\
@@ -2681,7 +2681,7 @@ Display weather report.
 ;;;***
 
 ;;;### (autoloads nil "flycheck/flycheck" "flycheck/flycheck.el"
-;;;;;;  (22013 34673 217110 144000))
+;;;;;;  (22026 35521 971055 13000))
 ;;; Generated autoloads from flycheck/flycheck.el
 
 (autoload 'flycheck-info "flycheck/flycheck" "\
@@ -2894,8 +2894,50 @@ Use this together with the `option', `option-list' and
 
 ;;;***
 
-;;;### (autoloads nil "jedi/jedi" "jedi/jedi.el" (22013 6533 168977
-;;;;;;  480000))
+;;;### (autoloads nil "header2/header2" "header2/header2.el" (22026
+;;;;;;  39390 263962 246000))
+;;; Generated autoloads from header2/header2.el
+
+(autoload 'make-header "header2/header2" "\
+Insert (mode-dependent) header comment at beginning of file.
+A header is composed of a mode line, a body, and an end line.  The body is
+constructed by calling the functions in `make-header-hook'.  The mode line
+and end lines start and terminate block comments.  The body lines continue
+the comment.
+
+\(fn)" t nil)
+
+(autoload 'make-revision "header2/header2" "\
+Prepare for a new history revision.  Insert history line if inexistant.
+
+\(fn)" t nil)
+
+(autoload 'make-divider "header2/header2" "\
+Insert a comment divider line: the comment start, filler, and end.
+END-COL is the last column of the divider line.
+
+\(fn &optional END-COL)" t nil)
+
+(autoload 'make-box-comment "header2/header2" "\
+Insert an empty (mode dependent) box comment.
+END-COL is the last column of the divider line.
+
+\(fn &optional END-COL)" t nil)
+
+(autoload 'update-file-header "header2/header2" "\
+Update file header.
+Search the first `header-max' chars in buffer using regexps in
+`file-header-update-alist'.  When a match is found, apply the
+corresponding function with point located just after the match.
+The functions can use `match-beginning' and `match-end' to find
+the strings that cause them to be invoked.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "jedi/jedi" "jedi/jedi.el" (22026 35522 176055
+;;;;;;  8000))
 ;;; Generated autoloads from jedi/jedi.el
 
 (autoload 'jedi:ac-setup "jedi/jedi" "\
@@ -2926,8 +2968,8 @@ Complete code at point.
 
 ;;;***
 
-;;;### (autoloads nil "jedi/jedi-core" "jedi/jedi-core.el" (22013
-;;;;;;  6533 168977 480000))
+;;;### (autoloads nil "jedi/jedi-core" "jedi/jedi-core.el" (22026
+;;;;;;  35522 174055 8000))
 ;;; Generated autoloads from jedi/jedi-core.el
 
 (autoload 'jedi:start-dedicated-server "jedi/jedi-core" "\
@@ -3019,7 +3061,7 @@ Blocking version `jedi:install-server'.
 ;;;***
 
 ;;;### (autoloads nil "magit/lisp/git-commit" "magit/lisp/git-commit.el"
-;;;;;;  (22019 20040 495715 450000))
+;;;;;;  (22026 35518 843055 88000))
 ;;; Generated autoloads from magit/lisp/git-commit.el
 
 (defvar global-git-commit-mode t "\
@@ -3043,7 +3085,7 @@ provide such a commit message.
 ;;;***
 
 ;;;### (autoloads nil "magit/lisp/git-rebase" "magit/lisp/git-rebase.el"
-;;;;;;  (22019 20040 495715 450000))
+;;;;;;  (22026 35518 843055 88000))
 ;;; Generated autoloads from magit/lisp/git-rebase.el
 
 (autoload 'git-rebase-mode "magit/lisp/git-rebase" "\
@@ -3062,8 +3104,8 @@ running 'man git-rebase' at the command line) for details.
 
 ;;;***
 
-;;;### (autoloads nil "magit/lisp/magit" "magit/lisp/magit.el" (22019
-;;;;;;  20040 512715 450000))
+;;;### (autoloads nil "magit/lisp/magit" "magit/lisp/magit.el" (22026
+;;;;;;  35518 888055 87000))
 ;;; Generated autoloads from magit/lisp/magit.el
 
 (autoload 'magit-status "magit/lisp/magit" "\
@@ -3412,7 +3454,7 @@ Run the command in the top-level directory of the current repository.
 ;;;***
 
 ;;;### (autoloads nil "magit/lisp/magit-apply" "magit/lisp/magit-apply.el"
-;;;;;;  (22019 20040 496715 450000))
+;;;;;;  (22026 35518 844055 88000))
 ;;; Generated autoloads from magit/lisp/magit-apply.el
 
 (autoload 'magit-stage-file "magit/lisp/magit-apply" "\
@@ -3449,7 +3491,7 @@ Remove all changes from the staging area.
 ;;;***
 
 ;;;### (autoloads nil "magit/lisp/magit-bisect" "magit/lisp/magit-bisect.el"
-;;;;;;  (22019 20040 496715 450000))
+;;;;;;  (22026 35518 844055 88000))
 ;;; Generated autoloads from magit/lisp/magit-bisect.el
  (autoload 'magit-bisect-popup "magit-bisect" nil t)
 
@@ -3497,7 +3539,7 @@ Bisect automatically by running commands after each step.
 ;;;***
 
 ;;;### (autoloads nil "magit/lisp/magit-blame" "magit/lisp/magit-blame.el"
-;;;;;;  (22019 20040 497715 450000))
+;;;;;;  (22026 35518 844055 88000))
 ;;; Generated autoloads from magit/lisp/magit-blame.el
  (autoload 'magit-blame-popup "magit-blame" nil t)
 
@@ -3522,7 +3564,7 @@ only arguments available from `magit-blame-popup' should be used.
 ;;;***
 
 ;;;### (autoloads nil "magit/lisp/magit-commit" "magit/lisp/magit-commit.el"
-;;;;;;  (22019 20040 497715 450000))
+;;;;;;  (22026 35518 845055 88000))
 ;;; Generated autoloads from magit/lisp/magit-commit.el
 
 (autoload 'magit-commit "magit/lisp/magit-commit" "\
@@ -3604,7 +3646,7 @@ Create a squash commit targeting COMMIT and instantly rebase.
 ;;;***
 
 ;;;### (autoloads nil "magit/lisp/magit-diff" "magit/lisp/magit-diff.el"
-;;;;;;  (22019 20040 499715 450000))
+;;;;;;  (22026 35518 846055 88000))
 ;;; Generated autoloads from magit/lisp/magit-diff.el
 
 (autoload 'magit-diff-dwim "magit/lisp/magit-diff" "\
@@ -3680,7 +3722,7 @@ for a commit.
 ;;;***
 
 ;;;### (autoloads nil "magit/lisp/magit-ediff" "magit/lisp/magit-ediff.el"
-;;;;;;  (22019 20040 500715 450000))
+;;;;;;  (22026 35518 847055 88000))
 ;;; Generated autoloads from magit/lisp/magit-ediff.el
  (autoload 'magit-ediff-popup "magit-ediff" nil t)
 
@@ -3761,7 +3803,7 @@ Show changes introduced by COMMIT using Ediff.
 ;;;***
 
 ;;;### (autoloads nil "magit/lisp/magit-extras" "magit/lisp/magit-extras.el"
-;;;;;;  (22019 20040 500715 450000))
+;;;;;;  (22026 35518 848055 88000))
 ;;; Generated autoloads from magit/lisp/magit-extras.el
 
 (autoload 'magit-run-git-gui "magit/lisp/magit-extras" "\
@@ -3832,7 +3874,7 @@ on a position in a file-visiting buffer.
 ;;;***
 
 ;;;### (autoloads nil "magit/lisp/magit-log" "magit/lisp/magit-log.el"
-;;;;;;  (22019 20040 504715 450000))
+;;;;;;  (22026 35518 849055 88000))
 ;;; Generated autoloads from magit/lisp/magit-log.el
 
 (autoload 'magit-log-current "magit/lisp/magit-log" "\
@@ -3901,7 +3943,7 @@ Show commits in a branch that are not merged in the upstream branch.
 ;;;***
 
 ;;;### (autoloads nil "magit/lisp/magit-remote" "magit/lisp/magit-remote.el"
-;;;;;;  (22019 20040 506715 450000))
+;;;;;;  (22026 35518 872055 87000))
 ;;; Generated autoloads from magit/lisp/magit-remote.el
 
 (autoload 'magit-clone "magit/lisp/magit-remote" "\
@@ -4038,7 +4080,7 @@ is asked to pull.  START has to be reachable from that commit.
 ;;;***
 
 ;;;### (autoloads nil "magit/lisp/magit-sequence" "magit/lisp/magit-sequence.el"
-;;;;;;  (22019 20040 508715 450000))
+;;;;;;  (22026 35518 874055 87000))
 ;;; Generated autoloads from magit/lisp/magit-sequence.el
 
 (autoload 'magit-sequencer-continue "magit/lisp/magit-sequence" "\
@@ -4180,7 +4222,7 @@ Abort the current rebase operation, restoring the original branch.
 ;;;***
 
 ;;;### (autoloads nil "magit/lisp/magit-stash" "magit/lisp/magit-stash.el"
-;;;;;;  (22019 20040 509715 450000))
+;;;;;;  (22026 35518 875055 87000))
 ;;; Generated autoloads from magit/lisp/magit-stash.el
  (autoload 'magit-stash-popup "magit-stash" nil t)
 
@@ -4272,7 +4314,7 @@ Show all diffs of a stash in a buffer.
 ;;;***
 
 ;;;### (autoloads nil "magit/lisp/magit-wip" "magit/lisp/magit-wip.el"
-;;;;;;  (22019 20040 510715 450000))
+;;;;;;  (22026 35518 876055 87000))
 ;;; Generated autoloads from magit/lisp/magit-wip.el
 
 (defvar magit-wip-after-save-mode nil "\
@@ -4338,7 +4380,7 @@ command which is about to be called are committed.
 ;;;***
 
 ;;;### (autoloads nil "multi-term/multi-term" "multi-term/multi-term.el"
-;;;;;;  (22013 29468 264985 161000))
+;;;;;;  (22026 35731 68049 998000))
 ;;; Generated autoloads from multi-term/multi-term.el
 
 (autoload 'multi-term "multi-term/multi-term" "\
@@ -4378,7 +4420,7 @@ Select the `multi-term' dedicated window.
 ;;;***
 
 ;;;### (autoloads nil "multiple-cursors/mc-edit-lines" "multiple-cursors/mc-edit-lines.el"
-;;;;;;  (22013 23899 32118 719000))
+;;;;;;  (22026 35522 222055 7000))
 ;;; Generated autoloads from multiple-cursors/mc-edit-lines.el
 
 (autoload 'mc/edit-lines "multiple-cursors/mc-edit-lines" "\
@@ -4408,8 +4450,8 @@ Add one cursor to the beginning of each line in the active region.
 ;;;***
 
 ;;;### (autoloads nil "multiple-cursors/mc-hide-unmatched-lines-mode"
-;;;;;;  "multiple-cursors/mc-hide-unmatched-lines-mode.el" (22013
-;;;;;;  23899 32118 719000))
+;;;;;;  "multiple-cursors/mc-hide-unmatched-lines-mode.el" (22026
+;;;;;;  35522 223055 7000))
 ;;; Generated autoloads from multiple-cursors/mc-hide-unmatched-lines-mode.el
 
 (autoload 'mc-hide-unmatched-lines-mode "multiple-cursors/mc-hide-unmatched-lines-mode" "\
@@ -4424,7 +4466,7 @@ mode. To leave this mode press <return> or \"C-g\"
 ;;;***
 
 ;;;### (autoloads nil "multiple-cursors/mc-mark-more" "multiple-cursors/mc-mark-more.el"
-;;;;;;  (22013 23899 33118 719000))
+;;;;;;  (22026 35522 230055 6000))
 ;;; Generated autoloads from multiple-cursors/mc-mark-more.el
 
 (autoload 'mc/mark-next-like-this "multiple-cursors/mc-mark-more" "\
@@ -4552,7 +4594,7 @@ If the region is active and spans multiple lines, it will behave
 as if `mc/mark-all-in-region'. With the prefix ARG, it will call
 `mc/edit-lines' instead.
 
-If the region is inactive or on a single line, it will behave like
+If the region is inactive or on a single line, it will behave like 
 `mc/mark-all-like-this-dwim'.
 
 \(fn ARG)" t nil)
@@ -4585,7 +4627,7 @@ Mark the tag we're in and its pair for renaming.
 ;;;***
 
 ;;;### (autoloads nil "multiple-cursors/mc-mark-pop" "multiple-cursors/mc-mark-pop.el"
-;;;;;;  (22013 23899 33118 719000))
+;;;;;;  (22026 35522 231055 6000))
 ;;; Generated autoloads from multiple-cursors/mc-mark-pop.el
 
 (autoload 'mc/mark-pop "multiple-cursors/mc-mark-pop" "\
@@ -4597,7 +4639,7 @@ to the popped mark.
 ;;;***
 
 ;;;### (autoloads nil "multiple-cursors/mc-separate-operations" "multiple-cursors/mc-separate-operations.el"
-;;;;;;  (22013 23899 33118 719000))
+;;;;;;  (22026 35522 232055 6000))
 ;;; Generated autoloads from multiple-cursors/mc-separate-operations.el
 
 (autoload 'mc/insert-numbers "multiple-cursors/mc-separate-operations" "\
@@ -4630,7 +4672,7 @@ Aligns all cursors with whitespace like `mc/vertical-align' does
 ;;;***
 
 ;;;### (autoloads nil "multiple-cursors/multiple-cursors-core" "multiple-cursors/multiple-cursors-core.el"
-;;;;;;  (22013 23899 34118 719000))
+;;;;;;  (22026 35522 232055 6000))
 ;;; Generated autoloads from multiple-cursors/multiple-cursors-core.el
 
 (autoload 'multiple-cursors-mode "multiple-cursors/multiple-cursors-core" "\
@@ -4641,8 +4683,8 @@ Mode while multiple cursors are active.
 ;;;***
 
 ;;;### (autoloads nil "multiple-cursors/rectangular-region-mode"
-;;;;;;  "multiple-cursors/rectangular-region-mode.el" (22013 23899
-;;;;;;  34118 719000))
+;;;;;;  "multiple-cursors/rectangular-region-mode.el" (22026 35522
+;;;;;;  235055 6000))
 ;;; Generated autoloads from multiple-cursors/rectangular-region-mode.el
 
 (autoload 'set-rectangular-region-anchor "multiple-cursors/rectangular-region-mode" "\
@@ -4661,7 +4703,7 @@ A mode for creating a rectangular region to edit
 ;;;***
 
 ;;;### (autoloads nil "pkg-info/pkg-info" "pkg-info/pkg-info.el"
-;;;;;;  (22013 34660 62110 459000))
+;;;;;;  (22026 35522 239055 6000))
 ;;; Generated autoloads from pkg-info/pkg-info.el
 
 (autoload 'pkg-info-library-original-version "pkg-info/pkg-info" "\
@@ -4772,7 +4814,7 @@ version.
 ;;;***
 
 ;;;### (autoloads nil "undo-tree/undo-tree" "undo-tree/undo-tree.el"
-;;;;;;  (22013 30548 29959 267000))
+;;;;;;  (22026 35522 487055 0))
 ;;; Generated autoloads from undo-tree/undo-tree.el
 
 (autoload 'undo-tree-mode "undo-tree/undo-tree" "\
@@ -4819,7 +4861,7 @@ See `undo-tree-mode' for more information on Undo-Tree mode.
 ;;;***
 
 ;;;### (autoloads nil "yasnippet/yasnippet" "yasnippet/yasnippet.el"
-;;;;;;  (22019 28294 282517 513000))
+;;;;;;  (22026 35520 375055 51000))
 ;;; Generated autoloads from yasnippet/yasnippet.el
 
 (autoload 'yas-minor-mode "yasnippet/yasnippet" "\
@@ -4858,43 +4900,6 @@ Yas minor mode is enabled in all buffers where
 See `yas-minor-mode' for more information on Yas minor mode.
 
 \(fn &optional ARG)" t nil)
-
-;;;***
-
-;;;### (autoloads nil nil ("auto-async-byte-compile/auto-async-byte-compile.el"
-;;;;;;  "auto-complete-yasnippet/auto-complete-yasnippet.el" "auto-complete/auto-complete-pkg.el"
-;;;;;;  "ctable/ctable.el" "ctable/test-ctable.el" "dash/dash-functional.el"
-;;;;;;  "dash/dash.el" "deferred/concurrent-sample.el" "deferred/concurrent.el"
-;;;;;;  "deferred/deferred-samples.el" "deferred/deferred.el" "deferred/test-concurrent.el"
-;;;;;;  "deferred/test-deferred.el" "dmacro/dm-c.el" "dmacro/dm-compat.el"
-;;;;;;  "dmacro/dmacro-bld.el" "dmacro/dmacro-sv.el" "dsvn/dsvn.el"
-;;;;;;  "e2wm/e2wm-config.el" "e2wm/test-e2wm-pst-class.el" "emacs-w3m/w3m-bug.el"
-;;;;;;  "emacs-w3m/w3m-ccl.el" "emacs-w3m/w3m-ems.el" "emacs-w3m/w3m-favicon.el"
-;;;;;;  "emacs-w3m/w3m-hist.el" "emacs-w3m/w3m-image.el" "emacs-w3m/w3m-load.el"
-;;;;;;  "emacs-w3m/w3m-mail.el" "emacs-w3m/w3m-proc.el" "emacs-w3m/w3m-rss.el"
-;;;;;;  "emacs-w3m/w3m-save.el" "emacs-w3m/w3m-tabmenu.el" "emacs-w3m/w3m-ucs.el"
-;;;;;;  "emacs-w3m/w3m-util.el" "emacs-w3m/w3m-xmas.el" "emacs-w3m/w3mhack.el"
-;;;;;;  "epc/epc.el" "epc/epcs.el" "epc/test-epc.el" "epl/epl.el"
-;;;;;;  "f/f.el" "flycheck/flycheck-ert.el" "fuzzy/fuzzy.el" "jedi/test-jedi.el"
-;;;;;;  "jedi/tryout-jedi.el" "magit/lisp/magit-autoloads.el" "magit/lisp/magit-core.el"
-;;;;;;  "magit/lisp/magit-git.el" "magit/lisp/magit-mode.el" "magit/lisp/magit-popup.el"
-;;;;;;  "magit/lisp/magit-process.el" "magit/lisp/magit-section.el"
-;;;;;;  "magit/lisp/magit-utils.el" "magit/lisp/with-editor.el" "multiple-cursors/mc-cycle-cursors.el"
-;;;;;;  "multiple-cursors/multiple-cursors-pkg.el" "multiple-cursors/multiple-cursors.el"
-;;;;;;  "popup/popup.el" "python-environment/python-environment.el"
-;;;;;;  "python-environment/test-python-environment.el" "s/s.el"
-;;;;;;  "savekill/savekill.el" "text-translator/text-translator-load.el"
-;;;;;;  "text-translator/text-translator-popup.el" "text-translator/text-translator-pos-tip.el"
-;;;;;;  "text-translator/text-translator-site-excite-cojp.el" "text-translator/text-translator-site-freetranslation-com.el"
-;;;;;;  "text-translator/text-translator-site-fresheye-com.el" "text-translator/text-translator-site-google-com.el"
-;;;;;;  "text-translator/text-translator-site-livedoor-com.el" "text-translator/text-translator-site-lou5-jp.el"
-;;;;;;  "text-translator/text-translator-site-tatoeba-org.el" "text-translator/text-translator-site-traduku-net.el"
-;;;;;;  "text-translator/text-translator-site-yahoo-cojp.el" "text-translator/text-translator-site-yahoo-com.el"
-;;;;;;  "text-translator/text-translator-sites.el" "text-translator/text-translator-test.el"
-;;;;;;  "text-translator/text-translator-vars.el" "text-translator/text-translator-window.el"
-;;;;;;  "text-translator/text-translator.el" "window-layout/window-layout.el"
-;;;;;;  "yasnippet/yasnippet-debug.el" "yasnippet/yasnippet-tests.el")
-;;;;;;  (22020 41822 380846 30000))
 
 ;;;***
 
