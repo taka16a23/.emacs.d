@@ -4,7 +4,7 @@
 
 
 ;;;### (autoloads nil "../mylisp/annotation" "../mylisp/annotation.el"
-;;;;;;  (22013 5826 650994 400000))
+;;;;;;  (22026 35731 79049 998000))
 ;;; Generated autoloads from ../mylisp/annotation.el
 
 (autoload 'annotation "../mylisp/annotation" "\
@@ -15,7 +15,7 @@ Insert Annotation tag from `annotation-list'.
 ;;;***
 
 ;;;### (autoloads nil "../mylisp/anything-info-python" "../mylisp/anything-info-python.el"
-;;;;;;  (22013 5826 664994 400000))
+;;;;;;  (22026 35731 80049 998000))
 ;;; Generated autoloads from ../mylisp/anything-info-python.el
 
 (autoload 'anything-info-python-at-point "../mylisp/anything-info-python" "\
@@ -26,7 +26,7 @@ Preconfigured `anything' for search info at point.
 ;;;***
 
 ;;;### (autoloads nil "../mylisp/auto-recover" "../mylisp/auto-recover.el"
-;;;;;;  (22013 5826 651994 400000))
+;;;;;;  (22026 35731 80049 998000))
 ;;; Generated autoloads from ../mylisp/auto-recover.el
 
 (defvar auto-recover-exclude-re "\\.junk\\.")
@@ -56,7 +56,7 @@ ARGS
 ;;;***
 
 ;;;### (autoloads nil "../mylisp/auto-svn" "../mylisp/auto-svn.el"
-;;;;;;  (22013 5826 653994 400000))
+;;;;;;  (22026 35731 80049 998000))
 ;;; Generated autoloads from ../mylisp/auto-svn.el
 
 (autoload 'svn-status-pylib "../mylisp/auto-svn" "\
@@ -77,7 +77,7 @@ ARGS
 ;;;***
 
 ;;;### (autoloads nil "../mylisp/auto-yasnippet-extension" "../mylisp/auto-yasnippet-extension.el"
-;;;;;;  (22013 5826 665994 400000))
+;;;;;;  (22026 35731 80049 998000))
 ;;; Generated autoloads from ../mylisp/auto-yasnippet-extension.el
 
 (autoload 'auto-yasnippet-ext "../mylisp/auto-yasnippet-extension" "\
@@ -91,7 +91,7 @@ ARGS: prefix
 ;;;***
 
 ;;;### (autoloads nil "../mylisp/balle-python-shift" "../mylisp/balle-python-shift.el"
-;;;;;;  (22013 5826 648994 400000))
+;;;;;;  (22026 35731 80049 998000))
 ;;; Generated autoloads from ../mylisp/balle-python-shift.el
 
 (autoload 'balle-python-shift-left "../mylisp/balle-python-shift" "\
@@ -107,7 +107,7 @@ ARGS: prefix
 ;;;***
 
 ;;;### (autoloads nil "../mylisp/check-misspell" "../mylisp/check-misspell.el"
-;;;;;;  (22013 5826 670994 400000))
+;;;;;;  (22026 35731 80049 998000))
 ;;; Generated autoloads from ../mylisp/check-misspell.el
 
 (defvar no-check-type-miss nil)
@@ -124,7 +124,7 @@ ARGS: prefix
 ;;;***
 
 ;;;### (autoloads nil "../mylisp/clean-backup" "../mylisp/clean-backup.el"
-;;;;;;  (22013 5826 661994 400000))
+;;;;;;  (22026 35731 80049 998000))
 ;;; Generated autoloads from ../mylisp/clean-backup.el
 
 (autoload 'clean-backup-files "../mylisp/clean-backup" "\
@@ -135,7 +135,7 @@ Delete backup-files if not exists sources.
 ;;;***
 
 ;;;### (autoloads nil "../mylisp/constraction-loaddefs" "../mylisp/constraction-loaddefs.el"
-;;;;;;  (22019 33827 168384 827000))
+;;;;;;  (22026 35731 81049 998000))
 ;;; Generated autoloads from ../mylisp/constraction-loaddefs.el
 
 (autoload 'constraction-loaddefs "../mylisp/constraction-loaddefs" "\
@@ -146,7 +146,7 @@ Make 06_loaddefs_start.el file that parsed autoload.
 ;;;***
 
 ;;;### (autoloads nil "../mylisp/delete-file-if-no-contents" "../mylisp/delete-file-if-no-contents.el"
-;;;;;;  (22013 5826 656994 400000))
+;;;;;;  (22026 35731 81049 998000))
 ;;; Generated autoloads from ../mylisp/delete-file-if-no-contents.el
 
 (autoload 'delete-file-if-no-contents "../mylisp/delete-file-if-no-contents" "\
@@ -157,7 +157,7 @@ Delete buffer if no contents.
 ;;;***
 
 ;;;### (autoloads nil "../mylisp/hotstring" "../mylisp/hotstring.el"
-;;;;;;  (22021 33605 85524 522000))
+;;;;;;  (22026 35731 81049 998000))
 ;;; Generated autoloads from ../mylisp/hotstring.el
 
 (autoload 'hotstring-mode "../mylisp/hotstring" "\
@@ -181,7 +181,7 @@ otherwise, disable it.  If called from Lisp, enable the mode if
 ARG is omitted or nil.
 
 Hotstring mode is enabled in all buffers where
-`(lambda nil (hotsting-mode 1))' would do it.
+`(lambda nil (hotstring-mode 1))' would do it.
 See `hotstring-mode' for more information on Hotstring mode.
 
 \(fn &optional ARG)" t nil)
@@ -189,7 +189,7 @@ See `hotstring-mode' for more information on Hotstring mode.
 ;;;***
 
 ;;;### (autoloads nil "../mylisp/join-one-start" "../mylisp/join-one-start.el"
-;;;;;;  (22013 5826 647994 400000))
+;;;;;;  (22026 35731 84049 998000))
 ;;; Generated autoloads from ../mylisp/join-one-start.el
 
 (autoload 'joinone-start-files "../mylisp/join-one-start" "\
@@ -200,7 +200,7 @@ See `hotstring-mode' for more information on Hotstring mode.
 ;;;***
 
 ;;;### (autoloads nil "../mylisp/maintain" "../mylisp/maintain.el"
-;;;;;;  (22013 5826 668994 400000))
+;;;;;;  (22026 35731 84049 998000))
 ;;; Generated autoloads from ../mylisp/maintain.el
 
 (autoload 'do-directory-files "../mylisp/maintain" "\
@@ -210,8 +210,8 @@ Do function each file in directory.
 
 ;;;***
 
-;;;### (autoloads nil "../mylisp/mini" "../mylisp/mini.el" (22013
-;;;;;;  5826 666994 400000))
+;;;### (autoloads nil "../mylisp/mini" "../mylisp/mini.el" (22026
+;;;;;;  35731 84049 998000))
 ;;; Generated autoloads from ../mylisp/mini.el
 
 (autoload 't1-mini-toggle "../mylisp/mini" "\
@@ -222,7 +222,7 @@ mini toggle
 ;;;***
 
 ;;;### (autoloads nil "../mylisp/nosetests" "../mylisp/nosetests.el"
-;;;;;;  (22013 5826 663994 400000))
+;;;;;;  (22026 35731 84049 998000))
 ;;; Generated autoloads from ../mylisp/nosetests.el
 
 (autoload 'nosetests-run-buffer "../mylisp/nosetests" "\
@@ -308,7 +308,7 @@ ARGS
 ;;;***
 
 ;;;### (autoloads nil "../mylisp/purge-package" "../mylisp/purge-package.el"
-;;;;;;  (22013 5826 652994 400000))
+;;;;;;  (22026 35731 84049 998000))
 ;;; Generated autoloads from ../mylisp/purge-package.el
 
 (defvar purge-package-list nil)
@@ -323,7 +323,7 @@ Purge package functions.
 ;;;***
 
 ;;;### (autoloads nil "../mylisp/python-extensions" "../mylisp/python-extensions.el"
-;;;;;;  (22013 5826 655994 400000))
+;;;;;;  (22026 35731 84049 998000))
 ;;; Generated autoloads from ../mylisp/python-extensions.el
 
 (autoload 'py-make-__all__-from-buffer "../mylisp/python-extensions" "\
@@ -360,7 +360,7 @@ Indirect import region.
 ;;;***
 
 ;;;### (autoloads nil "../mylisp/recover-last-killed-file" "../mylisp/recover-last-killed-file.el"
-;;;;;;  (22013 5826 660994 400000))
+;;;;;;  (22026 35731 84049 998000))
 ;;; Generated autoloads from ../mylisp/recover-last-killed-file.el
 
 (defvar last-killed-file nil)
@@ -378,7 +378,7 @@ Indirect import region.
 ;;;***
 
 ;;;### (autoloads nil "../mylisp/recover-version" "../mylisp/recover-version.el"
-;;;;;;  (22013 5826 663994 400000))
+;;;;;;  (22026 35731 85049 998000))
 ;;; Generated autoloads from ../mylisp/recover-version.el
 
 (autoload 'recover-version "../mylisp/recover-version" "\
@@ -390,8 +390,8 @@ Recover from backup versions.
 
 ;;;***
 
-;;;### (autoloads nil "../mylisp/remark" "../mylisp/remark.el" (22013
-;;;;;;  5826 659994 400000))
+;;;### (autoloads nil "../mylisp/remark" "../mylisp/remark.el" (22026
+;;;;;;  35731 85049 998000))
 ;;; Generated autoloads from ../mylisp/remark.el
 
 (autoload 'remark "../mylisp/remark" "\
@@ -402,7 +402,7 @@ Revive marked region.
 ;;;***
 
 ;;;### (autoloads nil "../mylisp/rename-old-del" "../mylisp/rename-old-del.el"
-;;;;;;  (22013 5826 659994 400000))
+;;;;;;  (22026 35731 85049 998000))
 ;;; Generated autoloads from ../mylisp/rename-old-del.el
 
 (autoload 'rename-old-del "../mylisp/rename-old-del" "\
@@ -427,7 +427,7 @@ If rename, prompt delete old file.
 ;;;***
 
 ;;;### (autoloads nil "../mylisp/rest-room" "../mylisp/rest-room.el"
-;;;;;;  (22013 5826 662994 400000))
+;;;;;;  (22026 35731 85049 998000))
 ;;; Generated autoloads from ../mylisp/rest-room.el
 
 (defvar rest-room-hook nil)
@@ -440,7 +440,7 @@ If rename, prompt delete old file.
 ;;;***
 
 ;;;### (autoloads nil "../mylisp/rotate-text" "../mylisp/rotate-text.el"
-;;;;;;  (22013 5826 656994 400000))
+;;;;;;  (22026 35731 85049 998000))
 ;;; Generated autoloads from ../mylisp/rotate-text.el
 
 (defvar rotate-text-rotations 'nil "\
@@ -495,7 +495,7 @@ If point is at end of a word, then else indent the line.
 ;;;***
 
 ;;;### (autoloads nil "../mylisp/scrap-code" "../mylisp/scrap-code.el"
-;;;;;;  (22013 5826 657994 400000))
+;;;;;;  (22026 35731 85049 998000))
 ;;; Generated autoloads from ../mylisp/scrap-code.el
 
 (autoload 'scrap-code "../mylisp/scrap-code" "\
@@ -506,7 +506,7 @@ Scraping current buffer to scrap directory.
 ;;;***
 
 ;;;### (autoloads nil "../mylisp/switch-buffer" "../mylisp/switch-buffer.el"
-;;;;;;  (22013 5826 646994 400000))
+;;;;;;  (22026 35731 85049 998000))
 ;;; Generated autoloads from ../mylisp/switch-buffer.el
 
 (autoload 'switch-message "../mylisp/switch-buffer" "\
@@ -589,7 +589,7 @@ If not exists term buffer then create term buffer.
 ;;;***
 
 ;;;### (autoloads nil "../mylisp/timestamp-insert" "../mylisp/timestamp-insert.el"
-;;;;;;  (22013 5826 671994 400000))
+;;;;;;  (22026 35731 86049 998000))
 ;;; Generated autoloads from ../mylisp/timestamp-insert.el
 
 (autoload 'timestamp-insert "../mylisp/timestamp-insert" "\
@@ -600,7 +600,7 @@ timestamp insert from popup menu
 ;;;***
 
 ;;;### (autoloads nil "../mylisp/windmove-or-split" "../mylisp/windmove-or-split.el"
-;;;;;;  (22013 5826 667994 400000))
+;;;;;;  (22026 35731 86049 998000))
 ;;; Generated autoloads from ../mylisp/windmove-or-split.el
 
 (autoload 'windmove-or-splitmove "../mylisp/windmove-or-split" "\
@@ -635,7 +635,7 @@ Try window move right. If not exist window then split it horizontally
 ;;;***
 
 ;;;### (autoloads nil "../plugin/ahk-mode" "../plugin/ahk-mode.el"
-;;;;;;  (22013 5827 248994 400000))
+;;;;;;  (22026 35731 86049 998000))
 ;;; Generated autoloads from ../plugin/ahk-mode.el
 
 (add-to-list 'auto-mode-alist '("\\.ahk$" . ahk-mode))
@@ -653,7 +653,7 @@ Key bindings:
 ;;;***
 
 ;;;### (autoloads nil "../plugin/align-let" "../plugin/align-let.el"
-;;;;;;  (22013 5833 242994 200000))
+;;;;;;  (22026 35731 87049 998000))
 ;;; Generated autoloads from ../plugin/align-let.el
 
 (let ((loads (get 'align-let 'custom-loads))) (if (member '"../plugin/align-let" loads) nil (put 'align-let 'custom-loads (cons '"../plugin/align-let" loads))))
@@ -766,7 +766,7 @@ indent and align-let will both insert or delete characters.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/anything" "../plugin/anything.el"
-;;;;;;  (22013 5831 512994 300000))
+;;;;;;  (22026 35731 102049 997000))
 ;;; Generated autoloads from ../plugin/anything.el
 
 (autoload 'anything "../plugin/anything" "\
@@ -862,7 +862,7 @@ Call `anything' with only ANY-SOURCES and ANY-BUFFER as args.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/anything-config" "../plugin/anything-config.el"
-;;;;;;  (22013 5827 245994 400000))
+;;;;;;  (22026 35731 97049 998000))
 ;;; Generated autoloads from ../plugin/anything-config.el
 
 (autoload 'anything-configuration "../plugin/anything-config" "\
@@ -1745,7 +1745,7 @@ http://ctags.sourceforge.net/
 ;;;***
 
 ;;;### (autoloads nil "../plugin/anything-match-plugin" "../plugin/anything-match-plugin.el"
-;;;;;;  (22013 5831 527994 300000))
+;;;;;;  (22026 35731 99049 998000))
 ;;; Generated autoloads from ../plugin/anything-match-plugin.el
 
 (autoload 'anything-mp-toggle-match-plugin "../plugin/anything-match-plugin" "\
@@ -1756,8 +1756,8 @@ i.e anything-match-plugin.
 
 ;;;***
 
-;;;### (autoloads nil "../plugin/ascii" "../plugin/ascii.el" (22013
-;;;;;;  5830 552994 300000))
+;;;### (autoloads nil "../plugin/ascii" "../plugin/ascii.el" (22026
+;;;;;;  35731 105049 997000))
 ;;; Generated autoloads from ../plugin/ascii.el
 
 (autoload 'ascii-customize "../plugin/ascii" "\
@@ -1788,7 +1788,7 @@ Turn off ASCII code display.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/auto-chmod-x" "../plugin/auto-chmod-x.el"
-;;;;;;  (22013 5832 586994 200000))
+;;;;;;  (22026 35731 105049 997000))
 ;;; Generated autoloads from ../plugin/auto-chmod-x.el
 
 (autoload 'make-file-executable "../plugin/auto-chmod-x" "\
@@ -1799,7 +1799,7 @@ Make the file of this buffer executable, when it is a script source.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/auto-highlight-symbol" "../plugin/auto-highlight-symbol.el"
-;;;;;;  (22013 5827 240994 400000))
+;;;;;;  (22026 35731 106049 997000))
 ;;; Generated autoloads from ../plugin/auto-highlight-symbol.el
 
 (defvar global-auto-highlight-symbol-mode nil "\
@@ -1831,7 +1831,7 @@ Toggle Auto Highlight Symbol Mode
 ;;;***
 
 ;;;### (autoloads nil "../plugin/autotest-mode" "../plugin/autotest-mode.el"
-;;;;;;  (22013 5832 693994 200000))
+;;;;;;  (22026 35731 108049 997000))
 ;;; Generated autoloads from ../plugin/autotest-mode.el
 
 (autoload 'autotest-mode "../plugin/autotest-mode" "\
@@ -1842,8 +1842,8 @@ A major-mode to edit Autotest files like testsuite.at.
 
 ;;;***
 
-;;;### (autoloads nil "../plugin/bm" "../plugin/bm.el" (22013 5829
-;;;;;;  960994 300000))
+;;;### (autoloads nil "../plugin/bm" "../plugin/bm.el" (22026 35731
+;;;;;;  109049 997000))
 ;;; Generated autoloads from ../plugin/bm.el
 
 (autoload 'bm-toggle "../plugin/bm" "\
@@ -1864,7 +1864,7 @@ Goto previous bookmark.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/c-includes" "../plugin/c-includes.el"
-;;;;;;  (22013 5827 250994 400000))
+;;;;;;  (22026 35731 109049 997000))
 ;;; Generated autoloads from ../plugin/c-includes.el
 
 (autoload 'c-includes-add-binding "../plugin/c-includes" "\
@@ -1889,7 +1889,7 @@ you determine order of occurrence.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/col-highlight" "../plugin/col-highlight.el"
-;;;;;;  (22013 5831 537994 300000))
+;;;;;;  (22026 35731 110049 997000))
 ;;; Generated autoloads from ../plugin/col-highlight.el
 
 (let ((loads (get 'column-highlight 'custom-loads))) (if (member '"../plugin/col-highlight" loads) nil (put 'column-highlight 'custom-loads (cons '"../plugin/col-highlight" loads))))
@@ -1977,7 +1977,7 @@ With a prefix ARG, highlight for that many seconds.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/color-theme-6.6.0/color-theme" "../plugin/color-theme-6.6.0/color-theme.el"
-;;;;;;  (22013 5833 249994 200000))
+;;;;;;  (22026 35731 127049 997000))
 ;;; Generated autoloads from ../plugin/color-theme-6.6.0/color-theme.el
 
 (autoload 'color-theme-select "../plugin/color-theme-6.6.0/color-theme" "\
@@ -2113,8 +2113,8 @@ Initialize the color theme package by loading color-theme-libraries.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/color-theme-6.6.0/color-theme-other"
-;;;;;;  "../plugin/color-theme-6.6.0/color-theme-other.el" (22013
-;;;;;;  5833 247994 200000))
+;;;;;;  "../plugin/color-theme-6.6.0/color-theme-other.el" (22026
+;;;;;;  35731 125049 997000))
 ;;; Generated autoloads from ../plugin/color-theme-6.6.0/color-theme-other.el
 
 (autoload 'color-theme-black "../plugin/color-theme-6.6.0/color-theme-other" "\
@@ -2285,8 +2285,8 @@ emacs*Foreground:		Wheat
 ;;;***
 
 ;;;### (autoloads nil "../plugin/color-theme-6.6.0/themes/color-theme-t1"
-;;;;;;  "../plugin/color-theme-6.6.0/themes/color-theme-t1.el" (22013
-;;;;;;  5833 255994 200000))
+;;;;;;  "../plugin/color-theme-6.6.0/themes/color-theme-t1.el" (22026
+;;;;;;  35731 127049 997000))
 ;;; Generated autoloads from ../plugin/color-theme-6.6.0/themes/color-theme-t1.el
 
 (autoload 'color-theme-t1 "../plugin/color-theme-6.6.0/themes/color-theme-t1" "\
@@ -2297,7 +2297,7 @@ Color theme by t1
 ;;;***
 
 ;;;### (autoloads nil "../plugin/column-marker" "../plugin/column-marker.el"
-;;;;;;  (22013 5827 237994 400000))
+;;;;;;  (22026 35731 127049 997000))
 ;;; Generated autoloads from ../plugin/column-marker.el
 
 (autoload 'column-marker-1 "column-marker" "\
@@ -2306,7 +2306,7 @@ Highlight a column." t)
 ;;;***
 
 ;;;### (autoloads nil "../plugin/columnize" "../plugin/columnize.el"
-;;;;;;  (22013 5827 230994 400000))
+;;;;;;  (22026 35731 128049 997000))
 ;;; Generated autoloads from ../plugin/columnize.el
 
 (autoload 'columnize-strings "../plugin/columnize" "\
@@ -2351,7 +2351,7 @@ See also `columnize-strings'.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/crosshairs" "../plugin/crosshairs.el"
-;;;;;;  (22013 5831 509994 300000))
+;;;;;;  (22026 35731 128049 997000))
 ;;; Generated autoloads from ../plugin/crosshairs.el
 
 (let ((loads (get 'crosshairs 'custom-loads))) (if (member '"../plugin/crosshairs" loads) nil (put 'crosshairs 'custom-loads (cons '"../plugin/crosshairs" loads))))
@@ -2427,7 +2427,7 @@ Optional arg nil means do nothing if this event is a frame switch.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/csv-mode" "../plugin/csv-mode.el"
-;;;;;;  (22013 5827 238994 400000))
+;;;;;;  (22026 35731 129049 997000))
 ;;; Generated autoloads from ../plugin/csv-mode.el
 
 (autoload 'csv-mode "../plugin/csv-mode" "\
@@ -2473,7 +2473,7 @@ CSV mode provides the following specific keyboard key bindings:
 ;;;***
 
 ;;;### (autoloads nil "../plugin/doctest-mode" "../plugin/doctest-mode.el"
-;;;;;;  (22013 5831 520994 300000))
+;;;;;;  (22026 35731 130049 997000))
 ;;; Generated autoloads from ../plugin/doctest-mode.el
 
 (add-to-list 'auto-mode-alist '("\\.doctest$" . doctest-mode))
@@ -2506,7 +2506,7 @@ treated differently:
 ;;;***
 
 ;;;### (autoloads nil "../plugin/ee-0.1.0/ee" "../plugin/ee-0.1.0/ee.el"
-;;;;;;  (22013 5831 648994 300000))
+;;;;;;  (22026 35731 143049 996000))
 ;;; Generated autoloads from ../plugin/ee-0.1.0/ee.el
 
 (autoload 'ee "../plugin/ee-0.1.0/ee" "\
@@ -2521,7 +2521,7 @@ to read a root file name from the minibuffer.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/ee-0.1.0/ee-bbdb" "../plugin/ee-0.1.0/ee-bbdb.el"
-;;;;;;  (22013 5831 639994 300000))
+;;;;;;  (22026 35731 133049 997000))
 ;;; Generated autoloads from ../plugin/ee-0.1.0/ee-bbdb.el
 
 (autoload 'ee-bbdb "../plugin/ee-0.1.0/ee-bbdb" "\
@@ -2532,7 +2532,7 @@ Summary mode for BBDB.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/ee-0.1.0/ee-buffers" "../plugin/ee-0.1.0/ee-buffers.el"
-;;;;;;  (22013 5831 546994 300000))
+;;;;;;  (22026 35731 133049 997000))
 ;;; Generated autoloads from ../plugin/ee-0.1.0/ee-buffers.el
 
 (autoload 'ee-buffers "../plugin/ee-0.1.0/ee-buffers" "\
@@ -2543,7 +2543,7 @@ Display and manipulate Emacs buffers.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/ee-0.1.0/ee-commands" "../plugin/ee-0.1.0/ee-commands.el"
-;;;;;;  (22013 5831 575994 300000))
+;;;;;;  (22026 35731 134049 997000))
 ;;; Generated autoloads from ../plugin/ee-0.1.0/ee-commands.el
 
 (autoload 'ee-commands "../plugin/ee-0.1.0/ee-commands" "\
@@ -2554,7 +2554,7 @@ Categorized menu of Emacs commands.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/ee-0.1.0/ee-customize" "../plugin/ee-0.1.0/ee-customize.el"
-;;;;;;  (22013 5831 581994 300000))
+;;;;;;  (22026 35731 134049 997000))
 ;;; Generated autoloads from ../plugin/ee-0.1.0/ee-customize.el
 
 (autoload 'ee-customize "../plugin/ee-0.1.0/ee-customize" "\
@@ -2565,7 +2565,7 @@ Browse Emacs customization groups.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/ee-0.1.0/ee-datafile" "../plugin/ee-0.1.0/ee-datafile.el"
-;;;;;;  (22013 5831 551994 300000))
+;;;;;;  (22026 35731 134049 997000))
 ;;; Generated autoloads from ../plugin/ee-0.1.0/ee-datafile.el
  (add-to-list 'auto-mode-alist '("\\.ee\\'" . emacs-lisp-mode))
 
@@ -2584,7 +2584,7 @@ Display and edit data files.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/ee-0.1.0/ee-dired" "../plugin/ee-0.1.0/ee-dired.el"
-;;;;;;  (22013 5831 638994 300000))
+;;;;;;  (22026 35731 135049 997000))
 ;;; Generated autoloads from ../plugin/ee-0.1.0/ee-dired.el
 
 (autoload 'ee-dired "../plugin/ee-0.1.0/ee-dired" "\
@@ -2595,7 +2595,7 @@ Categorized directory listings.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/ee-0.1.0/ee-dselect" "../plugin/ee-0.1.0/ee-dselect.el"
-;;;;;;  (22013 5831 570994 300000))
+;;;;;;  (22026 35731 135049 997000))
 ;;; Generated autoloads from ../plugin/ee-0.1.0/ee-dselect.el
 
 (autoload 'ee-dselect "../plugin/ee-0.1.0/ee-dselect" "\
@@ -2606,7 +2606,7 @@ Debian package handling frontend.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/ee-0.1.0/ee-edb" "../plugin/ee-0.1.0/ee-edb.el"
-;;;;;;  (22013 5831 640994 300000))
+;;;;;;  (22026 35731 135049 997000))
 ;;; Generated autoloads from ../plugin/ee-0.1.0/ee-edb.el
 
 (autoload 'ee-edb "../plugin/ee-0.1.0/ee-edb" "\
@@ -2617,7 +2617,7 @@ Summary mode for EDB.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/ee-0.1.0/ee-ell" "../plugin/ee-0.1.0/ee-ell.el"
-;;;;;;  (22013 5831 568994 300000))
+;;;;;;  (22026 35731 135049 997000))
 ;;; Generated autoloads from ../plugin/ee-0.1.0/ee-ell.el
 
 (autoload 'ee-ell "../plugin/ee-0.1.0/ee-ell" "\
@@ -2628,7 +2628,7 @@ Browse the categorized Emacs Lisp List.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/ee-0.1.0/ee-example" "../plugin/ee-0.1.0/ee-example.el"
-;;;;;;  (22013 5831 641994 300000))
+;;;;;;  (22026 35731 136049 997000))
 ;;; Generated autoloads from ../plugin/ee-0.1.0/ee-example.el
 
 (autoload 'ee-example "../plugin/ee-0.1.0/ee-example" "\
@@ -2639,7 +2639,7 @@ Accompanying example for demonstration of ee capabilities.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/ee-0.1.0/ee-fields" "../plugin/ee-0.1.0/ee-fields.el"
-;;;;;;  (22013 5831 550994 300000))
+;;;;;;  (22026 35731 136049 997000))
 ;;; Generated autoloads from ../plugin/ee-0.1.0/ee-fields.el
 
 (autoload 'ee-fields "../plugin/ee-0.1.0/ee-fields" "\
@@ -2650,7 +2650,7 @@ Display and edit fields of the current record.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/ee-0.1.0/ee-finder" "../plugin/ee-0.1.0/ee-finder.el"
-;;;;;;  (22013 5831 649994 300000))
+;;;;;;  (22026 35731 137049 997000))
 ;;; Generated autoloads from ../plugin/ee-0.1.0/ee-finder.el
 
 (autoload 'ee-finder "../plugin/ee-0.1.0/ee-finder" "\
@@ -2661,7 +2661,7 @@ Keyword-based Emacs code finder.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/ee-0.1.0/ee-gnus" "../plugin/ee-0.1.0/ee-gnus.el"
-;;;;;;  (22013 5831 567994 300000))
+;;;;;;  (22026 35731 137049 997000))
 ;;; Generated autoloads from ../plugin/ee-0.1.0/ee-gnus.el
 
 (autoload 'ee-gnus "../plugin/ee-0.1.0/ee-gnus" "\
@@ -2672,7 +2672,7 @@ Summary and topic mode for Gnus.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/ee-0.1.0/ee-history" "../plugin/ee-0.1.0/ee-history.el"
-;;;;;;  (22013 5831 574994 300000))
+;;;;;;  (22026 35731 137049 997000))
 ;;; Generated autoloads from ../plugin/ee-0.1.0/ee-history.el
 
 (autoload 'ee-history-command "../plugin/ee-0.1.0/ee-history" "\
@@ -2693,7 +2693,7 @@ Display list from Emacs variable `shell-command-history'.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/ee-0.1.0/ee-imenu" "../plugin/ee-0.1.0/ee-imenu.el"
-;;;;;;  (22013 5831 552994 300000))
+;;;;;;  (22026 35731 137049 997000))
 ;;; Generated autoloads from ../plugin/ee-0.1.0/ee-imenu.el
 
 (autoload 'ee-imenu "../plugin/ee-0.1.0/ee-imenu" "\
@@ -2704,7 +2704,7 @@ Categorized mode-specific buffer indexes.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/ee-0.1.0/ee-info" "../plugin/ee-0.1.0/ee-info.el"
-;;;;;;  (22013 5831 558994 300000))
+;;;;;;  (22026 35731 138049 997000))
 ;;; Generated autoloads from ../plugin/ee-0.1.0/ee-info.el
 
 (autoload 'ee-info "../plugin/ee-0.1.0/ee-info" "\
@@ -2724,7 +2724,7 @@ in all the directories in that path.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/ee-0.1.0/ee-marks" "../plugin/ee-0.1.0/ee-marks.el"
-;;;;;;  (22013 5831 539994 300000))
+;;;;;;  (22026 35731 138049 997000))
 ;;; Generated autoloads from ../plugin/ee-0.1.0/ee-marks.el
 
 (autoload 'ee-marks "../plugin/ee-0.1.0/ee-marks" "\
@@ -2735,7 +2735,7 @@ Display and go to marked lines in the current Emacs buffer.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/ee-0.1.0/ee-menubar" "../plugin/ee-0.1.0/ee-menubar.el"
-;;;;;;  (22013 5831 638994 300000))
+;;;;;;  (22026 35731 139049 997000))
 ;;; Generated autoloads from ../plugin/ee-0.1.0/ee-menubar.el
 
 (autoload 'ee-menubar "../plugin/ee-0.1.0/ee-menubar" "\
@@ -2747,7 +2747,7 @@ Categorized access to Emacs menu-bar.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/ee-0.1.0/ee-outline" "../plugin/ee-0.1.0/ee-outline.el"
-;;;;;;  (22013 5831 569994 300000))
+;;;;;;  (22026 35731 139049 997000))
 ;;; Generated autoloads from ../plugin/ee-0.1.0/ee-outline.el
 
 (autoload 'ee-outline "../plugin/ee-0.1.0/ee-outline" "\
@@ -2758,7 +2758,7 @@ Manipulate outlines collected from outline-mode.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/ee-0.1.0/ee-processes" "../plugin/ee-0.1.0/ee-processes.el"
-;;;;;;  (22013 5831 560994 300000))
+;;;;;;  (22026 35731 139049 997000))
 ;;; Generated autoloads from ../plugin/ee-0.1.0/ee-processes.el
 
 (autoload 'ee-processes "../plugin/ee-0.1.0/ee-processes" "\
@@ -2769,7 +2769,7 @@ Display and manipulate Emacs processes.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/ee-0.1.0/ee-programs" "../plugin/ee-0.1.0/ee-programs.el"
-;;;;;;  (22013 5831 640994 300000))
+;;;;;;  (22026 35731 140049 997000))
 ;;; Generated autoloads from ../plugin/ee-0.1.0/ee-programs.el
 
 (autoload 'ee-programs "../plugin/ee-0.1.0/ee-programs" "\
@@ -2780,7 +2780,7 @@ Categorized program menu.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/ee-0.1.0/ee-ps" "../plugin/ee-0.1.0/ee-ps.el"
-;;;;;;  (22013 5831 580994 300000))
+;;;;;;  (22026 35731 141049 997000))
 ;;; Generated autoloads from ../plugin/ee-0.1.0/ee-ps.el
 
 (autoload 'ee-ps "../plugin/ee-0.1.0/ee-ps" "\
@@ -2792,7 +2792,7 @@ Display CPU processes.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/ee-0.1.0/ee-tags" "../plugin/ee-0.1.0/ee-tags.el"
-;;;;;;  (22013 5831 572994 300000))
+;;;;;;  (22026 35731 141049 997000))
 ;;; Generated autoloads from ../plugin/ee-0.1.0/ee-tags.el
 
 (autoload 'ee-tags "../plugin/ee-0.1.0/ee-tags" "\
@@ -2803,7 +2803,7 @@ Etags facility.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/ee-0.1.0/ee-textfile" "../plugin/ee-0.1.0/ee-textfile.el"
-;;;;;;  (22013 5831 637994 300000))
+;;;;;;  (22026 35731 141049 997000))
 ;;; Generated autoloads from ../plugin/ee-0.1.0/ee-textfile.el
 
 (autoload 'ee-textfile-changelog "../plugin/ee-0.1.0/ee-textfile" "\
@@ -2819,7 +2819,7 @@ Organize information from Apache log files.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/ee-0.1.0/ee-variables" "../plugin/ee-0.1.0/ee-variables.el"
-;;;;;;  (22013 5831 578994 300000))
+;;;;;;  (22026 35731 141049 997000))
 ;;; Generated autoloads from ../plugin/ee-0.1.0/ee-variables.el
 
 (autoload 'ee-variables "../plugin/ee-0.1.0/ee-variables" "\
@@ -2830,7 +2830,7 @@ Categorized menu of Emacs variables.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/ee-0.1.0/ee-views" "../plugin/ee-0.1.0/ee-views.el"
-;;;;;;  (22013 5831 572994 300000))
+;;;;;;  (22026 35731 142049 996000))
 ;;; Generated autoloads from ../plugin/ee-0.1.0/ee-views.el
 
 (autoload 'ee-views "../plugin/ee-0.1.0/ee-views" "\
@@ -2841,7 +2841,7 @@ Display, edit and switch views.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/ee-0.1.0/ee-windows" "../plugin/ee-0.1.0/ee-windows.el"
-;;;;;;  (22013 5831 545994 300000))
+;;;;;;  (22026 35731 142049 996000))
 ;;; Generated autoloads from ../plugin/ee-0.1.0/ee-windows.el
 
 (autoload 'ee-windows-and-add-current "../plugin/ee-0.1.0/ee-windows" "\
@@ -2861,219 +2861,8 @@ Display and switch Emacs window configurations.
 
 ;;;***
 
-;;;### (autoloads nil "../plugin/el-get/el-get" "../plugin/el-get/el-get.el"
-;;;;;;  (22013 6071 297988 500000))
-;;; Generated autoloads from ../plugin/el-get/el-get.el
-
-(autoload 'el-get-version "../plugin/el-get/el-get" "\
-Message the current el-get version
-
-\(fn)" t nil)
-
-(autoload 'el-get-install "../plugin/el-get/el-get" "\
-Cause the named PACKAGE to be installed after all of its
-dependencies (if any).
-
-PACKAGE may be either a string or the corresponding symbol.
-
-\(fn PACKAGE)" t nil)
-
-(autoload 'el-get-update "../plugin/el-get/el-get" "\
-Update PACKAGE.
-
-\(fn PACKAGE)" t nil)
-
-(autoload 'el-get-update-all "../plugin/el-get/el-get" "\
-Performs update of all installed packages.
-
-\(fn &optional NO-PROMPT)" t nil)
-
-(autoload 'el-get-update-packages-of-type "../plugin/el-get/el-get" "\
-Update all installed packages of type TYPE.
-
-\(fn TYPE)" t nil)
-
-(autoload 'el-get-self-update "../plugin/el-get/el-get" "\
-Update el-get itself.  The standard recipe takes care of reloading the code.
-
-\(fn)" t nil)
-
-(autoload 'el-get-remove "../plugin/el-get/el-get" "\
-Remove any PACKAGE that is know to be installed or required.
-
-\(fn PACKAGE)" t nil)
-
-(autoload 'el-get-reinstall "../plugin/el-get/el-get" "\
-Remove PACKAGE and then install it again.
-
-\(fn PACKAGE)" t nil)
-
-(autoload 'el-get-cd "../plugin/el-get/el-get" "\
-Open dired in the package directory.
-
-\(fn PACKAGE)" t nil)
-
-(autoload 'el-get-make-recipes "../plugin/el-get/el-get" "\
-Loop over `el-get-sources' and write a recipe file for each
-entry which is not a symbol and is not already a known recipe.
-
-\(fn &optional DIR)" t nil)
-
-(autoload 'el-get-checksum "../plugin/el-get/el-get" "\
-Compute the checksum of the given package, and put it in the kill-ring
-
-\(fn PACKAGE)" t nil)
-
-(autoload 'el-get-self-checksum "../plugin/el-get/el-get" "\
-Compute the checksum of the running version of el-get itself.
-
-Also put the checksum in the kill-ring.
-
-\(fn)" t nil)
-
-(autoload 'el-get "../plugin/el-get/el-get" "\
-Ensure that packages have been downloaded once and init them as needed.
-
-This will not update the sources by using `apt-get install' or
-`git pull', but it will ensure that:
-
-* the packages have been installed
-* load-path is set so their elisp files can be found
-* Info-directory-list is set so their info files can be found
-* Autoloads have been prepared and evaluated for each package
-* Any post-installation setup (e.g. `(require 'feature)') happens
-
-When SYNC is nil (the default), all installations run
-concurrently, in the background.
-
-When SYNC is 'sync, each package will be installed synchronously,
-and any error will stop it all.
-
-Please note that the `el-get-init' part of `el-get' is always
-done synchronously. There's `byte-compile' support though, and
-the packages you use are welcome to use `autoload' too.
-
-PACKAGES is expected to be a list of packages you want to install
-or init.  When PACKAGES is omited (the default), the list of
-already installed packages is considered.
-
-\(fn &optional SYNC &rest PACKAGES)" nil nil)
-
-;;;***
-
-;;;### (autoloads nil "../plugin/el-get/el-get-bundle" "../plugin/el-get/el-get-bundle.el"
-;;;;;;  (22013 6071 292988 500000))
-;;; Generated autoloads from ../plugin/el-get/el-get-bundle.el
-
-(autoload 'el-get-bundle-el-get "../plugin/el-get/el-get-bundle" "\
-
-
-\(fn SRC)" nil nil)
-
-(autoload 'el-get-bundle "../plugin/el-get/el-get-bundle" "\
-Install PACKAGE and run initialization FORM.
-
-PACKAGE can be either a simple package name or a package name
-with a modifier before the name to specify local recipe source
-information:
-
-* `<owner>/' : specifies a Github owner name
-* `gist:<id>' : specifies a Gist ID
-* `<type>:' : specifies a type of the package source
-
-If `FEATURE in PACKAGE' form is used instead of PACKAGE, then
-that FEATURE is `require'd after installing PACKAGE.  You can
-also use `el-get-bundle!' macro if FEATURE and PACKAGE are the
-same.  If you wish to `require' more than one feature, then use
-`:features' property in FORM.
-
-The initialization FORM may start with a property list that
-describes a local recipe.  The FORM after the property list is
-treated as initialization code, which is actually an `:after'
-property of the local recipe.
-
-A copy of the initialization code is stored in a directory
-specified by `el-get-bundle-init-directory' and its byte-compiled
-version is used if `el-get-bundle-byte-compile' is non-nil.
-
-\(fn PACKAGE &rest FORM)" nil t)
-
-(function-put 'el-get-bundle 'lisp-indent-function 'defun)
-
-(autoload 'el-get-bundle! "../plugin/el-get/el-get-bundle" "\
-Install PACKAGE and run initialization form.
-It is the same as `el-get-bundle' except that PACKAGE is explicitly
-required.
-
-\(fn PACKAGE &rest ARGS)" nil t)
-
-(function-put 'el-get-bundle! 'lisp-indent-function 'defun)
-
-;;;***
-
-;;;### (autoloads nil "../plugin/el-get/el-get-check" "../plugin/el-get/el-get-check.el"
-;;;;;;  (22013 6071 292988 500000))
-;;; Generated autoloads from ../plugin/el-get/el-get-check.el
-
-(autoload 'el-get-check-recipe "../plugin/el-get/el-get-check" "\
-Check the format of the recipe.
-Please run this command before sending a pull request.
-Usage: M-x el-get-check-recipe RET
-
-You can run this function from checker script like this:
-    test/check-recipe.el PATH/TO/RECIPE.rcp
-
-When used as a lisp function, FILE-OR-BUFFER must be a buffer
-object or a file path.
-
-\(fn FILE-OR-BUFFER)" t nil)
-
-;;;***
-
-;;;### (autoloads nil "../plugin/el-get/el-get-list-packages" "../plugin/el-get/el-get-list-packages.el"
-;;;;;;  (22013 6071 295988 500000))
-;;; Generated autoloads from ../plugin/el-get/el-get-list-packages.el
-
-(autoload 'el-get-list-packages "../plugin/el-get/el-get-list-packages" "\
-Display a list of packages.
-
-\(fn)" t nil)
-
-;;;***
-
-;;;### (autoloads nil "../plugin/el-get/methods/el-get-elpa" "../plugin/el-get/methods/el-get-elpa.el"
-;;;;;;  (22013 6071 303988 500000))
-;;; Generated autoloads from ../plugin/el-get/methods/el-get-elpa.el
-
-(autoload 'el-get-elpa-build-local-recipes "../plugin/el-get/methods/el-get-elpa" "\
-retrieves list of ELPA packages and turn them to local recipe set.
-TARGET-DIR is the target directory
-DO-NOT-UPDATE will not update the package archive contents before running this.
-
-\(fn &optional TARGET-DIR DO-NOT-UPDATE)" t nil)
-
-;;;***
-
-;;;### (autoloads nil "../plugin/el-get/methods/el-get-emacswiki"
-;;;;;;  "../plugin/el-get/methods/el-get-emacswiki.el" (22013 6071
-;;;;;;  304988 500000))
-;;; Generated autoloads from ../plugin/el-get/methods/el-get-emacswiki.el
-
-(autoload 'el-get-emacswiki-refresh "../plugin/el-get/methods/el-get-emacswiki" "\
-Generate recipes for all lisp files on Emacswiki.
-
-By default, this is done in a separate process so that you can
-continue to work while the recipes are being updated. If this
-fails, you can force the update to be done in-process by running
-this with a prefix arg (noninteractively: set optional arg
-`in-process' non-nil).
-
-\(fn &optional TARGET-DIR IN-PROCESS)" t nil)
-
-;;;***
-
 ;;;### (autoloads nil "../plugin/eval-expr" "../plugin/eval-expr.el"
-;;;;;;  (22013 5830 832994 300000))
+;;;;;;  (22026 35731 150049 996000))
 ;;; Generated autoloads from ../plugin/eval-expr.el
 
 (defvar eval-expr-error-message-delay 3 "\
@@ -3144,7 +2933,7 @@ Value is also consed on to front of the variable `values'.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/everything" "../plugin/everything.el"
-;;;;;;  (22013 5831 792994 300000))
+;;;;;;  (22026 35731 150049 996000))
 ;;; Generated autoloads from ../plugin/everything.el
 
 (defalias 'everything 'everything-find-file)
@@ -3165,7 +2954,7 @@ the current directory and its sub-directories.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/expand-region/expand-region" "../plugin/expand-region/expand-region.el"
-;;;;;;  (22013 5832 699994 200000))
+;;;;;;  (22026 35731 152049 996000))
 ;;; Generated autoloads from ../plugin/expand-region/expand-region.el
 
 (autoload 'er/expand-region "../plugin/expand-region/expand-region" "\
@@ -3181,8 +2970,8 @@ before calling `er/expand-region' for the first time.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/expand-region/expand-region-custom"
-;;;;;;  "../plugin/expand-region/expand-region-custom.el" (22013
-;;;;;;  5832 705994 200000))
+;;;;;;  "../plugin/expand-region/expand-region-custom.el" (22026
+;;;;;;  35731 152049 996000))
 ;;; Generated autoloads from ../plugin/expand-region/expand-region-custom.el
 
 (let ((loads (get 'expand-region 'custom-loads))) (if (member '"../plugin/expand-region/expand-region-custom" loads) nil (put 'expand-region 'custom-loads (cons '"../plugin/expand-region/expand-region-custom" loads))))
@@ -3227,7 +3016,7 @@ Key to use after an initial expand/contract to undo.")
 ;;;***
 
 ;;;### (autoloads nil "../plugin/expand-region/util/ert" "../plugin/expand-region/util/ert.el"
-;;;;;;  (22013 5832 775994 200000))
+;;;;;;  (22026 35731 157049 996000))
 ;;; Generated autoloads from ../plugin/expand-region/util/ert.el
 
 (autoload 'ert-deftest "../plugin/expand-region/util/ert" "\
@@ -3293,7 +3082,7 @@ Display the documentation for TEST-OR-TEST-NAME (a symbol or ert-test).
 ;;;***
 
 ;;;### (autoloads nil "../plugin/eyedropper" "../plugin/eyedropper.el"
-;;;;;;  (22013 5831 534994 300000))
+;;;;;;  (22026 35731 158049 996000))
 ;;; Generated autoloads from ../plugin/eyedropper.el
 
 (autoload 'eyedrop-background-at-mouse "../plugin/eyedropper" "\
@@ -3367,7 +3156,7 @@ Non-nil optional arg MSG-P means display an informative message.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/flymake-cursor" "../plugin/flymake-cursor.el"
-;;;;;;  (22013 5827 229994 400000))
+;;;;;;  (22026 35731 158049 996000))
 ;;; Generated autoloads from ../plugin/flymake-cursor.el
 
 (autoload 'flyc/show-fly-error-at-point-now "../plugin/flymake-cursor" "\
@@ -3393,7 +3182,7 @@ second, does the flymake error message (if any) get displayed.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/flymake-patch" "../plugin/flymake-patch.el"
-;;;;;;  (22013 5830 956994 300000))
+;;;;;;  (22026 35731 159049 996000))
 ;;; Generated autoloads from ../plugin/flymake-patch.el
 
 (autoload 'flymake-mode "../plugin/flymake-patch" "\
@@ -3416,7 +3205,7 @@ Turn flymake mode off.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/frame-cmds" "../plugin/frame-cmds.el"
-;;;;;;  (22013 5832 594994 200000))
+;;;;;;  (22026 35731 161049 996000))
 ;;; Generated autoloads from ../plugin/frame-cmds.el
 
 (autoload 'save-frame-config "../plugin/frame-cmds" "\
@@ -3844,7 +3633,7 @@ VARIABLE is a symbol that names a user option.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/google-this" "../plugin/google-this.el"
-;;;;;;  (22013 5831 510994 300000))
+;;;;;;  (22026 35731 161049 996000))
 ;;; Generated autoloads from ../plugin/google-this.el
 
 (autoload 'google-search "../plugin/google-this" "\
@@ -3954,7 +3743,7 @@ the mode if ARG is omitted or nil, and toggle it if ARG is `toggle'.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/grep-a-lot" "../plugin/grep-a-lot.el"
-;;;;;;  (22013 5832 588994 200000))
+;;;;;;  (22026 35731 162049 996000))
 ;;; Generated autoloads from ../plugin/grep-a-lot.el
 
 (autoload 'grep-a-lot-advise "../plugin/grep-a-lot" "\
@@ -3971,8 +3760,8 @@ grep search results buffers.
 
 ;;;***
 
-;;;### (autoloads nil "../plugin/gtags" "../plugin/gtags.el" (22013
-;;;;;;  5833 236994 200000))
+;;;### (autoloads nil "../plugin/gtags" "../plugin/gtags.el" (22026
+;;;;;;  35731 163049 996000))
 ;;; Generated autoloads from ../plugin/gtags.el
 
 (autoload 'gtags-mode "../plugin/gtags" "\
@@ -4013,7 +3802,7 @@ with no args, if that value is non-nil.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/header2" "../plugin/header2.el"
-;;;;;;  (22013 5832 591994 200000))
+;;;;;;  (22026 35731 164049 996000))
 ;;; Generated autoloads from ../plugin/header2.el
 
 (autoload 'make-header "../plugin/header2" "\
@@ -4055,7 +3844,7 @@ the strings that cause them to be invoked.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/helm-pydoc" "../plugin/helm-pydoc.el"
-;;;;;;  (22013 5832 585994 200000))
+;;;;;;  (22026 35731 164049 996000))
 ;;; Generated autoloads from ../plugin/helm-pydoc.el
 
 (autoload 'helm-pydoc "../plugin/helm-pydoc" "\
@@ -4066,7 +3855,7 @@ the strings that cause them to be invoked.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/helm/helm" "../plugin/helm/helm.el"
-;;;;;;  (22013 5832 380994 200000))
+;;;;;;  (22026 35731 181049 996000))
 ;;; Generated autoloads from ../plugin/helm/helm.el
 
 (autoload 'helm-define-multi-key "../plugin/helm/helm" "\
@@ -4349,7 +4138,7 @@ Execute persistent action everytime the cursor is moved when enabled.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/helm/helm-adaptative" "../plugin/helm/helm-adaptative.el"
-;;;;;;  (22013 5831 796994 300000))
+;;;;;;  (22026 35731 166049 996000))
 ;;; Generated autoloads from ../plugin/helm/helm-adaptative.el
 
 (autoload 'helm-c-reset-adaptative-history "../plugin/helm/helm-adaptative" "\
@@ -4361,7 +4150,7 @@ Useful when you have a old or corrupted `helm-c-adaptive-history-file'.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/helm/helm-apt" "../plugin/helm/helm-apt.el"
-;;;;;;  (22013 5832 347994 200000))
+;;;;;;  (22026 35731 166049 996000))
 ;;; Generated autoloads from ../plugin/helm/helm-apt.el
 
 (autoload 'helm-apt "../plugin/helm/helm-apt" "\
@@ -4373,7 +4162,7 @@ With a prefix arg reload cache.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/helm/helm-bbdb" "../plugin/helm/helm-bbdb.el"
-;;;;;;  (22013 5832 371994 200000))
+;;;;;;  (22026 35731 166049 996000))
 ;;; Generated autoloads from ../plugin/helm/helm-bbdb.el
 
 (autoload 'helm-bbdb "../plugin/helm/helm-bbdb" "\
@@ -4388,7 +4177,7 @@ http://bbdb.sourceforge.net/
 ;;;***
 
 ;;;### (autoloads nil "../plugin/helm/helm-bmkext" "../plugin/helm/helm-bmkext.el"
-;;;;;;  (22013 5831 803994 300000))
+;;;;;;  (22026 35731 166049 996000))
 ;;; Generated autoloads from ../plugin/helm/helm-bmkext.el
 
 (autoload 'helm-c-bmkext-run-edit "../plugin/helm/helm-bmkext" "\
@@ -4407,7 +4196,7 @@ Contain also `helm-c-source-google-suggest'.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/helm/helm-bookmark" "../plugin/helm/helm-bookmark.el"
-;;;;;;  (22013 5831 809994 300000))
+;;;;;;  (22026 35731 167049 996000))
 ;;; Generated autoloads from ../plugin/helm/helm-bookmark.el
 
 (autoload 'helm-c-bookmark-run-jump-other-window "../plugin/helm/helm-bookmark" "\
@@ -4433,7 +4222,7 @@ Preconfigured `helm' for bookmarks (pretty-printed).
 ;;;***
 
 ;;;### (autoloads nil "../plugin/helm/helm-buffers" "../plugin/helm/helm-buffers.el"
-;;;;;;  (22013 5832 396994 200000))
+;;;;;;  (22026 35731 167049 996000))
 ;;; Generated autoloads from ../plugin/helm/helm-buffers.el
 
 (autoload 'helm-buffer-diff-persistent "../plugin/helm/helm-buffers" "\
@@ -4510,7 +4299,7 @@ It is an enhanced version of `helm-for-buffers'.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/helm/helm-call-tree" "../plugin/helm/helm-call-tree.el"
-;;;;;;  (22013 5831 813994 300000))
+;;;;;;  (22026 35731 167049 996000))
 ;;; Generated autoloads from ../plugin/helm/helm-call-tree.el
 
 (autoload 'helm-simple-call-tree "../plugin/helm/helm-call-tree" "\
@@ -4524,7 +4313,7 @@ http://www.emacswiki.org/cgi-bin/wiki/download/simple-call-tree.el
 ;;;***
 
 ;;;### (autoloads nil "../plugin/helm/helm-color" "../plugin/helm/helm-color.el"
-;;;;;;  (22013 5832 409994 200000))
+;;;;;;  (22026 35731 168049 996000))
 ;;; Generated autoloads from ../plugin/helm/helm-color.el
 
 (autoload 'helm-colors "../plugin/helm/helm-color" "\
@@ -4535,7 +4324,7 @@ Preconfigured `helm' for color.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/helm/helm-command" "../plugin/helm/helm-command.el"
-;;;;;;  (22013 5832 364994 200000))
+;;;;;;  (22026 35731 168049 996000))
 ;;; Generated autoloads from ../plugin/helm/helm-command.el
 
 (autoload 'helm-M-x "../plugin/helm/helm-command" "\
@@ -4547,7 +4336,7 @@ It is `helm' replacement of regular `M-x' `execute-extended-command'.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/helm/helm-config" "../plugin/helm/helm-config.el"
-;;;;;;  (22013 5832 359994 200000))
+;;;;;;  (22026 35731 169049 996000))
 ;;; Generated autoloads from ../plugin/helm/helm-config.el
 
 (autoload 'helm-configuration "../plugin/helm/helm-config" "\
@@ -4558,7 +4347,7 @@ Customize `helm'.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/helm/helm-elisp" "../plugin/helm/helm-elisp.el"
-;;;;;;  (22013 5832 388994 200000))
+;;;;;;  (22026 35731 169049 996000))
 ;;; Generated autoloads from ../plugin/helm/helm-elisp.el
 
 (autoload 'helm-lisp-completion-at-point "../plugin/helm/helm-elisp" "\
@@ -4605,7 +4394,7 @@ Preconfigured `helm' for timers.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/helm/helm-elscreen" "../plugin/helm/helm-elscreen.el"
-;;;;;;  (22013 5832 377994 200000))
+;;;;;;  (22026 35731 169049 996000))
 ;;; Generated autoloads from ../plugin/helm/helm-elscreen.el
 
 (autoload 'helm-elscreen "../plugin/helm/helm-elscreen" "\
@@ -4616,7 +4405,7 @@ Preconfigured helm to list elscreen.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/helm/helm-emms" "../plugin/helm/helm-emms.el"
-;;;;;;  (22013 5832 399994 200000))
+;;;;;;  (22026 35731 169049 996000))
 ;;; Generated autoloads from ../plugin/helm/helm-emms.el
 
 (autoload 'helm-emms "../plugin/helm/helm-emms" "\
@@ -4627,7 +4416,7 @@ Preconfigured `helm' for emms sources.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/helm/helm-eshell" "../plugin/helm/helm-eshell.el"
-;;;;;;  (22013 5832 408994 200000))
+;;;;;;  (22026 35731 169049 996000))
 ;;; Generated autoloads from ../plugin/helm/helm-eshell.el
 
 (autoload 'helm-esh-pcomplete "../plugin/helm/helm-eshell" "\
@@ -4643,7 +4432,7 @@ Preconfigured helm for eshell history.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/helm/helm-eval" "../plugin/helm/helm-eval.el"
-;;;;;;  (22013 5832 393994 200000))
+;;;;;;  (22026 35731 170049 996000))
 ;;; Generated autoloads from ../plugin/helm/helm-eval.el
 
 (autoload 'helm-eval-expression "../plugin/helm/helm-eval" "\
@@ -4664,7 +4453,7 @@ Preconfigured helm for `helm-c-source-calculation-result'.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/helm/helm-external" "../plugin/helm/helm-external.el"
-;;;;;;  (22013 5831 797994 300000))
+;;;;;;  (22026 35731 170049 996000))
 ;;; Generated autoloads from ../plugin/helm/helm-external.el
 
 (autoload 'helm-c-run-external-command "../plugin/helm/helm-external" "\
@@ -4678,7 +4467,7 @@ You can set your own list of commands with
 ;;;***
 
 ;;;### (autoloads nil "../plugin/helm/helm-files" "../plugin/helm/helm-files.el"
-;;;;;;  (22013 5832 402994 200000))
+;;;;;;  (22026 35731 171049 996000))
 ;;; Generated autoloads from ../plugin/helm/helm-files.el
 
 (autoload 'helm-ff-run-toggle-auto-update "../plugin/helm/helm-files" "\
@@ -4920,7 +4709,7 @@ Preconfigured `helm' for `recentf'.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/helm/helm-firefox" "../plugin/helm/helm-firefox.el"
-;;;;;;  (22013 5832 357994 200000))
+;;;;;;  (22026 35731 172049 996000))
 ;;; Generated autoloads from ../plugin/helm/helm-firefox.el
 
 (autoload 'helm-firefox-bookmarks "../plugin/helm/helm-firefox" "\
@@ -4941,7 +4730,7 @@ After closing firefox, you will be able to browse you bookmarks.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/helm/helm-font" "../plugin/helm/helm-font.el"
-;;;;;;  (22013 5832 385994 200000))
+;;;;;;  (22026 35731 172049 996000))
 ;;; Generated autoloads from ../plugin/helm/helm-font.el
 
 (autoload 'helm-select-xfont "../plugin/helm/helm-font" "\
@@ -4957,7 +4746,7 @@ Preconfigured helm for `ucs-names' math symbols.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/helm/helm-gentoo" "../plugin/helm/helm-gentoo.el"
-;;;;;;  (22013 5832 375994 200000))
+;;;;;;  (22026 35731 172049 996000))
 ;;; Generated autoloads from ../plugin/helm/helm-gentoo.el
 
 (autoload 'helm-gentoo "../plugin/helm/helm-gentoo" "\
@@ -4968,7 +4757,7 @@ Preconfigured `helm' for gentoo linux.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/helm/helm-grep" "../plugin/helm/helm-grep.el"
-;;;;;;  (22013 5832 398994 200000))
+;;;;;;  (22026 35731 173049 996000))
 ;;; Generated autoloads from ../plugin/helm/helm-grep.el
 
 (autoload 'helm-c-goto-precedent-file "../plugin/helm/helm-grep" "\
@@ -5071,7 +4860,7 @@ Preconfigured helm for pdfgrep.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/helm/helm-help" "../plugin/helm/helm-help.el"
-;;;;;;  (22013 5831 800994 300000))
+;;;;;;  (22026 35731 173049 996000))
 ;;; Generated autoloads from ../plugin/helm/helm-help.el
 
 (defvar helm-mode-line-string "\\<helm-map>\\[helm-help]:Help \\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct" "\
@@ -5189,7 +4978,7 @@ HELM-ATTRIBUTE should be a symbol.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/helm/helm-imenu" "../plugin/helm/helm-imenu.el"
-;;;;;;  (22013 5832 408994 200000))
+;;;;;;  (22026 35731 174049 996000))
 ;;; Generated autoloads from ../plugin/helm/helm-imenu.el
 
 (autoload 'helm-imenu "../plugin/helm/helm-imenu" "\
@@ -5200,7 +4989,7 @@ Preconfigured `helm' for `imenu'.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/helm/helm-info" "../plugin/helm/helm-info.el"
-;;;;;;  (22013 5831 805994 300000))
+;;;;;;  (22026 35731 174049 996000))
 ;;; Generated autoloads from ../plugin/helm/helm-info.el
 
 (autoload 'helm-info-at-point "../plugin/helm/helm-info" "\
@@ -5212,7 +5001,7 @@ With a prefix-arg insert symbol at point.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/helm/helm-locate" "../plugin/helm/helm-locate.el"
-;;;;;;  (22013 5831 812994 300000))
+;;;;;;  (22026 35731 174049 996000))
 ;;; Generated autoloads from ../plugin/helm/helm-locate.el
 
 (autoload 'helm-locate "../plugin/helm/helm-locate" "\
@@ -5236,7 +5025,7 @@ Where db_path is a filename matched by
 ;;;***
 
 ;;;### (autoloads nil "../plugin/helm/helm-man" "../plugin/helm/helm-man.el"
-;;;;;;  (22013 5832 387994 200000))
+;;;;;;  (22026 35731 174049 996000))
 ;;; Generated autoloads from ../plugin/helm/helm-man.el
 
 (autoload 'helm-man-woman "../plugin/helm/helm-man" "\
@@ -5248,7 +5037,7 @@ With a prefix arg reinitialize the cache.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/helm/helm-match-plugin" "../plugin/helm/helm-match-plugin.el"
-;;;;;;  (22013 5831 799994 300000))
+;;;;;;  (22026 35731 175049 996000))
 ;;; Generated autoloads from ../plugin/helm/helm-match-plugin.el
 
 (defvar helm-match-plugin-mode nil "\
@@ -5269,7 +5058,7 @@ See `helm-mp-matching-method' for the behavior of each method.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/helm/helm-misc" "../plugin/helm/helm-misc.el"
-;;;;;;  (22013 5832 395994 200000))
+;;;;;;  (22026 35731 175049 996000))
 ;;; Generated autoloads from ../plugin/helm/helm-misc.el
 
 (autoload 'helm-world-time "../plugin/helm/helm-misc" "\
@@ -5310,7 +5099,7 @@ Preconfigured `helm' for `minibuffer-history'.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/helm/helm-mode" "../plugin/helm/helm-mode.el"
-;;;;;;  (22013 5832 391994 200000))
+;;;;;;  (22026 35731 176049 996000))
 ;;; Generated autoloads from ../plugin/helm/helm-mode.el
 
 (autoload 'helm-cr-empty-string "../plugin/helm/helm-mode" "\
@@ -5430,7 +5219,7 @@ Note: This mode will work only partially on Emacs23.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/helm/helm-net" "../plugin/helm/helm-net.el"
-;;;;;;  (22013 5832 366994 200000))
+;;;;;;  (22026 35731 176049 996000))
 ;;; Generated autoloads from ../plugin/helm/helm-net.el
 
 (autoload 'helm-surfraw "../plugin/helm/helm-net" "\
@@ -5451,7 +5240,7 @@ Preconfigured `helm' for Yahoo searching with Yahoo suggest.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/helm/helm-org" "../plugin/helm/helm-org.el"
-;;;;;;  (22013 5831 797994 300000))
+;;;;;;  (22026 35731 177049 996000))
 ;;; Generated autoloads from ../plugin/helm/helm-org.el
 
 (autoload 'helm-org-keywords "../plugin/helm/helm-org" "\
@@ -5467,7 +5256,7 @@ Preconfigured helm to show org headlines.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/helm/helm-regexp" "../plugin/helm/helm-regexp.el"
-;;;;;;  (22013 5831 801994 300000))
+;;;;;;  (22026 35731 177049 996000))
 ;;; Generated autoloads from ../plugin/helm/helm-regexp.el
 
 (autoload 'helm-regexp "../plugin/helm/helm-regexp" "\
@@ -5500,7 +5289,7 @@ Preconfigured helm to browse code.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/helm/helm-ring" "../plugin/helm/helm-ring.el"
-;;;;;;  (22013 5832 356994 200000))
+;;;;;;  (22026 35731 177049 996000))
 ;;; Generated autoloads from ../plugin/helm/helm-ring.el
 
 (autoload 'helm-mark-ring "../plugin/helm/helm-ring" "\
@@ -5534,7 +5323,7 @@ First call open the kill-ring browser, next calls move to next line.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/helm/helm-semantic" "../plugin/helm/helm-semantic.el"
-;;;;;;  (22013 5832 403994 200000))
+;;;;;;  (22026 35731 178049 996000))
 ;;; Generated autoloads from ../plugin/helm/helm-semantic.el
 
 (autoload 'helm-semantic "../plugin/helm/helm-semantic" "\
@@ -5554,7 +5343,7 @@ Fill in the symbol at point by default.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/helm/helm-sys" "../plugin/helm/helm-sys.el"
-;;;;;;  (22013 5831 818994 300000))
+;;;;;;  (22026 35731 178049 996000))
 ;;; Generated autoloads from ../plugin/helm/helm-sys.el
 
 (autoload 'helm-top "../plugin/helm/helm-sys" "\
@@ -5575,7 +5364,7 @@ Preconfigured `helm' for emacs process.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/helm/helm-tags" "../plugin/helm/helm-tags.el"
-;;;;;;  (22013 5832 354994 200000))
+;;;;;;  (22026 35731 178049 996000))
 ;;; Generated autoloads from ../plugin/helm/helm-tags.el
 
 (autoload 'helm-c-etags-select "../plugin/helm/helm-tags" "\
@@ -5589,7 +5378,7 @@ If tag file have been modified reinitialize cache.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/helm/helm-utils" "../plugin/helm/helm-utils.el"
-;;;;;;  (22013 5831 807994 300000))
+;;;;;;  (22026 35731 179049 996000))
 ;;; Generated autoloads from ../plugin/helm/helm-utils.el
 
 (autoload 'helm-show-all-in-this-source-only "../plugin/helm/helm-utils" "\
@@ -5626,7 +5415,7 @@ the entire symbol.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/helm/helm-w3m" "../plugin/helm/helm-w3m.el"
-;;;;;;  (22013 5831 811994 300000))
+;;;;;;  (22026 35731 179049 996000))
 ;;; Generated autoloads from ../plugin/helm/helm-w3m.el
 
 (autoload 'helm-w3m-bookmarks "../plugin/helm/helm-w3m" "\
@@ -5642,7 +5431,7 @@ http://emacs-w3m.namazu.org/
 ;;;***
 
 ;;;### (autoloads nil "../plugin/helm/helm-yaoddmuse" "../plugin/helm/helm-yaoddmuse.el"
-;;;;;;  (22013 5832 373994 200000))
+;;;;;;  (22026 35731 179049 996000))
 ;;; Generated autoloads from ../plugin/helm/helm-yaoddmuse.el
 
 (autoload 'helm-yaoddmuse-cache-pages "../plugin/helm/helm-yaoddmuse" "\
@@ -5671,8 +5460,8 @@ http://www.emacswiki.org/emacs/download/yaoddmuse.el
 
 ;;;***
 
-;;;### (autoloads nil "../plugin/hexrgb" "../plugin/hexrgb.el" (22013
-;;;;;;  5832 597994 200000))
+;;;### (autoloads nil "../plugin/hexrgb" "../plugin/hexrgb.el" (22026
+;;;;;;  35731 182049 996000))
 ;;; Generated autoloads from ../plugin/hexrgb.el
 
 (eval-and-compile (defun hexrgb-canonicalize-defined-colors (list) "Copy of LIST with color names canonicalized.\nLIST is a list of color names (strings).\nCanonical names are lowercase, with no whitespace.\nThere are no duplicate names." (let ((tail list) this new) (while tail (setq this (car tail) this (hexrgb-delete-whitespace-from-string (downcase this) 0 (length this))) (unless (member this new) (push this new)) (pop tail)) (nreverse new))) (defun hexrgb-delete-whitespace-from-string (string &optional from to) "Remove whitespace from substring of STRING from FROM to TO.\nIf FROM is nil, then start at the beginning of STRING (FROM = 0).\nIf TO is nil, then end at the end of STRING (TO = length of STRING).\nFROM and TO are zero-based indexes into STRING.\nCharacter FROM is affected (possibly deleted).  Character TO is not." (setq from (or from 0) to (or to (length string))) (with-temp-buffer (insert string) (goto-char (+ from (point-min))) (let ((count from) char) (while (and (not (eobp)) (< count to)) (setq char (char-after)) (if (memq char '(32 9 10)) (delete-char 1) (forward-char 1)) (setq count (1+ count))) (buffer-string)))))
@@ -5796,7 +5585,7 @@ COLOR is a color name or hex RGB string that starts with \"#\".
 ;;;***
 
 ;;;### (autoloads nil "../plugin/hide-lines" "../plugin/hide-lines.el"
-;;;;;;  (22013 5833 244994 200000))
+;;;;;;  (22026 35731 182049 996000))
 ;;; Generated autoloads from ../plugin/hide-lines.el
 
 (autoload 'hide-lines "../plugin/hide-lines" "\
@@ -5824,7 +5613,7 @@ Show all areas hidden by the filter-buffer command.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/highlight-indentation" "../plugin/highlight-indentation.el"
-;;;;;;  (22013 5830 432994 300000))
+;;;;;;  (22026 35731 182049 996000))
 ;;; Generated autoloads from ../plugin/highlight-indentation.el
 
 (autoload 'highlight-indentation-mode "../plugin/highlight-indentation" "\
@@ -5849,7 +5638,7 @@ a vertical bar corresponding to the indentation of the current line
 ;;;***
 
 ;;;### (autoloads nil "../plugin/hl-line+" "../plugin/hl-line+.el"
-;;;;;;  (22013 5830 833994 300000))
+;;;;;;  (22026 35731 183049 995000))
 ;;; Generated autoloads from ../plugin/hl-line+.el
 
 (defface hl-line '((t (:background "SlateGray3"))) "\
@@ -5906,7 +5695,7 @@ With a prefix argument, highlight for that many seconds.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/idle-require" "../plugin/idle-require.el"
-;;;;;;  (22013 5833 269994 200000))
+;;;;;;  (22026 35731 183049 995000))
 ;;; Generated autoloads from ../plugin/idle-require.el
 
 (autoload 'idle-require "../plugin/idle-require" "\
@@ -5925,8 +5714,8 @@ Loading all autoload functions can easily triple Emacs' memory footprint.
 
 ;;;***
 
-;;;### (autoloads nil "../plugin/info+" "../plugin/info+.el" (22013
-;;;;;;  5827 234994 400000))
+;;;### (autoloads nil "../plugin/info+" "../plugin/info+.el" (22026
+;;;;;;  35731 186049 995000))
 ;;; Generated autoloads from ../plugin/info+.el
 
 (let ((loads (get 'Info-Plus 'custom-loads))) (if (member '"../plugin/info+" loads) nil (put 'Info-Plus 'custom-loads (cons '"../plugin/info+" loads))))
@@ -6151,7 +5940,7 @@ top-level call to `Info-merge-subnodes'.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/init-loader" "../plugin/init-loader.el"
-;;;;;;  (22013 5827 236994 400000))
+;;;;;;  (22026 35731 186049 995000))
 ;;; Generated autoloads from ../plugin/init-loader.el
 
 (autoload 'init-loader-load "../plugin/init-loader" "\
@@ -6166,8 +5955,8 @@ Show init-loader log buffer.
 
 ;;;***
 
-;;;### (autoloads nil "../plugin/irfc" "../plugin/irfc.el" (22013
-;;;;;;  5830 136994 300000))
+;;;### (autoloads nil "../plugin/irfc" "../plugin/irfc.el" (22026
+;;;;;;  35731 188049 995000))
 ;;; Generated autoloads from ../plugin/irfc.el
 
 (let ((loads (get 'irfc 'custom-loads))) (if (member '"../plugin/irfc" loads) nil (put 'irfc 'custom-loads (cons '"../plugin/irfc" loads))))
@@ -6200,7 +5989,7 @@ does not exist in `irfc-directory'.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/javascript" "../plugin/javascript.el"
-;;;;;;  (22013 5833 237994 200000))
+;;;;;;  (22026 35731 188049 995000))
 ;;; Generated autoloads from ../plugin/javascript.el
 
 (autoload 'javascript-mode "../plugin/javascript" "\
@@ -6215,7 +6004,7 @@ Key bindings:
 ;;;***
 
 ;;;### (autoloads nil "../plugin/key-chord" "../plugin/key-chord.el"
-;;;;;;  (22013 5833 267994 200000))
+;;;;;;  (22026 35731 189049 995000))
 ;;; Generated autoloads from ../plugin/key-chord.el
 
 (autoload 'key-chord-mode "../plugin/key-chord" "\
@@ -6252,8 +6041,8 @@ If COMMAND is nil, the key-chord is removed.
 
 ;;;***
 
-;;;### (autoloads nil "../plugin/linkd" "../plugin/linkd.el" (22013
-;;;;;;  5830 965994 300000))
+;;;### (autoloads nil "../plugin/linkd" "../plugin/linkd.el" (22026
+;;;;;;  35731 190049 995000))
 ;;; Generated autoloads from ../plugin/linkd.el
 
 (autoload 'linkd-version "../plugin/linkd" "\
@@ -6336,7 +6125,7 @@ Find Linkd wiki page named PAGE-NAME.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/log4j-mode" "../plugin/log4j-mode.el"
-;;;;;;  (22013 5830 831994 300000))
+;;;;;;  (22026 35731 191049 995000))
 ;;; Generated autoloads from ../plugin/log4j-mode.el
  (add-to-list 'auto-mode-alist '("\\.log\\'" . log4j-mode))
 
@@ -6371,7 +6160,7 @@ across log records.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/make-file-executable" "../plugin/make-file-executable.el"
-;;;;;;  (22013 5832 590994 200000))
+;;;;;;  (22026 35731 191049 995000))
 ;;; Generated autoloads from ../plugin/make-file-executable.el
 
 (autoload 'make-file-executable "../plugin/make-file-executable" "\
@@ -6382,8 +6171,8 @@ Make the file of this buffer executable, when it is a script source.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/mark-multiple/inline-string-rectangle"
-;;;;;;  "../plugin/mark-multiple/inline-string-rectangle.el" (22013
-;;;;;;  5832 611994 200000))
+;;;;;;  "../plugin/mark-multiple/inline-string-rectangle.el" (22026
+;;;;;;  35731 192049 995000))
 ;;; Generated autoloads from ../plugin/mark-multiple/inline-string-rectangle.el
 
 (autoload 'inline-string-rectangle "../plugin/mark-multiple/inline-string-rectangle" "\
@@ -6394,8 +6183,8 @@ Make the file of this buffer executable, when it is a script source.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/mark-multiple/mark-more-like-this"
-;;;;;;  "../plugin/mark-multiple/mark-more-like-this.el" (22013 5832
-;;;;;;  605994 200000))
+;;;;;;  "../plugin/mark-multiple/mark-more-like-this.el" (22026 35731
+;;;;;;  192049 995000))
 ;;; Generated autoloads from ../plugin/mark-multiple/mark-more-like-this.el
 
 (autoload 'mark-next-like-this "../plugin/mark-multiple/mark-more-like-this" "\
@@ -6449,7 +6238,7 @@ is one of the above.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/mark-multiple/mark-multiple" "../plugin/mark-multiple/mark-multiple.el"
-;;;;;;  (22013 5832 610994 200000))
+;;;;;;  (22026 35731 193049 995000))
 ;;; Generated autoloads from ../plugin/mark-multiple/mark-multiple.el
 
 (autoload 'mm/deactivate-region-or-clear-all "../plugin/mark-multiple/mark-multiple" "\
@@ -6470,7 +6259,7 @@ Remove all marks
 ;;;***
 
 ;;;### (autoloads nil "../plugin/mark-multiple/rename-sgml-tag" "../plugin/mark-multiple/rename-sgml-tag.el"
-;;;;;;  (22013 5832 604994 200000))
+;;;;;;  (22026 35731 193049 995000))
 ;;; Generated autoloads from ../plugin/mark-multiple/rename-sgml-tag.el
 
 (autoload 'rename-sgml-tag "../plugin/mark-multiple/rename-sgml-tag" "\
@@ -6481,7 +6270,7 @@ Remove all marks
 ;;;***
 
 ;;;### (autoloads nil "../plugin/mcomplete" "../plugin/mcomplete.el"
-;;;;;;  (22013 5831 794994 300000))
+;;;;;;  (22026 35731 194049 995000))
 ;;; Generated autoloads from ../plugin/mcomplete.el
 
 (autoload 'mcomplete-mode "../plugin/mcomplete" "\
@@ -6503,7 +6292,7 @@ Turn off minibuffer completion with prefix and substring matching.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/org-doing" "../plugin/org-doing.el"
-;;;;;;  (22013 5833 268994 200000))
+;;;;;;  (22026 35731 195049 995000))
 ;;; Generated autoloads from ../plugin/org-doing.el
 
 (autoload 'org-doing-log "../plugin/org-doing" "\
@@ -6528,7 +6317,7 @@ The first part of the `command' string is parsed as a command:
 ;;;***
 
 ;;;### (autoloads nil "../plugin/protbuf" "../plugin/protbuf.el"
-;;;;;;  (22013 5831 513994 300000))
+;;;;;;  (22026 35731 195049 995000))
 ;;; Generated autoloads from ../plugin/protbuf.el
 
 (defvar protect-buffer-from-kill-mode nil "\
@@ -6564,7 +6353,7 @@ To remove this protection, call this command with a negative prefix argument.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/py-smart-operator" "../plugin/py-smart-operator.el"
-;;;;;;  (22013 5830 835994 300000))
+;;;;;;  (22026 35731 195049 995000))
 ;;; Generated autoloads from ../plugin/py-smart-operator.el
 
 (autoload 'py-smart-operator-mode "../plugin/py-smart-operator" "\
@@ -6580,7 +6369,7 @@ Insert the entered operator plus surrounding spaces.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/pydoc-info" "../plugin/pydoc-info.el"
-;;;;;;  (22013 5829 981994 300000))
+;;;;;;  (22026 35731 196049 995000))
 ;;; Generated autoloads from ../plugin/pydoc-info.el
 
 (require 'info-look)
@@ -6601,7 +6390,7 @@ MORE-SPECS are additional or overriding values passed to
 ;;;***
 
 ;;;### (autoloads nil "../plugin/pylookup" "../plugin/pylookup.el"
-;;;;;;  (22013 5832 600994 200000))
+;;;;;;  (22026 35731 196049 995000))
 ;;; Generated autoloads from ../plugin/pylookup.el
 
 (autoload 'pylookup-lookup "../plugin/pylookup" "\
@@ -6631,8 +6420,8 @@ Query the for string with help of word read at point and call `pylookup-lookup'
 
 ;;;***
 
-;;;### (autoloads nil "../plugin/pymacs" "../plugin/pymacs.el" (22013
-;;;;;;  5832 696994 200000))
+;;;### (autoloads nil "../plugin/pymacs" "../plugin/pymacs.el" (22026
+;;;;;;  35731 197049 995000))
 ;;; Generated autoloads from ../plugin/pymacs.el
 
 (autoload 'pymacs-load "../plugin/pymacs" "\
@@ -6686,7 +6475,7 @@ equivalents, other structures are converted into Lisp handles.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/python-pep8" "../plugin/python-pep8.el"
-;;;;;;  (22013 5827 258994 400000))
+;;;;;;  (22026 35731 207049 995000))
 ;;; Generated autoloads from ../plugin/python-pep8.el
 
 (autoload 'python-pep8 "../plugin/python-pep8" "\
@@ -6701,7 +6490,7 @@ or \\<python-pep8-mode-map>\\[compile-goto-error] in the grep output buffer, to 
 ;;;***
 
 ;;;### (autoloads nil "../plugin/python-pylint" "../plugin/python-pylint.el"
-;;;;;;  (22013 5832 697994 200000))
+;;;;;;  (22026 35731 207049 995000))
 ;;; Generated autoloads from ../plugin/python-pylint.el
 
 (autoload 'python-pylint "../plugin/python-pylint" "\
@@ -6716,7 +6505,7 @@ or \\<python-pylint-mode-map>\\[compile-goto-error] in the grep output buffer, t
 ;;;***
 
 ;;;### (autoloads nil "../plugin/quickrun" "../plugin/quickrun.el"
-;;;;;;  (22013 5831 525994 300000))
+;;;;;;  (22026 35731 208049 995000))
 ;;; Generated autoloads from ../plugin/quickrun.el
 
 (autoload 'quickrun-set-default "../plugin/quickrun" "\
@@ -6775,7 +6564,7 @@ Run commands in shell for interactive programs
 
 ;;;### (autoloads nil "../plugin/rainbow-delimiters-1.3.4/rainbow-delimiters"
 ;;;;;;  "../plugin/rainbow-delimiters-1.3.4/rainbow-delimiters.el"
-;;;;;;  (22013 5830 967994 300000))
+;;;;;;  (22026 35731 209049 995000))
 ;;; Generated autoloads from ../plugin/rainbow-delimiters-1.3.4/rainbow-delimiters.el
 
 (autoload 'rainbow-delimiters-mode "../plugin/rainbow-delimiters-1.3.4/rainbow-delimiters" "\
@@ -6816,8 +6605,8 @@ See `rainbow-delimiters-mode' for more information on Rainbow-Delimiters mode.
 
 ;;;***
 
-;;;### (autoloads nil "../plugin/revive" "../plugin/revive.el" (22013
-;;;;;;  5830 830994 300000))
+;;;### (autoloads nil "../plugin/revive" "../plugin/revive.el" (22026
+;;;;;;  35731 210049 995000))
 ;;; Generated autoloads from ../plugin/revive.el
 
 (autoload 'current-window-configuration-printable "../plugin/revive" "\
@@ -6862,7 +6651,7 @@ Configuration should be saved by save-current-configuration.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/smart-operator" "../plugin/smart-operator.el"
-;;;;;;  (22013 5830 953994 300000))
+;;;;;;  (22026 35731 215049 995000))
 ;;; Generated autoloads from ../plugin/smart-operator.el
 
 (autoload 'smart-operator-mode "../plugin/smart-operator" "\
@@ -6883,7 +6672,7 @@ Insert the entered operator plus surrounding spaces.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/syslog-mode" "../plugin/syslog-mode.el"
-;;;;;;  (22013 5831 526994 300000))
+;;;;;;  (22026 35731 216049 995000))
 ;;; Generated autoloads from ../plugin/syslog-mode.el
 
 (defvar syslog-setup-on-load nil "\
@@ -6923,7 +6712,7 @@ Major mode for working with system logs.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/systemd" "../plugin/systemd.el"
-;;;;;;  (22013 5831 521994 300000))
+;;;;;;  (22026 35731 217049 995000))
 ;;; Generated autoloads from ../plugin/systemd.el
  (add-to-list 'auto-mode-alist '("\\.automount\\'" . systemd-mode))
  (add-to-list 'auto-mode-alist '("\\.busname\\'" . systemd-mode))
@@ -6951,8 +6740,8 @@ Key bindings:
 
 ;;;***
 
-;;;### (autoloads nil "../plugin/tabbar" "../plugin/tabbar.el" (22013
-;;;;;;  5832 572994 200000))
+;;;### (autoloads nil "../plugin/tabbar" "../plugin/tabbar.el" (22026
+;;;;;;  35731 218049 995000))
 ;;; Generated autoloads from ../plugin/tabbar.el
 
 (autoload 'tabbar-backward "../plugin/tabbar" "\
@@ -7115,7 +6904,7 @@ Returns non-nil if the new state is enabled.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/tempbuf" "../plugin/tempbuf.el"
-;;;;;;  (22013 5830 423994 300000))
+;;;;;;  (22026 35731 218049 995000))
 ;;; Generated autoloads from ../plugin/tempbuf.el
 
 (autoload 'tempbuf-mode "../plugin/tempbuf" "\
@@ -7135,8 +6924,8 @@ See also function `tempbuf-mode'.
 
 ;;;***
 
-;;;### (autoloads nil "../plugin/vline" "../plugin/vline.el" (22013
-;;;;;;  5830 430994 300000))
+;;;### (autoloads nil "../plugin/vline" "../plugin/vline.el" (22026
+;;;;;;  35731 220049 995000))
 ;;; Generated autoloads from ../plugin/vline.el
 
 (autoload 'vline-mode "../plugin/vline" "\
@@ -7168,7 +6957,7 @@ See `vline-mode' for more information on Vline mode.
 ;;;***
 
 ;;;### (autoloads nil "../plugin/xmodmap-mode" "../plugin/xmodmap-mode.el"
-;;;;;;  (22013 5827 252994 400000))
+;;;;;;  (22026 35731 222049 995000))
 ;;; Generated autoloads from ../plugin/xmodmap-mode.el
 
 (autoload 'xmodmap-mode "../plugin/xmodmap-mode" "\
@@ -7179,7 +6968,7 @@ Major mode for editing ~/.xmodmaprc
 ;;;***
 
 ;;;### (autoloads nil "../plugin/zenburn" "../plugin/zenburn.el"
-;;;;;;  (22013 5832 602994 200000))
+;;;;;;  (22026 35731 223049 995000))
 ;;; Generated autoloads from ../plugin/zenburn.el
 
 (autoload 'color-theme-zenburn "../plugin/zenburn" "\
@@ -7190,7 +6979,7 @@ Just some alien fruit salad to keep you in the zone.
 ;;;***
 
 ;;;### (autoloads nil "10_el-get_plugin_start" "10_el-get_plugin_start.el"
-;;;;;;  (22013 21280 585623 800000))
+;;;;;;  (22026 36194 841038 876000))
 ;;; Generated autoloads from 10_el-get_plugin_start.el
 
 (autoload 'el-get-mode-custom-predefine "10_el-get_plugin_start" "\
@@ -7211,7 +7000,7 @@ For el-get key bindings.
 ;;;***
 
 ;;;### (autoloads nil "22_mcomplete_plugin_start" "22_mcomplete_plugin_start.el"
-;;;;;;  (22013 5834 83994 200000))
+;;;;;;  (22026 35731 230049 994000))
 ;;; Generated autoloads from 22_mcomplete_plugin_start.el
 
 (autoload 'mcomplete-mode-predefine "22_mcomplete_plugin_start" "\
@@ -7222,7 +7011,7 @@ For `eval-after-load' mcomplete function.
 ;;;***
 
 ;;;### (autoloads nil "30_check_misspell_plugin_start" "30_check_misspell_plugin_start.el"
-;;;;;;  (22013 5834 8994 200000))
+;;;;;;  (22026 35731 231049 994000))
 ;;; Generated autoloads from 30_check_misspell_plugin_start.el
 
 (autoload 'check-misspell-mode-predefine "30_check_misspell_plugin_start" "\
@@ -7233,7 +7022,7 @@ For `eval-after-load' check-misspell function.
 ;;;***
 
 ;;;### (autoloads nil "70_eww_mode_start" "70_eww_mode_start.el"
-;;;;;;  (22013 5834 22994 200000))
+;;;;;;  (22026 35731 240049 994000))
 ;;; Generated autoloads from 70_eww_mode_start.el
 
 (autoload 'eww-mode-custom-predefine "70_eww_mode_start" "\
@@ -7259,7 +7048,7 @@ For eww face.
 ;;;***
 
 ;;;### (autoloads nil "80_systemd_mode_start" "80_systemd_mode_start.el"
-;;;;;;  (22019 33150 46401 66000))
+;;;;;;  (22026 35731 242049 994000))
 ;;; Generated autoloads from 80_systemd_mode_start.el
 
 (autoload 'systemd-mode-custom-predefine "80_systemd_mode_start" "\
@@ -7285,7 +7074,7 @@ For systemd face.
 ;;;***
 
 ;;;### (autoloads nil "Emacs_Lisp_mode_start" "Emacs_Lisp_mode_start.el"
-;;;;;;  (22021 27989 669659 187000))
+;;;;;;  (22026 35731 253049 994000))
 ;;; Generated autoloads from Emacs_Lisp_mode_start.el
 
 (autoload 'emacs-lisp-mode-hook-predefine "Emacs_Lisp_mode_start" "\
@@ -7340,8 +7129,8 @@ Load ac-sources after load auto-complete.
 
 ;;;***
 
-;;;### (autoloads nil "Info_mode_start" "Info_mode_start.el" (22013
-;;;;;;  5834 50994 200000))
+;;;### (autoloads nil "Info_mode_start" "Info_mode_start.el" (22026
+;;;;;;  35731 253049 994000))
 ;;; Generated autoloads from Info_mode_start.el
 
 (autoload 'Info-mode-custom-predefine "Info_mode_start" "\
@@ -7367,7 +7156,7 @@ For `Info-mode' face.
 ;;;***
 
 ;;;### (autoloads nil "anything-c-moccur_plugin_start" "anything-c-moccur_plugin_start.el"
-;;;;;;  (22013 5834 82994 200000))
+;;;;;;  (22026 35731 255049 994000))
 ;;; Generated autoloads from anything-c-moccur_plugin_start.el
 
 (autoload 'anything-c-moccur-mode-custom-predefine "anything-c-moccur_plugin_start" "\
@@ -7388,7 +7177,7 @@ For anything-c-moccur key bindings.
 ;;;***
 
 ;;;### (autoloads nil "anything_plugin_start" "anything_plugin_start.el"
-;;;;;;  (22013 5833 992994 200000))
+;;;;;;  (22026 35731 255049 994000))
 ;;; Generated autoloads from anything_plugin_start.el
 
 (autoload 'anything-mode-custom-predefine "anything_plugin_start" "\
@@ -7431,7 +7220,7 @@ My anything for elisp.
 ;;;***
 
 ;;;### (autoloads nil "apropos_mode_start" "apropos_mode_start.el"
-;;;;;;  (22013 5833 974994 200000))
+;;;;;;  (22026 35731 255049 994000))
 ;;; Generated autoloads from apropos_mode_start.el
 
 (autoload 'apropos-mode-custom-predefine "apropos_mode_start" "\
@@ -7461,7 +7250,7 @@ For apropos face.
 ;;;***
 
 ;;;### (autoloads nil "ascii_plugin_start" "ascii_plugin_start.el"
-;;;;;;  (22013 5834 102994 200000))
+;;;;;;  (22026 35731 255049 994000))
 ;;; Generated autoloads from ascii_plugin_start.el
 
 (autoload 'ascii-mode-custom-predefine "ascii_plugin_start" "\
@@ -7486,8 +7275,8 @@ For ascii face.
 
 ;;;***
 
-;;;### (autoloads nil "asm_mode_start" "asm_mode_start.el" (22013
-;;;;;;  5834 42994 200000))
+;;;### (autoloads nil "asm_mode_start" "asm_mode_start.el" (22026
+;;;;;;  35731 256049 994000))
 ;;; Generated autoloads from asm_mode_start.el
 
 (autoload 'asm-mode-mode-custom-predefine "asm_mode_start" "\
@@ -7513,7 +7302,7 @@ For `asm-mode' face.
 ;;;***
 
 ;;;### (autoloads nil "auto-async-byte-compile_plugin_start" "auto-async-byte-compile_plugin_start.el"
-;;;;;;  (22013 5834 75994 200000))
+;;;;;;  (22026 35731 256049 994000))
 ;;; Generated autoloads from auto-async-byte-compile_plugin_start.el
 
 (autoload 'auto-async-byte-compile-mode-custom-predefine "auto-async-byte-compile_plugin_start" "\
@@ -7529,7 +7318,7 @@ For `eval-after-load' auto-async-byte-compile function.
 ;;;***
 
 ;;;### (autoloads nil "auto-complete_plugin_start" "auto-complete_plugin_start.el"
-;;;;;;  (22013 5833 976994 200000))
+;;;;;;  (22026 35731 256049 994000))
 ;;; Generated autoloads from auto-complete_plugin_start.el
 
 (autoload 'auto-complete-mode-custom-predefine "auto-complete_plugin_start" "\
@@ -7580,7 +7369,7 @@ Reload auto-complete-mode.
 ;;;***
 
 ;;;### (autoloads nil "auto-highlight-symbol_plugin_start" "auto-highlight-symbol_plugin_start.el"
-;;;;;;  (22013 5834 62994 200000))
+;;;;;;  (22026 35731 256049 994000))
 ;;; Generated autoloads from auto-highlight-symbol_plugin_start.el
 
 (autoload 'auto-highlight-symbol-mode-custom-predefine "auto-highlight-symbol_plugin_start" "\
@@ -7611,7 +7400,7 @@ Global `auto-highlight-symbol' mode on.
 ;;;***
 
 ;;;### (autoloads nil "auto-install_plugin_start" "auto-install_plugin_start.el"
-;;;;;;  (22013 5834 45994 200000))
+;;;;;;  (22026 35731 256049 994000))
 ;;; Generated autoloads from auto-install_plugin_start.el
 
 (autoload 'auto-install-mode-custom-predefine "auto-install_plugin_start" "\
@@ -7660,7 +7449,7 @@ For `eval-after-load' anything-auto-install function.
 ;;;***
 
 ;;;### (autoloads nil "autoinsert_plugin_start" "autoinsert_plugin_start.el"
-;;;;;;  (22019 33509 472392 446000))
+;;;;;;  (22026 35731 257049 994000))
 ;;; Generated autoloads from autoinsert_plugin_start.el
 
 (autoload 'autoinsert-custom-predefine "autoinsert_plugin_start" "\
@@ -7739,8 +7528,8 @@ Optional argument KEYS .
 
 ;;;***
 
-;;;### (autoloads nil "c_mode_start" "c_mode_start.el" (22019 33532
-;;;;;;  352391 897000))
+;;;### (autoloads nil "c_mode_start" "c_mode_start.el" (22026 35731
+;;;;;;  257049 994000))
 ;;; Generated autoloads from c_mode_start.el
 
 (autoload 'cc-coding-style "c_mode_start" "\
@@ -7781,7 +7570,7 @@ For `c-mode-common-hook'.
 ;;;***
 
 ;;;### (autoloads nil "check_default_start" "check_default_start.el"
-;;;;;;  (22013 5833 988994 200000))
+;;;;;;  (22026 35731 257049 994000))
 ;;; Generated autoloads from check_default_start.el
 
 (autoload 'default-el-prompt "check_default_start" "\
@@ -7797,7 +7586,7 @@ update 09_check_default_start.el setting variables.
 ;;;***
 
 ;;;### (autoloads nil "col-highlight_plugin_start" "col-highlight_plugin_start.el"
-;;;;;;  (22013 5834 52994 200000))
+;;;;;;  (22026 35731 257049 994000))
 ;;; Generated autoloads from col-highlight_plugin_start.el
 
 (autoload 'col-highlight-mode-predefine "col-highlight_plugin_start" "\
@@ -7813,7 +7602,7 @@ For col-highlight face.
 ;;;***
 
 ;;;### (autoloads nil "crontab_mode_start" "crontab_mode_start.el"
-;;;;;;  (22013 5834 92994 200000))
+;;;;;;  (22026 35731 257049 994000))
 ;;; Generated autoloads from crontab_mode_start.el
 
 (add-to-list 'auto-mode-alist '("\\.cron\\(tab\\)?\\'" . crontab-mode))
@@ -7823,7 +7612,7 @@ For col-highlight face.
 ;;;***
 
 ;;;### (autoloads nil "customize_plugin_start" "customize_plugin_start.el"
-;;;;;;  (22013 5833 993994 200000))
+;;;;;;  (22026 35731 257049 994000))
 ;;; Generated autoloads from customize_plugin_start.el
 
 (autoload 'cus-edit-predefine "customize_plugin_start" "\
@@ -7838,8 +7627,8 @@ For cus-edit key bindings.
 
 ;;;***
 
-;;;### (autoloads nil "dired_mode_start" "dired_mode_start.el" (22013
-;;;;;;  25303 484085 0))
+;;;### (autoloads nil "dired_mode_start" "dired_mode_start.el" (22026
+;;;;;;  35731 257049 994000))
 ;;; Generated autoloads from dired_mode_start.el
 
 (autoload 'dired-mode-custom-predefine "dired_mode_start" "\
@@ -7938,7 +7727,7 @@ For wdired face.
 ;;;***
 
 ;;;### (autoloads nil "doctest-mode_plugin_start" "doctest-mode_plugin_start.el"
-;;;;;;  (22013 5833 964994 200000))
+;;;;;;  (22026 35731 257049 994000))
 ;;; Generated autoloads from doctest-mode_plugin_start.el
 
 (autoload 'doctest-mode-mode-predefine "doctest-mode_plugin_start" "\
@@ -7953,8 +7742,8 @@ For doctest-mode key bindings.
 
 ;;;***
 
-;;;### (autoloads nil "dsvn_mode_start" "dsvn_mode_start.el" (22013
-;;;;;;  5834 23994 200000))
+;;;### (autoloads nil "dsvn_mode_start" "dsvn_mode_start.el" (22026
+;;;;;;  35731 258049 994000))
 ;;; Generated autoloads from dsvn_mode_start.el
 
 (autoload 'dsvn-mode-custom-predefine "dsvn_mode_start" "\
@@ -7974,8 +7763,8 @@ For dsvn key bindings.
 
 ;;;***
 
-;;;### (autoloads nil "e2wm_mode_start" "e2wm_mode_start.el" (22015
-;;;;;;  19898 708234 800000))
+;;;### (autoloads nil "e2wm_mode_start" "e2wm_mode_start.el" (22026
+;;;;;;  35731 258049 994000))
 ;;; Generated autoloads from e2wm_mode_start.el
 
 (autoload 'e2wm-mode-custom-predefine "e2wm_mode_start" "\
@@ -8016,7 +7805,7 @@ Try window move up. If not exist window then split it vertically
 ;;;***
 
 ;;;### (autoloads nil "edit-list_plugin_start" "edit-list_plugin_start.el"
-;;;;;;  (22013 5834 21994 200000))
+;;;;;;  (22026 35731 258049 994000))
 ;;; Generated autoloads from edit-list_plugin_start.el
 
 (autoload 'edit-list-mode-custom-predefine "edit-list_plugin_start" "\
@@ -8037,7 +7826,7 @@ For edit-list key bindings.
 ;;;***
 
 ;;;### (autoloads nil "eldoc_plugin_start" "eldoc_plugin_start.el"
-;;;;;;  (22013 5834 8994 200000))
+;;;;;;  (22026 35731 258049 994000))
 ;;; Generated autoloads from eldoc_plugin_start.el
 
 (autoload 'eldoc-mode-custom-predefine "eldoc_plugin_start" "\
@@ -8062,8 +7851,8 @@ For eldoc face.
 
 ;;;***
 
-;;;### (autoloads nil "face_start" "face_start.el" (22013 5833 960994
-;;;;;;  200000))
+;;;### (autoloads nil "face_start" "face_start.el" (22026 35731 258049
+;;;;;;  994000))
 ;;; Generated autoloads from face_start.el
 
 (autoload 'default-frame-width "face_start" "\
@@ -8078,8 +7867,8 @@ Set width of selected frame.
 
 ;;;***
 
-;;;### (autoloads nil "filecache_start" "filecache_start.el" (22013
-;;;;;;  5834 100994 200000))
+;;;### (autoloads nil "filecache_start" "filecache_start.el" (22026
+;;;;;;  35731 258049 994000))
 ;;; Generated autoloads from filecache_start.el
 
 (autoload 'filecache-mode-custom-predefine "filecache_start" "\
@@ -8117,7 +7906,7 @@ The file cache can be saved to a file using `file-cache-save-cache-to-file'.
 ;;;***
 
 ;;;### (autoloads nil "flycheck_plugin_start" "flycheck_plugin_start.el"
-;;;;;;  (22013 5833 981994 200000))
+;;;;;;  (22026 35731 258049 994000))
 ;;; Generated autoloads from flycheck_plugin_start.el
 
 (autoload 'flycheck-mode-custom-predefine "flycheck_plugin_start" "\
@@ -8143,7 +7932,7 @@ For flycheck face.
 ;;;***
 
 ;;;### (autoloads nil "flymake_plugin_start" "flymake_plugin_start.el"
-;;;;;;  (22013 5834 10994 200000))
+;;;;;;  (22026 35731 259049 994000))
 ;;; Generated autoloads from flymake_plugin_start.el
 
 (autoload 'flymake-mode-custom-predefine "flymake_plugin_start" "\
@@ -8173,8 +7962,8 @@ For flymake face.
 
 ;;;***
 
-;;;### (autoloads nil "gdb_mode_start" "gdb_mode_start.el" (22013
-;;;;;;  5833 961994 200000))
+;;;### (autoloads nil "gdb_mode_start" "gdb_mode_start.el" (22026
+;;;;;;  35731 259049 994000))
 ;;; Generated autoloads from gdb_mode_start.el
 
 (autoload 'gud-mode-custom-predefine "gdb_mode_start" "\
@@ -8200,7 +7989,7 @@ GUD mode hook predefine.
 ;;;***
 
 ;;;### (autoloads nil "gnus-art_plugin_start" "gnus-art_plugin_start.el"
-;;;;;;  (22013 5834 70994 200000))
+;;;;;;  (22026 35731 259049 994000))
 ;;; Generated autoloads from gnus-art_plugin_start.el
 
 (autoload 'gnus-art-predefine "gnus-art_plugin_start" "\
@@ -8216,7 +8005,7 @@ For gnus-art key bindings.
 ;;;***
 
 ;;;### (autoloads nil "gnus-cite_plugin_start" "gnus-cite_plugin_start.el"
-;;;;;;  (22013 5833 984994 200000))
+;;;;;;  (22026 35731 260049 994000))
 ;;; Generated autoloads from gnus-cite_plugin_start.el
 
 (autoload 'gnus-cite-predefine "gnus-cite_plugin_start" "\
@@ -8232,7 +8021,7 @@ For `eval-after-load' gnus-cite function.
 ;;;***
 
 ;;;### (autoloads nil "gnus_plugin_start" "gnus_plugin_start.el"
-;;;;;;  (22013 5834 30994 200000))
+;;;;;;  (22026 35731 260049 994000))
 ;;; Generated autoloads from gnus_plugin_start.el
 
 (autoload 'gnus-predefine "gnus_plugin_start" "\
@@ -8248,7 +8037,7 @@ For gnus key bindings.
 ;;;***
 
 ;;;### (autoloads nil "grep_plugin_start" "grep_plugin_start.el"
-;;;;;;  (22013 5834 19994 200000))
+;;;;;;  (22026 35731 260049 994000))
 ;;; Generated autoloads from grep_plugin_start.el
 
 (autoload 'grep-mode-custom-predefine "grep_plugin_start" "\
@@ -8274,7 +8063,7 @@ For `eval-after-load' grep-edit function.
 ;;;***
 
 ;;;### (autoloads nil "helm_plugin_start" "helm_plugin_start.el"
-;;;;;;  (22013 5834 5994 200000))
+;;;;;;  (22026 35731 260049 994000))
 ;;; Generated autoloads from helm_plugin_start.el
 
 (autoload 'helm-mode-custom-predefine "helm_plugin_start" "\
@@ -8300,7 +8089,7 @@ For helm face.
 ;;;***
 
 ;;;### (autoloads nil "highlight-indentation_plugin_start" "highlight-indentation_plugin_start.el"
-;;;;;;  (22013 5834 51994 200000))
+;;;;;;  (22026 35731 260049 994000))
 ;;; Generated autoloads from highlight-indentation_plugin_start.el
 
 (autoload 'highlight-indentation-mode-predefine "highlight-indentation_plugin_start" "\
@@ -8315,8 +8104,8 @@ For highlight-indentation face.
 
 ;;;***
 
-;;;### (autoloads nil "image_mode_start" "image_mode_start.el" (22013
-;;;;;;  5834 57994 200000))
+;;;### (autoloads nil "image_mode_start" "image_mode_start.el" (22026
+;;;;;;  35731 260049 994000))
 ;;; Generated autoloads from image_mode_start.el
 
 (autoload 'image-mode-mode-custom-predefine "image_mode_start" "\
@@ -8342,7 +8131,7 @@ For `image-mode' face.
 ;;;***
 
 ;;;### (autoloads nil "irfc_plugin_start" "irfc_plugin_start.el"
-;;;;;;  (22013 5833 979994 200000))
+;;;;;;  (22026 35731 260049 994000))
 ;;; Generated autoloads from irfc_plugin_start.el
 
 (autoload 'irfc-mode-custom-predefine "irfc_plugin_start" "\
@@ -8363,7 +8152,7 @@ For irfc key bindings.
 ;;;***
 
 ;;;### (autoloads nil "ispell_plugin_start" "ispell_plugin_start.el"
-;;;;;;  (22013 5834 11994 200000))
+;;;;;;  (22026 35731 260049 994000))
 ;;; Generated autoloads from ispell_plugin_start.el
 
 (autoload 'ispell-mode-custom-predefine "ispell_plugin_start" "\
@@ -8384,7 +8173,7 @@ For Ispell key bindings.
 ;;;***
 
 ;;;### (autoloads nil "iswitchb_plugin_start" "iswitchb_plugin_start.el"
-;;;;;;  (22013 5834 47994 200000))
+;;;;;;  (22026 35731 261049 994000))
 ;;; Generated autoloads from iswitchb_plugin_start.el
 
 (autoload 'iswitchb-mode-custom-predefine "iswitchb_plugin_start" "\
@@ -8405,7 +8194,7 @@ For iswitchb key bindings.
 ;;;***
 
 ;;;### (autoloads nil "javascript_mode_start" "javascript_mode_start.el"
-;;;;;;  (22013 5834 38994 200000))
+;;;;;;  (22026 35731 261049 994000))
 ;;; Generated autoloads from javascript_mode_start.el
 
 (autoload 'javascript-mode-custom-predefine "javascript_mode_start" "\
@@ -8426,7 +8215,7 @@ For javascript key bindings.
 ;;;***
 
 ;;;### (autoloads nil "jedi_plugin_start" "jedi_plugin_start.el"
-;;;;;;  (22020 41762 321847 470000))
+;;;;;;  (22026 35731 261049 994000))
 ;;; Generated autoloads from jedi_plugin_start.el
 
 (autoload 'jedi-mode-custom-predefine "jedi_plugin_start" "\
@@ -8452,7 +8241,7 @@ For jedi face.
 ;;;***
 
 ;;;### (autoloads nil "linum_plugin_start" "linum_plugin_start.el"
-;;;;;;  (22013 5833 962994 200000))
+;;;;;;  (22026 35731 261049 994000))
 ;;; Generated autoloads from linum_plugin_start.el
 
 (autoload 'linum-mode-custom-predefine "linum_plugin_start" "\
@@ -8472,8 +8261,8 @@ For linum face.
 
 ;;;***
 
-;;;### (autoloads nil "ll-debug_start" "ll-debug_start.el" (22013
-;;;;;;  5834 91994 200000))
+;;;### (autoloads nil "ll-debug_start" "ll-debug_start.el" (22026
+;;;;;;  35731 261049 994000))
 ;;; Generated autoloads from ll-debug_start.el
 
 (autoload 'll-debug-predefine "ll-debug_start" "\
@@ -8484,7 +8273,7 @@ For `eval-after-load' ll-debug function.
 ;;;***
 
 ;;;### (autoloads nil "message_plugin_start" "message_plugin_start.el"
-;;;;;;  (22013 5834 99994 200000))
+;;;;;;  (22026 35731 261049 994000))
 ;;; Generated autoloads from message_plugin_start.el
 
 (autoload 'message-predefine "message_plugin_start" "\
@@ -8500,7 +8289,7 @@ For message faces.
 ;;;***
 
 ;;;### (autoloads nil "midnight_plugin_start" "midnight_plugin_start.el"
-;;;;;;  (22013 5834 110994 200000))
+;;;;;;  (22026 35731 261049 994000))
 ;;; Generated autoloads from midnight_plugin_start.el
 
 (autoload 'midnight-mode-custom-predefine "midnight_plugin_start" "\
@@ -8516,7 +8305,7 @@ For `eval-after-load' midnight function.
 ;;;***
 
 ;;;### (autoloads nil "moccur_plugin_start" "moccur_plugin_start.el"
-;;;;;;  (22013 5834 54994 200000))
+;;;;;;  (22026 35731 261049 994000))
 ;;; Generated autoloads from moccur_plugin_start.el
 
 (autoload 'color-moccur-mode-custom-predefine "moccur_plugin_start" "\
@@ -8552,7 +8341,7 @@ For moccur-edit key bindings.
 ;;;***
 
 ;;;### (autoloads nil "multi-term_plugin_start" "multi-term_plugin_start.el"
-;;;;;;  (22013 5833 985994 200000))
+;;;;;;  (22026 35731 264049 994000))
 ;;; Generated autoloads from multi-term_plugin_start.el
 
 (autoload 'multi-term-mode-custom-predefine "multi-term_plugin_start" "\
@@ -8573,7 +8362,7 @@ For multi-term key bindings.
 ;;;***
 
 ;;;### (autoloads nil "multiple-cursors_plugin_start" "multiple-cursors_plugin_start.el"
-;;;;;;  (22013 5834 103994 200000))
+;;;;;;  (22026 35731 264049 994000))
 ;;; Generated autoloads from multiple-cursors_plugin_start.el
 
 (autoload 'multiple-cursors-mode-predefine "multiple-cursors_plugin_start" "\
@@ -8589,7 +8378,7 @@ For multiple-cursors key bindings.
 ;;;***
 
 ;;;### (autoloads nil "nosetests_plugin_start" "nosetests_plugin_start.el"
-;;;;;;  (22013 5834 100994 200000))
+;;;;;;  (22026 35731 264049 994000))
 ;;; Generated autoloads from nosetests_plugin_start.el
 
 (autoload 'nosetests-mode-custom-predefine "nosetests_plugin_start" "\
@@ -8630,7 +8419,7 @@ ARGS
 ;;;***
 
 ;;;### (autoloads nil "open-junk-file_plugin_start" "open-junk-file_plugin_start.el"
-;;;;;;  (22013 5834 98994 200000))
+;;;;;;  (22026 35731 264049 994000))
 ;;; Generated autoloads from open-junk-file_plugin_start.el
 
 (autoload 'open-junk-file-mode-predefine "open-junk-file_plugin_start" "\
@@ -8645,8 +8434,8 @@ For `eval-after-load' open-junk-file function.
 
 ;;;***
 
-;;;### (autoloads nil "org_mode_start" "org_mode_start.el" (22013
-;;;;;;  5833 975994 200000))
+;;;### (autoloads nil "org_mode_start" "org_mode_start.el" (22026
+;;;;;;  35731 264049 994000))
 ;;; Generated autoloads from org_mode_start.el
 
 (autoload 'org-mode-custom-predefine "org_mode_start" "\
@@ -8692,7 +8481,7 @@ For org-remember face.
 ;;;***
 
 ;;;### (autoloads nil "popup_plugin_start" "popup_plugin_start.el"
-;;;;;;  (22013 5834 86994 200000))
+;;;;;;  (22026 35731 264049 994000))
 ;;; Generated autoloads from popup_plugin_start.el
 
 (autoload 'popup-mode-predefine "popup_plugin_start" "\
@@ -8708,7 +8497,7 @@ For popup key bindings.
 ;;;***
 
 ;;;### (autoloads nil "purge-package_plugin_start" "purge-package_plugin_start.el"
-;;;;;;  (22013 5834 44994 200000))
+;;;;;;  (22026 35731 265049 994000))
 ;;; Generated autoloads from purge-package_plugin_start.el
 
 (autoload 'purge-package-mode-custom-predefine "purge-package_plugin_start" "\
@@ -8724,7 +8513,7 @@ For `eval-after-load' purge-package function.
 ;;;***
 
 ;;;### (autoloads nil "pylookup_plugin_start" "pylookup_plugin_start.el"
-;;;;;;  (22013 5833 978994 200000))
+;;;;;;  (22026 35731 265049 994000))
 ;;; Generated autoloads from pylookup_plugin_start.el
 
 (autoload 'pylookup-mode-predefine "pylookup_plugin_start" "\
@@ -8735,7 +8524,7 @@ For `eval-after-load' pylookup function.
 ;;;***
 
 ;;;### (autoloads nil "python-pep8_start" "python-pep8_start.el"
-;;;;;;  (22013 5834 90994 200000))
+;;;;;;  (22026 35731 265049 994000))
 ;;; Generated autoloads from python-pep8_start.el
 
 (autoload 'python-pep8-mode-custom-predefine "python-pep8_start" "\
@@ -8751,7 +8540,7 @@ For `eval-after-load' python-pep8 function.
 ;;;***
 
 ;;;### (autoloads nil "python_mode_start" "python_mode_start.el"
-;;;;;;  (22020 41487 438854 62000))
+;;;;;;  (22026 35731 265049 994000))
 ;;; Generated autoloads from python_mode_start.el
 
 (autoload 'python-mode-custom-predefine "python_mode_start" "\
@@ -8824,7 +8613,7 @@ Inferior python mode hook predefine.
 ;;;***
 
 ;;;### (autoloads nil "python_pylint_plugin_start" "python_pylint_plugin_start.el"
-;;;;;;  (22013 5834 96994 200000))
+;;;;;;  (22026 35731 265049 994000))
 ;;; Generated autoloads from python_pylint_plugin_start.el
 
 (autoload 'python-pylint-mode-custom-predefine "python_pylint_plugin_start" "\
@@ -8840,7 +8629,7 @@ For `eval-after-load' python-pylint function.
 ;;;***
 
 ;;;### (autoloads nil "recentf_plugin_start" "recentf_plugin_start.el"
-;;;;;;  (22013 5834 7994 200000))
+;;;;;;  (22026 35731 266049 994000))
 ;;; Generated autoloads from recentf_plugin_start.el
 
 (autoload 'recentf-mode-custom-predefine "recentf_plugin_start" "\
@@ -8856,7 +8645,7 @@ For `eval-after-load' recentf function.
 ;;;***
 
 ;;;### (autoloads nil "rotate-text_plugin_start" "rotate-text_plugin_start.el"
-;;;;;;  (22013 5834 50994 200000))
+;;;;;;  (22026 35731 266049 994000))
 ;;; Generated autoloads from rotate-text_plugin_start.el
 
 (autoload 'rotate-text-mode-predefine "rotate-text_plugin_start" "\
@@ -8867,7 +8656,7 @@ For `eval-after-load' rotate-text function.
 ;;;***
 
 ;;;### (autoloads nil "sdic_plugin_start" "sdic_plugin_start.el"
-;;;;;;  (22013 5834 78994 200000))
+;;;;;;  (22026 35731 266049 994000))
 ;;; Generated autoloads from sdic_plugin_start.el
 
 (autoload 'sdic-mode-custom-predefine "sdic_plugin_start" "\
@@ -8895,7 +8684,7 @@ Display the meaning of word.
 ;;;***
 
 ;;;### (autoloads nil "shell_script_mode_start" "shell_script_mode_start.el"
-;;;;;;  (22013 5833 992994 200000))
+;;;;;;  (22026 35731 266049 994000))
 ;;; Generated autoloads from shell_script_mode_start.el
 
 (autoload 'sh-script-mode-custom-predefine "shell_script_mode_start" "\
@@ -8926,7 +8715,7 @@ Shell mode hook.
 ;;;***
 
 ;;;### (autoloads nil "smart-operator_plugin_start" "smart-operator_plugin_start.el"
-;;;;;;  (22013 5834 94994 200000))
+;;;;;;  (22026 35731 266049 994000))
 ;;; Generated autoloads from smart-operator_plugin_start.el
 
 (autoload 'smart-operator-mode-predefine "smart-operator_plugin_start" "\
@@ -8942,7 +8731,7 @@ For smart-operator key bindings.
 ;;;***
 
 ;;;### (autoloads nil "tabbar_plugin_start" "tabbar_plugin_start.el"
-;;;;;;  (22013 5834 68994 200000))
+;;;;;;  (22026 35731 267049 993000))
 ;;; Generated autoloads from tabbar_plugin_start.el
 
 (autoload 'tabbar-mode-custom-predefine "tabbar_plugin_start" "\
@@ -8968,7 +8757,7 @@ For tabbar face.
 ;;;***
 
 ;;;### (autoloads nil "tempbuf_plugin_start" "tempbuf_plugin_start.el"
-;;;;;;  (22013 5833 972994 200000))
+;;;;;;  (22026 35731 267049 993000))
 ;;; Generated autoloads from tempbuf_plugin_start.el
 
 (autoload 'tempbuf-mode-predefine "tempbuf_plugin_start" "\
@@ -8978,8 +8767,8 @@ For `eval-after-load' tempbuf function.
 
 ;;;***
 
-;;;### (autoloads nil "term_mode_start" "term_mode_start.el" (22013
-;;;;;;  5833 968994 200000))
+;;;### (autoloads nil "term_mode_start" "term_mode_start.el" (22026
+;;;;;;  35731 267049 993000))
 ;;; Generated autoloads from term_mode_start.el
 
 (defvar launch-term (cond ((windows-p) 'shell) (t 'multi-term)))
@@ -9007,7 +8796,7 @@ For term face.
 ;;;***
 
 ;;;### (autoloads nil "text-adjust_plugin_start" "text-adjust_plugin_start.el"
-;;;;;;  (22013 5834 76994 200000))
+;;;;;;  (22026 35731 269049 993000))
 ;;; Generated autoloads from text-adjust_plugin_start.el
 
 (autoload 'text-adjust-mode-custom-predefine "text-adjust_plugin_start" "\
@@ -9033,7 +8822,7 @@ For text-adjust key bindings.
 ;;;***
 
 ;;;### (autoloads nil "text-translator_plugin_start" "text-translator_plugin_start.el"
-;;;;;;  (22013 5834 45994 200000))
+;;;;;;  (22026 35731 270049 993000))
 ;;; Generated autoloads from text-translator_plugin_start.el
 
 (autoload 'text-translator-mode-custom-predefine "text-translator_plugin_start" "\
@@ -9048,8 +8837,8 @@ For `eval-after-load' text-translator function.
 
 ;;;***
 
-;;;### (autoloads nil "text_mode_start" "text_mode_start.el" (22013
-;;;;;;  5834 58994 200000))
+;;;### (autoloads nil "text_mode_start" "text_mode_start.el" (22026
+;;;;;;  35731 270049 993000))
 ;;; Generated autoloads from text_mode_start.el
 
 (autoload 'text-mode-hook-predefine "text_mode_start" "\
@@ -9060,7 +8849,7 @@ For `eval-after-load' text-translator function.
 ;;;***
 
 ;;;### (autoloads nil "thumbs_plugin_start" "thumbs_plugin_start.el"
-;;;;;;  (22013 5834 26994 200000))
+;;;;;;  (22026 35731 270049 993000))
 ;;; Generated autoloads from thumbs_plugin_start.el
 
 (autoload 'thumbs-mode-predefine "thumbs_plugin_start" "\
@@ -9071,7 +8860,7 @@ For `eval-after-load' thumbs function.
 ;;;***
 
 ;;;### (autoloads nil "tramp_plugin_start" "tramp_plugin_start.el"
-;;;;;;  (22013 5833 978994 200000))
+;;;;;;  (22026 35731 270049 993000))
 ;;; Generated autoloads from tramp_plugin_start.el
 
 (autoload 'tramp-mode-custom-predefine "tramp_plugin_start" "\
@@ -9087,7 +8876,7 @@ For `eval-after-load' tramp function.
 ;;;***
 
 ;;;### (autoloads nil "usage-memo_plugin_start" "usage-memo_plugin_start.el"
-;;;;;;  (22013 5834 109994 200000))
+;;;;;;  (22026 35731 270049 993000))
 ;;; Generated autoloads from usage-memo_plugin_start.el
 
 (autoload 'usage-memo-mode-custom-predefine "usage-memo_plugin_start" "\
@@ -9107,8 +8896,8 @@ For usage-memo key bindings.
 
 ;;;***
 
-;;;### (autoloads nil "view_mode_start" "view_mode_start.el" (22013
-;;;;;;  5834 40994 200000))
+;;;### (autoloads nil "view_mode_start" "view_mode_start.el" (22026
+;;;;;;  35731 270049 993000))
 ;;; Generated autoloads from view_mode_start.el
 
 (autoload 'view-mode-custom-predefine "view_mode_start" "\
@@ -9152,8 +8941,8 @@ For viewer face.
 
 ;;;***
 
-;;;### (autoloads nil "w3m_mode_start" "w3m_mode_start.el" (22013
-;;;;;;  5834 18994 200000))
+;;;### (autoloads nil "w3m_mode_start" "w3m_mode_start.el" (22026
+;;;;;;  35731 270049 993000))
 ;;; Generated autoloads from w3m_mode_start.el
 
 (autoload 'w3m-mode-hook-predefine "w3m_mode_start" "\
@@ -9194,7 +8983,7 @@ For w3m face.
 ;;;***
 
 ;;;### (autoloads nil "wid-edit_plugin_start" "wid-edit_plugin_start.el"
-;;;;;;  (22013 5834 88994 200000))
+;;;;;;  (22026 35731 270049 993000))
 ;;; Generated autoloads from wid-edit_plugin_start.el
 
 (autoload 'wid-edit-predefine "wid-edit_plugin_start" "\
@@ -9209,8 +8998,8 @@ For wid-edit key bindings.
 
 ;;;***
 
-;;;### (autoloads nil "woman_mode_start" "woman_mode_start.el" (22013
-;;;;;;  5834 112994 200000))
+;;;### (autoloads nil "woman_mode_start" "woman_mode_start.el" (22026
+;;;;;;  35731 270049 993000))
 ;;; Generated autoloads from woman_mode_start.el
 
 (autoload 'woman-mode-custom-predefine "woman_mode_start" "\
@@ -9231,7 +9020,7 @@ For woman key bindings.
 ;;;***
 
 ;;;### (autoloads nil "xmodmap_mode_start" "xmodmap_mode_start.el"
-;;;;;;  (22013 5834 84994 200000))
+;;;;;;  (22026 35731 271049 993000))
 ;;; Generated autoloads from xmodmap_mode_start.el
 
 (autoload 'xmodmap-mode "xmodmap-mode" "\
@@ -9242,7 +9031,7 @@ For woman key bindings.
 ;;;***
 
 ;;;### (autoloads nil "yama-find-binary_start" "yama-find-binary_start.el"
-;;;;;;  (22013 5834 28994 200000))
+;;;;;;  (22026 35731 271049 993000))
 ;;; Generated autoloads from yama-find-binary_start.el
 
 (defvar YAMA-file-not-binary-extensions '("el" "ahk") "\
@@ -9264,7 +9053,7 @@ Return t if FILE contains binary data.  If optional FULL is non-nil,
 ;;;***
 
 ;;;### (autoloads nil "yasnippet_plugin_start" "yasnippet_plugin_start.el"
-;;;;;;  (22020 31645 481090 86000))
+;;;;;;  (22026 35731 271049 993000))
 ;;; Generated autoloads from yasnippet_plugin_start.el
 
 (autoload 'yasnippet-mode-custom-predefine "yasnippet_plugin_start" "\
@@ -9320,54 +9109,7 @@ Predefine for Snippet Major Mode.
 ;;;;;;  "../plugin/cython-mode.el" "../plugin/descbinds-anything.el"
 ;;;;;;  "../plugin/doc-view-extension.el" "../plugin/duplicate-line.el"
 ;;;;;;  "../plugin/edit-list.el" "../plugin/edit-server.el" "../plugin/editable-help.el"
-;;;;;;  "../plugin/ee-0.1.0/ee-autoloads.el" "../plugin/el-get/el-get-autoloading.el"
-;;;;;;  "../plugin/el-get/el-get-build.el" "../plugin/el-get/el-get-byte-compile.el"
-;;;;;;  "../plugin/el-get/el-get-core.el" "../plugin/el-get/el-get-custom.el"
-;;;;;;  "../plugin/el-get/el-get-dependencies.el" "../plugin/el-get/el-get-install.el"
-;;;;;;  "../plugin/el-get/el-get-methods.el" "../plugin/el-get/el-get-notify.el"
-;;;;;;  "../plugin/el-get/el-get-recipes.el" "../plugin/el-get/el-get-status.el"
-;;;;;;  "../plugin/el-get/methods/el-get-apt-get.el" "../plugin/el-get/methods/el-get-brew.el"
-;;;;;;  "../plugin/el-get/methods/el-get-builtin.el" "../plugin/el-get/methods/el-get-bzr.el"
-;;;;;;  "../plugin/el-get/methods/el-get-cvs.el" "../plugin/el-get/methods/el-get-darcs.el"
-;;;;;;  "../plugin/el-get/methods/el-get-emacsmirror.el" "../plugin/el-get/methods/el-get-fink.el"
-;;;;;;  "../plugin/el-get/methods/el-get-fossil.el" "../plugin/el-get/methods/el-get-git-svn.el"
-;;;;;;  "../plugin/el-get/methods/el-get-git.el" "../plugin/el-get/methods/el-get-github-tar.el"
-;;;;;;  "../plugin/el-get/methods/el-get-github-zip.el" "../plugin/el-get/methods/el-get-github.el"
-;;;;;;  "../plugin/el-get/methods/el-get-go.el" "../plugin/el-get/methods/el-get-hg.el"
-;;;;;;  "../plugin/el-get/methods/el-get-http-tar.el" "../plugin/el-get/methods/el-get-http-zip.el"
-;;;;;;  "../plugin/el-get/methods/el-get-http.el" "../plugin/el-get/methods/el-get-pacman.el"
-;;;;;;  "../plugin/el-get/methods/el-get-svn.el" "../plugin/el-get/recipes/ac-ghc-mod.el"
-;;;;;;  "../plugin/el-get/test/caching-speedtest.el" "../plugin/el-get/test/check-recipe.el"
-;;;;;;  "../plugin/el-get/test/el-get-issue-1006.el" "../plugin/el-get/test/el-get-issue-1028.el"
-;;;;;;  "../plugin/el-get/test/el-get-issue-1189.el" "../plugin/el-get/test/el-get-issue-1348.el"
-;;;;;;  "../plugin/el-get/test/el-get-issue-1389.el" "../plugin/el-get/test/el-get-issue-1454.el"
-;;;;;;  "../plugin/el-get/test/el-get-issue-1472.el" "../plugin/el-get/test/el-get-issue-1562.el"
-;;;;;;  "../plugin/el-get/test/el-get-issue-1615.el" "../plugin/el-get/test/el-get-issue-1752.el"
-;;;;;;  "../plugin/el-get/test/el-get-issue-176.el" "../plugin/el-get/test/el-get-issue-1920.el"
-;;;;;;  "../plugin/el-get/test/el-get-issue-1939.el" "../plugin/el-get/test/el-get-issue-200.el"
-;;;;;;  "../plugin/el-get/test/el-get-issue-284.el" "../plugin/el-get/test/el-get-issue-289.el"
-;;;;;;  "../plugin/el-get/test/el-get-issue-303.el" "../plugin/el-get/test/el-get-issue-310.el"
-;;;;;;  "../plugin/el-get/test/el-get-issue-400.el" "../plugin/el-get/test/el-get-issue-407.el"
-;;;;;;  "../plugin/el-get/test/el-get-issue-418.el" "../plugin/el-get/test/el-get-issue-432.el"
-;;;;;;  "../plugin/el-get/test/el-get-issue-446.el" "../plugin/el-get/test/el-get-issue-513.el"
-;;;;;;  "../plugin/el-get/test/el-get-issue-535.el" "../plugin/el-get/test/el-get-issue-541.el"
-;;;;;;  "../plugin/el-get/test/el-get-issue-548.el" "../plugin/el-get/test/el-get-issue-559.el"
-;;;;;;  "../plugin/el-get/test/el-get-issue-579.el" "../plugin/el-get/test/el-get-issue-581.el"
-;;;;;;  "../plugin/el-get/test/el-get-issue-583.el" "../plugin/el-get/test/el-get-issue-586.el"
-;;;;;;  "../plugin/el-get/test/el-get-issue-589.el" "../plugin/el-get/test/el-get-issue-592.el"
-;;;;;;  "../plugin/el-get/test/el-get-issue-594.el" "../plugin/el-get/test/el-get-issue-596.el"
-;;;;;;  "../plugin/el-get/test/el-get-issue-613.el" "../plugin/el-get/test/el-get-issue-615.el"
-;;;;;;  "../plugin/el-get/test/el-get-issue-619.el" "../plugin/el-get/test/el-get-issue-628.el"
-;;;;;;  "../plugin/el-get/test/el-get-issue-632.el" "../plugin/el-get/test/el-get-issue-640.el"
-;;;;;;  "../plugin/el-get/test/el-get-issue-642.el" "../plugin/el-get/test/el-get-issue-650.el"
-;;;;;;  "../plugin/el-get/test/el-get-issue-652.el" "../plugin/el-get/test/el-get-issue-656.el"
-;;;;;;  "../plugin/el-get/test/el-get-issue-659.el" "../plugin/el-get/test/el-get-issue-672.el"
-;;;;;;  "../plugin/el-get/test/el-get-issue-683.el" "../plugin/el-get/test/el-get-issue-730.el"
-;;;;;;  "../plugin/el-get/test/el-get-issue-772.el" "../plugin/el-get/test/el-get-issue-809.el"
-;;;;;;  "../plugin/el-get/test/el-get-issue-810.el" "../plugin/el-get/test/el-get-issue-835.el"
-;;;;;;  "../plugin/el-get/test/el-get-issue-new-2.el" "../plugin/el-get/test/el-get-issue-new.el"
-;;;;;;  "../plugin/el-get/test/issue-741-elpa-install-error.el" "../plugin/el-get/test/test-setup.el"
-;;;;;;  "../plugin/el-get/test/test.el" "../plugin/eldoc-extension.el"
+;;;;;;  "../plugin/ee-0.1.0/ee-autoloads.el" "../plugin/eldoc-extension.el"
 ;;;;;;  "../plugin/expand-region/cc-mode-expansions.el" "../plugin/expand-region/clojure-mode-expansions.el"
 ;;;;;;  "../plugin/expand-region/css-mode-expansions.el" "../plugin/expand-region/erlang-mode-expansions.el"
 ;;;;;;  "../plugin/expand-region/expand-region-core.el" "../plugin/expand-region/expand-region-pkg.el"
@@ -9444,7 +9186,7 @@ Predefine for Snippet Major Mode.
 ;;;;;;  "Windows_start.el" "_60_c-includes_plugin_start.el" "_60_gccsense_plugin_start.el"
 ;;;;;;  "_61_tempbuf_plugin_start.el" "_70_cvs_mode_start.el" "anything-complete_plugin_start.el"
 ;;;;;;  "header2_plugin_start.el" "subroutines_start.el" "test_start.el")
-;;;;;;  (22021 33614 150172 353000))
+;;;;;;  (22026 36284 873193 365000))
 
 ;;;***
 

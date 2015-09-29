@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.1
 ;; Created:      Thu Dec 13 00:18:38 2012 (+0900)
-;; Last-Updated: 2015/09/19 22:08:51 (+0900)
+;; Last-Updated: 2015/09/29 22:17:06 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -49,10 +49,10 @@
 
 (eval-when-compile
   (require 't1macro "t1macro")
-  (require 'el-get-bundle "el-get-bundle")
+  ;; (require 'el-get-bundle "el-get-bundle")
   )
 
-(el-get-bundle multiple-cursors)
+;; (el-get-bundle multiple-cursors)
 
 (defvar multiple-cursors-eval-after-load-hook nil
   "Hook for multiple-cursors `eval-after-load'.")

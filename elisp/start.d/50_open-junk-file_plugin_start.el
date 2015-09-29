@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:26:50 2012 (+0900)
-;; Last-Updated: 2015/09/20 02:01:35 (+0900)
+;; Last-Updated: 2015/09/29 22:17:22 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -44,10 +44,11 @@
 
 (eval-when-compile
   (require 't1macro "t1macro")
-  (require 'el-get-bundle "el-get-bundle"))
+  ;; (require 'el-get-bundle "el-get-bundle")
+  )
 
 
-(el-get-bundle open-junk-file)
+;; (el-get-bundle open-junk-file)
 
 
 (autoload 'open-junk-file "open-junk-file" nil t)

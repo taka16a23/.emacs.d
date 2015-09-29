@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:25:42 2012 (+0900)
-;; Last-Updated: 2015/09/20 00:28:54 (+0900)
+;; Last-Updated: 2015/09/29 22:16:26 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -47,10 +47,11 @@
 
 (eval-when-compile
   (require 't1macro "t1macro")
-  (require 'el-get-bundle "el-get-bundle"))
+  ;; (require 'el-get-bundle "el-get-bundle")
+  )
 
 
-(el-get-bundle multi-term)
+;; (el-get-bundle multi-term)
 
 (defvar multi-term-eval-after-load-hook nil
   "Hook for multi-term `eval-after-load'.")
