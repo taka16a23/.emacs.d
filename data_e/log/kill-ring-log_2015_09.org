@@ -29009,3 +29009,51 @@ if __name__ == '__main__':
 # coding: utf-8
 # End:
 # vlc_converters.py ends here
+
+* Tue 29 Sep 2015 10:10:51 PM JST
+el-get-bundle
+* Tue 29 Sep 2015 10:10:54 PM JST
+el-get-bundle
+* Tue 29 Sep 2015 10:12:06 PM JST
+(load)
+* Tue 29 Sep 2015 10:37:14 PM JST
+(count (lambda (name) (string= name "emacs"))
+          (mapcar (lambda (pid) (cdr (assoc 'comm (process-attributes pid))))
+                  (list-system-processes)))
+* Tue 29 Sep 2015 10:38:25 PM JST
+(mapcar (lambda (pid) (cdr (assoc 'comm (process-attributes pid))))
+               (list-system-processes))
+* Tue 29 Sep 2015 10:38:58 PM JST
+count
+* Tue 29 Sep 2015 10:40:34 PM JST
+member
+* Tue 29 Sep 2015 10:44:52 PM JST
+(count (lambda (name) (string= name "emacs"))
+          (mapcar (lambda (pid) (cdr (assoc 'comm (process-attributes pid))))
+                  (list-system-processes)))
+* Tue 29 Sep 2015 10:44:58 PM JST
+(mapcar (lambda (pid) (cdr (assoc 'comm (process-attributes pid))))
+               (list-system-processes))
+* Tue 29 Sep 2015 10:46:13 PM JST
+(mapcar (lambda (pid) (cdr (assoc 'comm (process-attributes pid))))
+          (list-system-processes))
+* Tue 29 Sep 2015 10:46:50 PM JST
+(incf count)
+* Tue 29 Sep 2015 10:47:01 PM JST
+count
+* Tue 29 Sep 2015 10:47:08 PM JST
+    
+* Tue 29 Sep 2015 10:47:09 PM JST
+  
+* Tue 29 Sep 2015 10:47:12 PM JST
+(let ((count 0))
+  (dolist (psname (mapcar (lambda (pid) (cdr (assoc 'comm (process-attributes pid))))
+                          (list-system-processes)))
+    (when (string= psname "emacs")
+      (incf count))))
+* Tue 29 Sep 2015 10:48:28 PM JST
+  
+* Tue 29 Sep 2015 10:48:30 PM JST
+count
+* Tue 29 Sep 2015 10:48:31 PM JST
+  count

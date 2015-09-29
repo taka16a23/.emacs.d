@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/11/02 16:13:20 (+0900)
-;; Last-Updated: 2015/09/19 22:14:58 (+0900)
+;; Last-Updated: 2015/09/29 22:18:26 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -43,7 +43,7 @@
 
 
 (eval-when-compile
-  (require 'el-get-bundle "el-get-bundle")
+  ;; (require 'el-get-bundle "el-get-bundle")
   (require 't1macro "t1macro"))
 
 (defvar dired-eval-after-load-hook nil
@@ -56,7 +56,7 @@
 
 
 
-(el-get-bundle dired+)
+;; (el-get-bundle dired+)
 (defvar dired+-eval-after-load-hook nil
   "Hook for dired+ `eval-after-load'.")
 (add-hook 'dired+-eval-after-load-hook 'dired+-mode-custom-predefine)

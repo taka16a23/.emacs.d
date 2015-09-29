@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Wed Dec 12 19:10:24 2012 (+0900)
-;; Last-Updated: 2015/09/20 04:17:34 (+0900)
+;; Last-Updated: 2015/09/29 22:21:16 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -44,9 +44,10 @@
 
 (eval-when-compile
   (require 't1macro "t1macro")
-  (require 'el-get-bundle "el-get-bundle"))
+  ;; (require 'el-get-bundle "el-get-bundle")
+  )
 
-(el-get-bundle multi-term)
+;; (el-get-bundle multi-term)
 
 (autoload 'text-translator                             "text-translator" nil t)
 (autoload 'text-translator-all                         "text-translator" nil t)

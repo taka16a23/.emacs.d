@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Mon Dec 10 22:33:33 2012 (+0900)
-;; Last-Updated: 2015/09/25 10:23:27 (+0900)
+;; Last-Updated: 2015/09/29 22:33:44 (+0900)
 ;; Last-Updated: 2013/11/03 16:25:37 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -176,6 +176,7 @@
   (add-hook 'inferior-python-mode-hook 'inferior-python-mode-hook-predefine)
   (add-hook 'py-shell-hook 'py-shell-hook-predefine)
   ;; (remove-hook 'py-shell-hook 'py-shell-hook-predefine)
+  (require 'auto-complete-yasnippet "auto-complete-yasnippet" 'noerr)
   (add-to-list 'ac-sources ac-source-yasnippet 'append)
   )
 

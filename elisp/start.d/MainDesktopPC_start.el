@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2015/09/15 05:18:58 (+0900)
-;; Last-Updated: 2015/09/17 10:28:55 (+0900)
+;; Last-Updated: 2015/09/29 22:48:37 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -74,9 +74,15 @@
 
 (defun running-emacs-count () ;[2015/09/17]
   ""
-  (-count (lambda (name) (string= name "emacs"))
-          (mapcar (lambda (pid) (cdr (assoc 'comm (process-attributes pid))))
-                  (list-system-processes))))
+  ;; (count (lambda (name) (string= name "emacs"))
+  ;;         (mapcar (lambda (pid) (cdr (assoc 'comm (process-attributes pid))))
+  ;;                 (list-system-processes)))
+  (let ((count 0))
+    (dolist (psname (mapcar (lambda (pid) (cdr (assoc 'comm (process-attributes pid))))
+                            (list-system-processes)))
+      (when (string= psname "emacs")
+        (incf count)))
+    count))
 
 
 ;; move to main monitor if not in.

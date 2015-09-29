@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:29:12 2012 (+0900)
-;; Last-Updated: 2015/09/20 00:27:54 (+0900)
+;; Last-Updated: 2015/09/29 22:18:53 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -54,9 +54,10 @@
 
 (eval-when-compile
   (require 't1macro "t1macro")
-  (require 'el-get-bundle "el-get-bundle"))
+  ;; (require 'el-get-bundle "el-get-bundle")
+  )
 
-(el-get-bundle emacs-w3m)
+;; (el-get-bundle emacs-w3m)
 
 (autoload 'w3m "w3m" "launch w3m browser" t)
 (autoload 'w3m-search "w3m-search" "Search QUERY using SEARCH-ENGIN." t)
