@@ -1,0 +1,1 @@
+document.writeln('<ul> <li> <a href="#SEC658">A. Emacs 20 Antinews <EM>(2003/10/30)</EM></a><ul><li> <a href="#SEC659">A.1 Old Lisp Features in Emacs 20 <EM>(2003/10/30)</EM></a><li> <a href="#SEC660">A.2 Old Lisp Features in Emacs 20.3 <EM>(2003/10/30)</EM></a></ul></ul>');

@@ -1,0 +1,188 @@
+
+* (interactive "a") Function name: symbol with a function definition.
+(defun test_a (function) ;[2013/11/25]
+  "FUNCTION"
+  (interactive "aInput Function name: ")
+  (funcall function))
+* (interactive "b") Name of existing buffer.
+(defun test_b (buffer-name) ;[2013/11/25]
+  "BUFFER-NAME"
+  (interactive "b")
+  (switch-to-buffer buffer-name))
+
+* (interactive "B") Name of buffer, possibly nonexistent.
+(defun test_B (buffer-name) ;[2013/11/25]
+  "BUFFER-NAME"
+  (interactive "B")
+  (switch-to-buffer buffer-name))
+* (interactive "c") Character (no input method is used).
+(defun test_c (char) ;[2013/11/25]
+  "CHAR"
+  (interactive "c")
+  (message (char-to-string char)))
+
+* (interactive "C") Command name: symbol with interactive function definition.
+(defun test_C (command) ;[2013/11/25]
+  "COMMAND"
+  (interactive "Cinput interactive command: ")
+  (call-interactively command))
+* (interactive "d") Value of point as number.  Does not do I/O.
+(defun test_d (point) ;[2013/11/25]
+  "POINT"
+  (interactive "d")
+  (insert (number-to-string point)))
+* (interactive "D") Directory name.
+(defun test_D (directory_name) ;[2013/11/25]
+  "DIRECTORY_NAME"
+  (interactive "D")
+  (insert directory_name))
+* (interactive "e") Parameterized event
+(defun test_e (event) ;[2013/11/25]
+  "EVENT"
+  (interactive "e")
+  (insert (format "%s" event)))
+(local-set-key (kbd "<down-mouse-1>") 'test_e)
+
+* (interactive "f") Existing file name.
+(defun test_f (file_name) ;[2013/11/25]
+  "FILE_NAME"
+  (interactive "f")
+  (insert file_name))
+
+* (interactive "F") Possibly nonexistent file name.
+(defun test_F (file_name) ;[2013/11/25]
+  "FILE_NAME"
+  (interactive "F")
+  (insert file_name))
+* (interactive "G") Possibly nonexistent file name, defaulting to just directory name.
+(defun test_G (file_name) ;[2013/11/25]
+  "FILE_NAME"
+  (interactive "G")
+  (insert file_name))
+* (interactive "i") Ignored, i.e. always nil.  Does not do I/O.
+(defun test_i (ignore) ;[2013/11/25]
+  "IGNORE"
+  (interactive "i")
+  (unless ignore
+    (message "%S" ignore)))
+* (interactive "k") Key sequence (downcase the last event if needed to get a definition).
+(defun test_k (key_sequence) ;[2013/11/25]
+  (interactive "k")
+  (insert key_sequence))
+* (interactive "K") Key sequence to be redefined (do not downcase the last event).
+(defun test_K (key_sequance) ;[2013/11/25]
+  (interactive "K")
+  (insert key_sequance))
+* (interactive "m") Value of mark as number.  Does not do I/O.
+(defun test_m (last-mark) ;[2013/11/25]
+  (interactive "m")
+  (insert (number-to-string last-mark)))
+* (interactive "M") Any string.  Inherits the current input method.
+(defun test_M (string) ;[2013/11/25]
+  "STRING"
+  (interactive "Minput string: ")
+  (insert string))
+* (interactive "n") Number read using minibuffer.
+"n" ミニバッファ起動しての数値入力
+(defun foo (n)
+    (interactive "nCount: ") ; ミニバッファで読む
+    (insert   (number-to-string n)))
+
+M-x foo
+Count: 
+=> 1
+
+* (interactive "N") Numeric prefix arg, or if none, do like code `n'.
+(defun test_N (number) ;[2013/11/25]
+  "NUMBER"
+  (interactive "N")
+  (insert (number-to-string number)))
+
+* (interactive "p") Prefix arg converted to number.  Does not do I/O.
+;; p -- Prefix arg converted to number.  Does not do I/O.
+;; 小文字pは、前置引数(C-u)を省略した場合は、「1」で受けとる。
+;; 小文字pは、前置引数の「数」を省略した場合は、「4」で受けとる。
+;; 小文字pは、前置引数は、「数」で受けとる。
+(defun testint-p (arg) (interactive "p") (message "%S" arg))
+
+"p" 数値前置引数
+(defun foo (n)  
+    (interactive "p") 
+    (insert  (number-to-string n)))
+
+M-x foo
+=> 1
+
+C-u M-x foo
+=>4
+
+* (interactive "P") Prefix arg in raw form.  Does not do I/O.
+;; P -- Prefix arg in raw form.  Does not do I/O.
+;; 大文字Pは、前置引数(C-u)を省略した場合は、「nil」で受けとる。
+;; 大文字Pは、前置引数の「数」を省略した場合は、リスト「'(4)」で受けとる。
+;; 大文字Pは、前置引数の「数」を省略しなかった場合は、「数」で受けとる。
+
+(defun test_P (raw) ;[2013/11/25]
+  "RAW"
+  (interactive "P")
+  (message "%S" raw))
+
+* (interactive "r") input region
+Region: point and mark as 2 numeric args, smallest first.  Does no I/O.
+(defun foo (beginning end)
+  (interactive "r")
+  (insert (number-to-string beginning) " " (number-to-string end)))
+
+mark-region M-x foo
+=> 1 10
+* (interactive "s") Any string.  Does not inherit the current input method.
+(defun test_s (string) ;[2013/11/25]
+  "STRING"
+  (interactive "sinput string: ")
+  (insert string))
+* (interactive "S") Any symbol.
+(defun test_S (symbol) ;[2013/11/25]
+  "SYMBOL"
+  (interactive "Sinput symbol: ")
+  (insert (symbol-name symbol)))
+* (interactive "U") Mouse up event discarded by a previous k or K argument.
+(defun test_U (event) ;[2013/11/25]
+  (interactive "U")
+  (message "%S" event))
+* (interactive "v") Variable name: symbol that is `custom-variable-p'.
+(defun test_v (variable-name) ;[2013/11/25]
+  (interactive "vinput variable name: ")
+  (insert (symbol-name variable-name)))
+* (interactive "x") Lisp expression read but not evaluated.
+(defun test_x (lisp_form) ;[2013/11/25]
+  "LISP_FORM"
+  (interactive "x")
+  (message "%S" lisp_form))
+* (interactive "X") Lisp expression read and evaluated.
+(defun test_X (lisp_form) ;[2013/11/25]
+  (interactive "X")
+  (message "%S" lisp_form))
+* (interactive "z") Coding system.
+(defun test_z (coding-system) ;[2013/11/25]
+  (interactive "z")
+  (insert (symbol-name coding-system)))
+
+* (interactive "Z") Coding system, nil if no prefix arg.
+(defun test_Z (coding-system) ;[2013/11/25]
+  (interactive "Z")
+  (insert (symbol-name coding-system)))
+
+* (interactive "*") raise error if the buffer is read-only.
+バッファが書込み禁止(read-only)であれば error を返す。
+他の文字と組合せる場合は先頭に書く = (interactive "*p")
+
+* (interactive "@")
+(defun test_@ (event) ;[2013/11/25]
+  "mouse event"
+  (interactive "@"))
+* example
+(defun *test (name x)
+  (interactive "aMake function: \nxHello: ")
+  (princ name)
+  (princ x)
+)

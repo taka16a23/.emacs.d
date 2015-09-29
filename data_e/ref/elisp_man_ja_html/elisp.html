@@ -1,0 +1,1317 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="ja">
+<!-- Created on October, 1  2005 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=euc-jp">
+<META NAME="keywords" CONTENT="meadow,mule,emacs,lisp,elisp,gnus,setting,設定,unix,cygwin">
+<META http-equiv="Content-Script-Type" content="text/javascript">
+<META NAME="description" CONTENT="Meadowの設定を紹介するページです">
+<TITLE>GNU Emacs Lispリファレンスマニュアル: </TITLE>
+
+<META NAME="description" CONTENT="GNU Emacs Lispリファレンスマニュアル: ">
+<META NAME="keywords" CONTENT="GNU Emacs Lispリファレンスマニュアル: ">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+<LINK REL="contents" HREF="elisp_toc.html#SEC_Contents">
+<LINK REL="index" HREF="elisp_48.html#SEC681">
+<LINK REL="next" HREF="elisp_1.html#SEC1">
+<LINK REL="prev" HREF="elisp_49.html#SEC682">
+
+<META http-equiv="Content-Style-Type" content="text/css">
+<!-- 鶯と龜 ←日本語EUC誤判別対策用らしい; -->
+<link rel="StyleSheet" href="../../../../soft/css/midnight.css" type="text/css" id="css1">
+<script type="text/javascript" src="style1.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../soft/css/meadowmemo.css">
+
+</HEAD>
+<BODY LANG="ja" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+<!--Infoseek Analyzer start-->
+<script LANGUAGE="javascript">PgNo=6;</script>
+<script src="http://js1.infoseek.co.jp/bin/57/00170.js"></script>
+<noscript><a href="http://ax1.www.infoseek.co.jp/bin/go?0017057f" target="_blank">
+<img src="http://ax1.www.infoseek.co.jp/bin/logo?0017057f" border=0></a></noscript>
+<!--Infoseek Analyzer end-->
+<a name="top"> </a>
+
+<br><A NAME="SEC_Top"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<H1>GNU Emacs Lispリファレンスマニュアル</H1><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=dir VALUE=><INPUT TYPE=hidden NAME=index VALUE=dirsearch CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM><P>
+
+このinfoファイルは、GNU Emacs Lispマニュアル 2.9版であり、
+GNU Emacs 21.3版に対応します。
+<P>
+
+旧版の翻訳である
+<A HREF="ftp://ftp.ascii.co.jp/pub/GNU/elisp-manual-20/elisp-manual-20-2.5-jp.tgz">elisp-manual-20-2.5-jp.tgz</A> 
+を参考に最新版の変更点を追加しています。元文書の翻訳をされた方々に深く
+感謝いたします。
+<P>
+
+また、「コメント」と書いてある部分は私が追加した部分です。また、分かり
+にく部分などは原文の意味を曲げない範囲で、加筆を行っています。
+<P>
+
+分かりにくい、意味不明だ、用語が統一されていないなどありましたら、
+<A HREF="mailto:akihisa&#64;mail.ne.jp">akihisa&#64;mail.ne.jpまでメール</A>にて連
+絡をお願いいたします。あるいは、各章の右上にあるコメントからWikiに書き
+込みをお願いします。
+<P>
+
+またこの文書は原文のライセンスを継承しますので、再配布、コピー、変更な
+どはすべて自由にしていただいて構いません。
+<P>
+
+<BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_2.html#SEC6">1. はじめに</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Introduction and conventions used.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_42.html#SEC662">B.1 Emacs Lispのコーディングの慣習</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Coding conventions for Emacs Lisp.</TD></TR>
+</TABLE>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_3.html#SEC21">2. Lispのデータ型</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Data types of objects in Emacs Lisp.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_4.html#SEC60">3. 数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Numbers and arithmetic functions.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_5.html#SEC71">4. 文字列と文字</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Strings, and functions that work on them.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_6.html#SEC81">5. リスト</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Lists, cons cells, and related functions.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_7.html#SEC93">6. シーケンス、配列、ベクトル</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Lists, strings and vectors are called sequences.
+                                Certain functions act on any kind of sequence.
+                                The description of vectors is here as well.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_8.html#SEC101">7. シンボル</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Symbols represent names, uniquely.</TD></TR>
+</TABLE>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_9.html#SEC109">8. 評価</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How Lisp expressions are evaluated.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_10.html#SEC122">9. 制御構造</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Conditionals, loops, nonlocal exits.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_11.html#SEC136">10. 変数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Using symbols in programs to stand for values.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_12.html#SEC156">11. 関数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">A function is a Lisp program
+                              that can be invoked from other functions.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_13.html#SEC171">12. マクロ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Macros are a way to extend the Lisp language.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_14.html#SEC182">13. カスタマイズ定義の書き方</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Writing customization declarations.</TD></TR>
+</TABLE>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_15.html#SEC191">14. ロード</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Reading files of Lisp code into Lisp.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_16.html#SEC200">15. バイトコンパイル</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Compilation makes programs run faster.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_17.html#SEC208">16. Emacs Lisp関数のアドバイス <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Adding to the definition of a function.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_18.html#SEC219">17. Lispプログラムのデバッグ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Tools and tips for debugging Lisp programs.</TD></TR>
+</TABLE>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_19.html#SEC258">18. Lispオブジェクトの読み取りと表示</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Converting Lisp objects to text and back.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_20.html#SEC265">19. ミニバッファ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Using the minibuffer to read input.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_21.html#SEC281">20. コマンドループ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How the editor command loop works,
+                              and how you can call its subroutines.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_22.html#SEC317">21. キーマップ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Defining the bindings from keys to commands.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_23.html#SEC339">22. メジャーモードとマイナモード</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Defining major and minor modes.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_24.html#SEC363">23. 説明文</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Writing and using documentation strings.</TD></TR>
+</TABLE>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_25.html#SEC369">24. ファイル</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Accessing files.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_26.html#SEC395">25. バックアップと自動保存 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Controlling how backups and auto-save
+                              files are made.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_27.html#SEC403">26. バッファ <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Creating and using buffer objects.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_28.html#SEC416">27. ウィンドウ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Manipulating windows and displaying buffers.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC434">28. フレーム</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Making multiple X windows.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_30.html#SEC462">29. バッファ内の位置</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Buffer positions and motion functions.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_31.html#SEC474">30. マーカ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Markers represent positions and update
+                              automatically when the text is changed.</TD></TR>
+</TABLE>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_32.html#SEC483">31. テキスト</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Examining and changing text in buffers.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_33.html#SEC528">32. 非ASCII文字</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Non-ASCII text in buffers and strings.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_34.html#SEC549">33. 探索と一致</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Searching buffers for strings or regexps.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_35.html#SEC564">34. 構文テーブル</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">The syntax table controls word and list parsing.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_36.html#SEC576">35. 略語と略語の展開 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How Abbrev mode works, and its data structures.</TD></TR>
+</TABLE>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_37.html#SEC583">36. プロセス</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Running and communicating with subprocesses.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_38.html#SEC599">37. Emacsの画面表示</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Features for controlling the screen display.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_39.html#SEC625">38. カレンダーと日誌のカスタマイズ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Customizing the calendar and diary.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_40.html#SEC636">39. オペレーティングシステムとのインターフェイス</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Getting the user id, system type, environment
+                              variables, and other such things.</TD></TR>
+</TABLE>
+
+<br>
+付録
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_41.html#SEC658">A. Emacs 20 Antinews <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Info for users downgrading to Emacs 20.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_42.html#SEC661">B. ヒントと慣習</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Advice and coding conventions for Emacs Lisp.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_43.html#SEC667">C. GNU Emacsの内部</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Building and dumping Emacs;
+                              internal data structures.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_44.html#SEC677">D. 標準のエラー</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">List of all error symbols.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_45.html#SEC678">E. バッファローカルな変数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">List of variables buffer-local in all buffers.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_46.html#SEC679">F. 標準のキーマップ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">List of standard keymaps.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_47.html#SEC680">G. 標準のフック</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">List of standard hook variables.</TD></TR>
+</TABLE>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_48.html#SEC681">Index</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Index including concepts, functions, variables,
+                              and other terms.</TD></TR>
+</TABLE>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_49.html#SEC682">旧版以降の新しいシンボル</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">New functions and variables in Emacs 21.</TD></TR>
+</TABLE>
+
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;−−−&nbsp;詳細ノード一覧&nbsp;−−−
+<br>
+
+<br>
+以下は、上にあげたノードの下位ノードです。
+<br>
+直接移動できるように掲載しておきます。
+<br>
+
+<br>
+導入
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_2.html#SEC7">1.1 警告</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Flaws and a request for help.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_2.html#SEC8">1.2 Lispの歴史</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Emacs Lisp is descended from Maclisp.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_2.html#SEC9">1.3 表記法</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How the manual is formatted.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_2.html#SEC20">1.5 謝辞</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">The authors, editors, and sponsors of this manual.</TD></TR>
+</TABLE>
+
+<br>
+慣習
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_2.html#SEC10">1.3.1 用語</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Explanation of terms we use in this manual.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_2.html#SEC11">1.3.2 <CODE>nil</CODE>と<CODE>t</CODE></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How the symbols <CODE>nil</CODE> and <CODE>t</CODE> are used.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_2.html#SEC12">1.3.3 評価の表記法</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">The format we use for examples of evaluation.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_2.html#SEC13">1.3.4 結果表示の表記法</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">The format we use for examples that print output.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_2.html#SEC14">1.3.5 エラーメッセージ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">The format we use for examples of errors.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_2.html#SEC15">1.3.6 バッファ内のテキストの表記法</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">The format we use for buffer contents in examples.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_2.html#SEC16">1.3.7 記述形式</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Notation for describing functions, variables, etc.</TD></TR>
+</TABLE>
+
+<br>
+ヒントと慣習
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_42.html#SEC662">B.1 Emacs Lispのコーディングの慣習</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Conventions for clean and robust programs.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_42.html#SEC663">B.2 コンパイル済みコードを速くするヒント</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Making compiled code run fast.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_42.html#SEC664">B.3 説明文字列に関するヒント</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Writing readable documentation strings.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_42.html#SEC665">B.4 コメントの書き方のヒント</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Conventions for writing comments.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_42.html#SEC666">B.5 Emacsライブラリのヘッダの慣習</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Standard headers for library packages.</TD></TR>
+</TABLE>
+
+<br>
+記述形式
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_2.html#SEC17">1.3.7.1 関数の記述例</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_2.html#SEC18">1.3.7.2 変数の記述例</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+</TABLE>
+
+<br>
+Lispデータ型
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_3.html#SEC22">2.1 表示表現と入力構文</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How Lisp objects are represented as text.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_3.html#SEC23">2.2 コメント</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Comments and their formatting conventions.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_3.html#SEC24">2.3 プログラミング向けの型</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Types found in all Lisp systems.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_3.html#SEC47">2.4 編集向けの型</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Types specific to Emacs.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_3.html#SEC58">2.5 型述語</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Tests related to types.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_3.html#SEC59">2.6 同値述語</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Tests of equality between any two objects.</TD></TR>
+</TABLE>
+
+<br>
+プログラミング向けの型
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_3.html#SEC25">2.3.1 整数型</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Numbers without fractional parts.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_3.html#SEC26">2.3.2 浮動小数点数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Numbers with fractional parts and with a large range.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_3.html#SEC27">2.3.3 文字型</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">The representation of letters, numbers and
+                          control characters.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_3.html#SEC29">2.3.5 シーケンス型</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Both lists and arrays are classified as sequences.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_3.html#SEC30">2.3.6 コンスセルとリスト型</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Cons cells, and lists (which are made from cons cells).</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_3.html#SEC33">2.3.7 配列型</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Arrays include strings and vectors.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_3.html#SEC34">2.3.8 文字列型</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">An (efficient) array of characters.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_3.html#SEC39">2.3.9 ベクトル型</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">One-dimensional arrays.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_3.html#SEC28">2.3.4 シンボル型</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">A multi-use object that refers to a function,
+                        variable, property list, or itself.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_3.html#SEC42">2.3.12 関数型</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">A piece of executable code you can call from elsewhere.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_3.html#SEC43">2.3.13 マクロ型</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">A method of expanding an expression into another
+                          expression, more fundamental but less pretty.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_3.html#SEC44">2.3.14 基本関数型</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">A function written in C, callable from Lisp.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_3.html#SEC45">2.3.15 バイトコード関数型</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">A function written in Lisp, then compiled.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_3.html#SEC46">2.3.16 自動ロード型</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">A type used for automatically loading seldom-used
+                          functions.</TD></TR>
+</TABLE>
+
+<br>
+リスト型
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_3.html#SEC31">2.3.6.1 ドット対記法</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">An alternative syntax for lists.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_3.html#SEC32">2.3.6.2 連想リスト型</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">A specially constructed list.</TD></TR>
+</TABLE>
+
+<br>
+編集向けの型
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_3.html#SEC48">2.4.1 バッファ型</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">The basic object of editing.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_3.html#SEC50">2.4.3 ウィンドウ型</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">What makes buffers visible.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_3.html#SEC52">2.4.5 ウィンドウ構成型</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Save what the screen looks like.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_3.html#SEC49">2.4.2 マーカ型</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">A position in a buffer.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_3.html#SEC54">2.4.7 プロセス型</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">A process running on the underlying OS.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_3.html#SEC55">2.4.8 ストリーム型</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Receive or send characters.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_3.html#SEC56">2.4.9 キーマップ型</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">What function a keystroke invokes.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_3.html#SEC57">2.4.10 オーバレイ型</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How an overlay is represented.</TD></TR>
+</TABLE>
+
+<br>
+数
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_4.html#SEC61">3.1 整数の基本</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Representation and range of integers.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_4.html#SEC62">3.2 浮動小数点数の基本</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Representation and range of floating point.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_4.html#SEC63">3.3 数向けの型述語</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Testing for numbers.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_4.html#SEC64">3.4 数の比較</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Equality and inequality predicates.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_4.html#SEC66">3.6 算術演算</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How to add, subtract, multiply and divide.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_4.html#SEC68">3.8 整数のビット演算</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Logical and, or, not, shifting.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_4.html#SEC65">3.5 数の変換</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Converting float to integer and vice versa.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_4.html#SEC69">3.9 標準数学関数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Trig, exponential and logarithmic functions.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_4.html#SEC70">3.10 乱数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Obtaining random integers, predictable or not.</TD></TR>
+</TABLE>
+
+<br>
+文字列と文字
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_5.html#SEC72">4.1 文字列と文字の基本</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Basic properties of strings and characters.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_5.html#SEC73">4.2 文字列向けの述語</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Testing whether an object is a string or char.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_5.html#SEC74">4.3 文字列の作成</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Functions to allocate new strings.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_5.html#SEC76">4.5 文字と文字列の比較</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Comparing characters or strings.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_5.html#SEC77">4.6 文字と文字列の変換</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Converting characters or strings and vice versa.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_5.html#SEC78">4.7 文字列の書式付け</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"><CODE>format</CODE>: Emacs's analogue of <CODE>printf</CODE>.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_5.html#SEC79">4.8 Lispの大文字小文字変換</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Case conversion functions.</TD></TR>
+</TABLE>
+
+<br>
+リスト
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_6.html#SEC82">5.1 リストとコンスセル</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How lists are made out of cons cells.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_6.html#SEC83">5.2 箱の対を連ねたリスト</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Graphical notation to explain lists.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_6.html#SEC84">5.3 リスト向け述語</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Is this object a list?  Comparing two lists.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_6.html#SEC85">5.4 リストの要素の参照</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Extracting the pieces of a list.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_6.html#SEC86">5.5 コンスセルとリストの構築</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Creating list structure.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_6.html#SEC87">5.6 既存のリスト構造の修正</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Storing new pieces into an existing list.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_6.html#SEC91">5.7 集合としてのリストの利用</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">A list can represent a finite mathematical set.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_6.html#SEC92">5.8 連想リスト</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">A list can represent a finite relation or mapping.</TD></TR>
+</TABLE>
+
+<br>
+既存リスト構造の変更
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_6.html#SEC88">5.6.1 <CODE>setcar</CODE>によるリスト要素の変更</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Replacing an element in a list.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_6.html#SEC89">5.6.2 リストのCDRの変更</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Replacing part of the list backbone.
+                              This can be used to remove or add elements.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_6.html#SEC90">5.6.3 リストの順序を変更する関数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Reordering the elements in a list; combining lists.</TD></TR>
+</TABLE>
+
+<br>
+シーケンス、配列、ベクトル
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_7.html#SEC94">6.1 シーケンス</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Functions that accept any kind of sequence.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_7.html#SEC95">6.2 配列</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Characteristics of arrays in Emacs Lisp.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_7.html#SEC96">6.3 配列操作関数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Functions specifically for arrays.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_7.html#SEC97">6.4 ベクトル</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Functions specifically for vectors.</TD></TR>
+</TABLE>
+
+<br>
+シンボル
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_8.html#SEC102">7.1 シンボルの構成要素</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Symbols have names, values, function definitions
+                              and property lists.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_8.html#SEC103">7.2 シンボルを定義する</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">A definition says how a symbol will be used.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_8.html#SEC104">7.3 シンボルの作成とインターン</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How symbols are kept unique.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_8.html#SEC105">7.4 属性リスト</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Each symbol has a property list
+                              for recording miscellaneous information.</TD></TR>
+</TABLE>
+
+<br>
+評価
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_9.html#SEC110">8.1 評価とは</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Evaluation in the scheme of things.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_9.html#SEC121">8.4 評価（eval）</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How to invoke the Lisp interpreter explicitly.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_9.html#SEC111">8.2 フォームの種類</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How various sorts of objects are evaluated.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_9.html#SEC120">8.3 クォート</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Avoiding evaluation (to put constants in
+                              the program).</TD></TR>
+</TABLE>
+
+<br>
+フォームの種類
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_9.html#SEC112">8.2.1 自己評価型フォーム</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Forms that evaluate to themselves.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_9.html#SEC113">8.2.2 シンボルフォーム</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Symbols evaluate as variables.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_9.html#SEC114">8.2.3 リストフォームの分類</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How to distinguish various sorts of list forms.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_9.html#SEC116">8.2.5 関数フォームの評価</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Forms that call functions.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_9.html#SEC117">8.2.6 Lispマクロの評価</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Forms that call macros.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_9.html#SEC118">8.2.7 スペシャルフォーム</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">"Special forms" are idiosyncratic primitives,
+                              most of them extremely important.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_9.html#SEC119">8.2.8 自動ロード</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Functions set up to load files
+                              containing their real definitions.</TD></TR>
+</TABLE>
+
+<br>
+制御構造
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_10.html#SEC123">9.1 逐次実行</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Evaluation in textual order.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_10.html#SEC124">9.2 条件付き実行</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"><CODE>if</CODE>, <CODE>cond</CODE>.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_10.html#SEC125">9.3 条件の組み合わせ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"><CODE>and</CODE>, <CODE>or</CODE>, <CODE>not</CODE>.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_10.html#SEC126">9.4 繰り返し</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"><CODE>while</CODE> loops.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_10.html#SEC127">9.5 非ローカル脱出</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Jumping out of a sequence.</TD></TR>
+</TABLE>
+
+<br>
+非ローカル脱出
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_10.html#SEC128">9.5.1 明示的な非ローカル脱出：<CODE> </CODE><CODE>catch</CODE>と<CODE>throw</CODE></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Nonlocal exits for the program's own purposes.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_10.html#SEC129">9.5.2 <CODE>catch</CODE>と<CODE>throw</CODE>の例</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Showing how such nonlocal exits can be written.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_10.html#SEC130">9.5.3 エラー</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How errors are signaled and handled.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_10.html#SEC135">9.5.4 非ローカル脱出時の後始末</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Arranging to run a cleanup form if an
+                              error happens.</TD></TR>
+</TABLE>
+
+<br>
+エラー
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_10.html#SEC131">9.5.3.1 エラーの通知方法</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How to report an error.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_10.html#SEC132">9.5.3.2 Emacsのエラー処理方法</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">What Emacs does when you report an error.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_10.html#SEC133">9.5.3.3 エラーハンドラの書き方</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How you can trap errors and continue execution.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_10.html#SEC134">9.5.3.4 エラーシンボルと条件名</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How errors are classified for trapping them.</TD></TR>
+</TABLE>
+
+<br>
+変数
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_11.html#SEC137">10.1 グローバル変数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Variable values that exist permanently, everywhere.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_11.html#SEC138">10.2 変更不可能な変数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Certain "variables" have values that never change.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_11.html#SEC139">10.3 ローカル変数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Variable values that exist only temporarily.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_11.html#SEC140">10.4 変数が『空』であるとき</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Symbols that lack values.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_11.html#SEC141">10.5 グローバル変数を定義する</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">A definition says a symbol is used as a variable.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_11.html#SEC143">10.7 変数値の参照</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Examining values of variables whose names
+                              are known only at run time.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_11.html#SEC144">10.8 変数値の変更</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Storing new values in variables.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_11.html#SEC145">10.9 変数束縛のスコープルール</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How Lisp chooses among local and global values.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_11.html#SEC150">10.10 バッファローカルな変数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Variable values in effect only in one buffer.</TD></TR>
+</TABLE>
+
+<br>
+スコープルールと変数束縛
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_11.html#SEC146">10.9.1 スコープ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Scope means where in the program a value
+                              is visible.  Comparison with other languages.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_11.html#SEC147">10.9.2 存続期間</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Extent means how long in time a value exists.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_11.html#SEC148">10.9.3 動的スコープの実装</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Two ways to implement dynamic scoping.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_11.html#SEC149">10.9.4 動的スコープの正しい使い方</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How to use dynamic scoping carefully and
+                              avoid problems.</TD></TR>
+</TABLE>
+
+<br>
+バッファローカルな変数
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_11.html#SEC151">10.10.1 バッファローカルな変数の紹介</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Introduction and concepts.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_11.html#SEC152">10.10.2 バッファローカルな束縛の作成と削除</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Creating and destroying buffer-local bindings.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_11.html#SEC153">10.10.3 バッファローカル変数のデフォルト値</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">The default value is seen in buffers
+                              that don't have their own buffer-local values.</TD></TR>
+</TABLE>
+
+<br>
+関数
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_12.html#SEC157">11.1 関数とはなにか</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Lisp functions vs primitives; terminology.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_12.html#SEC158">11.2 ラムダ式</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How functions are expressed as Lisp objects.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_12.html#SEC163">11.3 関数を命名する</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">A symbol can serve as the name of a function.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_12.html#SEC164">11.4 関数を定義する</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Lisp expressions for defining functions.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_12.html#SEC165">11.5 関数呼び出し</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How to use an existing function.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_12.html#SEC166">11.6 マップ関数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Applying a function to each element of a list, etc.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_12.html#SEC167">11.7 無名関数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Lambda-expressions are functions with no names.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_12.html#SEC168">11.8 関数セルの内容の参照</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Accessing or setting the function definition
+                              of a symbol.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_12.html#SEC170">11.10 関数に関連したその他の話題</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Cross-references to specific Lisp primitives
+                              that have a special bearing on how
+                              functions work.</TD></TR>
+</TABLE>
+
+<br>
+ラムダ式
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_12.html#SEC159">11.2.1 ラムダ式の構成要素</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">The parts of a lambda expression.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_12.html#SEC160">11.2.2 簡単なラムダ式の例</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">A simple example.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_12.html#SEC161">11.2.3 引数リストのその他の機能</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Details and special features of argument lists.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_12.html#SEC162">11.2.4 関数の説明文字列</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How to put documentation in a function.</TD></TR>
+</TABLE>
+
+<br>
+マクロ
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_13.html#SEC172">12.1 マクロの簡単な例</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">A basic example.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_13.html#SEC173">12.2 マクロ呼び出しの展開</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How, when and why macros are expanded.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_13.html#SEC174">12.3 マクロとバイトコンパイル</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How macros are expanded by the compiler.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_13.html#SEC175">12.4 マクロ定義</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How to write a macro definition.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_13.html#SEC176">12.5 バッククォート</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Easier construction of list structure.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_13.html#SEC177">12.6 マクロ使用時の一般的な問題</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Don't evaluate the macro arguments too many times.
+                              Don't hide the user's variables.</TD></TR>
+</TABLE>
+
+<br>
+ロード
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_15.html#SEC192">14.1 プログラムからのロード方法</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">The <CODE>load</CODE> function and others.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_15.html#SEC195">14.4 自動ロード</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Setting up a function to autoload.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_15.html#SEC197">14.6 機能</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Loading a library if it isn't already loaded.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_15.html#SEC196">14.5 ロードの繰り返し</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Precautions about loading a file twice.</TD></TR>
+</TABLE>
+
+<br>
+バイトコンパイル
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_16.html#SEC202">15.2 コンパイル関数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Byte compilation functions.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_16.html#SEC207">15.7 バイトコードの逆アセンブル</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Disassembling byte-code; how to read byte-code.</TD></TR>
+</TABLE>
+
+<br>
+関数のアドバイス
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_17.html#SEC209">16.1 単純なアドバイスの例 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">A simple example to explain the basics of advice.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_17.html#SEC210">16.2 アドバイス定義 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Detailed description of <CODE>defadvice</CODE>.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_17.html#SEC212">16.4 計算アドバイス <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">...is to <CODE>defadvice</CODE> as <CODE>fset</CODE> is to <CODE>defun</CODE>.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_17.html#SEC213">16.5 アドバイスの活性化 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Advice doesn't do anything until you activate it.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_17.html#SEC214">16.6 アドバイスの有効化と無効化 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">You can enable or disable each piece of advice.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_17.html#SEC215">16.7 予約活性 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Preactivation is a way of speeding up the
+                              loading of compiled advice.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_17.html#SEC216">16.8 アドバイスからの引数の参照 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How advice can access the function's arguments.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_17.html#SEC217">16.9 subr引数リストの定義 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Accessing arguments when advising a primitive.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_17.html#SEC218">16.10 結合定義 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How advice is implemented.</TD></TR>
+</TABLE>
+
+<br>
+Lispプログラムのデバッグ
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_18.html#SEC220">17.1 Lispデバッガ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How the Emacs Lisp debugger is implemented.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_18.html#SEC254">17.3 不正なLisp構文のデバッグ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How to find syntax errors.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_18.html#SEC257">17.4 コンパイル時の問題のデバッグ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How to find errors that show up in 
+                              byte compilation.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_18.html#SEC229">17.2 edebug</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">A source-level Emacs Lisp debugger.</TD></TR>
+</TABLE>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+Lispデバッガ
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_18.html#SEC221">17.1.1 エラーによるデバッガの起動</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Entering the debugger when an error happens.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_18.html#SEC223">17.1.3 関数呼び出し時のデバッガの起動</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Entering it when a certain function is called.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_18.html#SEC224">17.1.4 デバッガの明示的な起動</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Entering it at a certain point in the program.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_18.html#SEC225">17.1.5 デバッガの使い方</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">What the debugger does; what you see while in it.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_18.html#SEC226">17.1.6 デバッガコマンド</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Commands used while in the debugger.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_18.html#SEC227">17.1.7 デバッガの起動</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How to call the function <CODE>debug</CODE>.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_18.html#SEC228">17.1.8 デバッガの内部</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Subroutines of the debugger, and global variables.</TD></TR>
+</TABLE>
+
+<br>
+不正なLisp構文のデバッグ
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_18.html#SEC255">17.3.1 開き括弧の過剰</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How to find a spurious open paren or missing close.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_18.html#SEC256">17.3.2 閉じ括弧の過剰</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How to find a spurious close paren or missing open.</TD></TR>
+</TABLE>
+
+<br>
+Lispオブジェクトの読み取りと表示
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_19.html#SEC259">18.1 読み取りと表示の概要</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Overview of streams, reading and printing.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_19.html#SEC260">18.2 入力ストリーム</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Various data types that can be used as
+                              input streams.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_19.html#SEC261">18.3 入力関数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Functions to read Lisp objects from text.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_19.html#SEC262">18.4 出力ストリーム</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Various data types that can be used as
+                              output streams.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_19.html#SEC263">18.5 出力関数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Functions to print Lisp objects as text.</TD></TR>
+</TABLE>
+
+<br>
+ミニバッファ
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_20.html#SEC266">19.1 ミニバッファの紹介</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Basic information about minibuffers.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_20.html#SEC267">19.2 ミニバッファでのテキスト文字列の読み取り</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How to read a straight text string.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_20.html#SEC268">19.3 ミニバッファでのLispオブジェクトの読み取り</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How to read a Lisp object or expression.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_20.html#SEC270">19.5 補完</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How to invoke and customize completion.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_20.html#SEC277">19.6 Yes/Noの問い合わせ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Asking a question with a simple answer.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_20.html#SEC280">19.9 ミニバッファに関するその他</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Various customization hooks and variables.</TD></TR>
+</TABLE>
+
+<br>
+補完
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_20.html#SEC271">19.5.1 基本補完関数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Low-level functions for completing strings.</TD></TR>
+</TABLE>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(These&nbsp;are&nbsp;too&nbsp;low&nbsp;level&nbsp;to&nbsp;use&nbsp;the&nbsp;minibuffer.)
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_20.html#SEC272">19.5.2 補完とミニバッファ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Invoking the minibuffer with completion.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_20.html#SEC273">19.5.3 補完を行うミニバッファコマンド</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Minibuffer commands that do completion.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_20.html#SEC274">19.5.4 高レベルの補完関数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Convenient special cases of completion</TD></TR>
+</TABLE>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(reading&nbsp;buffer&nbsp;name,&nbsp;file&nbsp;name,&nbsp;etc.)
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_20.html#SEC275">19.5.5 ファイル名の読み取り</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Using completion to read file names.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_20.html#SEC276">19.5.6 プログラム補完</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Finding the completions for a given file name.</TD></TR>
+</TABLE>
+
+<br>
+コマンドループ
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_21.html#SEC282">20.1 コマンドループの概要</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How the command loop reads commands.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_21.html#SEC283">20.2 コマンドの定義</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Specifying how a function should read arguments.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_21.html#SEC287">20.3 対話的呼び出し</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Calling a command, so that it will read arguments.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_21.html#SEC288">20.4 コマンドループからの情報</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Variables set by the command loop for you to examine.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_21.html#SEC289">20.5 入力イベント</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">What input looks like when you read it.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_21.html#SEC304">20.6 入力の読み取り</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How to read input events from the keyboard or mouse.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_21.html#SEC310">20.8 時間待ちと入力待ち</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Waiting for user input or elapsed time.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_21.html#SEC311">20.9 中断</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How <KBD>C-g</KBD> works.  How to catch or defer quitting.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_21.html#SEC312">20.10 前置コマンド引数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How the commands to set prefix args work.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_21.html#SEC313">20.11 再帰編集</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Entering a recursive edit,
+                          and why you usually shouldn't.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_21.html#SEC314">20.12 コマンドを禁止する</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How the command loop handles disabled commands.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_21.html#SEC315">20.13 コマンド履歴</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How the command history is set up, and how accessed.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_21.html#SEC316">20.14 キーボードマクロ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How keyboard macros are implemented.</TD></TR>
+</TABLE>
+
+<br>
+コマンドの定義
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_21.html#SEC284">20.2.1 <CODE>interactive</CODE>の使い方</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">General rules for <CODE>interactive</CODE>.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_21.html#SEC285">20.2.2 <CODE>interactive</CODE>のコード文字</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">The standard letter-codes for reading arguments
+                              in various ways.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_21.html#SEC286">20.2.3 <CODE>interactive</CODE>の使用例</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Examples of how to read interactive arguments.</TD></TR>
+</TABLE>
+
+<br>
+キーマップ
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_22.html#SEC318">21.1 キーマップの用語</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Definitions of terms pertaining to keymaps.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_22.html#SEC319">21.2 キーマップの形式</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">What a keymap looks like as a Lisp object.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_22.html#SEC320">21.3 キーマップの作成</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Functions to create and copy keymaps.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_22.html#SEC321">21.4 継承とキーマップ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How one keymap can inherit the bindings
+				  of another keymap.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_22.html#SEC322">21.5 プレフィックスキー</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Defining a key with a keymap as its definition.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_22.html#SEC329">21.12 メニューキーマップ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">A keymap can define a menu for X
+				  or for use from the terminal.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_22.html#SEC323">21.6 活性なキーマップ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Each buffer has a local keymap
+                                  to override the standard (global) bindings.
+				  Each minor mode can also override them.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_22.html#SEC324">21.7 キー探索</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How extracting elements from keymaps works.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_22.html#SEC325">21.8 キー探索関数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How to request key lookup.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_22.html#SEC326">21.9 キーバインディングの変更</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Redefining a key in a keymap.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_22.html#SEC327">21.10 キーをバインドするためのコマンド</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Interactive interfaces for redefining keys.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_22.html#SEC328">21.11 キーマップの走査</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Looking through all keymaps, for printing help.</TD></TR>
+</TABLE>
+
+<br>
+メジャーモードとマイナモード
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_23.html#SEC340">22.1 メジャーモード</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Defining major modes.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_23.html#SEC346">22.2 マイナモード</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Defining minor modes.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_23.html#SEC350">22.3 モード行の書式</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Customizing the text that appears in the mode line.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_23.html#SEC362">22.6 フック</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How to use hooks; how to write code that
+                              provides hooks.</TD></TR>
+</TABLE>
+
+<br>
+メジャーモード
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_23.html#SEC341">22.1.1 メジャーモードの慣習</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Coding conventions for keymaps, etc.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_23.html#SEC342">22.1.2 メジャーモードの例</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Text mode and Lisp modes.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_23.html#SEC343">22.1.3 メジャーモードの選択方法</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How Emacs chooses the major mode automatically.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_23.html#SEC344">22.1.4 メジャーモードに関するヘルプ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Finding out how to use a mode.</TD></TR>
+</TABLE>
+
+<br>
+マイナモード
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_23.html#SEC347">22.2.1 マイナモードを書くための慣習</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Tips for writing a minor mode.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_23.html#SEC348">22.2.2 キーマップとマイナモード</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How a minor mode can have its own keymap.</TD></TR>
+</TABLE>
+
+<br>
+モード行の書式
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_23.html#SEC351">22.3.1 モード行のデータ構造</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">The data structure that controls the mode line.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_23.html#SEC352">22.3.2 モード行に使われる変数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Variables used in that data structure.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_23.html#SEC353">22.3.3 モード行の<CODE>%</CODE>記法</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Putting information into a mode line.</TD></TR>
+</TABLE>
+
+<br>
+説明文
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_24.html#SEC364">23.1 説明文の基本</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Good style for doc strings.
+                              Where to put them.  How Emacs stores them.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_24.html#SEC365">23.2 説明文字列の参照</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How Lisp programs can access doc strings.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_24.html#SEC366">23.3 説明文内のキーバインディングの置換</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Substituting current key bindings.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_24.html#SEC367">23.4 ヘルプメッセージ用の文字変換</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Making printable descriptions of
+                              non-printing characters and key sequences.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_24.html#SEC368">23.5 ヘルプ機能</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Subroutines used by Emacs help facilities.</TD></TR>
+</TABLE>
+
+<br>
+ファイル
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_25.html#SEC370">24.1 ファイルの訪問</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Reading files into Emacs buffers for editing.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_25.html#SEC373">24.2 バッファの保存</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Writing changed buffers back into files.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_25.html#SEC374">24.3 ファイルの読み込み</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Reading files into other buffers.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_25.html#SEC375">24.4 ファイルへの書き出し</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Writing new files from parts of buffers.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_25.html#SEC376">24.5 ファイルロック</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Locking and unlocking files, to prevent
+                                simultaneous editing by two people.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_25.html#SEC377">24.6 ファイルに関する情報</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Testing existence, accessibility, size of files.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_25.html#SEC391">24.9 ディレクトリの内容</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Getting a list of the files in a directory.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_25.html#SEC382">24.7 ファイルの名前と属性の変更</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Renaming files, changing protection, etc.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_25.html#SEC383">24.8 ファイル名</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Decomposing and expanding file names.</TD></TR>
+</TABLE>
+
+<br>
+ファイルを訪問する
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_25.html#SEC371">24.1.1 ファイルを訪問する関数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">The usual interface functions for visiting.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_25.html#SEC372">24.1.2 訪問するためのサブルーティン</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Lower-level subroutines that they use.</TD></TR>
+</TABLE>
+
+<br>
+ファイルに関する情報
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_25.html#SEC378">24.6.1 参照可能性の検査</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Is a given file readable?  Writable?</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_25.html#SEC379">24.6.2 ファイルの種類の区別</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Is it a directory?  A link?</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_25.html#SEC381">24.6.4 ファイルに関する他の情報</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How large is it?  Any other names?  Etc.</TD></TR>
+</TABLE>
+
+<br>
+ファイル名
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_25.html#SEC384">24.8.1 ファイル名の構成要素</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">The directory part of a file name, and the rest.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_25.html#SEC385">24.8.2 ディレクトリ名</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">A directory's name as a directory
+                              is different from its name as a file.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_25.html#SEC386">24.8.3 ファイルの絶対名と相対名</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Some file names are relative to a
+                              current directory.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_25.html#SEC387">24.8.4 ファイル名を展開する関数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Converting relative file names to absolute ones.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_25.html#SEC388">24.8.5 一意なファイル名の生成</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Generating names for temporary files.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_25.html#SEC389">24.8.6 ファイル名の補完</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Finding the completions for a given file name.</TD></TR>
+</TABLE>
+
+<br>
+バックアップと自動保存
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_26.html#SEC396">25.1 バックアップファイル <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How backup files are made; how their names
+                              are chosen.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_26.html#SEC401">25.2 自動保存 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How auto-save files are made; how their
+                              names are chosen.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_26.html#SEC402">25.3 復元 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"><CODE>revert-buffer</CODE>, and how to customize
+                              what it does.</TD></TR>
+</TABLE>
+
+<br>
+バックアップファイル
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_26.html#SEC397">25.1.1 バックアップファイルの作成 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How Emacs makes backup files, and when.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_26.html#SEC398">25.1.2 改名によるバックアップかコピーによるバックアップか <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Two alternatives: renaming the old file
+                              or copying it.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_26.html#SEC399">25.1.3 番号付きバックアップファイルの作成と削除 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Keeping multiple backups for each source file.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_26.html#SEC400">25.1.4 バックアップファイルの命名方法 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How backup file names are computed; customization.</TD></TR>
+</TABLE>
+
+<br>
+バッファ
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_27.html#SEC404">26.1 バッファの基本 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">What is a buffer?</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_27.html#SEC406">26.3 バッファ名 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Accessing and changing buffer names.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_27.html#SEC407">26.4 バッファファイル名 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">The buffer file name indicates which file
+                              is visited.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_27.html#SEC408">26.5 バッファの変更 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">A buffer is <EM>modified</EM> if it needs to be saved.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_27.html#SEC409">26.6 更新時刻の比較 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Determining whether the visited file was changed</TD></TR>
+</TABLE>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"behind&nbsp;Emacs's&nbsp;back".
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_27.html#SEC410">26.7 読み出し専用バッファ <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Modifying text is not allowed in a
+                              read-only buffer.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_27.html#SEC411">26.8 バッファリスト <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How to look at all the existing buffers.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_27.html#SEC412">26.9 バッファの作成 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Functions that create buffers.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_27.html#SEC413">26.10 バッファの削除 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Buffers exist until explicitly killed.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_27.html#SEC405">26.2 カレントバッファ <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Designating a buffer as current
+                              so primitives will access its contents.</TD></TR>
+</TABLE>
+
+<br>
+ウィンドウ
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_28.html#SEC417">27.1 Emacsウィンドウの基本概念</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Basic information on using windows.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_28.html#SEC418">27.2 ウィンドウの分割</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Splitting one window into two windows.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_28.html#SEC419">27.3 ウィンドウの削除</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Deleting a window gives its space to other windows.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_28.html#SEC420">27.4 ウィンドウの選択</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">The selected window is the one that you edit in.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_28.html#SEC421">27.5 ウィンドウの巡回順序</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Moving around the existing windows.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_28.html#SEC422">27.6 バッファとウィンドウ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Each window displays the contents of a buffer.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_28.html#SEC423">27.7 ウィンドウへのバッファの表示</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Higher-lever functions for displaying a buffer
+                              and choosing a window for it.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_28.html#SEC425">27.9 ウィンドウとポイント</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Each window has its own location of point.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_28.html#SEC426">27.10 ウィンドウの開始位置</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">The display-start position controls which text
+                              is on-screen in the window.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_28.html#SEC427">27.11 垂直スクロール</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Moving text up and down in the window.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_28.html#SEC428">27.12 水平スクロール</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Moving text sideways on the window.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_28.html#SEC429">27.13 ウィンドウサイズ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Accessing the size of a window.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_28.html#SEC430">27.14 ウィンドウサイズの変更</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Changing the size of a window.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_28.html#SEC432">27.16 ウィンドウ構成</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Saving and restoring the state of the screen.</TD></TR>
+</TABLE>
+
+<br>
+フレーム
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC435">28.1 フレームの作成</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Creating additional frames.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC436">28.2 複数ディスプレイ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Creating frames on other X displays.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC437">28.3 フレームパラメータ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Controlling frame size, position, font, etc.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC442">28.4 フレームタイトル</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Automatic updating of frame titles.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC443">28.5 フレームの削除</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Frames last until explicitly deleted.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC444">28.6 すべてのフレームを探す</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How to examine all existing frames.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC445">28.7 フレームとウィンドウ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">A frame contains windows;
+			      display of text always works through windows.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC446">28.8 ミニバッファとフレーム</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How a frame finds the minibuffer to use.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC447">28.9 入力フォーカス</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Specifying the selected frame.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC448">28.10 フレームの可視性</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Frames may be visible or invisible, or icons.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC449">28.11 フレームを手前にしたり奥へ置く</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Raising a frame makes it hide other X windows;
+			      lowering it puts it underneath the others.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC450">28.12 フレーム構成</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Saving the state of all frames.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC451">28.13 マウスの追跡</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Getting events that say when the mouse moves.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC452">28.14 マウスの位置</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Asking where the mouse is, or moving it.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC453">28.15 ポップアップメニュー</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Displaying a menu for the user to select from.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC454">28.16 対話ボックス</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Displaying a box to ask yes or no.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC455">28.17 ポインタの形状</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Specifying the shape of the mouse pointer.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC456">28.18 ウィンドウシステムのセレクション</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Transferring text to and from other windows.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC459">28.21 表示色名</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Getting the definitions of color names.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC460">28.22 Xリソース</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Getting resource values from the server.</TD></TR>
+</TABLE>
+
+<br>
+バッファ内の位置
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_30.html#SEC463">29.1 ポイント</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">The special position where editing takes place.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_30.html#SEC464">29.2 移動</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Changing point.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_30.html#SEC472">29.3 エクスカージョン</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Temporary motion and buffer changes.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_30.html#SEC473">29.4 ナロイング</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Restricting editing to a portion of the buffer.</TD></TR>
+</TABLE>
+
+<br>
+移動
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_30.html#SEC465">29.2.1 文字単位の移動</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Moving in terms of characters.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_30.html#SEC466">29.2.2 単語単位の移動</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Moving in terms of words.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_30.html#SEC467">29.2.3 バッファの両端への移動</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Moving to the beginning or end of the buffer.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_30.html#SEC468">29.2.4 テキスト行単位の移動</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Moving in terms of lines of text.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_30.html#SEC469">29.2.5 スクリーン行分の移動</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Moving in terms of lines as displayed.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_30.html#SEC470">29.2.6 式単位の移動</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Moving by parsing lists and sexps.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_30.html#SEC471">29.2.7 文字群の飛び越し</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Skipping characters belonging to a certain set.</TD></TR>
+</TABLE>
+
+<br>
+マーカ
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_31.html#SEC475">30.1 マーカの概要</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">The components of a marker, and how it relocates.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_31.html#SEC476">30.2 マーカ向けの述語</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Testing whether an object is a marker.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_31.html#SEC477">30.3 マーカ作成関数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Making empty markers or markers at certain places.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_31.html#SEC478">30.4 マーカの情報</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Finding the marker's buffer or character
+                                position.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_31.html#SEC480">30.6 マーカ位置の移動</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Moving the marker to a new buffer or position.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_31.html#SEC481">30.7 マーク</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How "the mark" is implemented with a marker.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_31.html#SEC482">30.8 リージョン</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How to access "the region".</TD></TR>
+</TABLE>
+
+<br>
+テキスト
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_32.html#SEC484">31.1 ポイント付近のテキストを調べる</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Examining text in the vicinity of point.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_32.html#SEC485">31.2 バッファの内容を調べる</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Examining text in a general fashion.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_32.html#SEC487">31.4 テキストの挿入</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Adding new text to a buffer.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_32.html#SEC488">31.5 ユーザーレベルの挿入コマンド</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">User-level commands to insert text.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_32.html#SEC489">31.6 テキストの削除</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Removing text from a buffer.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_32.html#SEC490">31.7 ユーザーレベルの削除コマンド</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">User-level commands to delete text.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_32.html#SEC491">31.8 キルリング</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Where removed text sometimes is saved for
+                              later use.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_32.html#SEC497">31.9 アンドゥ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Undoing changes to the text of a buffer.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_32.html#SEC502">31.14 自動詰め込み（auto-filling）モード</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How auto-fill mode is implemented to break lines.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_32.html#SEC499">31.11 詰め込み</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Functions for explicit filling.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_32.html#SEC500">31.12 詰め込みのための余白</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How to specify margins for filling commands.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_32.html#SEC503">31.15 テキストのソート</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Functions for sorting parts of the buffer.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_32.html#SEC505">31.17 字下げ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Functions to insert or adjust indentation.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_32.html#SEC504">31.16 コラムを数える</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Computing horizontal positions, and using them.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_32.html#SEC512">31.18 大文字小文字の変更</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Case conversion of parts of the buffer.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_32.html#SEC513">31.19 テキスト属性</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Assigning Lisp property lists to text characters.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_32.html#SEC524">31.20 文字コードの置換</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Replacing a given character wherever it appears.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_32.html#SEC526">31.22 テキストの転置</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Swapping two portions of a buffer.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_32.html#SEC525">31.21 レジスタ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How registers are implemented.  Accessing
+                              the text or position stored in a register.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_32.html#SEC527">31.23 変更フック</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Supplying functions to be run when text is changed.</TD></TR>
+</TABLE>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+キルリング
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_32.html#SEC492">31.8.1 キルリングの概念</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">What text looks like in the kill ring.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_32.html#SEC493">31.8.2 キル向けの関数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Functions that kill text.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_32.html#SEC494">31.8.3 ヤンク向けの関数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Commands that access the kill ring.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_32.html#SEC495">31.8.4 下位レベルのキルリング</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Functions and variables for kill ring access.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_32.html#SEC496">31.8.5 キルリングの内部</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Variables that hold kill-ring data.</TD></TR>
+</TABLE>
+
+<br>
+字下げ
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_32.html#SEC506">31.17.1 字下げ基本関数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Functions used to count and insert indentation.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_32.html#SEC507">31.17.2 メジャーモードの制御による字下げ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Customize indentation for different modes.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_32.html#SEC508">31.17.3 領域全体の字下げ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Indent all the lines in a region.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_32.html#SEC509">31.17.4 先行行相対の字下げ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Indent the current line based on previous lines.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_32.html#SEC510">31.17.5 調整可能な『タブストップ』</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Adjustable, typewriter-like tab stops.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_32.html#SEC511">31.17.6 字下げに基づく移動コマンド</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Move to first non-blank character.</TD></TR>
+</TABLE>
+
+<br>
+テキスト属性
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_32.html#SEC514">31.19.1 テキスト属性を調べる</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Looking at the properties of one character.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_32.html#SEC515">31.19.2 テキスト属性の変更</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Setting the properties of a range of text.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_32.html#SEC516">31.19.3 テキスト属性を探す関数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Searching for where a property changes value.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_32.html#SEC517">31.19.4 特別な意味を持つ属性</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Particular properties with special meanings.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_32.html#SEC518">31.19.5 整形済みテキストの属性</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Properties for representing formatting of text.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_32.html#SEC519">31.19.6 テキスト属性のスティッキ性</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How inserted text gets properties from
+                              neighboring text.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_32.html#SEC520">31.19.7 テキスト属性をファイルへ保存する</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Saving text properties in files, and reading
+                              them back.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_32.html#SEC521">31.19.8 テキスト属性の遅延計算</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Computing text properties in a lazy fashion
+                              only when text is examined.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_32.html#SEC522">31.19.9 クリック可能なテキストを定義する</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Using text properties to make regions of text
+                              do something when you click on them.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_32.html#SEC523">31.19.10 テキスト属性が範囲でない理由</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Why text properties do not use
+			      Lisp-visible text intervals.</TD></TR>
+</TABLE>
+
+<br>
+非アスキー文字
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_33.html#SEC529">32.1 テキスト表現</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Unibyte and multibyte representations</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_33.html#SEC530">32.2 テキスト表現の変換</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Converting unibyte to multibyte and vice versa.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_33.html#SEC531">32.3 表現の選択</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Treating a byte sequence as unibyte or multi.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_33.html#SEC532">32.4 文字コード</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How unibyte and multibyte relate to
+                                codes of individual characters.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_33.html#SEC533">32.5 文字集合</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">The space of possible characters codes
+                                is divided into various character sets.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_33.html#SEC534">32.6 文字とバイト</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">More information about multibyte encodings.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_33.html#SEC535">32.7 文字の分割</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Converting a character to its byte sequence.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_33.html#SEC536">32.8 文字集合の走査</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Which character sets are used in a buffer?</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_33.html#SEC537">32.9 文字の変換</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Translation tables are used for conversion.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_33.html#SEC538">32.10 コーディングシステム</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Coding systems are conversions for saving files.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_33.html#SEC548">32.11 入力方式</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Input methods allow users to enter various
+                                non-ASCII characters without special keyboards.</TD></TR>
+</TABLE>
+
+<br>
+探索と一致
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_34.html#SEC550">33.1 文字列の探索</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Search for an exact match.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_34.html#SEC551">33.2 正規表現</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Describing classes of strings.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_34.html#SEC554">33.3 正規表現の探索</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Searching for a match for a regexp.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_34.html#SEC557">33.6 マッチデータ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Finding out which part of the text matched
+                              various parts of a regexp, after regexp search.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_34.html#SEC561">33.6.4 マッチデータの保存と復元</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Saving and restoring this information.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_34.html#SEC563">33.8 編集に用いられる標準的な正規表現</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Useful regexps for finding sentences, pages,...</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_34.html#SEC562">33.7 探索と大文字小文字</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Case-independent or case-significant searching.</TD></TR>
+</TABLE>
+
+<br>
+正規表現
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_34.html#SEC552">33.2.1 正規表現の構文</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Rules for writing regular expressions.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_34.html#SEC553">33.2.2 複雑な正規表現の例</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Illustrates regular expression syntax.</TD></TR>
+</TABLE>
+
+<br>
+構文テーブル
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_35.html#SEC566">34.2 構文記述子</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How characters are classified.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_35.html#SEC569">34.3 構文テーブル向け関数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How to create, examine and alter syntax tables.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_35.html#SEC572">34.6 釣り合った式の解析</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Parsing balanced expressions
+                              using the syntax table.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_35.html#SEC573">34.7 標準的な構文テーブル</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Syntax tables used by various major modes.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_35.html#SEC574">34.8 構文テーブルの内部</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How syntax table information is stored.</TD></TR>
+</TABLE>
+
+<br>
+構文記述子
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_35.html#SEC567">34.2.1 構文クラス一覧</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Table of syntax classes.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_35.html#SEC568">34.2.2 構文フラグ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Additional flags each character can have.</TD></TR>
+</TABLE>
+
+<br>
+略語と略語の展開
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_36.html#SEC577">35.1 略語 (abbrev) モードの設定 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Setting up Emacs for abbreviation.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_36.html#SEC578">35.2 略語表 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Creating and working with abbrev tables.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_36.html#SEC579">35.3 略語を定義する <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Specifying abbreviations and their expansions.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_36.html#SEC580">35.4 略語をファイルに保存する <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Saving abbrevs in files.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_36.html#SEC581">35.5 略語の探索と展開 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Controlling expansion; expansion subroutines.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_36.html#SEC582">35.6 標準の略語表 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Abbrev tables used by various major modes.</TD></TR>
+</TABLE>
+
+<br>
+プロセス
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_37.html#SEC584">36.1 サブプロセス作成関数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Functions that start subprocesses.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_37.html#SEC586">36.3 同期プロセスの作成</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Details of using synchronous subprocesses.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_37.html#SEC587">36.4 非同期プロセスの作成</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Starting up an asynchronous subprocess.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_37.html#SEC588">36.5 プロセスの削除</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Eliminating an asynchronous subprocess.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_37.html#SEC589">36.6 プロセス情報</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Accessing run-status and other attributes.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_37.html#SEC590">36.7 プロセスへ入力を送る</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Sending input to an asynchronous subprocess.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_37.html#SEC591">36.8 プロセスにシグナルを送る</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Stopping, continuing or interrupting
+                              an asynchronous subprocess.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_37.html#SEC592">36.9 プロセスからの出力を受け取る</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Collecting output from an asynchronous subprocess.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_37.html#SEC596">36.10 番兵：プロセスの状態変化の検出</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Sentinels run when process run-status changes.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_37.html#SEC598">36.12 ネットワーク接続</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Opening network connections.</TD></TR>
+</TABLE>
+
+<br>
+プロセスからの出力を受け取る
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_37.html#SEC593">36.9.1 プロセスバッファ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">If no filter, output is put in a buffer.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_37.html#SEC594">36.9.2 プロセスフィルタ関数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Filter functions accept output from the process.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_37.html#SEC595">36.9.3 プロセスからの出力を受け取る</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How to wait until process output arrives.</TD></TR>
+</TABLE>
+
+<br>
+オペレーティングシステムとのインターフェイス
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_40.html#SEC637">39.1 Emacsの始動</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Customizing Emacs start-up processing.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_40.html#SEC642">39.2 Emacsから抜ける</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How exiting works (permanent or temporary).</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_40.html#SEC645">39.3 オペレーティングシステム環境</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Distinguish the name and kind of system.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_40.html#SEC650">39.8 端末入力</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Recording terminal input for debugging.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_40.html#SEC654">39.9 端末出力</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Recording terminal output for debugging.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_40.html#SEC656">39.11 フロー制御</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How to turn output flow control on or off.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_40.html#SEC657">39.12 バッチモード</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Running Emacs without terminal interaction.</TD></TR>
+</TABLE>
+
+<br>
+Emacsの始動
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_40.html#SEC639">39.1.2 初期化ファイル：`<TT>.emacs</TT>'</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Details on reading the init file (`<TT>.emacs</TT>').</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_40.html#SEC640">39.1.3 端末固有の初期化</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How the terminal-specific Lisp file is read.</TD></TR>
+</TABLE>
+
+<br>
+Emacsから抜ける
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_40.html#SEC643">39.2.1 Emacsの終了</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Exiting Emacs irreversibly.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_40.html#SEC644">39.2.2 Emacsの休止</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Exiting Emacs reversibly.</TD></TR>
+</TABLE>
+
+<br>
+Emacsの画面表示
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_38.html#SEC600">37.1 スクリーン全体の再表示</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Clearing the screen and redrawing everything on it.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_38.html#SEC601">37.2 表示の切り詰め</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Folding or wrapping long text lines.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_38.html#SEC602">37.3 エコー領域</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Where messages are displayed.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_38.html#SEC604">37.5 選択表示</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Hiding part of the buffer text.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_38.html#SEC605">37.6 オーバレイ矢印</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Display of an arrow to indicate position.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_38.html#SEC606">37.7 一時的な表示</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Displays that go away automatically.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_38.html#SEC607">37.8 オーバレイ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Use overlays to highlight parts of the buffer.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_38.html#SEC610">37.9 表示幅</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How wide a character or string is on the screen.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_38.html#SEC611">37.10 フェイス</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">A face defines a graphics style
+                              for text characters: font, colors, etc.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_38.html#SEC616">37.11 括弧を点滅する</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How Emacs shows the matching open parenthesis.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_38.html#SEC617">37.12 反転表示</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Specifying how the screen looks.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_38.html#SEC618">37.13 通常の画面表示慣習</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">The usual conventions for displaying nonprinting chars.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_38.html#SEC619">37.14 表示テーブル</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How to specify other conventions.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_38.html#SEC623">37.15 ベルを鳴らす</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Audible signal to the user.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_38.html#SEC624">37.16 ウィンドウシステム</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Which window system is being used.</TD></TR>
+</TABLE>
+
+<br>
+GNU&nbsp;Emacsの内部
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_43.html#SEC668">C.1 Emacsの構築方法</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How to preload Lisp libraries into Emacs.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_43.html#SEC669">C.2 ピュアメモリ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">A kludge to make preloaded Lisp functions sharable.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_43.html#SEC670">C.3 ガベッジコレクション</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Reclaiming space for Lisp objects no longer used.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_43.html#SEC673">C.6 オブジェクトの内部</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Data formats of buffers, windows, processes.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_43.html#SEC672">C.5 Emacs基本関数の書き方</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Writing C code for Emacs.</TD></TR>
+</TABLE>
+
+<br>
+オブジェクトの内部
+<br>
+
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_43.html#SEC674">C.6.1 バッファの内部</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Components of a buffer structure.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_43.html#SEC675">C.6.2 ウィンドウの内部</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Components of a window structure.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_43.html#SEC676">C.6.3 プロセスの内部</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Components of a process structure.</TD></TR>
+</TABLE></BLOCKQUOTE>
+<P>
+
+<HR SIZE=1>
+<a name="bottom"> </a>
+<script type="text/javascript" src="style2.js"></script>
+<div class="footer">
+    <br>
+    このページはMeadow (Emacs) の紹介ページです <br>
+このWebページの各文書は自由にリンク・複製・再配布・改変していただいて構いません．
+<br>ただし，複製・再配布・改変の場合は Meadow Memo のURLを記載しておいて下さい．<br>
+<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=about%20link">Medow memoへのリンクについて</a>．<br>
+
+間違い，要望等があれば<a href="mailto:akihisa@mail.ne.jp">akihisa@mail.ne.jp</a> か下記でどうぞ<br>
+
+<br>
+
+<FORM METHOD="post" ACTION="http://www.bookshelf.jp/cgi-bin/wwwmail.cgi" >
+お名前：<INPUT TYPE="text" NAME="name" SIZE="30" MAXLENGTH="40" VALUE="ななしさん"><br>
+メールアドレス：<INPUT TYPE="text" NAME="EMAIL" SIZE="25" MAXLENGTH="60" VALUE="secret@mail.adr"><br>
+<input type="hidden" name="HPAGE" value="">
+つっこみ：<br><TEXTAREA NAME="MESSAGE" ROWS="5" COLS="50">
+</TEXTAREA><br><br>
+<INPUT TYPE="submit" VALUE="送信">
+<INPUT TYPE="reset" VALUE="クリア">
+</FORM>
+
+<br><A HREF="http://www.bookshelf.jp/cgi-bin/xct.cgi">ページ別カウンタ</a>
+<br> Since 2002/12/13 <br>
+</div>
+
+</BODY>
+
+</HTML>

@@ -1,0 +1,693 @@
+
+* Tue 02 Jul 2013 09:44:06 PM JST
+cd /usr/src
+* Tue 02 Jul 2013 09:44:17 PM JST
+tar xf linux-3.9.1.tar.xz
+* Tue 02 Jul 2013 09:44:31 PM JST
+ln -s linux-3.9.1/ linux
+* Tue 02 Jul 2013 09:44:37 PM JST
+cd linux
+* Tue 02 Jul 2013 09:44:47 PM JST
+make oldconfig
+* Tue 02 Jul 2013 09:44:56 PM JST
+make-kpkg --initrd --revision=1 kernel_image kernel_headers
+* Tue 02 Jul 2013 09:45:09 PM JST
+dpkg -i linux-image-3.9.1_1_i386.deb
+* Tue 02 Jul 2013 09:45:26 PM JST
+dpkg -i linux-headers-3.9.1_1_i386.deb
+* Tue 02 Jul 2013 09:45:35 PM JST
+update-initramfs -u && update-grub2
+* Tue 02 Jul 2013 09:45:46 PM JST
+41921  dpkg --purge linux-headers-3.9.0
+41922  dpkg --purge linux-image-3.9.0
+
+* Tue 02 Jul 2013 09:45:49 PM JST
+41921  dpkg --purge linux-headers-3.9.0
+41922  dpkg --purge linux-image-3.9.0
+41923  update-initramfs -u && update-grub2
+
+* Tue 02 Jul 2013 09:45:53 PM JST
+41921  
+* Tue 02 Jul 2013 09:45:54 PM JST
+41922  
+* Tue 02 Jul 2013 09:45:59 PM JST
+41923
+* Tue 02 Jul 2013 09:46:06 PM JST
+
+* Tue 02 Jul 2013 09:46:06 PM JST
+
+* Tue 02 Jul 2013 09:46:06 PM JST
+
+
+* Tue 02 Jul 2013 09:46:07 PM JST
+
+
+* Tue 02 Jul 2013 09:46:07 PM JST
+
+
+
+* Sun 07 Jul 2013 06:55:41 PM JST
+deb http://download.virtualbox.org/virtualbox/debian wheezy contrib
+* Mon 08 Jul 2013 07:13:34 AM JST
+  (cf. [[file:~/mydoc/linux/etc/how_to_define_hostname][how_to_define_hostname]])
+* Sun 14 Jul 2013 04:16:38 PM JST
+latest_real
+* Sun 14 Jul 2013 04:19:06 PM JST
+'/bin/ln -s {0} {1}'.format(dest_dir, latest)
+* Sun 14 Jul 2013 05:25:58 PM JST
+'rm -rf ' + dir_lis.sort(key=os.path.getctime)[0]
+* Sun 14 Jul 2013 09:31:01 PM JST
+evolution mailto:taka16daily.gmail.com&
+* Sun 14 Jul 2013 09:32:08 PM JST
+> /dev/null 2>&1 &
+* Sun 14 Jul 2013 09:42:48 PM JST
+天気: 雨時々曇
+本日からGmailで日誌をつける。
+ここを利用するのは
+* Sun 14 Jul 2013 09:45:40 PM JST
+ここを利用するのは、
+* Sun 14 Jul 2013 09:52:56 PM JST
+すなわち、
+* Sun 14 Jul 2013 09:57:02 PM JST
+独自のメールサーバーを管理する
+* Sun 14 Jul 2013 10:16:13 PM JST
+
+* Sun 14 Jul 2013 10:16:13 PM JST
+
+* Sun 14 Jul 2013 10:16:14 PM JST
+ボイスレコーダー
+* Sun 14 Jul 2013 10:17:55 PM JST
+天気: 雨時々曇 やや肌寒い
+本日から Gmail で日誌をつける。
+ここでの運用は、独自のメールサーバーを立てるまでの仮置場とする。
+独自メールサーバーでの管理を目的とする理由は、主に 3 つある。
+
+1 つ目は、他人の管理するサーバーに記録を保存しておく不安。
+つまり、コンプライアンスこそ存在するだろうが、基本的に管理者
+は記録を見ることができる為、自分の管理下に置きたい。
+
+2 つ目は、他人に、アカウントとパスワードが知られてしまった場合
+に、 Gmail の内容を盗み見られてしまう恐れがある点。
+
+3 つ目は、 Gmail もセキュリティに気を使っているものの、法的手続
+によって情報開示がなされることがあるため。
+勿論、犯罪などするつもりはさらさらないが、決して気分のいいも
+のではないので。
+
+基本的に"subject"は、 script 用に空けておく。
+毎朝 7 時に天気予報のメールが来る。
+また、ニュースのメールも屆く。
+
+○記録内容等
+天気
+会った人
+約束
+食事
+その他色々
+
+○実装予定
+一日のGPS ログ
+
+* Mon 15 Jul 2013 06:26:43 AM JST
+http://www.cas.go.jp/jp/tpp/pdf/2012/1/20120529_demerit.pdf
+* Mon 15 Jul 2013 06:26:59 AM JST
+http://www.cas.go.jp/jp/tpp/pdf/2012/1/20120516_merit.pdf
+* Mon 15 Jul 2013 06:27:11 AM JST
+ＴＰＰに関する意見取りまとめ
+（デメリットとして指摘される点抜粋
+* Mon 15 Jul 2013 06:27:13 AM JST
+（デメリットとして指摘される点抜粋
+* Mon 15 Jul 2013 06:27:33 AM JST
+ＴＰＰに関する意見取りまとめ
+（デメリットとして指摘される点抜粋
+* Mon 15 Jul 2013 06:27:34 AM JST
+（デメリットとして指摘される点抜粋
+* Mon 15 Jul 2013 06:37:13 AM JST
+
+ＴＰＰに関する意見取りまとめ メリット
+http://www.cas.go.jp/jp/tpp/pdf/2012/1/20120516_merit.pdf
+ＴＰＰに関する意見取りまとめ デメリット
+http://www.cas.go.jp/jp/tpp/pdf/2012/1/20120529_demerit.pdf
+
+を読む。
+雑感を述べると、なんの対策もない場合、牛肉、豚肉、鶏肉、
+小麦、砂糖、乳製品、蒟蒻、木材が安くなる可能性がある。
+車の値段があがる可能性がある。
+米は値段があがる可能性がある。これもなんの対策も施されなかっ
+た場合による。しかし、米の値段があがってしまうと歴史的に米騒
+動に発展するケースが極めて高い。よって米の関税撤廃は回避され
+るものと思われる。
+
+* Thu 18 Jul 2013 05:11:23 AM JST
+３時頃、滋賀県立図書館に本を返却。
+* Sat 20 Jul 2013 02:12:59 PM JST
+
+* Sat 20 Jul 2013 02:13:00 PM JST
+
+* Sat 20 Jul 2013 02:13:00 PM JST
+latest_real = os.path.realpath(latest)
+
+* Sat 20 Jul 2013 05:22:44 PM JST
+# for symbolic link
+latest = 'latest'
+
+* Sat 20 Jul 2013 05:34:11 PM JST
+latest_real
+* Sat 20 Jul 2013 05:36:21 PM JST
+ln_cmd
+* Sat 20 Jul 2013 05:41:11 PM JST
+ln
+* Sat 20 Jul 2013 05:41:12 PM JST
+bin/ln
+* Sat 20 Jul 2013 05:41:31 PM JST
+ln
+* Sat 20 Jul 2013 05:41:31 PM JST
+bin/ln
+* Sat 20 Jul 2013 05:41:42 PM JST
+ln
+* Sat 20 Jul 2013 05:41:43 PM JST
+bin/ln
+* Sat 20 Jul 2013 05:43:24 PM JST
+rm
+* Sat 20 Jul 2013 05:43:24 PM JST
+bin/rm
+* Sat 20 Jul 2013 05:47:43 PM JST
+# for symbolic link
+latest = 'latest'
+latest_real = os.path.realpath(latest)
+
+
+* Sat 20 Jul 2013 05:48:20 PM JST
+print(ln_cmd + ' -s {0} {1}'.format(dest_dir, latest))
+os.system('ssh ki ' + "'" + ln_cmd + ' -s {0} {1}'.format(dest_dir, latest_real) +"'")
+
+* Sat 20 Jul 2013 06:10:12 PM JST
+
+* Sat 20 Jul 2013 06:10:12 PM JST
+
+* Sat 20 Jul 2013 06:10:12 PM JST
+    print(link_dest)
+
+* Sat 20 Jul 2013 06:10:13 PM JST
+
+* Sat 20 Jul 2013 06:10:13 PM JST
+
+* Sat 20 Jul 2013 06:10:13 PM JST
+    print(link_dest)
+
+* Sat 20 Jul 2013 06:10:53 PM JST
+'Success: Incremental Backup.'
+* Sat 20 Jul 2013 06:11:02 PM JST
+'Failed: Incremental Backup.'
+* Sat 20 Jul 2013 06:14:50 PM JST
+exists
+* Sat 20 Jul 2013 06:21:48 PM JST
+
+* Sat 20 Jul 2013 06:21:48 PM JST
+
+* Sat 20 Jul 2013 06:21:48 PM JST
+    print('DEBUG-1-backup_ni.py')
+
+* Sat 20 Jul 2013 06:21:51 PM JST
+    
+* Sat 20 Jul 2013 06:30:21 PM JST
+  13 _ntuple_diskusage = collections.namedtuple('usage', 'total used free')           
+  14                                                                                  
+  15 if hasattr(os, 'statvfs'):  # POSIX                                              
+  16     def disk_usage(path):                                                        
+  17         st = os.statvfs(path)                                                    
+  18         free = st.f_bavail * st.f_frsize                                         
+  19         total = st.f_blocks * st.f_frsize                                        
+  20         used = (st.f_blocks - st.f_bfree) * st.f_frsize                          
+  21         return _ntuple_diskusage(total, used, free)                              
+
+* Sat 20 Jul 2013 06:30:58 PM JST
+13 
+* Sat 20 Jul 2013 06:30:59 PM JST
+  13 
+* Sat 20 Jul 2013 06:32:13 PM JST
+21
+* Sat 20 Jul 2013 06:32:14 PM JST
+20
+* Sat 20 Jul 2013 06:32:14 PM JST
+19
+* Sat 20 Jul 2013 06:32:14 PM JST
+18
+* Sat 20 Jul 2013 06:32:14 PM JST
+17
+* Sat 20 Jul 2013 06:32:14 PM JST
+16
+* Sat 20 Jul 2013 06:32:14 PM JST
+15
+* Sat 20 Jul 2013 06:32:14 PM JST
+14
+* Sat 20 Jul 2013 06:32:16 PM JST
+  21
+* Sat 20 Jul 2013 06:32:16 PM JST
+  20
+* Sat 20 Jul 2013 06:32:16 PM JST
+  19
+* Sat 20 Jul 2013 06:32:16 PM JST
+  18
+* Sat 20 Jul 2013 06:32:16 PM JST
+  17
+* Sat 20 Jul 2013 06:32:16 PM JST
+  16
+* Sat 20 Jul 2013 06:32:16 PM JST
+  15
+* Sat 20 Jul 2013 06:32:17 PM JST
+  14
+* Sat 20 Jul 2013 06:32:35 PM JST
+
+* Sat 20 Jul 2013 06:32:35 PM JST
+
+* Sat 20 Jul 2013 06:32:35 PM JST
+if hasattr(os, 'statvfs'):  # POSIX                                              
+
+* Sat 20 Jul 2013 06:36:37 PM JST
+  def bytes2human(n):                                                                 
+      symbols = ('K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y')                              
+      prefix = {}                                                                     
+      for i, s in enumerate(symbols):                                                 
+          prefix[s] = 1 << (i+1)*10                                                   
+      for s in reversed(symbols):                                                     
+          if n >= prefix[s]:                                                          
+              value = float(n) / prefix[s]                                            
+              return '%.1f%s' % (value, s)                                            
+      return "%sB" % n                                                                
+
+* Sat 20 Jul 2013 06:49:23 PM JST
+backup_path
+* Sat 20 Jul 2013 06:50:56 PM JST
+os.path.join(backup_path, latest)
+* Sat 20 Jul 2013 07:03:31 PM JST
+nothing
+* Sat 20 Jul 2013 07:43:57 PM JST
+os.path.join(backup_path, incr_backup_name)
+* Sat 20 Jul 2013 07:45:55 PM JST
+os.path.join(backup_path, full_backup_name)
+* Sat 20 Jul 2013 07:46:05 PM JST
+dest_dir = os.path.join(backup_path, full_backup_name)
+* Sat 20 Jul 2013 07:46:21 PM JST
+os.path.join(backup_path, incr_backup_name)
+* Sat 20 Jul 2013 07:46:41 PM JST
+remote
+* Sat 20 Jul 2013 07:46:45 PM JST
+remote
+* Sat 20 Jul 2013 07:47:04 PM JST
+remote_dir
+* Sat 20 Jul 2013 07:47:13 PM JST
+remote
+* Sat 20 Jul 2013 08:04:55 PM JST
+sys.exit
+* Sat 20 Jul 2013 08:07:56 PM JST
+pass
+* Sat 20 Jul 2013 08:41:35 PM JST
+'ssh ki ' + "'" + ln_cmd + ' -s {0} {1}'.format(dest_dir, latest_real) +"'"
+* Sat 20 Jul 2013 08:43:26 PM JST
+ki " + "'" + 
+* Sun 21 Jul 2013 05:17:23 AM JST
+latest_real
+* Sun 21 Jul 2013 05:34:12 AM JST
+created
+* Sun 21 Jul 2013 06:07:32 AM JST
+import collections
+* Sun 21 Jul 2013 06:07:38 AM JST
+_ntuple_diskusage = collections.namedtuple('usage', 'total used free')
+* Sun 21 Jul 2013 06:07:55 AM JST
+def disk_usage(path):
+    st = os.statvfs(path)
+    free = st.f_bavail * st.f_frsize
+    total = st.f_blocks * st.f_frsize
+    used = (st.f_blocks - st.f_bfree) * st.f_frsize
+    return _ntuple_diskusage(total, used, free)
+
+def bytes2human(n):
+  symbols = ('K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y')
+  prefix = {}
+  for i, s in enumerate(symbols):
+      prefix[s] = 1 << (i+1)*10
+  for s in reversed(symbols):
+      if n >= prefix[s]:
+          value = float(n) / prefix[s]
+          return '%.1f%s' % (value, s)
+  return "%sB" % n
+
+* Sun 21 Jul 2013 06:08:12 AM JST
+print()
+* Sun 21 Jul 2013 06:11:21 AM JST
+bytes2human(disk_usage('/data').total)
+* Sun 21 Jul 2013 06:11:31 AM JST
+bytes2human(disk_usage('/data').total)
+* Sun 21 Jul 2013 06:12:50 AM JST
+usage.
+* Sun 21 Jul 2013 06:13:02 AM JST
+
+* Sun 21 Jul 2013 06:16:04 AM JST
+print('total: {0}, free: {1}, usage: {2}'.format(bytes2human(usage.total),
+                                                 bytes2human(usage.free),
+                                                 bytes2human(usage.used)))
+
+* Sun 21 Jul 2013 06:16:31 AM JST
+usage
+* Sun 21 Jul 2013 06:16:38 AM JST
+usage
+* Sun 21 Jul 2013 06:34:48 AM JST
+print('Result: ' + [for line in child.stdout])
+* Sun 21 Jul 2013 06:35:22 AM JST
+[for line in a.stdout]
+* Sun 21 Jul 2013 06:44:09 AM JST
+print('hello' + [l for l in a.stdout])
+* Sun 21 Jul 2013 06:44:09 AM JST
+print('hello' + [l for l in a.stdout])
+* Sun 21 Jul 2013 06:44:09 AM JST
+print('hello' + [l for l in a.stdout])
+* Sun 21 Jul 2013 06:44:09 AM JST
+print('hello' + [l for l in a.stdout])
+* Sun 21 Jul 2013 06:44:09 AM JST
+print('hello' + [l for l in a.stdout])
+* Sun 21 Jul 2013 06:44:09 AM JST
+print('hello' + [l for l in a.stdout])
+* Sun 21 Jul 2013 06:44:10 AM JST
+print('hello' + [l for l in a.stdout])
+* Sun 21 Jul 2013 06:44:10 AM JST
+print('hello' + [l for l in a.stdout])
+* Sun 21 Jul 2013 06:44:10 AM JST
+print('hello' + [l for l in a.stdout])
+* Sun 21 Jul 2013 06:44:10 AM JST
+print('hello' + [l for l in a.stdout])
+* Sun 21 Jul 2013 06:44:10 AM JST
+print('hello' + [l for l in a.stdout])
+* Sun 21 Jul 2013 06:44:10 AM JST
+print('hello' + [l for l in a.stdout])
+* Sun 21 Jul 2013 06:44:10 AM JST
+print('hello' + [l for l in a.stdout])
+* Sun 21 Jul 2013 06:44:10 AM JST
+print('hello' + [l for l in a.stdout])
+* Sun 21 Jul 2013 06:44:10 AM JST
+print('hello' + [l for l in a.stdout])
+* Sun 21 Jul 2013 06:50:14 AM JST
+ 
+* Sun 21 Jul 2013 06:51:01 AM JST
+[bytes2human(x) for x in usage[1:]]
+* Sun 21 Jul 2013 06:51:22 AM JST
+def disk_usage(path):
+    st = os.statvfs(path)
+    free = st.f_bavail * st.f_frsize
+    total = st.f_blocks * st.f_frsize
+    used = (st.f_blocks - st.f_bfree) * st.f_frsize
+    return _ntuple_diskusage(total, used, free)
+
+def bytes2human(n):
+  symbols = ('K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y')
+  prefix = {}
+  for i, s in enumerate(symbols):
+      prefix[s] = 1 << (i+1)*10
+  for s in reversed(symbols):
+      if n >= prefix[s]:
+          value = float(n) / prefix[s]
+          return '%.1f%s' % (value, s)
+  return "%sB" % n
+
+* Sun 21 Jul 2013 06:51:54 AM JST
+def disk_usage(path):
+    st = os.statvfs(path)
+    free = st.f_bavail * st.f_frsize
+    total = st.f_blocks * st.f_frsize
+    used = (st.f_blocks - st.f_bfree) * st.f_frsize
+    return _ntuple_diskusage(total, used, free)
+
+* Sun 21 Jul 2013 06:52:01 AM JST
+def bytes2human(n):
+  symbols = ('K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y')
+  prefix = {}
+  for i, s in enumerate(symbols):
+      prefix[s] = 1 << (i+1)*10
+  for s in reversed(symbols):
+      if n >= prefix[s]:
+          value = float(n) / prefix[s]
+          return '%.1f%s' % (value, s)
+  return "%sB" % n
+
+* Sun 21 Jul 2013 06:52:19 AM JST
+def bytes2human(n):
+    symbols = ('K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y')
+    prefix = {}
+    for i, s in enumerate(symbols):
+        prefix[s] = 1 << (i+1)*10
+    for s in reversed(symbols):
+        if n >= prefix[s]:
+            value = float(n) / prefix[s]
+            return '%.1f%s' % (value, s)
+    return "%sB" % n
+
+* Sun 21 Jul 2013 06:52:28 AM JST
+def bytes2human(n):
+* Sun 21 Jul 2013 06:52:33 AM JST
+    symbols = ('K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y')
+* Sun 21 Jul 2013 06:52:38 AM JST
+    prefix = {}
+* Sun 21 Jul 2013 06:52:43 AM JST
+    for i, s in enumerate(symbols):
+* Sun 21 Jul 2013 06:52:47 AM JST
+        prefix[s] = 1 << (i+1)*10
+* Sun 21 Jul 2013 06:52:51 AM JST
+    for s in reversed(symbols):
+* Sun 21 Jul 2013 06:52:55 AM JST
+        if n >= prefix[s]:
+* Sun 21 Jul 2013 06:52:58 AM JST
+            value = float(n) / prefix[s]
+* Sun 21 Jul 2013 06:53:03 AM JST
+            return '%.1f%s' % (value, s)
+* Sun 21 Jul 2013 06:53:06 AM JST
+    return "%sB" % n
+* Sun 21 Jul 2013 06:54:11 AM JST
+def bytes2human(n):
+    symbols = ('K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y')
+    prefix = {}
+    for i, s in enumerate(symbols):
+        prefix[s] = 1 << (i+1)*10
+    for s in reversed(symbols):
+        if n >= prefix[s]:
+            value = float(n) / prefix[s]
+            return '%.1f%s' % (value, s)
+    return "%sB" % n
+
+* Sun 21 Jul 2013 07:39:13 AM JST
+check_call
+* Sun 21 Jul 2013 07:51:55 AM JST
+stdout=subprocess.PIPE
+* Sun 21 Jul 2013 07:54:53 AM JST
+child.
+* Sun 21 Jul 2013 08:02:00 AM JST
+
+* Sun 21 Jul 2013 08:02:00 AM JST
+
+* Sun 21 Jul 2013 08:02:00 AM JST
+subprocess.Popen('du -s --si ', shell=True, stdout=subprocess.PIPE)
+
+* Sun 21 Jul 2013 08:02:26 AM JST
+
+* Sun 21 Jul 2013 08:02:26 AM JST
+
+* Sun 21 Jul 2013 08:02:26 AM JST
+# TODO: (Atami) [2013/07/21]
+
+* Sun 21 Jul 2013 08:03:19 AM JST
+usage 
+* Sun 21 Jul 2013 08:09:25 AM JST
+for size in usage:
+* Sun 21 Jul 2013 08:10:03 AM JST
+         
+* Sun 21 Jul 2013 08:10:10 AM JST
+disk_usage('/data')
+* Sun 21 Jul 2013 09:39:01 AM JST
+
+* Sun 21 Jul 2013 09:39:01 AM JST
+
+* Sun 21 Jul 2013 09:39:01 AM JST
+print('***** Check disk usage')
+
+* Sun 21 Jul 2013 11:10:52 AM JST
+usage = [bytes2human(x) for x in diskusage('/data')]
+print('total: {0}, free: {1}, used: {2}'.format(usage))
+
+* Sun 21 Jul 2013 11:14:04 AM JST
+dest_dir
+* Sun 21 Jul 2013 11:39:56 AM JST
+
+* Sun 21 Jul 2013 11:39:56 AM JST
+
+* Sun 21 Jul 2013 11:39:56 AM JST
+print('')
+
+* Sun 21 Jul 2013 11:53:00 AM JST
+os.path.realpath(latest)
+* Sun 21 Jul 2013 11:53:08 AM JST
+
+* Sun 21 Jul 2013 11:53:08 AM JST
+
+* Sun 21 Jul 2013 11:53:08 AM JST
+print(')
+
+* Sun 21 Jul 2013 11:57:06 AM JST
+/usr/bin/du
+* Sun 21 Jul 2013 11:58:18 AM JST
+du
+* Sun 21 Jul 2013 12:00:23 PM JST
+ln_cmd
+* Sun 21 Jul 2013 12:00:36 PM JST
+ +"'")
+* Sun 21 Jul 2013 12:01:14 PM JST
+ln_cmd + 
+* Sun 21 Jul 2013 12:01:27 PM JST
+
+* Sun 21 Jul 2013 12:01:27 PM JST
+
+* Sun 21 Jul 2013 12:01:28 PM JST
+        # os.system(ln_cmd + ' -s {0} {1}'.format(remote_dir, latest_real))
+
+* Sun 21 Jul 2013 12:37:14 PM JST
+len(
+* Sun 21 Jul 2013 12:56:02 PM JST
+print('total: {0},'.format('hello'))
+* Sun 21 Jul 2013 12:56:03 PM JST
+print('total: {0},'.format('hello'))
+* Sun 21 Jul 2013 12:56:03 PM JST
+print('total: {0},'.format('hello'))
+* Sun 21 Jul 2013 12:56:03 PM JST
+print('total: {0},'.format('hello'))
+* Sun 21 Jul 2013 12:56:03 PM JST
+print('total: {0},'.format('hello'))
+* Sun 21 Jul 2013 12:56:09 PM JST
+usage = [bytes2human(x[0]) for x in disk_usage('/data')]
+* Sun 21 Jul 2013 12:56:20 PM JST
+_ntuple_diskusage = collections.namedtuple('usage', 'total used free')
+* Sun 21 Jul 2013 12:56:28 PM JST
+import collections
+* Sun 21 Jul 2013 12:56:38 PM JST
+usage = [bytes2human(x[0]) for x in disk_usage('/data')]
+* Sun 21 Jul 2013 12:56:45 PM JST
+_ntuple_diskusage = collections.namedtuple('usage', 'total used free')
+* Sun 21 Jul 2013 12:56:53 PM JST
+usage = [bytes2human(x[0]) for x in disk_usage('/data')]
+* Sun 21 Jul 2013 12:57:47 PM JST
+_ntuple_diskusage = collections.namedtuple('usage', 'total used free')
+
+def disk_usage(path):
+    st = os.statvfs(path)
+    free = st.f_bavail * st.f_frsize
+    total = st.f_blocks * st.f_frsize
+    used = (st.f_blocks - st.f_bfree) * st.f_frsize
+    return _ntuple_diskusage(total, used, free)
+
+def bytes2human(n):
+    symbols = ('K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y')
+    prefix = {}
+    for i, s in enumerate(symbols):
+        prefix[s] = 1 << (i+1)*10
+    for s in reversed(symbols):
+        if n >= prefix[s]:
+            value = float(n) / prefix[s]
+            return '%.1f%s' % (value, s)
+    return "%sB" % n
+
+* Sun 21 Jul 2013 12:58:07 PM JST
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+* Sun 21 Jul 2013 01:00:46 PM JST
+usage = [bytes2human(x[0]) for x in disk_usage('/data')]
+* Sun 21 Jul 2013 01:02:03 PM JST
+                                                        
+* Sun 21 Jul 2013 01:03:05 PM JST
+usage = [bytes2human(x[0]) for x in disk_usage('/data')]
+* Sun 21 Jul 2013 01:03:09 PM JST
+usage = disk_usage('/data')
+* Sun 21 Jul 2013 01:03:13 PM JST
+print(usage)
+* Sun 21 Jul 2013 01:03:19 PM JST
+print('total: {0}, free: {1}, used: {2}'.format(bytes2human(usage.total,
+                                                            usage.free,
+                                                            usage.used)))
+* Sun 21 Jul 2013 01:03:34 PM JST
+                                                
+* Sun 21 Jul 2013 01:03:40 PM JST
+bytes2human(
+* Sun 21 Jul 2013 01:04:05 PM JST
+print('total: {0}, free: {1}, used: {2}'.format(bytes2human(usage.total),
+                                                bytes2human(usage.free),
+                                                bytes2human(usage.used)))
+
+* Sun 21 Jul 2013 01:26:06 PM JST
+
+* Sun 21 Jul 2013 01:26:06 PM JST
+
+* Sun 21 Jul 2013 01:26:06 PM JST
+print(usage)
+
+* Sun 21 Jul 2013 01:58:26 PM JST
+
+* Sun 21 Jul 2013 01:58:27 PM JST
+
+* Sun 21 Jul 2013 01:58:27 PM JST
+#
+
+* Tue 23 Jul 2013 08:36:27 PM JST
+滋賀県栗東市安養寺1丁目4　マガリハウス前
+* Tue 23 Jul 2013 09:08:06 PM JST
+１７時頃、原付バイクを引き取りに草津警察署に到着。
+原付バイクの確認と指紋の採取を行う。
+鍵は見付かっていない。
+鍵はバイクの鍵と勝手口、倉庫の鍵、畑の鍵が束ねてあった。 
+バイクを確認すると破損箇所等はなかった。
+メットインの中を覗くと使用していた黒地に白ツバの半ヘルが存在せず、
+見知らぬピンク地に白く中央の太字の線と星型のマークの入ったメットとサングラスが入っていた。
+それらを含めて指紋を採取してもらい、土曜日に最後に触った自分の十本の指の指紋、
+第一関節から第三関節の指の指紋、左右の挙紋、手の側面（小指側）の指紋を採った。
+
+見付けてくれたのは草津署のカワベさんで"滋賀県栗東市安養寺1丁目4　マガリハウス前"に置いてあったそうで、
+マガリハウスの大家さん曰、出入りの邪魔になっていたそうだ。
+* Sat 27 Jul 2013 01:42:40 PM JST
+
+* Sat 27 Jul 2013 01:42:40 PM JST
+
+* Sat 27 Jul 2013 01:42:40 PM JST
+# remove symbolic link
+
+* Sat 27 Jul 2013 01:42:42 PM JST
+
+* Sat 27 Jul 2013 01:42:42 PM JST
+
+* Sat 27 Jul 2013 01:42:42 PM JST
+# remove symbolic link
+
+* Sat 27 Jul 2013 01:42:44 PM JST
+if os.path.exists(latest):
+    # tar latest directory
+    # remove latest symbolic link
+    print(rm_cmd + ' ' + latest)
+    subprocess.check_call(rm_cmd + ' ' + latest, shell=True)
+    if os.path.exists(latest):
+        raise StandardError('Could not remove latest.')
+
+
+* Sat 27 Jul 2013 01:42:48 PM JST
+
+* Sat 27 Jul 2013 01:42:48 PM JST
+
+* Sat 27 Jul 2013 01:42:48 PM JST
+print('\n***** Make symbolic link')
+
+* Sat 27 Jul 2013 01:47:50 PM JST
+latest
+* Sat 27 Jul 2013 01:48:18 PM JST
+latest
+* Sat 27 Jul 2013 01:48:25 PM JST
+latest
+* Sat 27 Jul 2013 02:38:16 PM JST
+xset -dpms s off s noblank s 00 s noexpose
+* Mon 29 Jul 2013 11:10:50 PM JST
+/home/t1/.pylib/backup_ki.py
+* Mon 29 Jul 2013 11:10:54 PM JST
+/usr/bin/python 

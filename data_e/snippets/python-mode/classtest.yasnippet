@@ -1,0 +1,25 @@
+# -*- mode: snippet -*-
+# name: classtest
+# key: classtest
+# condition: (not (py:at-string|comment-p))
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil)) 
+# --
+class Test$1(${2:MockerTestCase}):
+    \"\"\"`(format-time-string "%Y/%m/%d")`\"\"\"
+    @classmethod
+    def setUpClass(cls):
+        pass
+
+    def setUp(self):
+        self.mocker.replay()
+
+    def test_$3(self):
+        ${4:pass}
+        $0
+
+    def tearDown(self):
+        pass
+
+    @classmethod
+    def tearDownClass(cls, ):
+        pass

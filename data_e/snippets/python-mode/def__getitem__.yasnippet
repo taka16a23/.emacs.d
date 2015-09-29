@@ -1,0 +1,19 @@
+# -*- mode: snippet -*-
+# name: __getitem__(self, key):
+# key: defgetitem
+# condition: (not (py:at-string|comment-p))
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
+#
+# self[key] の値評価 (evaluation) を実現するために呼び出されます。シーケンス
+# の場合、キーとして整数とスライスオブジェクトを受理できなければなりません。
+# (シーケンス型をエミュレートする場合) 負のインデクスの解釈は __getitem__()
+# メソッド次第となります。key が不適切な型であった場合、TypeError を送出して
+# もかまいません; (負のインデクス値に対して何らかの解釈を行った上で) key がシ
+# ーケンスのインデクス集合外の値である場合、 IndexError を送出しなければなり
+# ません。マップ型の場合は、key に誤りがある場合（コンテナに含まれていない場
+# 合）、 IndexError を送出しなければなりません。注意: for ループでは、シーケ
+# ンスの終端を正しく検出できるようにするために、不正なインデクスに対して
+# IndexError が送出されるものと期待しています。
+# --
+def __getitem__(self, ${1:key}):
+    return $0

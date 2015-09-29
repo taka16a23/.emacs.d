@@ -1,0 +1,304 @@
+
+* Mon 04 Aug 2014 01:50:47 AM JST
+pySmartDL
+* Mon 04 Aug 2014 01:50:55 AM JST
+pySmartDL
+* Mon 04 Aug 2014 01:52:02 AM JST
+http://download.xnview.com/XnViewMP-linux.deb
+* Mon 04 Aug 2014 02:03:44 AM JST
+http://download.xnview.com/XnViewMP-linux.deb
+* Mon 04 Aug 2014 02:04:47 AM JST
+isFinished()
+* Mon 04 Aug 2014 02:06:43 AM JST
+http://download.xnview.com/XnViewMP-linux.deb
+* Mon 04 Aug 2014 02:13:08 AM JST
+download 
+* Mon 04 Aug 2014 02:13:09 AM JST
+on download 
+* Mon 04 Aug 2014 02:13:10 AM JST
+error on download 
+* Mon 04 Aug 2014 02:20:53 AM JST
+## After update
+#
+print('Remove downloaded file')
+os.remove(FILEPATH)
+
+* Mon 04 Aug 2014 02:21:07 AM JST
+## After update
+#
+print('Remove downloaded file')
+os.remove(FILEPATH)
+
+
+* Mon 04 Aug 2014 02:22:45 AM JST
+
+* Mon 04 Aug 2014 02:22:45 AM JST
+
+* Mon 04 Aug 2014 02:22:45 AM JST
+## After update
+
+* Mon 04 Aug 2014 02:22:46 AM JST
+## After update
+
+* Mon 04 Aug 2014 02:22:46 AM JST
+## After update
+#
+
+* Mon 04 Aug 2014 02:30:34 AM JST
+
+* Mon 04 Aug 2014 02:30:34 AM JST
+
+* Mon 04 Aug 2014 02:30:34 AM JST
+    print('* Save to {}'.format(DEST))
+
+* Mon 04 Aug 2014 02:31:00 AM JST
+Saved
+* Wed 06 Aug 2014 11:37:42 AM JST
+#### Second Version
+##
+
+* Wed 06 Aug 2014 11:37:50 AM JST
+Second
+* Wed 06 Aug 2014 11:38:03 AM JST
+class Listener:
+     def __init__(self, name, subject):
+         self.name = name
+         subject.register(self)
+ 
+     def update(self, event):
+         print self.name, "received event", event
+ 
+ class Subject:
+     def __init__(self):
+         self.listeners = []
+ 
+     def register(self, listener):
+         self.listeners.append(listener)
+ 
+     def unregister(self, listener):
+         self.listeners.remove(listener)
+ 
+     def notify_listeners(self, event):
+         for listener in self.listeners:
+             listener.update(event)
+ 
+ subject = Subject()
+ listenerA = Listener("<listener A>", subject)
+ listenerB = Listener("<listener B>", subject)
+ # subject には2つのリスナーが登録されている。
+ subject.notify_listeners ("<event 1>")
+ # 出力:
+ #     <listener A> received event <event 1>
+ #     <listener B> received event <event 1>
+* Fri 15 Aug 2014 09:57:47 PM JST
+    options = options or []
+    if not predicate.islist(options):
+        raise ValueError('Must be list {}'.format(options))
+    return sh.google_chrome(url, options, _bg=True)
+
+* Fri 15 Aug 2014 10:03:26 PM JST
+wm.getwin(psname='chrome')
+* Fri 15 Aug 2014 10:10:13 PM JST
+print(
+* Sat 16 Aug 2014 02:50:43 PM JST
+~/.pylib/wm/
+* Sat 16 Aug 2014 02:52:17 PM JST
+--user-data-dir
+* Sun 17 Aug 2014 01:18:23 AM JST
+architecture()
+* Sun 17 Aug 2014 01:18:28 AM JST
+version()
+* Sun 17 Aug 2014 01:18:39 AM JST
+release()
+* Sun 17 Aug 2014 01:18:53 AM JST
+linux_distribution()
+* Sun 17 Aug 2014 01:19:14 AM JST
+processor
+* Sun 17 Aug 2014 01:19:33 AM JST
+win32_ver
+* Sun 17 Aug 2014 01:20:26 AM JST
+machine
+* Sun 17 Aug 2014 01:22:18 AM JST
+system()
+* Sun 17 Aug 2014 01:47:23 AM JST
+return 
+* Sun 17 Aug 2014 01:48:48 AM JST
+'Windows'
+* Sun 17 Aug 2014 01:49:44 AM JST
+systemconfirmer
+* Sun 17 Aug 2014 01:50:11 AM JST
+getname()
+* Sun 17 Aug 2014 01:51:34 AM JST
+    def __nonzero__(self, ):
+        r"""SUMMARY
+        
+        __nonzero__()
+        
+        @Return:
+
+        @Error:
+        """
+        return platform.system() == self.getname()
+
+* Sun 17 Aug 2014 09:19:48 AM JST
+print(google)
+* Sun 17 Aug 2014 10:19:51 PM JST
+get_
+* Sun 17 Aug 2014 10:22:04 PM JST
+name(
+* Tue 19 Aug 2014 10:21:29 AM JST
+  
+* Tue 19 Aug 2014 10:21:34 AM JST
+dir
+* Tue 19 Aug 2014 10:21:34 AM JST
+emacs-dir
+* Tue 19 Aug 2014 10:21:35 AM JST
+my-emacs-dir
+* Tue 19 Aug 2014 10:21:54 AM JST
+my
+* Tue 19 Aug 2014 10:21:55 AM JST
+my-emacs-dir
+* Tue 19 Aug 2014 10:22:10 AM JST
+e
+* Tue 19 Aug 2014 10:22:11 AM JST
+data_e
+* Tue 19 Aug 2014 10:24:04 AM JST
+my-data-dir
+* Tue 19 Aug 2014 10:24:07 AM JST
+my-data-dir
+* Tue 19 Aug 2014 10:24:12 AM JST
+  
+* Tue 19 Aug 2014 10:24:13 AM JST
+dir
+* Tue 19 Aug 2014 10:24:13 AM JST
+data-dir
+* Tue 19 Aug 2014 10:24:13 AM JST
+my-data-dir
+* Tue 19 Aug 2014 10:24:51 AM JST
+my-elisp-dir
+* Tue 19 Aug 2014 10:27:13 AM JST
+Commentout
+* Tue 19 Aug 2014 10:36:49 AM JST
+file-cache-add-directory-recursively
+* Tue 19 Aug 2014 10:37:06 AM JST
+command 
+* Tue 19 Aug 2014 10:39:04 AM JST
+.zshrc
+* Tue 19 Aug 2014 10:39:08 AM JST
+  
+* Tue 19 Aug 2014 10:39:10 AM JST
+zshrc
+* Tue 19 Aug 2014 10:39:18 AM JST
+  
+* Tue 19 Aug 2014 10:39:21 AM JST
+Xmodmap
+* Tue 19 Aug 2014 10:39:25 AM JST
+  
+* Tue 19 Aug 2014 10:39:26 AM JST
+zshenv
+* Tue 19 Aug 2014 10:41:31 AM JST
+remote
+* Tue 19 Aug 2014 10:41:47 AM JST
+providing
+* Tue 19 Aug 2014 10:47:31 AM JST
+http://www.sharp.co.jp/support/aquos/doc/lc46-26v7_mn_exp.pdf
+* Tue 19 Aug 2014 11:01:14 AM JST
+                      
+* Tue 19 Aug 2014 11:02:59 AM JST
+Volume, 
+* Tue 19 Aug 2014 11:03:00 AM JST
+                      
+* Tue 19 Aug 2014 11:03:41 AM JST
+Position
+* Tue 19 Aug 2014 11:17:39 AM JST
+Login 
+* Tue 19 Aug 2014 11:18:26 AM JST
+Varify 
+* Tue 19 Aug 2014 11:19:40 AM JST
+SendCommand
+* Tue 19 Aug 2014 11:20:34 AM JST
+Singleton Connection for prevent multi command.
+
+
+
+* Tue 19 Aug 2014 11:21:34 AM JST
+command 
+* Tue 19 Aug 2014 11:21:34 AM JST
+Each command 
+* Tue 19 Aug 2014 11:22:57 AM JST
+
+* Tue 19 Aug 2014 11:22:57 AM JST
+
+* Tue 19 Aug 2014 11:22:57 AM JST
+Singleton Connection for prevent multi command.
+
+* Tue 19 Aug 2014 11:29:09 AM JST
+setted
+* Tue 19 Aug 2014 11:29:35 AM JST
+
+* Tue 19 Aug 2014 11:29:35 AM JST
+
+* Tue 19 Aug 2014 11:29:35 AM JST
+If not exists password, input pas
+
+* Tue 19 Aug 2014 11:29:54 AM JST
+Control Power, Channel, Input AV Position, Volume, Display, Size, Surround,
+Audio and Off Timer.
+
+
+* Tue 19 Aug 2014 11:30:37 AM JST
+, 
+* Tue 19 Aug 2014 11:37:59 AM JST
+Position
+* Tue 19 Aug 2014 11:37:59 AM JST
+AV Position
+* Tue 19 Aug 2014 11:38:38 AM JST
+change 
+* Tue 19 Aug 2014 11:39:31 AM JST
+Change 
+* Tue 19 Aug 2014 11:42:17 AM JST
+Degital
+* Tue 19 Aug 2014 11:42:19 AM JST
+Change 
+* Tue 19 Aug 2014 11:42:22 AM JST
+Degital
+* Tue 19 Aug 2014 11:42:24 AM JST
+Change 
+* Tue 19 Aug 2014 11:42:25 AM JST
+Degital
+* Tue 19 Aug 2014 11:42:27 AM JST
+Change 
+* Tue 19 Aug 2014 11:42:37 AM JST
+channel
+* Tue 19 Aug 2014 11:42:40 AM JST
+channel
+* Tue 19 Aug 2014 11:48:52 AM JST
+Composite Video
+* Tue 19 Aug 2014 11:52:45 AM JST
+Sinema
+* Tue 19 Aug 2014 11:52:55 AM JST
+Sinema
+* Tue 19 Aug 2014 12:02:47 PM JST
+Settin
+* Wed 20 Aug 2014 05:49:47 AM JST
+self.
+* Wed 20 Aug 2014 05:50:47 AM JST
+len
+* Wed 20 Aug 2014 05:50:48 AM JST
+fill, len
+* Fri 22 Aug 2014 01:10:45 PM JST
+type(
+* Sat 30 Aug 2014 05:14:59 PM JST
+'\r\nPassword:'
+* Sat 30 Aug 2014 05:15:09 PM JST
+'Login:'
+* Sat 30 Aug 2014 05:15:36 PM JST
+''
+* Sat 30 Aug 2014 05:16:44 PM JST
+'\r\nPassword:'
+* Sat 30 Aug 2014 05:17:04 PM JST
+\r\n
+* Sat 30 Aug 2014 05:17:15 PM JST
+''
+* Sat 30 Aug 2014 10:53:21 PM JST
+'\r\nPassword:'

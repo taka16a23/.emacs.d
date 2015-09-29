@@ -1,0 +1,2 @@
+ex.. (marker-position (process-mark (get-buffer-process "*terminal<1>*")))
+=> 112

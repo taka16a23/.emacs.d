@@ -1,0 +1,6 @@
+>>> from collections import defaultdict
+>>> d = defaultdict(lambda : 'default value', foo='bar')
+>>> d['foo']
+'bar'
+>>> d['bar']
+'default value'

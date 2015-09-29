@@ -1,0 +1,17 @@
+# -*- mode: snippet -*-
+# name: __getattribute__(self, name):
+# key: defgetattribute
+# condition: (not (py:at-string|comment-p))
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
+
+# クラスのインスタンスに対する属性アクセスを実装するために、無条件に呼び出さ
+# れます。クラスが __getattr__() も定義している場合、__getattr__() は、
+# __getattribute__()で明示的に呼び出すか、 AttributeError 例外を送出しない限
+# り呼ばれないでしょう。呼び出されることはありません。このメソッドは (計算さ
+# れた) 属性値を返すか、AttributeError 例外を送出します。このメソッドが再帰的
+# に際限なく呼び出されてしまうのを防ぐため、実装の際には常に、例えば
+# "object.__getattribute__(self, name)" のように基底クラスのメソッドを同じ属
+# 性名を使って呼び出し、必要な属性値全てにアクセスしなければなりません。
+# --
+def __getattribute__(self, name):
+    return $0

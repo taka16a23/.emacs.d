@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: __xor__(self, other):
+# key: defxor
+# condition: (not (py:at-string|comment-p))
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
+# --
+def __xor__(self, ${1:other}):
+    ${10:super(${20:`(save-excursion
+  (cond ((re-search-backward py:class-name-re nil 'noerr) (match-string 1))
+         (t "CLASS")))`}, self).${30:`(save-excursion
+  (cond ((re-search-backward py:def-name-re nil 'noerr) (match-string 1))
+        (t "CLASS")))`}(${40:$1})
+    }return $0

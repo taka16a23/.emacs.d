@@ -1,0 +1,8 @@
+* 前のmessage が部分的に同じなら*Messages* に上書きされる。
+example:
+(message "loading...")
+=> loading...
+
+(message "loading...done")
+=> loading...done
+*Messages* バッファには"loading...done"しか残らない

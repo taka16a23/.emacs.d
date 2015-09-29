@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: file()
+# key: file
+# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])))
+# 32 = ` '
+# --
+file(${1:FILE}, \'${2:$$(yas-choose-value \'(\"r\" \"w\" \"a\" \"r+\" \"rb\" \"wb\" \"r+b\"))}\')

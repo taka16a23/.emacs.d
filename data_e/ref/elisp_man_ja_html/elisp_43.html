@@ -1,0 +1,1434 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="ja">
+<!-- Created on October, 1  2005 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=euc-jp">
+<META NAME="keywords" CONTENT="meadow,mule,emacs,lisp,elisp,gnus,setting,設定,unix,cygwin">
+<META http-equiv="Content-Script-Type" content="text/javascript">
+<META NAME="description" CONTENT="Meadowの設定を紹介するページです">
+<TITLE>GNU Emacs Lispリファレンスマニュアル: C. GNU Emacsの内部</TITLE>
+
+<META NAME="description" CONTENT="GNU Emacs Lispリファレンスマニュアル: C. GNU Emacsの内部">
+<META NAME="keywords" CONTENT="GNU Emacs Lispリファレンスマニュアル: C. GNU Emacsの内部">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+<LINK REL="contents" HREF="elisp_toc.html#SEC_Contents">
+<LINK REL="index" HREF="elisp_48.html#SEC681">
+<LINK REL="next" HREF="elisp_44.html#SEC677">
+<LINK REL="prev" HREF="elisp_42.html#SEC661">
+
+<META http-equiv="Content-Style-Type" content="text/css">
+<!-- 鶯と龜 ←日本語EUC誤判別対策用らしい; -->
+<link rel="StyleSheet" href="../../../../soft/css/midnight.css" type="text/css" id="css1">
+<script type="text/javascript" src="style1.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../soft/css/meadowmemo.css">
+
+</HEAD>
+<BODY LANG="ja" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+<!--Infoseek Analyzer start-->
+<script LANGUAGE="javascript">PgNo=6;</script>
+<script src="http://js1.infoseek.co.jp/bin/57/00170.js"></script>
+<noscript><a href="http://ax1.www.infoseek.co.jp/bin/go?0017057f" target="_blank">
+<img src="http://ax1.www.infoseek.co.jp/bin/logo?0017057f" border=0></a></noscript>
+<!--Infoseek Analyzer end-->
+<a name="top"> </a>
+
+<br><A NAME="SEC667"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_42.html#SEC666"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_43.html#SEC668"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_42.html#SEC661"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_44.html#SEC677"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="GNU Emacs Internals"></A>
+<H1> C. GNU Emacsの内部 </H1>
+<!--docid::SEC667::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=GNU%20Emacs%20Internals">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=GNU%20Emacs%20Internals</a>"<br>
+"texi/elisp21/C.GNUEmacsの内部"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2FC%2EGNUEmacs%A4%CE%C6%E2%C9%F4">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+本章では、Lispライブラリをあらかじめロードした実用的なEmacsの実行形式の
+ダンプ方法、メモリ領域の割り当て方、
+Cプログラマに興味があるようなGNU Emacsの内部について述べます。
+<P>
+
+<div class="menuindex"><SCRIPT language=JavaScript src="indexC.js"></SCRIPT></div><noscript><BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_43.html#SEC668">C.1 Emacsの構築方法</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How to the dumped Emacs is made.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_43.html#SEC669">C.2 ピュアメモリ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">A kludge to make preloaded Lisp functions sharable.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_43.html#SEC670">C.3 ガベッジコレクション</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Reclaiming space for Lisp objects no longer used.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_43.html#SEC671">C.4 メモリ使用量</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Info about total size of Lisp objects made so far.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_43.html#SEC672">C.5 Emacs基本関数の書き方</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Writing C code for Emacs.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_43.html#SEC673">C.6 オブジェクトの内部</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Data formats of buffers, windows, processes.</TD></TR>
+</TABLE></BLOCKQUOTE></noscript>
+<P>
+
+<A NAME="Building Emacs"></A>
+<HR SIZE="6">
+<br><A NAME="SEC668"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_43.html#SEC667"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_43.html#SEC669"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Building Emacs"></A>
+<H2> C.1 Emacsの構築方法 </H2>
+<!--docid::SEC668::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Building%20Emacs">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Building%20Emacs</a>"<br>
+"texi/elisp21/C.1Emacsの構築方法"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2FC%2E1Emacs%A4%CE%B9%BD%C3%DB%CA%FD%CB%A1">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX3230"></A>
+<A NAME="IDX3231"></A>
+<P>
+
+本節では、Emacsの実行形式を構築する手順を説明します。
+メイクファイルが自動的にこれらすべてを行うので、
+Emacsを構築してインストールするために本節のことがらを
+読者が知っている必要はありません。
+本節の内容は、Emacsの保守者向けです。
+<P>
+
+ディレクトリ`<TT>src</TT>'のCソースファイル群をコンパイルすると、
+`<TT>temacs</TT>'と呼ばれる実行形式ファイルが作られます。
+これは<EM>裸のインピュアEmacs</EM>（bare impure Emacs）とも呼びます。
+これには、Emacs Lispインタープリタと入出力ルーティンが含まれますが、
+編集コマンドは入っていません。
+<P>
+
+<A NAME="IDX3232"></A>
+コマンド`<SAMP>temacs -l loadup</SAMP>'で、
+実用的なEmacsの実行形式を作るために`<TT>temacs</TT>'を使います。
+これらの引数は、`<TT>temacs</TT>'に対して
+ファイル`<TT>loadup.el</TT>'で指定したLispファイル群を評価するように指示します。
+これらのファイルはEmacsの通常の編集環境を作り上げ、
+その結果、Emacsは裸ではありませんがまだインピュアです。
+<P>
+
+標準のLispファイル群をロードするにはかなり時間が必要です。
+しかし、読者がEmacsを実行するたびにこれを行う必要はありません。
+`<TT>temacs</TT>'は、必要なファイルをあらかじめロードした`<TT>emacs</TT>'という
+実行形式プログラムとしてダンプできます。
+`<TT>emacs</TT>'はファイル群をロードする必要がないので素早く起動します。
+これが通常インストールされるEmacsの実行形式です。
+<P>
+
+`<TT>emacs</TT>'を作るにはコマンド`<SAMP>temacs -batch -l loadup dump</SAMP>'を使います。
+ここでの`<SAMP>-batch</SAMP>'の目的は、
+`<TT>temacs</TT>'が端末に関するデータを初期化しないようにするためです。
+これにより、ダンプしたEmacsでは端末情報の表が空であることを保証できます。
+引数`<SAMP>dump</SAMP>'は、`<TT>emacs</TT>'という名前の新たな実行形式を
+ダンプするように`<TT>loadup.el</TT>'に指示します。
+<P>
+
+ダンプできないオペレーティングシステムもあります。
+そのようなシステムでは、Emacsを使うたびに
+コマンド`<SAMP>temacs -l loadup</SAMP>'でEmacsを起動する必要があります。
+これにはかなり時間がかかりますが、多くても1日に1回、あるいは、
+ログアウトしなのであれば週に1回Emacsを起動する必要があるだけでしょうから、
+余分な時間は重大問題にはならないでしょう。
+<P>
+
+<A NAME="IDX3233"></A>
+あらかじめロードしておく追加のファイルは、
+それらをロードする`<TT>site-load.el</TT>'という名前のライブラリを
+書くことで指定できます。
+追加データのための領域を確保するために
+`<TT>src/puresize.h</TT>'の<CODE>PURESIZE</CODE>の値を増やす必要があるかもしれません。
+（十分な大きさになるまで20000ずつ増やして試すこと。）
+しかし、マシンが速くなればなるほど、あらかじめロードしておくファイルを
+追加することの利点は減少します。
+最近のマシンでは、このようにする必要はないでしょう。
+<P>
+
+`<TT>loadup.el</TT>'が`<TT>site-load.el</TT>'を読み終えると、
+<CODE>Snarf-documentation</CODE>（see 節 <A HREF="elisp_24.html#SEC365">23.2 説明文字列の参照</A>）を呼び出して、
+基本関数やあらかじめロードした関数（および変数）の説明文字列を
+それらの説明文字列を格納したファイル`<TT>etc/DOC</TT>'から探します。
+<P>
+
+<A NAME="IDX3234"></A>
+ダンプする直前に実行すべきList式を指定するには、
+`<TT>site-init.el</TT>'という名前のライブラリにそれらのLisp式を入れておきます。
+このファイルは、説明文字列を探し終えてから実行されます。
+<P>
+
+関数定義や変数定義をあらかじめロードしたいときには、
+それを行ってあとでEmacsを実行したときにそれらの説明文字列を
+参照できるようにする方法が3つあります。
+<P>
+
+<UL>
+<LI>
+ファイル`<TT>etc/DOC</TT>'を作成するときに
+それらのファイルが走査されるようにしておき、
+`<TT>site-load.el</TT>'でそれらのファイルをロードする。
+<P>
+
+<LI>
+`<TT>site-init.el</TT>'でファイルをロードし、
+Emacsをインストールするときにそれらのファイルを
+Lispファイル向けのインストールディレクトリへコピーする。
+<P>
+
+<LI>
+それらの各ファイルでローカル変数として
+<CODE>byte-compile-dynamic-docstrings</CODE>の値に<CODE>nil</CODE>以外を指定し、
+`<TT>site-load.el</TT>'か`<TT>site-init.el</TT>'でそれらのファイルをロードする。
+（これには、それらの説明文字列がつねにEmacsの領域を占めてしまう
+欠点がある。）
+</UL>
+<P>
+
+無変更の普通のEmacsにユーザーが期待する機能を変更するようなものを
+`<TT>site-load.el</TT>'や`<TT>site-init.el</TT>'に入れることは勧められません。
+読者のサイトでは普通の機能に優先させるべきであると思うときには、
+`<TT>default.el</TT>'でそれを行います。
+そうすれば、ユーザーは好みに応じて読者が行った変更を無効にできます。
+See 節 <A HREF="elisp_40.html#SEC638">39.1.1 概要：始動時の動作手順</A>。
+<P>
+
+<A NAME="IDX3235"></A>
+<DL>
+<DT><U>Function:</U> <B>dump-emacs</B> <I>to-file from-file</I>
+<DD><A NAME="IDX3236"></A>
+この関数は、Emacsの現在の状態を
+実行形式ファイル<VAR>to-file</VAR>へダンプする。
+<VAR>from-file</VAR>（これは普通は実行形式ファイル`<TT>temacs</TT>'）から
+シンボルを取り出す。
+<P>
+
+すでにダンプしたEmacsでこの関数を使うときには、
+`<SAMP>-batch</SAMP>'を指定してEmacsを実行すること。
+</DL>
+<P>
+
+<A NAME="Pure Storage"></A>
+<HR SIZE="6">
+<br><A NAME="SEC669"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_43.html#SEC668"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_43.html#SEC670"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Pure Storage"></A>
+<H2> C.2 ピュアメモリ </H2>
+<!--docid::SEC669::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Pure%20Storage">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Pure%20Storage</a>"<br>
+"texi/elisp21/C.2ピュアメモリ"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2FC%2E2%A5%D4%A5%E5%A5%A2%A5%E1%A5%E2%A5%EA">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX3237"></A>
+<P>
+
+Emacs Lispでは、ユーザーが作成したLispオブジェクト向けに
+2種類のメモリ、<EM>普通メモリ</EM>（normal storage）と
+<EM>ピュアメモリ</EM>（pure storage）を使います。
+普通メモリは、Emacsセッション中に新たに作成されるすべてのデータを置く場所です。
+普通メモリに関する情報は以下の節を参照してください。
+ピュアメモリは、あらかじめロードした標準Lispファイル群の特定のデータ、
+つまり、Emacsの実行中にけっして変化しないデータを収めるために使います。
+<P>
+
+ピュアメモリは、`<TT>temacs</TT>'があらかじめロードする標準Lispライブラリを
+ロードしている最中にのみ割り当てられます。
+ファイル`<TT>emacs</TT>'では読み出し専用
+（これができるオペレーティングシステムでは）と印が付けられ、
+当該マシンで同時に実行されているすべてのEmacsのジョブで
+メモリ領域を共有できるようにします。
+ピュアメモリは拡張できません。
+Emacsをコンパイルしたときに固定サイズが割り当てられ、
+あらかじめロードするライブラリに対して十分な大きさがないと
+`<TT>temacs</TT>'はクラッシュします。
+その場合には、ファイル`<TT>src/puresize.h</TT>'のコンパイルパラメータ
+<CODE>PURESIZE</CODE>を増やす必要があります。
+あらかじめロードするライブラリを追加したり標準機能に機能を追加しなければ、
+そのようなことは普通は起こらないはずです。
+<P>
+
+<A NAME="IDX3238"></A>
+<DL>
+<DT><U>Function:</U> <B>purecopy</B> <I>object</I>
+<DD>この関数は、ピュアメモリ内に<VAR>object</VAR>をコピーしそれを返す。
+文字列のコピーでは、ピュアメモリ内に同じ文字の新たな文字列を単純に作る。
+ベクトルやコンスセルの内容は再帰的にコピーする。
+シンボルなどの他のオブジェクトはコピーせずに無変更でそれらを返す。
+マーカをコピーしようとするとエラーを通知する。
+<P>
+
+この関数は、Emacsを構築してダンプするとき以外ではなにもしない。
+普通はファイル`<TT>emacs/lisp/loaddefs.el</TT>'でのみ呼び出されるが、
+あらかじめロードするとこれを呼び出すようなパッケージも少数だがある。
+</DL>
+<P>
+
+<A NAME="IDX3239"></A>
+<DL>
+<DT><U>Variable:</U> <B>pure-bytes-used</B>
+<DD>この変数の値は、割り当て済みのピュアメモリのバイト数である。
+典型的には、ダンプしたEmacsでは
+この値は利用可能なピュアメモリの総量にとても近い。
+そうでない場合には、あらかじめロードしたライブラリが少ないのであろう。
+</DL>
+<P>
+
+<A NAME="IDX3240"></A>
+<DL>
+<DT><U>Variable:</U> <B>purify-flag</B>
+<DD>この変数は、<CODE>defun</CODE>が関数定義をピュアメモリに
+コピーすべきかどうかを決定する。
+<CODE>nil</CODE>以外であると、関数定義をピュアメモリにコピーする。
+<P>
+
+Emacsを構築中の初期段階ですべての基本的な関数をロード中には
+（これらの関数を共有してガベッジコレクションの対象にしないように）、
+このフラグは<CODE>t</CODE>である。
+実行形式としてEmacsをダンプするときには、
+ダンプ前後の実際の値には関係なくこの変数には<CODE>nil</CODE>を書く。
+<P>
+
+実行中のEmacsでこのフラグを変更するべきではない。
+</DL>
+<P>
+
+<A NAME="Garbage Collection"></A>
+<HR SIZE="6">
+<br><A NAME="SEC670"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_43.html#SEC669"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_43.html#SEC671"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Garbage Collection"></A>
+<H2> C.3 ガベッジコレクション </H2>
+<!--docid::SEC670::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Garbage%20Collection">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Garbage%20Collection</a>"<br>
+"texi/elisp21/C.3ガベッジコレクション"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2FC%2E3%A5%AC%A5%D9%A5%C3%A5%B8%A5%B3%A5%EC%A5%AF%A5%B7%A5%E7%A5%F3">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX3241"></A>
+<P>
+
+<A NAME="IDX3242"></A>
+プログラムがリストを作成したり、（ライブラリをロードするなどして）
+ユーザーが新たに関数を定義すると、
+それらのデータは普通メモリへ置かれます。
+普通メモリが足りなくなると、Emacsはオペレーティングシステムに
+1kバイトの倍数のブロックでメモリ割り当てを要求します。
+各ブロックは1つの種類のLispオブジェクトに使いますから、
+シンボル、コンスセル、マーカなどはメモリの異なるブロックに分離されます。
+（ベクトル、長い文字列、バッファ、特定の編集向けデータ型などの
+比較的大きなものは各オブジェクトごとに独立のブロックを割り当てるが、
+短い文字列は8kバイトのブロックに詰め込む。）
+<P>
+
+あるメモリ部分をしばらく使ってから、
+（たとえば）バッファを削除したり
+オブジェクトに対する最後の参照を削除するなどして
+当該メモリを解放することはよくあることです。
+Emacsには、このような放置されたメモリを回収する
+<EM>ガベッジコレクタ</EM>（garbage collector）があります。
+（この名前は伝統的だが、
+『ガベッジリサイクル』のほうがこの機能を直観的に表すかもしれない。）
+<P>
+
+ガベッジコレクタは、Lispプログラムから現時点で参照可能な
+すべてのLispオブジェクトを探して印を付けることで動作します。
+まず、すべてのシンボル、それらの値、それらに関連付けられた関数定義、
+および、スタック上の任意のデータは参照可能であると仮定します。
+参照可能なオブジェクトから間接的に辿れる任意のオブジェクトも
+参照可能です。
+<P>
+
+印付けが終ったときには、無印であるすべてのオブジェクトは
+ゴミ（ガベッジ）です。
+Lispプログラムやユーザーがなにをしようと、
+無印のオブジェクトに辿り着く方法はないのでそれらを参照することは不可能です。
+無印のオブジェクトを使っているものはいないので、
+それらのメモリ領域は再利用できます。
+ガベッジコレクタの2段目の動作（『掃く』（sweep））は、
+無印のオブジェクトのメモリ領域を再利用できるようにすることです。
+<P>
+
+<A NAME="IDX3243"></A>
+掃き作業では、未使用のコンスセルを<EM>自由リスト</EM>（free list）に入れて、
+将来の割り当てに備えます。
+シンボルやマーカについても同様です。
+参照可能な文字列は8kバイトのブロックより小さな領域を占めるように詰め込み、
+不要になった8kバイトのブロックは解放します。
+ベクトル、バッファ、ウィンドウ、他の大きなオブジェクトは、
+<CODE>malloc</CODE>や<CODE>free</CODE>を使って個別に割り当てたり解放します。
+<P>
+
+<A NAME="IDX3244"></A>
+<BLOCKQUOTE>
+<B>Common Lispに関した注意：</B><CODE> </CODE>
+他のLispと異なり、GNU Emacs Lispでは、
+自由リストが空になってもガベッジコレクタを呼び出さない。
+そのかわりに、オペレーティングシステムにメモリ割り当てを単純に要求し、
+<CODE>gc-cons-threshold</CODE>バイトを使い尽くすまでは処理を継続する。
+<P>
+
+つまり、ガベッジコレクタを明示的に呼び出した直後のLispプログラムの部分では、
+（プログラムのその部分で2度目にガベッジコレクタを呼び出すほど
+多くのメモリを使わないと仮定すれば）
+その部分を実行中にはガベッジコレクタが呼ばれないことを保証できるのである。
+</BLOCKQUOTE>
+<P>
+
+<A NAME="IDX3245"></A>
+<DL>
+<DT><U>コマンド:</U> <B>garbage-collect</B>
+<DD>このコマンドはガベッジコレクタを実行し、
+使用中のメモリ量に関する情報を返す。
+（まえのガベッジコレクタの起動後に
+<CODE>gc-cons-threshold</CODE>バイト以上のLispデータを使うと
+自発的なガベッジコレクタの起動を引き起こす。）
+<P>
+
+<CODE>garbage-collect</CODE>が返すリストにはつぎの情報が含まれる。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>((<VAR>used-conses</VAR> . <VAR>free-conses</VAR>)
+ (<VAR>used-syms</VAR> . <VAR>free-syms</VAR>)
+ (<VAR>used-miscs</VAR> . <VAR>free-miscs</VAR>)
+ <VAR>used-string-chars</VAR> 
+ <VAR>used-vector-slots</VAR>
+ (<VAR>used-floats</VAR> . <VAR>free-floats</VAR>)
+ (<VAR>used-intervals</VAR> . <VAR>free-intervals</VAR>))
+</pre></td></tr></table><P>
+
+例を示す。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(garbage-collect)
+     => ((106886 . 13184) (9769 . 0)
+                (7731 . 4651) 347543 121628
+                (31 . 94) (1273 . 168))
+</pre></td></tr></table><P>
+
+各要素の意味はつぎのとおりである。
+<P>
+
+<DL COMPACT>
+<DT><VAR>used-conses</VAR>
+<DD>使用中のコンスセルの個数。
+<P>
+
+<DT><VAR>free-conses</VAR>
+<DD>オペレーティングシステムから得たメモリであるが
+現在未使用なコンスセルの個数。
+<P>
+
+<DT><VAR>used-syms</VAR>
+<DD>使用中のシンボルの個数。
+<P>
+
+<DT><VAR>free-syms</VAR>
+<DD>オペレーティングシステムから得たメモリであるが
+現在未使用なシンボルの個数。
+<P>
+
+<DT><VAR>used-miscs</VAR>
+<DD>その他の使用中のオブジェクトの個数。
+マーカ、オーバレイ、ユーザーに見えないある種のオブジェクトを含む。
+<P>
+
+<DT><VAR>free-miscs</VAR>
+<DD>オペレーティングシステムから得たメモリであるが
+現在未使用なその他のオブジェクトの個数。
+<P>
+
+<DT><VAR>used-string-chars</VAR>
+<DD>使用中の文字列の総文字数。
+<P>
+
+<DT><VAR>used-vector-slots</VAR>
+<DD>存在するベクトルの要素の総個数。
+<P>
+
+<DT><VAR>used-floats</VAR>
+<DD>使用中の浮動小数点数の個数。
+<P>
+
+<DT><VAR>free-floats</VAR>
+<DD>オペレーティングシステムから得たメモリであるが
+現在未使用な浮動小数点数の個数。
+<P>
+
+<DT><VAR>used-intervals</VAR>
+<DD>使用中のインターバルの個数。
+インターバルとはテキスト属性を表現するために使う内部データ構造である。
+<P>
+
+<DT><VAR>free-intervals</VAR>
+<DD>オペレーティングシステムから得たメモリであるが
+現在未使用なインターバルの個数。
+</DL>
+</DL>
+<P>
+
+<A NAME="IDX3246"></A>
+<DL>
+<DT><U>User Option:</U> <B>garbage-collection-messages</B>
+<DD>この変数が<CODE>nil</CODE>以外であると、
+Emacsはガベッジコレクションの始まりと終りにメッセージを表示する。
+デフォルト値は<CODE>nil</CODE>であり、そのようなメッセージを表示しない。
+</DL>
+<P>
+
+<A NAME="IDX3247"></A>
+<DL>
+<DT><U>User Option:</U> <B>gc-cons-threshold</B>
+<DD>この変数の値は、ガベッジコレクションのあとで
+つぎにガベッジコレクションを起こすまでに
+Lispオブジェクトに割り当てるべきメモリバイト数である。
+コンスセルは8バイト、
+文字列は1文字1バイトと数バイトのオーバヘッドといった具合である。
+バッファの内容に割り当てたメモリ量は数えない。
+この閾値を越えてもただちにつぎのガベッジコレクションは起こらず、
+つぎにLispのエバリュエータが呼ばれときに起きる。
+<P>
+
+最初の閾値は400,000である。
+より大きな値を指定すると、ガベッジコレクションの起動回数が少なくなる。
+ガベッジコレクションに費す時間を減少できるが、
+全体のメモリ使用量を増加させる。
+大量のLispデータを作成するようなプログラムを実行するときに設定する。
+<P>
+
+10,000までの小さな値を指定すると、
+ガベッジコレクションの回数を増やせる。
+10,000未満の値が意味を持つのはつぎにガベッジコレクションが起きるまでである。
+<CODE>garbage-collect</CODE>は閾値を10,000に戻す。
+</DL>
+<P>
+
+<CODE>garbage-collect</CODE>が返す値は、データ型ごとのLispデータのメモリ使用量です。
+対照的に、関数<CODE>memory-limit</CODE>は、
+Emacsが現在使用中のメモリ総量に関する情報を与えます。
+<P>
+
+<A NAME="IDX3248"></A>
+<DL>
+<DT><U>Function:</U> <B>memory-limit</B>
+<DD>この関数は、Emacsが最後に割り当てた最終バイトのアドレスを
+1024で割ったものを返す。
+値を1024で割るのは、Lispの整数に収めるためである。
+<P>
+
+読者の操作がメモリ使用量にどのように影響するかを調べるのに使える。
+</DL>
+<P>
+
+<A NAME="Memory Usage"></A>
+<HR SIZE="6">
+<br><A NAME="SEC671"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_43.html#SEC670"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_43.html#SEC672"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Memory Usage"></A>
+<H2> C.4 メモリ使用量 </H2>
+<!--docid::SEC671::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Memory%20Usage">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Memory%20Usage</a>"<br>
+"texi/elisp21/C.4メモリ使用量"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2FC%2E4%A5%E1%A5%E2%A5%EA%BB%C8%CD%D1%CE%CC">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+これらの変数は、Emacsが割り当てたデータ型ごとのメモリ総量に関する
+情報を与えます。
+これらと<CODE>(garbage-collect)</CODE>が返す値との違いに注意してください。
+<CODE>(garbage-collect)</CODE>の値は現存するオブジェクトを数えますが、
+これらの変数は、すでに解放したオブジェクトを含めて
+割り当てたオブジェクトの個数やサイズを数えます。
+<P>
+
+<A NAME="IDX3249"></A>
+<DL>
+<DT><U>Variable:</U> <B>cons-cells-consed</B>
+<DD>このEmacsセッションでこれまでに割り当てたコンスセルの総数。
+</DL>
+<P>
+
+<A NAME="IDX3250"></A>
+<DL>
+<DT><U>Variable:</U> <B>floats-consed</B>
+<DD>このEmacsセッションでこれまでに割り当てた浮動小数点数の総数。
+</DL>
+<P>
+
+<A NAME="IDX3251"></A>
+<DL>
+<DT><U>Variable:</U> <B>vector-cells-consed</B>
+<DD>このEmacsセッションでこれまでに割り当てたベクトルセルの総数。
+</DL>
+<P>
+
+<A NAME="IDX3252"></A>
+<DL>
+<DT><U>Variable:</U> <B>symbols-consed</B>
+<DD>このEmacsセッションでこれまでに割り当てたシンボルの総数。
+</DL>
+<P>
+
+<A NAME="IDX3253"></A>
+<DL>
+<DT><U>Variable:</U> <B>string-chars-consed</B>
+<DD>このEmacsセッションでこれまでに割り当てた文字列の総文字数。
+</DL>
+<P>
+
+<A NAME="IDX3254"></A>
+<DL>
+<DT><U>Variable:</U> <B>misc-objects-consed</B>
+<DD>このEmacsセッションでこれまでに割り当てたその他のオブジェクトの総数。
+マーカやオーバレイ、ユーザーに見えないある種のオブジェクトを含む。
+</DL>
+<P>
+
+<A NAME="IDX3255"></A>
+<DL>
+<DT><U>Variable:</U> <B>intervals-consed</B>
+<DD>このEmacsセッションでこれまでに割り当てたインターバルの総数。
+</DL>
+<P>
+
+<A NAME="Writing Emacs Primitives"></A>
+<HR SIZE="6">
+<br><A NAME="SEC672"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_43.html#SEC671"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_43.html#SEC673"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Writing Emacs Primitives"></A>
+<H2> C.5 Emacs基本関数の書き方 </H2>
+<!--docid::SEC672::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Writing%20Emacs%20Primitives">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Writing%20Emacs%20Primitives</a>"<br>
+"texi/elisp21/C.5Emacs基本関数の書き方"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2FC%2E5Emacs%B4%F0%CB%DC%B4%D8%BF%F4%A4%CE%BD%F1%A4%AD%CA%FD">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX3256"></A>
+<P>
+
+Lisp基本関数は、Cで実装したLisp関数です。
+Lispから呼び出すためのCの関数とのインターフェイスの詳細は、
+数個のCのマクロで処理しています。
+新たにCのコードを書く方法をほんとうに理解する唯一の方法は、
+ソースを読むことですが、ここではその一部を説明します。
+<P>
+
+スペシャルフォームの例は、`<TT>eval.c</TT>'から引用した<CODE>or</CODE>の定義です。
+（普通の関数も同じように見える。）
+<P>
+
+<A NAME="IDX3257"></A>
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>DEFUN ("or", For, Sor, 0, UNEVALLED, 0,
+  "Eval args until one of them yields non-nil; return that value.\n\
+The remaining args are not evalled at all.\n\
+If all args return nil, return nil.")
+  (args)
+     Lisp_Object args;
+{
+  register Lisp_Object val;
+  Lisp_Object args_left;
+  struct gcpro gcpro1;
+
+  if (NULL (args))
+    return Qnil;
+
+  args_left = args;
+  GCPRO1 (args_left);
+
+  do
+    {
+      val = Feval (Fcar (args_left));
+      if (!NULL (val))
+        break;
+      args_left = Fcdr (args_left);
+    }
+  while (!NULL (args_left));
+
+  UNGCPRO;
+  return val;
+}
+</FONT></pre></td></tr></table><P>
+
+マクロ<CODE>DEFUN</CODE>の引数の詳しい説明から始めます。
+その雛型はつぎのとおりです。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>DEFUN (<VAR>lname</VAR>, <VAR>fname</VAR>, <VAR>sname</VAR>, <VAR>min</VAR>, <VAR>max</VAR>, <VAR>interactive</VAR>, <VAR>doc</VAR>)
+</pre></td></tr></table><P>
+
+<DL COMPACT>
+<DT><VAR>lname</VAR>
+<DD>関数名として定義するLispシンボルの名前である。
+上の例では、<CODE>or</CODE>である。
+<P>
+
+<DT><VAR>fname</VAR>
+<DD>この関数のCの関数としての名前である。
+この関数をCのコードから呼び出すときに使う名前である。
+慣習により、Lispでの名前のまえに`<SAMP>F</SAMP>'を付けるが、
+Lispでの名前のダッシュ（`<SAMP>-</SAMP>'）はすべて下線に置き換える。
+したがって、Cのコードからこの関数を呼び出すには、<CODE>For</CODE>を呼び出す。
+引数は<CODE>Lisp_Object</CODE>型である必要があることに注意してほしい。
+ファイル`<TT>lisp.h</TT>'では、
+<CODE>Lisp_Object</CODE>型の値を作成するためのさまざまなマクロや関数を宣言してある。
+<P>
+
+<DT><VAR>sname</VAR>
+<DD>これは、Lispでの関数を表現するsubrオブジェクト向けのデータを保持する
+構造体に使うCの変数名である。
+この構造体は、シンボルを作成しその定義としてsubrオブジェクトを保存する
+初期化ルーティンへLispのシンボル名を運ぶ構造体である。
+慣習により、この名前はつねに
+<VAR>fname</VAR>の`<SAMP>F</SAMP>'を`<SAMP>S</SAMP>'に置き換えたものである。
+<P>
+
+<DT><VAR>min</VAR>
+<DD>関数が必要とする引数の最小の個数である。
+関数<CODE>or</CODE>は最小0個の引数を許す。
+<P>
+
+<DT><VAR>max</VAR>
+<DD>関数が許す引数の最大の個数に制限があるときの引数の最大の個数である。
+あるいは、評価していない引数を受け取るスペシャルフォームであることを
+表す<CODE>UNEVALLED</CODE>、
+評価済みの引数を何個でも受け取ることを表す<CODE>MANY</CODE>
+（<CODE>&#38;rest</CODE>に等価）でもよい。
+<CODE>UNEVALLED</CODE>も<CODE>MANY</CODE>もマクロである。
+<VAR>max</VAR>が数であるときには、
+それは<VAR>min</VAR>より小さくなく、かつ、7より大きくないこと。
+<P>
+
+<DT><VAR>interactive</VAR>
+<DD>この関数の対話指定であり、
+Lisp関数において<CODE>interactive</CODE>の引数に使う文字列である。
+<CODE>or</CODE>の場合には0（空ポインタ）であり、
+<CODE>or</CODE>は対話的に呼び出せないことを表す。
+値<CODE>""</CODE>は、対話的に呼び出されると
+この関数は引数を受け取らないことを表す。
+<P>
+
+<DT><VAR>doc</VAR>
+<DD>説明文字列である。
+各行末に`<SAMP>\n\</SAMP>'と書く必要があることを除けば、
+Lispで定義する関数の説明文字列のように書く。
+特に、最初の行は1つの文であること。
+</DL>
+<P>
+
+マクロ<CODE>DEFUN</CODE>の呼び出しのあとには、
+Cの関数に必須な引数名の並びを書き、引数に対する普通のCの宣言を続けます。
+引数の最大個数が固定されている関数では、
+各Lisp引数向けにCの引数宣言を書き、
+それらをすべて<CODE>Lisp_Object</CODE>型にします。
+Lisp関数に引数の個数に上限がないとき、
+それを実装するCの関数は実際には2つの引数を受け取ります。
+第1引数はLisp引数の個数であり、
+第2引数はそれらの値を収めたブロックのアドレスです。
+引数の型は<CODE>int</CODE>と<CODE>Lisp_Object *</CODE>です。
+<P>
+
+関数<CODE>For</CODE>自身の内側では、
+マクロ<CODE>GCPRO1</CODE>と<CODE>UNGCPRO</CODE>を使っていることに注意してください。
+<CODE>GCPRO1</CODE>は、ガベッジコレクションから変数を『保護』するために使います。
+つまり、ガベッジコレクタに対してこの変数を調べてその内容を
+参照可能なオブジェクトとみなすように指示します。
+<CODE>Feval</CODE>や<CODE>Feval</CODE>を直接／間接的に呼び出すものを呼ぶときには、
+このようにする必要があります。
+そのような場面では、再度参照する意図がある任意のLispオブジェクトは
+保護する必要があります。
+<CODE>UNGCPRO</CODE>は、この関数での変数の保護を取り消します。
+これは明示的に行う必要があります。
+<P>
+
+ほとんどのデータ型では、少なくともそのオブジェクトへの1つのポインタを
+保護すれば十分であり、そのオブジェクトに循環がない限り、
+そのオブジェクトへのすべてのポインタは正しく保たれます。
+文字列にはこれはあてはまりません。
+ガベッジコレクタがそれらを移動するからです。
+ガベッジコレクタが文字列を移動すると、
+それに対する既知のポインタをすべて再配置し、
+それ以外のポインタは不正になります。
+したがって、ガベッジコレクタが動く可能性のある任意の部分では、
+文字列へのすべてのポインタを保護する必要があります。
+<P>
+
+マクロ<CODE>GCPRO1</CODE>は1つのローカル変数のみを保護します。
+2つ保護したい場合にはかわりに<CODE>GCPRO2</CODE>を使います。
+<CODE>GCPRO1</CODE>を繰り返しても働きません。
+<CODE>GCPRO3</CODE>や<CODE>GCPRO4</CODE>のマクロもあります。
+<P>
+
+これらのマクロは<CODE>gcpro1</CODE>などのローカル変数を暗黙のうちに使いますが、
+読者はこれらを型<CODE>struct gcpro</CODE>で明示的に宣言する必要があります。
+したがって、<CODE>GCPRO2</CODE>を使う場合には、
+<CODE>gcpro1</CODE>と<CODE>gcpro2</CODE>を宣言する必要があります。
+残念ですが、ここではすべての詳細は説明しきれません。
+<P>
+
+Emacsをいったんダンプしたあとでも静的やグローバルな変数に書き込むのであれば、
+それらの変数にはCの初期化構文を使ってはいけません。
+初期化構文を伴うそれらの変数は、Emacsをダンプすると
+（オペレーティングシステムによっては）その結果として
+読み出し専用のメモリ領域に割り当てられます。
+See 節 <A HREF="elisp_43.html#SEC669">C.2 ピュアメモリ</A>。
+<P>
+
+関数の内側では静的変数を使わずに、
+すべての静的変数はファイルのトップレベルに置きます。
+オペレーティングシステムによっては
+Emacsはキーワード<CODE>static</CODE>を空のマクロと定義することもあるので、
+これは必要なことなのです。
+（このような定義を使うのは、そのようなシステムは、
+初期化構文があろうとなかろうと静的と宣言した変数を
+ダンプ後には読み出し専用にしてしまうからである。）
+<P>
+
+Cの関数を定義しただけではLisp基本関数としては使えません。
+基本関数に対するLispシンボルを作成し、
+その関数セルに適切なsubrオブジェクトを保存する必要があります。
+そのコードはつぎのようになります。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>defsubr (&#38;<VAR>subr-structure-name</VAR>);
+</pre></td></tr></table><P>
+
+ここで、<VAR>subr-structure-name</VAR>は<CODE>DEFUN</CODE>の第3引数に使った名前です。
+<P>
+
+すでにLisp基本関数が定義されているファイルに新たな基本関数を追加するときには、
+（ファイルの末尾近くで）<CODE>syms_of_<VAR>something</VAR></CODE>という名前の関数を探し、
+それに<CODE>defsubr</CODE>の呼び出しを追加します。
+ファイルにこの関数がなかったり、新たなファイルを作成した場合には、
+<CODE>syms_of_<VAR>filename</VAR></CODE>（たとえば<CODE>syms_of_myfile</CODE>）を追加します。
+そして、ファイル`<TT>emacs.c</TT>'でこれらの関数を呼び出している箇所を探して、
+そこに<CODE>syms_of_<VAR>filename</VAR></CODE>の呼び出しを追加します。
+<P>
+
+関数<CODE>syms_of_<VAR>filename</VAR></CODE>は、
+Lisp変数として見える任意のCの変数を定義する場所でもあります。
+<CODE>DEFVAR_LISP</CODE>は、Lispから見える<CODE>Lisp_Object</CODE>型のCの変数を作ります。
+<CODE>DEFVAR_INT</CODE>は、Lispからはつねに整数を値として見える
+<CODE>int</CODE>型のCの変数を作ります。
+<CODE>DEFVAR_BOOL</CODE>は、Lispからは<CODE>t</CODE>か<CODE>nil</CODE>を値として見える
+<CODE>int</CODE>型のCの変数を作ります。
+<P>
+
+ファイルだけに有効な<CODE>Lisp_Object</CODE>型のCの変数を定義した場合には、
+つぎのようにして、<CODE>syms_of_<VAR>filename</VAR></CODE>の中で<CODE>staticpro</CODE>を
+呼び出してその変数をガベッジコレクションから保護する必要があります。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>staticpro (&#38;<VAR>variable</VAR>);
+</pre></td></tr></table><P>
+
+つぎは、少々複雑な引数を取る別の関数の例です。
+これは`<TT>window.c</TT>'から取ったもので、
+マクロとLispオブジェクトを操作する関数の使い方を例示します。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>DEFUN ("coordinates-in-window-p", Fcoordinates_in_window_p,
+  Scoordinates_in_window_p, 2, 2,
+  "xSpecify coordinate pair: \nXExpression which evals to window: ",
+  "Return non-nil if COORDINATES is in WINDOW.\n\  
+COORDINATES is a cons of the form (X . Y), X and Y being distances\n\
+...
+If they are on the border between WINDOW and its right sibling,\n\
+   `vertical-line' is returned.")
+  (coordinates, window)
+     register Lisp_Object coordinates, window;
+{
+  int x, y;
+
+  CHECK_LIVE_WINDOW (window, 0);
+  CHECK_CONS (coordinates, 1);
+  x = XINT (Fcar (coordinates));
+  y = XINT (Fcdr (coordinates));
+
+  switch (coordinates_in_window (XWINDOW (window), &#38;x, &#38;y))
+    {
+    case 0:			/* NOT in window at all. */
+      return Qnil;
+
+    case 1:			/* In text part of window. */
+      return Fcons (make_number (x), make_number (y));
+
+    case 2:			/* In mode line of window. */
+      return Qmode_line;
+
+    case 3:			/* On right border of window.  */
+      return Qvertical_line;
+
+    default:
+      abort ();
+    }
+}
+</FONT></pre></td></tr></table><P>
+
+Cのコードでは、関数がCで定義されていない限り、
+関数をその名前で呼び出せないことに注意してください。
+Lispで書かれた関数を呼び出す方法は、Lispの関数<CODE>funcall</CODE>を
+内蔵する<CODE>Ffuncall</CODE>を使うことです。
+Lisp関数<CODE>funcall</CODE>は任意個数の引数を受け付けるので、
+Cでは2つの引数、Lispレベルの引数の個数と
+それらの値を収めた一次元の配列を受け取ります。
+Lispレベルの最初の引数は呼び出すべきLisp関数であり、
+残りはそれに渡す引数です。
+<CODE>Ffuncall</CODE>はエバリュエータを呼び出すので、
+<CODE>Ffuncall</CODE>を呼び出す周りでは、
+ガベッジコレクションからポインタを保護する必要があります。
+<P>
+
+Cの関数、<CODE>call0</CODE>、<CODE>call1</CODE>、<CODE>call2</CODE>などは、
+固定個数の引数を受け取るLisp関数を簡便に呼び出す手軽な方法です。
+これらは<CODE>Ffuncall</CODE>を呼び出して動作します。
+<P>
+
+`<TT>eval.c</TT>'は例を調べるにはとてもよいファイルです。
+`<TT>lisp.h</TT>'には重要なマクロや関数の定義が入っています。
+<P>
+
+<A NAME="Object Internals"></A>
+<HR SIZE="6">
+<br><A NAME="SEC673"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_43.html#SEC672"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_43.html#SEC674"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Object Internals"></A>
+<H2> C.6 オブジェクトの内部 </H2>
+<!--docid::SEC673::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Object%20Internals">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Object%20Internals</a>"<br>
+"texi/elisp21/C.6オブジェクトの内部"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2FC%2E6%A5%AA%A5%D6%A5%B8%A5%A7%A5%AF%A5%C8%A4%CE%C6%E2%C9%F4">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX3258"></A>
+<P>
+
+GNU Emacs Lispは、さまざまな型のデータを扱います。
+実際のデータはヒープに保存されていて、
+プログラムはポインタを介してそれらを参照します。
+ほとんどの実装では、ポインタは32ビット長です。
+Emacsをコンパイルしたオペレーティングシステムやマシンの種類に依存しますが、
+オブジェクトのアドレスには28ビットを使い、
+残りのビットはガベッジコレクションの印や
+オブジェクトの型を表す識別子であるタグに使います。
+<P>
+
+Lispオブジェクトはタグ付ポインタとして表現しますから、
+任意のオブジェクトのLispデータ型を判定することが可能です。
+Cのデータ<CODE>Lisp_Object</CODE>は、任意のデータ型のLispオブジェクトを保持できます。
+普通の変数は<CODE>Lisp_Object</CODE>型ですから、
+Lispの任意の値の任意の型を保持できます。
+実際のデータ型は、実行中にのみ判定できます。
+関数引数についても同じことがいえます。
+特定の型の引数のみを受け付る関数が必要な場合には、
+適切な述語（see 節 <A HREF="elisp_3.html#SEC58">2.5 型述語</A>）
+を使って型を明示的に検査する必要があります。
+<A NAME="IDX3259"></A>
+<P>
+
+<BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_43.html#SEC674">C.6.1 バッファの内部</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Components of a buffer structure.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_43.html#SEC675">C.6.2 ウィンドウの内部</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Components of a window structure.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_43.html#SEC676">C.6.3 プロセスの内部</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Components of a process structure.</TD></TR>
+</TABLE></BLOCKQUOTE>
+<P>
+
+<A NAME="Buffer Internals"></A>
+<HR SIZE="6">
+<br><A NAME="SEC674"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_43.html#SEC673"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_43.html#SEC675"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Buffer Internals"></A>
+<H3> C.6.1 バッファの内部 </H3>
+<!--docid::SEC674::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Buffer%20Internals">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Buffer%20Internals</a>"<br>
+"texi/elisp21/C.6.1バッファの内部"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2FC%2E6%2E1%A5%D0%A5%C3%A5%D5%A5%A1%A4%CE%C6%E2%C9%F4">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX3260"></A>
+<A NAME="IDX3261"></A>
+<P>
+
+バッファには、Lispプログラマが直接には参照できないフィールドがあります。
+それらをCのコードで使っている名前で以下に述べます。
+多くはLisp基本関数を介してLispプログラムから間接的に参照できます。
+<P>
+
+<DL COMPACT>
+<DT><CODE>name</CODE>
+<DD>バッファ名はバッファを指名する文字列である。
+これは一意であることが保証される。
+see 節 <A HREF="elisp_27.html#SEC406">26.3 バッファ名 <EM>(2003/10/30)</EM></A>。
+<P>
+
+<DT><CODE>save_modified</CODE>
+<DD>このフィールドは、バッファが最後に保存された時刻を整数で保持する。
+see 節 <A HREF="elisp_27.html#SEC408">26.5 バッファの変更 <EM>(2003/10/30)</EM></A>。
+<P>
+
+<DT><CODE>modtime</CODE>
+<DD>このフィールドは、訪問しているファイルの更新時刻を保持している。
+これはファイルを読み書きしたときに設定される。
+バッファをファイルに書き込むたびに、
+このフィールドとファイルの更新時刻を比較する。
+see 節 <A HREF="elisp_27.html#SEC408">26.5 バッファの変更 <EM>(2003/10/30)</EM></A>。
+<P>
+
+<DT><CODE>auto_save_modified</CODE>
+<DD>このフィールドは、バッファを最後に自動保存した時刻を保持する。
+<P>
+
+<DT><CODE>last_window_start</CODE>
+<DD>このフィールドは、バッファをウィンドウに最後に表示したときの
+バッファの<CODE>window-start</CODE>（表示開始）位置を保持する。
+<P>
+
+<DT><CODE>undo_list</CODE>
+<DD>このフィールドは、バッファのアンドゥリストを保持する。
+see 節 <A HREF="elisp_32.html#SEC497">31.9 アンドゥ</A>。
+<P>
+
+<DT><CODE>syntax_table_v</CODE>
+<DD>このフィールドは、バッファの構文テーブルを保持する。
+see 節 <A HREF="elisp_35.html#SEC564">34. 構文テーブル</A>。
+<P>
+
+<DT><CODE>downcase_table</CODE>
+<DD>このフィールドは、テキストを小文字に変換するための変換表を保持する。
+see 節 <A HREF="elisp_5.html#SEC80">4.9 大文字小文字テーブル</A>。
+<P>
+
+<DT><CODE>upcase_table</CODE>
+<DD>このフィールドは、テキストを大文字に変換するための変換表を保持する。
+see 節 <A HREF="elisp_5.html#SEC80">4.9 大文字小文字テーブル</A>。
+<P>
+
+<DT><CODE>case_canon_table</CODE>
+<DD>このフィールドは、大文字小文字を区別しない探索のために
+テキストを正則にするための変換表を保持する。
+see 節 <A HREF="elisp_5.html#SEC80">4.9 大文字小文字テーブル</A>。
+<P>
+
+<DT><CODE>case_eqv_table</CODE>
+<DD>このフィールドは、大文字小文字を区別しない探索のための
+同値テーブルを保持する。
+see 節 <A HREF="elisp_5.html#SEC80">4.9 大文字小文字テーブル</A>。
+<P>
+
+<DT><CODE>display_table</CODE>
+<DD>このフィールドは、バッファの表示テーブルを保持する。
+表示テーブルがなければ<CODE>nil</CODE>である。
+see 節 <A HREF="elisp_38.html#SEC619">37.14 表示テーブル</A>。
+<P>
+
+<DT><CODE>markers</CODE>
+<DD>このフィールドは、バッファを現在指しているすべてのマーカの連鎖を
+保持している。
+バッファからテキストを削除したり、バッファのギャップが移動すると、
+これらのマーカのおのおのを検査し更新する必要がある。
+see 節 <A HREF="elisp_31.html#SEC474">30. マーカ</A>。
+<P>
+
+<DT><CODE>backed_up</CODE>
+<DD>このフィールドは、このバッファで訪問しているファイルの
+バックアップファイルを作成したかどうかを表すフラグである。
+<P>
+
+<DT><CODE>mark</CODE>
+<DD>このフィールドは、バッファのマークを保持する。
+マークはマーカであり、そのためリスト<CODE>markers</CODE>にも含まれている。
+see 節 <A HREF="elisp_31.html#SEC481">30.7 マーク</A>。
+<P>
+
+<DT><CODE>mark_active</CODE>
+<DD>バッファのマークが活性であれば、
+このフィールドは<CODE>nil</CODE>以外である。
+<P>
+
+<DT><CODE>local_var_alist</CODE>
+<DD>このフィールドは、このバッファにバッファローカルな変数を記述した
+連想リストを保持している。
+バッファオブジェクトに特別な場所がある組み込みのバッファローカルな変数は
+含まない。
+（それらはこの一覧では省いた。）
+see 節 <A HREF="elisp_11.html#SEC150">10.10 バッファローカルな変数</A>。
+<P>
+
+<DT><CODE>base_buffer</CODE>
+<DD>このフィールドは、（間接バッファであれば）バッファの基底バッファ、あるいは、
+<CODE>nil</CODE>を保持する。
+<P>
+
+<DT><CODE>keymap</CODE>
+<DD>このフィールドは、バッファのローカルキーマップを保持する。
+see 節 <A HREF="elisp_22.html#SEC317">21. キーマップ</A>。
+<P>
+
+<DT><CODE>overlay_center</CODE>
+<DD>このフィールドは、現在のオーバレイの中央位置を保持する。
+see 節 <A HREF="elisp_38.html#SEC607">37.8 オーバレイ</A>。
+<P>
+
+<DT><CODE>overlays_before</CODE>
+<DD>このフィールドは、バッファの現在のオーバレイの中央位置か
+それよりまえで終るこのバッファのオーバレイのリストを保持している。
+それらは終了位置が減る順に並んでいる。
+<P>
+
+<DT><CODE>overlays_after</CODE>
+<DD>このフィールドは、バッファの現在のオーバレイの中央位置より
+うしろで終るこのバッファのオーバレイのリストを保持している。
+それらは開始位置が増える順に並んでいる。
+<P>
+
+<DT><CODE>enable_multibyte_characters</CODE>
+<DD>このフィールドは、<CODE>enable-multibyte-characters</CODE>の
+バッファローカルな値を保持しており、
+<CODE>t</CODE>か<CODE>nil</CODE>である。
+</DL>
+<P>
+
+<A NAME="Window Internals"></A>
+<HR SIZE="6">
+<br><A NAME="SEC675"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_43.html#SEC674"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_43.html#SEC676"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Window Internals"></A>
+<H3> C.6.2 ウィンドウの内部 </H3>
+<!--docid::SEC675::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Window%20Internals">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Window%20Internals</a>"<br>
+"texi/elisp21/C.6.2ウィンドウの内部"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2FC%2E6%2E2%A5%A6%A5%A3%A5%F3%A5%C9%A5%A6%A4%CE%C6%E2%C9%F4">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX3262"></A>
+<A NAME="IDX3263"></A>
+<P>
+
+ウィンドウには以下のような参照可能なフィールドがあります。
+<P>
+
+<DL COMPACT>
+<DT><CODE>frame</CODE>
+<DD>このウィンドウがあるフレーム。
+<P>
+
+<DT><CODE>mini_p</CODE>
+<DD>このウィンドウがミニバッファ用ウィンドウであれば<CODE>nil</CODE>以外。
+<P>
+
+<DT><CODE>buffer</CODE>
+<DD>このウィンドウで表示しているバッファ。
+これはウィンドウの生存期間中にしばしば変化する。
+<P>
+
+<DT><CODE>dedicated</CODE>
+<DD>このウィンドウがそのバッファ専用であると<CODE>nil</CODE>以外である。
+<P>
+
+<DT><CODE>pointm</CODE>
+<DD><A NAME="IDX3264"></A>
+これは、このウィンドウが選択されていたときの
+カレントバッファのポイント値である。
+選択されていないときには、まえの値が保持される。
+<P>
+
+<DT><CODE>start</CODE>
+<DD>ウィンドウに表示する最初の文字のバッファ内位置である。
+<P>
+
+<DT><CODE>force_start</CODE>
+<DD>このフラグが<CODE>nil</CODE>以外であると、
+Lispプログラムが明示的にウィンドウをスクロールしたことを表す。
+ポイントがスクリーンからはみ出しているとつぎの再表示の動作に影響する。
+ポイントの周りのテキストをウィンドウに表示するようにスクロールするかわりに、
+スクリーン上に位置するようにポイントを移動する。
+<P>
+
+<DT><CODE>last_modified</CODE>
+<DD>このウィンドウの最後の再表示が完了した時点での
+ウィンドウのバッファのフィールド<CODE>modified</CODE>である。
+<P>
+
+<DT><CODE>last_point</CODE>
+<DD>このウィンドウの最後の再表示が完了した時点での
+バッファのポイント値である。
+<P>
+
+<DT><CODE>left</CODE>
+<DD>コラム数で数えたウィンドウの左端である。
+（スクリーンの最左端コラムは0コラム目。）
+<P>
+
+<DT><CODE>top</CODE>
+<DD>行数で数えたウィンドウの上端である。
+（スクリーンの最上端行は0行目。）
+<P>
+
+<DT><CODE>height</CODE>
+<DD>行数で数えたウィンドウの高さ。
+<P>
+
+<DT><CODE>width</CODE>
+<DD>コラム数で数えたウィンドウの幅。
+<P>
+
+<DT><CODE>next</CODE>
+<DD>これは、兄弟関係でつぎのウィンドウである。
+兄弟関係で最右端か最下端であるウィンドウでは<CODE>nil</CODE>である。
+<P>
+
+<DT><CODE>prev</CODE>
+<DD>これは、兄弟関係でまえのウィンドウである。
+兄弟関係で最左端か最上端であるウィンドウでは<CODE>nil</CODE>である。
+<P>
+
+<DT><CODE>parent</CODE>
+<DD>内部的にはEmacsはウィンドウを木に並べている。
+兄弟関係の各グループには親ウィンドウがあり、
+親ウィンドウの領域はその兄弟すべての領域を含む。
+このフィールドはウィンドウの親を指す。
+<P>
+
+親ウィンドウはバッファを表示せず、
+その子ウィンドウの形以外には、表示に関してはなんの役割も持たない。
+Emacs Lispプログラムでは親ウィンドウを参照せず、
+バッファを実際に表示する木の葉にあるウィンドウを操作する。
+<P>
+
+<DT><CODE>hscroll</CODE>
+<DD>これは、ウィンドウの表示を水平方向左向きにスクロールしているコラム数。
+これは普通は0である。
+<P>
+
+<DT><CODE>use_time</CODE>
+<DD>これは、このウィンドウが選択されていた最後の時刻。
+関数<CODE>get-lru-window</CODE>がこのフィールドを使う。
+<P>
+
+<DT><CODE>display_table</CODE>
+<DD>ウィンドウの表示テーブル。
+指定されていなければ<CODE>nil</CODE>である。
+<P>
+
+<DT><CODE>update_mode_line</CODE>
+<DD><CODE>nil</CODE>以外であると、ウィンドウのモード行を更新する必要があることを表す。
+<P>
+
+<DT><CODE>base_line_number</CODE>
+<DD>バッファの特定の位置の行番号である。
+あるいは<CODE>nil</CODE>。
+これは、モード行にポイント位置の行番号を表示するために使われる。
+<P>
+
+<DT><CODE>base_line_pos</CODE>
+<DD>行番号が既知のバッファ内位置。
+既知でなければ<CODE>nil</CODE>である。
+<P>
+
+<DT><CODE>region_showing</CODE>
+<DD>このウィンドウでリージョン（やその一部）を強調表示しているときには、
+このフィールドは、当該リージョンの一方の端を表すマーク位置を保持している。
+さもなければこのフィールドは<CODE>nil</CODE>である。
+</DL>
+<P>
+
+<A NAME="Process Internals"></A>
+<HR SIZE="6">
+<br><A NAME="SEC676"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_43.html#SEC675"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_44.html#SEC677"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Process Internals"></A>
+<H3> C.6.3 プロセスの内部 </H3>
+<!--docid::SEC676::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Process%20Internals">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Process%20Internals</a>"<br>
+"texi/elisp21/C.6.3プロセスの内部"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2FC%2E6%2E3%A5%D7%A5%ED%A5%BB%A5%B9%A4%CE%C6%E2%C9%F4">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX3265"></A>
+<A NAME="IDX3266"></A>
+<P>
+
+プロセスにはつぎのようなフィールドがあります。
+<P>
+
+<DL COMPACT>
+<DT><CODE>name</CODE>
+<DD>プロセスの名前である文字列。
+<P>
+
+<DT><CODE>command</CODE>
+<DD>このプロセスを開始するために使用されたコマンド引数から成るリスト。
+<P>
+
+<DT><CODE>filter</CODE>
+<DD>バッファのかわりにプロセスからの出力を受け取るために使用する関数。
+あるいは<CODE>nil</CODE>。
+<P>
+
+<DT><CODE>sentinel</CODE>
+<DD>プロセスがシグナルを受け取るたびに呼ばれる関数。
+あるいは<CODE>nil</CODE>。
+<P>
+
+<DT><CODE>buffer</CODE>
+<DD>プロセスに対応付けられたバッファ。
+<P>
+
+<DT><CODE>pid</CODE>
+<DD>UNIXのプロセスIDである整数。
+<P>
+
+<DT><CODE>childp</CODE>
+<DD>フラグであり、これが実際に子プロセスであると<CODE>nil</CODE>以外である。
+ネットワーク接続であると<CODE>nil</CODE>以外。
+<P>
+
+<DT><CODE>mark</CODE>
+<DD>プロセスからの最後の出力をバッファに挿入した箇所の末尾位置を表すマーカ。
+これはしばしばバッファの末尾であるが、つねにではない。
+<P>
+
+<DT><CODE>kill_without_query</CODE>
+<DD>これが<CODE>nil</CODE>以外であると、このプロセスが動作中にEmacsを終了しようとしても
+プロセスをキルすることに関して確認を求めない。
+<P>
+
+<DT><CODE>raw_status_low</CODE>
+<DD><DT><CODE>raw_status_high</CODE>
+<DD>これらの2つのフィールドは、
+システムコール<CODE>wait</CODE>で返されるプロセス状態の各16ビットを記録する。
+<P>
+
+<DT><CODE>status</CODE>
+<DD><CODE>process-status</CODE>が返すべきプロセス状態。
+<P>
+
+<DT><CODE>tick</CODE>
+<DD><DT><CODE>update_tick</CODE>
+<DD>この2つのフィールドが等しくないと、
+番兵を実行するかプロセスのバッファにメッセージを挿入するかして、
+プロセスの状態変化を報告する必要がある。
+<P>
+
+<DT><CODE>pty_flag</CODE>
+<DD>サブプロセスとの通信にPTY（疑似端末）を
+使用している場合には<CODE>nil</CODE>以外であり、
+パイプを使用している場合には<CODE>nil</CODE>である。
+<P>
+
+<DT><CODE>infd</CODE>
+<DD>このプロセスからの入力用ファイル記述子。
+<P>
+
+<DT><CODE>outfd</CODE>
+<DD>このプロセスへの出力用ファイル記述子。
+<P>
+
+<DT><CODE>subtty</CODE>
+<DD>サブプロセスが使用している端末のファイル記述子。
+（これを記録する必要のないシステムもあり、その場合には値は<CODE>nil</CODE>である。）
+<P>
+
+<DT><CODE>tty_name</CODE>
+<DD>サブプロセスが使用している端末の名前。
+パイプを使用しているときには<CODE>nil</CODE>である。
+</DL>
+<A NAME="Standard Errors"></A>
+<HR SIZE="6">
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<a name="bottom"> </a>
+<script type="text/javascript" src="style2.js"></script>
+<div class="footer">
+    <br>
+    このページはMeadow (Emacs) の紹介ページです <br>
+このWebページの各文書は自由にリンク・複製・再配布・改変していただいて構いません．
+<br>ただし，複製・再配布・改変の場合は Meadow Memo のURLを記載しておいて下さい．<br>
+<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=about%20link">Medow memoへのリンクについて</a>．<br>
+
+間違い，要望等があれば<a href="mailto:akihisa@mail.ne.jp">akihisa@mail.ne.jp</a> か下記でどうぞ<br>
+
+<br>
+
+<FORM METHOD="post" ACTION="http://www.bookshelf.jp/cgi-bin/wwwmail.cgi" >
+お名前：<INPUT TYPE="text" NAME="name" SIZE="30" MAXLENGTH="40" VALUE="ななしさん"><br>
+メールアドレス：<INPUT TYPE="text" NAME="EMAIL" SIZE="25" MAXLENGTH="60" VALUE="secret@mail.adr"><br>
+<input type="hidden" name="HPAGE" value="">
+つっこみ：<br><TEXTAREA NAME="MESSAGE" ROWS="5" COLS="50">
+</TEXTAREA><br><br>
+<INPUT TYPE="submit" VALUE="送信">
+<INPUT TYPE="reset" VALUE="クリア">
+</FORM>
+
+<br><A HREF="http://www.bookshelf.jp/cgi-bin/xct.cgi">ページ別カウンタ</a>
+<br> Since 2002/12/13 <br>
+</div>
+
+</BODY>
+
+</HTML>

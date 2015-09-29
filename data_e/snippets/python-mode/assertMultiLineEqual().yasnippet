@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: assertMultiLineEqual()
+# key: assertMultiLineEqual
+# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])))
+# 32 = ` '
+# --
+assertMultiLineEqual(${1:multiline_string1}, ${2:multiline_string2})

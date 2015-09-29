@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: compile()
+# key: compile__
+# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])))
+# 32 = ` '
+# --
+compile(${1:\'source\'}, ${2:\'filename\'}, ${3:mode$$(yas-choose-value \'(\"\'eval\'\" \"\'single\'\" \"\'exec\'\"))}, ${4:flags}${5:, dont_inherit})

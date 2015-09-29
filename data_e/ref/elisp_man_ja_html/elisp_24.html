@@ -1,0 +1,838 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="ja">
+<!-- Created on October, 1  2005 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=euc-jp">
+<META NAME="keywords" CONTENT="meadow,mule,emacs,lisp,elisp,gnus,setting,設定,unix,cygwin">
+<META http-equiv="Content-Script-Type" content="text/javascript">
+<META NAME="description" CONTENT="Meadowの設定を紹介するページです">
+<TITLE>GNU Emacs Lispリファレンスマニュアル:  説明文</TITLE>
+
+<META NAME="description" CONTENT="GNU Emacs Lispリファレンスマニュアル:  説明文">
+<META NAME="keywords" CONTENT="GNU Emacs Lispリファレンスマニュアル:  説明文">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+<LINK REL="contents" HREF="elisp_toc.html#SEC_Contents">
+<LINK REL="index" HREF="elisp_48.html#SEC681">
+<LINK REL="next" HREF="elisp_25.html#SEC369">
+<LINK REL="prev" HREF="elisp_23.html#SEC339">
+
+<META http-equiv="Content-Style-Type" content="text/css">
+<!-- 鶯と龜 ←日本語EUC誤判別対策用らしい; -->
+<link rel="StyleSheet" href="../../../../soft/css/midnight.css" type="text/css" id="css1">
+<script type="text/javascript" src="style1.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../soft/css/meadowmemo.css">
+
+</HEAD>
+<BODY LANG="ja" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+<!--Infoseek Analyzer start-->
+<script LANGUAGE="javascript">PgNo=6;</script>
+<script src="http://js1.infoseek.co.jp/bin/57/00170.js"></script>
+<noscript><a href="http://ax1.www.infoseek.co.jp/bin/go?0017057f" target="_blank">
+<img src="http://ax1.www.infoseek.co.jp/bin/logo?0017057f" border=0></a></noscript>
+<!--Infoseek Analyzer end-->
+<a name="top"> </a>
+
+<br><A NAME="SEC363"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_23.html#SEC362"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_24.html#SEC364"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_23.html#SEC339"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_25.html#SEC369"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Documentation"></A>
+<H1> 23. 説明文 </H1>
+<!--docid::SEC363::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Documentation">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Documentation</a>"<br>
+"texi/elisp21/説明文"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%C0%E2%CC%C0%CA%B8">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX1492"></A>
+<P>
+
+GNU Emacs Lispには、便利なオンラインのヘルプ機能があります。
+そのほとんどは、関数や変数に付随した説明文字列から取り出したものです。
+本章では、説明文を参照するプログラムの書き方に加えて、
+読者のLispプログラムに適切な説明文字列を書く方法を説明します。
+<P>
+
+Emacsの説明文字列は、Emacsマニュアルと同じものではないことに注意願います。
+マニュアルには言語texinfoで書いた独自のソースファイルがありますが、
+説明文字列は関数や変数の定義の中で指定されています。
+説明文字列を集めても、よいマニュアルとは構成が違いますので、
+マニュアルとしては十分ではありません。
+<P>
+
+<div class="menuindex"><SCRIPT language=JavaScript src="index23.js"></SCRIPT></div><noscript><BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_24.html#SEC364">23.1 説明文の基本</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Good style for doc strings.
+                                Where to put them.  How Emacs stores them.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_24.html#SEC365">23.2 説明文字列の参照</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How Lisp programs can access doc strings.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_24.html#SEC366">23.3 説明文内のキーバインディングの置換</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Substituting current key bindings.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_24.html#SEC367">23.4 ヘルプメッセージ用の文字変換</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Making printable descriptions of
+                                non-printing characters and key sequences.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_24.html#SEC368">23.5 ヘルプ機能</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Subroutines used by Emacs help facilities.</TD></TR>
+</TABLE></BLOCKQUOTE></noscript>
+<P>
+
+<A NAME="Documentation Basics"></A>
+<HR SIZE="6">
+<br><A NAME="SEC364"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_24.html#SEC363"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_24.html#SEC365"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Documentation Basics"></A>
+<H2> 23.1 説明文の基本 </H2>
+<!--docid::SEC364::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Documentation%20Basics">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Documentation%20Basics</a>"<br>
+"texi/elisp21/説明文の基本"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%C0%E2%CC%C0%CA%B8%A4%CE%B4%F0%CB%DC">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX1493"></A>
+<A NAME="IDX1494"></A>
+<A NAME="IDX1495"></A>
+<P>
+
+説明文字列は、文字列に対するLisp構文、
+つまり、文字列のテキストをダブルクォートで囲って書きます。
+これは、説明文字列が実際にはLispの文字列オブジェクトだからです。
+関数や変数の定義の正しい箇所に文字列を書くと、
+説明文としての役割を果たします。
+関数定義においては、説明文字列は引数のつぎにあります。
+変数定義においては、変数の初期値のつぎにあります。
+<P>
+
+説明文字列を書くときには、
+最初の1行は1つの（あるいは2つの）完全な文にしてください。
+<CODE>apropos</CODE>などのある種のコマンドは、
+複数行にまたがる説明文字列の最初の1行だけを表示するからです。
+また、説明文字列の2行目以降を字下げしないでください。
+字下げがあると、
+<KBD>C-h f</KBD>（<CODE>describe-function</CODE>）や
+<KBD>C-h v</KBD>（<CODE>describe-variable</CODE>）で説明文字列を表示すると
+不恰好になります。
+See 節 <A HREF="elisp_42.html#SEC664">B.3 説明文字列に関するヒント</A>。
+<P>
+
+説明文字列には、特別な部分文字列、つまり、
+説明文を表示するときに現在のキーマップからキーバインディングを探す
+ことを表すものがあります。
+これにより、ユーザーがキーバインディングを変更していても
+説明文字列から関連するコマンドのキーを参照できます。
+（see 節 <A HREF="elisp_24.html#SEC365">23.2 説明文字列の参照</A>）。
+<P>
+
+Emacs Lispでは、説明文字列はその説明対象である関数や変数を介して参照します。
+<P>
+
+<UL>
+<LI>
+関数の説明文は、関数定義自身に収められている
+（see 節 <A HREF="elisp_12.html#SEC158">11.2 ラムダ式</A>）。
+関数<CODE>documentation</CODE>がその取り出し方を知っている。
+<P>
+
+<LI>
+<A NAME="IDX1496"></A>
+変数の説明文は、変数の属性リストに
+属性名<CODE>variable-documentation</CODE>で収められている。
+関数<CODE>documentation-property</CODE>がその取り出し方を知っている。
+</UL>
+<P>
+
+<A NAME="IDX1497"></A>
+<A NAME="IDX1498"></A>
+<A NAME="IDX1499"></A>
+場所を節約するために、あらかじめロード済みの関数や変数
+（基本関数や自動ロード対象の関数を含む）に対する説明文は、
+Emacs本体にではなく、ファイル`<TT>emacs/etc/DOC-<VAR>version</VAR></TT>'に
+収めてあります。
+Emacsセッションの最中にバイトコンパイル済みのファイルから
+ロードされる関数や変数の説明文字列は、当該ファイルに収めてあります
+（see 節 <A HREF="elisp_16.html#SEC203">15.3 説明文字列とコンパイル</A>）。
+<P>
+
+Emacs内部のデータ構造では、説明文字列のかわりに、
+ファイル内の位置を表す整数かファイル名と整数を含むリストで表します。
+関数<CODE>documentation</CODE>や<CODE>documentation-property</CODE>は、
+この情報を用いて適切なファイルから説明文字列を取り出します。
+この処理はユーザーには見えません。
+<P>
+
+説明文字列の利用に関する情報は、
+<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=emacs21&node=Help">GNU Emacs マニュアル</a>を参照してください。
+<P>
+
+ディレクトリ`<TT>emacs/lib-src</TT>'には、
+ファイル`<TT>emacs/etc/DOC-<VAR>version</VAR></TT>'を美しく印刷するための
+コマンドが2つあります。
+`<TT>sorted-doc</TT>'と`<TT>digest-doc</TT>'です。
+<P>
+
+<A NAME="Accessing Documentation"></A>
+<HR SIZE="6">
+<br><A NAME="SEC365"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_24.html#SEC364"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_24.html#SEC366"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Accessing Documentation"></A>
+<H2> 23.2 説明文字列の参照 </H2>
+<!--docid::SEC365::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Accessing%20Documentation">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Accessing%20Documentation</a>"<br>
+"texi/elisp21/説明文字列の参照"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%C0%E2%CC%C0%CA%B8%BB%FA%CE%F3%A4%CE%BB%B2%BE%C8">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+<A NAME="IDX1500"></A>
+<DL>
+<DT><U>Function:</U> <B>documentation-property</B> <I>symbol property &#38;optional verbatim</I>
+<DD>この関数は、シンボル<VAR>symbol</VAR>の属性リストに
+属性<VAR>property</VAR>で記録されている説明文字列を返す。
+必要ならばファイルからテキストを取り出し、
+実際のキーバインディングに置き換えるために
+<CODE>substitute-command-keys</CODE>を実行する。
+（<VAR>verbatim</VAR>が<CODE>nil</CODE>以外であると、置換を行わない。）
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(documentation-property 'command-line-processed
+   'variable-documentation)
+     => "Non-nil once command line has been processed"
+(symbol-plist 'command-line-processed)
+     => (variable-documentation 188902)
+</FONT></pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX1501"></A>
+<DL>
+<DT><U>Function:</U> <B>documentation</B> <I>function &#38;optional verbatim</I>
+<DD>この関数は、関数<VAR>function</VAR>の説明文字列を返す。
+必要ならばファイルからテキストを取り出す。
+続いて、（<VAR>verbatim</VAR>が<CODE>nil</CODE>ならば）
+実際の（現在の）キーバインディングを含んだ値を返すために
+<CODE>substitute-command-keys</CODE>を実行する。
+<P>
+
+関数<CODE>documentation</CODE>は、<VAR>function</VAR>に関数定義がないと
+エラー<CODE>void-function</CODE>を通知する。
+しかし、関数定義に説明文字列がなくてもエラーではない。
+その場合、<CODE>documentation</CODE>は<CODE>nil</CODE>を返す。
+</DL>
+<P>
+
+2つの関数<CODE>documentation</CODE>と<CODE>documentation-property</CODE>を用いて、
+数個のシンボルの説明文字列をバッファ`<SAMP>*Help*</SAMP>'に表示する例を示します。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(defun describe-symbols (pattern)
+  "Describe the Emacs Lisp symbols matching PATTERN.
+All symbols that have PATTERN in their name are described
+in the `*Help*' buffer."
+  (interactive "sDescribe symbols matching: ")
+  (let ((describe-func
+         (function 
+          (lambda (s)
+            ;; Print description of symbol.
+            (if (fboundp s)             ; これは関数
+                (princ
+                 (format "%s\t%s\n%s\n\n" s
+                   (if (commandp s) 
+                       (let ((keys (where-is-internal s)))
+                         (if keys
+                             (concat
+                              "Keys: "
+                              (mapconcat 'key-description 
+                                         keys " "))
+                           "Keys: none"))
+                     "Function")
+                   (or (documentation s) 
+                       "not documented"))))
+            
+            (if (boundp s)              ; これは変数
+                (princ
+                 (format "%s\t%s\n%s\n\n" s
+                   (if (user-variable-p s) 
+                       "Option " "Variable")
+                   (or (documentation-property 
+                         s 'variable-documentation)
+                       "not documented")))))))
+        sym-list)
+
+    ;; パターンに一致するシンボルのリストを作る
+    (mapatoms (function 
+               (lambda (sym)
+                 (if (string-match pattern (symbol-name sym))
+                     (setq sym-list (cons sym sym-list))))))
+
+    ;; データを表示する
+    (with-output-to-temp-buffer "*Help*"
+      (mapcar describe-func (sort sym-list 'string&#60;))
+      (print-help-return-message))))
+</FONT></pre></td></tr></table><P>
+
+関数<CODE>describe-symbols</CODE>は<CODE>apropos</CODE>のように動作しますが、
+より多くの情報を提供します。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(describe-symbols "goal")
+
+---------- Buffer: *Help* ----------
+goal-column     Option 
+*Semipermanent goal column for vertical motion, as set by <small>...</small>
+
+set-goal-column Keys: C-x C-n
+Set the current horizontal position as a goal for C-n and C-p.
+Those commands will move to this position in the line moved to
+rather than trying to keep the same horizontal position.
+With a non-nil argument, clears out the goal column
+so that C-n and C-p resume vertical motion.
+The goal column is stored in the variable `goal-column'.
+
+temporary-goal-column   Variable
+Current goal column for vertical motion.
+It is the column where point was
+at the start of current run of vertical motion commands.
+When the `track-eol' feature is doing its job, the value is 9999.
+---------- Buffer: *Help* ----------
+</FONT></pre></td></tr></table><P>
+
+<A NAME="IDX1502"></A>
+<DL>
+<DT><U>Function:</U> <B>Snarf-documentation</B> <I>filename</I>
+<DD>この関数は、実行可能なEmacsをダンプする直前の
+Emacsの初期化処理中にのみ使われる。
+ファイル<VAR>filename</VAR>に格納された説明文字列のファイル内位置を探し出し、
+それらの情報を実際の文字列のかわりに
+メモリ内の関数定義や変数の属性リストに記録する。
+see 節 <A HREF="elisp_43.html#SEC668">C.1 Emacsの構築方法</A>。
+<P>
+
+Emacsはファイル<VAR>filename</VAR>をディレクトリ`<TT>emacs/etc</TT>'から読む。
+ダンプしたEmacsをのちに実行すると、
+同じファイルをディレクトリ<CODE>doc-directory</CODE>で探す。
+通常、<VAR>filename</VAR>は<CODE>"DOC-<VAR>version</VAR>"</CODE>である。
+</DL>
+<P>
+
+<A NAME="IDX1503"></A>
+<DL>
+<DT><U>Variable:</U> <B>doc-directory</B>
+<DD>この変数は、組み込みであったりあらかじめロード済みの関数や変数の
+説明文字列を収めたファイル<CODE>"DOC-<VAR>version</VAR>"</CODE>を置いた
+ディレクトリの名前を保持する。
+<P>
+
+ほとんどの場合、これは<CODE>data-directory</CODE>と同じである。
+Emacsをインストールせずに構築したディレクトリから起動すると、
+それらは異なることがある。
+<A HREF="elisp_24.html#SEC368">23.5 ヘルプ機能</A>の<CODE>data-directory</CODE>を参照。
+<P>
+
+Emacsの古い版では、この目的には<CODE>exec-directory</CODE>を用いていた。
+</DL>
+<P>
+
+<A NAME="Keys in Documentation"></A>
+<HR SIZE="6">
+<br><A NAME="SEC366"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_24.html#SEC365"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_24.html#SEC367"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Keys in Documentation"></A>
+<H2> 23.3 説明文内のキーバインディングの置換 </H2>
+<!--docid::SEC366::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Keys%20in%20Documentation">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Keys%20in%20Documentation</a>"<br>
+"texi/elisp21/説明文内のキーバインディングの置換"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%C0%E2%CC%C0%CA%B8%C6%E2%A4%CE%A5%AD%A1%BC%A5%D0%A5%A4%A5%F3%A5%C7%A5%A3%A5%F3%A5%B0%A4%CE%C3%D6%B4%B9">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX1504"></A>
+<A NAME="IDX1505"></A>
+<A NAME="IDX1506"></A>
+<A NAME="IDX1507"></A>
+<P>
+
+説明文字列からキー列を参照するときには、
+現在の活性なキーバインディングを使うべきです。
+これは以下に述べる特別なテキスト列でできます。
+普通の方法で説明文字列を参照すると、
+これらの特別な列は現在のキーバインディング情報で置き換えられます。
+置き換えは<CODE>substitute-command-keys</CODE>を呼び出して行います。
+読者自身がこの関数を使うこともできます。
+<P>
+
+特別な列とその意味を以下にあげます。
+<P>
+
+<DL COMPACT>
+<DT><CODE>\[<VAR>command</VAR>]</CODE>
+<DD>コマンド<VAR>command</VAR>を起動するキー列を表す。
+<VAR>command</VAR>にキーバインディングがなければ、
+`<SAMP>M-x <VAR>command</VAR></SAMP>'を表す。
+<P>
+
+<DT><CODE>\{<VAR>mapvar</VAR>}</CODE>
+<DD>変数<VAR>mapvar</VAR>の値であるキーマップの概要を表す。
+この概要は<CODE>describe-bindings</CODE>を使って作成する。
+<P>
+
+<DT><CODE>\&#60;<VAR>mapvar</VAR>&#62;</CODE>
+<DD>空テキストを表す。
+副作用のためだけに使う。
+つまり、この説明文字列内のこれ以降にある列`<SAMP>\[<VAR>command</VAR>]</SAMP>'に
+対するキーマップとして<VAR>mapvar</VAR>の値を指定する。
+<P>
+
+<DT><CODE>\=</CODE>
+<DD>後続の文字をクォートし`<SAMP>\=</SAMP>'は破棄する。
+したがって、`<SAMP>\=\[</SAMP>'は`<SAMP>\[</SAMP>'という出力になり、
+`<SAMP>\=\=</SAMP>'は`<SAMP>\=</SAMP>'という出力になる。
+</DL>
+<P>
+
+<STRONG>注意：</STRONG><CODE> </CODE>
+Emacs Lispでは、文字列内の`<SAMP>\</SAMP>'は、2つ続けて書くこと。
+<P>
+
+<A NAME="IDX1508"></A>
+<DL>
+<DT><U>Function:</U> <B>substitute-command-keys</B> <I>string</I>
+<DD>この関数は、<VAR>string</VAR>から上記の特別な列を探し、
+それらをそれらが意味するものに置き換え、結果を文字列で返す。
+これにより、説明文の表示では、
+ユーザー独自のカスタマイズしたキーバインディングを実際に参照できる。
+</DL>
+<P>
+
+特別な列の例を示します。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(substitute-command-keys 
+   "To abort recursive edit, type: \\[abort-recursive-edit]")
+=> "To abort recursive edit, type: C-]"
+
+(substitute-command-keys 
+   "The keys that are defined for the minibuffer here are:
+  \\{minibuffer-local-must-match-map}")
+=> "The keys that are defined for the minibuffer here are:
+
+?               minibuffer-completion-help
+SPC             minibuffer-complete-word
+TAB             minibuffer-complete
+C-j             minibuffer-complete-and-exit
+RET             minibuffer-complete-and-exit
+C-g             abort-recursive-edit
+"
+
+(substitute-command-keys
+   "To abort a recursive edit from the minibuffer, type\
+\\&#60;minibuffer-local-must-match-map&#62;\\[abort-recursive-edit].")
+=> "To abort a recursive edit from the minibuffer, type C-g."
+</FONT></pre></td></tr></table><P>
+
+<A NAME="Describing Characters"></A>
+<HR SIZE="6">
+<br><A NAME="SEC367"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_24.html#SEC366"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_24.html#SEC368"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Describing Characters"></A>
+<H2> 23.4 ヘルプメッセージ用の文字変換 </H2>
+<!--docid::SEC367::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Describing%20Characters">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Describing%20Characters</a>"<br>
+"texi/elisp21/ヘルプメッセージ用の文字変換"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D8%A5%EB%A5%D7%A5%E1%A5%C3%A5%BB%A1%BC%A5%B8%CD%D1%A4%CE%CA%B8%BB%FA%CA%D1%B4%B9">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+これらの関数は、イベント、キー列、文字をテキスト表記に変換します。
+これらの表記は、メッセージに文字やキー列をテキストとして含めるのに有用です。
+というのは、非印字文字や白文字を印字文字の列に変換するからです。
+白文字でない印字文字は文字そのもので表記します。
+<P>
+
+<A NAME="IDX1509"></A>
+<DL>
+<DT><U>Function:</U> <B>key-description</B> <I>sequence</I>
+<DD><A NAME="IDX1510"></A>
+この関数は、<VAR>sequence</VAR>の入力イベントに対する
+Emacsの標準表記を含んだ文字列を返す。
+引数<VAR>sequence</VAR>は、文字列、ベクトル、リストである。
+正しいイベントについて詳しくはsee 節 <A HREF="elisp_21.html#SEC289">20.5 入力イベント</A>。
+下記の<CODE>single-key-description</CODE>の例を参照。
+</DL>
+<P>
+
+<A NAME="IDX1511"></A>
+<DL>
+<DT><U>Function:</U> <B>single-key-description</B> <I>event</I>
+<DD><A NAME="IDX1512"></A>
+<A NAME="IDX1513"></A>
+<A NAME="IDX1514"></A>
+<A NAME="IDX1515"></A>
+この関数は、<VAR>event</VAR>をキーボード入力向けのEmacsの標準表記で
+表した文字列を返す。
+普通の印字文字はそのまま現れるが、
+コントロール文字は`<SAMP>C-</SAMP>'で始まる文字列に、
+メタ文字は`<SAMP>M-</SAMP>'で始まる文字列に、
+空白、タブなどは、`<SAMP>SPC</SAMP>'、`<SAMP>TAB</SAMP>'などとなる。
+ファンクションキーのシンボルはそれ自身が現れる。
+リストであるイベントはリストのCARのシンボルの名前が現れる。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(single-key-description ?\C-x)
+     => "C-x"
+(key-description "\C-x \M-y \n \t \r \f123")
+     => "C-x SPC M-y SPC C-j SPC TAB SPC RET SPC C-l 1 2 3"
+(single-key-description 'C-mouse-1)
+     => "C-mouse-1"
+</FONT></pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX1516"></A>
+<DL>
+<DT><U>Function:</U> <B>text-char-description</B> <I>character</I>
+<DD>この関数は、<VAR>character</VAR>を
+テキストに現れる文字向けのEmacsの標準表記で表した文字列を返す。
+<CODE>single-key-description</CODE>に似ているが、
+コントロール文字は、始めにカレットを付けて表現する点が異なる
+（Emacsのバッファでは、コントロールは普通このように表示される）。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(text-char-description ?\C-c)
+     => "^C"
+(text-char-description ?\M-m)
+     => "M-m"
+(text-char-description ?\C-\M-m)
+     => "M-^M"
+</FONT></pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX1517"></A>
+<DL>
+<DT><U>Function:</U> <B>read-kbd-macro</B> <I>string</I>
+<DD>この関数は、キーボードマクロの処理に主に使われるが、
+<CODE>key-description</CODE>に対するおおまかな逆変換にも使える。
+空白で区切ったキーの表記を収めた文字列で、この関数を呼び出す。
+対応するイベントを収めた文字列かベクトルを返す。
+（指定したイベントに依存して、正しい単一のキー列であったりなかったりする。
+see 節 <A HREF="elisp_22.html#SEC318">21.1 キーマップの用語</A>。）
+</DL>
+<P>
+
+<A NAME="Help Functions"></A>
+<HR SIZE="6">
+<br><A NAME="SEC368"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_24.html#SEC367"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_25.html#SEC369"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Help Functions"></A>
+<H2> 23.5 ヘルプ機能 </H2>
+<!--docid::SEC368::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Help%20Functions">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Help%20Functions</a>"<br>
+"texi/elisp21/ヘルプ機能"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D8%A5%EB%A5%D7%B5%A1%C7%BD">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+Emacsにはさまざまオンラインヘルプ関数があり、
+それらはすべてプレフィックス<KBD>C-h</KBD>のサブコマンドとして使えます。
+それらについて詳しくは、
+<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=emacs21&node=Help">GNU Emacs マニュアル</a>を参照してください。
+ここでは、同じ情報を得るプログラムレベルのインターフェイスを説明します。
+<P>
+
+<A NAME="IDX1518"></A>
+<DL>
+<DT><U>コマンド:</U> <B>apropos</B> <I>regexp &#38;optional do-all</I>
+<DD>この関数は、正規表現<VAR>regexp</VAR>に一致する名前を持つすべてのシンボルを探し、
+それらのリストを返す（see 節 <A HREF="elisp_34.html#SEC551">33.2 正規表現</A>）。
+さらに、バッファ`<SAMP>*Help*</SAMP>'に、各シンボルについて、
+シンボルとその説明文字列の始めの部分から取り出した1行の説明文を表示する。
+<P>
+
+<VAR>do-all</VAR>が<CODE>nil</CODE>以外であると、
+<CODE>apropos</CODE>は、みつけた関数に対するキーバインディングも表示する。
+さらに、関数や変数以外も含めてすべてのシンボルを表示する。
+<P>
+
+つぎの例では、<CODE>apropos</CODE>は、
+`<SAMP>exec</SAMP>'を名前に含むすべてのシンボルを探しだす。
+（ここではバッファ`<SAMP>*Help*</SAMP>'の表示は示さない。）
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(apropos "exec")
+     => (Buffer-menu-execute command-execute exec-directory
+    exec-path execute-extended-command execute-kbd-macro
+    executing-kbd-macro executing-macro)
+</FONT></pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX1519"></A>
+<DL>
+<DT><U>Variable:</U> <B>help-map</B>
+<DD>この変数の値は、ヘルプキー<KBD>C-h</KBD>に続く文字向けのローカルキーマップである。
+</DL>
+<P>
+
+<A NAME="IDX1520"></A>
+<DL>
+<DT><U>プレフィックスコマンド:</U> <B>help-command</B>
+<DD>このシンボルは関数ではない。
+その関数定義セルは、<CODE>help-map</CODE>として知られるキーマップを保持している。
+`<TT>help.el</TT>'での定義はつぎのとおりである。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(define-key global-map "\C-h" 'help-command)
+(fset 'help-command help-map)
+</FONT></pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX1521"></A>
+<DL>
+<DT><U>Function:</U> <B>print-help-return-message</B> <I>&#38;optional function</I>
+<DD>この関数は、ヘルプコマンドのあとでそれ以前のウィンドウの状態に復元する
+方法を述べた文字列を作成する。
+メッセージを作成後、<VAR>function</VAR>が<CODE>nil</CODE>以外であれば、
+メッセージを<VAR>function</VAR>に適用する。
+さもなければ、メッセージをエコー領域に表示するために<CODE>message</CODE>を呼び出す。
+<P>
+
+この関数は、スペシャルフォーム<CODE>with-output-to-temp-buffer</CODE>の
+中から呼び出され、しかも、
+当該スペシャルフォームで<CODE>standard-output</CODE>に値が束縛されているものと
+仮定する。
+使用例については、<A HREF="elisp_24.html#SEC365">23.2 説明文字列の参照</A>の長い例を参照。
+</DL>
+<P>
+
+<A NAME="IDX1522"></A>
+<DL>
+<DT><U>Variable:</U> <B>help-char</B>
+<DD>この変数の値はヘルプ文字、つまり、
+Emacsがヘルプを意味すると認識する文字である。
+デフォルトでは、その値は<KBD>C-h</KBD>を表す8である。
+<CODE>help-form</CODE>が<CODE>nil</CODE>以外のLisp式であると、
+Emacsがこの文字を読み取るとその式を評価し、
+その結果が文字列であれば結果をウィンドウに表示する。
+<P>
+
+通常、<CODE>help-form</CODE>の値は<CODE>nil</CODE>である。
+そうすると、ヘルプ文字にはコマンド入力のレベルでは特別な意味はなく、
+普通の意味でのキー列の一部になる。
+<KBD>C-h</KBD>の標準のキーバインディングは、
+いくつかの汎用目的のヘルプ機能向けのプレフィックスキーである。
+<P>
+
+ヘルプ文字は、プレフィックスキーのうしろでも特別である。
+プレフィックスのサブコマンドとしてのバインディングがないと、
+プレフィックスキーのすべてのサブコマンドの一覧を表示する
+<CODE>describe-prefix-bindings</CODE>を実行する。
+</DL>
+<P>
+
+<A NAME="IDX1523"></A>
+<DL>
+<DT><U>Variable:</U> <B>help-event-list</B>
+<DD><A NAME="IDX1524"></A>
+この変数の値は、別の『ヘルプ文字』として動作するイベント型のリストである。
+これらのイベントは<CODE>help-char</CODE>で指定されたイベントと
+まったく同様に扱われる。
+</DL>
+<P>
+
+<A NAME="IDX1525"></A>
+<DL>
+<DT><U>Variable:</U> <B>help-form</B>
+<DD>この変数が<CODE>nil</CODE>以外であると、その値は、
+<CODE>help-char</CODE>を読むたびに評価すべきフォームである。
+フォームを評価すると文字列を生成すれば、その文字列が表示される。
+<P>
+
+<CODE>read-event</CODE>や<CODE>read-char</CODE>を呼ぶコマンドは、
+入力中には<CODE>help-form</CODE>を<CODE>nil</CODE>以外に（たぶん）束縛すべきである。
+（<KBD>C-h</KBD>に別の意味がある場合には、こうしないこと。）
+この式の評価結果は、なんのための入力でどのように入力すべきかを
+説明する文字列であること。
+<P>
+
+ミニバッファに入ると、この変数は<CODE>minibuffer-help-form</CODE>
+（see 節 <A HREF="elisp_20.html#SEC280">19.9 ミニバッファに関するその他</A>）の値に束縛される。
+</DL>
+<P>
+
+<A NAME="IDX1526"></A>
+<DL>
+<DT><U>Variable:</U> <B>prefix-help-command</B>
+<DD>この変数はプレフィックスキーに対するヘルプを表示する関数を保持する。
+ユーザーがプレフィックスキーに続けてヘルプ文字や
+当該プレフィックスのあとではバインディングを持たない文字を打つと
+その関数が呼ばれる。
+この変数のデフォルト値は<CODE>describe-prefix-bindings</CODE>である。
+</DL>
+<P>
+
+<A NAME="IDX1527"></A>
+<DL>
+<DT><U>Function:</U> <B>describe-prefix-bindings</B>
+<DD>この関数は、もっとも最近のキー列のプレフィックスキーの
+すべてのサブコマンドの一覧を表示するために<CODE>describe-bindings</CODE>を呼び出す。
+プレフィックスの説明には、当該キー列の最後のイベント以外のすべてが含まれる。
+（最後のイベントはヘルプ文字であると仮定する。）
+</DL>
+<P>
+
+つぎの2つの関数は、『エレクトリック』モードのように
+制御を放棄せずにヘルプを提供したいモードのためです。
+それらの名前は、普通のヘルプ関数と区別するために`<SAMP>Helper</SAMP>'で始まります。
+<P>
+
+<A NAME="IDX1528"></A>
+<DL>
+<DT><U>コマンド:</U> <B>Helper-describe-bindings</B>
+<DD>このコマンドは、ローカルキーマップとグローバルキーマップの両者の
+すべてのキーバインディングの一覧を収めたヘルプバッファを表示した
+ウィンドウをポップアップする。
+<CODE>describe-bindings</CODE>を呼び出すことで動作する。
+</DL>
+<P>
+
+<A NAME="IDX1529"></A>
+<DL>
+<DT><U>コマンド:</U> <B>Helper-help</B>
+<DD>このコマンドはカレントモードについてのヘルプを提供する。
+ミニバッファにおいて`<SAMP>Help (Type ? for further options)</SAMP>'のメッセージで
+ユーザーに問い合わせ、キーバインディングの意味やモードの目的を
+調べることを補佐する。
+<CODE>nil</CODE>を返す。
+<P>
+
+このコマンドは、キーマップ<CODE>Helper-help-map</CODE>を
+変更することでカスタマイズできる。
+</DL>
+<P>
+
+<A NAME="IDX1530"></A>
+<DL>
+<DT><U>Variable:</U> <B>data-directory</B>
+<DD>この変数は、Emacsとともに配布された特定の説明文やテキストファイルを
+Emacsが探すためのディレクトリの名前を保持する。
+Emacsの古い版では、この目的には<CODE>exec-directory</CODE>を用いていた。
+</DL>
+<P>
+
+<A NAME="IDX1531"></A>
+<DL>
+<DT><U>Macro:</U> <B>make-help-screen</B> <I>fname help-line help-text help-map</I>
+<DD>このマクロは、サブコマンドの一覧を表示するプレフィックスキーのように
+動作する<VAR>fname</VAR>という名前のコマンドのヘルプを定義する。
+<P>
+
+起動されると、<VAR>fname</VAR>はウィンドウに<VAR>help-text</VAR>を表示し、
+<VAR>help-map</VAR>に従ってキー列を読み実行する。
+文字列<VAR>help-text</VAR>は、<VAR>help-map</VAR>が提供する
+バインディングを記述するべきである。
+<P>
+
+コマンド<VAR>fname</VAR>は、<VAR>help-text</VAR>の表示をスクロールすることで、
+それ自身では少数のイベントを扱うように定義される。
+<VAR>fname</VAR>がそれらの特殊イベントの1つを読み取ると、
+スクロールしてつぎのイベントを読み取る。
+読み取ったイベントが、扱えるものでなく、
+<VAR>help-map</VAR>にバインディングがあれば、
+当該キーのバインディングを実行して戻る。
+<P>
+
+<VAR>help-line</VAR>は、<VAR>help-map</VAR>内の選択項目を1行にまとめたものであること。
+Emacsの現在の版では、この引数はオプション<CODE>three-step-help</CODE>を<CODE>t</CODE>に
+設定してある場合にのみ使われる。
+<P>
+
+このマクロは、<KBD>C-h C-h</KBD>のバインディングである
+コマンド<CODE>help-for-help</CODE>で使われている。
+</DL>
+<P>
+
+<A NAME="IDX1532"></A>
+<DL>
+<DT><U>User Option:</U> <B>three-step-help</B>
+<DD>この変数が<CODE>nil</CODE>以外であると、
+<CODE>make-help-screen</CODE>で定義されたコマンドは、
+まず文字列<VAR>help-line</VAR>をエコー領域に表示し、
+ユーザーがヘルプ文字を再度打った場合にのみより長い文字列を表示する。
+</DL>
+<A NAME="Files"></A>
+<HR SIZE="6">
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<a name="bottom"> </a>
+<script type="text/javascript" src="style2.js"></script>
+<div class="footer">
+    <br>
+    このページはMeadow (Emacs) の紹介ページです <br>
+このWebページの各文書は自由にリンク・複製・再配布・改変していただいて構いません．
+<br>ただし，複製・再配布・改変の場合は Meadow Memo のURLを記載しておいて下さい．<br>
+<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=about%20link">Medow memoへのリンクについて</a>．<br>
+
+間違い，要望等があれば<a href="mailto:akihisa@mail.ne.jp">akihisa@mail.ne.jp</a> か下記でどうぞ<br>
+
+<br>
+
+<FORM METHOD="post" ACTION="http://www.bookshelf.jp/cgi-bin/wwwmail.cgi" >
+お名前：<INPUT TYPE="text" NAME="name" SIZE="30" MAXLENGTH="40" VALUE="ななしさん"><br>
+メールアドレス：<INPUT TYPE="text" NAME="EMAIL" SIZE="25" MAXLENGTH="60" VALUE="secret@mail.adr"><br>
+<input type="hidden" name="HPAGE" value="">
+つっこみ：<br><TEXTAREA NAME="MESSAGE" ROWS="5" COLS="50">
+</TEXTAREA><br><br>
+<INPUT TYPE="submit" VALUE="送信">
+<INPUT TYPE="reset" VALUE="クリア">
+</FORM>
+
+<br><A HREF="http://www.bookshelf.jp/cgi-bin/xct.cgi">ページ別カウンタ</a>
+<br> Since 2002/12/13 <br>
+</div>
+
+</BODY>
+
+</HTML>

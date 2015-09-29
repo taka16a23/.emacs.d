@@ -1,0 +1,43 @@
+# -*- mode: snippet -*-
+# name: defdeco
+# key: defdeco
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
+# --
+def ${1:name$(replace-regexp-in-string \"[[:punct:][:blank:]]\" \"_\" yas-text)}(${2:func}):
+    r\"\"\"SUMMARY
+
+    decorator as \"@$1\"
+    ${2:$
+      (let*
+        ((indent
+            (concat \"\n\" (make-string (current-column) 32)))
+           (args
+            (mapconcat
+             \'(lambda (x)
+                (if (not (string= (nth 0 x) \"\"))
+                    (concat \"- \" (char-to-string 96) (nth 0 x)
+                            (char-to-string 96) \":\")))
+             (mapcar
+              \'(lambda (x)
+                 (mapcar
+                  \'(lambda (x)
+                     (replace-regexp-in-string \"[[:blank:]]*$\" \"\"
+                      (replace-regexp-in-string \"^[[:blank:]]*\" \"\" x)))
+                  x))
+              (mapcar \'(lambda (x) (split-string x \"=\"))
+                      (split-string yas-text \",\")))
+             indent)))
+      (if (string= args \"\")
+          (concat indent \"@Return:\" indent (make-string 3 34))
+        (mapconcat
+         \'identity
+         (list \"\" \"@Arguments:\" args (concat indent \"@Return:\") (make-string 3 34))
+         indent)))
+    }
+    def wrap(*args, **kwargs):
+        $0
+        return $2(*args, **kwargs)
+    return wrap
+
+
+

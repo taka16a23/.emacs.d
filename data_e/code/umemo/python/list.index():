@@ -1,0 +1,6 @@
+>>> listA
+['hello', 'world', 'google', 'bing']
+>>> listA.index('world')
+1
+>>> listA[listA.index('world')]
+'world'

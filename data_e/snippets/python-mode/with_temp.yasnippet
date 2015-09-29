@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: with_temp
+# key: with_temp
+# condition: (not (py:at-string|comment-p))
+# --
+with tempfile.${1:$$(yas-choose-value \'(\"TemporaryFile()\" \"NamedTemporaryFile(prefix=\'\', suffix=\'\', dir=\'\')\"))} ${2:as}$0:

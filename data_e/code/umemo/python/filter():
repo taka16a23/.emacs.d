@@ -1,0 +1,7 @@
+>>> lis
+[None, 'hello', None, 'world', None, 'yahoo']
+>>> def f(x):
+...     return x is not None
+...
+>>> filter(f, lis)
+['hello', 'world', 'yahoo']

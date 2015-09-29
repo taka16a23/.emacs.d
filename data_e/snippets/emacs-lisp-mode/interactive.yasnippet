@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: interactive
+# key: (interactive
+# condition: (not (at-string|comment-p))
+# --
+(interactive "${1:$$(yas/choose-value '("*" "^" "@""a""b""B""c""C""d""D""e""f""F""G""i""k""K""m""M""n""N""p""P""r""s""S""U""v""x""X""z""Z"))}$0"

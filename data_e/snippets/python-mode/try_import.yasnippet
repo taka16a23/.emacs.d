@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: try/import
+# key: try
+# condition: (not (py:at-string|comment-p))
+# --
+try:
+    from ${1:module} import $2
+except ImportError:
+    pass
+$0

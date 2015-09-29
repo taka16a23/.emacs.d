@@ -1,0 +1,32 @@
+
+* Sat 08 Jun 2013 10:53:33 PM JST
+
+* Sat 08 Jun 2013 10:53:34 PM JST
+
+* Sat 08 Jun 2013 10:53:34 PM JST
+# for debug
+
+* Sat 08 Jun 2013 10:53:34 PM JST
+# for debug
+
+* Sat 08 Jun 2013 10:53:34 PM JST
+# for debug
+import cgitb
+
+* Sat 08 Jun 2013 10:53:34 PM JST
+# for debug
+import cgitb
+
+* Sat 08 Jun 2013 10:53:34 PM JST
+# for debug
+import cgitb
+cgitb.enable(format='text')
+
+* Sun 09 Jun 2013 09:47:29 PM JST
+_AttributeHolder, 
+* Sun 09 Jun 2013 09:47:33 PM JST
+_AttributeHolder
+* Sat 15 Jun 2013 12:19:36 PM JST
+link_dest = rsync_link_dest_opt + os.path.realpath(latest).split(':')[1]
+* Sat 22 Jun 2013 04:33:26 PM JST
+'rm ' + latest, shell=True

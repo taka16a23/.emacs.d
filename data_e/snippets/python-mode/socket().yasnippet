@@ -1,0 +1,6 @@
+ # -*- mode: snippet -*-
+# name: socket()
+# key: socket
+# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])))
+# --
+socket(socket.${1:family$(yas-choose-value \'(\"AF_INET\" \"AF_INET6\" \"AF_UNIX\"))}, socket.${2:type$(yas-choose-value \'(\"SOCK_STREAM\" \"SOCK_DGRAM\"))})`(py--insert-imports \"socket\" \"import socket\")`

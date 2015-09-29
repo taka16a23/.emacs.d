@@ -1,0 +1,16 @@
+>>> unicodedata.name(u'〒')
+'POSTAL MARK'
+
+>>> unicodedata.lookup('POSTAL MARK')
+u'\u3012'
+
+>>> unicodedata.decimal(u'3')  # decimal
+3
+>>> unicodedata.digit(u'\u2462')  # ③ digit
+3
+>>> unicodedata.numeric(u'\u215b')  # 1/8 numeric
+0.125
+>>> unicodedata.numeric(u'Ⅳ')  # これも numeric
+4.0
+>>> unicodedata.numeric(u'三', False)  # 漢数字はない
+False

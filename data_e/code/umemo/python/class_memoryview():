@@ -1,0 +1,5 @@
+>>> a = memoryview('hello')
+>>> a
+<memory at 0xa3d466c>
+>>> a[2:3]
+<memory at 0xa3d470c>

@@ -1,0 +1,19 @@
+>>> def _4(tes='hello'):
+...     print(tes)
+...
+>>> _4()
+hello
+>>> import functools
+>>> _4 = functools.partial(_4, tes='world')
+>>> _4()
+world
+
+>>> def _4(tes):
+...     print(tes)
+...
+>>> _4('ww')
+ww
+>>> _4 = functools.partial(_4, tes='world')
+>>> _4()
+world
+

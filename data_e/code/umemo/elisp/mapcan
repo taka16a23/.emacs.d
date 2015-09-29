@@ -1,0 +1,2 @@
+(mapcan  #'(lambda (x y) `(,x ,y)) '(foo hoge bar baz) '(red white blue green)) [ctrl-j]
+(foo red hoge white bar blue baz green)

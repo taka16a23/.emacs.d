@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: assertSequenceEqual()
+# key: assertSequenceEqual
+# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])))
+# 32 = ` '
+# --
+assertSequenceEqual(${1:seq1}, ${2:seq2}${3:, msg=${4:\'${5:Failed: $6}\'}}${7:, seq_type=${8:None}})

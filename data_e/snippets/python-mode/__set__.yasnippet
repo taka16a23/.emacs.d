@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: __set__
+# key: __set__
+# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])))
+# 32 = ` '
+# --
+__set__(${1:instance}, ${2:value})

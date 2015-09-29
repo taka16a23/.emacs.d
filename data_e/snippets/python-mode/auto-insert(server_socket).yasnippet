@@ -1,0 +1,42 @@
+# -*- mode: snippet -*-
+# name: server_socket_auto-insert
+# key: server_socket_auto-insert
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil) (buffer-read-only 'nil))
+# 末尾の`'は"Local Variables"用。改頁前には"\n"を入れること。fileの読込を早くする。
+# 'r' charactor before the first triple-quote for doctest
+# don't want escape sequences - e.g '\n'
+# --
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+# $Id$    
+# $Revision$
+# $Date$    
+# $Author$  
+# $LastChangedBy$
+# $LastChangedDate$
+
+r\"\"\"Name: `(file-name-nondirectory (buffer-file-name))`
+
+\"\"\"
+
+
+import socket
+from contextlib import closing
+
+with closing(socket.socket(socket.${1:family$(yas-choose-value \'(\"AF_INET\" \"AF_INET6\" \"AF_UNIX\"))}, socket.${2:type$(yas-choose-value \'(\"SOCK_STREAM\" \"SOCK_DGRAM\"))})) as sock:
+    sock.bind((\'${3:IP or HOSTS}\', ${4:PORT}))
+    sock.listen(1)
+    connect, addr = sock.accept()
+
+    while 1:
+        break
+$0
+
+
+
+# For Emacs
+# Local Variables:
+# coding: utf-8
+# End:
+# `(file-name-nondirectory (buffer-file-name))` ends here`(view-mode -1)`

@@ -1,0 +1,2 @@
+(car (prog1 list
+            (setq list (cdr list))))

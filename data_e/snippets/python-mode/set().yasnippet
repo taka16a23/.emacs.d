@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: set()
+# key: _set
+# disabled: 2014/05/06, condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])))
+# 32 = ` '
+# --
+set(${1:iterable})`(py--insert-imports "sys" "import sys")``(py--insert-imports-regexp "[ \t]+from[ \t]+sets[ \t]+import[ \t]+Set[ \t]+as[ \t]+set" "if sys.version_info < (2, 4):\n    from sets import Set as set\n" 't)`

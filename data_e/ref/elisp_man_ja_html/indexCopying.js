@@ -1,0 +1,1 @@
+document.writeln('<ul> <li> <a href="#SEC1">GNU一般公有使用許諾書</a><ul><li> <a href="#SEC2">はじめに</a><li> <a href="#SEC3">注意</a><li> <a href="#SEC4">和文文書自体の再配布に関して</a><li> <a href="#SEC5">あなたの新しいプログラムにこれらの条項を適用する方法</a>

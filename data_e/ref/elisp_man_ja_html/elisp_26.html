@@ -1,0 +1,1126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="ja">
+<!-- Created on October, 1  2005 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=euc-jp">
+<META NAME="keywords" CONTENT="meadow,mule,emacs,lisp,elisp,gnus,setting,設定,unix,cygwin">
+<META http-equiv="Content-Script-Type" content="text/javascript">
+<META NAME="description" CONTENT="Meadowの設定を紹介するページです">
+<TITLE>GNU Emacs Lispリファレンスマニュアル:  バックアップと自動保存</TITLE>
+
+<META NAME="description" CONTENT="GNU Emacs Lispリファレンスマニュアル:  バックアップと自動保存">
+<META NAME="keywords" CONTENT="GNU Emacs Lispリファレンスマニュアル:  バックアップと自動保存">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+<LINK REL="contents" HREF="elisp_toc.html#SEC_Contents">
+<LINK REL="index" HREF="elisp_48.html#SEC681">
+<LINK REL="next" HREF="elisp_27.html#SEC403">
+<LINK REL="prev" HREF="elisp_25.html#SEC369">
+
+<META http-equiv="Content-Style-Type" content="text/css">
+<!-- 鶯と龜 ←日本語EUC誤判別対策用らしい; -->
+<link rel="StyleSheet" href="../../../../soft/css/midnight.css" type="text/css" id="css1">
+<script type="text/javascript" src="style1.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../soft/css/meadowmemo.css">
+
+</HEAD>
+<BODY LANG="ja" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+<!--Infoseek Analyzer start-->
+<script LANGUAGE="javascript">PgNo=6;</script>
+<script src="http://js1.infoseek.co.jp/bin/57/00170.js"></script>
+<noscript><a href="http://ax1.www.infoseek.co.jp/bin/go?0017057f" target="_blank">
+<img src="http://ax1.www.infoseek.co.jp/bin/logo?0017057f" border=0></a></noscript>
+<!--Infoseek Analyzer end-->
+<a name="top"> </a>
+
+<br><A NAME="SEC395"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_25.html#SEC394"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_26.html#SEC396"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_25.html#SEC369"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_27.html#SEC403"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Backups and Auto-Saving"></A>
+<H1> 25. バックアップと自動保存 <EM>(2003/10/30)</EM> </H1>
+<!--docid::SEC395::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Backups%20and%20Auto-Saving">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Backups%20and%20Auto-Saving</a>"<br>
+"texi/elisp21/バックアップと自動保存"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D0%A5%C3%A5%AF%A5%A2%A5%C3%A5%D7%A4%C8%BC%AB%C6%B0%CA%DD%C2%B8">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+バックアップファイルと自動保存ファイルは、
+クラッシュやユーザー自身の誤りから
+Emacsがユーザーを保護するための2つの方式です。
+自動保存により、現在の編集セッションにおいて、
+まえの時点でのテキストを確保します。
+バックアップファイルにより、現在のセッション以前の
+ファイル内容を確保します。
+<P>
+
+<div class="menuindex"><SCRIPT language=JavaScript src="index25.js"></SCRIPT></div><noscript><BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_26.html#SEC396">25.1 バックアップファイル <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How backup files are made; how their names are chosen.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_26.html#SEC401">25.2 自動保存 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How auto-save files are made; how their names are chosen.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_26.html#SEC402">25.3 復元 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"><CODE>revert-buffer</CODE>, and how to customize what it does.</TD></TR>
+</TABLE></BLOCKQUOTE></noscript>
+<P>
+
+<A NAME="Backup Files"></A>
+<HR SIZE="6">
+<br><A NAME="SEC396"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_26.html#SEC395"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_26.html#SEC397"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Backup Files"></A>
+<H2> 25.1 バックアップファイル <EM>(2003/10/30)</EM> </H2>
+<!--docid::SEC396::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Backup%20Files">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Backup%20Files</a>"<br>
+"texi/elisp21/バックアップファイル"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D0%A5%C3%A5%AF%A5%A2%A5%C3%A5%D7%A5%D5%A5%A1%A5%A4%A5%EB">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX1676"></A>
+<P>
+
+<EM>バックアップファイル</EM>（backup file）とは、
+読者が編集中のファイルの古い内容のコピーです。
+バッファを訪問しているファイルに初めて保存するときに、
+Emacsはバックアップファイルを作成します。
+通常これは、バックアップファイルは
+現在の編集セッションよりまえのファイルの内容を保持することを意味します。
+バックアップファイルの内容は、通常、それが作られると変更されません。
+<P>
+
+訪問したファイルを新たな名前に改名することで
+通常バックアップは作られます。
+訪問したファイルをコピーしてバックアップファイルを作るように
+指示することもできます。
+どちらを選ぶかによって、複数の名前を持つファイルでは違いがでます。
+また、編集したファイルの所有者が元所有者と同じであるか、
+それとも編集したユーザーが所有者になるかにも影響します。
+<P>
+
+デフォルトでは、Emacsは各編集ファイルに1つのバックアップファイルを作ります。
+番号付きのバックアップファイルを作るように指示することもでき、
+そうすると、新たなバックアップファイルごとに新たな名前が付きます。
+古い番号付きバックアップファイルは必要なくなれば削除できますし、
+Emacsがそれらを自動的に削除することも可能です。
+<P>
+
+<BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_26.html#SEC397">25.1.1 バックアップファイルの作成 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How Emacs makes backup files, and when.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_26.html#SEC398">25.1.2 改名によるバックアップかコピーによるバックアップか <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Two alternatives: renaming the old file or copying it.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_26.html#SEC399">25.1.3 番号付きバックアップファイルの作成と削除 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Keeping multiple backups for each source file.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_26.html#SEC400">25.1.4 バックアップファイルの命名方法 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How backup file names are computed; customization.</TD></TR>
+</TABLE></BLOCKQUOTE>
+<P>
+
+<A NAME="Making Backups"></A>
+<HR SIZE="6">
+<br><A NAME="SEC397"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_26.html#SEC396"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_26.html#SEC398"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Making Backups"></A>
+<H3> 25.1.1 バックアップファイルの作成 <EM>(2003/10/30)</EM> </H3>
+<!--docid::SEC397::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Making%20Backups">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Making%20Backups</a>"<br>
+"texi/elisp21/バックアップファイルの作成"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D0%A5%C3%A5%AF%A5%A2%A5%C3%A5%D7%A5%D5%A5%A1%A5%A4%A5%EB%A4%CE%BA%EE%C0%AE">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+<A NAME="IDX1677"></A>
+<DL>
+<DT><U>Function:</U> <B>backup-buffer</B>
+<DD>この関数は、必要ならば、カレントバッファで訪問しているファイルの
+バックアップを作成する。
+バッファを初めて保存するまえに<CODE>save-buffer</CODE>がこの関数を呼び出す。
+</DL>
+<P>
+
+<A NAME="IDX1678"></A>
+<DL>
+<DT><U>Variable:</U> <B>buffer-backed-up</B>
+<DD>このバッファローカルな変数は、
+当該バッファのもとで当該バッファのファイルの
+バックアップを作成済みかどうかを表す。
+<CODE>nil</CODE>以外であれば、バックアップファイルは作成済みであることを表す。
+さもなければ、（バックアップがオンになっていれば）つぎに保存するときに
+ファイルのバックアップを作成するべきであることを表す。
+これは恒久的にバッファローカルであり、
+<CODE>kill-all-local-variables</CODE>によって変更されない。
+</DL>
+<P>
+
+<A NAME="IDX1679"></A>
+<DL>
+<DT><U>User Option:</U> <B>make-backup-files</B>
+<DD>この変数は、バックアップファイルを作成するかどうかを決定する。
+<CODE>nil</CODE>以外であると、<CODE>backup-inhibited</CODE>が<CODE>nil</CODE>ならば（下記参照）
+Emacsは初めて保存するときに各ファイルのバックアップを作成する。
+<P>
+
+つぎの例は、rmailのバッファでのみ変数<CODE>make-backup-files</CODE>を
+変更する方法である。
+この変数を<CODE>nil</CODE>にすると、
+Emacsはそれらのファイルのバックアップを作成しなくなり、
+ディスクスペースの節約になる。
+（このコードを読者の設定ファイルに入れてもよい。）
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(add-hook 'rmail-mode-hook 
+          (function (lambda ()
+                      (make-local-variable 
+                       'make-backup-files)
+                      (setq make-backup-files nil))))
+</FONT></pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX1680"></A>
+<DL>
+<DT><U>Variable:</U> <B>backup-enable-predicate</B>
+<DD>この変数の値は、ファイルをバックアップすべきかどうかを決定する
+ために特定の場面で呼び出される関数である。
+当該関数は、調べるべきファイルの名前を引数にとる。
+当該関数が<CODE>nil</CODE>を返すと、当該ファイルのバックアップは禁止である。
+さもなければ、本節の他の変数が、
+バックアップするかどうかやバックアップ方法を指定する。
+<P>
+
+<A NAME="IDX1681"></A>
+この変数のデフォルト値は<CODE>normal-backup-enable-predicate</CODE>であり、
+<CODE>temporary-file-directory</CODE> や
+<CODE>small-temporary-file-directory</CODE> にあるファイルを確認し、バックアッ
+プを行う。
+</DL>
+<P>
+
+<A NAME="IDX1682"></A>
+<DL>
+<DT><U>Variable:</U> <B>backup-inhibited</B>
+<DD>この変数が<CODE>nil</CODE>以外であると、バックアップを禁止する。
+この変数は、訪問したファイルの名前に対する<CODE>backup-enable-predicate</CODE>の
+検査結果を記録している。
+訪問したファイルに基づいてバックアップを禁止する
+他の機構でもこの変数を使える。
+たとえば、VCはこの変数に<CODE>nil</CODE>以外を設定し、
+版管理システムで管理されているファイルに対してバックアップの作成を禁止する。
+<P>
+
+これは恒久的にバッファローカルであり、
+メジャーモードを変更しても値は失われない。
+メジャーモードはこの変数に設定するべきではなく、
+かわりに、<CODE>make-backup-files</CODE>に設定するべきである。
+</DL>
+<P>
+
+<A NAME="IDX1683"></A>
+<DL>
+<DT><U>Variable:</U> <B>backup-directory-alist</B>
+<DD><A NAME="IDX1684"></A>
+これはファイル名の正規表現とバックアップディレクトリの連想リストである。
+それぞれの要素は以下のようになる。
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(<VAR>regexp</VAR> . <VAR>directory</VAR>)
+</FONT></pre></td></tr></table><P>
+
+<VAR>regexp</VAR>に一致した名前を持つファイルのバックアップは
+<VAR>directory</VAR>に保存される。<VAR>directory</VAR>が相対パスか絶対パスである。
+絶対パスであれば、ある<VAR>regexp</VAR>に一致したファイルのバックアップはす
+べて同じディレクトリにできる。そして、そのバックアップファイルの名前は
+衝突を防ぐために、ディレクトリの区切り文字を`<SAMP>!</SAMP>'に変えたフルパスに
+なる。この方法はファイルシステムがファイル名を短縮して与える場合にはう
+まく動作しないだろう。
+<P>
+
+すべてのバックアップが1つのディレクトリにできるようにするには、
+`<SAMP>"."</SAMP>'と適切なディレクトリのペアを持つ連想リストであればよい。
+<P>
+
+この変数が<CODE>nil</CODE>かファイル名に一致しなかった場合には、バックアップ
+ファイルは元ファイルと同じディレクトリにできる。
+<P>
+
+この変数は、MS-DOSのように長いファイル名に対応していないシステムでは無
+視される。
+</DL>
+<P>
+
+<A NAME="IDX1685"></A>
+<DL>
+<DT><U>Variable:</U> <B>make-backup-file-name-function</B>
+<DD><A NAME="IDX1686"></A>
+この変数の値は関数名である。この関数はバックアップファイル名を作る関数
+であり、デフォルト関数 <CODE>make-backup-file-name</CODE> のかわりに使われる。
+nilであれば、<CODE>make-backup-file-name</CODE> と同じことになる。
+<P>
+
+ある種のファイルでは特別な処理ができるように、この変数はバッファローカ
+ルになっている。もしこれを設定した場合には、<CODE>backup-file-name-p</CODE>
+や <CODE>file-name-sans-versions</CODE> の変更も必要となる場合がある。
+</DL>
+<P>
+
+<A NAME="Rename or Copy"></A>
+<HR SIZE="6">
+<br><A NAME="SEC398"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_26.html#SEC397"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_26.html#SEC399"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Rename or Copy"></A>
+<H3> 25.1.2 改名によるバックアップかコピーによるバックアップか <EM>(2003/10/30)</EM> </H3>
+<!--docid::SEC398::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Rename%20or%20Copy">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Rename%20or%20Copy</a>"<br>
+"texi/elisp21/改名によるバックアップかコピーによるバックアップか"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%B2%FE%CC%BE%A4%CB%A4%E8%A4%EB%A5%D0%A5%C3%A5%AF%A5%A2%A5%C3%A5%D7%A4%AB%A5%B3%A5%D4%A1%BC%A4%CB%A4%E8%A4%EB%A5%D0%A5%C3%A5%AF%A5%A2%A5%C3%A5%D7%A4%AB">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX1687"></A>
+<A NAME="IDX1688"></A>
+<P>
+
+Emacsは2つの方法でバックアップファイルを作れます。
+<P>
+
+<UL>
+<LI>
+Emacsは、元ファイルを改名してバックアップファイルとしてから、
+保存すべきバッファを新たなファイルに書き出す。
+この処理のあとでは、元ファイルの他の名前（つまりハードリンク）は
+バックアップファイルを指す。
+新たなファイルの所有者は編集しているユーザーになり、そのグループは
+当該ディレクトリでユーザーが新規にファイルを書いた場合のデフォルトである。
+<P>
+
+<LI>
+Emacsは元ファイルをバックアップファイルにコピーしてから、
+元ファイルを新たな内容で上書きする。
+この処理のあとでは、元ファイルの他の名前（つまりハードリンク）は
+ファイルの（更新した）現在の版を指し続ける。
+ファイルの所有者とグループは変わらない。
+</UL>
+<P>
+
+最初の改名による方式がデフォルトです。
+<P>
+
+変数<CODE>backup-by-copying</CODE>が<CODE>nil</CODE>以外であると、
+2番目の方式、つまり、元ファイルをコピーしてから
+バッファの新たな内容で上書きすることを指示します。
+変数<CODE>file-precious-flag</CODE>が<CODE>nil</CODE>以外であっても
+（その主目的の副作用として）同じ効果があります。
+See 節 <A HREF="elisp_25.html#SEC373">24.2 バッファの保存</A>。
+<P>
+
+<A NAME="IDX1689"></A>
+<DL>
+<DT><U>Variable:</U> <B>backup-by-copying</B>
+<DD>この変数が<CODE>nil</CODE>以外であると、
+Emacsはつねにコピーしてバックアップファイルを作る。
+</DL>
+<P>
+
+つぎの2つの変数が<CODE>nil</CODE>以外であると、
+特定の場面では2番目の方式を使うことになります。
+これらの変数は、特別な場面に該当しないファイルの扱い方には影響しません。
+<P>
+
+<A NAME="IDX1690"></A>
+<DL>
+<DT><U>Variable:</U> <B>backup-by-copying-when-linked</B>
+<DD>この変数が<CODE>nil</CODE>以外の場合、Emacsは、
+複数の名前（ハードリンク）を持つファイルはコピーしてバックアップする。
+<P>
+
+この変数は<CODE>backup-by-copying</CODE>が<CODE>nil</CODE>以外の場合にのみ意味を持つ。
+というのは、その変数が<CODE>nil</CODE>以外の場合にコピーを用いるからである。
+</DL>
+<P>
+
+<A NAME="IDX1691"></A>
+<DL>
+<DT><U>Variable:</U> <B>backup-by-copying-when-mismatch</B>
+<DD>この変数が<CODE>nil</CODE>以外の場合、Emacsは、
+改名するとファイルの所有者やグループを変更してしまう場合に
+コピーしてバックアップする。
+<P>
+
+改名してもファイルの所有者やグループを変更しなければ、
+この値は効果を持たない。
+つまり、ユーザーが所有しているファイルであり、
+そのグループが当該ユーザーが新規作成するファイルのデフォルトに一致する
+場合である。
+<P>
+
+この変数は<CODE>backup-by-copying</CODE>が<CODE>nil</CODE>以外の場合にのみ意味を持つ。
+というのは、その変数が<CODE>nil</CODE>以外の場合にコピーを用いるからである。
+</DL>
+<P>
+
+<A NAME="IDX1692"></A>
+<DL>
+<DT><U>Variable:</U> <B>backup-by-copying-when-privileged-mismatch</B>
+<DD>この変数が<CODE>nil</CODE>でなければ、
+<CODE>backup-by-copying-when-mismatch</CODE> と同じ動作になる。ただし、ある
+ユーザIDの値、すなわちある数以下のIDの場合に限られる。この変数には数整
+数を指定する。
+<P>
+
+そうして、<CODE>backup-by-copying-when-privileged-mismatch</CODE> に0を設定
+すると、コピーによるバックアップはスーパーユーザで、ファイルの所有者の
+変更を破棄する必要がある時にのみ、コピーによるバックアップが行われる。
+<P>
+
+デフォルトは200である。
+</DL>
+<P>
+
+<A NAME="Numbered Backups"></A>
+<HR SIZE="6">
+<br><A NAME="SEC399"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_26.html#SEC398"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_26.html#SEC400"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Numbered Backups"></A>
+<H3> 25.1.3 番号付きバックアップファイルの作成と削除 <EM>(2003/10/30)</EM> </H3>
+<!--docid::SEC399::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Numbered%20Backups">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Numbered%20Backups</a>"<br>
+"texi/elisp21/番号付きバックアップファイルの作成と削除"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%C8%D6%B9%E6%C9%D5%A4%AD%A5%D0%A5%C3%A5%AF%A5%A2%A5%C3%A5%D7%A5%D5%A5%A1%A5%A4%A5%EB%A4%CE%BA%EE%C0%AE%A4%C8%BA%EF%BD%FC">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+ファイル名が`<TT>foo</TT>'であると、
+その番号付きバックアップファイルの名前は<VAR>v</VAR>を整数として
+`<TT>foo.~<VAR>v</VAR>~</TT>'となります。
+つまり、`<TT>foo.~1~</TT>'、`<TT>foo.~2~</TT>'、`<TT>foo.~3~</TT>'、<small>...</small>、
+`<TT>foo.~259~</TT>'といった具合です。
+<P>
+
+<A NAME="IDX1693"></A>
+<DL>
+<DT><U>User Option:</U> <B>version-control</B>
+<DD>この変数は、番号なしの1つのバックアップファイルを作るのか
+複数の番号付きバックアップファイルを作るのかを制御する。
+<P>
+
+<DL COMPACT>
+<DT><CODE>nil</CODE>
+<DD>訪問したファイルにすでに番号付きバックアップファイルがあれば
+番号付きバックアップを作る。
+さもなければ作らない。
+<P>
+
+<DT><CODE>never</CODE>
+<DD>番号付きバックアップは作らない。
+<P>
+
+<DT><VAR>その他</VAR>
+<DD>番号付きバックアップを作る。
+</DL>
+</DL>
+<P>
+
+番号付きバックアップファイルを使うと、
+最終的には非常に多くのバックアップファイルができてしまい、
+それらは削除しなければなりません。
+Emacsはそれらを自動的に削除したり、
+削除するかどうかユーザーに問い合わせることができます。
+<P>
+
+<A NAME="IDX1694"></A>
+<DL>
+<DT><U>User Option:</U> <B>kept-new-versions</B>
+<DD>この変数の値は、新たに番号付きバックアップを作成したときに
+保存すべき最新のバックアップの個数である。
+新たに作成したバックアップも数える。
+デフォルト値は2である。
+</DL>
+<P>
+
+<A NAME="IDX1695"></A>
+<DL>
+<DT><U>User Option:</U> <B>kept-old-versions</B>
+<DD>この変数の値は、新たに番号付きバックアップを作成したときに
+保存すべき最古のバックアップの個数である。
+デフォルト値は2である。
+</DL>
+<P>
+
+1、2、3、5、7と番号が付いたバックアップがあり、
+これらのどちらの変数の値も2であるとすると、
+最古のものとして1と2の番号が付いたバックアップを保存し、
+最新のものとして5と7の番号が付いたバックアップを保存する。
+関数<CODE>find-backup-file-name</CODE>（see 節 <A HREF="elisp_26.html#SEC400">25.1.4 バックアップファイルの命名方法 <EM>(2003/10/30)</EM></A>）は、
+どの番号のバックアップを削除すべきかを決定する責任があるが、
+それ自身はそれらを削除しない。
+<P>
+
+<A NAME="IDX1696"></A>
+<DL>
+<DT><U>User Option:</U> <B>delete-old-versions</B>
+<DD>この変数が<CODE>t</CODE>であると、
+ファイルを保存すると黙って範囲外のバックアップを削除する。<CODE>nil</CODE>
+であれば、それを削除するかどうかユーザーに問い合わせる。さもなければ、
+すべて削除されない。
+</DL>
+<P>
+
+<A NAME="IDX1697"></A>
+<DL>
+<DT><U>User Option:</U> <B>dired-kept-versions</B>
+<DD>この変数は、diredのコマンド<KBD>.</KBD>（<CODE>dired-clean-directory</CODE>）で
+最新のバックアップを何個保存するかを指定する。
+これは、新たなバックアップファイルの作成を指示したときに
+<CODE>kept-new-versions</CODE>が指定することと同じである。
+デフォルト値は2である。
+</DL>
+<P>
+
+<A NAME="Backup Names"></A>
+<HR SIZE="6">
+<br><A NAME="SEC400"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_26.html#SEC399"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_26.html#SEC401"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Backup Names"></A>
+<H3> 25.1.4 バックアップファイルの命名方法 <EM>(2003/10/30)</EM> </H3>
+<!--docid::SEC400::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Backup%20Names">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Backup%20Names</a>"<br>
+"texi/elisp21/バックアップファイルの命名方法"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D0%A5%C3%A5%AF%A5%A2%A5%C3%A5%D7%A5%D5%A5%A1%A5%A4%A5%EB%A4%CE%CC%BF%CC%BE%CA%FD%CB%A1">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+本節の関数は、それらを再定義することでバックアップファイルの命名方法を
+カスタマイズできるため、ここで述べることにします。
+どれか1つを変更すると、残りのものも変更する必要があるでしょう。
+<P>
+
+<A NAME="IDX1698"></A>
+<DL>
+<DT><U>Function:</U> <B>backup-file-name-p</B> <I>filename</I>
+<DD>この関数は、<VAR>filename</VAR>がバックアップファイルの名前である
+可能性があると<CODE>nil</CODE>以外の値を返す。
+<VAR>filename</VAR>という名前のファイルが存在する必要はなく、
+この関数は単に名前だけを検査する。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(backup-file-name-p "foo")
+     => nil
+(backup-file-name-p "foo~")
+     => 3
+</FONT></pre></td></tr></table><P>
+
+この関数の標準定義はつぎのとおりである。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(defun backup-file-name-p (file)
+  "Return non-nil if FILE is a backup file \
+name (numeric or not)..."
+  (string-match "~\\'" file))
+</FONT></pre></td></tr></table><P>
+
+したがって、ファイル名が`<SAMP>~</SAMP>'で終っていると、
+この関数は<CODE>nil</CODE>以外の値を返す。
+（説明文字列を2行に分けるためにバックスラッシュを使っているが、
+文字列としては1行になる。）
+<P>
+
+カスタマイズのために再定義しやすいように、
+この単純な式を独立した関数にしてある。
+</DL>
+<P>
+
+<A NAME="IDX1699"></A>
+<DL>
+<DT><U>Function:</U> <B>make-backup-file-name</B> <I>filename</I>
+<DD>この関数は、ファイル<VAR>filename</VAR>に対する
+番号なしバックアップファイルに使う名前を表す文字列を返す。
+UNIXでは、単に<VAR>filename</VAR>の末尾にティルダを付加したものである。
+<P>
+
+ほとんどのオペレーティングシステムでは、
+この関数の標準定義はつぎのとおりである。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(defun make-backup-file-name (file)
+  "Create the non-numeric backup file name for FILE..."
+  (concat file "~"))
+</FONT></pre></td></tr></table><P>
+
+この関数を再定義すれば、バックアップファイルの命名方法を変更できる。
+つぎの例では、ティルダに加えて先頭に`<SAMP>.</SAMP>'を付けるように
+<CODE>make-backup-file-name</CODE>を再定義する。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(defun make-backup-file-name (filename)
+  (expand-file-name
+    (concat "." (file-name-nondirectory filename) "~")
+    (file-name-directory filename)))
+
+(make-backup-file-name "backups.texi")
+     => ".backups.texi~"
+</FONT></pre></td></tr></table><P>
+
+diredコマンドを含めてEmacsには、
+バックアップファイルは`<SAMP>~</SAMP>'で終ると仮定しているものがある。
+この慣習に従わない場合、重大な問題には至らないであろうが、
+それらのコマンドがあまり望ましくない結果をもたらすかもしれない。
+</DL>
+<P>
+
+<A NAME="IDX1700"></A>
+<DL>
+<DT><U>Function:</U> <B>find-backup-file-name</B> <I>filename</I>
+<DD>この関数は、<VAR>filename</VAR>に対する新たなバックアップファイルの
+ファイル名を計算する。
+さらに、削除すべき既存のバックアップファイルも計算する。
+<CODE>find-backup-file-name</CODE>は、
+CARに新たなバックアップファイルの名前、
+CDRに削除すべきバックアップファイルのリストを持つリストを返す。
+<P>
+
+2つの変数、<CODE>kept-old-versions</CODE>と<CODE>kept-new-versions</CODE>は、
+どのバックアップを保存すべきかを決定する。
+この関数は、値のCDRではそれらのバックアップファイルは
+除外してある。
+see 節 <A HREF="elisp_26.html#SEC399">25.1.3 番号付きバックアップファイルの作成と削除 <EM>(2003/10/30)</EM></A>。
+<P>
+
+つぎの例の値では、`<TT>~rms/foo.~5~</TT>'が
+新たなバックアップファイルの名前であり、
+`<TT>~rms/foo.~3~</TT>'が『範囲外』のものであり、
+呼び出し側で削除するかどうか考慮すべきである。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(find-backup-file-name "~rms/foo")
+     => ("~rms/foo.~5~" "~rms/foo.~3~")
+</FONT></pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX1701"></A>
+<DL>
+<DT><U>Function:</U> <B>file-newest-backup</B> <I>filename</I>
+<DD>この関数は、<VAR>filename</VAR>の最新のバックアップファイルの名前を返す。
+当該ファイルにバックアップファイルがなければ<CODE>nil</CODE>を返す。
+<P>
+
+ファイルを比較するコマンドのなかには、
+最新のバックアップファイルと自動的に比較できるように
+この関数を使うものがある。
+</DL>
+<P>
+
+<A NAME="Auto-Saving"></A>
+<HR SIZE="6">
+<br><A NAME="SEC401"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_26.html#SEC400"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_26.html#SEC402"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Auto-Saving"></A>
+<H2> 25.2 自動保存 <EM>(2003/10/30)</EM> </H2>
+<!--docid::SEC401::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Auto-Saving">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Auto-Saving</a>"<br>
+"texi/elisp21/自動保存"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%BC%AB%C6%B0%CA%DD%C2%B8">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX1702"></A>
+<P>
+
+Emacsは編集中のすべてのファイルを定期的に保存します。
+これを<EM>自動保存</EM>（auto-savign）と呼びます。
+自動保存により、システムがクラッシュしても、
+一定量以上の作業を失わないようにします。
+デフォルトでは、300打鍵ごと、あるいは、30秒間なにもしないと自動保存します。
+ユーザー向けの自動保存に関する情報については、
+See <a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=emacs21&node=Auto%20Save">GNU Emacs マニュアル</a>。
+ここでは、自動保存を実装するための関数と
+それらを制御する変数について述べます。
+<P>
+
+<A NAME="IDX1703"></A>
+<DL>
+<DT><U>Variable:</U> <B>buffer-auto-save-file-name</B>
+<DD>このバッファローカルな変数は、カレントバッファの自動保存に
+用いるファイル名である。
+当該バッファを自動保存しない場合には<CODE>nil</CODE>である。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>buffer-auto-save-file-name
+     => "/xcssun/users/rms/lewis/#backups.texi#"
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX1704"></A>
+<DL>
+<DT><U>コマンド:</U> <B>auto-save-mode</B> <I>arg</I>
+<DD><A NAME="IDX1705"></A>
+<DL>
+<DT><U>Command:</U> <B>auto-save-mode</B> <I>arg</I>
+<DD>引数なしに対話的に呼ばれると、
+このコマンドは自動保存機能をトグルする。
+つまり、カレントバッファの自動保存がオンであるとオフにし、
+オフならばオンにする。
+引数<VAR>arg</VAR>を指定すると、
+<VAR>arg</VAR>の値が<CODE>t</CODE>、空でないリスト、正整数のいずれかであれば、
+このコマンドは自動保存をオンにする。
+さもなければ自動保存をオフにする。
+</DL>
+<P>
+
+<A NAME="IDX1706"></A>
+<DL>
+<DT><U>Function:</U> <B>auto-save-file-name-p</B> <I>filename</I>
+<DD>この関数は、<VAR>filename</VAR>が自動保存ファイルの名前であるならば、
+<CODE>nil</CODE>以外を返す。
+この関数は自動保存ファイルの通常の名前の慣習を仮定する。
+つまり、名前がハッシュマーク（`<SAMP>#</SAMP>'）で始まりかつ終っていれば、
+自動保存ファイルの名前である可能性があると判断する。
+ただし、引数<VAR>filename</VAR>にはディレクトリ部分を含まないこと。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(make-auto-save-file-name)
+     => "/xcssun/users/rms/lewis/#backups.texi#"
+(auto-save-file-name-p "#backups.texi#")
+     => 0
+(auto-save-file-name-p "backups.texi")
+     => nil
+</pre></td></tr></table><P>
+
+この関数の標準定義はつぎのとおりである。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(defun auto-save-file-name-p (filename)
+  "Return non-nil if FILENAME can be yielded by..."
+  (string-match "^#.*#$" filename))
+</pre></td></tr></table><P>
+
+この関数は、自動保存ファイルの名前の慣習を変更したい場合に
+当該関数をカスタマイズできるようにするためである。
+当該関数を再定義した場合には、関数<CODE>make-auto-save-file-name</CODE>も
+それに従って必ず再定義すること。
+</DL>
+<P>
+
+<A NAME="IDX1707"></A>
+<DL>
+<DT><U>Function:</U> <B>make-auto-save-file-name</B>
+<DD>この関数は、カレントバッファの自動保存に使うファイル名を返す。
+その名前は、単にファイル名の前後にハッシュマーク（`<SAMP>#</SAMP>'）を
+付加するだけである。
+この関数は変数<CODE>auto-save-visited-file-name</CODE>（下記参照）を
+調べない。そのため、この関数を呼び出すような関数は、まずその変数を検査
+しておくべきである。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(make-auto-save-file-name)
+     => "/xcssun/users/rms/lewis/#backup.texi#"
+</pre></td></tr></table><P>
+
+この関数の標準定義はつぎのとおりである。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(defun make-auto-save-file-name ()
+  "Return file name to use for auto-saves \
+of current buffer<small>....</small>"
+  (if buffer-file-name
+      (concat
+       (file-name-directory buffer-file-name)
+       "#"
+       (file-name-nondirectory buffer-file-name)
+       "#")
+    (expand-file-name
+     (concat "#%" (buffer-name) "#"))))
+</pre></td></tr></table><P>
+
+自動保存ファイルの名前の慣習をカスタマイズするために
+関数を再定義できるように1つの関数にしてある。
+関数<CODE>auto-save-file-name-p</CODE>もそれに従って必ず変更すること。
+</DL>
+<P>
+
+<A NAME="IDX1708"></A>
+<DL>
+<DT><U>Variable:</U> <B>auto-save-visited-file-name</B>
+<DD>この変数が<CODE>nil</CODE>以外であると、
+Emacsは訪問しているファイルにバッファを自動保存する。
+つまり、読者が編集しているファイルと同じファイルに自動保存を行う。
+通常、この変数は<CODE>nil</CODE>であり、自動保存ファイルには
+<CODE>make-auto-save-file-name</CODE>で作成した別の名前がある。
+<P>
+
+この変数の値を変更しても、すでにあるバッファでは、
+バッファの自動保存をつぎにオンにするまで、新しい値は効果を発揮しない。
+自動保存がすでにオンであると、
+<CODE>auto-save-mode</CODE>を再度呼び出すまでは、
+同じファイルの名前に自動保存し続ける。
+</DL>
+<P>
+
+<A NAME="IDX1709"></A>
+<DL>
+<DT><U>Function:</U> <B>recent-auto-save-p</B>
+<DD>カレントバッファに最後に読み込んだり保存してから以降に自動保存していると、
+この関数は<CODE>t</CODE>を返す。
+</DL>
+<P>
+
+<A NAME="IDX1710"></A>
+<DL>
+<DT><U>Function:</U> <B>set-buffer-auto-saved</B>
+<DD>この関数は、カレントバッファに自動保存済みであると印を付ける。
+バッファのテキストが再度変更されない限り、バッファは自動保存されない。
+この関数は<CODE>nil</CODE>を返す。
+</DL>
+<P>
+
+<A NAME="IDX1711"></A>
+<DL>
+<DT><U>User Option:</U> <B>auto-save-interval</B>
+<DD>この変数の値は、つぎの自動保存までに
+Emacsがキーボードから読み取る文字の個数である。
+これだけの文字を読み取るたびに、自動保存をオンにしてあるすべてのバッファを
+自動保存する。
+</DL>
+<P>
+
+<A NAME="IDX1712"></A>
+<DL>
+<DT><U>User Option:</U> <B>auto-save-timeout</B>
+<DD>この変数の値は、自動保存を引き起こすまでのなにもしていない期間の秒数である。
+この時間だけユーザーがなにもしないと、
+Emacsは自動保存する必要があるすべてのバッファを自動保存する。
+（カレントバッファが大きい場合には、指定した時間にサイズに依存した係数
+を掛ける。これは100万バイトでおよそ4である）。
+<P>
+
+この変数が0かnilの場合には、なにもしていなくても自動保存はさ
+</DL>
+<P>
+
+<A NAME="IDX1713"></A>
+<DL>
+<DT><U>Variable:</U> <B>auto-save-hook</B>
+<DD>このノーマルフックは、自動保存を行う直前に毎回実行される。
+</DL>
+<P>
+
+<A NAME="IDX1714"></A>
+<DL>
+<DT><U>User Option:</U> <B>auto-save-default</B>
+<DD>この変数が<CODE>nil</CODE>以外であると、
+ファイルを訪問しているバッファはデフォルトで自動保存をオンにする。
+さもなければ、そうしない。
+</DL>
+<P>
+
+<A NAME="IDX1715"></A>
+<DL>
+<DT><U>コマンド:</U> <B>do-auto-save</B> <I>&#38;optional no-message current-only</I>
+<DD>この関数は、自動保存する必要があるすべてのバッファを自動保存する。
+自動保存がオンになっていて、かつ、以前の自動保存からあとで
+変更されているすべてのバッファを自動保存する。
+<P>
+
+通常、バッファを自動保存すると、
+自動保存を実行中にはエコー領域にメッセージ`<SAMP>Auto-saving...</SAMP>'が表示される。
+しかし、<VAR>no-message</VAR>が<CODE>nil</CODE>以外であると、
+メッセージを表示しない。
+<P>
+
+<VAR>current-only</VAR>が<CODE>nil</CODE>以外であると、
+カレントバッファのみを自動保存する。
+</DL>
+<P>
+
+<A NAME="IDX1716"></A>
+<DL>
+<DT><U>Function:</U> <B>delete-auto-save-file-if-necessary</B>
+<DD>この関数は、<CODE>delete-auto-save-files</CODE>が<CODE>nil</CODE>以外であると、
+カレントバッファの自動保存ファイルを削除する。
+バッファを保存するたびに呼び出される。
+</DL>
+<P>
+
+<A NAME="IDX1717"></A>
+<DL>
+<DT><U>Variable:</U> <B>delete-auto-save-files</B>
+<DD>この変数は、関数<CODE>delete-auto-save-file-if-necessary</CODE>が使う。
+<CODE>nil</CODE>以外であると、Emacsは（訪問しているファイルに）実際に
+保存すると自動保存ファイルを削除する。
+これによりディスクスペースを節約し、読者のディレクトリを整頓できる。
+</DL>
+<P>
+
+<A NAME="IDX1718"></A>
+<DL>
+<DT><U>Function:</U> <B>rename-auto-save-file</B>
+<DD>この関数は、訪問しているファイルの名前が変更されていると、
+カレントバッファの自動保存ファイルの名前を修正する。
+さらに、既存の自動保存ファイルも改名する。
+訪問しているファイルの名前が変更されていなければ、
+この関数はなにもしない。
+</DL>
+<P>
+
+<A NAME="IDX1719"></A>
+<DL>
+<DT><U>Variable:</U> <B>buffer-saved-size</B>
+<DD>このバッファローカルな変数の値は、
+最後に読み込んだり保存したり自動保存したときの
+カレントバッファの長さである。
+サイズの大幅な変更を検知すると自動保存をオフにするために使われる。
+<P>
+
+この変数が-1であると、
+大幅にサイズが減少したために一時的に自動保存をオフにしたことを意味する。
+明示的にバッファを保存すると、この変数に正の値が保存され、
+自動保存が再度オンになる。
+自動保存をオフにしたりオンにしても、この変数が変更される。つまり、大幅
+なサイズ減少の情報は消えてしまうことになる。
+</DL>
+<P>
+
+<A NAME="IDX1720"></A>
+<DL>
+<DT><U>Variable:</U> <B>auto-save-list-file-name</B>
+<DD>この変数は（<CODE>nil</CODE>以外であると）、
+すべての自動保存ファイルの名前を記録するファイルを指定する。
+Emacsが自動保存を行うたびに、
+自動保存がオンである各バッファに関する2行をこのファイルに書き出す。
+1行目は訪問しているファイルの名前を与え（訪問していなければ空）、
+2行目は自動保存ファイルの名前を与える。
+<P>
+
+Emacsが正常に終ると、このファイルは削除される。Emacsがクラッシュしたら、
+失われてしまう作業内容を含んでいるかもしれない自動保存ファイルを探すた
+めに読者はこのファイルを調べられる。コマンド<CODE>recover-session</CODE>は作
+業中だったファイルを探すために、このファイルを使う。
+<P>
+
+このファイルのデフォルト名は、
+読者のホームディレクトリにあり`<SAMP>.saves-</SAMP>'で始まる。
+さらに、EmacsのプロセスIDとホスト名も含む。
+</DL>
+<P>
+
+<A NAME="IDX1721"></A>
+<DL>
+<DT><U>Variable:</U> <B>auto-save-list-file-prefix</B>
+<DD><A NAME="IDX1722"></A>
+Emacsが初期化ファイルを読み込んだ後に、<CODE>auto-save-list-file-name</CODE>
+(すでに<CODE>nil</CODE>以外を設定していなければ)、この変数を基にホスト名やプ
+ロセスIDを加えて初期化される。初期化ファイルでこの変数に<CODE>nil</CODE>を設
+定すると、Emacsは<CODE>auto-save-list-file-name</CODE>を初期化しない。
+</DL>
+<P>
+
+<A NAME="Reverting"></A>
+<HR SIZE="6">
+<br><A NAME="SEC402"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_26.html#SEC401"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_27.html#SEC403"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Reverting"></A>
+<H2> 25.3 復元 <EM>(2003/10/30)</EM> </H2>
+<!--docid::SEC402::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Reverting">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Reverting</a>"<br>
+"texi/elisp21/復元"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%C9%FC%B8%B5">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+ファイルを大幅に変更したあとで、そのような変更をやめたい場合には、
+コマンド<CODE>revert-buffer</CODE>でファイルのまえの版を読み込めます。
+See <a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=emacs21&node=Reverting">GNU Emacs マニュアル</a>。
+<P>
+
+<A NAME="IDX1723"></A>
+<DL>
+<DT><U>コマンド:</U> <B>revert-buffer</B> <I>&#38;optional ignore-auto noconfirm</I>
+<DD>このコマンドは、バッファのテキストを
+ディスク上の訪問しているファイルのテキストで置き換える。
+これにより、ファイルを訪問したり保存してから行った変更をすべて取り消せる。
+<P>
+
+デフォルトでは、最後の自動保存ファイルが
+訪問しているファイルよりも新しい場合には、
+<CODE>revert-buffer</CODE>は自動保存ファイルを使うかどうか
+ユーザーに問い合わせる。
+しかし、引数<VAR>ignore-auto</VAR>が<CODE>nil</CODE>以外であると、
+訪問したファイルのみを使う。
+対話的に呼ばれた場合、数値前置引数を指定しない限り、
+<VAR>ignore-auto</VAR>は<CODE>t</CODE>である。
+したがって、対話的な場合のデフォルトでは、自動保存ファイルを検査する。
+<P>
+
+通常、バッファを変更するまえに<CODE>revert-buffer</CODE>は確認してくる。
+しかし、引数<VAR>noconfirm</VAR>が<CODE>nil</CODE>以外であると、
+<CODE>revert-buffer</CODE>は確認しない。
+<P>
+
+復元作業では、
+<CODE>insert-file-contents</CODE>の置換機能を用いて
+バッファ内のマーカ位置を保存するように努める。
+復元操作のまえにバッファの内容とファイルの内容が同一であれば、
+すべてのマークが保存される。
+同一でなければ、復元によりバッファが変更され、
+バッファの先頭と末尾の（あれば）未変更なテキスト内のマーカを保存する。
+それ以外のマーカを保存しても問題を引き起こすだけであろう。
+</DL>
+<P>
+
+この節の残りで述べる変数を設定することで、
+<CODE>revert-buffer</CODE>の動作をカスタマイズできます。
+<P>
+
+<A NAME="IDX1724"></A>
+<DL>
+<DT><U>Variable:</U> <B>revert-without-query</B>
+<DD>この変数は、問い合わせずに復元すべきファイルのリストを保持する。
+値は、正規表現のリストである。
+訪問中のファイル名がこれらの正規表現の1つに一致すると、
+ディスク上のファイルが変更されていて当該バッファが未変更であれば、
+<CODE>revert-buffer</CODE>はユーザーに確認せずに当該ファイルを復元する。
+</DL>
+<P>
+
+あるメジャーモードは これらの関数をバッファローカルで設定することで
+、<CODE>revert-buffer</CODE>をカスタマイズしています。
+<P>
+
+<A NAME="IDX1725"></A>
+<DL>
+<DT><U>Variable:</U> <B>revert-buffer-function</B>
+<DD>この変数の値は、このバッファを復元するために使う関数である。
+<CODE>nil</CODE>以外であれば、復元を行う引数なしの関数として呼び出される。
+値が<CODE>nil</CODE>であると、復元操作は通常の方法で行われる。
+<P>
+
+diredモードなどのモードでは、
+編集中のテキストはファイルの内容ではなく
+別の方法で再生成されたものなので、
+この変数のバッファローカルな値には内容を再生成する関数を指定することが
+できます。
+</DL>
+<P>
+
+<A NAME="IDX1726"></A>
+<DL>
+<DT><U>Variable:</U> <B>revert-buffer-insert-file-contents-function</B>
+<DD>この変数の値が<CODE>nil</CODE>以外であると、
+このバッファを復元するときに更新内容を挿入するために使われる関数である。
+当該関数は2つの引数をとる。
+第1引数は、使用するファイル名である。
+第2引数は、ユーザーが自動保存ファイルを
+読むように指示していると<CODE>t</CODE>である。
+<P>
+
+あるモードでこの変数を<CODE>revert-buffer-function</CODE>のかわりに設定する
+のは、<CODE>revert-buffer</CODE>が行う処理の残りが重複したり置き換わってしま
+うのを避けるためである。つまり、アンドゥ情報を消去する場合や適当なメ
+ジャーモードを決定する場合、以下で述べるフックを走らせる場合に確認を行
+う。
+</DL>
+<P>
+
+<A NAME="IDX1727"></A>
+<DL>
+<DT><U>Variable:</U> <B>before-revert-hook</B>
+<DD>このノーマルフックは、<CODE>revert-buffer-function</CODE>が<CODE>nil</CODE>である
+場合にのみ、変更内容を挿入するまえに<CODE>revert-buffer</CODE>が実行する。
+</DL>
+<P>
+
+<A NAME="IDX1728"></A>
+<DL>
+<DT><U>Variable:</U> <B>after-revert-hook</B>
+<DD>このノーマルフックは、<CODE>revert-buffer-function</CODE>が<CODE>nil</CODE>である
+場合にのみ、変更内容を挿入したあとに<CODE>revert-buffer</CODE>が実行する。
+</DL>
+<A NAME="Buffers"></A>
+<HR SIZE="6">
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<a name="bottom"> </a>
+<script type="text/javascript" src="style2.js"></script>
+<div class="footer">
+    <br>
+    このページはMeadow (Emacs) の紹介ページです <br>
+このWebページの各文書は自由にリンク・複製・再配布・改変していただいて構いません．
+<br>ただし，複製・再配布・改変の場合は Meadow Memo のURLを記載しておいて下さい．<br>
+<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=about%20link">Medow memoへのリンクについて</a>．<br>
+
+間違い，要望等があれば<a href="mailto:akihisa@mail.ne.jp">akihisa@mail.ne.jp</a> か下記でどうぞ<br>
+
+<br>
+
+<FORM METHOD="post" ACTION="http://www.bookshelf.jp/cgi-bin/wwwmail.cgi" >
+お名前：<INPUT TYPE="text" NAME="name" SIZE="30" MAXLENGTH="40" VALUE="ななしさん"><br>
+メールアドレス：<INPUT TYPE="text" NAME="EMAIL" SIZE="25" MAXLENGTH="60" VALUE="secret@mail.adr"><br>
+<input type="hidden" name="HPAGE" value="">
+つっこみ：<br><TEXTAREA NAME="MESSAGE" ROWS="5" COLS="50">
+</TEXTAREA><br><br>
+<INPUT TYPE="submit" VALUE="送信">
+<INPUT TYPE="reset" VALUE="クリア">
+</FORM>
+
+<br><A HREF="http://www.bookshelf.jp/cgi-bin/xct.cgi">ページ別カウンタ</a>
+<br> Since 2002/12/13 <br>
+</div>
+
+</BODY>
+
+</HTML>

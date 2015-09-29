@@ -1,0 +1,1758 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="ja">
+<!-- Created on October, 1  2005 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=euc-jp">
+<META NAME="keywords" CONTENT="meadow,mule,emacs,lisp,elisp,gnus,setting,設定,unix,cygwin">
+<META http-equiv="Content-Script-Type" content="text/javascript">
+<META NAME="description" CONTENT="Meadowの設定を紹介するページです">
+<TITLE>GNU Emacs Lispリファレンスマニュアル:  リスト</TITLE>
+
+<META NAME="description" CONTENT="GNU Emacs Lispリファレンスマニュアル:  リスト">
+<META NAME="keywords" CONTENT="GNU Emacs Lispリファレンスマニュアル:  リスト">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+<LINK REL="contents" HREF="elisp_toc.html#SEC_Contents">
+<LINK REL="index" HREF="elisp_48.html#SEC681">
+<LINK REL="next" HREF="elisp_7.html#SEC93">
+<LINK REL="prev" HREF="elisp_5.html#SEC71">
+
+<META http-equiv="Content-Style-Type" content="text/css">
+<!-- 鶯と龜 ←日本語EUC誤判別対策用らしい; -->
+<link rel="StyleSheet" href="../../../../soft/css/midnight.css" type="text/css" id="css1">
+<script type="text/javascript" src="style1.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../soft/css/meadowmemo.css">
+
+</HEAD>
+<BODY LANG="ja" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+<!--Infoseek Analyzer start-->
+<script LANGUAGE="javascript">PgNo=6;</script>
+<script src="http://js1.infoseek.co.jp/bin/57/00170.js"></script>
+<noscript><a href="http://ax1.www.infoseek.co.jp/bin/go?0017057f" target="_blank">
+<img src="http://ax1.www.infoseek.co.jp/bin/logo?0017057f" border=0></a></noscript>
+<!--Infoseek Analyzer end-->
+<a name="top"> </a>
+
+<br><A NAME="SEC81"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_5.html#SEC80"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_6.html#SEC82"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_5.html#SEC71"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_7.html#SEC93"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Lists"></A>
+<H1> 5. リスト </H1>
+<!--docid::SEC81::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Lists">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Lists</a>"<br>
+"texi/elisp21/リスト"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%EA%A5%B9%A5%C8">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX304"></A>
+<A NAME="IDX305"></A>
+<P>
+
+<EM>リスト</EM>（list）は、0個以上の（任意のLispオブジェクトの）要素の列を
+表現します。
+リストとベクトルの重要な相違点は、
+複数のリストがそれらの構造の一部を共有できることです。
+さらに、リスト全体をコピーすることなく、
+リストに要素を追加したり削除できることです。
+<P>
+
+<div class="menuindex"><SCRIPT language=JavaScript src="index5.js"></SCRIPT></div><noscript><BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_6.html#SEC82">5.1 リストとコンスセル</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How lists are made out of cons cells.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_6.html#SEC83">5.2 箱の対を連ねたリスト</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Graphical notation to explain lists.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_6.html#SEC84">5.3 リスト向け述語</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Is this object a list?  Comparing two lists.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_6.html#SEC85">5.4 リストの要素の参照</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Extracting the pieces of a list.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_6.html#SEC86">5.5 コンスセルとリストの構築</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Creating list structure.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_6.html#SEC87">5.6 既存のリスト構造の修正</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Storing new pieces into an existing list.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_6.html#SEC91">5.7 集合としてのリストの利用</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">A list can represent a finite mathematical set.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_6.html#SEC92">5.8 連想リスト</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">A list can represent a finite relation or mapping.</TD></TR>
+</TABLE></BLOCKQUOTE></noscript>
+<P>
+
+<A NAME="Cons Cells"></A>
+<HR SIZE="6">
+<br><A NAME="SEC82"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_6.html#SEC81"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_6.html#SEC83"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Cons Cells"></A>
+<H2> 5.1 リストとコンスセル </H2>
+<!--docid::SEC82::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Cons%20Cells">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Cons%20Cells</a>"<br>
+"texi/elisp21/リストとコンスセル"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%EA%A5%B9%A5%C8%A4%C8%A5%B3%A5%F3%A5%B9%A5%BB%A5%EB">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX306"></A>
+<A NAME="IDX307"></A>
+<P>
+
+Lispのリストは基本データ型ではありません。
+リストは<EM>コンスセル</EM>（cons cells）で構成されます。
+コンスセルはドット対を表現するデータオブジェクトです。
+ドット対は2つのLispオブジェクトを保持、つまり、『指し』ます。
+その2つのLispオブジェクトの一方をCAR、他方をCDRといいます。
+これらの名前は歴史的なものです。
+See 節 <A HREF="elisp_3.html#SEC30">2.3.6 コンスセルとリスト型</A>。
+CDRは『クダー』と読みます。
+<P>
+
+リストはコンスセルを連ねたものであり、
+リストの各要素ごとにコンスセルが1つあります。
+慣習として、コンスセルのCARはリストの要素であり、
+CDRはリストを繋ぐために使います。
+つまり、各コンスセルのCDRは後続のコンスセルです。
+最後のコンスセルのCDRは<CODE>nil</CODE>です。
+CARとCDRの非対称性は単なる慣習によるものです。
+コンスセルのレベルでは、CARとCDRには同じ性質があります。
+<P>
+
+<A NAME="IDX308"></A>
+ほとんどのコンスセルはリストの一部として使われるので、
+<EM>リスト構造</EM>（list structure）という用語は、
+コンスセルで構成した任意の構造を意味するようになりました。
+<P>
+
+シンボル<CODE>nil</CODE>は、シンボルであるとともにリストでもあるとみなします。
+これは要素を持たないリストです。
+慣習として、シンボル<CODE>nil</CODE>のCDR（およびCAR）は
+<CODE>nil</CODE>であるとみなします。
+<P>
+
+空でない任意のリスト<VAR>l</VAR>のCDRは、
+<VAR>l</VAR>の先頭要素を除くすべての要素を含んだリストです。
+<P>
+
+<A NAME="Lists as Boxes"></A>
+<HR SIZE="6">
+<br><A NAME="SEC83"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_6.html#SEC82"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_6.html#SEC84"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Lists as Boxes"></A>
+<H2> 5.2 箱の対を連ねたリスト </H2>
+<!--docid::SEC83::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Lists%20as%20Boxes">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Lists%20as%20Boxes</a>"<br>
+"texi/elisp21/箱の対を連ねたリスト"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%C8%A2%A4%CE%C2%D0%A4%F2%CF%A2%A4%CD%A4%BF%A5%EA%A5%B9%A5%C8">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX309"></A>
+<A NAME="IDX310"></A>
+<A NAME="IDX311"></A>
+<P>
+
+コンスセルは1対の箱で図示できます。
+最初の箱はCARを表し、2番目の箱はCDRを表します。
+つぎは、2つのコンスセルから成る
+2要素のリスト<CODE>(tulip lily)</CODE>を図示したものです。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre> ---------------         ---------------
+| car   | cdr   |       | car   | cdr   |
+| tulip |   o----------&#62;| lily  |  nil  |
+|       |       |       |       |       |
+ ---------------         ---------------
+</pre></td></tr></table><P>
+
+各1対の箱がコンスセルを表します。
+各箱は、Lispオブジェクトを『参照する』、『指す』、『含む』のです。
+（これらの用語は同義語。）
+最初のコンスセルのCARを表す最初の箱は、
+シンボル<CODE>tulip</CODE>を含みます。
+最初のコンスセルのCDR箱から2番目のコンスセルへ向かう矢印は、
+最初のコンスセルのCDRが2番目のコンスセルであることを表します。
+<P>
+
+同じリストは、つぎのような別の箱記法でも図示できます。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>    --- ---      --- ---
+   |   |   |--&#62; |   |   |--&#62; nil
+    --- ---      --- ---
+     |            |
+     |            |
+      --&#62; tulip    --&#62; lily
+</pre></td></tr></table><P>
+
+つぎは、より複雑で、最初の要素が2要素リストであるような
+3要素リストを図示したものです。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>    --- ---      --- ---      --- ---
+   |   |   |--&#62; |   |   |--&#62; |   |   |--&#62; nil
+    --- ---      --- ---      --- ---
+     |            |            |
+     |            |            |
+     |             --&#62; oak      --&#62; maple
+     |
+     |     --- ---      --- ---
+      --&#62; |   |   |--&#62; |   |   |--&#62; nil
+           --- ---      --- ---
+            |            |
+            |            |
+             --&#62; pine     --&#62; needles
+</pre></td></tr></table><P>
+
+同じリストを最初の箱記法で表現するとつぎのようになります。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre> --------------       --------------       --------------
+| car   | cdr  |     | car   | cdr  |     | car   | cdr  |
+|   o   |   o-------&#62;| oak   |   o-------&#62;| maple |  nil |
+|   |   |      |     |       |      |     |       |      |
+ -- | ---------       --------------       --------------
+    |
+    |
+    |        --------------       ----------------
+    |       | car   | cdr  |     | car     | cdr  |
+     ------&#62;| pine  |   o-------&#62;| needles |  nil |
+            |       |      |     |         |      |
+             --------------       ----------------
+</pre></td></tr></table><P>
+
+コンスセルとリストの入力構文と表示表現、および、
+『箱と矢印』によるリストの図示については、See 節 <A HREF="elisp_3.html#SEC30">2.3.6 コンスセルとリスト型</A>
+<P>
+
+<A NAME="List-related Predicates"></A>
+<HR SIZE="6">
+<br><A NAME="SEC84"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_6.html#SEC83"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_6.html#SEC85"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="List-related Predicates"></A>
+<H2> 5.3 リスト向け述語 </H2>
+<!--docid::SEC84::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=List-related%20Predicates">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=List-related%20Predicates</a>"<br>
+"texi/elisp21/リスト向け述語"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%EA%A5%B9%A5%C8%B8%FE%A4%B1%BD%D2%B8%EC">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+以下の述語は、Lispオブジェクトが、アトムであるか、
+コンスセル、つまり、リストであるか、
+特別なオブジェクト<CODE>nil</CODE>であるか調べます。
+（これらの多く述語は、それぞれ残りの述語で定義可能である。
+しかし、多用するため、これらすべてを用意しておく価値がある。）
+<P>
+
+<A NAME="IDX312"></A>
+<DL>
+<DT><U>Function:</U> <B>consp</B> <I>object</I>
+<DD>この関数は、<VAR>object</VAR>がコンスセルならば<CODE>t</CODE>を返し、
+さもなければ<CODE>nil</CODE>を返す。
+<CODE>nil</CODE>はコンスセルではないが、空リスト<EM>である</EM>。
+</DL>
+<P>
+
+<A NAME="IDX313"></A>
+<DL>
+<DT><U>Function:</U> <B>atom</B> <I>object</I>
+<DD><A NAME="IDX314"></A>
+この関数は、<VAR>object</VAR>がアトムならば<CODE>t</CODE>を返し、
+さもなければ<CODE>nil</CODE>を返す。
+コンスセルを除くすべてのオブジェクトはアトムである。
+シンボル<CODE>nil</CODE>はアトムでもありリストでもある。
+このようなLispオブジェクトは<CODE>nil</CODE>だけである。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(atom <VAR>object</VAR>) == (not (consp <VAR>object</VAR>))
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX315"></A>
+<DL>
+<DT><U>Function:</U> <B>listp</B> <I>object</I>
+<DD>この関数は、<VAR>object</VAR>がコンスセルか<CODE>nil</CODE>ならば<CODE>t</CODE>を返す。
+さもなければ<CODE>nil</CODE>を返す。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(listp '(1))
+     => t
+(listp '())
+     => t
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX316"></A>
+<DL>
+<DT><U>Function:</U> <B>nlistp</B> <I>object</I>
+<DD>この関数は、<CODE>listp</CODE>の反対である。
+<VAR>object</VAR>がリストでなければ<CODE>t</CODE>を返す。
+さもなければ<CODE>nil</CODE>を返す。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(listp <VAR>object</VAR>) == (not (nlistp <VAR>object</VAR>))
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX317"></A>
+<DL>
+<DT><U>Function:</U> <B>null</B> <I>object</I>
+<DD>この関数は、<VAR>object</VAR>が<CODE>nil</CODE>ならば<CODE>t</CODE>を返し、
+さもなければ<CODE>nil</CODE>を返す。
+この関数は、<CODE>not</CODE>と同一であるが、意図を明確にするために、
+<VAR>object</VAR>をリストと考えるときには<CODE>null</CODE>を使い、
+<VAR>object</VAR>を真理値と考えるときには<CODE>not</CODE>を使う
+（<A HREF="elisp_10.html#SEC125">9.3 条件の組み合わせ</A>の<CODE>not</CODE>を参照）
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(null '(1))
+     => nil
+(null '())
+     => t
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="List Elements"></A>
+<HR SIZE="6">
+<br><A NAME="SEC85"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_6.html#SEC84"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_6.html#SEC86"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="List Elements"></A>
+<H2> 5.4 リストの要素の参照 </H2>
+<!--docid::SEC85::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=List%20Elements">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=List%20Elements</a>"<br>
+"texi/elisp21/リストの要素の参照"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%EA%A5%B9%A5%C8%A4%CE%CD%D7%C1%C7%A4%CE%BB%B2%BE%C8">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX318"></A>
+<P>
+
+<A NAME="IDX319"></A>
+<DL>
+<DT><U>Function:</U> <B>car</B> <I>cons-cell</I>
+<DD>この関数は、コンスセル<VAR>cons-cell</VAR>の最初のポインタが指す値を返す。
+別のいい方をすれば、<VAR>cons-cell</VAR>のCARを返す。
+<P>
+
+特別な場合として、<VAR>cons-cell</VAR>が<CODE>nil</CODE>のときには、
+<CODE>car</CODE>は<CODE>nil</CODE>を返すと定義する。
+したがって、任意のリストは<CODE>car</CODE>の正しい引数である。
+引数がコンスセルでも<CODE>nil</CODE>でもなければエラーを通知する。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(car '(a b c))
+     => a
+(car '())
+     => nil
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX320"></A>
+<DL>
+<DT><U>Function:</U> <B>cdr</B> <I>cons-cell</I>
+<DD>この関数は、コンスセル<VAR>cons-cell</VAR>の2番目のポインタが指す値を返す。
+別のいい方をすれば、<VAR>cons-cell</VAR>のCDRを返す。
+<P>
+
+特別な場合として、<VAR>cons-cell</VAR>が<CODE>nil</CODE>のときには、
+<CODE>cdr</CODE>は<CODE>nil</CODE>を返すと定義する。
+したがって、任意のリストは<CODE>cdr</CODE>の正しい引数である。
+引数がコンスセルでも<CODE>nil</CODE>でもなければエラーを通知する。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(cdr '(a b c))
+     => (b c)
+(cdr '())
+     => nil
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX321"></A>
+<DL>
+<DT><U>Function:</U> <B>car-safe</B> <I>object</I>
+<DD>この関数は、コンスセルのCARを取り出すが、
+他のデータ型に対するエラーを回避する。
+<VAR>object</VAR>がコンスセルならば<VAR>object</VAR>のCARを返すが、
+さもなければ<CODE>nil</CODE>を返す。
+これは<CODE>car</CODE>と対照的であり、
+<CODE>car</CODE>は<VAR>object</VAR>がリストでないとエラーを通知する。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(car-safe <VAR>object</VAR>)
+==
+(let ((x <VAR>object</VAR>))
+  (if (consp x)
+      (car x)
+    nil))
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX322"></A>
+<DL>
+<DT><U>Function:</U> <B>cdr-safe</B> <I>object</I>
+<DD>この関数は、コンスセルのCDRを取り出すが、
+他のデータ型に対するエラーを回避する。
+<VAR>object</VAR>がコンスセルならば<VAR>object</VAR>のCDRを返すが、
+さもなければ<CODE>nil</CODE>を返す。
+これは<CODE>cdr</CODE>と対照的であり、
+<CODE>cdr</CODE>は<VAR>object</VAR>がリストでないとエラーを通知する。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(cdr-safe <VAR>object</VAR>)
+==
+(let ((x <VAR>object</VAR>))
+  (if (consp x)
+      (cdr x)
+    nil))
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX323"></A>
+<DL>
+<DT><U>Function:</U> <B>nth</B> <I>n list</I>
+<DD>この関数は、<VAR>list</VAR>の<VAR>n</VAR>番目の要素を返す。
+要素は0から数えるので、<VAR>list</VAR>のCARは要素番号0。
+<VAR>list</VAR>の長さが<VAR>n</VAR>かそれ未満であると、値は<CODE>nil</CODE>になる。
+<P>
+
+<VAR>n</VAR>が負であると、<CODE>nth</CODE>は<VAR>list</VAR>の最初の要素を返す。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(nth 2 '(1 2 3 4))
+     => 3
+(nth 10 '(1 2 3 4))
+     => nil
+(nth -3 '(1 2 3 4))
+     => 1
+
+(nth n x) == (car (nthcdr n x))
+</pre></td></tr></table><P>
+
+関数<CODE>elt</CODE>も同様であるが、任意のシーケンスに適用できる。
+歴史的な理由で引数の順序は逆である。
+see 節 <A HREF="elisp_7.html#SEC94">6.1 シーケンス</A>。
+</DL>
+<P>
+
+<A NAME="IDX324"></A>
+<DL>
+<DT><U>Function:</U> <B>nthcdr</B> <I>n list</I>
+<DD>この関数は、<VAR>list</VAR>の<VAR>n</VAR>番目のCDRを返す。
+いいかえれば、<VAR>list</VAR>の始めの<VAR>n</VAR>個のリンクを飛び越えて、
+そのあとにあるものを返す。
+<P>
+
+<VAR>n</VAR>が0か負であると、<CODE>nthcdr</CODE>は<VAR>list</VAR>全体を返す。
+<VAR>list</VAR>の長さが<VAR>n</VAR>かそれ未満であると、
+<CODE>nthcdr</CODE>は<CODE>nil</CODE>を返す。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(nthcdr 1 '(1 2 3 4))
+     => (2 3 4)
+(nthcdr 10 '(1 2 3 4))
+     => nil
+(nthcdr -3 '(1 2 3 4))
+     => (1 2 3 4)
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX325"></A>
+<DL>
+<DT><U>Function:</U> <B>safe-length</B> <I>list</I>
+<DD><A NAME="IDX326"></A>
+この関数は、エラーや無限ループを回避して、<VAR>list</VAR>の長さを返す。
+<P>
+
+<VAR>list</VAR>が実際にはリストでない場合には、<CODE>safe-length</CODE>は0を返す。
+<VAR>list</VAR>に循環があると、少なくとも異なる要素の個数を表す有限値を返す。
+</DL>
+<P>
+
+循環はないと思われるリストの長さを計算するもっとも一般的な方法は、
+<CODE>length</CODE>です。
+See 節 <A HREF="elisp_7.html#SEC94">6.1 シーケンス</A>。
+<P>
+
+<A NAME="IDX327"></A>
+<DL>
+<DT><U>Function:</U> <B>caar</B> <I>cons-cell</I>
+<DD><A NAME="IDX328"></A>
+これは<CODE>(car (car <VAR>cons-cell</VAR>))</CODE>と同じ。
+</DL>
+<P>
+
+<A NAME="IDX329"></A>
+<DL>
+<DT><U>Function:</U> <B>cadr</B> <I>cons-cell</I>
+<DD><A NAME="IDX330"></A>
+これは<CODE>(car (cdr <VAR>cons-cell</VAR>))</CODE>や
+<CODE>(nth 1 <VAR>cons-cell</VAR>)</CODE>と同じ。
+</DL>
+<P>
+
+<A NAME="IDX331"></A>
+<DL>
+<DT><U>Function:</U> <B>cdar</B> <I>cons-cell</I>
+<DD><A NAME="IDX332"></A>
+これは<CODE>(cdr (car <VAR>cons-cell</VAR>))</CODE>と同じ。
+</DL>
+<P>
+
+<A NAME="IDX333"></A>
+<DL>
+<DT><U>Function:</U> <B>cddr</B> <I>cons-cell</I>
+<DD><A NAME="IDX334"></A>
+これは<CODE>(cdr (cdr <VAR>cons-cell</VAR>))</CODE>や
+<CODE>(nthcdr 2 <VAR>cons-cell</VAR>)</CODE>と同じ。
+</DL>
+<P>
+
+<A NAME="Building Lists"></A>
+<HR SIZE="6">
+<br><A NAME="SEC86"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_6.html#SEC85"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_6.html#SEC87"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Building Lists"></A>
+<H2> 5.5 コンスセルとリストの構築 </H2>
+<!--docid::SEC86::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Building%20Lists">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Building%20Lists</a>"<br>
+"texi/elisp21/コンスセルとリストの構築"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%B3%A5%F3%A5%B9%A5%BB%A5%EB%A4%C8%A5%EA%A5%B9%A5%C8%A4%CE%B9%BD%C3%DB">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX335"></A>
+<A NAME="IDX336"></A>
+<P>
+
+リストはLispの中核なので、多くの関数はリストを構築します。
+<CODE>cons</CODE>は基本的なリスト構築関数です。
+しかし、Emacsのソースコードでは、<CODE>cons</CODE>より<CODE>list</CODE>を
+多用していることは興味深いことです。
+<P>
+
+<A NAME="IDX337"></A>
+<DL>
+<DT><U>Function:</U> <B>cons</B> <I>object1 object2</I>
+<DD>この関数は、新たなリスト構造を構築するために使う基本関数。
+<VAR>object1</VAR>をCAR、<VAR>object2</VAR>をCDRとする
+新たなコンスセルを作成し、このコンスセルを返す。
+引数<VAR>object1</VAR>と<VAR>object2</VAR>はどんなLispオブジェクトでもよいが、
+ほとんどの場合、<VAR>object2</VAR>はリストである。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(cons 1 '(2))
+     => (1 2)
+(cons 1 '())
+     => (1)
+(cons 1 2)
+     => (1 . 2)
+</pre></td></tr></table><P>
+
+<A NAME="IDX338"></A>
+<CODE>cons</CODE>は、リストの先頭に要素を1つ追加するために
+しばしば使われる。
+これを<EM>要素をリストにコンスする</EM>という。
+たとえば、つぎのとおり。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(setq list (cons newelt list))
+</pre></td></tr></table><P>
+
+この例における<CODE>list</CODE>という名前の変数と
+以下に述べる<CODE>list</CODE>という名前の関数とは衝突しない。
+任意のシンボルはどちらの目的にも使える。
+</DL>
+<P>
+
+<A NAME="IDX339"></A>
+<DL>
+<DT><U>Function:</U> <B>list</B> <I>&#38;rest objects</I>
+<DD>この関数は、<VAR>objects</VAR>を要素とするリストを作成する。
+結果のリストはつねに<CODE>nil</CODE>終端になる。
+<VAR>objects</VAR>を指定しないと空リストを返す。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(list 1 2 3 4 5)
+     => (1 2 3 4 5)
+(list 1 2 '(3 4 5) 'foo)
+     => (1 2 (3 4 5) foo)
+(list)
+     => nil
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX340"></A>
+<DL>
+<DT><U>Function:</U> <B>make-list</B> <I>length object</I>
+<DD>この関数は、すべての要素が同一の値<VAR>object</VAR>であり
+長さが<VAR>length</VAR>のリストを作成する。
+<CODE>make-string</CODE>と比較してほしい（see 節 <A HREF="elisp_5.html#SEC74">4.3 文字列の作成</A>）。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(make-list 3 'pigs)
+     => (pigs pigs pigs)
+(make-list 0 'pigs)
+     => nil
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX341"></A>
+<DL>
+<DT><U>Function:</U> <B>append</B> <I>&#38;rest sequences</I>
+<DD><A NAME="IDX342"></A>
+この関数は<VAR>sequences</VAR>のすべての要素から成るリストを返す。
+<VAR>sequences</VAR>は、リスト、ベクトル、ブールベクトル、文字列のいずれかであるが、
+普通、最後の要素はリストである。
+最後の引数を除いてすべての引数をコピーするので、どの引数も変更しない
+（コピーせずにリストを繋ぐ方法については、
+<A HREF="elisp_6.html#SEC90">5.6.3 リストの順序を変更する関数</A>の<CODE>nconc</CODE>を参照。）
+<P>
+
+一般には、<CODE>append</CODE>の最後の引数はどんなLispオブジェクトでもよい。
+最後の引数をコピーしたり変換したりしない。
+それは、新たなリストの最後のコンスセルのCDRになる。
+最後の引数がそれ自体リストであれば、それらの要素は、実質的には、
+結果のリストの要素になる。
+最後の要素がリストでなければ、結果は『ドット対』になる。
+なぜなら、結果の最後のCDRは、
+真のリストに必要とされる<CODE>nil</CODE>ではないからである。
+<P>
+
+関数<CODE>append</CODE>は、引数として整数も受け付ける。
+整数を10進の表示表現の文字列に変換してから、
+その文字列を整数のかわりに使う。
+<STRONG>この機能を使わないでほしい。
+削除する予定である。
+読者がこの機能を使っていたら、今すぐプログラムを直すこと！</STRONG><CODE> </CODE>
+整数をこのような10進数に変換する正しい方法は、
+<CODE>format</CODE>（see 節 <A HREF="elisp_5.html#SEC78">4.7 文字列の書式付け</A>）や
+<CODE>number-to-string</CODE>（see 節 <A HREF="elisp_5.html#SEC77">4.6 文字と文字列の変換</A>）を使うことである。
+</DL>
+<P>
+
+<CODE>append</CODE>の使用例をつぎに示します。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(setq trees '(pine oak))
+     => (pine oak)
+(setq more-trees (append '(maple birch) trees))
+     => (maple birch pine oak)
+
+trees
+     => (pine oak)
+more-trees
+     => (maple birch pine oak)
+(eq trees (cdr (cdr more-trees)))
+     => t
+</pre></td></tr></table><P>
+
+箱表示を見れば<CODE>append</CODE>の動作を理解できるでしょう。
+変数<CODE>trees</CODE>にリスト<CODE>(pine oak)</CODE>を設定し、ついで、
+変数<CODE>more-trees</CODE>にはリスト<CODE>(maple birch pine oak)</CODE>を設定します。
+しかし、変数<CODE>trees</CODE>はもとのリストを指し続けます。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>more-trees                trees
+|                           |
+|     --- ---      --- ---   -&#62; --- ---      --- ---
+ --&#62; |   |   |--&#62; |   |   |--&#62; |   |   |--&#62; |   |   |--&#62; nil
+      --- ---      --- ---      --- ---      --- ---
+       |            |            |            |
+       |            |            |            |
+        --&#62; maple    --&#62;birch     --&#62; pine     --&#62; oak
+</FONT></pre></td></tr></table><P>
+
+空シーケンスは<CODE>append</CODE>が返す値にはまったく寄与しません。
+この結果、最後の<CODE>nil</CODE>引数は直前の引数をコピーするように強制します。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>trees
+     => (pine oak)
+(setq wood (append trees nil))
+     => (pine oak)
+wood
+     => (pine oak)
+(eq wood trees)
+     => nil
+</pre></td></tr></table><P>
+
+この方法は、関数<CODE>copy-sequence</CODE>を導入するまでは、
+リストをコピーする普通の方法でした。
+See 節 <A HREF="elisp_7.html#SEC93">6. シーケンス、配列、ベクトル</A>。
+<P>
+
+<CODE>append</CODE>の引数にベクトルと文字列を使った例をつぎに示します。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(append [a b] "cd" nil)
+     => (a b 99 100)
+</pre></td></tr></table><P>
+
+<CODE>apply</CODE>（see 節 <A HREF="elisp_12.html#SEC165">11.5 関数呼び出し</A>）の助けを借りれば、
+リストのリストの中にあるすべてのリストを連結できます。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(apply 'append '((a b c) nil (x y z) nil))
+     => (a b c x y z)
+</pre></td></tr></table><P>
+
+<VAR>sequences</VAR>をまったく指定しないと<CODE>nil</CODE>を返します。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(append)
+     => nil
+</pre></td></tr></table><P>
+
+最後の引数がリストではない例をいくつか示します。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(append '(x y) 'z)
+     => (x y . z)
+(append '(x y) [z])
+     => (x y . [z])
+</pre></td></tr></table><P>
+
+最後の引数がリストではなくシーケンスである2番目の例は、
+シーケンスの要素が結果のリストの要素にはならないことを示しています。
+そのかわりに、最後の引数がリストでない場合と同様に、
+シーケンスが最後のCDRになります。
+<P>
+
+<A NAME="IDX343"></A>
+<DL>
+<DT><U>Function:</U> <B>reverse</B> <I>list</I>
+<DD>この関数は、<VAR>list</VAR>の要素を逆順にした新たなリストを作成する。
+もとの引数<VAR>list</VAR>は変更<EM>しない</EM>。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(setq x '(1 2 3 4))
+     => (1 2 3 4)
+(reverse x)
+     => (4 3 2 1)
+x
+     => (1 2 3 4)
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="Modifying Lists"></A>
+<HR SIZE="6">
+<br><A NAME="SEC87"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_6.html#SEC86"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_6.html#SEC88"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Modifying Lists"></A>
+<H2> 5.6 既存のリスト構造の修正 </H2>
+<!--docid::SEC87::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Modifying%20Lists">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Modifying%20Lists</a>"<br>
+"texi/elisp21/既存のリスト構造の修正"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%B4%FB%C2%B8%A4%CE%A5%EA%A5%B9%A5%C8%B9%BD%C2%A4%A4%CE%BD%A4%C0%B5">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX344"></A>
+<P>
+
+基本関数<CODE>setcar</CODE>や<CODE>setcdr</CODE>を使って、
+コンスセルのCARやCDRの内容を変更できます。
+これらは、既存のリスト構造を変更するので、
+『破壊的』な操作と呼びます。
+<P>
+
+<A NAME="IDX345"></A>
+<BLOCKQUOTE>
+<A NAME="IDX346"></A>
+<A NAME="IDX347"></A>
+<B>Common Lispに関した注意：</B><CODE> </CODE>
+Common Lispでは、
+リスト構造を変更するには<CODE>rplaca</CODE>や<CODE>rplacd</CODE>を使う。
+これらは<CODE>setcar</CODE>や<CODE>setcdr</CODE>と同様に構造を変更する。
+しかし、Common Lispの関数はコンスセルを返すが、
+<CODE>setcar</CODE>や<CODE>setcdr</CODE>は新たなCARやCDRを返す。
+</BLOCKQUOTE>
+<P>
+
+<BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_6.html#SEC88">5.6.1 <CODE>setcar</CODE>によるリスト要素の変更</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Replacing an element in a list.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_6.html#SEC89">5.6.2 リストのCDRの変更</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Replacing part of the list backbone.
+                      This can be used to remove or add elements.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_6.html#SEC90">5.6.3 リストの順序を変更する関数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Reordering the elements in a list; combining lists.</TD></TR>
+</TABLE></BLOCKQUOTE>
+<P>
+
+<A NAME="Setcar"></A>
+<HR SIZE="6">
+<br><A NAME="SEC88"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_6.html#SEC87"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_6.html#SEC89"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Setcar"></A>
+<H3> 5.6.1 <CODE>setcar</CODE>によるリスト要素の変更 </H3>
+<!--docid::SEC88::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Setcar">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Setcar</a>"<br>
+"texi/elisp21/<CODE>setcar</CODE>によるリスト要素の変更"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%3CCODE%3Esetcar%3C%2FCODE%3E%A4%CB%A4%E8%A4%EB%A5%EA%A5%B9%A5%C8%CD%D7%C1%C7%A4%CE%CA%D1%B9%B9">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+コンスセルのCARを変更するには、<CODE>setcar</CODE>を使います。
+リストに対して使用すると、
+<CODE>setcar</CODE>はリストの1つの要素を別の要素に置き換えます。
+<P>
+
+<A NAME="IDX348"></A>
+<DL>
+<DT><U>Function:</U> <B>setcar</B> <I>cons object</I>
+<DD>この関数は、<VAR>cons</VAR>の新たなCARとして<VAR>object</VAR>を格納し、
+以前のCARを置き換える。
+いいかえれば、<VAR>cons</VAR>のCARスロットが<VAR>object</VAR>を指すように変更する。
+この関数は値<VAR>object</VAR>を返す。
+たとえば、つぎのようになる。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(setq x '(1 2))
+     => (1 2)
+(setcar x 4)
+     => 4
+x
+     => (4 2)
+</pre></td></tr></table></DL>
+<P>
+
+コンスセルが複数のリストの共有構造の一部であるときには、
+コンスセルに新たなCARを格納すると、
+そのような各リストの1つの要素を変更することになります。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>;; 共有部分がある2つのリストを作る
+(setq x1 '(a b c))
+     => (a b c)
+(setq x2 (cons 'z (cdr x1)))
+     => (z b c)
+
+;; 共有部分のCARを置き換える
+(setcar (cdr x1) 'foo)
+     => foo
+x1                           ; 両方のリストが変更されている
+     => (a foo c)
+x2
+     => (z foo c)
+
+;; 非共有部分のCARを置き換える
+(setcar x1 'baz)
+     => baz
+x1                           ; 1つのリストだけが変更されている
+     => (baz foo c)
+x2
+     => (z foo c)
+</pre></td></tr></table><P>
+
+変数<CODE>x1</CODE>と<CODE>x2</CODE>に入っている共有部分を持つ2つのリストを図示すると
+つぎのようになります。
+<CODE>b</CODE>を置き換えるとなぜ両者が変更されるのかわかるでしょう。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>        --- ---        --- ---      --- ---
+x1---&#62; |   |   |----&#62; |   |   |--&#62; |   |   |--&#62; nil
+        --- ---        --- ---      --- ---
+         |        --&#62;   |            |
+         |       |      |            |
+          --&#62; a  |       --&#62; b        --&#62; c
+                 |
+       --- ---   |
+x2--&#62; |   |   |--
+       --- ---
+        |
+        |
+         --&#62; z
+</pre></td></tr></table><P>
+
+同じ関係を別の箱表示で示します。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>x1:
+ --------------       --------------       --------------
+| car   | cdr  |     | car   | cdr  |     | car   | cdr  |
+|   a   |   o-------&#62;|   b   |   o-------&#62;|   c   |  nil |
+|       |      |  --&#62;|       |      |     |       |      |
+ --------------  |    --------------       --------------
+                 |
+x2:              |
+ --------------  |
+| car   | cdr  | |
+|   z   |   o----
+|       |      |
+ --------------
+</pre></td></tr></table><P>
+
+<A NAME="Setcdr"></A>
+<HR SIZE="6">
+<br><A NAME="SEC89"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_6.html#SEC88"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_6.html#SEC90"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Setcdr"></A>
+<H3> 5.6.2 リストのCDRの変更 </H3>
+<!--docid::SEC89::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Setcdr">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Setcdr</a>"<br>
+"texi/elisp21/リストのCDRの変更"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%EA%A5%B9%A5%C8%A4%CECDR%A4%CE%CA%D1%B9%B9">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+CDRを修正するもっとも低レベルの基本関数は<CODE>setcdr</CODE>です。
+<P>
+
+<A NAME="IDX349"></A>
+<DL>
+<DT><U>Function:</U> <B>setcdr</B> <I>cons object</I>
+<DD>この関数は、<VAR>cons</VAR>の新たなCDRとして<VAR>object</VAR>を格納し、
+以前のCDRを置き換える。
+いいかえれば、<VAR>cons</VAR>のCDRスロットが<VAR>object</VAR>を指すように変更する。
+この関数は値<VAR>object</VAR>を返す。
+</DL>
+<P>
+
+リストのCDRを別のリストで置き換える例を示します。
+リストの最初の要素以外は取り除かれ、
+要素の別のシーケンスになります。
+最初の要素は変更されません。
+というのは、それはリストのCARの中にあり、
+CDRからは辿れないからです。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(setq x '(1 2 3))
+     => (1 2 3)
+(setcdr x '(4))
+     => (4)
+x
+     => (1 4)
+</pre></td></tr></table><P>
+
+リスト内のコンスセル群のCDRを変更することで、
+リストの中ほどの要素を削除できます。
+つぎの例は、リスト<CODE>(a b c)</CODE>の最初のコンスセルのCDRを変更することで、
+このリストの第2要素<CODE>b</CODE>を削除します。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(setq x1 '(a b c))
+     => (a b c)
+(setcdr x1 (cdr (cdr x1)))
+     => (c)
+x1
+     => (a c)
+</pre></td></tr></table><P>
+
+箱表記では、この結果はつぎのようになります。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>                   --------------------
+                  |                    |
+ --------------   |   --------------   |    --------------
+| car   | cdr  |  |  | car   | cdr  |   --&#62;| car   | cdr  |
+|   a   |   o-----   |   b   |   o--------&#62;|   c   |  nil |
+|       |      |     |       |      |      |       |      |
+ --------------       --------------        --------------
+</pre></td></tr></table><P>
+
+以前に要素<CODE>b</CODE>を保持していた2番目のコンスセルはまだ存在していて、
+そのCARもまだ<CODE>b</CODE>ですが、このリストの一部ではありません。
+<P>
+
+CDRを変更して新たな要素を挿入するのも同様に簡単です。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(setq x1 '(a b c))
+     => (a b c)
+(setcdr x1 (cons 'd (cdr x1)))
+     => (d b c)
+x1
+     => (a d b c)
+</pre></td></tr></table><P>
+
+箱表記では、この結果はつぎのようになります。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre> --------------        -------------       -------------
+| car  | cdr   |      | car  | cdr  |     | car  | cdr  |
+|   a  |   o   |   --&#62;|   b  |   o-------&#62;|   c  |  nil |
+|      |   |   |  |   |      |      |     |      |      |
+ --------- | --   |    -------------       -------------
+           |      |
+     -----         --------
+    |                      |
+    |    ---------------   |
+    |   | car   | cdr   |  |
+     --&#62;|   d   |   o------
+        |       |       |
+         ---------------
+</FONT></pre></td></tr></table><P>
+
+<A NAME="Rearrangement"></A>
+<HR SIZE="6">
+<br><A NAME="SEC90"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_6.html#SEC89"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_6.html#SEC91"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Rearrangement"></A>
+<H3> 5.6.3 リストの順序を変更する関数 </H3>
+<!--docid::SEC90::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Rearrangement">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Rearrangement</a>"<br>
+"texi/elisp21/リストの順序を変更する関数"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%EA%A5%B9%A5%C8%A4%CE%BD%E7%BD%F8%A4%F2%CA%D1%B9%B9%A4%B9%A4%EB%B4%D8%BF%F4">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX350"></A>
+<A NAME="IDX351"></A>
+<P>
+
+以下は、リストを構成するコンスセルのCDRを変更することで、
+『破壊的に』リストの順序を変更する関数です。
+これらの関数を『破壊的』と呼ぶのは、
+渡された引数であるもとのリストのコンスセルを繋ぎ換えて新たなリストに
+変えるからです。
+<P>
+
+コンスセルを変更する他の関数については、
+<A HREF="elisp_6.html#SEC91">5.7 集合としてのリストの利用</A>のSee <CODE>delq</CODE>を参照してください。
+<P>
+
+<A NAME="IDX352"></A>
+<DL>
+<DT><U>Function:</U> <B>nconc</B> <I>&#38;rest lists</I>
+<DD><A NAME="IDX353"></A>
+<A NAME="IDX354"></A>
+<A NAME="IDX355"></A>
+<A NAME="IDX356"></A>
+この関数は、<VAR>lists</VAR>のすべての要素を入れたリストを返す。
+<CODE>append</CODE>（see 節 <A HREF="elisp_6.html#SEC86">5.5 コンスセルとリストの構築</A>）と異なり、
+<VAR>lists</VAR>をコピー<EM>しない</EM>。
+そのかわりに、各<VAR>lists</VAR>の最後のCDRを後続のリストを指すように変更する。
+<VAR>lists</VAR>の最後は変更しない。
+たとえば、つぎのようになる。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(setq x '(1 2 3))
+     => (1 2 3)
+(nconc x '(4 5))
+     => (1 2 3 4 5)
+x
+     => (1 2 3 4 5)
+</pre></td></tr></table><P>
+
+<CODE>nconc</CODE>は最後の引数を変更しないので、
+上述の例のように、<CODE>'(4 5)</CODE>などの定数リストを使ってよい。
+同じ理由で最後の引数はリストである必要もない。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(setq x '(1 2 3))
+     => (1 2 3)
+(nconc x 'z)
+     => (1 2 3 . z)
+x
+     => (1 2 3 . z)
+</pre></td></tr></table><P>
+
+しかしながら、すべての引数は（最後のものを除いて）リストである必要がある。
+<P>
+
+よくある落し穴は、<CODE>nconc</CODE>の最後以外の引数に、
+クォートした定数リストを使うことである。
+こうすると、読者のプログラムは実行するたびに定数を変えてしまう。
+たとえば、つぎのようになる。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(defun add-foo (x)            ; この関数は引数の先頭に
+  (nconc '(foo) x))           ;   <CODE>foo</CODE>を追加する、としたい
+
+(symbol-function 'add-foo)
+     => (lambda (x) (nconc (quote (foo)) x))
+
+(setq xx (add-foo '(1 2)))    ; 動いているように見える
+     => (foo 1 2)
+(setq xy (add-foo '(3 4)))    ; どうなってるの？
+     => (foo 1 2 3 4)
+(eq xx xy)
+     => t
+
+(symbol-function 'add-foo)
+     => (lambda (x) (nconc (quote (foo 1 2 3 4) x)))
+</FONT></pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX357"></A>
+<DL>
+<DT><U>Function:</U> <B>nreverse</B> <I>list</I>
+<DD><A NAME="IDX358"></A>
+<A NAME="IDX359"></A>
+この関数は、<VAR>list</VAR>の要素の順番を逆順にする。
+<CODE>reverse</CODE>と異なり、<CODE>nreverse</CODE>は
+リストを構成するコンスセルのCDRを逆向きにして引数を変えてしまう。
+<VAR>list</VAR>の最後にあったコンスセルは戻り値の最初のコンスセルになる。
+<P>
+
+たとえば、つぎのようになる。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(setq x '(1 2 3 4))
+     => (1 2 3 4)
+x
+     => (1 2 3 4)
+(nreverse x)
+     => (4 3 2 1)
+;; 先頭にあったコンスセルは、今、最後になっている
+x
+     => (1)
+</pre></td></tr></table><P>
+
+混乱を避けるために、<CODE>nreverse</CODE>の結果は、
+もとのリストを収めていたものと同じ変数に格納する。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(setq x (nreverse x))
+</pre></td></tr></table><P>
+
+<CODE>nreverse</CODE>を<CODE>(a b c)</CODE>に適用した結果を図示すると
+つぎのようになる。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>もとのリストの先頭                        逆順にしたリスト
+ -------------        -------------        ------------
+| car  | cdr  |      | car  | cdr  |      | car | cdr  |
+|   a  |  nil |&#60;--   |   b  |   o  |&#60;--   |   c |   o  |
+|      |      |   |  |      |   |  |   |  |     |   |  |
+ -------------    |   --------- | -    |   -------- | -
+                  |             |      |            |
+                   -------------        ------------
+</FONT></pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX360"></A>
+<DL>
+<DT><U>Function:</U> <B>sort</B> <I>list predicate</I>
+<DD><A NAME="IDX361"></A>
+<A NAME="IDX362"></A>
+<A NAME="IDX363"></A>
+この関数は、破壊的にではあるが、
+<VAR>list</VAR>を順序を保ってソートしたリストを返す。
+要素の比較には<VAR>predicate</VAR>を使う。
+順序を保ったソートとは、同じソートキーを持つ要素の相対順序を、
+ソート実行前後で変更しないソートである。
+異なる基準でつぎつぎにソートするときには、
+順序を保つことは重要である。
+<P>
+
+引数<VAR>predicate</VAR>は、2つの引数を取る関数である必要がある。
+この関数は、<VAR>list</VAR>の2つの要素で呼び出される。
+昇順のソートでは、<VAR>predicate</VAR>は、
+第1引数が第2引数より『小さい』ときに<CODE>t</CODE>を返し、
+さもなければ<CODE>nil</CODE>を返す必要がある。
+<P>
+
+比較関数<VAR>predicate</VAR>は、少なくとも単一の<CODE>sort</CODE>の呼び出し中は、
+引数の任意の対に対して信頼できる結果を返す必要がある。
+まず、<EM>反対称</EM>であること。
+つまり、<VAR>a</VAR>が<VAR>b</VAR>より小さいときには、
+<VAR>b</VAR>が<VAR>a</VAR>より小さくてはいけない。
+また、<EM>遷移則</EM>が成り立つこと。
+つまり、<VAR>a</VAR>が<VAR>b</VAR>より小さく、かつ、<VAR>b</VAR>が<VAR>c</VAR>より小さいときには、
+<VAR>a</VAR>は<VAR>c</VAR>より小さくなければならない。
+これらの要請を満たさない比較関数を用いると、
+<CODE>sort</CODE>の結果は予測できない。
+<P>
+
+<CODE>sort</CODE>が破壊的であるというのは、
+<VAR>list</VAR>を構成するコンスセルのCDRを変更して、
+コンスセルの順序を変更するからである。
+非破壊的なソート関数では、ソートした要素を格納するために新たなコンスセルを
+作成するであろう。
+もとのリストを破壊せずにソートしたければ、
+まず<CODE>copy-sequence</CODE>でコピーを作り、それをソートする。
+<P>
+
+ソートする際、<VAR>list</VAR>のコンスセルのCARは変更しない。
+<VAR>list</VAR>内の要素<CODE>a</CODE>を入れていたコンスセルは、
+ソート後にもそのCARには<CODE>a</CODE>が入っている。
+しかし、CDRを変更してあるので、リスト内では異なる場所に現れる。
+たとえば、つぎのようになる。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(setq nums '(1 3 2 6 5 4 0))
+     => (1 3 2 6 5 4 0)
+(sort nums '&#60;)
+     => (0 1 2 3 4 5 6)
+nums
+     => (1 2 3 4 5 6)
+</pre></td></tr></table><P>
+
+<STRONG>警告</STRONG>：<CODE> </CODE><CODE>nums</CODE>のリストには
+0が入っていないことに注意。
+（<CODE>nums</CODE>が指す）コンスセルはソート前と同じコンスセルだが、
+それはもはやリストの先頭にはない。
+引数を保持していた変数が、
+ソートしたリスト全体を保持していると仮定しないこと！<CODE> </CODE>
+かわりに、<CODE>sort</CODE>の結果を保存して、それを使う。
+多くの場合、つぎのように、もとのリストを保持していた変数に結果を保存し直す。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(setq nums (sort nums '&#60;))
+</pre></td></tr></table><P>
+
+ソートを行う他の関数については、see 節 <A HREF="elisp_32.html#SEC503">31.15 テキストのソート</A>。
+<CODE>sort</CODE>の有用な例については、
+<A HREF="elisp_24.html#SEC365">23.2 説明文字列の参照</A>の<CODE>documentation</CODE>を参照。
+</DL>
+<P>
+
+<A NAME="Sets And Lists"></A>
+<HR SIZE="6">
+<br><A NAME="SEC91"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_6.html#SEC90"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_6.html#SEC92"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Sets And Lists"></A>
+<H2> 5.7 集合としてのリストの利用 </H2>
+<!--docid::SEC91::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Sets%20And%20Lists">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Sets%20And%20Lists</a>"<br>
+"texi/elisp21/集合としてのリストの利用"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%BD%B8%B9%E7%A4%C8%A4%B7%A4%C6%A4%CE%A5%EA%A5%B9%A5%C8%A4%CE%CD%F8%CD%D1">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX364"></A>
+<A NAME="IDX365"></A>
+<P>
+
+リストで、数学の順序のない集合を表現できます。
+つまり、リストに現れる要素を集合の要素と考え、
+リスト内での順序は無視します。
+2つの集合の和集合を作るには、
+（要素が重複することを気にしなければ）<CODE>append</CODE>を使います。
+集合向けの他の有用な関数には、<CODE>memq</CODE>や<CODE>delq</CODE>、および、
+これらの<CODE>equal</CODE>版である<CODE>member</CODE>や<CODE>delete</CODE>があります。
+<P>
+
+<A NAME="IDX366"></A>
+<BLOCKQUOTE>
+<B>Common Lispに関した注意：</B><CODE> </CODE>
+Common Lispには、集合演算向けに
+（要素の重複を避ける）関数<CODE>union</CODE>と<CODE>intersection</CODE>があるが、
+GNU Emacs Lispにはない。
+必要ならば、読者みずからLispでこれらを書ける。
+</BLOCKQUOTE>
+<P>
+
+<A NAME="IDX367"></A>
+<DL>
+<DT><U>Function:</U> <B>memq</B> <I>object list</I>
+<DD><A NAME="IDX368"></A>
+この関数は、<VAR>object</VAR>が<VAR>list</VAR>の要素かどうか調べる。
+そうならば、
+<CODE>memq</CODE>は<VAR>object</VAR>が最初に現れるところから始まるリストを返す。
+さもなければ<CODE>nil</CODE>を返す。
+<CODE>memq</CODE>の文字`<SAMP>q</SAMP>'は、リストの要素に対する<VAR>object</VAR>の比較に
+<CODE>eq</CODE>を使うことを意味する。
+たとえば、
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(memq 'b '(a b c b a))
+     => (b c b a)
+(memq '(2) '((1) (2)))    ; <CODE>(2)</CODE>と<CODE>(2)</CODE>は<CODE>eq</CODE>ではない
+     => nil
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX369"></A>
+<DL>
+<DT><U>Function:</U> <B>delq</B> <I>object list</I>
+<DD><A NAME="IDX370"></A>
+<A NAME="IDX371"></A>
+この関数は、<VAR>list</VAR>から<VAR>object</VAR>に<CODE>eq</CODE>であるすべての要素を
+破壊的に削除する。
+<CODE>delq</CODE>の文字`<SAMP>q</SAMP>'は、<CODE>memq</CODE>と同様に、
+リストの要素に対する<VAR>object</VAR>の比較に<CODE>eq</CODE>を使うことを意味する。
+</DL>
+<P>
+
+<CODE>delq</CODE>がリストの先頭から要素を削除する場合には、
+単にリストを辿って削除した要素のつぎから始まる部分リストを返します。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(delq 'a '(a b c)) == (cdr '(a b c))
+</pre></td></tr></table><P>
+
+リストの中ほどの要素を削除する場合には、
+削除にはCDRの変更を伴います（see 節 <A HREF="elisp_6.html#SEC89">5.6.2 リストのCDRの変更</A>）。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(setq sample-list '(a b c (4)))
+     => (a b c (4))
+(delq 'a sample-list)
+     => (b c (4))
+sample-list
+     => (a b c (4))
+(delq 'c sample-list)
+     => (a b (4))
+sample-list
+     => (a b (4))
+</pre></td></tr></table><P>
+
+<CODE>(delq 'c sample-list)</CODE>は、
+3番目の要素を切り取って<CODE>sample-list</CODE>を変更しますが、
+<CODE>(delq 'a sample-list)</CODE>では、
+なにも切り取らずに単に短いリストを返すことに注意してください。
+引数<VAR>list</VAR>を保持していた変数が、実行後には少ない要素を持つと仮定したり、
+もとのリストを保持し続けていると仮定したりしないでください！<CODE> </CODE>
+そのかわりに、<CODE>delq</CODE>の結果を保存して、それを使ってください。
+多くの場合、つぎのように、
+もとのリストを保持していた変数に結果を保存し直します。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(setq flowers (delq 'rose flowers))
+</pre></td></tr></table><P>
+
+つぎの例では、<CODE>delq</CODE>が一致を取ろうとしている<CODE>(4)</CODE>と
+<CODE>sample-list</CODE>の<CODE>(4)</CODE>とは<CODE>eq</CODE>ではありません。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(delq '(4) sample-list)
+     => (a c (4))
+</pre></td></tr></table><P>
+
+つぎの2つの関数は、<CODE>memq</CODE>や<CODE>delq</CODE>に似ていますが、
+比較には<CODE>eq</CODE>のかわりに<CODE>equal</CODE>を使います。
+See 節 <A HREF="elisp_3.html#SEC59">2.6 同値述語</A>。
+<P>
+
+<A NAME="IDX372"></A>
+<DL>
+<DT><U>Function:</U> <B>member</B> <I>object list</I>
+<DD>関数<CODE>member</CODE>は、<CODE>equal</CODE>を使って<VAR>object</VAR>と要素を比較して、
+<VAR>object</VAR>が<VAR>list</VAR>の要素かどうか調べる。
+<VAR>object</VAR>が要素であれば、
+<CODE>member</CODE>は<VAR>list</VAR>内でそれが最初に現れるところから始まるリストを返す。
+さもなければ<CODE>nil</CODE>を返す。
+<P>
+
+<CODE>memq</CODE>と比較してほしい。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(member '(2) '((1) (2)))  ; <CODE>(2)</CODE>と<CODE>(2)</CODE>は<CODE>equal</CODE>である
+     => ((2))
+(memq '(2) '((1) (2)))    ; <CODE>(2)</CODE>と<CODE>(2)</CODE>は<CODE>eq</CODE>ではない
+     => nil
+;; 同じ内容の2つの文字列は<CODE>equal</CODE>である
+(member "foo" '("foo" "bar"))
+     => ("foo" "bar")
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX373"></A>
+<DL>
+<DT><U>Function:</U> <B>delete</B> <I>object list</I>
+<DD>この関数は、<VAR>list</VAR>から<VAR>object</VAR>に<CODE>equal</CODE>であるすべての要素を
+破壊的に削除する。
+<CODE>member</CODE>が<CODE>memeq</CODE>に対応するように、<CODE>delq</CODE>に対応する。
+<CODE>member</CODE>と同様に、
+要素と<VAR>object</VAR>との比較には<CODE>equal</CODE>を使う。
+一致する要素をみつけると、<CODE>delq</CODE>と同様に要素を削除する。
+たとえば、つぎのとおり。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(delete '(2) '((2) (1) (2)))
+     => ((1))
+</pre></td></tr></table></DL>
+<P>
+
+<BLOCKQUOTE>
+<B>Common Lispに関した注意：</B><CODE> </CODE>
+GNU Emacs Lispの関数<CODE>member</CODE>と関数<CODE>delete</CODE>は
+Maclispから受け継いだものであり、Common Lispからではない。
+Common Lisp版では要素の比較には<CODE>equal</CODE>を使わない。
+</BLOCKQUOTE>
+<P>
+
+変数に格納したリストに要素を追加する別の方法については、
+<A HREF="elisp_11.html#SEC144">10.8 変数値の変更</A>の関数<CODE>add-to-list</CODE>を参照してください。
+<P>
+
+<A NAME="Association Lists"></A>
+<HR SIZE="6">
+<br><A NAME="SEC92"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_6.html#SEC91"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_7.html#SEC93"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Association Lists"></A>
+<H2> 5.8 連想リスト </H2>
+<!--docid::SEC92::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Association%20Lists">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Association%20Lists</a>"<br>
+"texi/elisp21/連想リスト"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%CF%A2%C1%DB%A5%EA%A5%B9%A5%C8">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX374"></A>
+<A NAME="IDX375"></A>
+<P>
+
+<EM>連想リスト</EM>（association list）、略して<EM>alist</EM>は、
+キーから値への対応付けを記録しています。
+これは<EM>連想</EM>（associations）と呼ばれるコンスセルのリストです。
+各コンスセルのCARは<EM>key</EM>であり、
+CDRは<EM>連想値</EM>（associated value）です。
+<A NAME="DOCF6" HREF="elisp_fot.html#FOOT6">(6)</A>
+<P>
+
+連想リストの例を示します。
+キー<CODE>pine</CODE>を値<CODE>cones</CODE>に、キー<CODE>oak</CODE>を値<CODE>acorns</CODE>に、
+キー<CODE>maple</CODE>を値<CODE>seeds</CODE>に対応付けています。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>'((pine . cones)
+  (oak . acorns)
+  (maple . seeds))
+</pre></td></tr></table><P>
+
+連想リスト内の連想値は任意のLispオブジェクトでよく、キーもそうです。
+たとえば、つぎの連想リストでは、シンボル<CODE>a</CODE>に数<CODE>1</CODE>を、
+文字列<CODE>"b"</CODE>に<EM>リスト</EM><CODE>(2 3)</CODE>を対応付けています。
+<EM>リスト</EM><CODE>(2 3)</CODE>は連想リストの要素のCDRです。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>((a . 1) ("b" 2 3))
+</pre></td></tr></table><P>
+
+要素のCDRのCARに連想値を格納するように
+連想リストを設計したほうがよい場合もあります。
+つぎのようにします。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>'((rose red) (lily white) (buttercup yellow))
+</pre></td></tr></table><P>
+
+ここで、<CODE>red</CODE>は<CODE>rose</CODE>に対応付けた値と考えます。
+この種の連想リストの利点の1つは、関連する別の情報を、
+他の項目から成るリストでさえも、CDRのCDRに格納できることです。
+1つの欠点は、<CODE>rassq</CODE>（下記参照）を使って
+指定した値を含む要素を探せないことです。
+これらの条件が重要でない場合には、1つの連想リストに関する限り、
+一貫性があればどちらを選ぶかは好みの問題です。
+<P>
+
+上に示した連想リストは、要素のCDRに連想値が収めてあると
+考えることもできます。
+<CODE>rose</CODE>の連想値はリスト<CODE>(red)</CODE>になります。
+<P>
+
+連想リストはスタックなどに置くような情報の記録に使います。
+というには、リストの先頭に新たな連想を追加するのが簡単だからです。
+指定したキーに対する連想を連想リストから探すとき、
+それらが複数個存在する場合には、最初にみつかったものを返します。
+<P>
+
+Emacs Listでは、連想リストの要素がコンスセルでなくても
+エラーでは<EM>ありません</EM>。
+連想リスト探索関数はそのような要素を単に無視します。
+他の多くのLispでは、そのような場面ではエラーを通知します。
+<P>
+
+属性リストもいろいろな意味で連想リストに類似しています。
+属性リストは、キーが一度しか現れない連想リストのようにふるまいます。
+属性リストと連想リストの比較については、See 節 <A HREF="elisp_8.html#SEC105">7.4 属性リスト</A>。
+<P>
+
+<A NAME="IDX376"></A>
+<DL>
+<DT><U>Function:</U> <B>assoc</B> <I>key alist</I>
+<DD>この関数は、<VAR>alist</VAR>内の<VAR>key</VAR>に対する最初の連想を返す。
+<VAR>key</VAR>と連想リストの各要素との比較には、
+<CODE>equal</CODE>（see 節 <A HREF="elisp_3.html#SEC59">2.6 同値述語</A>）を用いる。
+<VAR>alist</VAR>の中にCARが<VAR>key</VAR>に<CODE>equal</CODE>である連想が
+存在しなければ、<CODE>nil</CODE>を返す。
+たとえば、つぎのとおり。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(setq trees '((pine . cones) (oak . acorns) (maple . seeds)))
+     => ((pine . cones) (oak . acorns) (maple . seeds))
+(assoc 'oak trees)
+     => (oak . acorns)
+(cdr (assoc 'oak trees))
+     => acorns
+(assoc 'birch trees)
+     => nil
+</FONT></pre></td></tr></table><P>
+
+つぎは、キーと値がシンボルではない例。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(setq needles-per-cluster
+      '((2 "Austrian Pine" "Red Pine")
+        (3 "Pitch Pine")
+        (5 "White Pine")))
+
+(cdr (assoc 3 needles-per-cluster))
+     => ("Pitch Pine")
+(cdr (assoc 2 needles-per-cluster))
+     => ("Austrian Pine" "Red Pine")
+</FONT></pre></td></tr></table></DL>
+<P>
+
+関数<CODE>assoc-ignore-representation</CODE>と<CODE>assoc-ignore-case</CODE>は
+<CODE>assoc</CODE>に似ていますが、
+それらは比較に<CODE>compare-strings</CODE>を使う点が異なります。
+See 節 <A HREF="elisp_5.html#SEC76">4.5 文字と文字列の比較</A>。
+<P>
+
+<A NAME="IDX377"></A>
+<DL>
+<DT><U>Function:</U> <B>rassoc</B> <I>value alist</I>
+<DD>この関数は、<VAR>alist</VAR>の中で<VAR>value</VAR>を値とする最初の連想を返す。
+<VAR>alist</VAR>の中にCDRが<VAR>value</VAR>に<CODE>equal</CODE>である連想が
+存在しなければ、<CODE>nil</CODE>を返す。
+<P>
+
+<CODE>rassoc</CODE>は<CODE>assoc</CODE>に似ているが、
+<VAR>alist</VAR>の各連想のCARのかわりにCDRを比較する点が異なる。
+指定した値に対するキーを探す『<CODE>assoc</CODE>の逆演算』と考えることができる。
+</DL>
+<P>
+
+<A NAME="IDX378"></A>
+<DL>
+<DT><U>Function:</U> <B>assq</B> <I>key alist</I>
+<DD>この関数は、<VAR>alist</VAR>内の<VAR>key</VAR>に対する最初の連想を返すという意味で
+<CODE>assoc</CODE>に似ているが、<CODE>equal</CODE>のかわりに<CODE>eq</CODE>で比較する。
+<VAR>alist</VAR>内の連想のCARが<VAR>key</VAR>に<CODE>eq</CODE>であるものが存在しないと、
+<CODE>assq</CODE>は<CODE>nil</CODE>を返す。
+この関数は<CODE>assoc</CODE>より多用される。
+というのは、<CODE>eq</CODE>は<CODE>equal</CODE>より高速であり、
+ほとんどの連想リストではキーとしてシンボルを使うからである。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(setq trees '((pine . cones) (oak . acorns) (maple . seeds)))
+     => ((pine . cones) (oak . acorns) (maple . seeds))
+(assq 'pine trees)
+     => (pine . cones)
+</FONT></pre></td></tr></table><P>
+
+一方で、キーがシンボルではない連想リストでは、
+<CODE>assq</CODE>は、通常、有用ではない。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(setq leaves
+      '(("simple leaves" . oak)
+        ("compound leaves" . horsechestnut)))
+
+(assq "simple leaves" leaves)
+     => nil
+(assoc "simple leaves" leaves)
+     => ("simple leaves" . oak)
+</FONT></pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX379"></A>
+<DL>
+<DT><U>Function:</U> <B>rassq</B> <I>value alist</I>
+<DD>この関数は、<VAR>alist</VAR>の中で<VAR>value</VAR>を値とする最初の連想を返す。
+<VAR>alist</VAR>の中にCDRが<VAR>value</VAR>に<CODE>eq</CODE>である連想が
+存在しなければ、<CODE>nil</CODE>を返す。
+<P>
+
+<CODE>rassq</CODE>は<CODE>assq</CODE>に似ているが、
+<VAR>alist</VAR>の各連想のCARのかわりにCDRを比較する点が異なる。
+指定した値に対するキーを探す『<CODE>assq</CODE>の逆演算』と考えることができる。
+<P>
+
+たとえばつぎのとおり。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(setq trees '((pine . cones) (oak . acorns) (maple . seeds)))
+
+(rassq 'acorns trees)
+     => (oak . acorns)
+(rassq 'spores trees)
+     => nil
+</FONT></pre></td></tr></table><P>
+
+<CODE>rassq</CODE>では、
+要素のCDRのCARに格納された値を探せないことに注意。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(setq colors '((rose red) (lily white) (buttercup yellow)))
+
+(rassq 'white colors)
+     => nil
+</FONT></pre></td></tr></table><P>
+
+この場合、連想<CODE>(lily white)</CODE>のCDRは、
+シンボル<CODE>white</CODE>ではなくリスト<CODE>(white)</CODE>である。
+連想をドット対記法で書くとこれが明確になる。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(lily white) == (lily . (white))
+</FONT></pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX380"></A>
+<A NAME="IDX381"></A>
+<DL>
+<DT><U>Function:</U> <B>assoc-default</B> <I>key alist test default</I>
+<DD>この関数は、<VAR>key</VAR>に一致するものを<VAR>alist</VAR>から探す。
+<VAR>alist</VAR>の各要素について、（アトムならば）要素と<VAR>key</VAR>を、
+あるいは、（コンスならば）要素のCARと<VAR>key</VAR>を比較する。
+比較にはこれらを2つの引数として<VAR>test</VAR>を呼び出す。
+引数を渡す順序はこの順なので、
+正規表現（see 節 <A HREF="elisp_34.html#SEC554">33.3 正規表現の探索</A>）を収めた連想リストに対して
+<CODE>string-match</CODE>を使うと有益な結果を得られる。
+<VAR>test</VAR>を省略したり<CODE>nil</CODE>であると、比較には<CODE>equal</CODE>を用いる。
+<P>
+
+上の条件で連想リストの要素が<VAR>key</VAR>に一致するならば、
+<CODE>assoc-default</CODE>はその要素に基づく値を返す。
+要素がコンスならば値は要素のCDR。
+さもなければ、戻り値は<VAR>default</VAR>。
+<P>
+
+<VAR>key</VAR>に一致する連想リストの要素が存在しなければ、
+<CODE>assoc-default</CODE>は<CODE>nil</CODE>を返す。
+</DL>
+<P>
+
+<A NAME="IDX382"></A>
+<DL>
+<DT><U>Function:</U> <B>copy-alist</B> <I>alist</I>
+<DD><A NAME="IDX383"></A>
+この関数は、<VAR>alist</VAR>を2レベルの深さまでコピーしたものを返す。
+各連想ごとに新たなコピーを作るので、
+新たな連想リストの連想を変更しても、もとの連想リストは変更しない。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(setq needles-per-cluster
+      '((2 . ("Austrian Pine" "Red Pine"))
+        (3 . ("Pitch Pine"))
+        (5 . ("White Pine"))))
+=>
+((2 "Austrian Pine" "Red Pine")
+ (3 "Pitch Pine")
+ (5 "White Pine"))
+
+(setq copy (copy-alist needles-per-cluster))
+=>
+((2 "Austrian Pine" "Red Pine")
+ (3 "Pitch Pine")
+ (5 "White Pine"))
+
+(eq needles-per-cluster copy)
+     => nil
+(equal needles-per-cluster copy)
+     => t
+(eq (car needles-per-cluster) (car copy))
+     => nil
+(cdr (car (cdr needles-per-cluster)))
+     => ("Pitch Pine")
+(eq (cdr (car (cdr needles-per-cluster)))
+    (cdr (car (cdr copy))))
+     => t
+</FONT></pre></td></tr></table><P>
+
+この例は、<CODE>copy-alist</CODE>により、
+コピーの連想を変更して他のものになぜ影響しないかを示す。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(setcdr (assq 3 copy) '("Martian Vacuum Pine"))
+(cdr (assq 3 needles-per-cluster))
+     => ("Pitch Pine")
+</FONT></pre></td></tr></table></DL>
+<A NAME="Sequences Arrays Vectors"></A>
+<HR SIZE="6">
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<a name="bottom"> </a>
+<script type="text/javascript" src="style2.js"></script>
+<div class="footer">
+    <br>
+    このページはMeadow (Emacs) の紹介ページです <br>
+このWebページの各文書は自由にリンク・複製・再配布・改変していただいて構いません．
+<br>ただし，複製・再配布・改変の場合は Meadow Memo のURLを記載しておいて下さい．<br>
+<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=about%20link">Medow memoへのリンクについて</a>．<br>
+
+間違い，要望等があれば<a href="mailto:akihisa@mail.ne.jp">akihisa@mail.ne.jp</a> か下記でどうぞ<br>
+
+<br>
+
+<FORM METHOD="post" ACTION="http://www.bookshelf.jp/cgi-bin/wwwmail.cgi" >
+お名前：<INPUT TYPE="text" NAME="name" SIZE="30" MAXLENGTH="40" VALUE="ななしさん"><br>
+メールアドレス：<INPUT TYPE="text" NAME="EMAIL" SIZE="25" MAXLENGTH="60" VALUE="secret@mail.adr"><br>
+<input type="hidden" name="HPAGE" value="">
+つっこみ：<br><TEXTAREA NAME="MESSAGE" ROWS="5" COLS="50">
+</TEXTAREA><br><br>
+<INPUT TYPE="submit" VALUE="送信">
+<INPUT TYPE="reset" VALUE="クリア">
+</FORM>
+
+<br><A HREF="http://www.bookshelf.jp/cgi-bin/xct.cgi">ページ別カウンタ</a>
+<br> Since 2002/12/13 <br>
+</div>
+
+</BODY>
+
+</HTML>

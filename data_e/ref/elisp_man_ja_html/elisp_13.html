@@ -1,0 +1,865 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="ja">
+<!-- Created on October, 1  2005 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=euc-jp">
+<META NAME="keywords" CONTENT="meadow,mule,emacs,lisp,elisp,gnus,setting,設定,unix,cygwin">
+<META http-equiv="Content-Script-Type" content="text/javascript">
+<META NAME="description" CONTENT="Meadowの設定を紹介するページです">
+<TITLE>GNU Emacs Lispリファレンスマニュアル:  マクロ</TITLE>
+
+<META NAME="description" CONTENT="GNU Emacs Lispリファレンスマニュアル:  マクロ">
+<META NAME="keywords" CONTENT="GNU Emacs Lispリファレンスマニュアル:  マクロ">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+<LINK REL="contents" HREF="elisp_toc.html#SEC_Contents">
+<LINK REL="index" HREF="elisp_48.html#SEC681">
+<LINK REL="next" HREF="elisp_14.html#SEC182">
+<LINK REL="prev" HREF="elisp_12.html#SEC156">
+
+<META http-equiv="Content-Style-Type" content="text/css">
+<!-- 鶯と龜 ←日本語EUC誤判別対策用らしい; -->
+<link rel="StyleSheet" href="../../../../soft/css/midnight.css" type="text/css" id="css1">
+<script type="text/javascript" src="style1.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../soft/css/meadowmemo.css">
+
+</HEAD>
+<BODY LANG="ja" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+<!--Infoseek Analyzer start-->
+<script LANGUAGE="javascript">PgNo=6;</script>
+<script src="http://js1.infoseek.co.jp/bin/57/00170.js"></script>
+<noscript><a href="http://ax1.www.infoseek.co.jp/bin/go?0017057f" target="_blank">
+<img src="http://ax1.www.infoseek.co.jp/bin/logo?0017057f" border=0></a></noscript>
+<!--Infoseek Analyzer end-->
+<a name="top"> </a>
+
+<br><A NAME="SEC171"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_12.html#SEC170"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_13.html#SEC172"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_12.html#SEC156"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_14.html#SEC182"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Macros"></A>
+<H1> 12. マクロ </H1>
+<!--docid::SEC171::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Macros">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Macros</a>"<br>
+"texi/elisp21/マクロ"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%DE%A5%AF%A5%ED">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX689"></A>
+<P>
+
+<EM>マクロ</EM>（macros）により、
+新たな制御構造の構文を定義したり、他の言語の機能を定義したりできます。
+マクロは関数のように定義しますが、値の計算方法を指示するかわりに、
+値を計算するための別のLisp式の計算方法を指示します。
+この式をマクロの<EM>展開形</EM>（expansion）と呼びます。
+<P>
+
+マクロでこのようなことができるのは、
+関数が評価済みの引数を操作するのに対して、
+マクロは引数の未評価の式を操作するからです。
+そのため、これらの引数の式やその一部を含む展開形を構築できるのです。
+<P>
+
+実行速度のために普通の関数でできることにマクロを使うのであれば、
+そのかわりにインライン関数を使うことを考えてください。
+<P>
+
+<div class="menuindex"><SCRIPT language=JavaScript src="index12.js"></SCRIPT></div><noscript><BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_13.html#SEC172">12.1 マクロの簡単な例</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">A basic example.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_13.html#SEC173">12.2 マクロ呼び出しの展開</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How, when and why macros are expanded.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_13.html#SEC174">12.3 マクロとバイトコンパイル</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How macros are expanded by the compiler.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_13.html#SEC175">12.4 マクロ定義</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How to write a macro definition.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_13.html#SEC176">12.5 バッククォート</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Easier construction of list structure.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_13.html#SEC177">12.6 マクロ使用時の一般的な問題</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Don't evaluate the macro arguments too many times.
+                              Don't hide the user's variables.</TD></TR>
+</TABLE></BLOCKQUOTE></noscript>
+<P>
+
+<A NAME="Simple Macro"></A>
+<HR SIZE="6">
+<br><A NAME="SEC172"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_13.html#SEC171"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_13.html#SEC173"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Simple Macro"></A>
+<H2> 12.1 マクロの簡単な例 </H2>
+<!--docid::SEC172::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Simple%20Macro">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Simple%20Macro</a>"<br>
+"texi/elisp21/マクロの簡単な例"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%DE%A5%AF%A5%ED%A4%CE%B4%CA%C3%B1%A4%CA%CE%E3">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+C言語の演算子<CODE>++</CODE>のように、
+変数の値を増加させるLispの構文を定義したいとしましょう。
+<CODE>(inc x)</CODE>のように書いて、
+<CODE>(setq x (1+ x))</CODE>のような効果を得たいのです。
+これを行うマクロ定義はつぎのようになります。
+<P>
+
+<A NAME="IDX690"></A>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(defmacro inc (var)
+   (list 'setq var (list '1+ var)))
+</pre></td></tr></table><P>
+
+これを<CODE>(inc x)</CODE>のように呼び出すと、
+引数<VAR>var</VAR>はシンボル<CODE>x</CODE>になります。
+関数のように<CODE>x</CODE>の<EM>値</EM>では<EM>ありません</EM>。
+マクロの本体では、これを使って展開形<CODE>(setq x (1+ x))</CODE>を構築します。
+マクロ定義がこの展開形を返すと、
+Lispはそれを評価することに進み、<CODE>x</CODE>を増やします。
+<P>
+
+<A NAME="Expansion"></A>
+<HR SIZE="6">
+<br><A NAME="SEC173"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_13.html#SEC172"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_13.html#SEC174"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Expansion"></A>
+<H2> 12.2 マクロ呼び出しの展開 </H2>
+<!--docid::SEC173::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Expansion">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Expansion</a>"<br>
+"texi/elisp21/マクロ呼び出しの展開"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%DE%A5%AF%A5%ED%B8%C6%A4%D3%BD%D0%A4%B7%A4%CE%C5%B8%B3%AB">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX691"></A>
+<A NAME="IDX692"></A>
+<A NAME="IDX693"></A>
+<P>
+
+マクロ呼び出しはマクロ名で始まるリストであり、
+関数呼び出しとほとんど同じに見えます。
+リストの残りの要素はマクロの引数です。
+<P>
+
+マクロ呼び出しの評価は、関数呼び出しの評価のように始められますが、
+1つだけ重要な違いがあります。
+マクロの引数は、マクロ呼び出しに現れた実際の引数です。
+マクロ定義に渡すまえに、それらを評価しません。
+一方、関数の引数は、関数呼び出しのリストの要素を評価した結果です。
+<P>
+
+引数を得ると、Lispは関数定義を起動するのと同様にマクロ定義を起動します。
+マクロの引数変数は、マクロ呼び出しの引数値や
+<CODE>&#38;rest</CODE>引数の場合にはそれらのリストに束縛されます。
+そうして、マクロ本体を実行し、関数本体と同様に値を返します。
+<P>
+
+マクロと関数の重要な違いの2つめは、
+マクロ本体が返した値はマクロ呼び出しの値ではないことです。
+戻り値は値を計算するためのかわりの式であり、
+これをマクロの<EM>展開形</EM>（expansion）といいます。
+Lispインタープリタは、マクロから戻ってくると、
+ただちに展開形を評価することへ進みます。
+<P>
+
+展開形は、通常どおりに評価されるので、
+展開形から他のマクロを呼び出してもかまいません。
+同一のマクロを呼び出してもかまいませんが、
+それは一般的ではありません。
+<P>
+
+<CODE>macroexpand</CODE>を呼ぶと、指定したマクロの展開形を調べることができます。
+<P>
+
+<A NAME="IDX694"></A>
+<DL>
+<DT><U>Function:</U> <B>macroexpand</B> <I>form &#38;optional environment</I>
+<DD><A NAME="IDX695"></A>
+この関数は、<VAR>form</VAR>がマクロ呼び出しならば、それを展開する。
+その結果がまた別のマクロ呼び出しであれば、さらに展開する。
+マクロ呼び出しでない結果を得るまでこれを繰り返す。
+それが、<CODE>macroexpand</CODE>が返す値である。
+<VAR>form</VAR>が始めからマクロ呼び出しでなければ、
+与えられたとおりのものを返す。
+<P>
+
+<CODE>macroexpand</CODE>は<VAR>form</VAR>の部分式を調べないことに注意してほしい
+（ただし、マクロ定義によっては調べるかもしれない）。
+部分式がマクロ呼び出しであったとしても、
+<CODE>macroexpand</CODE>はそれらを展開しない。
+<P>
+
+関数<CODE>macroexpand</CODE>は、インライン関数の呼び出しは展開しない。
+インライン関数の呼び出しを理解することは普通の関数呼び出しを理解するのと
+かわりないので、通常、そのような展開を行う必要はない。
+<P>
+
+<VAR>environment</VAR>を指定すると、
+それは、現在定義済みのマクロを隠すマクロ定義の連想リストを表す。
+バイトコンパイルではこの機能を使う。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(defmacro inc (var)
+    (list 'setq var (list '1+ var)))
+     => inc
+
+(macroexpand '(inc r))
+     => (setq r (1+ r))
+
+(defmacro inc2 (var1 var2)
+    (list 'progn (list 'inc var1) (list 'inc var2)))
+     => inc2
+
+(macroexpand '(inc2 r s))
+     => (progn (inc r) (inc s))  ; ここでは<CODE>inc</CODE>を展開しない
+</FONT></pre></td></tr></table></DL>
+<P>
+
+<A NAME="Compiling Macros"></A>
+<HR SIZE="6">
+<br><A NAME="SEC174"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_13.html#SEC173"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_13.html#SEC175"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Compiling Macros"></A>
+<H2> 12.3 マクロとバイトコンパイル </H2>
+<!--docid::SEC174::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Compiling%20Macros">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Compiling%20Macros</a>"<br>
+"texi/elisp21/マクロとバイトコンパイル"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%DE%A5%AF%A5%ED%A4%C8%A5%D0%A5%A4%A5%C8%A5%B3%A5%F3%A5%D1%A5%A4%A5%EB">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX696"></A>
+<P>
+
+なぜ、マクロの展開形をわざわざ計算してから展開形を評価するのか、
+疑問に思うかもしれません。
+なぜ、マクロ本体で望みの結果を直接出さないのでしょう？<CODE> </CODE>
+その理由には、コンパイルが関係しています。
+<P>
+
+コンパイルするLispプログラムにマクロ呼び出しが現れると、
+Lispコンパイラは、インタープリタがするのと同様にマクロ定義を呼び出し、
+その展開形を受け取ります。
+この展開形を評価するかわりに、コンパイラは、
+展開形がプログラムに直接現れたかのようにそれをコンパイルします。
+その結果、コンパイル済みのコードは、マクロが意図した値と副作用を生じ、
+かつ、実行速度はコンパイルした速度になるのです。
+マクロ本体そのもので値と副作用を計算したのでは、
+このように動作しません。
+コンパイル時に計算してしまい、それでは意味がありません。
+<P>
+
+マクロ呼び出しが正しくコンパイルされるためには、
+それらの呼び出しをコンパイルするときに、
+Lisp内でマクロが定義済みである必要があります。
+コンパイラには、読者がこのようにすることを補佐する機能があります。
+コンパイル対象のファイルにフォーム<CODE>defmacro</CODE>が含まれていると、
+そのファイルの残りをコンパイルするあいだは、
+一時的にマクロを定義します。
+この機能が動作するためには、
+<CODE>defmacro</CODE>を同じファイルの最初に利用する箇所よりまえに
+入れておく必要があります。
+<P>
+
+ファイルをバイトコンパイルすると、
+そのファイルのトップレベルにある<CODE>require</CODE>の呼び出しを実行します。
+これは、ファイルを正しくコンパイルするために必要なパッケージを表します。
+コンパイル中に必要なマクロ定義が使えることを保証する1つの方法は、
+それらのマクロを定義するファイルを
+<CODE>require</CODE>に指定しておくことです（see 節 <A HREF="elisp_15.html#SEC197">14.6 機能</A>）。
+コンパイル済みのプログラムを<EM>実行</EM>するときに、
+マクロを定義したファイルをロードしてしまうことを避けるには、
+<CODE>require</CODE>の呼び出しの周りに<CODE>eval-when-compile</CODE>を書いておきます
+（see 節 <A HREF="elisp_16.html#SEC205">15.5 コンパイル時の評価</A>）。
+<P>
+
+<A NAME="Defining Macros"></A>
+<HR SIZE="6">
+<br><A NAME="SEC175"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_13.html#SEC174"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_13.html#SEC176"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Defining Macros"></A>
+<H2> 12.4 マクロ定義 </H2>
+<!--docid::SEC175::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Defining%20Macros">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Defining%20Macros</a>"<br>
+"texi/elisp21/マクロ定義"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%DE%A5%AF%A5%ED%C4%EA%B5%C1">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+Lispのマクロは、そのCARが<CODE>macro</CODE>であるリストです。
+そのCDRは関数であるべきです。
+マクロの展開は、マクロ呼び出しの未評価の引数式に
+（<CODE>apply</CODE>で）関数を適用して動作します。
+<P>
+
+無名関数のように無名Lispマクロを使うことも可能ですが、
+けっしてしないでしょう。
+<CODE>mapcar</CODE>のようなファンクショナルに無名マクロを渡す意味がないからです。
+実用上は、すべてのLispマクロには名前があり、
+普通、スペシャルフォーム<CODE>defmacro</CODE>で定義します。
+<P>
+
+<A NAME="IDX697"></A>
+<DL>
+<DT><U>Special Form:</U> <B>defmacro</B> <I>name argument-list body-forms<small>...</small></I>
+<DD><CODE>defmacro</CODE>は、シンボル<VAR>name</VAR>をつぎのようなマクロとして定義する。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(macro lambda <VAR>argument-list</VAR> . <VAR>body-forms</VAR>)
+</pre></td></tr></table><P>
+
+（このリストのCDRは関数、つまり、ラムダ式であることに注意。）
+このマクロオブジェクトは、<VAR>name</VAR>の関数セルに格納される。
+フォーム<CODE>defmacro</CODE>を評価した結果、返される値は<VAR>name</VAR>であるが、
+通常この値は無視する。
+<P>
+
+<VAR>argument-list</VAR>の形式と意味は、関数のそれと同じであり、
+キーワード<CODE>&#38;rest</CODE>や<CODE>&#38;optional</CODE>を使ってもよい
+（see 節 <A HREF="elisp_12.html#SEC161">11.2.3 引数リストのその他の機能</A>）。
+マクロにも説明文字列を指定できるが、
+マクロを対話的に呼び出すことはできないので、
+<CODE>interactive</CODE>宣言は無視する。
+</DL>
+<P>
+
+<A NAME="Backquote"></A>
+<HR SIZE="6">
+<br><A NAME="SEC176"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_13.html#SEC175"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_13.html#SEC177"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Backquote"></A>
+<H2> 12.5 バッククォート </H2>
+<!--docid::SEC176::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Backquote">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Backquote</a>"<br>
+"texi/elisp21/バッククォート"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D0%A5%C3%A5%AF%A5%AF%A5%A9%A1%BC%A5%C8">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX698"></A>
+<A NAME="IDX699"></A>
+<A NAME="IDX700"></A>
+<P>
+
+マクロでは、定数部分と非定数部分を組み合わせた大きなリスト構造を
+構築する必要がしばしばあります。
+これを簡単に行うためには、
+（通常、<EM>バッククォート</EM>（backquote）と呼ばれる）`<SAMP>`</SAMP>'構文を
+使います。
+<P>
+
+バッククォートにより、リストの要素を選択に評価しつつ、
+リストをクォートできます。
+もっとも単純な場合、これはスペシャルフォーム<CODE>quote</CODE>（see 節 <A HREF="elisp_9.html#SEC120">8.3 クォート</A>）と
+等価です。
+たとえば、つぎの2つのフォームは等価な結果になります。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>`(a list of (+ 2 3) elements)
+     => (a list of (+ 2 3) elements)
+'(a list of (+ 2 3) elements)
+     => (a list of (+ 2 3) elements)
+</pre></td></tr></table><P>
+
+<A NAME="IDX701"></A>
+バッククォートの引数の内側にある特別な印`<SAMP>,</SAMP>'は、
+値が定数ではないことを表します。
+バッククォートは、リスト構造の中の`<SAMP>,</SAMP>'の引数を評価し、
+値で置き換えます。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(list 'a 'list 'of (+ 2 3) 'elements)
+     => (a list of 5 elements)
+`(a list of ,(+ 2 3) elements)
+     => (a list of 5 elements)
+</pre></td></tr></table><P>
+
+`<SAMP>,</SAMP>'による置き換えは、リスト構造の深いレベルでも許されます。
+たとえば、つぎのとおりです。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(defmacro t-becomes-nil (variable)
+  `(if (eq ,variable t)
+       (setq ,variable nil)))
+
+(t-becomes-nil foo)
+     == (if (eq foo t) (setq foo nil))
+</pre></td></tr></table><P>
+
+<A NAME="IDX702"></A>
+<A NAME="IDX703"></A>
+特別な印`<SAMP>,&#64;</SAMP>'を使って、
+評価結果を結果となるリストに<EM>繋ぎ合わせる</EM>（splice）こともできます。
+繋ぎ合わせたリストの要素は、結果となるリストの他の要素と同じレベルになります。
+`<SAMP>`</SAMP>'を使わない等価なコードはしばしば読み難くなります。
+例をあげましょう。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(setq some-list '(2 3))
+     => (2 3)
+(cons 1 (append some-list '(4) some-list))
+     => (1 2 3 4 2 3)
+`(1 ,&#64;some-list 4 ,&#64;some-list)
+     => (1 2 3 4 2 3)
+
+(setq list '(hack foo bar))
+     => (hack foo bar)
+(cons 'use
+  (cons 'the
+    (cons 'words (append (cdr list) '(as elements)))))
+     => (use the words foo bar as elements)
+`(use the words ,&#64;(cdr list) as elements)
+     => (use the words foo bar as elements)
+</pre></td></tr></table><P>
+
+19.29版よりまえのEmacsの旧版では、
+`<SAMP>`</SAMP>'の構文は異なっていて、
+バッククォート構文全体を囲む括弧の余分なレベルが必要でした。
+同様に、`<SAMP>,</SAMP>'や`<SAMP>,&#64;</SAMP>'の置換でも、
+`<SAMP>,</SAMP>'や`<SAMP>,&#64;</SAMP>'、および後続の式を囲む括弧の余分なレベルが1つ必要でした。
+古い構文では、`<SAMP>`</SAMP>'、 `<SAMP>,</SAMP>'、`<SAMP>,&#64;</SAMP>'と後続の式とのあいだには
+空白が必要でした。
+<P>
+
+この構文も受け付けますが、これはEmacsの旧版との互換性のためであり、
+新しいプログラムでは使わないことを勧めます。
+<P>
+
+<A NAME="Problems with Macros"></A>
+<HR SIZE="6">
+<br><A NAME="SEC177"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_13.html#SEC176"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_13.html#SEC178"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Problems with Macros"></A>
+<H2> 12.6 マクロ使用時の一般的な問題 </H2>
+<!--docid::SEC177::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Problems%20with%20Macros">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Problems%20with%20Macros</a>"<br>
+"texi/elisp21/マクロ使用時の一般的な問題"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%DE%A5%AF%A5%ED%BB%C8%CD%D1%BB%FE%A4%CE%B0%EC%C8%CC%C5%AA%A4%CA%CC%E4%C2%EA">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+マクロ展開に関する基本的事実には、直観的でない結果があります。
+本節では、問題を引き起こしかねない重要な結果を説明し、
+問題を回避するための規則を説明します。
+<P>
+
+<BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_13.html#SEC178">12.6.1 マクロ引数の複数回評価</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">The expansion should evaluate each macro arg once.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_13.html#SEC179">12.6.2 マクロ展開形内のローカル変数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Local variable bindings in the expansion
+                              require special care.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_13.html#SEC180">12.6.3 展開形におけるマクロ引数の評価</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Don't evaluate them; put them in the expansion.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_13.html#SEC181">12.6.4 マクロは何回展開されるか</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Avoid depending on how many times expansion is done.</TD></TR>
+</TABLE></BLOCKQUOTE>
+<P>
+
+<A NAME="Argument Evaluation"></A>
+<HR SIZE="6">
+<br><A NAME="SEC178"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_13.html#SEC177"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_13.html#SEC179"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Argument Evaluation"></A>
+<H3> 12.6.1 マクロ引数の複数回評価 </H3>
+<!--docid::SEC178::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Argument%20Evaluation">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Argument%20Evaluation</a>"<br>
+"texi/elisp21/マクロ引数の複数回評価"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%DE%A5%AF%A5%ED%B0%FA%BF%F4%A4%CE%CA%A3%BF%F4%B2%F3%C9%BE%B2%C1">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+マクロを定義するときには、展開形を実行するときに、
+引数が何回評価かされるかに注意を払う必要があります。
+つぎの（繰り返しを行う）マクロで、この問題を示しましょう。
+このマクロで、Pascalにあるような単純な『for』ループを書けます。
+<P>
+
+<A NAME="IDX704"></A>
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(defmacro for (var from init to final do &#38;rest body)
+  "Execute a simple \"for\" loop.
+For example, (for i from 1 to 10 do (print i))."
+  (list 'let (list (list var init))
+        (cons 'while (cons (list '&#60;= var final)
+                           (append body (list (list 'inc var)))))))
+=> for
+
+(for i from 1 to 3 do
+   (setq square (* i i))
+   (princ (format "\n%d %d" i square)))
+==>
+(let ((i 1))
+  (while (&#60;= i 3)
+    (setq square (* i i))
+    (princ (format "%d      %d" i square))
+    (inc i)))
+
+     -|1       1
+     -|2       4
+     -|3       9
+=> nil
+</FONT></pre></td></tr></table><P>
+
+このマクロの引数、<CODE>from</CODE>、<CODE>to</CODE>、<CODE>do</CODE>は、
+『シンタックスシュガー』であり、完全に無視します。
+（<CODE>from</CODE>、<CODE>to</CODE>、<CODE>do</CODE>などの）余分な単語を
+マクロ呼び出しのこの引数位置に書けるようにするのです。
+<P>
+
+バッククォートを使って単純化した等価な定義をつぎに示します。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(defmacro for (var from init to final do &#38;rest body)
+  "Execute a simple \"for\" loop.
+For example, (for i from 1 to 10 do (print i))."
+  `(let ((,var ,init))
+     (while (&#60;= ,var ,final)
+       ,&#64;body
+       (inc ,var))))
+</FONT></pre></td></tr></table><P>
+
+この定義の（バッククォートありとなしの）どちらの形式でも、
+各繰り返しごとに<VAR>final</VAR>が評価されるという欠陥があります。
+<VAR>final</VAR>が定数ならば、これは問題になりません。
+たとえば<CODE>(long-complex-calculation x)</CODE>のような、
+より複雑なフォームであると、実行速度をかなり遅くしてしまいます。
+<VAR>final</VAR>に副作用があると、複数回評価するのは正しくありません。
+<P>
+
+<A NAME="IDX705"></A>
+<A NAME="IDX706"></A>
+繰り返し評価することがマクロの意図している目的の一部でなければ、
+よく設計されたマクロ定義では、
+引数をちょうど1回だけ評価するような展開形を生成して、
+上のような問題を回避するように手立てします。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(let ((i 1)
+      (max 3))
+  (while (&#60;= i max)
+    (setq square (* i i))
+    (princ (format "%d      %d" i square))
+    (inc i)))
+</FONT></pre></td></tr></table><P>
+
+このような展開形を作るマクロ定義はつぎのようになります。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(defmacro for (var from init to final do &#38;rest body)
+  "Execute a simple for loop: (for i from 1 to 10 do (print i))."
+  `(let ((,var ,init)
+         (max ,final))
+     (while (&#60;= ,var max)
+       ,&#64;body
+       (inc ,var))))
+</FONT></pre></td></tr></table><P>
+
+残念なことに、この修正は、
+次節に説明する別の問題を引き起こします。
+<P>
+
+<A NAME="Surprising Local Vars"></A>
+<HR SIZE="6">
+<br><A NAME="SEC179"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_13.html#SEC178"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_13.html#SEC180"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Surprising Local Vars"></A>
+<H3> 12.6.2 マクロ展開形内のローカル変数 </H3>
+<!--docid::SEC179::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Surprising%20Local%20Vars">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Surprising%20Local%20Vars</a>"<br>
+"texi/elisp21/マクロ展開形内のローカル変数"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%DE%A5%AF%A5%ED%C5%B8%B3%AB%B7%C1%C6%E2%A4%CE%A5%ED%A1%BC%A5%AB%A5%EB%CA%D1%BF%F4">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+前節では、<CODE>for</CODE>の定義をつぎのように修正して、
+マクロ引数を適切な回数だけ評価する展開形にしました。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(defmacro for (var from init to final do &#38;rest body)
+  "Execute a simple for loop: (for i from 1 to 10 do (print i))."
+  `(let ((,var ,init)
+         (max ,final))
+     (while (&#60;= ,var max)
+       ,&#64;body
+       (inc ,var))))
+</FONT></pre></td></tr></table><P>
+
+<CODE>for</CODE>の新しい定義には、新たな問題があります。
+ユーザーが予期していないローカル変数<CODE>max</CODE>を導入しているのです。
+これは、つぎのような場合、問題を引き起こします。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(let ((max 0))
+  (for x from 0 to 10 do
+    (let ((this (frob x)))
+      (if (&#60; max this)
+          (setq max this)))))
+</FONT></pre></td></tr></table><P>
+
+<CODE>for</CODE>の本体内での<CODE>max</CODE>の参照は、
+ユーザーが束縛した<CODE>max</CODE>を参照するものと期待されていますが、
+実際には<CODE>for</CODE>が作った束縛を使います。
+<P>
+
+これを修正するには、<CODE>max</CODE>のかわりに、
+インターンしてないシンボル（see 節 <A HREF="elisp_8.html#SEC104">7.3 シンボルの作成とインターン</A>）を使います。
+インターンしてないシンボルは、他のシンボルと同様に、
+束縛したり参照したりできますが、<CODE>for</CODE>で作ったので、
+ユーザープログラムには現れていないことがわかっています。
+インターンしてないので、ユーザーがプログラムのあとの部分で
+参照する方法もありません。
+<CODE>for</CODE>で使った箇所以外には現れえないのです。
+このように動作する<CODE>for</CODE>の定義をつぎに示します。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(defmacro for (var from init to final do &#38;rest body)
+  "Execute a simple for loop: (for i from 1 to 10 do (print i))."
+  (let ((tempvar (make-symbol "max")))
+    `(let ((,var ,init)
+           (,tempvar ,final))
+       (while (&#60;= ,var ,tempvar)
+         ,&#64;body
+         (inc ,var)))))
+</FONT></pre></td></tr></table><P>
+
+これは、<CODE>max</CODE>という名前のインターンしてないシンボルを作成し、
+もとの式に現れていたインターンしたシンボル<CODE>max</CODE>のかわりに
+展開形内部で使います。
+<P>
+
+<A NAME="Eval During Expansion"></A>
+<HR SIZE="6">
+<br><A NAME="SEC180"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_13.html#SEC179"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_13.html#SEC181"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Eval During Expansion"></A>
+<H3> 12.6.3 展開形におけるマクロ引数の評価 </H3>
+<!--docid::SEC180::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Eval%20During%20Expansion">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Eval%20During%20Expansion</a>"<br>
+"texi/elisp21/展開形におけるマクロ引数の評価"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%C5%B8%B3%AB%B7%C1%A4%CB%A4%AA%A4%B1%A4%EB%A5%DE%A5%AF%A5%ED%B0%FA%BF%F4%A4%CE%C9%BE%B2%C1">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+<CODE>eval</CODE>（see 節 <A HREF="elisp_9.html#SEC121">8.4 評価（eval）</A>）を呼び出すなどして、
+マクロ定義そのものの中でマクロ引数の式を評価すると、
+別の問題を生じます。
+引数でユーザーの変数を参照する場合、
+ユーザーがマクロ引数の1つと同じ名前を使っていると、
+問題になります。
+マクロ本体の内側では、マクロ引数の束縛が最ローカルな束縛ですから、
+そのフォームの内側からの参照は、この束縛を使います。
+例を示しましょう。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(defmacro foo (a)
+  (list 'setq (eval a) t))
+     => foo
+(setq x 'b)
+(foo x) ==> (setq b t)
+     => t                  ; <CODE>b</CODE>を設定する
+;; しかし
+(setq a 'c)
+(foo a) ==> (setq a t)
+     => t                  ; <CODE>c</CODE>ではなく<CODE>a</CODE>を設定する
+
+</pre></td></tr></table><P>
+
+ユーザーの引数の名前が<CODE>a</CODE>か<CODE>x</CODE>かで違いがでます。
+というのは、マクロ引数の変数<CODE>a</CODE>と<CODE>a</CODE>が衝突するからです。
+<P>
+
+マクロ定義内で<CODE>eval</CODE>を呼び出したときの別の問題点は、
+コンパイルしたプログラムでは、意図した動作をしないだろうということです。
+バイトコンパイラは、プログラムをコンパイル中にマクロ定義を実行しますから、
+（<CODE>eval</CODE>で参照したい）プログラムそのものの計算は行われず、
+そのローカル変数の束縛も存在しません。
+<P>
+
+これらの問題を回避するには、
+<STRONG>マクロ展開の計算過程では、引数の式を評価しない</STRONG>ことです。
+そのかわりに、マクロ展開では式の置換を使って、
+展開時にその値が計算されるようにします。
+このようにすれば、本章の他の例題は動作します。
+<P>
+
+<A NAME="Repeated Expansion"></A>
+<HR SIZE="6">
+<br><A NAME="SEC181"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_13.html#SEC180"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_14.html#SEC182"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Repeated Expansion"></A>
+<H3> 12.6.4 マクロは何回展開されるか </H3>
+<!--docid::SEC181::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Repeated%20Expansion">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Repeated%20Expansion</a>"<br>
+"texi/elisp21/マクロは何回展開されるか"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%DE%A5%AF%A5%ED%A4%CF%B2%BF%B2%F3%C5%B8%B3%AB%A4%B5%A4%EC%A4%EB%A4%AB">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+関数を解釈実行しているときには、マクロ呼び出しを評価するたびに展開しますが、
+コンパイルした関数では、（コンパイル時に）1回だけ展開します。
+この違いが問題になることもあります。
+マクロ定義に副作用があると、
+マクロを何回展開したかに依存して動作が異なります。
+<P>
+
+したがって、マクロ展開の計算では、
+本当になにをしているのか理解していない限り、副作用は避けてください。
+<P>
+
+特別な種類の副作用の1つ、つまり、
+Lispオブジェクトを構築することは回避できません。
+ほとんどすべてのマクロ展開では、リストを構築し、
+それがマクロの重要な点でもあります。
+これは、通常、安全ですが、
+1つだけ注意する必要があります。
+読者が構築したオブジェクトが、
+マクロ展開形の中のクォートした定数の一部であるときです。
+<P>
+
+コンパイル時にマクロを1回だけ展開すると、
+コンパイル中にはオブジェクトは一度だけ作られます。
+しかし、解釈実行中には、マクロ呼び出しを行うたびにマクロを展開するので、
+そのたびに新たなオブジェクトが作成されたことを意味します。
+<P>
+
+見通しのよいほとんどのLispコードでは、この違いは関係ありません。
+マクロ定義で構築したオブジェクトに副作用のある操作を行うと
+違いが出てきます。
+したがって、問題を回避するには、
+<STRONG>マクロ定義で構築したオブジェクトに副作用のある操作は行わない</STRONG>
+ということです。
+そのような副作用がどのように問題を引き起こすのか、例をあげましょう。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(defmacro empty-object ()
+  (list 'quote (cons nil nil)))
+
+(defun initialize (condition)
+  (let ((object (empty-object)))
+    (if condition
+        (setcar object condition))
+    object))
+</pre></td></tr></table><P>
+
+<CODE>initialize</CODE>を解釈実行しているときには、
+<CODE>initialize</CODE>を呼び出すたびに新たなリスト<CODE>(nil)</CODE>が作られます。
+したがって、2つの呼び出しのあいだで副作用が残ることはありません。
+<CODE>initialize</CODE>をコンパイルしてあると、
+マクロ<CODE>empty-object</CODE>はコンパイル時に展開され、
+1つの『定数』<CODE>(nil)</CODE>を作りますが、
+これは、<CODE>initialize</CODE>を呼び出すたびに、
+再利用され変更されてしまいます。
+<P>
+
+このような病的な場面を回避する1つの方法は、
+<CODE>empty-object</CODE>を、メモリ割り付けではなく、
+ある種の定数と考えることです。
+<CODE>'(nil)</CODE>のような定数に<CODE>setcar</CODE>は使わないでしょうから、
+<CODE>(empty-object)</CODE>も自然にそのように使わないでしょう。
+<P>
+
+<A NAME="Customization"></A>
+<HR SIZE="6">
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<a name="bottom"> </a>
+<script type="text/javascript" src="style2.js"></script>
+<div class="footer">
+    <br>
+    このページはMeadow (Emacs) の紹介ページです <br>
+このWebページの各文書は自由にリンク・複製・再配布・改変していただいて構いません．
+<br>ただし，複製・再配布・改変の場合は Meadow Memo のURLを記載しておいて下さい．<br>
+<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=about%20link">Medow memoへのリンクについて</a>．<br>
+
+間違い，要望等があれば<a href="mailto:akihisa@mail.ne.jp">akihisa@mail.ne.jp</a> か下記でどうぞ<br>
+
+<br>
+
+<FORM METHOD="post" ACTION="http://www.bookshelf.jp/cgi-bin/wwwmail.cgi" >
+お名前：<INPUT TYPE="text" NAME="name" SIZE="30" MAXLENGTH="40" VALUE="ななしさん"><br>
+メールアドレス：<INPUT TYPE="text" NAME="EMAIL" SIZE="25" MAXLENGTH="60" VALUE="secret@mail.adr"><br>
+<input type="hidden" name="HPAGE" value="">
+つっこみ：<br><TEXTAREA NAME="MESSAGE" ROWS="5" COLS="50">
+</TEXTAREA><br><br>
+<INPUT TYPE="submit" VALUE="送信">
+<INPUT TYPE="reset" VALUE="クリア">
+</FORM>
+
+<br><A HREF="http://www.bookshelf.jp/cgi-bin/xct.cgi">ページ別カウンタ</a>
+<br> Since 2002/12/13 <br>
+</div>
+
+</BODY>
+
+</HTML>

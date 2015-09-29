@@ -1,0 +1,1 @@
+document.writeln('<ul> <li> <a href="#SEC680">G. 標準のフック</a></ul>');

@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: store_true
+# key: argparse_add_argument
+# condition: (not (py:at-string|comment-p))
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
+# --
+parser.add_argument(${1:${2:\'${3:-${4:v}}\', }${10:\'${11:--${12:verbose}}\'}},
+                    dest=\'${1:$(py-snippet:argparse-add_argument-convert-dest-name yas-text)}\',
+                    action=\'store_true\',
+                    default=False,
+                    required=False,
+                    # (yas-expand-link \"argparse_other_options\" t)
+                    help=\'${20:A lot of messages.}\')
+                    # (yas-expand-link \"argparse_add_argument\" t)$0
+

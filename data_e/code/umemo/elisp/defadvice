@@ -1,0 +1,7 @@
+* example  
+** kill-emacs
+(defadvice kill-emacs (around inhibit-delete-autosave-file activate)
+  "inhibit delete auto save files."
+  (let ((delete-auto-save-files nil))
+    ad-do-it
+    ))

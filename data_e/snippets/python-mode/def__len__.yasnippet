@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: __len__(self):
+# key: deflen
+# condition: (not (py:at-string|comment-p))
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
+
+# 組み込み関数 len() を実現するために呼び出されます。オブジェクトの長さを >=
+# 0 である整数で返さなければなりません。また、オブジェクトが __nonzero__() メ
+# ソッドを定義しておらず、__len__() メソッドがゼロを返す場合には、ブール演算
+# コンテキストでは偽であるとみなされます。
+# --
+def __len__(self):
+    return ${1:len($2)}$0

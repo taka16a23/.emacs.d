@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: os.path.ismount
+# key: os.path.ismount
+# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])))
+# --
+os.path.ismount(${1:PATH})$0`(py--insert-imports "os" "import os")`
