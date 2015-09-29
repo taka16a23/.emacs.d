@@ -4012,48 +4012,6 @@ with no args, if that value is non-nil.
 
 ;;;***
 
-;;;### (autoloads nil "../plugin/header2" "../plugin/header2.el"
-;;;;;;  (22026 35731 164049 996000))
-;;; Generated autoloads from ../plugin/header2.el
-
-(autoload 'make-header "../plugin/header2" "\
-Insert (mode-dependent) header comment at beginning of file.
-A header is composed of a mode line, a body, and an end line.  The body is
-constructed by calling the functions in `make-header-hook'.  The mode line
-and end lines start and terminate block comments.  The body lines continue
-the comment.
-
-\(fn)" t nil)
-
-(autoload 'make-revision "../plugin/header2" "\
-Prepare for a new history revision.  Insert history line if inexistant.
-
-\(fn)" t nil)
-
-(autoload 'make-divider "../plugin/header2" "\
-Insert a comment divider line: the comment start, filler, and end.
-END-COL is the last column of the divider line.
-
-\(fn &optional END-COL)" t nil)
-
-(autoload 'make-box-comment "../plugin/header2" "\
-Insert an empty (mode dependent) box comment.
-END-COL is the last column of the divider line.
-
-\(fn &optional END-COL)" t nil)
-
-(autoload 'update-file-header "../plugin/header2" "\
-Update file header.
-Search the first `header-max' chars in buffer using regexps in
-`file-header-update-alist'.  When a match is found, apply the
-corresponding function with point located just after the match.
-The functions can use `match-beginning' and `match-end' to find
-the strings that cause them to be invoked.
-
-\(fn)" t nil)
-
-;;;***
-
 ;;;### (autoloads nil "../plugin/helm-pydoc" "../plugin/helm-pydoc.el"
 ;;;;;;  (22026 35731 164049 996000))
 ;;; Generated autoloads from ../plugin/helm-pydoc.el
@@ -7190,7 +7148,7 @@ Just some alien fruit salad to keep you in the zone.
 ;;;***
 
 ;;;### (autoloads nil "10_el-get_plugin_start" "10_el-get_plugin_start.el"
-;;;;;;  (22026 36194 841038 876000))
+;;;;;;  (22026 39499 571959 625000))
 ;;; Generated autoloads from 10_el-get_plugin_start.el
 
 (autoload 'el-get-mode-custom-predefine "10_el-get_plugin_start" "\
@@ -7974,8 +7932,8 @@ For dsvn key bindings.
 
 ;;;***
 
-;;;### (autoloads nil "e2wm_mode_start" "e2wm_mode_start.el" (22026
-;;;;;;  35731 258049 994000))
+;;;### (autoloads nil "e2wm_mode_start" "e2wm_mode_start.el" (22027
+;;;;;;  5902 604193 684000))
 ;;; Generated autoloads from e2wm_mode_start.el
 
 (autoload 'e2wm-mode-custom-predefine "e2wm_mode_start" "\
@@ -8478,6 +8436,52 @@ For linum face.
 
 (autoload 'll-debug-predefine "ll-debug_start" "\
 For `eval-after-load' ll-debug function.
+
+\(fn)" nil nil)
+
+;;;***
+
+;;;### (autoloads nil "magit_start" "magit_start.el" (22027 9118
+;;;;;;  678116 558000))
+;;; Generated autoloads from magit_start.el
+
+(autoload 'magit-mode-custom-predefine "magit_start" "\
+For `eval-after-load' magit customize.
+
+\(fn)" nil nil)
+
+(autoload 'magit-mode-predefine "magit_start" "\
+For `eval-after-load' magit function.
+
+\(fn)" nil nil)
+
+(autoload 'magit-mode-map-predefine "magit_start" "\
+For magit key bindings.
+
+\(fn)" t nil)
+
+(autoload 'magit-mode-face-predefine "magit_start" "\
+For magit face.
+
+\(fn)" nil nil)
+
+(autoload 'with-editor-mode-custom-predefine "magit_start" "\
+For `eval-after-load' with-editor customize.
+
+\(fn)" nil nil)
+
+(autoload 'with-editor-mode-predefine "magit_start" "\
+For `eval-after-load' with-editor function.
+
+\(fn)" nil nil)
+
+(autoload 'with-editor-mode-map-predefine "magit_start" "\
+For with-editor key bindings.
+
+\(fn)" t nil)
+
+(autoload 'with-editor-mode-face-predefine "magit_start" "\
+For with-editor face.
 
 \(fn)" nil nil)
 
@@ -9432,10 +9436,10 @@ Predefine for Snippet Major Mode.
 ;;;;;;  "61_midnight_plugin_start.el" "70_Info_mode_start.el" "70_apropos_mode_start.el"
 ;;;;;;  "70_dired_mode_start.el" "70_doctest_mode_plugin_start.el"
 ;;;;;;  "70_e2wm_mode_start.el" "70_ee_mode_start.el" "70_gdb_mode_start.el"
-;;;;;;  "70_image_mode_start.el" "70_org_mode_start.el" "70_svn_status_mode_start.el"
-;;;;;;  "70_term_mode_start.el" "70_view_mode_start.el" "70_w3m_mode_start.el"
-;;;;;;  "70_woman_mode_start.el" "80_asm_mode_start.el" "80_c_mode_start.el"
-;;;;;;  "80_emacs_lisp_mode_start.el" "80_javascript_mode_start.el"
+;;;;;;  "70_image_mode_start.el" "70_magit_start.el" "70_org_mode_start.el"
+;;;;;;  "70_svn_status_mode_start.el" "70_term_mode_start.el" "70_view_mode_start.el"
+;;;;;;  "70_w3m_mode_start.el" "70_woman_mode_start.el" "80_asm_mode_start.el"
+;;;;;;  "80_c_mode_start.el" "80_emacs_lisp_mode_start.el" "80_javascript_mode_start.el"
 ;;;;;;  "80_python_mode_start.el" "80_shell_script_mode_start.el"
 ;;;;;;  "80_text_mode_start.el" "81_final_mode_start.el" "92_face_start.el"
 ;;;;;;  "98_final_start.el" "Emacs22_trash-setting.el" "Linux_face_start.el"
@@ -9444,7 +9448,7 @@ Predefine for Snippet Major Mode.
 ;;;;;;  "Windows_start.el" "_60_c-includes_plugin_start.el" "_60_gccsense_plugin_start.el"
 ;;;;;;  "_61_tempbuf_plugin_start.el" "_70_cvs_mode_start.el" "anything-complete_plugin_start.el"
 ;;;;;;  "header2_plugin_start.el" "subroutines_start.el" "test_start.el")
-;;;;;;  (22026 39280 332898 544000))
+;;;;;;  (22027 9123 131467 676000))
 
 ;;;***
 

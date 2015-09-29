@@ -2,6 +2,8 @@
 #+TITLE: doing
 #+STARTUP: overview
 #+TODO: TODO LATER | DONE
+* TODO fix yasnippet run-hook-after-load escape message
+  <2015-09-30 Wed 08:45>
 * TODO remove svn revision string
   <2015-09-30 Wed 05:27>
 * TODO lock desktop

@@ -29262,3 +29262,168 @@ KeyboardInterrupt
 
 * Wed 30 Sep 2015 07:58:33 AM JST
 e2wm:with-advice
+* Wed 30 Sep 2015 08:12:02 AM JST
+with-editor-mode-map
+* Wed 30 Sep 2015 08:18:33 AM JST
+;;;###autoload
+(defun with-editor-mode-custom-predefine ()
+  "For `eval-after-load' with-editor customize."
+  (message "eval-after-load: "with-editor" customizing..")
+  ;; (custom-set-variables
+   ;; '())
+  )
+
+;;;###autoload
+(defun with-editor-mode-predefine ()
+  "For `eval-after-load' with-editor function."
+  (message "eval-after-load: "with-editor" setting..")
+  )
+
+;;;###autoload
+(defun with-editor-mode-map-predefine ()
+  "For with-editor key bindings."
+  (interactive)
+  (unless (called-interactively-p 'interactive)
+    (message "eval-after-load: "with-editor" keymaping.."))
+  (define-many-keys with-editor-mode-map
+    ("\C-s" 'with-editor-finish)))
+
+;;;###autoload
+(defun with-editor-mode-face-predefine ()
+  "For with-editor face."
+  (message "eval-after-load: "with-editor" Setting faces..")
+  )
+
+* Wed 30 Sep 2015 08:18:55 AM JST
+(eval-when-compile
+  (require 't1macro "t1macro"))
+
+* Wed 30 Sep 2015 08:23:04 AM JST
+;;;###autoload
+(defun with-editor-mode-custom-predefine ()
+  "For `eval-after-load' with-editor customize."
+  (message "eval-after-load: "with-editor" customizing..")
+  ;; (custom-set-variables
+  ;; '())
+  )
+
+;;;###autoload
+(defun with-editor-mode-predefine ()
+  "For `eval-after-load' with-editor function."
+  (message "eval-after-load: "with-editor" setting..")
+  )
+
+;;;###autoload
+(defun with-editor-mode-map-predefine ()
+  "For with-editor key bindings."
+  (interactive)
+  (unless (called-interactively-p 'interactive)
+    (message "eval-after-load: "with-editor" keymaping.."))
+  (define-many-keys with-editor-mode-map
+    ("\C-s" 'with-editor-finish)))
+
+;;;###autoload
+(defun with-editor-mode-face-predefine ()
+  "For with-editor face."
+  (message "eval-after-load: "with-editor" Setting faces..")
+  )
+
+* Wed 30 Sep 2015 08:26:22 AM JST
+(define-many-keys with-editor-mode-map
+    ("\C-s" 'with-editor-finish))
+* Wed 30 Sep 2015 08:26:59 AM JST
+;;;###autoload
+(defun magit-mode-custom-predefine ()
+  "For `eval-after-load' magit customize."
+  (message "eval-after-load: "magit" customizing..")
+  ;; (custom-set-variables
+   ;; '())
+  )
+
+;;;###autoload
+(defun magit-mode-predefine ()
+  "For `eval-after-load' magit function."
+  (message "eval-after-load: "magit" setting..")
+  )
+
+;;;###autoload
+(defun magit-mode-map-predefine ()
+  "For magit key bindings."
+  (interactive)
+  (unless (called-interactively-p 'interactive)
+    (message "eval-after-load: "magit" keymaping.."))
+
+  ;; with-editor
+  (define-many-keys with-editor-mode-map
+    ("\C-s" 'with-editor-finish))
+  )
+
+;;;###autoload
+(defun magit-mode-face-predefine ()
+  "For magit face."
+  (message "eval-after-load: "magit" Setting faces..")
+  )
+
+* Wed 30 Sep 2015 08:28:10 AM JST
+"t1macro"
+* Wed 30 Sep 2015 08:28:15 AM JST
+  
+* Wed 30 Sep 2015 08:40:50 AM JST
+(require 'magit "magit/lisp/magit")
+* Wed 30 Sep 2015 08:41:08 AM JST
+(require 'magit "magit/lisp/magit")
+* Wed 30 Sep 2015 08:41:16 AM JST
+"magit/lisp/magit"
+* Wed 30 Sep 2015 08:41:22 AM JST
+
+* Wed 30 Sep 2015 08:41:23 AM JST
+
+* Wed 30 Sep 2015 08:41:23 AM JST
+(require 'magit "magit/lisp/magit")
+
+* Wed 30 Sep 2015 08:42:09 AM JST
+"magit/lisp/magit"
+* Wed 30 Sep 2015 08:43:25 AM JST
+"magit/lisp/magit"
+* Wed 30 Sep 2015 08:47:15 AM JST
+(define-many-keys with-editor-mode-map
+    ("\C-s" 'with-editor-finish))
+* Wed 30 Sep 2015 08:47:18 AM JST
+
+* Wed 30 Sep 2015 08:47:18 AM JST
+
+* Wed 30 Sep 2015 08:47:18 AM JST
+  ;; with-editor
+
+* Wed 30 Sep 2015 08:47:42 AM JST
+;;;###autoload
+(defun with-editor-mode-custom-predefine ()
+  "For `eval-after-load' with-editor customize."
+  (message "eval-after-load: "with-editor" customizing..")
+  (define-many-keys with-editor-mode-map
+    ("\C-s" 'with-editor-finish))
+  )
+
+;;;###autoload
+(defun with-editor-mode-predefine ()
+  "For `eval-after-load' with-editor function."
+  (message "eval-after-load: "with-editor" setting..")
+  )
+
+;;;###autoload
+(defun with-editor-mode-map-predefine ()
+  "For with-editor key bindings."
+  (interactive)
+  (unless (called-interactively-p 'interactive)
+    (message "eval-after-load: "with-editor" keymaping.."))
+  ())
+
+;;;###autoload
+(defun with-editor-mode-face-predefine ()
+  "For with-editor face."
+  (message "eval-after-load: "with-editor" Setting faces..")
+  )
+
+
+* Wed 30 Sep 2015 08:50:50 AM JST
+magit
