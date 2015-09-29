@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: def__setslice__
+# key: defsetslice
+# condition: (not (py:at-string|comment-p))
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
+# --
+def __setslice__(self, ${1:${10:i}, ${20:j}, ${30:seq}}):
+    return $0

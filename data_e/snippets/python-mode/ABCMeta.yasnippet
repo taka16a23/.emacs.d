@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: ABCMeta
+# key: ABCMeta
+# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])))
+# --
+ABCMeta`(py--insert-imports "abc[ \t]+import[ \t]+ABCMeta,[ \t]+abstractmethod" "from abc import ABCMeta, abstractmethod")`

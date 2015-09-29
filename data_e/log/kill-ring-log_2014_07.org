@@ -1,0 +1,5784 @@
+
+* Tue 01 Jul 2014 03:05:12 AM JST
+Solstice
+* Tue 01 Jul 2014 03:06:23 AM JST
+raise NotImplementedError()
+* Tue 01 Jul 2014 03:06:43 AM JST
+return int(self + 0.242194 * (year - 1980) - int((year - 1980) // 4))
+* Tue 01 Jul 2014 03:08:48 AM JST
+
+* Tue 01 Jul 2014 03:08:48 AM JST
+
+* Tue 01 Jul 2014 03:08:48 AM JST
+    _equinox_float = EquinoxFloat(20.8357)
+
+* Tue 01 Jul 2014 03:08:52 AM JST
+CalcSolsticeDay
+* Tue 01 Jul 2014 03:09:08 AM JST
+CalcSolsticeDay
+* Tue 01 Jul 2014 03:10:33 AM JST
+20.8357
+* Tue 01 Jul 2014 03:12:52 AM JST
+    def ismatch(self, year):
+        r"""SUMMARY
+
+        ismatch(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        return year <= 1979
+
+
+
+* Tue 01 Jul 2014 03:13:05 AM JST
+CalcSolsticeDay
+* Tue 01 Jul 2014 03:14:47 AM JST
+day = 
+* Tue 01 Jul 2014 03:14:49 AM JST
+
+* Tue 01 Jul 2014 03:14:49 AM JST
+
+* Tue 01 Jul 2014 03:14:49 AM JST
+        return date(year, day)
+
+* Tue 01 Jul 2014 03:15:15 AM JST
+    def ismatch(self, year):
+        r"""SUMMARY
+
+        ismatch(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        return year <= 1979
+
+    def calc(self, year):
+        r"""SUMMARY
+
+        calc(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        #                   一年のずれ                 閏年のずれ
+        return int(20.8357 + 0.242194 * (year - 1980) - int((year - 1980) // 4))
+
+
+* Tue 01 Jul 2014 03:15:40 AM JST
+    @abstractmethod
+    def ismatch(self, year):
+        raise NotImplementedError()
+
+* Tue 01 Jul 2014 03:15:44 AM JST
+year
+* Tue 01 Jul 2014 03:15:47 AM JST
+ismatch
+* Tue 01 Jul 2014 03:15:58 AM JST
+    @abstractmethod
+    def ismatch(self, year):
+        raise NotImplementedError()
+
+
+* Tue 01 Jul 2014 03:16:17 AM JST
+
+* Tue 01 Jul 2014 03:16:17 AM JST
+
+* Tue 01 Jul 2014 03:16:17 AM JST
+from datetime import date
+
+* Tue 01 Jul 2014 03:17:09 AM JST
+    def calc(self, year):
+        r"""SUMMARY
+
+        calc(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        #                   一年のずれ                 閏年のずれ
+        return int(20.8357 + 0.242194 * (year - 1980) - int((year - 1980) // 4))
+
+* Tue 01 Jul 2014 03:17:19 AM JST
+20.8431
+* Tue 01 Jul 2014 03:17:41 AM JST
+CalcSolsticeDay
+* Tue 01 Jul 2014 03:17:59 AM JST
+    def calc(self, year):
+        r"""SUMMARY
+
+        calc(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        #                   一年のずれ                 閏年のずれ
+        return int(20.8431 + 0.242194 * (year - 1980) - int((year - 1980) // 4))
+
+* Tue 01 Jul 2014 03:18:10 AM JST
+21.8510
+* Tue 01 Jul 2014 03:22:49 AM JST
+_calc(
+* Tue 01 Jul 2014 03:22:49 AM JST
+self._calc(
+* Tue 01 Jul 2014 03:25:21 AM JST
+calc_vernalequinox
+* Tue 01 Jul 2014 03:25:35 AM JST
+CalcVernal
+* Tue 01 Jul 2014 03:25:41 AM JST
+CalcVernal
+* Tue 01 Jul 2014 03:41:34 AM JST
+CalcSolsticeDay
+* Tue 01 Jul 2014 03:42:04 AM JST
+    spans = [Before1980VernalEquinox(),
+             From1980To2100VernalEquinox(),
+             From2100To2150VernalEquinox()]
+
+
+* Tue 01 Jul 2014 03:50:36 AM JST
+Longitude
+* Tue 01 Jul 2014 03:51:42 AM JST
+VernalEquinox
+* Tue 01 Jul 2014 03:52:13 AM JST
+0Longitude
+* Tue 01 Jul 2014 03:52:25 AM JST
+_0Longitude
+* Tue 01 Jul 2014 05:37:33 AM JST
+adapter
+* Tue 01 Jul 2014 05:37:33 AM JST
+import adapter
+* Tue 01 Jul 2014 05:37:34 AM JST
+gof import adapter
+* Tue 01 Jul 2014 05:37:34 AM JST
+example.gof import adapter
+* Tue 01 Jul 2014 05:37:35 AM JST
+from example.gof import adapter
+* Tue 01 Jul 2014 05:38:54 AM JST
+gof
+* Tue 01 Jul 2014 05:39:08 AM JST
+adapter
+* Tue 01 Jul 2014 05:39:16 AM JST
+from example.gof import pytho
+* Tue 01 Jul 2014 05:39:48 AM JST
+adapte
+* Tue 01 Jul 2014 05:40:30 AM JST
+python_patterns
+* Tue 01 Jul 2014 05:40:33 AM JST
+python_patterns
+* Tue 01 Jul 2014 05:40:47 AM JST
+Adapter
+* Tue 01 Jul 2014 05:40:47 AM JST
+adapter.Adapter
+* Tue 01 Jul 2014 05:41:53 AM JST
+Adapter
+* Tue 01 Jul 2014 05:09:27 PM JST
+text-translator-all-by-auto-selection
+* Tue 01 Jul 2014 05:09:53 PM JST
+text-translator-all-by-auto-selection
+* Tue 01 Jul 2014 05:10:29 PM JST
+    
+* Tue 01 Jul 2014 05:10:36 PM JST
+s)]
+* Tue 01 Jul 2014 05:10:37 PM JST
+control ?\s)]
+* Tue 01 Jul 2014 05:11:18 PM JST
+(defvar common-view-map-list
+  `( ;; Left hand
+    ( "v"             . next-line                   )
+    ( "f"             . forward-char                )
+    ( "d"             . previous-line               )
+    ( "s"             . backward-char               )
+    ( "g"             . my-forward-seq              )
+    ( "e"             . cua-scroll-down             )
+    ;; common
+    ( "a"             . my-backward-seq             )
+    ( "\d"            . nil                         )
+    ( "c"             . nil                         )
+    ( " "             . my-view-map                 )
+    ( "b"             . cua-scroll-up               )
+    ( "y"             . sdic-describe-word-at-point )
+    ;; Right hand
+    ( "n"             . next-line                   )
+    ( "l"             . forward-char                )
+    ( "j"             . backward-char               )
+    ( "k"             . previous-line               )
+    ( "-"             . my-forward-seq              )
+    ( "o"             . other-window                )
+    ( "p"             . cua-scroll-down             )
+    ( "h"             . my-backward-seq             )
+    ( "i"             . turn-off-view-mode          )
+    ( "M"             . bm-toggle                   )
+    ( "\M-m"          . bm-previous                 )
+    ( "m"             . bm-next                     )
+    ( "."             . tabbar-forward-tab          )
+    ( ","             . tabbar-backward-tab         )
+    ;;
+    ( "\C-e"          . ctl-e-map                   )
+    ( "\C-n"          . next-line                   )
+    ( "\C-l"          . forward-char                )
+    ( "\C-j"          . backward-char               )
+    ( "\C-k"          . previous-line               )
+    ( "\C-\M-n"       . cua-scroll-up               )
+    ( "\C-\M-k"       . cua-scroll-down             )
+    ( "\C-h"          . my-backward-seq             )
+    ( "\C-m"          . nil                         )
+    (   [(control -)] . my-forward-seq              )
+    ( [(control ?\s)] . seq-set-mark                )
+    ( "E" . text-translator-all-by-auto-selection)
+    ))
+* Tue 01 Jul 2014 05:11:23 PM JST
+defvar
+* Tue 01 Jul 2014 05:13:08 PM JST
+common-view-map-list
+* Tue 01 Jul 2014 05:14:16 PM JST
+default-view-bind-set
+* Tue 01 Jul 2014 05:16:10 PM JST
+( "E" . text-translator-all-by-auto-selection)
+* Fri 04 Jul 2014 10:09:06 AM JST
+The classic design patterns elements of reusable object oriented software
+* Fri 04 Jul 2014 10:10:38 AM JST
+designing object oriented software rebecca 
+* Fri 04 Jul 2014 10:11:21 AM JST
+responsibility driven design
+* Fri 04 Jul 2014 10:14:12 AM JST
+agile software development ecosystems
+* Fri 04 Jul 2014 10:16:24 AM JST
+object oriented software engineering
+* Fri 04 Jul 2014 10:18:09 AM JST
+a practical guide to the models and methods of usage-centered design
+* Fri 04 Jul 2014 10:19:38 AM JST
+software
+* Fri 04 Jul 2014 10:19:43 AM JST
+an introduction to object oriented programming
+* Fri 04 Jul 2014 10:20:50 AM JST
+christopher alexanders notes on the synthesis of form
+* Fri 04 Jul 2014 10:21:27 AM JST
+donald normans the design of everyday thing
+* Fri 04 Jul 2014 10:21:29 AM JST
+donald normans the design of everyday things
+* Fri 04 Jul 2014 10:22:46 AM JST
+software
+* Fri 04 Jul 2014 10:22:50 AM JST
+fundamentals of object oriented design in uml
+* Fri 04 Jul 2014 10:23:32 AM JST
+applying uml and patterns
+* Fri 04 Jul 2014 10:24:57 AM JST
+pattern languages of program design
+* Fri 04 Jul 2014 09:56:28 PM JST
+ThoughtWorks_Anthology
+* Fri 04 Jul 2014 10:36:18 PM JST
+アンソロジー
+* Sat 05 Jul 2014 05:57:10 AM JST
+spans = [Before1980_0Longitude(),
+         From1980To2100_0Longitude(),
+         From2100To2150_0Longitude()]
+
+* Sat 05 Jul 2014 05:58:00 AM JST
+        for span in self.spans:
+            if span.ismatch(year):
+                return span.calc(year)
+        # TODO: (Atami) [2014/06/30]
+        raise StandardError()
+
+* Sat 05 Jul 2014 06:00:19 AM JST
+class Longitude(object):
+    r"""SUMMARY
+    """
+    __metaclass__ = ABCMeta
+
+    @abstractmethod
+    def ismatch(self, year):
+        raise NotImplementedError()
+
+    @abstractmethod
+    def calc(self, year):
+        raise NotImplementedError()
+
+
+* Sat 05 Jul 2014 06:00:29 AM JST
+
+* Sat 05 Jul 2014 06:00:29 AM JST
+
+* Sat 05 Jul 2014 06:00:29 AM JST
+from calc_vernalequinox.calcinterface import Longitude
+
+* Sat 05 Jul 2014 06:00:35 AM JST
+from abc import ABCMeta, abstractmethod
+* Sat 05 Jul 2014 06:00:58 AM JST
+VernalEquinox
+* Sat 05 Jul 2014 06:01:49 AM JST
+vernalequinox
+* Sat 05 Jul 2014 06:01:58 AM JST
+from abc import ABCMeta, abstractmethod
+
+
+class Longitude(object):
+    r"""SUMMARY
+    """
+    __metaclass__ = ABCMeta
+
+    @abstractmethod
+    def ismatch(self, year):
+        raise NotImplementedError()
+
+    @abstractmethod
+    def calc(self, year):
+        raise NotImplementedError()
+
+
+class Before1980_0Longitude(Longitude):
+    r"""SUMMARY
+    VernalEquinox
+    """
+
+    def ismatch(self, year):
+        r"""SUMMARY
+
+        ismatch(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        return year <= 1979
+
+    def calc(self, year):
+        r"""SUMMARY
+
+        calc(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        #                   一年のずれ                 閏年のずれ
+        return int(20.8357 + 0.242194 * (year - 1980) - int((year - 1980) // 4))
+
+
+class From1980To2100_0Longitude(Longitude):
+    r"""SUMMARY
+    """
+
+    def ismatch(self, year):
+        r"""SUMMARY
+
+        ismatch(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        return 1980 <= year <= 2099
+
+    def calc(self, year):
+        r"""SUMMARY
+
+        calc(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        #                   一年のずれ                 閏年のずれ
+        return int(20.8431 + 0.242194 * (year - 1980) - int((year - 1980) // 4))
+
+
+class From2100To2150_0Longitude(Longitude):
+    r"""SUMMARY
+    """
+
+    def ismatch(self, year):
+        r"""SUMMARY
+
+        ismatch(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        return 2100 <= year <= 2150
+
+    def calc(self, year):
+        r"""SUMMARY
+
+        calc(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        #                   一年のずれ                 閏年のずれ
+        return int(21.8510 + 0.242194 * (year - 1980) - int((year - 1980) // 4))
+
+class CalcVernalEquinox(object):
+    r"""SUMMARY
+    """
+    spans = [Before1980_0Longitude(),
+             From1980To2100_0Longitude(),
+             From2100To2150_0Longitude()]
+
+    def get_day(self, year):
+        r"""SUMMARY
+
+        get_vernal_day(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        for span in self.spans:
+            if span.ismatch(year):
+                return span.calc(year)
+        # TODO: (Atami) [2014/06/30]
+        raise StandardError()
+
+
+
+# For Emacs
+# Local Variables:
+# coding: utf-8
+# End:
+# span.py ends here
+
+* Sat 05 Jul 2014 06:02:19 AM JST
+vernalequinox
+* Sat 05 Jul 2014 06:04:21 AM JST
+span.calc(year)
+* Sat 05 Jul 2014 06:04:45 AM JST
+vernalequinox
+* Sat 05 Jul 2014 06:08:37 AM JST
+_mo
+* Sat 05 Jul 2014 06:08:37 AM JST
+self._mo
+* Sat 05 Jul 2014 06:09:36 AM JST
+return
+* Sat 05 Jul 2014 06:10:16 AM JST
+return 
+* Sat 05 Jul 2014 06:10:19 AM JST
+return self._getday(year, day)
+* Sat 05 Jul 2014 06:10:41 AM JST
+_month, 
+* Sat 05 Jul 2014 06:10:42 AM JST
+self._month, 
+* Sat 05 Jul 2014 06:10:42 AM JST
+year, self._month, 
+* Sat 05 Jul 2014 06:10:42 AM JST
+date(year, self._month, 
+* Sat 05 Jul 2014 06:10:48 AM JST
+
+* Sat 05 Jul 2014 06:10:48 AM JST
+
+* Sat 05 Jul 2014 06:10:48 AM JST
+    _month = 3
+
+* Sat 05 Jul 2014 06:11:09 AM JST
+import vernalequinox
+* Sat 05 Jul 2014 06:11:18 AM JST
+vernalequinox
+* Sat 05 Jul 2014 06:11:34 AM JST
+CalcVernalEquinox
+* Sat 05 Jul 2014 06:12:17 AM JST
+get_day
+* Sat 05 Jul 2014 06:13:34 AM JST
+AutumnalEquinoxDay
+* Sat 05 Jul 2014 06:13:53 AM JST
+from abc import ABCMeta as _ABCMeta, abstractmethod as _abstractmethod
+from datetime import date
+
+
+__all__ = ['CalcVernalEquinox']
+
+
+class Longitude(object):
+    r"""SUMMARY
+    """
+    __metaclass__ = _ABCMeta
+    _month = 3
+
+    @_abstractmethod
+    def ismatch(self, year):
+        raise NotImplementedError()
+
+    @_abstractmethod
+    def calc(self, year):
+        raise NotImplementedError()
+
+    def _getday(self, year, day):
+        r"""SUMMARY
+
+        _getday(day)
+
+        @Arguments:
+        - `day`:
+
+        @Return:
+        """
+        return date(year, self._month, day)
+
+
+class Before1980_0Longitude(Longitude):
+    r"""SUMMARY
+    VernalEquinox
+    """
+
+    def ismatch(self, year):
+        r"""SUMMARY
+
+        ismatch(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        return year <= 1979
+
+    def calc(self, year):
+        r"""SUMMARY
+
+        calc(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        #                   一年のずれ                 閏年のずれ
+        day = int(20.8357 + 0.242194 * (year - 1980) - int((year - 1980) // 4))
+        return self._getday(year, day)
+
+
+class From1980To2100_0Longitude(Longitude):
+    r"""SUMMARY
+    """
+
+    def ismatch(self, year):
+        r"""SUMMARY
+
+        ismatch(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        return 1980 <= year <= 2099
+
+    def calc(self, year):
+        r"""SUMMARY
+
+        calc(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        #                   一年のずれ                 閏年のずれ
+        day = int(20.8431 + 0.242194 * (year - 1980) - int((year - 1980) // 4))
+        return self._getday(year, day)
+
+
+class From2100To2150_0Longitude(Longitude):
+    r"""SUMMARY
+    """
+
+    def ismatch(self, year):
+        r"""SUMMARY
+
+        ismatch(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        return 2100 <= year <= 2150
+
+    def calc(self, year):
+        r"""SUMMARY
+
+        calc(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        #                   一年のずれ                 閏年のずれ
+        day = int(21.8510 + 0.242194 * (year - 1980) - int((year - 1980) // 4))
+        return self._getday(year, day)
+
+
+class CalcVernalEquinox(object):
+    r"""SUMMARY
+    """
+    _spans = [Before1980_0Longitude(),
+              From1980To2100_0Longitude(),
+              From2100To2150_0Longitude()]
+
+    def calc(self, year):
+        r"""SUMMARY
+
+        get_vernal_day(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        for span in self._spans:
+            if span.ismatch(year):
+                return span.calc(year)
+        # TODO: (Atami) [2014/06/30]
+        raise StandardError()
+
+* Sat 05 Jul 2014 06:14:32 AM JST
+Autumnal
+* Sat 05 Jul 2014 06:14:47 AM JST
+23.2588
+* Sat 05 Jul 2014 06:15:02 AM JST
+23.2488
+* Sat 05 Jul 2014 06:15:14 AM JST
+24.2488
+* Sat 05 Jul 2014 06:15:34 AM JST
+Autumnal
+* Sat 05 Jul 2014 06:15:58 AM JST
+CalcAutumnalEquinox
+* Sat 05 Jul 2014 06:16:24 AM JST
+autumnalequinox
+* Sat 05 Jul 2014 06:16:41 AM JST
+CalcAutumnalEquinox
+* Sat 05 Jul 2014 06:19:13 AM JST
+    @_abstractmethod
+    def ismatch(self, year):
+        raise NotImplementedError()
+
+* Sat 05 Jul 2014 06:19:17 AM JST
+year
+* Sat 05 Jul 2014 06:19:19 AM JST
+ismatch
+* Sat 05 Jul 2014 06:19:29 AM JST
+_month
+* Sat 05 Jul 2014 06:19:30 AM JST
+self._month
+* Sat 05 Jul 2014 06:21:52 AM JST
+from abc import ABCMeta as _ABCMeta, abstractmethod as _abstractmethod
+* Sat 05 Jul 2014 06:22:02 AM JST
+ as _abstractmethod
+* Sat 05 Jul 2014 06:22:08 AM JST
+from datetime import date
+
+
+__all__ = ['CalcAutumnalEquinox']
+
+
+class Longitude(object):
+    r"""SUMMARY
+    """
+    __metaclass__ = _ABCMeta
+    _month = 9
+
+    @_abstractmethod
+    def _getmonth(self, ):
+        raise NotImplementedError()
+
+    @_abstractmethod
+    def ismatch(self, year):
+        raise NotImplementedError()
+
+    @_abstractmethod
+    def calc(self, year):
+        raise NotImplementedError()
+
+    def _getday(self, year, day):
+        r"""SUMMARY
+
+        _getday(day)
+
+        @Arguments:
+        - `day`:
+
+        @Return:
+        """
+        return date(year, self._getmonth(), day)
+
+* Sat 05 Jul 2014 06:22:19 AM JST
+
+* Sat 05 Jul 2014 06:22:19 AM JST
+
+* Sat 05 Jul 2014 06:22:19 AM JST
+    _month = 9
+
+* Sat 05 Jul 2014 06:22:32 AM JST
+
+* Sat 05 Jul 2014 06:22:32 AM JST
+
+* Sat 05 Jul 2014 06:22:32 AM JST
+__all__ = ['CalcAutumnalEquinox']
+
+* Sat 05 Jul 2014 06:23:08 AM JST
+autumnalequinox
+* Sat 05 Jul 2014 06:23:18 AM JST
+__all__ = ['CalcAutumnalEquinox']
+
+
+class Longitude(object):
+    r"""SUMMARY
+    """
+    __metaclass__ = _ABCMeta
+    _month = 9
+
+    @_abstractmethod
+    def _getmonth(self, ):
+        raise NotImplementedError()
+
+    @_abstractmethod
+    def ismatch(self, year):
+        raise NotImplementedError()
+
+    @_abstractmethod
+    def calc(self, year):
+        raise NotImplementedError()
+
+    def _getday(self, year, day):
+        r"""SUMMARY
+
+        _getday(day)
+
+        @Arguments:
+        - `day`:
+
+        @Return:
+        """
+        return date(year, self._getmonth(), day)
+
+
+class Before1980_0Longitude(Longitude):
+    r"""SUMMARY
+    AutumnalEquinox
+    """
+
+    def ismatch(self, year):
+        r"""SUMMARY
+
+        ismatch(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        return year <= 1979
+
+    def calc(self, year):
+        r"""SUMMARY
+
+        calc(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        #                   一年のずれ                 閏年のずれ
+        day = int(23.2588 + 0.242194 * (year - 1980) - int((year - 1980) // 4))
+        return self._getday(year, day)
+
+
+class From1980To2100_0Longitude(Longitude):
+    r"""SUMMARY
+    """
+
+    def ismatch(self, year):
+        r"""SUMMARY
+
+        ismatch(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        return 1980 <= year <= 2099
+
+    def calc(self, year):
+        r"""SUMMARY
+
+        calc(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        #                   一年のずれ                 閏年のずれ
+        day = int(23.2488 + 0.242194 * (year - 1980) - int((year - 1980) // 4))
+        return self._getday(year, day)
+
+
+class From2100To2150_0Longitude(Longitude):
+    r"""SUMMARY
+    """
+
+    def ismatch(self, year):
+        r"""SUMMARY
+
+        ismatch(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        return 2100 <= year <= 2150
+
+    def calc(self, year):
+        r"""SUMMARY
+
+        calc(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        #                   一年のずれ                 閏年のずれ
+        day = int(24.2488 + 0.242194 * (year - 1980) - int((year - 1980) // 4))
+        return self._getday(year, day)
+
+
+class CalcAutumnalEquinox(object):
+    r"""SUMMARY
+    """
+    _spans = [Before1980_0Longitude(),
+              From1980To2100_0Longitude(),
+              From2100To2150_0Longitude()]
+
+    def calc(self, year):
+        r"""SUMMARY
+
+        get_vernal_day(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        for span in self._spans:
+            if span.ismatch(year):
+                return span.calc(year)
+        # TODO: (Atami) [2014/06/30]
+        raise StandardError()
+
+
+
+# For Emacs
+# Local Variables:
+# coding: utf-8
+# End:
+# autumnalequinox.py ends here
+
+* Sat 05 Jul 2014 06:24:16 AM JST
+get_
+* Sat 05 Jul 2014 06:24:41 AM JST
+AutumnaleLogitude
+* Sat 05 Jul 2014 06:25:52 AM JST
+vernalequinox
+* Sat 05 Jul 2014 06:26:01 AM JST
+__all__ = ['CalcVernalEquinox']
+* Sat 05 Jul 2014 06:26:23 AM JST
+class Before1980_0Longitude(Longitude):
+    r"""SUMMARY
+    VernalEquinox
+    """
+
+    def ismatch(self, year):
+        r"""SUMMARY
+
+        ismatch(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        return year <= 1979
+
+    def calc(self, year):
+        r"""SUMMARY
+
+        calc(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        #                   一年のずれ                 閏年のずれ
+        day = int(20.8357 + 0.242194 * (year - 1980) - int((year - 1980) // 4))
+        return self._getday(year, day)
+
+
+class From1980To2100_0Longitude(Longitude):
+    r"""SUMMARY
+    """
+
+    def ismatch(self, year):
+        r"""SUMMARY
+
+        ismatch(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        return 1980 <= year <= 2099
+
+    def calc(self, year):
+        r"""SUMMARY
+
+        calc(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        #                   一年のずれ                 閏年のずれ
+        day = int(20.8431 + 0.242194 * (year - 1980) - int((year - 1980) // 4))
+        return self._getday(year, day)
+
+
+class From2100To2150_0Longitude(Longitude):
+    r"""SUMMARY
+    """
+
+    def ismatch(self, year):
+        r"""SUMMARY
+
+        ismatch(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        return 2100 <= year <= 2150
+
+    def calc(self, year):
+        r"""SUMMARY
+
+        calc(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        #                   一年のずれ                 閏年のずれ
+        day = int(21.8510 + 0.242194 * (year - 1980) - int((year - 1980) // 4))
+        return self._getday(year, day)
+
+
+class CalcVernalEquinox(object):
+    r"""SUMMARY
+    """
+    _spans = [Before1980_0Longitude(),
+              From1980To2100_0Longitude(),
+              From2100To2150_0Longitude()]
+
+    def calc(self, year):
+        r"""SUMMARY
+
+        get_vernal_day(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        for span in self._spans:
+            if span.ismatch(year):
+                return span.calc(year)
+        # TODO: (Atami) [2014/06/30]
+        raise StandardError()
+
+
+
+* Sat 05 Jul 2014 06:27:06 AM JST
+VernalLongitude
+* Sat 05 Jul 2014 06:28:13 AM JST
+
+* Sat 05 Jul 2014 06:28:17 AM JST
+autumnalequinox
+* Sat 05 Jul 2014 06:28:21 AM JST
+CalcAutumnalEquinox
+* Sat 05 Jul 2014 06:29:24 AM JST
+CalcAutumnalEquinox
+* Sat 05 Jul 2014 06:31:59 AM JST
+
+* Sat 05 Jul 2014 06:32:00 AM JST
+
+* Sat 05 Jul 2014 06:32:00 AM JST
+__all__ = [ ]
+
+* Sat 05 Jul 2014 07:08:24 AM JST
+xlsfile = '/root/.pylib/holiday_japan/test/holidaylist.xls'
+* Sat 05 Jul 2014 07:08:32 AM JST
+holiday_japan
+* Sat 05 Jul 2014 07:08:40 AM JST
+from datetime import date
+from collections import OrderedDict
+import cPickle
+
+* Sat 05 Jul 2014 07:08:42 AM JST
+from datetime import date
+from collections import OrderedDict
+
+* Sat 05 Jul 2014 07:08:45 AM JST
+from datetime import date
+* Sat 05 Jul 2014 07:08:51 AM JST
+import xlrd
+* Sat 05 Jul 2014 07:09:07 AM JST
+book = xlrd.open_workbook(xlsfile)
+sh = book.sheet_by_index(1)
+
+* Sat 05 Jul 2014 07:09:51 AM JST
+    for i in range(2, sh.nrows):
+        d = xlrd.xldate_as_tuple(sh.cell_value(rowx=i, colx=2), 0)
+        # datestr = date(d[0], d[1], d[2]).strftime('%Y/%m/%d')
+        datestr = 'date({0}, {1}, {2})'.format(d[0], d[1], d[2])
+        hname = sh.cell_value(rowx=i, colx=3).encode('utf-8')
+        outf.writelines("{0}: u'{1}',\n".format(datestr, hname))
+
+* Sat 05 Jul 2014 07:10:34 AM JST
+format
+* Sat 05 Jul 2014 07:10:34 AM JST
+2})'.format
+* Sat 05 Jul 2014 07:10:35 AM JST
+1}, {2})'.format
+* Sat 05 Jul 2014 07:10:35 AM JST
+0}, {1}, {2})'.format
+* Sat 05 Jul 2014 07:10:36 AM JST
+date({0}, {1}, {2})'.format
+* Sat 05 Jul 2014 07:10:44 AM JST
+datestr
+* Sat 05 Jul 2014 07:11:16 AM JST
+XLSFILE = '/root/.pylib/solorterm/tests/holidaylist.xls'
+BOOK = xlrd.open_workbook(XLSFILE)
+SH1 = BOOK.sheet_by_index(1)
+
+* Sat 05 Jul 2014 07:11:58 AM JST
+t1
+* Sat 05 Jul 2014 07:11:58 AM JST
+form t1
+* Sat 05 Jul 2014 07:12:29 AM JST
+name
+* Sat 05 Jul 2014 07:17:23 AM JST
+import xlrd
+* Sat 05 Jul 2014 07:17:27 AM JST
+xlsfile = '/root/.pylib/solorterm/tests/holidaylist.xls'
+* Sat 05 Jul 2014 07:17:30 AM JST
+book = xlrd.open_workbook(xlsfile)
+* Sat 05 Jul 2014 07:18:02 AM JST
+
+* Sat 05 Jul 2014 07:18:02 AM JST
+
+* Sat 05 Jul 2014 07:18:02 AM JST
+        # datestr = date(d[0], d[1], d[2]).strftime('%Y/%m/%d')
+
+* Sat 05 Jul 2014 07:18:15 AM JST
+vernalequinox
+* Sat 05 Jul 2014 07:18:50 AM JST
+from solorterm.abstract import Longitude
+* Sat 05 Jul 2014 07:19:00 AM JST
+abstract
+* Sat 05 Jul 2014 07:19:06 AM JST
+Longitude
+* Sat 05 Jul 2014 07:19:19 AM JST
+pass
+* Sat 05 Jul 2014 07:24:42 AM JST
+1950
+* Sat 05 Jul 2014 07:24:46 AM JST
+2050
+* Sat 05 Jul 2014 07:28:18 AM JST
+solorterm
+* Sat 05 Jul 2014 07:35:03 AM JST
+autumnalequinox
+* Sat 05 Jul 2014 07:35:34 AM JST
+from solorterm.vernalequinox import CalcVernalEquinox
+from solorterm.tests.holidaylist import getholidaylist
+
+* Sat 05 Jul 2014 07:35:38 AM JST
+vernal
+* Sat 05 Jul 2014 07:35:43 AM JST
+VernalEquinox
+* Sat 05 Jul 2014 07:35:55 AM JST
+        cls.calculater = CalcVernalEquinox()
+        cls.vernalelist = getholidaylist('春分の日')
+        cls.start = 1950
+        cls.end = 2050
+
+    def setUp(self):
+        self.mocker.replay()
+
+    def test_confirm_calced_day(self, ):
+        for year in xrange(self.start, self.end):
+            day = self.calculater.calc(year)
+            self.assertIn(day, self.vernalelist,
+                          msg='Failed: year{}, got: {}, not in {}'
+                          .format(year, day, self.vernalelist))
+
+* Sat 05 Jul 2014 07:36:07 AM JST
+CalcVernal
+* Sat 05 Jul 2014 07:36:17 AM JST
+春分
+* Sat 05 Jul 2014 07:36:48 AM JST
+        
+* Sat 05 Jul 2014 07:36:49 AM JST
+
+* Sat 05 Jul 2014 07:36:50 AM JST
+
+* Sat 05 Jul 2014 07:36:50 AM JST
+    @classmethod
+
+* Sat 05 Jul 2014 07:36:55 AM JST
+    def setUpClass(cls):
+* Sun 06 Jul 2014 04:34:00 AM JST
+solorterm.CalcAutumnalEquinox().calc(1999)
+* Sun 06 Jul 2014 12:03:28 PM JST
+Hello
+* Sun 06 Jul 2014 12:03:36 PM JST
+world
+* Sun 06 Jul 2014 12:03:39 PM JST
+pass
+* Sun 06 Jul 2014 12:05:54 PM JST
+DogFactory
+* Mon 07 Jul 2014 05:11:52 AM JST
+raise StandardError()
+* Mon 07 Jul 2014 05:16:38 AM JST
+        span = self._getspan(year)
+        if not span is None:
+            return span.calc(year)
+
+* Mon 07 Jul 2014 05:16:56 AM JST
+not 
+* Mon 07 Jul 2014 05:16:58 AM JST
+span.calc(year)
+* Mon 07 Jul 2014 05:17:39 AM JST
+        for span in self._spans:
+            if span.ismatch(year):
+                return span
+        return None
+
+* Mon 07 Jul 2014 05:18:09 AM JST
+    def ismatch(self, year):
+        r"""SUMMARY
+
+        ismatch(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        span = self._getspan(year)
+        if span is None:
+            return False
+        return True
+
+
+* Mon 07 Jul 2014 05:18:19 AM JST
+        span = self._getspan(year)
+        if not span is None:
+            return span.calc(year)
+        raise StandardError()
+
+* Mon 07 Jul 2014 05:22:05 AM JST
+
+* Mon 07 Jul 2014 05:22:07 AM JST
+vernalequinox
+* Mon 07 Jul 2014 05:22:13 AM JST
+VernalEquinox
+* Mon 07 Jul 2014 05:22:16 AM JST
+AutumnaleLogitude
+* Mon 07 Jul 2014 05:22:42 AM JST
+VernalEquinox
+* Mon 07 Jul 2014 05:22:48 AM JST
+AutumnalEquinox
+* Mon 07 Jul 2014 06:03:47 AM JST
+Name
+* Mon 07 Jul 2014 06:04:45 AM JST
+kwargs
+* Mon 07 Jul 2014 06:04:52 AM JST
+return self.__namedic[self.locale]
+* Mon 07 Jul 2014 06:05:05 AM JST
+
+* Mon 07 Jul 2014 06:05:05 AM JST
+
+* Mon 07 Jul 2014 06:05:05 AM JST
+from abc import ABCMeta, abstractmethod
+
+* Mon 07 Jul 2014 06:05:43 AM JST
+LocaleNameAbstract
+* Mon 07 Jul 2014 06:11:15 AM JST
+dic = 
+* Mon 07 Jul 2014 06:13:34 AM JST
+
+* Mon 07 Jul 2014 06:13:34 AM JST
+
+* Mon 07 Jul 2014 06:13:34 AM JST
+    @abstractmethod
+
+* Mon 07 Jul 2014 06:16:18 AM JST
+class SingletonConnectionMeta(type):
+    r"""Singleton Connection by display name."""
+
+    _instances = {}
+
+    def __call__(cls, *args, **kwargs):
+        key = kwargs.get('display', '')
+        if cls not in cls._instances:
+            cls._instances[cls] = {}
+        if key not in cls._instances[cls]:
+            cls._instances[cls][key] = (super(SingletonConnectionMeta, cls)
+                                        .__call__(*args, **kwargs))
+        return cls._instances[cls][key]
+
+* Mon 07 Jul 2014 06:16:53 AM JST
+
+* Mon 07 Jul 2014 06:16:54 AM JST
+
+* Mon 07 Jul 2014 06:16:54 AM JST
+    r"""Singleton Connection by display name."""
+
+* Mon 07 Jul 2014 06:16:57 AM JST
+
+* Mon 07 Jul 2014 06:16:57 AM JST
+
+* Mon 07 Jul 2014 06:16:57 AM JST
+        key = kwargs.get('display', '')
+
+* Mon 07 Jul 2014 06:17:59 AM JST
+from abstract.singleton import SingletonMeta
+* Mon 07 Jul 2014 06:22:17 AM JST
+Coming of Age Day
+* Mon 07 Jul 2014 06:22:31 AM JST
+'成人の日'
+* Mon 07 Jul 2014 06:22:48 AM JST
+def __init__(self, ):
+        r"""
+        """
+        
+        
+* Mon 07 Jul 2014 06:22:50 AM JST
+object
+* Mon 07 Jul 2014 06:23:51 AM JST
+NationalFoundation
+* Mon 07 Jul 2014 06:24:00 AM JST
+National Foundation Day
+* Mon 07 Jul 2014 06:24:05 AM JST
+'National Foundation Day'
+* Mon 07 Jul 2014 06:24:13 AM JST
+'建国記念の日'
+* Mon 07 Jul 2014 06:24:28 AM JST
+VernalEquinox
+* Mon 07 Jul 2014 06:24:44 AM JST
+'Vernal Equinox Day'
+* Mon 07 Jul 2014 06:24:49 AM JST
+'春分の日'
+* Mon 07 Jul 2014 06:24:54 AM JST
+LocalName
+* Mon 07 Jul 2014 06:26:31 AM JST
+Showa
+* Mon 07 Jul 2014 07:11:09 AM JST
+'Showa Day'
+* Mon 07 Jul 2014 07:11:14 AM JST
+'昭和の日'
+* Mon 07 Jul 2014 07:11:34 AM JST
+ConstitutionMemorial
+* Mon 07 Jul 2014 07:11:44 AM JST
+'Constitution Memorial Day'
+* Mon 07 Jul 2014 07:11:50 AM JST
+'憲法記念日'
+* Mon 07 Jul 2014 07:12:19 AM JST
+Green
+* Mon 07 Jul 2014 07:12:37 AM JST
+'Green [Greenery] Day'
+* Mon 07 Jul 2014 07:12:43 AM JST
+'みどりの日'
+* Mon 07 Jul 2014 07:13:22 AM JST
+Childrens
+* Mon 07 Jul 2014 07:13:32 AM JST
+"Children's Day"
+* Mon 07 Jul 2014 07:13:36 AM JST
+'こどもの日'
+* Mon 07 Jul 2014 07:13:46 AM JST
+Marine
+* Mon 07 Jul 2014 07:13:52 AM JST
+'Marine Day'
+* Mon 07 Jul 2014 07:13:57 AM JST
+'海の日'
+* Mon 07 Jul 2014 07:14:08 AM JST
+RespectForTheAged
+* Mon 07 Jul 2014 07:14:16 AM JST
+'Respect for the Aged Day'
+* Mon 07 Jul 2014 07:14:21 AM JST
+'敬老の日'
+* Mon 07 Jul 2014 07:14:31 AM JST
+AutumnalEquinox
+* Mon 07 Jul 2014 07:14:39 AM JST
+'Autumnal Equinox Day'
+* Mon 07 Jul 2014 07:14:44 AM JST
+'秋分の日'
+* Mon 07 Jul 2014 07:14:53 AM JST
+Sports
+* Mon 07 Jul 2014 07:15:03 AM JST
+'(Health and) Sports Day'
+* Mon 07 Jul 2014 07:15:09 AM JST
+'体育の日'
+* Mon 07 Jul 2014 07:15:18 AM JST
+'Culture Day'
+* Mon 07 Jul 2014 07:15:25 AM JST
+Culture
+* Mon 07 Jul 2014 07:15:36 AM JST
+'Culture Day'
+* Mon 07 Jul 2014 07:15:40 AM JST
+'文化の日'
+* Mon 07 Jul 2014 07:15:48 AM JST
+LaborThanksgiving
+* Mon 07 Jul 2014 07:15:57 AM JST
+'Labor Thanksgiving Day'
+* Mon 07 Jul 2014 07:16:01 AM JST
+'勤労感謝の日'
+* Mon 07 Jul 2014 07:16:14 AM JST
+EmperorsBirth
+* Mon 07 Jul 2014 07:16:23 AM JST
+"Emperor's Birthday"
+* Mon 07 Jul 2014 07:16:32 AM JST
+'天皇誕生日'
+* Mon 07 Jul 2014 07:17:16 AM JST
+TheRiteOfWeddingOfHIHCrownPrinceAkihito
+* Mon 07 Jul 2014 07:17:25 AM JST
+'The Rite of Wedding of HIH Crown Prince Akihito'
+* Mon 07 Jul 2014 07:17:33 AM JST
+'皇太子明仁親王の結婚の儀'
+* Mon 07 Jul 2014 07:17:44 AM JST
+TheFuneralCeremonyOfEmperorShowa
+* Mon 07 Jul 2014 07:17:54 AM JST
+'昭和天皇の大喪の礼'
+* Mon 07 Jul 2014 07:17:57 AM JST
+'The Funeral Ceremony of Emperor Showa'
+* Mon 07 Jul 2014 07:18:02 AM JST
+'昭和天皇の大喪の礼'
+* Mon 07 Jul 2014 07:18:15 AM JST
+TheCeremonyOfTheEnthronementOfHisMajestyTheEmperor
+* Mon 07 Jul 2014 07:18:24 AM JST
+'The Ceremony of the Enthronement of His Majesty the Emperor'
+* Mon 07 Jul 2014 07:18:30 AM JST
+'即位礼 正殿の儀'
+* Mon 07 Jul 2014 07:18:45 AM JST
+TheRiteOfWeddingOfHIHCrownPrinceNaruhito
+* Mon 07 Jul 2014 07:19:06 AM JST
+'The Rite of Wedding of HIH Crown Prince Naruhito'
+* Mon 07 Jul 2014 07:19:11 AM JST
+'皇太子徳仁親王の結婚の儀'
+* Mon 07 Jul 2014 07:19:26 AM JST
+NationalHoliday
+* Mon 07 Jul 2014 07:19:34 AM JST
+'National Holiday'
+* Mon 07 Jul 2014 07:19:38 AM JST
+'国民の休日'
+* Mon 07 Jul 2014 07:21:57 AM JST
+
+* Mon 07 Jul 2014 07:21:57 AM JST
+
+* Mon 07 Jul 2014 07:21:57 AM JST
+        return self.names[self.locale]
+
+* Mon 07 Jul 2014 07:25:08 AM JST
+LocaleName
+* Mon 07 Jul 2014 07:26:14 AM JST
+
+* Mon 07 Jul 2014 07:26:14 AM JST
+
+* Mon 07 Jul 2014 07:26:14 AM JST
+    @abstractmethod
+
+* Mon 07 Jul 2014 07:26:34 AM JST
+
+* Mon 07 Jul 2014 07:26:34 AM JST
+
+* Mon 07 Jul 2014 07:26:34 AM JST
+    @abstractmethod
+
+* Mon 07 Jul 2014 07:50:02 AM JST
+from abc import ABCMeta, abstractmethod
+* Mon 07 Jul 2014 07:50:13 AM JST
+from holiday_japan.holidays import name
+
+
+class CalcHolidayAbstract(object):
+    r"""SUMMARY
+    """
+
+    __metaclass__ = ABCMeta
+
+    __names = name.LocaleName('English')
+
+    def getname(self, ):
+        return self.__names.getname()
+
+    def setlocale(self, localename):
+        self.__names.setlocale(localename)
+
+    @abstractmethod
+    def ismatch(self, year):
+        raise NotImplementedError()
+
+    @abstractmethod
+    def calc(self, year):
+        raise NotImplementedError()
+
+* Mon 07 Jul 2014 07:53:48 AM JST
+CalcDayAbstract
+* Mon 07 Jul 2014 07:53:58 AM JST
+from holiday_japan.holidays import name
+* Mon 07 Jul 2014 08:04:25 AM JST
+
+* Mon 07 Jul 2014 08:04:25 AM JST
+
+* Mon 07 Jul 2014 08:04:25 AM JST
+    _names = name.NewYearsLocaleName('English')
+
+* Mon 07 Jul 2014 08:28:28 AM JST
+CalcDayAbstract
+* Mon 07 Jul 2014 08:28:37 AM JST
+Calculator
+* Mon 07 Jul 2014 08:28:41 AM JST
+Day
+* Mon 07 Jul 2014 08:28:53 AM JST
+DayCalculator
+* Mon 07 Jul 2014 08:29:35 AM JST
+nameabstract
+* Mon 07 Jul 2014 08:29:54 AM JST
+LocaleName
+* Mon 07 Jul 2014 08:30:06 AM JST
+class NewYearsLocaleName(LocaleName):
+    r"""SUMMARY
+    """
+    _names = dict(English='NewYears', Japanese=u'元日')
+
+
+
+* Mon 07 Jul 2014 08:31:19 AM JST
+Calculator
+* Mon 07 Jul 2014 08:31:32 AM JST
+name.
+* Mon 07 Jul 2014 08:32:32 AM JST
+__calculators = 
+* Mon 07 Jul 2014 08:34:44 AM JST
+import
+* Mon 07 Jul 2014 08:34:54 AM JST
+NewYearsDayCalculator
+* Mon 07 Jul 2014 08:35:02 AM JST
+NewYearsDayCalculator
+* Mon 07 Jul 2014 08:36:10 AM JST
+from datetime import date
+
+from holiday_japan.holidays.nameabstract import LocaleName
+from holiday_japan.holidays.calcabstract import DayCalculator
+
+* Mon 07 Jul 2014 08:36:24 AM JST
+class ComingOfAgeLocaleName(LocaleName):
+    r"""SUMMARY
+    """
+    _names = dict(English='Coming of Age Day', Japanese=u'成人の日')
+
+
+
+* Mon 07 Jul 2014 08:37:52 AM JST
+from t1.dateutil import (MONDAY, MON, TUESDAY, TUE, WEDNESDAY, WED, THURSDAY,
+                         THU, FRIDAY, FRI, SATURDAY, SAT, SUNDAY, SUN)
+
+* Mon 07 Jul 2014 08:37:58 AM JST
+MONDAY, 
+* Mon 07 Jul 2014 08:38:00 AM JST
+, TUESDAY, TUE, WEDNESDAY, WED, THURSDAY,
+* Mon 07 Jul 2014 08:38:02 AM JST
+HU, FRIDAY, FRI, SATURDAY, SAT, SUNDAY, SUN)
+* Mon 07 Jul 2014 08:38:52 AM JST
+2000
+* Mon 07 Jul 2014 08:40:50 AM JST
+class
+* Mon 07 Jul 2014 08:43:47 AM JST
+from calendar import Calendar as _Calendar
+* Mon 07 Jul 2014 08:43:53 AM JST
+_Calendar
+* Mon 07 Jul 2014 08:43:54 AM JST
+as _Calendar
+* Mon 07 Jul 2014 08:46:02 AM JST
+nth
+* Mon 07 Jul 2014 08:46:06 AM JST
+self.weeknth[2]
+* Mon 07 Jul 2014 08:46:08 AM JST
+
+* Mon 07 Jul 2014 08:46:08 AM JST
+
+* Mon 07 Jul 2014 08:46:08 AM JST
+         = 
+
+* Mon 07 Jul 2014 08:46:34 AM JST
+form 
+* Mon 07 Jul 2014 08:47:05 AM JST
+cls.
+* Mon 07 Jul 2014 08:48:42 AM JST
+date
+* Mon 07 Jul 2014 08:48:45 AM JST
+break
+* Mon 07 Jul 2014 08:52:31 AM JST
+ComingOfAgeLocaleName
+* Mon 07 Jul 2014 08:52:55 AM JST
+Commin
+* Mon 07 Jul 2014 08:54:27 AM JST
+__
+* Mon 07 Jul 2014 08:54:27 AM JST
+self.__
+* Mon 07 Jul 2014 08:54:28 AM JST
+return self.__
+* Mon 07 Jul 2014 08:55:29 AM JST
+        for day in self.__days:
+            if day.ismatch(year):
+                return True
+
+* Mon 07 Jul 2014 08:55:33 AM JST
+True
+* Mon 07 Jul 2014 08:56:50 AM JST
+return bool(day)
+* Mon 07 Jul 2014 08:58:17 AM JST
+self._getcalculater(year)
+* Mon 07 Jul 2014 09:23:01 AM JST
+calc
+* Mon 07 Jul 2014 09:23:03 AM JST
+calc
+* Mon 07 Jul 2014 09:23:20 AM JST
+calc
+* Mon 07 Jul 2014 09:23:33 AM JST
+calc
+* Mon 07 Jul 2014 09:24:05 AM JST
+calc
+* Mon 07 Jul 2014 09:24:09 AM JST
+calc
+* Mon 07 Jul 2014 09:24:13 AM JST
+Calculator
+* Mon 07 Jul 2014 09:25:12 AM JST
+calc
+* Mon 07 Jul 2014 09:25:19 AM JST
+calc
+* Mon 07 Jul 2014 09:25:40 AM JST
+calc
+* Mon 07 Jul 2014 09:26:30 AM JST
+calc
+* Mon 07 Jul 2014 09:26:36 AM JST
+calc
+* Mon 07 Jul 2014 09:35:02 AM JST
+
+* Mon 07 Jul 2014 09:35:02 AM JST
+
+* Mon 07 Jul 2014 09:35:02 AM JST
+    __metaclass__ = SingletonMeta
+
+* Mon 07 Jul 2014 09:35:04 AM JST
+
+* Mon 07 Jul 2014 09:35:04 AM JST
+
+* Mon 07 Jul 2014 09:35:04 AM JST
+from abstract.singleton import SingletonMeta
+
+* Mon 07 Jul 2014 09:36:31 AM JST
+NationalFoundation
+* Mon 07 Jul 2014 09:36:51 AM JST
+from datetime import date
+
+from holiday_japan.holidays.nameabstract import LocaleName
+from holiday_japan.holidays.calcabstract import DayCalculator
+
+* Mon 07 Jul 2014 09:36:57 AM JST
+class NationalFoundationLocaleName(LocaleName):
+    r"""SUMMARY
+    """
+    _names = dict(English='National Foundation Day', Japanese=u'建国記念の日')
+
+
+
+* Mon 07 Jul 2014 09:37:01 AM JST
+class NationalFoundationLocaleName(LocaleName):
+    r"""SUMMARY
+    """
+    _names = dict(English='National Foundation Day', Japanese=u'建国記念の日')
+
+
+
+* Mon 07 Jul 2014 09:37:41 AM JST
+class NewYears(object):
+    r"""SUMMARY
+    """
+    start_year = 1949
+    month = 1
+    day = 1
+
+    def ismatch(self, year):
+        r"""SUMMARY
+        
+        ismatch(year)
+        
+        @Arguments:
+        - `year`:
+        
+        @Return:
+        """
+        return self.start_year <= year
+
+    def getdate(self, year):
+        r"""SUMMARY
+        
+        calc(year)
+        
+        @Arguments:
+        - `year`:
+        
+        @Return:
+        """
+        return date(year, self.month, self.day)
+
+
+class NewYearsDay(DayCalculator):
+    r"""SUMMARY
+    """
+    
+    __names = NewYearsLocaleName('English')
+    __days = [NewYears()]
+
+    def ismatch(self, year):
+        r"""SUMMARY
+        
+        ismatch(year)
+        
+        @Arguments:
+        - `year`:
+        
+        @Return:
+        """
+        return self.__days[0].ismatch(year)
+
+    def getdate(self, year):
+        r"""SUMMARY
+        
+        calc(year)
+        
+        @Arguments:
+        - `year`:
+        
+        @Return:
+        """
+        return self.__days[0].getdate(year)
+
+* Mon 07 Jul 2014 09:38:00 AM JST
+1967
+* Mon 07 Jul 2014 09:38:28 AM JST
+NationalFoundation
+* Mon 07 Jul 2014 09:38:50 AM JST
+NewYears
+* Mon 07 Jul 2014 09:39:00 AM JST
+NewYears
+* Mon 07 Jul 2014 09:39:24 AM JST
+NationalFoundation
+* Mon 07 Jul 2014 09:46:33 AM JST
+VernalEquinox
+* Mon 07 Jul 2014 09:46:48 AM JST
+from datetime import date
+* Mon 07 Jul 2014 09:46:54 AM JST
+from holiday_japan.holidays.nameabstract import LocaleName
+* Mon 07 Jul 2014 09:47:00 AM JST
+from holiday_japan.holidays.calcabstract import DayCalculator
+* Mon 07 Jul 2014 09:47:11 AM JST
+class VernalEquinoxLocaleName(LocaleName):
+    r"""SUMMARY
+    """
+    _names = dict(English='Vernal Equinox Day', Japanese=u'春分の日')
+
+
+
+* Mon 07 Jul 2014 09:47:40 AM JST
+VernalEquinox
+* Mon 07 Jul 2014 09:48:21 AM JST
+calc
+* Mon 07 Jul 2014 09:48:38 AM JST
+calc
+* Mon 07 Jul 2014 09:48:42 AM JST
+Calculator
+* Mon 07 Jul 2014 09:50:00 AM JST
+CalcVernalEquinox
+* Mon 07 Jul 2014 09:50:07 AM JST
+CalcVernalEquinox
+* Mon 07 Jul 2014 09:52:13 AM JST
+class ShowaLocaleName(LocaleName):
+    r"""SUMMARY
+    """
+    _names = dict(English='Showa Day', Japanese=u'昭和の日')
+
+
+
+* Mon 07 Jul 2014 09:53:41 AM JST
+2007
+* Mon 07 Jul 2014 09:54:05 AM JST
+ShowaLocaleName
+* Mon 07 Jul 2014 09:54:14 AM JST
+NewYears
+* Mon 07 Jul 2014 09:54:29 AM JST
+ConstitutionMemorial
+* Mon 07 Jul 2014 09:54:51 AM JST
+class ConstitutionMemorialLocaleName(LocaleName):
+    r"""SUMMARY
+    """
+    _names = dict(English='Constitution Memorial Day', Japanese=u'憲法記念日')
+
+
+
+* Mon 07 Jul 2014 09:55:17 AM JST
+ConstitutionMemorial
+* Mon 07 Jul 2014 09:55:29 AM JST
+5
+* Mon 07 Jul 2014 09:55:34 AM JST
+3
+* Mon 07 Jul 2014 09:55:46 AM JST
+ConstitutionMemorial
+* Mon 07 Jul 2014 09:56:28 AM JST
+ConstitutionMemorial
+* Mon 07 Jul 2014 09:57:28 AM JST
+class PastComingOfAge(object):
+    r"""SUMMARY
+    """
+    start_year = 1949
+    end_year = 1999
+    month = 1
+    day = 15
+
+    def ismatch(self, year):
+        r"""SUMMARY
+
+        ismatch(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        return self.start_year <= year <= self.end_year
+
+    def getdate(self, year):
+        r"""SUMMARY
+
+        calc(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        return date(year, self.month, self.day)
+
+
+class ComingOfAge(object):
+    r"""SUMMARY
+    """
+    start_year = 2000
+    month = 1
+    weeknth = (MON, 2)
+
+    def ismatch(self, year):
+        r"""SUMMARY
+
+        ismatch(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        return self.start_year <= year
+
+    def getdate(self, year):
+        r"""SUMMARY
+
+        calc(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        weekday, nth = self.weeknth[0], self.weeknth[2]
+        calendar = Calendar(MON).monthdatescalendar(year, self.month)[0]
+        for cday in calendar:
+            if cday.month == self.month and cday.weekday() == weekday:
+                nth -= 1
+                return calendar[nth][weekday]
+
+
+class ComingOfAgeDayCalculator(DayAbstract):
+    r"""SUMMARY
+    """
+
+    __names = ComingOfAgeLocaleName('English')
+    __days = [PastComingOfAge(), ComingOfAge()]
+
+    def _getgetter(self, year):
+        r"""SUMMARY
+
+        _getcalculater(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        for day in self.__days:
+            if day.ismatch(year):
+                return day
+        return None
+
+    def ismatch(self, year):
+        r"""SUMMARY
+
+        ismatch(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        day = self._getgetter(year)
+        if day is None:
+            return False
+        return True
+
+    def getdate(self, year):
+        r"""SUMMARY
+
+        calc(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        return self._getgetter(year).getdate(year)
+
+
+
+* Mon 07 Jul 2014 09:58:12 AM JST
+class GreenLocaleName(LocaleName):
+    r"""SUMMARY
+    """
+    _names = dict(English='Green Day', Japanese=u'みどりの日')
+
+
+
+* Mon 07 Jul 2014 09:58:32 AM JST
+2007
+* Mon 07 Jul 2014 09:58:41 AM JST
+1989
+* Mon 07 Jul 2014 09:58:49 AM JST
+PastGreen
+* Mon 07 Jul 2014 09:58:58 AM JST
+2006
+* Mon 07 Jul 2014 09:59:04 AM JST
+4
+* Mon 07 Jul 2014 09:59:09 AM JST
+29
+* Mon 07 Jul 2014 09:59:18 AM JST
+2007
+* Mon 07 Jul 2014 09:59:23 AM JST
+5
+* Mon 07 Jul 2014 09:59:27 AM JST
+4
+* Mon 07 Jul 2014 09:59:44 AM JST
+return date(year, self.month, self.day)
+* Mon 07 Jul 2014 09:59:59 AM JST
+weeknth
+* Mon 07 Jul 2014 10:00:07 AM JST
+Green
+* Mon 07 Jul 2014 10:00:26 AM JST
+ComingOfAge
+* Mon 07 Jul 2014 10:01:29 AM JST
+class ChildrensLocaleName(LocaleName):
+    r"""SUMMARY
+    """
+    _names = dict(English="Children's Day", Japanese=u'こどもの日')
+
+
+
+* Mon 07 Jul 2014 10:01:39 AM JST
+Childrens
+* Mon 07 Jul 2014 10:02:00 AM JST
+1949
+* Mon 07 Jul 2014 10:02:05 AM JST
+5
+* Mon 07 Jul 2014 10:02:10 AM JST
+5
+* Mon 07 Jul 2014 10:02:43 AM JST
+Marine
+* Mon 07 Jul 2014 10:03:00 AM JST
+ComingOfAge
+* Mon 07 Jul 2014 10:03:24 AM JST
+class MarineLocaleName(LocaleName):
+    r"""SUMMARY
+    """
+    _names = dict(English='Marine Day', Japanese=u'海の日')
+
+
+
+* Mon 07 Jul 2014 10:03:37 AM JST
+1996
+* Mon 07 Jul 2014 10:03:43 AM JST
+2002
+* Mon 07 Jul 2014 10:03:51 AM JST
+7
+* Mon 07 Jul 2014 10:03:56 AM JST
+20
+* Mon 07 Jul 2014 10:04:07 AM JST
+2003
+* Mon 07 Jul 2014 10:04:12 AM JST
+7
+* Mon 07 Jul 2014 10:04:18 AM JST
+(MON, 3)
+* Mon 07 Jul 2014 10:04:31 AM JST
+from calendar import Calendar
+from t1.dateutil import MON
+
+* Mon 07 Jul 2014 10:05:24 AM JST
+RespectForTheAged
+* Mon 07 Jul 2014 10:06:12 AM JST
+1966
+* Mon 07 Jul 2014 10:06:19 AM JST
+1949
+* Mon 07 Jul 2014 10:06:23 AM JST
+2002
+* Mon 07 Jul 2014 10:06:27 AM JST
+9
+* Mon 07 Jul 2014 10:06:36 AM JST
+class RespectForTheAgedLocaleName(LocaleName):
+    r"""SUMMARY
+    """
+    _names = dict(English='Respect for the Aged Day', Japanese=u'敬老の日')
+
+
+
+* Mon 07 Jul 2014 10:06:50 AM JST
+2003
+* Mon 07 Jul 2014 10:07:04 AM JST
+9
+* Mon 07 Jul 2014 10:07:08 AM JST
+(MON, 3)
+* Mon 07 Jul 2014 10:07:55 AM JST
+AutumnalEquinox
+* Mon 07 Jul 2014 10:08:09 AM JST
+class AutumnalEquinoxLocaleName(LocaleName):
+    r"""SUMMARY
+    """
+    _names = dict(English='Autumnal Equinox Day', Japanese=u'秋分の日')
+
+
+
+* Mon 07 Jul 2014 10:08:33 AM JST
+class VernalEquinoxDay(DayAbstract):
+    r"""SUMMARY
+    """
+    __names = VernalEquinoxLocaleName('English')
+    __day = CalcVernalEquinox()
+
+    def ismatch(self, year):
+        r"""SUMMARY
+
+        ismatch(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        return self.__day.ismatch(year)
+
+    def getdate(self, year):
+        r"""SUMMARY
+
+        getdate(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        return self.__day.calc(year)
+
+* Mon 07 Jul 2014 10:08:39 AM JST
+VernalEquinox
+* Mon 07 Jul 2014 10:08:58 AM JST
+from solorterm.vernalequinox import CalcVernalEquinox
+* Mon 07 Jul 2014 10:09:05 AM JST
+vernale
+* Mon 07 Jul 2014 10:09:40 AM JST
+autumnalequinox
+* Mon 07 Jul 2014 10:10:16 AM JST
+Autumnale
+* Mon 07 Jul 2014 10:12:25 AM JST
+ComingOfAge
+* Mon 07 Jul 2014 10:12:45 AM JST
+class SportsLocaleName(LocaleName):
+    r"""SUMMARY
+    """
+    _names = dict(English='(Health and) Sports Day', Japanese=u'体育の日')
+
+
+
+* Mon 07 Jul 2014 10:13:24 AM JST
+2000
+* Mon 07 Jul 2014 10:13:28 AM JST
+1966
+* Mon 07 Jul 2014 10:13:34 AM JST
+1999
+* Mon 07 Jul 2014 10:13:39 AM JST
+10
+* Mon 07 Jul 2014 10:13:49 AM JST
+2000
+* Mon 07 Jul 2014 10:13:55 AM JST
+10
+* Mon 07 Jul 2014 10:14:42 AM JST
+NewYears
+* Mon 07 Jul 2014 10:14:55 AM JST
+1948
+* Mon 07 Jul 2014 10:15:20 AM JST
+class CultureLocaleName(LocaleName):
+    r"""SUMMARY
+    """
+    _names = dict(English='Culture Day', Japanese=u'文化の日')
+
+
+
+* Mon 07 Jul 2014 10:15:41 AM JST
+LaborThanksgiving
+* Mon 07 Jul 2014 10:16:51 AM JST
+NewYears
+* Mon 07 Jul 2014 10:17:16 AM JST
+class LaborThanksgivingLocaleName(LocaleName):
+    r"""SUMMARY
+    """
+    _names = dict(English='Labor Thanksgiving Day', Japanese=u'勤労感謝の日')
+
+
+
+* Mon 07 Jul 2014 10:17:26 AM JST
+1948
+* Mon 07 Jul 2014 10:17:31 AM JST
+11
+* Mon 07 Jul 2014 10:17:35 AM JST
+23
+* Mon 07 Jul 2014 10:18:42 AM JST
+EmperorsBirth
+* Mon 07 Jul 2014 10:18:57 AM JST
+class EmperorsBirthLocaleName(LocaleName):
+    r"""SUMMARY
+    """
+    _names = dict(English="Emperor's Birthday", Japanese=u'天皇誕生日')
+
+
+
+* Mon 07 Jul 2014 10:19:55 AM JST
+1949
+* Mon 07 Jul 2014 10:19:59 AM JST
+1988
+* Mon 07 Jul 2014 10:20:04 AM JST
+4
+* Mon 07 Jul 2014 10:20:08 AM JST
+29
+* Mon 07 Jul 2014 10:20:14 AM JST
+weeknth
+* Mon 07 Jul 2014 10:20:19 AM JST
+(MON, 2)
+* Mon 07 Jul 2014 10:20:46 AM JST
+1989
+* Mon 07 Jul 2014 10:20:57 AM JST
+    def getdate(self, year):
+        r"""SUMMARY
+
+        calc(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        return date(year, self.month, self.day)
+
+* Mon 07 Jul 2014 10:21:29 AM JST
+TheRiteOfWeddingOfHIHCrownPrinceAkihito
+* Mon 07 Jul 2014 10:22:46 AM JST
+class TheRiteOfWeddingOfHIHCrownPrinceAkihitoLocaleName(LocaleName):
+    r"""SUMMARY
+    """
+    _names = dict(English='The Rite of Wedding of HIH Crown Prince Akihito',
+                  Japanese=u'皇太子明仁親王の結婚の儀')
+
+
+
+* Mon 07 Jul 2014 10:22:59 AM JST
+TheRiteOfWeddingOfHIHCrownPrinceAkihitoLocaleName
+* Mon 07 Jul 2014 10:24:03 AM JST
+1959
+* Mon 07 Jul 2014 10:24:18 AM JST
+1959
+* Mon 07 Jul 2014 10:24:32 AM JST
+4
+* Mon 07 Jul 2014 10:24:37 AM JST
+10
+* Mon 07 Jul 2014 10:25:39 AM JST
+TheFuneralCeremonyOfEmperorShowa
+* Mon 07 Jul 2014 10:25:56 AM JST
+class TheFuneralCeremonyOfEmperorShowaLocaleName(LocaleName):
+    r"""SUMMARY
+    """
+    _names = dict(English='The Funeral Ceremony of Emperor Showa',
+                  Japanese=u'昭和天皇の大喪の礼')
+
+
+* Mon 07 Jul 2014 10:26:50 AM JST
+class TheRiteOfWeddingOfHIHCrownPrinceAkihito(object):
+    r"""SUMMARY
+    """
+    start_year = 1959
+    end_year = 1959
+    month = 4
+    day = 10
+
+    def ismatch(self, year):
+        r"""SUMMARY
+
+        ismatch(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        return self.start_year <= year <= self.end_year
+
+    def getdate(self, year):
+        r"""SUMMARY
+
+        calc(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        return date(year, self.month, self.day)
+
+
+class TheRiteOfWeddingOfHIHCrownPrinceAkihitoDay(DayAbstract):
+    r"""SUMMARY
+    """
+
+    __names = TheRiteOfWeddingOfHIHCrownPrinceAkihitoLocaleName(
+        'English')
+    __days = [TheRiteOfWeddingOfHIHCrownPrinceAkihito()]
+
+    def ismatch(self, year):
+        r"""SUMMARY
+
+        ismatch(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        return self.__days[0].ismatch(year)
+
+    def getdate(self, year):
+        r"""SUMMARY
+
+        calc(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        return self.__days[0].getdate(year)
+
+
+
+* Mon 07 Jul 2014 10:27:04 AM JST
+TheFuneralCeremonyOfEmperorShowa
+* Mon 07 Jul 2014 10:27:31 AM JST
+1989
+* Mon 07 Jul 2014 10:27:45 AM JST
+1989
+* Mon 07 Jul 2014 10:28:34 AM JST
+TheCeremonyOfTheEnthronementOfHisMajestyTheEmperor
+* Mon 07 Jul 2014 10:28:51 AM JST
+class TheCeremonyOfTheEnthronementOfHisMajestyTheEmperorLocaleName(LocaleName):
+    r"""SUMMARY
+    """
+    _names = dict(
+        English='The Ceremony of the Enthronement of His Majesty the Emperor',
+        Japanese=u'即位礼 正殿の儀')
+
+
+
+* Mon 07 Jul 2014 10:29:13 AM JST
+class TheFuneralCeremonyOfEmperorShowa(object):
+    r"""SUMMARY
+    """
+    start_year = 1989
+    end_year = 1989
+    month = 2
+    day = 24
+
+    def ismatch(self, year):
+        r"""SUMMARY
+
+        ismatch(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        return self.start_year <= year <= self.end_year
+
+    def getdate(self, year):
+        r"""SUMMARY
+
+        calc(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        return date(year, self.month, self.day)
+
+
+class TheFuneralCeremonyOfEmperorShowaDay(DayAbstract):
+    r"""SUMMARY
+    """
+
+    __names = TheFuneralCeremonyOfEmperorShowaLocaleName(
+        'English')
+    __days = [TheFuneralCeremonyOfEmperorShowa()]
+
+    def ismatch(self, year):
+        r"""SUMMARY
+
+        ismatch(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        return self.__days[0].ismatch(year)
+
+    def getdate(self, year):
+        r"""SUMMARY
+
+        calc(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        return self.__days[0].getdate(year)
+
+
+
+* Mon 07 Jul 2014 10:29:24 AM JST
+TheCeremonyOfTheEnthronementOfHisMajestyTheEmperor
+* Mon 07 Jul 2014 10:29:51 AM JST
+1990
+* Mon 07 Jul 2014 10:29:56 AM JST
+1990
+* Mon 07 Jul 2014 10:30:01 AM JST
+11
+* Mon 07 Jul 2014 10:30:05 AM JST
+12
+* Mon 07 Jul 2014 10:30:16 AM JST
+TheRiteOfWeddingOfHIHCrownPrinceNaruhito
+* Mon 07 Jul 2014 10:30:31 AM JST
+class TheRiteOfWeddingOfHIHCrownPrinceNaruhitoLocaleName(LocaleName):
+    r"""SUMMARY
+    """
+    _names = dict(English='The Rite of Wedding of HIH Crown Prince Naruhito',
+                  Japanese=u'皇太子徳仁親王の結婚の儀')
+
+
+* Mon 07 Jul 2014 10:30:54 AM JST
+class TheCeremonyOfTheEnthronementOfHisMajestyTheEmperor(object):
+    r"""SUMMARY
+    """
+    start_year = 1990
+    end_year = 1990
+    month = 11
+    day = 12
+
+    def ismatch(self, year):
+        r"""SUMMARY
+
+        ismatch(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        return self.start_year <= year <= self.end_year
+
+    def getdate(self, year):
+        r"""SUMMARY
+
+        calc(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        return date(year, self.month, self.day)
+
+
+class TheCeremonyOfTheEnthronementOfHisMajestyTheEmperorDay(DayAbstract):
+    r"""SUMMARY
+    """
+
+    __names = TheCeremonyOfTheEnthronementOfHisMajestyTheEmperorLocaleName(
+        'English')
+    __days = [TheCeremonyOfTheEnthronementOfHisMajestyTheEmperor()]
+
+    def ismatch(self, year):
+        r"""SUMMARY
+
+        ismatch(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        return self.__days[0].ismatch(year)
+
+    def getdate(self, year):
+        r"""SUMMARY
+
+        calc(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        return self.__days[0].getdate(year)
+
+
+
+* Mon 07 Jul 2014 10:31:10 AM JST
+TheRiteOfWeddingOfHIHCrownPrinceNaruhito
+* Mon 07 Jul 2014 10:31:22 AM JST
+1993
+* Mon 07 Jul 2014 10:31:31 AM JST
+6
+* Mon 07 Jul 2014 10:31:36 AM JST
+9
+* Mon 07 Jul 2014 10:34:15 AM JST
+class NationalHolidayLocaleName(LocaleName):
+    r"""SUMMARY
+    """
+    _names = dict(English='National Holiday', Japanese=u'国民の休日')
+
+
+
+* Mon 07 Jul 2014 10:34:32 AM JST
+
+* Mon 07 Jul 2014 10:34:32 AM JST
+
+* Mon 07 Jul 2014 10:34:32 AM JST
+from holiday_japan.holidays.dayabstract import DayAbstract
+
+* Mon 07 Jul 2014 10:34:32 AM JST
+
+* Mon 07 Jul 2014 10:34:32 AM JST
+
+* Mon 07 Jul 2014 10:34:33 AM JST
+from datetime import date
+
+* Mon 07 Jul 2014 10:35:13 AM JST
+from holiday_japan.holidays.nameabstract import LocaleName
+
+
+class NationalHolidayLocaleName(LocaleName):
+    r"""SUMMARY
+    """
+    _names = dict(English='National Holiday', Japanese=u'国民の休日')
+
+* Mon 07 Jul 2014 10:35:19 AM JST
+National
+* Mon 07 Jul 2014 10:35:45 AM JST
+'Substitute Holiday'
+* Mon 07 Jul 2014 10:35:52 AM JST
+'振替休日
+* Mon 07 Jul 2014 10:35:55 AM JST
+'振替休日'
+* Mon 07 Jul 2014 11:00:49 AM JST
+
+* Mon 07 Jul 2014 11:00:51 AM JST
+autumnalequinox
+* Mon 07 Jul 2014 11:00:57 AM JST
+AutumnalEquinoxDay
+* Mon 07 Jul 2014 11:01:04 AM JST
+childrens
+* Mon 07 Jul 2014 11:01:18 AM JST
+comingofage
+* Mon 07 Jul 2014 11:01:31 AM JST
+constitutionmemorial
+* Mon 07 Jul 2014 11:02:13 AM JST
+culture
+* Mon 07 Jul 2014 11:02:22 AM JST
+emperorsbirth
+* Mon 07 Jul 2014 11:02:35 AM JST
+green
+* Mon 07 Jul 2014 11:02:42 AM JST
+GreenLocaleName
+* Mon 07 Jul 2014 11:02:50 AM JST
+laborthanksgiving
+* Mon 07 Jul 2014 11:04:01 AM JST
+ComingOfAge
+* Mon 07 Jul 2014 11:04:18 AM JST
+marine
+* Mon 07 Jul 2014 11:04:28 AM JST
+nationalfoundation
+* Mon 07 Jul 2014 11:04:54 AM JST
+newyears
+* Mon 07 Jul 2014 11:05:06 AM JST
+respectfortheaged
+* Mon 07 Jul 2014 11:05:18 AM JST
+showaday
+* Mon 07 Jul 2014 11:05:51 AM JST
+Showa
+* Mon 07 Jul 2014 11:06:09 AM JST
+sports
+* Mon 07 Jul 2014 11:06:19 AM JST
+substitute
+* Mon 07 Jul 2014 11:06:24 AM JST
+
+* Mon 07 Jul 2014 11:06:24 AM JST
+
+* Mon 07 Jul 2014 11:06:25 AM JST
+
+* Mon 07 Jul 2014 11:06:28 AM JST
+
+* Mon 07 Jul 2014 11:06:28 AM JST
+
+* Mon 07 Jul 2014 11:06:28 AM JST
+from holiday_japan.holidays. import 
+
+* Mon 07 Jul 2014 11:06:55 AM JST
+theceremonyoftheenthronementofhismajestytheemperor
+* Mon 07 Jul 2014 11:07:25 AM JST
+thefuneralceremonyofemperorshowa
+* Mon 07 Jul 2014 11:07:37 AM JST
+theriteofweddingofhihcrownprinceakihito
+* Mon 07 Jul 2014 11:07:52 AM JST
+theriteofweddingofhihcrownprincenaruhito
+* Mon 07 Jul 2014 11:08:25 AM JST
+vernalequinox
+* Mon 07 Jul 2014 11:08:47 AM JST
+from holiday_japan.holidays.autumnalequinox import AutumnalEquinoxDay
+from holiday_japan.holidays.childrens import ChildrensDay
+from holiday_japan.holidays.comingofage import ComingOfAgeDay
+from holiday_japan.holidays.constitutionmemorial import ConstitutionMemorialDay
+from holiday_japan.holidays.culture import CultureDay
+from holiday_japan.holidays.emperorsbirth import EmperorsBirthDay
+from holiday_japan.holidays.green import GreenDay
+from holiday_japan.holidays.laborthanksgiving import LaborThanksgivingDay
+from holiday_japan.holidays.marine import MarineDay
+from holiday_japan.holidays.nationalfoundation import NationalFoundationDay
+from holiday_japan.holidays.newyears import NewYearsDay
+from holiday_japan.holidays.respectfortheaged import RespectForTheAgedDay
+from holiday_japan.holidays.showaday import ShowaDay
+from holiday_japan.holidays.sports import SportsDay
+from holiday_japan.holidays.theceremonyoftheenthronementofhismajestytheemperor import TheCeremonyOfTheEnthronementOfHisMajestyTheEmperorDay
+from holiday_japan.holidays.thefuneralceremonyofemperorshowa import TheFuneralCeremonyOfEmperorShowaDay
+from holiday_japan.holidays.theriteofweddingofhihcrownprinceakihito import TheRiteOfWeddingOfHIHCrownPrinceAkihitoDay
+from holiday_japan.holidays.theriteofweddingofhihcrownprincenaruhito import TheRiteOfWeddingOfHIHCrownPrinceNaruhitoDay
+from holiday_japan.holidays.vernalequinox import VernalEquinoxDay
+
+* Mon 07 Jul 2014 11:09:08 AM JST
+from holiday_japan.holidays.sports import 
+* Mon 07 Jul 2014 11:09:09 AM JST
+from holiday_japan.holidays.showaday import 
+* Mon 07 Jul 2014 11:09:09 AM JST
+from holiday_japan.holidays.respectfortheaged import 
+* Mon 07 Jul 2014 11:09:09 AM JST
+from holiday_japan.holidays.newyears import 
+* Mon 07 Jul 2014 11:09:09 AM JST
+from holiday_japan.holidays.nationalfoundation import 
+* Mon 07 Jul 2014 11:09:09 AM JST
+from holiday_japan.holidays.marine import 
+* Mon 07 Jul 2014 11:09:09 AM JST
+from holiday_japan.holidays.laborthanksgiving import 
+* Mon 07 Jul 2014 11:09:09 AM JST
+from holiday_japan.holidays.green import 
+* Mon 07 Jul 2014 11:09:10 AM JST
+from holiday_japan.holidays.emperorsbirth import 
+* Mon 07 Jul 2014 11:09:10 AM JST
+from holiday_japan.holidays.culture import 
+* Mon 07 Jul 2014 11:09:10 AM JST
+from holiday_japan.holidays.constitutionmemorial import 
+* Mon 07 Jul 2014 11:09:10 AM JST
+from holiday_japan.holidays.comingofage import 
+* Mon 07 Jul 2014 11:09:10 AM JST
+from holiday_japan.holidays.childrens import 
+* Mon 07 Jul 2014 11:09:10 AM JST
+from holiday_japan.holidays.autumnalequinox import 
+* Mon 07 Jul 2014 11:09:24 AM JST
+from holiday_japan.holidays.theceremonyoftheenthronementofhismajestytheemperor import 
+* Mon 07 Jul 2014 11:09:29 AM JST
+from holiday_japan.holidays.thefuneralceremonyofemperorshowa import 
+* Mon 07 Jul 2014 11:09:33 AM JST
+import 
+* Mon 07 Jul 2014 11:09:34 AM JST
+from holiday_japan.holidays.theriteofweddingofhihcrownprinceakihito import 
+* Mon 07 Jul 2014 11:09:37 AM JST
+from holiday_japan.holidays.theriteofweddingofhihcrownprincenaruhito import 
+* Mon 07 Jul 2014 11:09:40 AM JST
+import 
+* Mon 07 Jul 2014 11:09:42 AM JST
+from holiday_japan.holidays.vernalequinox import 
+* Mon 07 Jul 2014 11:09:58 AM JST
+'AutumnalEquinoxDay',
+'ChildrensDay',
+'ComingOfAgeDay',
+'ConstitutionMemorialDay',
+'CultureDay',
+'EmperorsBirthDay',
+'GreenDay',
+'LaborThanksgivingDay',
+'MarineDay',
+'NationalFoundationDay',
+'NewYearsDay',
+'RespectForTheAgedDay',
+'ShowaDay',
+'SportsDay',
+'TheCeremonyOfTheEnthronementOfHisMajestyTheEmperorDay',
+'TheFuneralCeremonyOfEmperorShowaDay',
+'TheRiteOfWeddingOfHIHCrownPrinceAkihitoDay',
+'TheRiteOfWeddingOfHIHCrownPrinceNaruhitoDay',
+'VernalEquinoxDay',
+
+* Mon 07 Jul 2014 12:47:21 PM JST
+object
+* Mon 07 Jul 2014 12:47:38 PM JST
+date
+* Mon 07 Jul 2014 12:47:54 PM JST
+self.
+* Mon 07 Jul 2014 12:52:18 PM JST
+
+* Mon 07 Jul 2014 12:52:18 PM JST
+
+* Mon 07 Jul 2014 12:52:18 PM JST
+from holiday_japan.holiday import Holiday
+
+* Mon 07 Jul 2014 12:53:07 PM JST
+da
+* Mon 07 Jul 2014 12:53:08 PM JST
+form da
+* Mon 07 Jul 2014 12:53:23 PM JST
+return
+* Mon 07 Jul 2014 12:54:37 PM JST
+holiday
+* Mon 07 Jul 2014 12:56:32 PM JST
+calc
+* Mon 07 Jul 2014 12:56:39 PM JST
+from holiday_japan.holidays.dayabstract import DayAbstract
+* Mon 07 Jul 2014 12:56:55 PM JST
+ComingOfAgeDay
+* Mon 07 Jul 2014 12:57:54 PM JST
+from calendar import Calendar
+* Mon 07 Jul 2014 12:57:57 PM JST
+from t1.dateutil import MON
+* Mon 07 Jul 2014 12:58:04 PM JST
+Calendar(MON).monthdatescalendar(year, self.month)[0]
+* Mon 07 Jul 2014 12:58:15 PM JST
+year
+* Mon 07 Jul 2014 12:58:25 PM JST
+self.
+* Mon 07 Jul 2014 12:59:37 PM JST
+Calendar(MON).monthdatescalendar(2000, 1)[0]
+* Mon 07 Jul 2014 01:03:18 PM JST
+from holiday_japan import holidays
+* Mon 07 Jul 2014 01:03:25 PM JST
+c=holidays.ComingOfAgeDay()
+* Mon 07 Jul 2014 01:03:30 PM JST
+c.getdate(2001)
+* Mon 07 Jul 2014 01:03:38 PM JST
+from holiday_japan import holidays
+c=holidays.ComingOfAgeDay()
+
+* Mon 07 Jul 2014 01:03:41 PM JST
+c.getdate(2001)
+* Mon 07 Jul 2014 01:04:40 PM JST
+from datetime import date
+* Mon 07 Jul 2014 01:04:54 PM JST
+from holiday_japan.holiday import Holiday
+* Mon 07 Jul 2014 01:04:58 PM JST
+Holiday
+* Mon 07 Jul 2014 01:06:45 PM JST
+name, 
+* Mon 07 Jul 2014 01:07:10 PM JST
+from holiday_japan.holiday import Holiday
+* Mon 07 Jul 2014 01:08:19 PM JST
+from datetime import date
+* Mon 07 Jul 2014 01:10:27 PM JST
+datetime.date(da)
+* Mon 07 Jul 2014 01:13:21 PM JST
+self
+* Mon 07 Jul 2014 01:14:38 PM JST
+date
+* Mon 07 Jul 2014 01:14:49 PM JST
+date
+* Mon 07 Jul 2014 01:21:36 PM JST
+isclass
+* Mon 07 Jul 2014 01:21:40 PM JST
+from holiday_japan import holidays
+* Mon 07 Jul 2014 01:21:45 PM JST
+holidays
+* Mon 07 Jul 2014 01:22:40 PM JST
+object
+* Mon 07 Jul 2014 01:23:36 PM JST
+from 
+* Mon 07 Jul 2014 01:23:37 PM JST
+from holiday_japan import holidays
+* Mon 07 Jul 2014 01:23:41 PM JST
+from holiday_japan import holidays
+* Mon 07 Jul 2014 01:23:45 PM JST
+holidays
+* Mon 07 Jul 2014 01:23:53 PM JST
+Holiday
+* Mon 07 Jul 2014 01:24:32 PM JST
+
+* Mon 07 Jul 2014 01:24:32 PM JST
+
+* Mon 07 Jul 2014 01:24:32 PM JST
+        # cls._name = name
+
+* Mon 07 Jul 2014 01:26:05 PM JST
+
+* Mon 07 Jul 2014 01:26:05 PM JST
+
+* Mon 07 Jul 2014 01:26:05 PM JST
+        return Holiday(self, )
+
+* Mon 07 Jul 2014 01:26:38 PM JST
+return 
+* Mon 07 Jul 2014 01:26:42 PM JST
+return Holiday(self, day.year, day.month, day.day)
+* Mon 07 Jul 2014 01:26:53 PM JST
+from holiday_japan.holiday import Holiday
+* Mon 07 Jul 2014 01:27:27 PM JST
+return
+* Mon 07 Jul 2014 01:27:31 PM JST
+return Holiday(self, day.year, day.month, day.day)
+* Mon 07 Jul 2014 01:27:54 PM JST
+return
+* Mon 07 Jul 2014 01:28:32 PM JST
+return
+* Mon 07 Jul 2014 01:29:01 PM JST
+return
+* Mon 07 Jul 2014 01:29:25 PM JST
+return
+* Mon 07 Jul 2014 01:29:49 PM JST
+return
+* Mon 07 Jul 2014 01:30:10 PM JST
+return
+* Mon 07 Jul 2014 01:30:34 PM JST
+return
+* Mon 07 Jul 2014 01:31:01 PM JST
+return
+* Mon 07 Jul 2014 01:31:28 PM JST
+return
+* Mon 07 Jul 2014 01:32:06 PM JST
+return
+* Mon 07 Jul 2014 01:32:25 PM JST
+return
+* Mon 07 Jul 2014 01:32:50 PM JST
+return
+* Mon 07 Jul 2014 01:33:13 PM JST
+return
+* Mon 07 Jul 2014 01:33:40 PM JST
+return
+* Mon 07 Jul 2014 01:33:59 PM JST
+return
+* Mon 07 Jul 2014 01:34:17 PM JST
+return
+* Mon 07 Jul 2014 01:34:43 PM JST
+from holiday_japan import holidays
+c=holidays.ComingOfAgeDay()
+
+* Mon 07 Jul 2014 01:34:45 PM JST
+c.getdate(2001)
+* Mon 07 Jul 2014 01:37:57 PM JST
+    def getname(self, ):
+        return self.__names.getname()
+
+    def setlocale(self, localename):
+        self.__names.setlocale(localename)
+
+
+* Mon 07 Jul 2014 01:41:22 PM JST
+from holiday_japan import holidays
+c=holidays.ComingOfAgeDay()
+
+* Mon 07 Jul 2014 01:41:25 PM JST
+c.getdate(2001)
+* Mon 07 Jul 2014 01:58:50 PM JST
+
+* Mon 07 Jul 2014 01:58:50 PM JST
+
+* Mon 07 Jul 2014 01:58:50 PM JST
+    __names = ComingOfAgeLocaleName('English')
+
+* Mon 07 Jul 2014 01:58:57 PM JST
+    def __init__(self, localename='English'):
+        r"""SUMMARY
+
+        __init__(localename='English')
+
+        @Arguments:
+        - `localename`:
+
+        @Return:
+        """
+        self.__names = ComingOfAgeLocaleName(localename)
+
+
+* Mon 07 Jul 2014 01:59:20 PM JST
+AutumnalEquinoxLocaleName
+* Mon 07 Jul 2014 01:59:32 PM JST
+
+* Mon 07 Jul 2014 01:59:33 PM JST
+
+* Mon 07 Jul 2014 01:59:33 PM JST
+    __names = AutumnalEquinoxLocaleName('English')
+
+* Mon 07 Jul 2014 01:59:48 PM JST
+ChildrensLocaleName
+* Mon 07 Jul 2014 01:59:54 PM JST
+
+* Mon 07 Jul 2014 01:59:54 PM JST
+
+* Mon 07 Jul 2014 01:59:54 PM JST
+    __names = ChildrensLocaleName('English')
+
+* Mon 07 Jul 2014 02:00:07 PM JST
+ConstitutionMemorialLocaleName
+* Mon 07 Jul 2014 02:00:13 PM JST
+
+* Mon 07 Jul 2014 02:00:13 PM JST
+
+* Mon 07 Jul 2014 02:00:13 PM JST
+    __names = ConstitutionMemorialLocaleName('English')
+
+* Mon 07 Jul 2014 02:00:19 PM JST
+CultureLocaleName
+* Mon 07 Jul 2014 02:00:24 PM JST
+
+* Mon 07 Jul 2014 02:00:24 PM JST
+
+* Mon 07 Jul 2014 02:00:24 PM JST
+    __names = CultureLocaleName('English')
+
+* Mon 07 Jul 2014 02:00:33 PM JST
+EmperorsBirthLocaleName
+* Mon 07 Jul 2014 02:00:38 PM JST
+
+* Mon 07 Jul 2014 02:00:39 PM JST
+
+* Mon 07 Jul 2014 02:00:39 PM JST
+    __names = EmperorsBirthLocaleName('English')
+
+* Mon 07 Jul 2014 02:00:45 PM JST
+GreenLocaleName
+* Mon 07 Jul 2014 02:00:51 PM JST
+
+* Mon 07 Jul 2014 02:00:51 PM JST
+
+* Mon 07 Jul 2014 02:00:51 PM JST
+    __names = GreenLocaleName('English')
+
+* Mon 07 Jul 2014 02:01:08 PM JST
+LaborThanksgivingLocaleName
+* Mon 07 Jul 2014 02:01:12 PM JST
+
+* Mon 07 Jul 2014 02:01:12 PM JST
+
+* Mon 07 Jul 2014 02:01:12 PM JST
+    __names = LaborThanksgivingLocaleName('English')
+
+* Mon 07 Jul 2014 02:01:22 PM JST
+MarineLocaleName
+* Mon 07 Jul 2014 02:01:27 PM JST
+
+* Mon 07 Jul 2014 02:01:27 PM JST
+
+* Mon 07 Jul 2014 02:01:27 PM JST
+    __names = MarineLocaleName('English')
+
+* Mon 07 Jul 2014 02:01:33 PM JST
+NationalFoundationLocaleName
+* Mon 07 Jul 2014 02:01:39 PM JST
+
+* Mon 07 Jul 2014 02:01:39 PM JST
+
+* Mon 07 Jul 2014 02:01:39 PM JST
+    __names = NationalFoundationLocaleName('English')
+
+* Mon 07 Jul 2014 02:02:03 PM JST
+NewYearsLocaleName
+* Mon 07 Jul 2014 02:02:07 PM JST
+
+* Mon 07 Jul 2014 02:02:07 PM JST
+
+* Mon 07 Jul 2014 02:02:07 PM JST
+    __names = NewYearsLocaleName('English')
+
+* Mon 07 Jul 2014 02:02:14 PM JST
+RespectForTheAgedLocaleName
+* Mon 07 Jul 2014 02:02:19 PM JST
+
+* Mon 07 Jul 2014 02:02:19 PM JST
+
+* Mon 07 Jul 2014 02:02:19 PM JST
+    __names = RespectForTheAgedLocaleName('English')
+
+* Mon 07 Jul 2014 02:02:28 PM JST
+ShowaLocaleName
+* Mon 07 Jul 2014 02:02:34 PM JST
+
+* Mon 07 Jul 2014 02:02:35 PM JST
+
+* Mon 07 Jul 2014 02:02:35 PM JST
+    __names = ShowaLocaleName('English')
+
+* Mon 07 Jul 2014 02:02:44 PM JST
+SportsLocaleName
+* Mon 07 Jul 2014 02:02:49 PM JST
+
+* Mon 07 Jul 2014 02:02:49 PM JST
+
+* Mon 07 Jul 2014 02:02:49 PM JST
+    __names = SportsLocaleName('English')
+
+* Mon 07 Jul 2014 02:02:56 PM JST
+TheCeremonyOfTheEnthronementOfHisMajestyTheEmperorLocaleName
+* Mon 07 Jul 2014 02:03:21 PM JST
+            
+* Mon 07 Jul 2014 02:03:31 PM JST
+
+* Mon 07 Jul 2014 02:03:31 PM JST
+
+* Mon 07 Jul 2014 02:03:31 PM JST
+    __names = TheCeremonyOfTheEnthronementOfHisMajestyTheEmperorLocaleName(
+
+* Mon 07 Jul 2014 02:03:31 PM JST
+    __names = TheCeremonyOfTheEnthronementOfHisMajestyTheEmperorLocaleName(
+
+* Mon 07 Jul 2014 02:03:31 PM JST
+    __names = TheCeremonyOfTheEnthronementOfHisMajestyTheEmperorLocaleName(
+        'English')
+
+* Mon 07 Jul 2014 02:03:42 PM JST
+TheFuneralCeremonyOfEmperorShowaLocaleName
+* Mon 07 Jul 2014 02:03:47 PM JST
+
+* Mon 07 Jul 2014 02:03:47 PM JST
+
+* Mon 07 Jul 2014 02:03:47 PM JST
+    __names = TheFuneralCeremonyOfEmperorShowaLocaleName(
+
+* Mon 07 Jul 2014 02:03:47 PM JST
+    __names = TheFuneralCeremonyOfEmperorShowaLocaleName(
+
+* Mon 07 Jul 2014 02:03:47 PM JST
+    __names = TheFuneralCeremonyOfEmperorShowaLocaleName(
+        'English')
+
+* Mon 07 Jul 2014 02:03:52 PM JST
+TheRiteOfWeddingOfHIHCrownPrinceAkihitoLocaleName
+* Mon 07 Jul 2014 02:04:10 PM JST
+TheRiteOfWeddingOfHIHCrownPrinceNaruhitoLocaleName
+* Mon 07 Jul 2014 02:04:31 PM JST
+VernalEquinoxLocaleName
+* Mon 07 Jul 2014 02:04:36 PM JST
+
+* Mon 07 Jul 2014 02:04:36 PM JST
+
+* Mon 07 Jul 2014 02:04:36 PM JST
+    __names = VernalEquinoxLocaleName('English')
+
+* Mon 07 Jul 2014 02:05:22 PM JST
+from holiday_japan import holidays
+c=holidays.ComingOfAgeDay()
+
+* Mon 07 Jul 2014 02:05:24 PM JST
+c.getdate(2001)
+* Mon 07 Jul 2014 02:05:30 PM JST
+c=holidays.ComingOfAgeDay()
+* Mon 07 Jul 2014 02:10:54 PM JST
+_holidays
+* Mon 07 Jul 2014 02:12:25 PM JST
+holidays.AutumnalEquinoxDay,
+holidays.ChildrensDay,
+holidays.ComingOfAgeDay,
+holidays.ConstitutionMemorialDay,
+holidays.CultureDay,
+holidays.EmperorsBirthDay,
+holidays.GreenDay,
+holidays.LaborThanksgivingDay,
+holidays.MarineDay,
+holidays.NationalFoundationDay,
+holidays.NewYearsDay,
+holidays.RespectForTheAgedDay,
+holidays.ShowaDay,
+holidays.SportsDay,
+holidays.TheCeremonyOfTheEnthronementOfHisMajestyTheEmperorDay,
+holidays.TheFuneralCeremonyOfEmperorShowaDay,
+holidays.TheRiteOfWeddingOfHIHCrownPrinceAkihitoDay,
+holidays.TheRiteOfWeddingOfHIHCrownPrinceNaruhitoDay,
+holidays.VernalEquinoxDay,
+
+* Mon 07 Jul 2014 02:12:34 PM JST
+holidays.VernalEquinoxDay,
+* Mon 07 Jul 2014 02:21:00 PM JST
+lis, append = make_list_append()
+* Mon 07 Jul 2014 02:21:04 PM JST
+
+* Mon 07 Jul 2014 02:21:04 PM JST
+
+* Mon 07 Jul 2014 02:21:04 PM JST
+        lis, append = make_list_append()
+
+* Mon 07 Jul 2014 02:21:14 PM JST
+
+* Mon 07 Jul 2014 02:21:14 PM JST
+
+* Mon 07 Jul 2014 02:21:14 PM JST
+        lis, extend
+
+* Mon 07 Jul 2014 02:21:23 PM JST
+def make_list_append():
+    r"""Initialize list appending for loop.
+
+    make_list_append()
+
+    @Return:
+    container as list and appending method
+
+    like use
+    >>> intlist, append = make_list_append()
+    >>> for i in range(5):
+            append(i)
+    >>> initlist
+    [0, 1, 2, 3, 4]
+    """
+    list_ = []
+    append = list_.append
+    return list_, append
+
+
+
+* Mon 07 Jul 2014 02:21:34 PM JST
+append
+* Mon 07 Jul 2014 02:21:43 PM JST
+append
+* Mon 07 Jul 2014 02:21:47 PM JST
+append
+* Mon 07 Jul 2014 02:21:56 PM JST
+append
+* Mon 07 Jul 2014 02:22:01 PM JST
+append
+* Mon 07 Jul 2014 02:22:06 PM JST
+append
+* Mon 07 Jul 2014 02:22:11 PM JST
+append
+* Mon 07 Jul 2014 02:26:21 PM JST
+        if not isinstance(startdate, date):
+            # TODO: (Atami) [2014/07/07]
+            raise TypeError()
+
+* Mon 07 Jul 2014 02:26:24 PM JST
+start
+* Mon 07 Jul 2014 02:26:30 PM JST
+        if not isinstance(startdate, date):
+            # TODO: (Atami) [2014/07/07]
+            raise TypeError()
+        if not isinstance(enddate, date):
+            # TODO: (Atami) [2014/07/07]
+            raise TypeError()
+
+* Mon 07 Jul 2014 02:26:55 PM JST
+        if not isinstance(startdate, date):
+            # TODO: (Atami) [2014/07/07]
+            raise TypeError()
+
+* Mon 07 Jul 2014 02:27:00 PM JST
+startdate
+* Mon 07 Jul 2014 02:28:14 PM JST
+get
+* Mon 07 Jul 2014 02:28:23 PM JST
+get_date_range
+* Mon 07 Jul 2014 02:30:18 PM JST
+S.l.s.index
+* Mon 07 Jul 2014 02:44:12 PM JST
+        if startdate == enddate:
+            raise StandardError()
+        if enddate < startdate:
+            startdate, enddate = enddate, startdate
+
+* Mon 07 Jul 2014 02:44:42 PM JST
+enddate
+* Mon 07 Jul 2014 02:46:50 PM JST
+holi
+* Mon 07 Jul 2014 02:46:50 PM JST
+form holi
+* Mon 07 Jul 2014 02:47:12 PM JST
+HolidayGenerator
+* Mon 07 Jul 2014 02:47:50 PM JST
+__
+* Mon 07 Jul 2014 02:48:03 PM JST
+2000)
+* Mon 07 Jul 2014 02:48:03 PM JST
+get_a_year(2000)
+* Mon 07 Jul 2014 02:48:05 PM JST
+h.__
+* Mon 07 Jul 2014 02:48:05 PM JST
+h.__
+* Mon 07 Jul 2014 02:48:09 PM JST
+from holiday_japan.generator import HolidayGenerator
+* Mon 07 Jul 2014 02:48:14 PM JST
+h=HolidayGenerator()
+* Mon 07 Jul 2014 02:48:21 PM JST
+from holiday_japan.generator import HolidayGenerator
+h=HolidayGenerator()
+* Mon 07 Jul 2014 02:49:28 PM JST
+        weekday, nth = self.weeknth[0], self.weeknth[1]
+        calendar = Calendar(MON).monthdatescalendar(year, self.month)
+        for cday in calendar[0]:
+            if cday.month == self.month and cday.weekday() == weekday:
+                nth -= 1
+                return calendar[nth][weekday]
+
+* Mon 07 Jul 2014 02:50:31 PM JST
+from holiday_japan.generator import HolidayGenerator
+h=HolidayGenerator()
+* Mon 07 Jul 2014 02:56:35 PM JST
+from holiday_japan import holidays
+c=holidays.ComingOfAgeDay()
+
+* Mon 07 Jul 2014 02:56:38 PM JST
+c.getdate(2001)
+* Mon 07 Jul 2014 02:58:45 PM JST
+holidays.ComingOfAgeDay()
+* Mon 07 Jul 2014 02:59:09 PM JST
+_ComingOfAgeDay__days
+* Mon 07 Jul 2014 03:02:44 PM JST
+from calendar import Calendar
+* Mon 07 Jul 2014 03:02:56 PM JST
+from t1.dateutil import MON
+* Mon 07 Jul 2014 03:03:03 PM JST
+Calendar(MON).monthdatescalendar(year, self.month)
+* Mon 07 Jul 2014 03:12:56 PM JST
+[datetime.date(1999, 12, 27),
+ datetime.date(1999, 12, 28),
+ datetime.date(1999, 12, 29),
+ datetime.date(1999, 12, 30),
+ datetime.date(1999, 12, 31),
+ datetime.date(2000, 1, 1),
+ datetime.date(2000, 1, 2)]
+
+* Mon 07 Jul 2014 03:13:21 PM JST
+# remove
+* Mon 07 Jul 2014 03:19:46 PM JST
+MONDAY
+* Mon 07 Jul 2014 03:23:17 PM JST
+            if cday.month == self.month and cday.weekday() == weekday:
+                nth -= 1
+
+* Mon 07 Jul 2014 03:24:46 PM JST
+NthWeekDay
+* Mon 07 Jul 2014 03:31:38 PM JST
+isneed
+* Mon 07 Jul 2014 03:33:20 PM JST
+        for cday in self._calendar[0]:
+            if cday.month == self.month and cday.weekday() == weekday:
+
+* Mon 07 Jul 2014 03:33:29 PM JST
+true
+* Mon 07 Jul 2014 03:36:20 PM JST
+date
+* Mon 07 Jul 2014 03:36:52 PM JST
+NthWeekDay
+* Mon 07 Jul 2014 03:36:56 PM JST
+from t1.dateutil.nthweekday import NthWeekDay
+* Mon 07 Jul 2014 03:37:14 PM JST
+nthweekday
+* Mon 07 Jul 2014 03:37:18 PM JST
+NthWeekDay
+* Mon 07 Jul 2014 03:37:56 PM JST
+month
+* Mon 07 Jul 2014 03:38:14 PM JST
+
+* Mon 07 Jul 2014 03:38:14 PM JST
+
+* Mon 07 Jul 2014 03:38:14 PM JST
+    __nthweek = NthWeekDay(2000, 1)
+
+* Mon 07 Jul 2014 03:38:21 PM JST
+__nthweek = 
+* Mon 07 Jul 2014 03:38:52 PM JST
+self.weeknth[0]
+* Mon 07 Jul 2014 03:39:10 PM JST
+self.weeknth[1]
+* Mon 07 Jul 2014 03:39:37 PM JST
+2000
+* Mon 07 Jul 2014 03:39:49 PM JST
+1
+* Mon 07 Jul 2014 03:40:30 PM JST
+    def getdate(self, year):
+        r"""SUMMARY
+
+        calc(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        return NthWeekDay(year, self.month).get(
+            self.weeknth[0], self.weeknth[1])
+
+* Mon 07 Jul 2014 03:41:18 PM JST
+
+* Mon 07 Jul 2014 03:41:18 PM JST
+
+* Mon 07 Jul 2014 03:41:18 PM JST
+from calendar import Calendar
+
+* Mon 07 Jul 2014 03:41:19 PM JST
+
+* Mon 07 Jul 2014 03:41:19 PM JST
+
+* Mon 07 Jul 2014 03:41:19 PM JST
+from calendar import Calendar
+
+* Mon 07 Jul 2014 03:41:23 PM JST
+from t1.dateutil import NthWeekDay
+* Mon 07 Jul 2014 03:41:35 PM JST
+NthWeekDay
+* Mon 07 Jul 2014 03:41:38 PM JST
+
+* Mon 07 Jul 2014 03:41:38 PM JST
+
+* Mon 07 Jul 2014 03:41:38 PM JST
+from t1.dateutil import NthWeekDay
+
+* Mon 07 Jul 2014 03:41:41 PM JST
+NthWeekDay
+* Mon 07 Jul 2014 03:41:44 PM JST
+
+* Mon 07 Jul 2014 03:41:44 PM JST
+
+* Mon 07 Jul 2014 03:41:44 PM JST
+from t1.dateutil import NthWeekDay
+
+* Mon 07 Jul 2014 03:42:19 PM JST
+    def getdate(self, year):
+        r"""SUMMARY
+
+        calc(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        day = self._getgetter(year).getdate(year)
+        return Holiday(self, day.year, day.month, day.day)
+
+* Mon 07 Jul 2014 03:42:40 PM JST
+    def getdate(self, year):
+        r"""SUMMARY
+
+        calc(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        return NthWeekDay(year, self.month).get(
+            self.weeknth[0], self.weeknth[1])
+
+* Mon 07 Jul 2014 03:42:48 PM JST
+from t1.dateutil import NthWeekDay, MON
+* Mon 07 Jul 2014 03:42:53 PM JST
+
+* Mon 07 Jul 2014 03:42:53 PM JST
+
+* Mon 07 Jul 2014 03:42:53 PM JST
+from calendar import Calendar
+
+* Mon 07 Jul 2014 03:43:27 PM JST
+    def getdate(self, year):
+        r"""SUMMARY
+
+        calc(year)
+
+        @Arguments:
+        - `year`:
+
+        @Return:
+        """
+        return NthWeekDay(year, self.month).get(
+            self.weeknth[0], self.weeknth[1])
+
+* Mon 07 Jul 2014 03:43:37 PM JST
+from t1.dateutil import NthWeekDay, MON
+* Mon 07 Jul 2014 03:43:42 PM JST
+
+* Mon 07 Jul 2014 03:43:42 PM JST
+
+* Mon 07 Jul 2014 03:43:42 PM JST
+from t1.dateutil import MON
+
+* Mon 07 Jul 2014 03:52:35 PM JST
+from holiday_japan import holidays
+c=holidays.ComingOfAgeDay()
+
+* Mon 07 Jul 2014 03:52:38 PM JST
+c.getdate(2001)
+* Mon 07 Jul 2014 03:52:44 PM JST
+c.getdate(2001)
+* Mon 07 Jul 2014 03:52:48 PM JST
+from holiday_japan.generator import HolidayGenerator
+h=HolidayGenerator()
+* Mon 07 Jul 2014 03:56:23 PM JST
+start_
+* Mon 07 Jul 2014 03:56:25 PM JST
+
+* Mon 07 Jul 2014 03:56:25 PM JST
+
+* Mon 07 Jul 2014 03:56:25 PM JST
+    end_year = 1959
+
+* Mon 07 Jul 2014 03:56:29 PM JST
+start_
+* Mon 07 Jul 2014 03:56:31 PM JST
+ <= year <= self.end_year
+* Mon 07 Jul 2014 03:59:02 PM JST
+
+* Mon 07 Jul 2014 03:59:02 PM JST
+
+* Mon 07 Jul 2014 03:59:02 PM JST
+        self._holidays.sort()
+
+* Mon 07 Jul 2014 04:03:35 PM JST
+
+* Mon 07 Jul 2014 04:03:35 PM JST
+
+* Mon 07 Jul 2014 04:03:35 PM JST
+        # 11 month
+
+* Mon 07 Jul 2014 04:03:35 PM JST
+
+* Mon 07 Jul 2014 04:03:35 PM JST
+
+* Mon 07 Jul 2014 04:03:35 PM JST
+        # 10 month
+
+* Mon 07 Jul 2014 04:03:36 PM JST
+
+* Mon 07 Jul 2014 04:03:36 PM JST
+
+* Mon 07 Jul 2014 04:03:36 PM JST
+        # 9 month
+
+* Mon 07 Jul 2014 04:03:37 PM JST
+
+* Mon 07 Jul 2014 04:03:37 PM JST
+
+* Mon 07 Jul 2014 04:03:37 PM JST
+        # 7 month
+
+* Mon 07 Jul 2014 04:03:38 PM JST
+
+* Mon 07 Jul 2014 04:03:38 PM JST
+
+* Mon 07 Jul 2014 04:03:38 PM JST
+        # 5 month
+
+* Mon 07 Jul 2014 04:03:39 PM JST
+
+* Mon 07 Jul 2014 04:03:39 PM JST
+
+* Mon 07 Jul 2014 04:03:39 PM JST
+        # 4 month
+
+* Mon 07 Jul 2014 04:03:39 PM JST
+
+* Mon 07 Jul 2014 04:03:39 PM JST
+
+* Mon 07 Jul 2014 04:03:40 PM JST
+        # 3 month
+
+* Mon 07 Jul 2014 04:03:40 PM JST
+
+* Mon 07 Jul 2014 04:03:40 PM JST
+
+* Mon 07 Jul 2014 04:03:40 PM JST
+        # 2 month
+
+* Mon 07 Jul 2014 04:03:41 PM JST
+
+* Mon 07 Jul 2014 04:03:41 PM JST
+
+* Mon 07 Jul 2014 04:03:41 PM JST
+        # 1 month
+
+* Mon 07 Jul 2014 04:07:33 PM JST
+h.get_date_range()
+* Mon 07 Jul 2014 04:08:51 PM JST
+date(2000, 7, 1), date(2000, 12, 1)
+* Mon 07 Jul 2014 06:31:17 PM JST
+timedelta
+* Mon 07 Jul 2014 06:32:41 PM JST
+from itertools import izip
+* Mon 07 Jul 2014 06:36:33 PM JST
+t
+* Mon 07 Jul 2014 06:36:33 PM JST
+form t
+* Mon 07 Jul 2014 06:41:52 PM JST
+
+* Mon 07 Jul 2014 06:41:52 PM JST
+NationalHolidayLocaleName
+* Mon 07 Jul 2014 06:41:56 PM JST
+national
+* Mon 07 Jul 2014 06:41:56 PM JST
+holidays.national
+* Mon 07 Jul 2014 06:43:33 PM JST
+holiday = 
+* Mon 07 Jul 2014 06:44:17 PM JST
+from holiday_japan.holiday import Holiday
+* Mon 07 Jul 2014 06:44:49 PM JST
+
+* Mon 07 Jul 2014 06:44:49 PM JST
+
+* Mon 07 Jul 2014 06:44:49 PM JST
+        length = len(hlis)
+
+* Mon 07 Jul 2014 06:50:11 PM JST
+self, 
+* Mon 07 Jul 2014 06:50:12 PM JST
+Holiday
+* Mon 07 Jul 2014 06:50:54 PM JST
+    def getname(self, ):
+        return self.__names.getname()
+
+    def setlocale(self, localename):
+        self.__names.setlocale(localename)
+
+
+* Mon 07 Jul 2014 06:57:29 PM JST
+replace?
+* Mon 07 Jul 2014 11:59:24 PM JST
+__lis
+* Tue 08 Jul 2014 12:00:27 AM JST
+__lis.
+* Tue 08 Jul 2014 12:02:37 AM JST
+            if (after - before) == self.__twodaydelta:
+                day = after.replace(day=after.day - 1)
+                if day.weekday() == SUN:
+                    continue
+                append(self.getdate(day.year, day.month, day.day))
+
+* Tue 08 Jul 2014 12:03:29 AM JST
+self.__lis.sort()
+* Tue 08 Jul 2014 12:03:31 AM JST
+lis
+* Tue 08 Jul 2014 12:03:55 AM JST
+continue
+* Tue 08 Jul 2014 12:05:09 AM JST
+            day = after.replace(day=after.day - 1)
+            if day.weekday() == SUN:
+                return
+            self._append(self.getdate(day.year, day.month, day.day))
+
+* Tue 08 Jul 2014 12:05:36 AM JST
+day
+* Tue 08 Jul 2014 12:16:50 AM JST
+start_date
+* Tue 08 Jul 2014 12:19:50 AM JST
+
+* Tue 08 Jul 2014 12:19:50 AM JST
+
+* Tue 08 Jul 2014 12:19:50 AM JST
+        # not enforcemented law
+
+* Tue 08 Jul 2014 12:21:00 AM JST
+    def __init__(self, localename='English'):
+        r"""
+
+        @Arguments:
+        - `localename`:
+        """
+        self.__names = NationalHolidayLocaleName(localename)
+        self.__lis = []
+
+    def getname(self, ):
+        return self.__names.getname()
+
+    def setlocale(self, localename):
+        self.__names.setlocale(localename)
+
+
+* Tue 08 Jul 2014 12:21:19 AM JST
+
+* Tue 08 Jul 2014 12:21:21 AM JST
+national
+* Tue 08 Jul 2014 12:21:25 AM JST
+Substitute
+* Tue 08 Jul 2014 12:21:31 AM JST
+substitute
+* Tue 08 Jul 2014 12:21:35 AM JST
+NationalHoliday
+* Tue 08 Jul 2014 12:21:38 AM JST
+LocaleName
+* Tue 08 Jul 2014 12:21:42 AM JST
+SubstituteLocaleName
+* Tue 08 Jul 2014 12:28:18 AM JST
+    def getdate(self, year, month, day):
+        r"""SUMMARY
+
+        getdate(year, month, day)
+
+        @Arguments:
+        - `year`:
+        - `month`:
+        - `day`:
+
+        @Return:
+        """
+        return Holiday(self, year, month, day)
+
+    def setlist(self, lis):
+        r"""SUMMARY
+
+        setlist(lis)
+
+        @Arguments:
+        - `lis`:
+
+        @Return:
+        """
+        self.__lis = lis
+
+
+* Tue 08 Jul 2014 12:28:28 AM JST
+    def getdate(self, year, month, day):
+        r"""SUMMARY
+
+        getdate(year, month, day)
+
+        @Arguments:
+        - `year`:
+        - `month`:
+        - `day`:
+
+        @Return:
+        """
+        return Holiday(self, year, month, day)
+
+    def setlist(self, lis):
+        r"""SUMMARY
+
+        setlist(lis)
+
+        @Arguments:
+        - `lis`:
+
+        @Return:
+        """
+        self.__lis = lis
+
+    def _append(self, day):
+        r"""SUMMARY
+
+        _append(day)
+
+        @Arguments:
+        - `day`:
+
+        @Return:
+        """
+        self.__lis.append(day)
+
+
+* Tue 08 Jul 2014 12:29:01 AM JST
+    def make(self, hlis):
+        r"""SUMMARY
+
+        make(hlist)
+
+        @Arguments:
+        - `hlist`:
+
+        @Return:
+        """
+        self.setlist(hlis)
+        self.__lis.sort()
+        if self.__lis[-1] <= self.start_date:
+            # not enforcemented law
+            return self.__lis
+        for before, after in izip(self.__lis[:], self.__lis[1:]):
+            self._nationalappend(before, after)
+        self.__lis.sort()
+        return self.__lis
+
+* Tue 08 Jul 2014 12:35:52 AM JST
+holi
+* Tue 08 Jul 2014 12:36:00 AM JST
+self, 
+* Tue 08 Jul 2014 12:36:50 AM JST
+            while day in self.__lis:
+                day = day.replace(day=day.day + 1)
+
+* Tue 08 Jul 2014 12:37:24 AM JST
+day.replace(day=day.day + abs(week - 7))
+* Tue 08 Jul 2014 12:37:27 AM JST
+
+* Tue 08 Jul 2014 12:37:27 AM JST
+
+* Tue 08 Jul 2014 12:37:27 AM JST
+            day = 
+
+* Tue 08 Jul 2014 12:39:14 AM JST
+class SubstituteDay(object):
+    r"""SUMMARY
+    """
+
+    def __init__(self, localename='English'):
+        r"""
+
+        @Arguments:
+        - `localename`:
+        """
+        self.__names = SubstituteLocaleName(localename)
+        self.__lis = []
+
+    def getname(self, ):
+        return self.__names.getname()
+
+    def setlocale(self, localename):
+        self.__names.setlocale(localename)
+
+    def ismatch(self, year):
+        r"""SUMMARY
+
+        ismatch()
+
+        @Return:
+        """
+        return True
+
+    def getdate(self, year, month, day):
+        r"""SUMMARY
+
+        getdate(year, month, day)
+
+        @Arguments:
+        - `year`:
+        - `month`:
+        - `day`:
+
+        @Return:
+        """
+        return Holiday(self, year, month, day)
+
+    def setlist(self, lis):
+        r"""SUMMARY
+
+        setlist(lis)
+
+        @Arguments:
+        - `lis`:
+
+        @Return:
+        """
+        self.__lis = lis
+
+    def _append(self, day):
+        r"""SUMMARY
+
+        _append(day)
+
+        @Arguments:
+        - `day`:
+
+        @Return:
+        """
+        self.__lis.append(day)
+
+    def _incrementday(self, day):
+        r"""SUMMARY
+
+        _incrementday(day)
+
+        @Arguments:
+        - `day`:
+
+        @Return:
+        """
+        while day in self.__lis:
+            day = day.replace(day=day.day + 1)
+        return day
+
+    def _substitudeappend(self, day):
+        r"""SUMMARY
+
+        _substitudeappend(holiday)
+
+        @Arguments:
+        - `holiday`:
+
+        @Return:
+        """
+        week = day.weekday()
+        if week == SUN:
+            day = self._incrementday(day.replace(day=day.day + abs(week - 7)))
+            self._append(self.getdate(day.year, day.month, day.day))
+
+    def make(self, hlis):
+        r"""SUMMARY
+
+        make(hlist)
+
+        @Arguments:
+        - `hlist`:
+
+        @Return:
+        """
+        self.setlist(hlis)
+        self.__lis.sort()
+        for holiday in self.__lis[:]:
+            self._substitudeappend(holiday)
+        self.__lis.sort()
+        return self.__lis
+
+
+
+* Tue 08 Jul 2014 12:41:35 AM JST
+Conbination
+* Tue 08 Jul 2014 12:42:51 AM JST
+            
+* Tue 08 Jul 2014 12:43:26 AM JST
+1)
+* Tue 08 Jul 2014 12:43:27 AM JST
+0, 1)
+* Tue 08 Jul 2014 12:43:27 AM JST
+xrange(0, 1)
+* Tue 08 Jul 2014 12:57:23 AM JST
+CombinationDay
+* Tue 08 Jul 2014 12:58:25 AM JST
+CombinationDay
+* Tue 08 Jul 2014 12:58:40 AM JST
+self._combinationsday
+* Tue 08 Jul 2014 12:59:51 AM JST
+lis
+* Tue 08 Jul 2014 01:11:26 AM JST
+HolidayGenerator
+* Tue 08 Jul 2014 01:12:15 AM JST
+import
+* Tue 08 Jul 2014 01:12:20 AM JST
+HolidayGenerator
+* Tue 08 Jul 2014 08:31:13 AM JST
+HolidayGenerator
+* Tue 08 Jul 2014 08:34:26 AM JST
+type
+* Tue 08 Jul 2014 08:34:42 AM JST
+    def __typecheck(self, types):
+        r"""SUMMARY
+
+        __typecheck(types)
+
+        @Arguments:
+        - `types`:
+
+        @Return:
+        """
+        if not isinstance(types, date):
+            # TODO: (Atami) [2014/07/07]
+            raise TypeError()
+
+
+* Tue 08 Jul 2014 08:36:15 AM JST
+        if startdate == enddate:
+            raise StandardError()
+
+* Tue 08 Jul 2014 08:36:24 AM JST
+startdate
+* Tue 08 Jul 2014 08:36:28 AM JST
+enddate
+* Tue 08 Jul 2014 08:37:04 AM JST
+_start
+* Tue 08 Jul 2014 08:37:05 AM JST
+self._start
+* Tue 08 Jul 2014 08:38:35 AM JST
+[x for x in lis[:] if (startdate <= x <= enddate)]
+* Tue 08 Jul 2014 08:38:39 AM JST
+startdate
+* Tue 08 Jul 2014 08:38:42 AM JST
+enddate
+* Tue 08 Jul 2014 08:38:55 AM JST
+
+* Tue 08 Jul 2014 08:38:55 AM JST
+
+* Tue 08 Jul 2014 08:38:55 AM JST
+from holiday_japan.generator import HolidayGenerator
+
+* Tue 08 Jul 2014 09:05:29 AM JST
+        if self._start == self._end:
+            raise StandardError()
+        if self._end < self._start:
+            self._start, self._end = self._end, self._start
+
+* Tue 08 Jul 2014 09:05:49 AM JST
+        if self._start == self._end:
+            raise StandardError()
+        if self._end < self._start:
+            self._start, self._end = self._end, self._start
+
+* Tue 08 Jul 2014 09:07:21 AM JST
+StandardError
+* Tue 08 Jul 2014 09:07:30 AM JST
+Command
+* Tue 08 Jul 2014 09:08:48 AM JST
+    def __typecheck(self, types):
+        r"""SUMMARY
+
+        __typecheck(types)
+
+        @Arguments:
+        - `types`:
+
+        @Return:
+        """
+        if not isinstance(types, date):
+            # TODO: (Atami) [2014/07/07]
+            raise TypeError()
+
+
+* Tue 08 Jul 2014 09:11:47 AM JST
+self._day.year
+* Tue 08 Jul 2014 09:13:39 AM JST
+class NextCommand(Command):
+    r"""SUMMARY
+    """
+
+    def __init__(self, generator, day):
+        r"""
+
+        @Arguments:
+        - `generator`:
+        """
+        self.__generator = generator
+        self.__typecheck(day)
+        self._day = day
+
+    def __typecheck(self, types):
+        r"""SUMMARY
+
+        __typecheck(types)
+
+        @Arguments:
+        - `types`:
+
+        @Return:
+        """
+        if not isinstance(types, date):
+            # TODO: (Atami) [2014/07/07]
+            raise TypeError()
+
+    def execute(self, ):
+        r"""SUMMARY
+
+        execute()
+
+        @Return:
+        """
+        lis = self.__generator.get_year_range(self._day.year, self._day.year + 1)
+        return lis[lis.index(self._day) + 1]
+
+* Tue 08 Jul 2014 09:13:45 AM JST
+Next
+* Tue 08 Jul 2014 09:15:39 AM JST
+        self.__typecheck(day)
+* Tue 08 Jul 2014 09:15:50 AM JST
+    def __init__(self, generator, day):
+        r"""
+
+        @Arguments:
+        - `generator`:
+        """
+        self.__generator = generator
+        self.__typecheck(day)
+        self._day = day
+
+    def __typecheck(self, types):
+        r"""SUMMARY
+
+        __typecheck(types)
+
+        @Arguments:
+        - `types`:
+
+        @Return:
+        """
+        if not isinstance(types, date):
+            # TODO: (Atami) [2014/07/07]
+            raise TypeError()
+
+    def execute(self, ):
+        r"""SUMMARY
+
+        execute()
+
+        @Return:
+        """
+        lis = self.__generator.get_year_range(self._day.year, self._day.year + 1)
+        return lis[lis.index(self._day) + 1]
+
+* Tue 08 Jul 2014 09:18:53 AM JST
+lis[lis.index(self._day) + 1]
+* Tue 08 Jul 2014 09:21:06 AM JST
+
+* Tue 08 Jul 2014 09:21:06 AM JST
+
+* Tue 08 Jul 2014 09:21:06 AM JST
+        return lis[lis.index(self._day) + 1]
+
+* Tue 08 Jul 2014 09:25:28 AM JST
+
+* Tue 08 Jul 2014 09:25:28 AM JST
+
+* Tue 08 Jul 2014 09:25:28 AM JST
+        return lis[lis.index(self._day) - 1]
+
+* Tue 08 Jul 2014 09:29:28 AM JST
+ale
+* Tue 08 Jul 2014 09:29:31 AM JST
+ale
+* Tue 08 Jul 2014 09:29:35 AM JST
+ale
+* Tue 08 Jul 2014 09:30:03 AM JST
+
+* Tue 08 Jul 2014 09:30:03 AM JST
+
+* Tue 08 Jul 2014 09:30:03 AM JST
+from datetime import date
+
+* Tue 08 Jul 2014 09:30:34 AM JST
+HolidayGenerator
+* Tue 08 Jul 2014 09:33:06 AM JST
+    def nextholiday(self, day):
+        r"""SUMMARY
+        
+        nextholiday(day)
+        
+        @Arguments:
+        - `day`:
+        
+        @Return:
+        """
+        return NextCommand(self._generator, day).execute()
+
+* Tue 08 Jul 2014 09:34:36 AM JST
+HolidayCommander
+* Tue 08 Jul 2014 09:48:04 AM JST
+form 
+* Wed 09 Jul 2014 04:59:15 AM JST
+name
+* Wed 09 Jul 2014 04:59:17 AM JST
+name
+* Wed 09 Jul 2014 05:00:56 AM JST
+
+* Wed 09 Jul 2014 05:00:56 AM JST
+
+* Wed 09 Jul 2014 05:00:56 AM JST
+        self._initlist = initlist or list()
+
+* Wed 09 Jul 2014 05:02:01 AM JST
+avoider
+* Wed 09 Jul 2014 05:03:32 AM JST
+import 
+* Wed 09 Jul 2014 05:03:52 AM JST
+import 
+* Wed 09 Jul 2014 05:03:52 AM JST
+avoider import 
+* Wed 09 Jul 2014 05:05:13 AM JST
+append
+* Wed 09 Jul 2014 05:05:23 AM JST
+extend
+* Wed 09 Jul 2014 05:06:58 AM JST
+make_list_append
+* Wed 09 Jul 2014 05:08:59 AM JST
+
+* Wed 09 Jul 2014 05:08:59 AM JST
+
+* Wed 09 Jul 2014 05:08:59 AM JST
+from t1.listutil import make_list_append, make_list_extend
+
+* Wed 09 Jul 2014 05:11:16 AM JST
+
+* Wed 09 Jul 2014 05:11:16 AM JST
+
+* Wed 09 Jul 2014 05:11:16 AM JST
+import path
+
+* Wed 09 Jul 2014 05:12:00 AM JST
+result, append = make_list_append()
+* Wed 09 Jul 2014 05:12:02 AM JST
+make_list_append()
+* Wed 09 Jul 2014 05:12:02 AM JST
+append = make_list_append()
+* Wed 09 Jul 2014 05:12:47 AM JST
+getattr(self._obj, attr)
+* Wed 09 Jul 2014 05:14:44 AM JST
+make_list_append
+* Wed 09 Jul 2014 05:16:00 AM JST
+
+* Wed 09 Jul 2014 05:16:00 AM JST
+
+* Wed 09 Jul 2014 05:16:00 AM JST
+from t1.listutil import make_list_append
+
+* Wed 09 Jul 2014 05:28:56 AM JST
+ListDotAvoider
+* Wed 09 Jul 2014 08:12:37 AM JST
+att
+* Wed 09 Jul 2014 08:14:23 AM JST
+from dotavoider import ListDotAvoider
+* Wed 09 Jul 2014 08:14:35 AM JST
+ListDotAvoider
+* Wed 09 Jul 2014 08:15:46 AM JST
+ListDotAvoider().getattributes('append', 'extend')
+* Wed 09 Jul 2014 08:15:54 AM JST
+from dotavoider import ListDotAvoider
+* Wed 09 Jul 2014 08:16:09 AM JST
+ListDotAvoider().getattributes('append', 'extend')
+* Wed 09 Jul 2014 08:16:44 AM JST
+tuple(
+* Wed 09 Jul 2014 08:17:04 AM JST
+ListDotAvoider().getattributes('append', 'extend')
+* Wed 09 Jul 2014 08:17:59 AM JST
+is
+* Wed 09 Jul 2014 08:18:00 AM JST
+not is
+* Wed 09 Jul 2014 08:18:00 AM JST
+attr not is
+* Wed 09 Jul 2014 08:18:51 AM JST
+lis, 
+* Wed 09 Jul 2014 08:18:56 AM JST
+lis, 
+* Wed 09 Jul 2014 08:19:49 AM JST
+            if not isinstance(attr, str):
+                raise TypeError(attr)
+
+* Wed 09 Jul 2014 08:19:58 AM JST
+attr
+* Wed 09 Jul 2014 08:20:01 AM JST
+attr
+* Wed 09 Jul 2014 08:21:46 AM JST
+ListDotAvoider().getattributes('append', 'extend')
+* Wed 09 Jul 2014 11:32:25 AM JST
+args, 
+* Wed 09 Jul 2014 11:34:17 AM JST
+object
+* Wed 09 Jul 2014 11:34:39 AM JST
+_names
+* Wed 09 Jul 2014 11:34:40 AM JST
+self._names
+* Wed 09 Jul 2014 11:36:38 AM JST
+English', 
+* Wed 09 Jul 2014 11:36:39 AM JST
+default='English', 
+* Wed 09 Jul 2014 11:42:00 AM JST
+object
+* Wed 09 Jul 2014 11:42:29 AM JST
+str
+* Wed 09 Jul 2014 11:42:38 AM JST
+args, 
+* Wed 09 Jul 2014 11:43:25 AM JST
+self
+* Wed 09 Jul 2014 11:45:29 AM JST
+basestring
+* Wed 09 Jul 2014 11:46:39 AM JST
+object
+* Wed 09 Jul 2014 11:46:54 AM JST
+from collections 
+* Wed 09 Jul 2014 11:47:01 AM JST
+import 
+* Wed 09 Jul 2014 11:47:15 AM JST
+UserString
+* Wed 09 Jul 2014 11:48:49 AM JST
+UserString
+* Wed 09 Jul 2014 11:48:52 AM JST
+from UserString import UserString
+* Wed 09 Jul 2014 11:49:36 AM JST
+_default
+* Wed 09 Jul 2014 11:50:37 AM JST
+
+* Wed 09 Jul 2014 11:50:37 AM JST
+
+* Wed 09 Jul 2014 11:50:37 AM JST
+        if 'default' in kwargs:
+
+* Wed 09 Jul 2014 11:50:38 AM JST
+
+* Wed 09 Jul 2014 11:50:38 AM JST
+
+* Wed 09 Jul 2014 11:50:38 AM JST
+        else:
+
+* Wed 09 Jul 2014 11:50:38 AM JST
+        else:
+
+* Wed 09 Jul 2014 11:50:39 AM JST
+        else:
+            self._default = 'English'
+
+* Wed 09 Jul 2014 11:50:42 AM JST
+kwargs.pop('default')
+* Wed 09 Jul 2014 11:50:56 AM JST
+default
+* Wed 09 Jul 2014 11:51:01 AM JST
+default
+* Wed 09 Jul 2014 11:53:24 AM JST
+not 
+* Wed 09 Jul 2014 11:54:24 AM JST
+        if locale not in self._names:
+            # TODO: (Atami) [2014/07/09]
+            raise StandardError()
+
+* Wed 09 Jul 2014 11:57:08 AM JST
+h.setlocale('Japanese')
+* Wed 09 Jul 2014 11:58:20 AM JST
+'あいう')
+* Wed 09 Jul 2014 11:58:45 AM JST
+u'あいう'.encode('utf-8')
+* Wed 09 Jul 2014 12:05:41 PM JST
+def __str__(self): return str(self.data)
+* Wed 09 Jul 2014 12:05:54 PM JST
+str(
+* Wed 09 Jul 2014 12:12:19 PM JST
+_
+* Wed 09 Jul 2014 12:12:20 PM JST
+self._
+* Wed 09 Jul 2014 12:13:00 PM JST
+Japanese
+* Wed 09 Jul 2014 12:13:12 PM JST
+English
+* Wed 09 Jul 2014 12:13:42 PM JST
+print 
+* Wed 09 Jul 2014 12:15:50 PM JST
+    def __getitem__(self, index): return self.__class__(self.data[index])
+
+* Wed 09 Jul 2014 12:16:02 PM JST
+    def __getslice__(self, start, end):
+        start = max(start, 0); end = max(end, 0)
+        return self.__class__(self.data[start:end])
+
+* Wed 09 Jul 2014 12:16:14 PM JST
+    def __add__(self, other):
+        if isinstance(other, UserString):
+            return self.__class__(self.data + other.data)
+        elif isinstance(other, basestring):
+            return self.__class__(self.data + other)
+        else:
+            return self.__class__(self.data + str(other))
+    def __radd__(self, other):
+        if isinstance(other, basestring):
+            return self.__class__(other + self.data)
+        else:
+            return self.__class__(str(other) + self.data)
+    def __mul__(self, n):
+        return self.__class__(self.data*n)
+
+* Wed 09 Jul 2014 12:16:19 PM JST
+    def __mod__(self, args):
+        return self.__class__(self.data % args)
+
+* Wed 09 Jul 2014 12:16:25 PM JST
+    def center(self, width, *args):
+        return self.__class__(self.data.center(width, *args))
+
+* Wed 09 Jul 2014 12:16:33 PM JST
+    def decode(self, encoding=None, errors=None): # XXX improve this?
+        if encoding:
+            if errors:
+                return self.__class__(self.data.decode(encoding, errors))
+            else:
+                return self.__class__(self.data.decode(encoding))
+        else:
+            return self.__class__(self.data.decode())
+    def encode(self, encoding=None, errors=None): # XXX improve this?
+        if encoding:
+            if errors:
+                return self.__class__(self.data.encode(encoding, errors))
+            else:
+                return self.__class__(self.data.encode(encoding))
+        else:
+            return self.__class__(self.data.encode())
+
+* Wed 09 Jul 2014 12:16:38 PM JST
+    def expandtabs(self, tabsize=8):
+        return self.__class__(self.data.expandtabs(tabsize))
+
+* Wed 09 Jul 2014 12:16:50 PM JST
+    def ljust(self, width, *args):
+        return self.__class__(self.data.ljust(width, *args))
+
+* Wed 09 Jul 2014 12:16:57 PM JST
+    def lower(self): return self.__class__(self.data.lower())
+
+* Wed 09 Jul 2014 12:17:01 PM JST
+    def lstrip(self, chars=None): return self.__class__(self.data.lstrip(chars))
+
+* Wed 09 Jul 2014 12:17:06 PM JST
+    def replace(self, old, new, maxsplit=-1):
+        return self.__class__(self.data.replace(old, new, maxsplit))
+
+* Wed 09 Jul 2014 12:17:13 PM JST
+    def rjust(self, width, *args):
+        return self.__class__(self.data.rjust(width, *args))
+
+* Wed 09 Jul 2014 12:17:19 PM JST
+    def rstrip(self, chars=None): return self.__class__(self.data.rstrip(chars))
+
+* Wed 09 Jul 2014 12:17:48 PM JST
+    def strip(self, chars=None): return self.__class__(self.data.strip(chars))
+    def swapcase(self): return self.__class__(self.data.swapcase())
+    def title(self): return self.__class__(self.data.title())
+    def translate(self, *args):
+        return self.__class__(self.data.translate(*args))
+    def upper(self): return self.__class__(self.data.upper())
+    def zfill(self, width): return self.__class__(self.data.zfill(width))
+
+* Wed 09 Jul 2014 12:33:26 PM JST
+self._names = kwargs
+* Wed 09 Jul 2014 12:34:10 PM JST
+        if locale not in self._names:
+            # TODO: (Atami) [2014/07/09]
+            raise StandardError()
+
+* Wed 09 Jul 2014 12:34:14 PM JST
+    def __checkin(self, locale):
+        r"""SUMMARY
+        
+        __checkin(locale)
+        
+        @Arguments:
+        - `locale`:
+        
+        @Return:
+        """
+        if locale not in self._names:
+            # TODO: (Atami) [2014/07/09]
+            raise StandardError()
+        
+
+* Wed 09 Jul 2014 12:36:33 PM JST
+_data = 
+* Wed 09 Jul 2014 12:36:33 PM JST
+self._data = 
+* Wed 09 Jul 2014 12:38:22 PM JST
+self
+* Wed 09 Jul 2014 12:40:21 PM JST
+_username
+* Wed 09 Jul 2014 12:40:24 PM JST
+self)
+* Wed 09 Jul 2014 12:40:24 PM JST
+str(self)
+* Wed 09 Jul 2014 12:40:31 PM JST
+self
+* Wed 09 Jul 2014 12:41:28 PM JST
+self
+* Wed 09 Jul 2014 12:42:38 PM JST
+str
+* Wed 09 Jul 2014 12:44:15 PM JST
+self.
+* Wed 09 Jul 2014 12:49:29 PM JST
+
+* Wed 09 Jul 2014 12:49:29 PM JST
+
+* Wed 09 Jul 2014 12:49:29 PM JST
+    __rmul__ = __mul__
+
+* Wed 09 Jul 2014 12:49:36 PM JST
+_
+* Wed 09 Jul 2014 12:49:36 PM JST
+self._
+* Wed 09 Jul 2014 12:50:21 PM JST
+self.
+* Wed 09 Jul 2014 12:52:01 PM JST
+    def count(self, sub, start=0, end=sys.maxint):
+        return self.data.count(sub, start, end)
+
+* Wed 09 Jul 2014 12:52:05 PM JST
+data
+* Wed 09 Jul 2014 12:52:07 PM JST
+self.data
+* Wed 09 Jul 2014 12:52:09 PM JST
+sel
+* Wed 09 Jul 2014 12:52:21 PM JST
+    def decode(self, encoding=None, errors=None): # XXX improve this?
+        if encoding:
+            if errors:
+                return self.__class__(self.data.decode(encoding, errors))
+            else:
+                return self.__class__(self.data.decode(encoding))
+        else:
+            return self.__class__(self.data.decode())
+    def encode(self, encoding=None, errors=None): # XXX improve this?
+        if encoding:
+            if errors:
+                return self.__class__(self.data.encode(encoding, errors))
+            else:
+                return self.__class__(self.data.encode(encoding))
+        else:
+            return self.__class__(self.data.encode())
+
+* Wed 09 Jul 2014 12:52:28 PM JST
+__class__
+* Wed 09 Jul 2014 12:52:29 PM JST
+self.__class__
+* Wed 09 Jul 2014 12:52:40 PM JST
+data
+* Wed 09 Jul 2014 12:52:40 PM JST
+self.data
+* Wed 09 Jul 2014 12:52:52 PM JST
+str(self).decode(encoding, errors)
+* Wed 09 Jul 2014 12:52:56 PM JST
+errors
+* Wed 09 Jul 2014 12:53:08 PM JST
+str(self).decode(encoding)
+* Wed 09 Jul 2014 12:53:25 PM JST
+encoding
+* Wed 09 Jul 2014 12:56:11 PM JST
+    def endswith(self, suffix, start=0, end=sys.maxint):
+        return self.data.endswith(suffix, start, end)
+
+* Wed 09 Jul 2014 12:56:17 PM JST
+data
+* Wed 09 Jul 2014 12:56:17 PM JST
+self.data
+* Wed 09 Jul 2014 12:56:24 PM JST
+    def expandtabs(self, tabsize=8):
+        return self.__class__(self.data.expandtabs(tabsize))
+
+* Wed 09 Jul 2014 12:56:42 PM JST
+    def find(self, sub, start=0, end=sys.maxint):
+        return self.data.find(sub, start, end)
+
+* Wed 09 Jul 2014 12:56:46 PM JST
+data.
+* Wed 09 Jul 2014 12:56:47 PM JST
+self.data.
+* Wed 09 Jul 2014 12:56:54 PM JST
+    def index(self, sub, start=0, end=sys.maxint):
+        return self.data.index(sub, start, end)
+
+* Wed 09 Jul 2014 12:56:58 PM JST
+data
+* Wed 09 Jul 2014 12:56:59 PM JST
+self.data
+* Wed 09 Jul 2014 12:57:00 PM JST
+sel
+* Wed 09 Jul 2014 12:57:54 PM JST
+    def join(self, seq): return self.data.join(seq)
+
+* Wed 09 Jul 2014 12:58:07 PM JST
+self
+* Wed 09 Jul 2014 12:58:18 PM JST
+    def ljust(self, width, *args):
+        return self.__class__(self.data.ljust(width, *args))
+
+* Wed 09 Jul 2014 12:58:25 PM JST
+sfl
+* Wed 09 Jul 2014 12:58:33 PM JST
+    def lower(self): return self.__class__(self.data.lower())
+
+* Wed 09 Jul 2014 12:58:57 PM JST
+    def lstrip(self, chars=None): return self.__class__(self.data.lstrip(chars))
+
+* Wed 09 Jul 2014 12:59:15 PM JST
+    def partition(self, sep):
+        return self.data.partition(sep)
+
+* Wed 09 Jul 2014 12:59:19 PM JST
+data
+* Wed 09 Jul 2014 12:59:19 PM JST
+self.data
+* Wed 09 Jul 2014 12:59:27 PM JST
+    def replace(self, old, new, maxsplit=-1):
+        return self.__class__(self.data.replace(old, new, maxsplit))
+
+* Wed 09 Jul 2014 12:59:35 PM JST
+self.__class__(self.data
+* Wed 09 Jul 2014 01:00:00 PM JST
+    def rfind(self, sub, start=0, end=sys.maxint):
+        return self.data.rfind(sub, start, end)
+
+* Wed 09 Jul 2014 01:00:17 PM JST
+    def rindex(self, sub, start=0, end=sys.maxint):
+        return self.data.rindex(sub, start, end)
+
+* Wed 09 Jul 2014 01:00:27 PM JST
+self.
+* Wed 09 Jul 2014 01:00:33 PM JST
+    def rjust(self, width, *args):
+        return self.__class__(self.data.rjust(width, *args))
+
+* Wed 09 Jul 2014 01:00:45 PM JST
+    def rpartition(self, sep):
+        return self.data.rpartition(sep)
+
+* Wed 09 Jul 2014 01:01:49 PM JST
+    def rstrip(self, chars=None): return self.__class__(self.data.rstrip(chars))
+
+* Wed 09 Jul 2014 01:02:48 PM JST
+    def split(self, sep=None, maxsplit=-1):
+        return self.data.split(sep, maxsplit)
+
+* Wed 09 Jul 2014 01:03:01 PM JST
+    def rsplit(self, sep=None, maxsplit=-1):
+        return self.data.rsplit(sep, maxsplit)
+
+* Wed 09 Jul 2014 01:03:12 PM JST
+sel
+* Wed 09 Jul 2014 01:03:18 PM JST
+    def splitlines(self, keepends=0): return self.data.splitlines(keepends)
+
+* Wed 09 Jul 2014 01:03:32 PM JST
+    def startswith(self, prefix, start=0, end=sys.maxint):
+        return self.data.startswith(prefix, start, end)
+
+* Wed 09 Jul 2014 01:03:40 PM JST
+self
+* Wed 09 Jul 2014 01:03:48 PM JST
+    def strip(self, chars=None): return self.__class__(self.data.strip(chars))
+
+* Wed 09 Jul 2014 01:04:05 PM JST
+    def swapcase(self): return self.__class__(self.data.swapcase())
+
+* Wed 09 Jul 2014 01:04:20 PM JST
+    def title(self): return self.__class__(self.data.title())
+    def translate(self, *args):
+
+* Wed 09 Jul 2014 01:04:24 PM JST
+    def title(self): return self.__class__(self.data.title())
+    def translate(self, *args):
+        return self.__class__(self.data.translate(*args))
+    def upper(self): return self.__class__(self.data.upper())
+    def zfill(self, width): return self.__class__(self.data.zfill(width))
+
+* Wed 09 Jul 2014 01:25:07 PM JST
+class HolidayName(object):
+    r"""SUMMARY
+    """
+    
+    def __init__(self, locale='English', **kwargs):
+        r"""
+        
+        @Arguments:
+        - `locale`:
+        """
+        self._locale = locale
+        self._names = kwargs
+
+    def __checkexists(self, locale):
+        r"""SUMMARY
+        
+        __checkin(locale)
+        
+        @Arguments:
+        - `locale`:
+        
+        @Return:
+        """
+        if locale not in self._names:
+            # TODO: (Atami) [2014/07/09]
+            raise StandardError()
+
+    def getname(self, locale):
+        r"""SUMMARY
+        
+        getname(locale)
+        
+        @Arguments:
+        - `locale`:
+        
+        @Return:
+        """
+        self.__checkexists(locale)
+        return self._names[locale]
+
+    def setlocale(self, locale):
+        r"""SUMMARY
+        
+        setlocale(locale)
+        
+        @Arguments:
+        - `locale`:
+        
+        @Return:
+        """
+        self.__checkexists(locale)
+        self._locale = locale
+
+    def __str__(self, ):
+        return self._names[self._locale]
+
+    def __repr__(self, ):
+        return repr(str(self))
+
+    def __hash__(self, ):
+        return hash(str(self))
+
+    def __cmp__(self, string):
+        if isinstance(string, self.__class__):
+            return cmp(self._names, string._names)
+        else:
+            return cmp(str(self), string)
+
+    def __contains__(self, char):
+        return char in str(self)
+
+    def __len__(self, ):
+        return len(str(self))
+
+    def __getitem__(self, index):
+        return str(self)[index]
+
+    def __getslice__(self, start, end):
+        start, end = max(start, 0), max(end, 0)
+        return str(self)[start:end]
+
+    def __add__(self, other):
+        if isinstance(other, self.__class__):
+            return str(self) + str(other)
+        return str(self) + other
+
+    def __radd__(self, other):
+        if isinstance(other, self.__class__):
+            return str(self) + str(other)
+        return str(self) + other
+            
+    def __mull__(self, n):
+        return str(self) * n
+
+    def __rmull__(self, n):
+        return str(self) * n
+
+    def __mod__(self, args):
+        return str(self) % args
+
+    def capitalize(self, ):
+        r"""SUMMARY
+        
+        capitalize()
+        
+        @Return:
+        """
+        return str(self).capitalize()
+
+    def center(self, width, *args):
+        r"""SUMMARY
+        
+        center(width, *args)
+        
+        @Arguments:
+        - `width`:
+        - `args`:
+        
+        @Return:
+        """
+        return str(self).center(width, *args)
+
+    def count(self, sub, start=0, end=sys.maxint):
+        return str(self).count(sub, start, end)
+
+    def decode(self, encoding=None, errors=None): # XXX improve this?
+        if encoding:
+            if errors:
+                return str(self).decode(encoding, errors)
+            else:
+                return str(self).decode(encoding)
+        else:
+            return str(self).decode()
+
+    def encode(self, encoding=None, errors=None): # XXX improve this?
+        if encoding:
+            if errors:
+                return str(self).encode(encoding, errors)
+            else:
+                return str(self).encode(encoding)
+        else:
+            return str(self).encode()
+
+    def endswith(self, suffix, start=0, end=sys.maxint):
+        return str(self).endswith(suffix, start, end)
+
+    def expandtabs(self, tabsize=8):
+        return str(self).expandtabs(tabsize)
+
+    def find(self, sub, start=0, end=sys.maxint):
+        return str(self).find(sub, start, end)
+
+    def index(self, sub, start=0, end=sys.maxint):
+        return str(self).index(sub, start, end)
+
+    def join(self, seq):
+        return str(self).join(seq)
+
+    def ljust(self, width, *args):
+        return str(self).ljust(width, *args)
+
+    def lstrip(self, chars=None):
+        return str(self).lstrip(chars)
+
+    def partition(self, sep):
+        return str(self).partition(sep)
+
+    def replace(self, old, new, maxsplit=-1):
+        return str(self).replace(old, new, maxsplit)
+
+    def rfind(self, sub, start=0, end=sys.maxint):
+        return str(self).rfind(sub, start, end)
+
+    def rindex(self, sub, start=0, end=sys.maxint):
+        return str(self).rindex(sub, start, end)
+        
+    def rjust(self, width, *args):
+        return str(self).rjust(width, *args)
+
+    def rpartition(self, sep):
+        return str(self).rpartition(sep)
+
+    def rstrip(self, chars=None):
+        return str(self).rstrip(chars)
+
+    def split(self, sep=None, maxsplit=-1):
+        return str(self).split(sep, maxsplit)
+
+    def rsplit(self, sep=None, maxsplit=-1):
+        return str(self).rsplit(sep, maxsplit)
+
+    def splitlines(self, keepends=0):
+        return str(self).splitlines(keepends)
+
+    def startswith(self, prefix, start=0, end=sys.maxint):
+        return str(self).startswith(prefix, start, end)
+
+    def strip(self, chars=None):
+        return str(self).strip(chars)
+
+    def swapcase(self):
+        return str(self).swapcase()
+
+    def title(self):
+        return str(self).title()
+    def translate(self, *args):
+        return str(self).translate(*args)
+    def upper(self):
+        return str(self).upper()
+    def zfill(self, width):
+        return str(self).zfill(width)
+
+
+* Wed 09 Jul 2014 01:47:22 PM JST
+
+* Wed 09 Jul 2014 01:47:23 PM JST
+LocaleName
+* Wed 09 Jul 2014 01:47:25 PM JST
+nameabstract 
+* Wed 09 Jul 2014 01:47:37 PM JST
+HolidayName
+* Wed 09 Jul 2014 01:47:45 PM JST
+English='Autumnal Equinox Day', Japanese=u'秋分の日'
+* Wed 09 Jul 2014 01:48:38 PM JST
+
+* Wed 09 Jul 2014 01:48:38 PM JST
+
+* Wed 09 Jul 2014 01:48:38 PM JST
+from holidayjapan.holidays.nameabstract import LocaleName
+
+* Wed 09 Jul 2014 01:50:14 PM JST
+from holidayjapan.holidays.holidaynames import HolidayName
+* Wed 09 Jul 2014 01:50:26 PM JST
+English="Children's Day", Japanese=u'こどもの日'
+* Wed 09 Jul 2014 01:50:50 PM JST
+
+* Wed 09 Jul 2014 01:50:50 PM JST
+
+* Wed 09 Jul 2014 01:50:50 PM JST
+    _names = HolidayName(English="Children's Day", Japanese=u'こどもの日')
+
+* Wed 09 Jul 2014 01:51:07 PM JST
+.getname()
+* Wed 09 Jul 2014 01:51:49 PM JST
+from holidayjapan.holidays.holidaynames import HolidayName
+* Wed 09 Jul 2014 01:52:19 PM JST
+English='Coming of Age Day', Japanese=u'成人の日'
+* Wed 09 Jul 2014 01:52:35 PM JST
+.getname()
+* Wed 09 Jul 2014 01:53:56 PM JST
+from holidayjapan.holidays.holidaynames import HolidayName
+* Wed 09 Jul 2014 01:54:04 PM JST
+English='Constitution Memorial Day', Japanese=u'憲法記念日'
+* Wed 09 Jul 2014 01:54:42 PM JST
+s.getname()
+* Wed 09 Jul 2014 01:55:08 PM JST
+English='Culture Day', Japanese=u'文化の日'
+* Wed 09 Jul 2014 01:55:34 PM JST
+s.getname()
+* Wed 09 Jul 2014 01:56:34 PM JST
+English="Emperor's Birthday", Japanese=u'天皇誕生日'
+* Wed 09 Jul 2014 01:56:58 PM JST
+s.getname()
+* Wed 09 Jul 2014 01:57:20 PM JST
+English='Green Day', Japanese=u'みどりの日'
+* Wed 09 Jul 2014 01:57:45 PM JST
+s.getname()
+* Wed 09 Jul 2014 01:58:06 PM JST
+English='Labor Thanksgiving Day', Japanese=u'勤労感謝の日'
+* Wed 09 Jul 2014 01:58:34 PM JST
+s.getname()
+* Wed 09 Jul 2014 01:58:51 PM JST
+English='Marine Day', Japanese=u'海の日'
+* Wed 09 Jul 2014 01:59:16 PM JST
+s.getname()
+* Wed 09 Jul 2014 01:59:45 PM JST
+English='National Foundation Day', Japanese=u'建国記念の日'
+* Wed 09 Jul 2014 02:00:12 PM JST
+s.getname()
+* Wed 09 Jul 2014 02:00:46 PM JST
+English='National Holiday', Japanese=u'国民の休日'
+* Wed 09 Jul 2014 02:01:53 PM JST
+English='New Years Day', Japanese=u'元日'
+* Wed 09 Jul 2014 02:02:22 PM JST
+s.getname()
+* Wed 09 Jul 2014 02:03:04 PM JST
+English='Respect for the Aged Day', Japanese=u'敬老の日'
+* Wed 09 Jul 2014 02:03:30 PM JST
+s.getname()
+* Wed 09 Jul 2014 02:04:15 PM JST
+English='Showa Day', Japanese=u'昭和の日'
+* Wed 09 Jul 2014 02:04:38 PM JST
+s.getname()
+* Wed 09 Jul 2014 02:04:53 PM JST
+English='(Health and) Sports Day', Japanese=u'体育の日'
+* Wed 09 Jul 2014 02:05:26 PM JST
+getname()
+* Wed 09 Jul 2014 02:06:17 PM JST
+English='Substitute Holiday', Japanese=u'振替休日'
+* Wed 09 Jul 2014 02:06:35 PM JST
+English='The Ceremony of the Enthronement of His Majesty the Emperor',
+        Japanese=u'即位礼 正殿の儀'
+* Wed 09 Jul 2014 02:07:03 PM JST
+s.getname()
+* Wed 09 Jul 2014 02:07:19 PM JST
+English='The Funeral Ceremony of Emperor Showa',
+                  Japanese=u'昭和天皇の大喪の礼'
+* Wed 09 Jul 2014 02:07:47 PM JST
+s.getname()
+* Wed 09 Jul 2014 02:08:01 PM JST
+English='The Rite of Wedding of HIH Crown Prince Akihito',
+                  Japanese=u'皇太子明仁親王の結婚の儀'
+* Wed 09 Jul 2014 02:09:24 PM JST
+s.getname()
+* Wed 09 Jul 2014 02:09:41 PM JST
+English='The Rite of Wedding of HIH Crown Prince Naruhito',
+                  Japanese=u'皇太子徳仁親王の結婚の儀'
+* Wed 09 Jul 2014 02:10:05 PM JST
+s.getname()
+* Wed 09 Jul 2014 02:10:22 PM JST
+English='Vernal Equinox Day', Japanese=u'春分の日'
+* Wed 09 Jul 2014 02:10:40 PM JST
+s.getname()
+* Wed 09 Jul 2014 02:11:58 PM JST
+ChildrensDay
+* Wed 09 Jul 2014 02:13:32 PM JST
+
+* Wed 09 Jul 2014 02:13:32 PM JST
+
+* Wed 09 Jul 2014 02:13:32 PM JST
+        self._locale = localename
+
+* Wed 09 Jul 2014 02:14:08 PM JST
+NATIONALHOLIDAY
+* Wed 09 Jul 2014 02:14:18 PM JST
+SUBSTITUTEDAY
+* Wed 09 Jul 2014 02:15:06 PM JST
+s.getname()
+* Wed 09 Jul 2014 02:16:21 PM JST
+
+* Wed 09 Jul 2014 02:16:21 PM JST
+
+* Wed 09 Jul 2014 02:16:21 PM JST
+        self.__names = NationalHolidayLocaleName(localename)
+
+* Wed 09 Jul 2014 02:16:24 PM JST
+s.getname()
+* Wed 09 Jul 2014 02:17:13 PM JST
+
+* Wed 09 Jul 2014 02:17:13 PM JST
+
+* Wed 09 Jul 2014 02:17:13 PM JST
+        self._localename = localename
+
+* Wed 09 Jul 2014 02:17:26 PM JST
+self.
+* Wed 09 Jul 2014 02:17:29 PM JST
+    
+* Wed 09 Jul 2014 02:19:58 PM JST
+s.getname()
+* Wed 09 Jul 2014 02:21:31 PM JST
+self.
+* Wed 09 Jul 2014 02:22:55 PM JST
+import
+* Wed 09 Jul 2014 02:23:07 PM JST
+dateutil.
+* Wed 09 Jul 2014 02:30:11 PM JST
+name
+* Wed 09 Jul 2014 02:30:34 PM JST
+import holidayjapan
+holidayjapan.HolidayCommander
+h=holidayjapan.HolidayCommander()
+D h
+import dateutil
+m=dateutil.date(2000,1,1)
+from datetime import date
+m=date(2000,1,1)
+m2=date(2001,1,1)
+
+* Wed 09 Jul 2014 02:30:36 PM JST
+import holidayjapan
+holidayjapan.HolidayCommander
+h=holidayjapan.HolidayCommander()
+D h
+import dateutil
+m=dateutil.date(2000,1,1)
+from datetime import date
+m=date(2000,1,1)
+m2=date(2001,1,1)
+h.nextholiday(m)
+
+* Wed 09 Jul 2014 02:30:46 PM JST
+
+* Wed 09 Jul 2014 02:30:46 PM JST
+
+* Wed 09 Jul 2014 02:30:47 PM JST
+holidayjapan.HolidayCommander
+
+* Wed 09 Jul 2014 02:30:55 PM JST
+import holidayjapan
+h=holidayjapan.HolidayCommander()
+from datetime import date
+m=date(2000,1,1)
+m2=date(2001,1,1)
+h.nextholiday(m)
+
+* Wed 09 Jul 2014 02:31:11 PM JST
+h.nextholiday(m)
+* Wed 09 Jul 2014 02:37:58 PM JST
+.encode('utf-8')
+* Wed 09 Jul 2014 02:40:22 PM JST
+import holidayjapan
+h=holidayjapan.HolidayCommander()
+from datetime import date
+m=date(2000,1,1)
+m2=date(2001,1,1)
+h.nextholiday(m)
+
+* Wed 09 Jul 2014 02:40:28 PM JST
+h.nextholiday(m)
+* Wed 09 Jul 2014 02:40:31 PM JST
+m)
+* Wed 09 Jul 2014 02:40:31 PM JST
+nextholiday(m)
+* Wed 09 Jul 2014 02:41:14 PM JST
+h.nextholiday(m)
+* Wed 09 Jul 2014 02:41:36 PM JST
+.encode('utf-8')
+* Wed 09 Jul 2014 11:32:29 PM JST
+defcall
+* Wed 09 Jul 2014 11:32:33 PM JST
+defgetitem 
+* Wed 09 Jul 2014 11:37:57 PM JST
+    def __init__(self, ${3:${4:${5:*args}${6:, ${7:**kwargs}}}}):
+        r"""
+        ${3:$
+        (let* ((indent
+                (concat "\n" (make-string (current-column) 32)))
+               (args
+                (mapconcat
+                 '(lambda (x)
+                    (if (not (string= (nth 0 x) ""))
+                        (concat "- " (char-to-string 96) (nth 0 x)
+                                (char-to-string 96) ":")))
+                 (mapcar
+                  '(lambda (x)
+                     (mapcar
+                      (lambda (x)
+                        (replace-regexp-in-string "*" ""
+                         (replace-regexp-in-string "^[[:blank:]]*" "" x))) x))
+                  (mapcar '(lambda (x) (split-string x "="))
+                          (split-string text ",")))
+                 indent)))
+          (if (string= args "")
+              (make-string 3 34)
+            (mapconcat
+             'identity
+             (list "" "@Arguments:" args (make-string 3 34))
+             indent)))
+        }
+        ${3:$
+        (mapconcat
+         '(lambda (x)
+            (if (not (string= (nth 0 x) ""))
+                (concat "self._" (nth 0 x) " = " (nth 0 x))))
+         (mapcar
+          '(lambda (x)
+             (mapcar
+              '(lambda (x)
+                 (replace-regexp-in-string "*" ""
+                  (replace-regexp-in-string "^[[:blank:]]*" "" x)))
+              x))
+          (mapcar '(lambda (x) (split-string x "="))
+                  (split-string text ",")))
+         (concat "\n" (make-string (current-column) 32)))
+        }
+
+* Wed 09 Jul 2014 11:41:44 PM JST
+# condition: (not (py:at-string|comment-p))
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
+
+* Wed 09 Jul 2014 11:42:08 PM JST
+__init__()
+* Wed 09 Jul 2014 11:42:19 PM JST
+    
+* Wed 09 Jul 2014 11:42:19 PM JST
+    
+* Wed 09 Jul 2014 11:42:19 PM JST
+    
+* Wed 09 Jul 2014 11:42:19 PM JST
+    
+* Wed 09 Jul 2014 11:42:19 PM JST
+    
+* Wed 09 Jul 2014 11:42:19 PM JST
+    
+* Wed 09 Jul 2014 11:42:19 PM JST
+    
+* Wed 09 Jul 2014 11:42:19 PM JST
+    
+* Wed 09 Jul 2014 11:42:19 PM JST
+    
+* Wed 09 Jul 2014 11:42:19 PM JST
+    
+* Wed 09 Jul 2014 11:42:19 PM JST
+    
+* Wed 09 Jul 2014 11:42:19 PM JST
+    
+* Wed 09 Jul 2014 11:42:20 PM JST
+    
+* Wed 09 Jul 2014 11:42:20 PM JST
+    
+* Wed 09 Jul 2014 11:42:20 PM JST
+    
+* Wed 09 Jul 2014 11:42:20 PM JST
+    
+* Wed 09 Jul 2014 11:42:20 PM JST
+    
+* Wed 09 Jul 2014 11:42:20 PM JST
+    
+* Wed 09 Jul 2014 11:42:20 PM JST
+    
+* Wed 09 Jul 2014 11:42:20 PM JST
+    
+* Wed 09 Jul 2014 11:42:20 PM JST
+    
+* Wed 09 Jul 2014 11:42:20 PM JST
+    
+* Wed 09 Jul 2014 11:42:20 PM JST
+    
+* Wed 09 Jul 2014 11:42:20 PM JST
+    
+* Wed 09 Jul 2014 11:42:20 PM JST
+    
+* Wed 09 Jul 2014 11:42:20 PM JST
+    
+* Wed 09 Jul 2014 11:42:20 PM JST
+    
+* Wed 09 Jul 2014 11:42:21 PM JST
+    
+* Wed 09 Jul 2014 11:42:21 PM JST
+    
+* Wed 09 Jul 2014 11:42:21 PM JST
+    
+* Wed 09 Jul 2014 11:42:21 PM JST
+    
+* Wed 09 Jul 2014 11:42:21 PM JST
+    
+* Wed 09 Jul 2014 11:42:21 PM JST
+    
+* Wed 09 Jul 2014 11:42:21 PM JST
+    
+* Wed 09 Jul 2014 11:42:21 PM JST
+    
+* Wed 09 Jul 2014 11:42:21 PM JST
+    
+* Wed 09 Jul 2014 11:42:21 PM JST
+    
+* Wed 09 Jul 2014 11:42:21 PM JST
+    
+* Wed 09 Jul 2014 11:42:21 PM JST
+    
+* Wed 09 Jul 2014 11:42:21 PM JST
+    
+* Wed 09 Jul 2014 11:42:21 PM JST
+    
+* Wed 09 Jul 2014 11:42:21 PM JST
+    
+* Wed 09 Jul 2014 11:42:22 PM JST
+    
+* Wed 09 Jul 2014 11:49:36 PM JST
+(just-one-blank-line)
+* Wed 09 Jul 2014 11:50:34 PM JST
+    
+* Wed 09 Jul 2014 11:51:51 PM JST
+SUMMARY
+* Thu 10 Jul 2014 12:14:10 AM JST
+`(progn (end-of-line) (skip-chars-backward " \t") (unless (eq (char-before) 58) (insert ":")))`
+* Thu 10 Jul 2014 12:15:18 AM JST
+(forward-char)
+* Thu 10 Jul 2014 12:18:20 AM JST
+return $0
+* Thu 10 Jul 2014 12:18:54 AM JST
+bool
+* Thu 10 Jul 2014 12:20:37 AM JST
+"""
+* Thu 10 Jul 2014 12:21:12 AM JST
+return $0
+* Thu 10 Jul 2014 12:23:21 AM JST
+    
+* Thu 10 Jul 2014 12:26:37 AM JST
+
+* Thu 10 Jul 2014 12:26:37 AM JST
+
+* Thu 10 Jul 2014 12:26:37 AM JST
+    $0
+
+* Thu 10 Jul 2014 12:30:03 AM JST
+bases
+* Thu 10 Jul 2014 12:31:45 AM JST
+$3
+* Thu 10 Jul 2014 12:36:17 AM JST
+    $0
+* Thu 10 Jul 2014 12:36:24 AM JST
+return 
+* Thu 10 Jul 2014 12:36:38 AM JST
+
+* Thu 10 Jul 2014 12:36:38 AM JST
+
+* Thu 10 Jul 2014 12:36:38 AM JST
+    $0
+
+* Thu 10 Jul 2014 01:29:59 AM JST
+'("__init__" . "")
+               ("__getitem__" . "key, ")
+* Thu 10 Jul 2014 01:31:31 AM JST
+                
+* Thu 10 Jul 2014 01:32:40 AM JST
+member
+* Thu 10 Jul 2014 01:33:20 AM JST
+
+* Thu 10 Jul 2014 01:33:20 AM JST
+
+* Thu 10 Jul 2014 01:33:20 AM JST
+  (while)
+
+* Thu 10 Jul 2014 01:48:06 AM JST
+namemap
+* Thu 10 Jul 2014 01:48:58 AM JST
+namemap
+* Thu 10 Jul 2014 01:49:00 AM JST
+done
+* Thu 10 Jul 2014 01:50:49 AM JST
+when
+* Thu 10 Jul 2014 01:51:21 AM JST
+
+* Thu 10 Jul 2014 01:51:21 AM JST
+
+* Thu 10 Jul 2014 01:51:21 AM JST
+  keys
+
+* Thu 10 Jul 2014 01:53:05 AM JST
+(setq done (cadr namemap))
+* Thu 10 Jul 2014 01:53:18 AM JST
+done
+* Thu 10 Jul 2014 01:53:29 AM JST
+done
+* Thu 10 Jul 2014 01:53:55 AM JST
+(cadr namemap)
+* Thu 10 Jul 2014 01:57:16 AM JST
+
+* Thu 10 Jul 2014 01:57:16 AM JST
+
+* Thu 10 Jul 2014 01:57:16 AM JST
+    (message "DEBUG-1-nofile")
+
+* Thu 10 Jul 2014 01:57:20 AM JST
+
+* Thu 10 Jul 2014 01:57:20 AM JST
+
+* Thu 10 Jul 2014 01:57:20 AM JST
+    result
+
+* Thu 10 Jul 2014 01:57:25 AM JST
+      
+* Thu 10 Jul 2014 02:03:07 AM JST
+${1:$(if (string= text "hello") "world" "")}}
+* Thu 10 Jul 2014 02:03:28 AM JST
+(if (string= text "hello") "world" "")
+* Thu 10 Jul 2014 02:09:40 AM JST
+${1:$$(if (string= text "hello") "world" "")}
+* Thu 10 Jul 2014 02:11:47 AM JST
+(let* ((namemap '(("__init__" . "")
+                  ("__getitem__" . "key, ")
+                  ("__getattr__" . "name, ")))
+       (keys (maplist (lambda (lis) (caar lis)) namemap))
+       (result "")
+       done)
+  (when (member text keys)
+    (while (and namemap (not done))
+      (if (string= text (caar namemap))
+          (progn (setq done t)
+                 (setq result (cdr (car namemap))))
+        (setq namemap (cdr namemap))
+        )))
+  result
+  )
+* Thu 10 Jul 2014 02:13:31 AM JST
+                                       
+* Thu 10 Jul 2014 02:13:31 AM JST
+                                       
+* Thu 10 Jul 2014 02:13:31 AM JST
+                                       
+* Thu 10 Jul 2014 02:13:31 AM JST
+                                       
+* Thu 10 Jul 2014 02:13:31 AM JST
+                                       
+* Thu 10 Jul 2014 02:13:31 AM JST
+                                       
+* Thu 10 Jul 2014 02:13:31 AM JST
+                                       
+* Thu 10 Jul 2014 02:13:31 AM JST
+                                       
+* Thu 10 Jul 2014 02:13:31 AM JST
+                                       
+* Thu 10 Jul 2014 02:13:37 AM JST
+               
+* Thu 10 Jul 2014 02:13:55 AM JST
+                                   
+* Thu 10 Jul 2014 02:14:11 AM JST
+                            
+* Thu 10 Jul 2014 02:14:14 AM JST
+                                                       
+* Thu 10 Jul 2014 02:15:48 AM JST
+               ()
+* Thu 10 Jul 2014 02:15:53 AM JST
+name
+* Thu 10 Jul 2014 02:16:07 AM JST
+               
+* Thu 10 Jul 2014 02:16:33 AM JST
+               
+* Thu 10 Jul 2014 02:19:16 AM JST
+("__$1__"     . "${2:other}, ")
+* Thu 10 Jul 2014 02:26:40 AM JST
+               
+* Thu 10 Jul 2014 02:29:08 AM JST
+
+* Thu 10 Jul 2014 02:29:08 AM JST
+
+* Thu 10 Jul 2014 02:29:08 AM JST
+               ("__getattr__" . "name, ")
+
+* Thu 10 Jul 2014 02:29:16 AM JST
+
+* Thu 10 Jul 2014 02:29:17 AM JST
+
+* Thu 10 Jul 2014 02:29:17 AM JST
+               ("__getitem__" . "key, ")
+
+* Thu 10 Jul 2014 02:31:36 AM JST
+
+* Thu 10 Jul 2014 02:31:36 AM JST
+
+* Thu 10 Jul 2014 02:31:36 AM JST
+               ("__index__"     . "other, ")
+
+* Thu 10 Jul 2014 02:48:05 AM JST
+${1:$(let*
+    ((namemap '(("__init__" . "")
+                ("__add__"     . "other, ")
+                ("__and__"     . "other, ")
+                ("__cmp__"     . "other, ")
+                ("__coerce__"     . "other, ")
+                ("__contains__"     . "el, ")
+                ("__delattr__"     . "name, ")
+                ("__delete__"     . "instance, ")
+                ("__delitem__"     . "key, ")
+                ("__divmod__"     . "other, ")
+                ("__div__"     . "other, ")
+                ("__eq__"     . "other, ")
+                ("__exit__"     . "type, value, traceback, ")
+                ("__floordiv__"     . "other, ")
+                ("__getattribute__"     . "name, ")
+                ("__getattr__" . "name, ")
+                ("__getitem__" . "key, ")
+                ("__get__"     . "instance, owner, ")               
+                ("__ge__"     . "other, ")
+                ("__gt__"     . "other, ")
+                ("__iadd__"     . "other, ")
+                ("__iand__"     . "other, ")
+                ("__idiv__"     . "other, ")
+                ("__ifloordiv__"     . "other, ")
+                ("__ilshift__"     . "other, ")
+                ("__imod__"     . "other, ")
+                ("__imul__"     . "other, ")
+                ("__ior__"     . "other, ")
+                ("__ipow__"     . "other, modulo")
+                ("__irshift__"     . "other, ")
+                ("__isub__"     . "other, ")
+                ("__iturediv__"     . "other, ")
+                ("__rxor__"     . "other, ")
+                ("__le__"     . "other, ")
+                ("__lshift__"     . "other, ")
+                ("__lt__"     . "other, ")
+                ("__mod__"     . "other, ")
+                ("__mul__"     . "other, ")
+                ("__new__"     . "cls, name, bases, dict, ")
+                ("__ne__"     . "other, ")
+                ("__or__"     . "other, ")
+                ("__pow__"     . "other, modulo")
+                ("__radd__"     . "other, ")
+                ("__rand__"     . "other, ")
+                ("__rdivmod__"     . "other, ")
+                ("__rdiv__"     . "other, ")
+                ("__rfloordiv__"     . "other, ")
+                ("__rlshift__"     . "other, ")
+                ("__rmod__"     . "other, ")
+                ("__rmul__"     . "other, ")
+                ("__ror__"     . "other, ")
+                ("__rpow__"     . "other, modulo")
+                ("__rrshift__"     . "other, ")
+                ("__rshift__"     . "other, ")
+                ("__rsub__"     . "other, ")
+                ("__rtruediv__"     . "other, ")
+                ("__rxor__"     . "other, ")
+                ("__setattr__"     . "name, value, ")
+                ("__setitem__"     . "key, value, ")
+                ("__set__"     . "instance, value, ")
+                ("__sub__"     . "other, ")
+                ))
+               (keys (maplist (lambda (lis) (caar lis)) namemap))
+               (result "")
+               done)
+               (when (member text keys)
+                   (while (and namemap (not done))
+                         (if (string= text (caar namemap))
+                                   (progn (setq done t)
+                                          (setq result (cdr (car namemap))))
+                           (setq namemap (cdr namemap)))))
+                result)}
+* Thu 10 Jul 2014 02:49:28 AM JST
+                
+* Thu 10 Jul 2014 02:49:36 AM JST
+init__" . "")
+* Thu 10 Jul 2014 02:50:45 AM JST
+other, 
+* Thu 10 Jul 2014 02:52:41 AM JST
+return
+* Thu 10 Jul 2014 02:53:59 AM JST
+                
+* Thu 10 Jul 2014 02:54:23 AM JST
+el
+* Thu 10 Jul 2014 02:54:39 AM JST
+
+* Thu 10 Jul 2014 02:54:40 AM JST
+
+* Thu 10 Jul 2014 02:54:40 AM JST
+                ("__delattr__"     . "name, ")
+
+* Thu 10 Jul 2014 02:54:44 AM JST
+
+* Thu 10 Jul 2014 02:54:45 AM JST
+
+* Thu 10 Jul 2014 02:54:45 AM JST
+                ("__delitem__"     . "key, ")
+
+* Thu 10 Jul 2014 02:55:20 AM JST
+
+* Thu 10 Jul 2014 02:55:20 AM JST
+
+* Thu 10 Jul 2014 02:55:21 AM JST
+
+* Thu 10 Jul 2014 02:55:22 AM JST
+
+* Thu 10 Jul 2014 02:55:22 AM JST
+
+* Thu 10 Jul 2014 02:55:22 AM JST
+                ("____"     . "other, ")
+
+* Thu 10 Jul 2014 02:56:57 AM JST
+
+* Thu 10 Jul 2014 02:56:57 AM JST
+
+* Thu 10 Jul 2014 02:56:57 AM JST
+                ("__exit__"     . "type, value, traceback, ")
+
+* Thu 10 Jul 2014 02:57:38 AM JST
+name,
+* Thu 10 Jul 2014 02:57:47 AM JST
+reurn
+* Thu 10 Jul 2014 02:57:54 AM JST
+name
+* Thu 10 Jul 2014 02:58:05 AM JST
+key,
+* Thu 10 Jul 2014 02:58:22 AM JST
+
+* Thu 10 Jul 2014 02:58:22 AM JST
+
+* Thu 10 Jul 2014 02:58:23 AM JST
+                ("__get__"     . "instance, owner, ")               
+
+* Thu 10 Jul 2014 03:02:49 AM JST
+                
+* Thu 10 Jul 2014 03:05:55 AM JST
+
+* Thu 10 Jul 2014 03:05:55 AM JST
+
+* Thu 10 Jul 2014 03:05:55 AM JST
+                ("__setattr__"     . "name, value, ")
+
+* Thu 10 Jul 2014 03:06:01 AM JST
+
+* Thu 10 Jul 2014 03:06:01 AM JST
+
+* Thu 10 Jul 2014 03:06:01 AM JST
+                ("__setitem__"     . "key, value, ")
+
+* Thu 10 Jul 2014 03:06:05 AM JST
+
+* Thu 10 Jul 2014 03:06:05 AM JST
+
+* Thu 10 Jul 2014 03:06:06 AM JST
+                ("__set__"     . "instance, value, ")
+
+* Thu 10 Jul 2014 10:03:11 AM JST
+(concat indent "@Return:" indent (make-string 3 34))
+* Thu 10 Jul 2014 10:27:00 AM JST
+IndexError
+* Thu 10 Jul 2014 10:29:18 AM JST
+import
+* Thu 10 Jul 2014 10:33:22 AM JST
+
+* Thu 10 Jul 2014 10:35:01 AM JST
+
+* Thu 10 Jul 2014 10:35:01 AM JST
+
+* Thu 10 Jul 2014 10:35:01 AM JST
+            # day = self._incrementday(day.replace(day=day.day + abs(week - 7)))
+
+* Thu 10 Jul 2014 10:39:09 AM JST
+increme
+* Thu 10 Jul 2014 10:40:13 AM JST
+HolidayCommander
+* Thu 10 Jul 2014 04:56:53 PM JST
+@property
+* Thu 10 Jul 2014 05:04:55 PM JST
+property
+* Thu 10 Jul 2014 05:05:08 PM JST
+
+* Thu 10 Jul 2014 05:05:08 PM JST
+
+* Thu 10 Jul 2014 05:05:08 PM JST
+    name = property(get_name, set_name)
+
+* Thu 10 Jul 2014 05:05:40 PM JST
+get_
+* Thu 10 Jul 2014 05:05:44 PM JST
+get_
+* Thu 10 Jul 2014 05:06:29 PM JST
+set_
+* Fri 11 Jul 2014 03:33:03 AM JST
+DotAvoidAttributeError
+* Fri 11 Jul 2014 03:34:46 AM JST
+DotA
+* Fri 11 Jul 2014 03:34:59 AM JST
+ListDotAvoider
+* Fri 11 Jul 2014 03:35:56 AM JST
+DotAvoidAttributeError
+* Fri 11 Jul 2014 03:36:16 AM JST
+- 
+* Fri 11 Jul 2014 01:12:22 PM JST
+_
+* Fri 11 Jul 2014 01:12:23 PM JST
+serlf._
+* Fri 11 Jul 2014 01:13:25 PM JST
+property
+* Fri 11 Jul 2014 01:16:18 PM JST
+
+* Fri 11 Jul 2014 01:16:18 PM JST
+
+* Fri 11 Jul 2014 01:16:18 PM JST
+        self._inven
+
+* Fri 11 Jul 2014 10:22:02 PM JST
+__metaclass
+* Fri 11 Jul 2014 10:22:04 PM JST
+__metaclass__
+* Fri 11 Jul 2014 10:22:50 PM JST
+SingletonMeta
+* Fri 11 Jul 2014 10:31:27 PM JST
+English', 
+* Fri 11 Jul 2014 10:31:28 PM JST
+locale='English', 
+* Fri 11 Jul 2014 10:31:29 PM JST
+
+* Fri 11 Jul 2014 10:31:29 PM JST
+
+* Fri 11 Jul 2014 10:31:30 PM JST
+        self._locale = locale
+
+* Fri 11 Jul 2014 10:32:56 PM JST
+ho
+* Fri 11 Jul 2014 10:32:56 PM JST
+form ho
+* Fri 11 Jul 2014 10:33:29 PM JST
+CultureDay
+* Fri 11 Jul 2014 10:34:21 PM JST
+from holidayjapan.holidays.culture import CultureDay
+* Fri 11 Jul 2014 10:36:17 PM JST
+name
+* Fri 11 Jul 2014 10:36:29 PM JST
+print 
+* Fri 11 Jul 2014 10:37:19 PM JST
+English'
+* Fri 11 Jul 2014 10:39:38 PM JST
+hash(
+* Fri 11 Jul 2014 10:39:38 PM JST
+get(hash(
+* Fri 11 Jul 2014 10:39:56 PM JST
+hash(
+* Fri 11 Jul 2014 10:41:04 PM JST
+from holidayjapan.holidays.culture import CultureDay
+c=CultureDay()
+
+* Fri 11 Jul 2014 10:41:15 PM JST
+print {'English': 1}[c.name.locale]
+* Fri 11 Jul 2014 10:41:28 PM JST
+from holidayjapan.holidays.culture import CultureDay
+c=CultureDay()
+
+* Fri 11 Jul 2014 10:41:31 PM JST
+print {'English': 1}[c.name.locale]
+* Fri 11 Jul 2014 10:44:36 PM JST
+object
+* Fri 11 Jul 2014 10:45:21 PM JST
+_locale
+* Fri 11 Jul 2014 10:45:38 PM JST
+from holidayjapan.holidays.culture import CultureDay
+c=CultureDay()
+
+* Fri 11 Jul 2014 10:47:15 PM JST
+SingletonMeta
+* Fri 11 Jul 2014 10:47:24 PM JST
+
+* Fri 11 Jul 2014 10:47:24 PM JST
+
+* Fri 11 Jul 2014 10:47:24 PM JST
+    __metaclass__ = SingletonMeta
+
+* Sat 12 Jul 2014 12:12:57 AM JST
+
+* Sat 12 Jul 2014 12:12:57 AM JST
+
+* Sat 12 Jul 2014 12:12:57 AM JST
+from abstract.singleton import Singleton
+
+* Sat 12 Jul 2014 07:37:40 AM JST
+save_
+* Sat 12 Jul 2014 07:38:44 AM JST
+client
+* Sat 12 Jul 2014 11:16:55 AM JST
+junk.
+* Sat 12 Jul 2014 11:16:56 AM JST
+111654.junk.
+* Sat 12 Jul 2014 11:16:56 AM JST
+12-111654.junk.
+* Sat 12 Jul 2014 11:16:57 AM JST
+07-12-111654.junk.
+* Sat 12 Jul 2014 11:16:57 AM JST
+2014-07-12-111654.junk.
+* Sat 12 Jul 2014 11:18:28 AM JST
+from mocker import *
+* Sat 12 Jul 2014 11:18:32 AM JST
+MockerTestCase
+* Sat 12 Jul 2014 11:22:57 AM JST
+# condition: (not (py:at-string|comment-p))
+* Sat 12 Jul 2014 11:39:53 AM JST
+-dTextAlphaBits=4 -dBATCH -dGraphicsAlphaBits=4 -dQUIET -r100 -sOutputFile=Object_Oriented_Thought_Process/%04d_Object_Oriented_Thought_Process.png Object_Oriented_Thought_Process.pdf
+* Sat 12 Jul 2014 11:40:38 AM JST
+          
+* Sat 12 Jul 2014 11:43:01 AM JST
+path
+* Sat 12 Jul 2014 11:44:29 AM JST
+hello
+* Sat 12 Jul 2014 11:45:14 AM JST
+hello
+* Sat 12 Jul 2014 11:45:39 AM JST
+splitext
+* Sat 12 Jul 2014 11:47:07 AM JST
+path.
+* Sat 12 Jul 2014 11:47:20 AM JST
+conever
+* Sat 12 Jul 2014 11:50:21 AM JST
+directory
+* Sat 12 Jul 2014 11:52:20 AM JST
+
+* Sat 12 Jul 2014 11:52:20 AM JST
+
+* Sat 12 Jul 2014 11:52:20 AM JST
+    mkdir(filename)
+
+* Sat 12 Jul 2014 11:54:39 AM JST
+
+* Sat 12 Jul 2014 11:54:39 AM JST
+
+* Sat 12 Jul 2014 11:54:39 AM JST
+    filename = convertstring(filename)
+
+* Sat 12 Jul 2014 11:56:34 AM JST
+
+* Sat 12 Jul 2014 11:56:34 AM JST
+
+* Sat 12 Jul 2014 11:56:34 AM JST
+                    const=,
+
+* Sat 12 Jul 2014 11:56:41 AM JST
+                    const=,
+
+* Sat 12 Jul 2014 11:56:41 AM JST
+                    const=,
+                    default=,
+
+* Sat 12 Jul 2014 11:56:42 AM JST
+
+* Sat 12 Jul 2014 11:56:42 AM JST
+
+* Sat 12 Jul 2014 11:56:42 AM JST
+                    choices=,
+
+* Sat 12 Jul 2014 11:57:11 AM JST
+                        
+* Sat 12 Jul 2014 11:57:42 AM JST
+parser
+* Sat 12 Jul 2014 11:58:58 AM JST
+
+* Sat 12 Jul 2014 11:58:58 AM JST
+
+* Sat 12 Jul 2014 11:58:58 AM JST
+                        nargs=1,
+
+* Sat 12 Jul 2014 12:02:15 PM JST
+filename
+* Sat 12 Jul 2014 12:02:17 PM JST
+
+* Sat 12 Jul 2014 12:02:17 PM JST
+
+* Sat 12 Jul 2014 12:02:17 PM JST
+                        dest='filename',
+
+* Sat 12 Jul 2014 12:02:44 PM JST
+
+* Sat 12 Jul 2014 12:02:44 PM JST
+
+* Sat 12 Jul 2014 12:02:44 PM JST
+                        required=True,
+
+* Sat 12 Jul 2014 12:02:58 PM JST
+
+* Sat 12 Jul 2014 12:02:58 PM JST
+
+* Sat 12 Jul 2014 12:02:58 PM JST
+    parser.print_usage()
+
+* Sat 12 Jul 2014 12:03:46 PM JST
+file
+* Sat 12 Jul 2014 12:03:52 PM JST
+opts.filename
+* Sat 12 Jul 2014 12:03:55 PM JST
+
+* Sat 12 Jul 2014 12:03:55 PM JST
+
+* Sat 12 Jul 2014 12:03:55 PM JST
+    print()
+
+* Sat 12 Jul 2014 12:04:30 PM JST
+
+* Sat 12 Jul 2014 12:04:30 PM JST
+
+* Sat 12 Jul 2014 12:04:30 PM JST
+    directory = mkdir(filename)
+
+* Sat 12 Jul 2014 12:07:20 PM JST
+dest
+* Sat 12 Jul 2014 12:07:40 PM JST
+convertimage
+* Sat 12 Jul 2014 12:07:48 PM JST
+cmdline = 
+* Sat 12 Jul 2014 12:07:50 PM JST
+
+* Sat 12 Jul 2014 12:07:50 PM JST
+
+* Sat 12 Jul 2014 12:07:50 PM JST
+    return check_call(cmdline.split())
+
+* Sat 12 Jul 2014 12:07:57 PM JST
+convertimage
+* Sat 12 Jul 2014 12:08:18 PM JST
+
+* Sat 12 Jul 2014 12:08:18 PM JST
+
+* Sat 12 Jul 2014 12:08:18 PM JST
+    return 0
+
+* Sat 12 Jul 2014 12:16:34 PM JST
+filename
+* Sat 12 Jul 2014 12:19:40 PM JST
+name
+* Sat 12 Jul 2014 12:19:46 PM JST
+name
+* Sat 12 Jul 2014 12:19:58 PM JST
+name
+* Sat 12 Jul 2014 12:22:25 PM JST
+
+* Sat 12 Jul 2014 12:22:26 PM JST
+
+* Sat 12 Jul 2014 12:22:26 PM JST
+                    choices=,
+
+* Sat 12 Jul 2014 12:22:28 PM JST
+
+* Sat 12 Jul 2014 12:22:28 PM JST
+
+* Sat 12 Jul 2014 12:22:28 PM JST
+                    nargs=None,
+
+* Sat 12 Jul 2014 12:22:29 PM JST
+                    nargs=None,
+
+* Sat 12 Jul 2014 12:22:29 PM JST
+                    nargs=None,
+                    const=None,
+
+* Sat 12 Jul 2014 12:31:55 PM JST
+    new = filename
+    for char in ' ,#$%~|+^@-;:.*!':
+        new = new.replace(char, '_')
+
+* Sat 12 Jul 2014 12:33:29 PM JST
+path.
+* Sat 12 Jul 2014 12:34:32 PM JST
+os.
+* Sat 12 Jul 2014 12:35:00 PM JST
+mv_computable_filename
+* Sat 12 Jul 2014 12:35:32 PM JST
+opts.
+* Sat 12 Jul 2014 12:35:36 PM JST
+opts.
+* Sat 12 Jul 2014 12:36:40 PM JST
+
+* Sat 12 Jul 2014 12:36:40 PM JST
+
+* Sat 12 Jul 2014 12:36:40 PM JST
+    name = convertstring(fname)
+
+* Sat 12 Jul 2014 12:42:10 PM JST
+'hello________world'
+* Sat 12 Jul 2014 12:43:55 PM JST
+file____name.pdf
+* Sat 12 Jul 2014 04:27:16 PM JST
+ミューテーター
+* Mon 14 Jul 2014 11:04:00 AM JST
+Elapsed
+* Mon 14 Jul 2014 11:05:35 AM JST
+date
+* Mon 14 Jul 2014 11:05:40 AM JST
+date
+* Mon 14 Jul 2014 11:05:40 AM JST
+datefrom time import time
+
+* Mon 14 Jul 2014 11:05:42 AM JST
+form 
+* Mon 14 Jul 2014 11:06:06 AM JST
+import 
+* Mon 14 Jul 2014 11:06:33 AM JST
+_time - 
+* Mon 14 Jul 2014 11:06:33 AM JST
+self._time - 
+* Mon 14 Jul 2014 11:25:30 AM JST
+_ or time.time()
+* Mon 14 Jul 2014 11:28:33 AM JST
+time_ - self._time
+* Mon 14 Jul 2014 11:30:58 AM JST
+end
+* Mon 14 Jul 2014 11:34:11 AM JST
+elapsed
+* Mon 14 Jul 2014 11:34:21 AM JST
+elapsed
+* Mon 14 Jul 2014 11:34:24 AM JST
+elapsed
+* Mon 14 Jul 2014 11:34:56 AM JST
+time_ - self._time
+* Mon 14 Jul 2014 11:35:34 AM JST
+time_
+* Mon 14 Jul 2014 11:35:40 AM JST
+time
+* Mon 14 Jul 2014 11:35:53 AM JST
+from elapse import Elapsed
+* Mon 14 Jul 2014 11:37:58 AM JST
+return 
+* Mon 14 Jul 2014 11:51:08 AM JST
+TimeBetween
+* Mon 14 Jul 2014 11:51:35 AM JST
+TimeMeasure
+* Mon 14 Jul 2014 11:52:40 AM JST
+Elapsed
+* Mon 14 Jul 2014 11:53:56 AM JST
+currenttime
+* Mon 14 Jul 2014 11:53:59 AM JST
+currenttime
+* Mon 14 Jul 2014 11:54:12 AM JST
+from elapse import Elapsed
+e=Elapsed.currenttime()
+
+* Mon 14 Jul 2014 11:54:24 AM JST
+from elapse import Elapsed
+* Mon 14 Jul 2014 11:54:28 AM JST
+Elapsed
+* Mon 14 Jul 2014 11:54:32 AM JST
+from elapse import Timer
+* Mon 14 Jul 2014 11:54:35 AM JST
+Elapsed
+* Mon 14 Jul 2014 11:54:39 AM JST
+currenttime
+* Mon 14 Jul 2014 11:54:41 AM JST
+e=Timer.now()
+* Tue 15 Jul 2014 05:53:28 AM JST
+粗富戸
+* Tue 15 Jul 2014 07:09:22 AM JST
+ロケーション
+* Tue 15 Jul 2014 07:12:13 AM JST
+コンピューターが存在する
+* Tue 15 Jul 2014 12:16:03 PM JST
+condition
+* Fri 18 Jul 2014 02:42:21 PM JST
+LOG
+* Sat 26 Jul 2014 01:53:29 PM JST
+--user-data-dir
+* Sat 26 Jul 2014 03:10:34 PM JST
+#!/bin/bash
+echo "<img>/usr/share/icons/Bluecurve/16x16/apps/gnome-monitor.png</img>"
+declare -i cpuFreq
+cpuFreq=$(cat /proc/cpuinfo | grep "cpu MHz" | sed 's/\ \ */ /g' | cut -f3 -d" " | cut -f1 -d".")
+if [ $cpuFreq -ge 1000 ]
+then
+  cpu=$(echo $cpuFreq | cut -c1).$(echo $cpuFreq | cut -c2)GHz
+else
+  cpu=${cpuFreq}MHz
+fi
+echo "<txt>"$(cat /proc/acpi/thermal_zone/THM/temperature | sed 's/\ \ */ /g' | cut -f2 -d" ")" C</txt>"
+echo "<tool>Freq: "$cpu"</tool>"
+* Sat 26 Jul 2014 03:10:45 PM JST
+/usr/local/etc
+* Sat 26 Jul 2014 03:16:01 PM JST
+#!/bin/sh
+cpufreq=`/sbin/sysctl dev.cpu.0.freq | /usr/bin/cut -d ' ' -f 2`
+temperature=`/sbin/sysctl hw.acpi.thermal.tz0.temperature | /usr/bin/cut -d ' ' -f 2`
+
+echo "<txt>$temperature</txt>"
+echo "<tool>$cpufreq""Hz/$temperature</tool>"
+echo "<bar>`/bin/expr $cpufreq \* 100 / 693`</bar>"
+* Sat 26 Jul 2014 08:35:34 PM JST
+import xcb2
+* Sat 26 Jul 2014 08:35:44 PM JST
+xcb2.connect().root.client_list().to_types()
+* Sat 26 Jul 2014 08:36:15 PM JST
+print 
+* Sat 26 Jul 2014 08:36:16 PM JST
+name
+* Sun 27 Jul 2014 08:02:31 AM JST
+/work/xlibcpp/pyx/

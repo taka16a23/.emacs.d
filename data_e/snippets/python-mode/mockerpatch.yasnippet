@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: mockerpatch
+# key: mockerpatch
+# --
+dummy$1 = self.mocker.patch(${2:obj})
+# escape connect
+dummy$1.${3:method}(${4:ANY})
+self.mocker.result(${5:result})
+self.mocker.count(${6:0$(replace-regexp-in-string \"[^0-9]\" \"\" yas-text)}, ${7:None})

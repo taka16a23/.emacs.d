@@ -1,0 +1,106 @@
+-*- coding: utf-8-unix -*-
+#+TITLE: doing
+#+STARTUP: overview
+#+TODO: TODO LATER | DONE
+* TODO lock desktop
+  <2015-09-28 Mon 02:34>
+* TODO kernel crash dump
+  <2015-09-27 Sun 02:00>
+* TODO subversion to git
+  <2015-09-27 Sun 00:47>
+* TODO upgrade python3
+  <2015-09-26 Sat 11:09>
+* TODO upgrade emacs package
+  <2015-09-26 Sat 11:09>
+* TODO super grub2 burn to cd
+  <2015-09-26 Sat 11:08>
+* TODO king kernel config
+  <2015-09-26 Sat 11:07>
+* TODO recover usb linux
+  <2015-09-26 Sat 11:07>
+* TODO text translator one search engine
+  <2015-09-13 Sun 23:50>
+* TODO king auto halt "halt" to "poweroff"
+  <2015-09-12 Sat 03:15>
+* TODO systemd bluetooth device detected to active bluetooth
+  <2015-09-11 Fri 05:04>
+* TODO remove tty63
+  <2015-09-11 Fri 03:48>
+* TODO mac addr change at network interface connected
+  <2015-09-11 Fri 03:48>
+* TODO remove "wellcom kali linux on boot"
+  <2015-09-11 Fri 03:47>
+* TODO xahk
+  <2015-08-30 Sun 17:43>
+* TODO 多重起動防止
+  <2015-08-30 Sun 11:58>
+* TODO kali linux upgrade
+cat << EOF > /etc/apt/sources.list
+deb http://http.kali.org/kali sana main non-free contrib
+deb http://security.kali.org/kali-security/ sana/updates main contrib non-free
+EOF
+
+apt-get update
+apt-get dist-upgrade # get a coffee, or 10.
+reboot
+  <2015-08-20 Thu 06:37>
+* TODO bus timetable watch dog for monthly
+  <2015-08-19 Wed 08:30>
+* TODO debian dist-upgrade
+  http://scribble.washo3.com/linux/debian-wheezy7-8-%E3%81%8B%E3%82%89-jessie8-0%E3%81%B8%E3%82%A2%E3%83%83%E3%83%97%E3%82%B0%E3%83%AC%E3%83%BC%E3%83%89.html
+  <2015-08-11 Tue 02:10>
+* TODO exception_hook_pdb
+  <2015-08-07 Fri 09:53>
+* TODO all recipe package to one
+  <2015-08-07 Fri 00:57>
+* TODO seikyo 最安値 excel 化
+  <2015-08-06 Thu 21:26>
+* TODO autohalt.py to king/fordeamon
+  <2015-08-06 Thu 07:41>
+* TODO king server connection object
+  mirroring object
+  <2015-08-06 Thu 07:13>
+* TODO oil price calculate in japan 
+  <2015-08-06 Thu 02:50>
+* TODO yearly
+  <2015-08-06 Thu 02:27>
+* TODO 4monthly
+  <2015-08-06 Thu 02:26>
+* TODO monthly
+  <2015-08-06 Thu 02:26>
+* TODO currency exchange show daily
+  <2015-08-06 Thu 02:14>
+* TODO create chrome object
+  <2015-08-05 Wed 22:41>
+* LATER sleipnir copy url and open chrome
+  <2015-08-05 Wed 23:04>
+* DONE daily user active time check
+  CLOSED: [2015-08-14 Fri 22:36]
+  <2015-08-09 Sun 20:23>
+* DONE holiday
+  CLOSED: [2015-08-11 Tue 02:10]
+  <2015-08-07 Fri 09:47>
+* DONE 雑誌 show
+  CLOSED: [2015-08-06 Thu 01:55]
+  <2015-08-05 Wed 22:52>
+* DONE create recipe show past recipe
+  CLOSED: [2015-08-17 Mon 16:37]
+  <2015-08-05 Wed 21:38>
+* DONE coding test WindowClient
+  CLOSED: [2015-08-05 Wed 23:28]
+  <2015-07-22 Wed 01:23>
+* DONE bug fix daily feedly
+  CLOSED: [2015-08-05 Wed 22:36]
+  <2015-08-05 Wed 21:38>
+* DONE weather on daily
+  CLOSED: [2015-08-05 Wed 23:23]
+  <2015-08-05 Wed 21:37>
+* DONE sleipnir bug fix dialog
+  CLOSED: [2015-08-05 Wed 23:23]
+  <2015-08-05 Wed 21:37>
+* DONE new beep python xahk error
+  CLOSED: [2015-07-22 Wed 01:22]
+  <2015-07-21 Tue 23:54>
+* DONE hello
+  CLOSED: [2015-07-21 Tue 23:54]
+  <2015-07-21 Tue 23:53>

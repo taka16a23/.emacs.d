@@ -1,0 +1,30 @@
+# -*- mode: snippet -*-
+# name: argparse
+# key: argparse
+# condition: (not (py:at-string|comment-p))
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
+# tmp
+# --
+def _predef_options():
+    parser = argparse.ArgumentParser(description=\"\"\"${1: }\"\"\")
+    `(if (save-excursion
+      (goto-char (point-min))
+      (re-search-forward \"__version__[ \t]+=[ \t]+\" nil \'noerror))
+    \"parser.add_argument(\'--version\',\ndest=\'version\',\naction=\'version\',\nversion=__version__,\nhelp=\'Version Strings.\')\" \"\")`
+    # (yas-expand-link \"argparse_add_argument\" t)$0
+    return parser`(progn
+   (py--insert-imports \"argparse\" \"import argparse\")
+   (save-excursion
+     (goto-char (point-min))
+     (when (re-search-forward \"def[ \t]+_main.+:\" nil \'noerror)
+       (skip-chars-forward \" \t\n\")
+       (when (looking-at \"[\\"\']\")
+         (t1-forward-thing 1))
+       (when (looking-at \"$\")
+         (insert \"\n\" (make-string (current-indentation) 32)))
+       (insert \"parser = _predef_options()\n\"
+               (make-string (current-indentation) 32))
+       (insert \"opts = parser.parse_args()\n\"
+               (make-string (current-indentation) 32))
+       (insert \"parser.print_usage()\"
+               (make-string (current-indentation) 32)))))`

@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="ja">
+<!-- Created on October, 1  2005 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=euc-jp">
+<META NAME="keywords" CONTENT="meadow,mule,emacs,lisp,elisp,gnus,setting,設定,unix,cygwin">
+<META http-equiv="Content-Script-Type" content="text/javascript">
+<META NAME="description" CONTENT="Meadowの設定を紹介するページです">
+<TITLE>GNU Emacs Lispリファレンスマニュアル: D. 標準のエラー</TITLE>
+
+<META NAME="description" CONTENT="GNU Emacs Lispリファレンスマニュアル: D. 標準のエラー">
+<META NAME="keywords" CONTENT="GNU Emacs Lispリファレンスマニュアル: D. 標準のエラー">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+<LINK REL="contents" HREF="elisp_toc.html#SEC_Contents">
+<LINK REL="index" HREF="elisp_48.html#SEC681">
+<LINK REL="next" HREF="elisp_45.html#SEC678">
+<LINK REL="prev" HREF="elisp_43.html#SEC667">
+
+<META http-equiv="Content-Style-Type" content="text/css">
+<!-- 鶯と龜 ←日本語EUC誤判別対策用らしい; -->
+<link rel="StyleSheet" href="../../../../soft/css/midnight.css" type="text/css" id="css1">
+<script type="text/javascript" src="style1.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../soft/css/meadowmemo.css">
+
+</HEAD>
+<BODY LANG="ja" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+<!--Infoseek Analyzer start-->
+<script LANGUAGE="javascript">PgNo=6;</script>
+<script src="http://js1.infoseek.co.jp/bin/57/00170.js"></script>
+<noscript><a href="http://ax1.www.infoseek.co.jp/bin/go?0017057f" target="_blank">
+<img src="http://ax1.www.infoseek.co.jp/bin/logo?0017057f" border=0></a></noscript>
+<!--Infoseek Analyzer end-->
+<a name="top"> </a>
+
+<br><A NAME="SEC677"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_43.html#SEC676"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_45.html#SEC678"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_43.html#SEC667"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_45.html#SEC678"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Standard Errors"></A>
+<H1> D. 標準のエラー </H1>
+<!--docid::SEC677::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Standard%20Errors">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Standard%20Errors</a>"<br>
+"texi/elisp21/D.標準のエラー"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2FD%2E%C9%B8%BD%E0%A4%CE%A5%A8%A5%E9%A1%BC">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+以下は、概念ごとにまとめた標準Emacsのエラーシンボルの完全な一覧です。
+一覧には、各シンボルの（シンボルの属性<CODE>error-message</CODE>にある）メッセージと
+そのようなエラーが生起する場面の記述への相互参照を示しました。
+<P>
+
+各エラーシンボルには、属性<CODE>error-conditions</CODE>があり、
+これはシンボルのリストです。
+通常、このリストは、エラーシンボルそのものとシンボル<CODE>error</CODE>を含みます。
+しばしば、追加のシンボルも含みます。
+それらは中間的な分類種別であり、<CODE>error</CODE>より細分化したものですが、
+エラーシンボルそのものよりは大分類です。
+たとえば、ファイル参照に関するすべてのエラーには、
+条件<CODE>file-error</CODE>が入っています。
+以下で、特定のエラーシンボルにおいて追加のシンボルを言及していないときには、
+そのエラーには追加シンボルがないことを意味します。
+<P>
+
+特別な例外ですが、エラーシンボル<CODE>quit</CODE>には
+条件<CODE>error</CODE>がありません。
+これは、中断（quit）をエラーとみなさないからです。
+<P>
+
+エラーが生起する場面とその処理方法については、See 節 <A HREF="elisp_10.html#SEC130">9.5.3 エラー</A>。
+<P>
+
+<DL COMPACT>
+<DT><CODE><VAR>シンボル</VAR></CODE>
+<DD><VAR>文字列</VAR>; <VAR>参照</VAR>。
+<P>
+
+<DT><CODE>error</CODE>
+<DD><CODE>"error"</CODE><BR>
+see 節 <A HREF="elisp_10.html#SEC130">9.5.3 エラー</A>。
+<P>
+
+<DT><CODE>quit</CODE>
+<DD><CODE>"Quit"</CODE><BR>
+see 節 <A HREF="elisp_21.html#SEC311">20.9 中断</A>。
+<P>
+
+<DT><CODE>args-out-of-range</CODE>
+<DD><CODE>"Args out of range"</CODE><BR>
+see 節 <A HREF="elisp_7.html#SEC93">6. シーケンス、配列、ベクトル</A>。
+<P>
+
+<DT><CODE>arith-error</CODE>
+<DD><CODE>"Arithmetic error"</CODE><BR>
+<A HREF="elisp_4.html#SEC60">3. 数</A>の<CODE>/</CODE>と<CODE>%</CODE>を参照。
+<P>
+
+<DT><CODE>beginning-of-buffer</CODE>
+<DD><CODE>"Beginning of buffer"</CODE><BR>
+see 節 <A HREF="elisp_30.html#SEC464">29.2 移動</A>。
+<P>
+
+<DT><CODE>buffer-read-only</CODE>
+<DD><CODE>"Buffer is read-only"</CODE><BR>
+see 節 <A HREF="elisp_27.html#SEC410">26.7 読み出し専用バッファ <EM>(2003/10/30)</EM></A>。
+<P>
+
+<DT><CODE>cyclic-function-indirection</CODE>
+<DD><CODE>"Symbol's chain of function indirections\<BR> contains a loop"</CODE><BR>
+see 節 <A HREF="elisp_9.html#SEC115">8.2.4 シンボルの関数間接</A>。
+<P>
+
+<DT><CODE>end-of-buffer</CODE>
+<DD><CODE>"End of buffer"</CODE><BR>
+see 節 <A HREF="elisp_30.html#SEC464">29.2 移動</A>。
+<P>
+
+<DT><CODE>end-of-file</CODE>
+<DD><CODE>"End of file during parsing"</CODE><BR>
+これはファイル入出力ではなくLispリーダに関連することなので、
+<CODE>file-error</CODE>ではないことに注意。<BR>
+see 節 <A HREF="elisp_19.html#SEC261">18.3 入力関数</A>。
+<P>
+
+<DT><CODE>file-already-exists</CODE>
+<DD>これは<CODE>file-error</CODE>。<BR>
+see 節 <A HREF="elisp_25.html#SEC375">24.4 ファイルへの書き出し</A>。
+<P>
+
+<DT><CODE>file-date-error</CODE>
+<DD>これは<CODE>file-error</CODE>の小分類。
+<CODE>copy-file</CODE>で、
+出力ファイルの最終更新日付の設定に失敗すると生起する。<BR>
+see 節 <A HREF="elisp_25.html#SEC382">24.7 ファイルの名前と属性の変更</A>。
+<P>
+
+<DT><CODE>file-error</CODE>
+<DD>このエラーとその小分類にはエラー文字列がない。
+エラー条件<CODE>file-error</CODE>があると、
+データ項目のみからエラーメッセージを作るからである。<BR>
+see 節 <A HREF="elisp_25.html#SEC369">24. ファイル</A>。
+<P>
+
+<DT><CODE>file-locked</CODE>
+<DD>これは<CODE>file-error</CODE>。<BR>
+see 節 <A HREF="elisp_25.html#SEC376">24.5 ファイルロック</A>。
+<P>
+
+<DT><CODE>file-supersession</CODE>
+<DD>これは<CODE>file-error</CODE>。<BR>
+see 節 <A HREF="elisp_27.html#SEC409">26.6 更新時刻の比較 <EM>(2003/10/30)</EM></A>。
+<P>
+
+<DT><CODE>invalid-function</CODE>
+<DD><CODE>"Invalid function"</CODE><BR>
+see 節 <A HREF="elisp_9.html#SEC114">8.2.3 リストフォームの分類</A>。
+<P>
+
+<DT><CODE>invalid-read-syntax</CODE>
+<DD><CODE>"Invalid read syntax"</CODE><BR>
+see 節 <A HREF="elisp_19.html#SEC261">18.3 入力関数</A>。
+<P>
+
+<DT><CODE>invalid-regexp</CODE>
+<DD><CODE>"Invalid regexp"</CODE><BR>
+see 節 <A HREF="elisp_34.html#SEC551">33.2 正規表現</A>。
+<P>
+
+<DT><CODE>mark-inactive</CODE>
+<DD><CODE>"Mark inactive"</CODE><BR>
+see 節 <A HREF="elisp_31.html#SEC481">30.7 マーク</A>。
+<P>
+
+<DT><CODE>no-catch</CODE>
+<DD><CODE>"No catch for tag"</CODE><BR>
+see 節 <A HREF="elisp_10.html#SEC128">9.5.1 明示的な非ローカル脱出：<CODE> </CODE><CODE>catch</CODE>と<CODE>throw</CODE></A>。
+<P>
+
+<DT><CODE>scan-error</CODE>
+<DD><CODE>"Scan error"</CODE><BR>
+これは、構文解析関数が不正な構文や対応していない括弧を
+みつけると生起する。<BR>
+<A HREF="elisp_30.html#SEC470">29.2.6 式単位の移動</A>、および、see 節 <A HREF="elisp_35.html#SEC572">34.6 釣り合った式の解析</A>。
+<P>
+
+<DT><CODE>search-failed</CODE>
+<DD><CODE>"Search failed"</CODE><BR>
+see 節 <A HREF="elisp_34.html#SEC549">33. 探索と一致</A>。
+<P>
+
+<DT><CODE>setting-constant</CODE>
+<DD><CODE>"Attempt to set a constant symbol"</CODE><BR> 
+シンボル<CODE>nil</CODE>や<CODE>t</CODE>、および、
+`<SAMP>:</SAMP>'で始まる任意のシンボルは変更できない。<BR>
+see 節 <A HREF="elisp_11.html#SEC138">Variables that Never Change</A>。
+<P>
+
+<DT><CODE>undefined-color</CODE>
+<DD><CODE>"Undefined color"</CODE><BR>
+see 節 <A HREF="elisp_29.html#SEC459">28.21 表示色名</A>。
+<P>
+
+<DT><CODE>void-function</CODE>
+<DD><CODE>"Symbol's function definition is void"</CODE><BR>
+see 節 <A HREF="elisp_12.html#SEC168">11.8 関数セルの内容の参照</A>。
+<P>
+
+<DT><CODE>void-variable</CODE>
+<DD><CODE>"Symbol's value as variable is void"</CODE><BR>
+see 節 <A HREF="elisp_11.html#SEC143">10.7 変数値の参照</A>。
+<P>
+
+<DT><CODE>wrong-number-of-arguments</CODE>
+<DD><CODE>"Wrong number of arguments"</CODE><BR>
+see 節 <A HREF="elisp_9.html#SEC114">8.2.3 リストフォームの分類</A>。
+<P>
+
+<DT><CODE>wrong-type-argument</CODE>
+<DD><CODE>"Wrong type argument"</CODE><BR>
+see 節 <A HREF="elisp_3.html#SEC58">2.5 型述語</A>。
+</DL>
+<P>
+
+<CODE>arith-error</CODE>の特別な場合に分類された以下の種類のエラーは、
+数学関数を不正に使ったときに特定のシステムで生起します。
+<P>
+
+<DL COMPACT>
+<DT><CODE>domain-error</CODE>
+<DD><CODE>"Arithmetic domain error"</CODE><BR>
+see 節 <A HREF="elisp_4.html#SEC69">3.9 標準数学関数</A>。
+<P>
+
+<DT><CODE>overflow-error</CODE>
+<DD><CODE>"Arithmetic overflow error"</CODE><BR>
+see 節 <A HREF="elisp_4.html#SEC69">3.9 標準数学関数</A>。
+<P>
+
+<DT><CODE>range-error</CODE>
+<DD><CODE>"Arithmetic range error"</CODE><BR>
+see 節 <A HREF="elisp_4.html#SEC69">3.9 標準数学関数</A>。
+<P>
+
+<DT><CODE>singularity-error</CODE>
+<DD><CODE>"Arithmetic singularity error"</CODE><BR>
+see 節 <A HREF="elisp_4.html#SEC69">3.9 標準数学関数</A>。
+<P>
+
+<DT><CODE>underflow-error</CODE>
+<DD><CODE>"Arithmetic underflow error"</CODE><BR>
+see 節 <A HREF="elisp_4.html#SEC69">3.9 標準数学関数</A>。
+</DL>
+<A NAME="Standard Buffer-Local Variables"></A>
+<HR SIZE="6">
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_43.html#SEC667"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_45.html#SEC678"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<a name="bottom"> </a>
+<script type="text/javascript" src="style2.js"></script>
+<div class="footer">
+    <br>
+    このページはMeadow (Emacs) の紹介ページです <br>
+このWebページの各文書は自由にリンク・複製・再配布・改変していただいて構いません．
+<br>ただし，複製・再配布・改変の場合は Meadow Memo のURLを記載しておいて下さい．<br>
+<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=about%20link">Medow memoへのリンクについて</a>．<br>
+
+間違い，要望等があれば<a href="mailto:akihisa@mail.ne.jp">akihisa@mail.ne.jp</a> か下記でどうぞ<br>
+
+<br>
+
+<FORM METHOD="post" ACTION="http://www.bookshelf.jp/cgi-bin/wwwmail.cgi" >
+お名前：<INPUT TYPE="text" NAME="name" SIZE="30" MAXLENGTH="40" VALUE="ななしさん"><br>
+メールアドレス：<INPUT TYPE="text" NAME="EMAIL" SIZE="25" MAXLENGTH="60" VALUE="secret@mail.adr"><br>
+<input type="hidden" name="HPAGE" value="">
+つっこみ：<br><TEXTAREA NAME="MESSAGE" ROWS="5" COLS="50">
+</TEXTAREA><br><br>
+<INPUT TYPE="submit" VALUE="送信">
+<INPUT TYPE="reset" VALUE="クリア">
+</FORM>
+
+<br><A HREF="http://www.bookshelf.jp/cgi-bin/xct.cgi">ページ別カウンタ</a>
+<br> Since 2002/12/13 <br>
+</div>
+
+</BODY>
+
+</HTML>

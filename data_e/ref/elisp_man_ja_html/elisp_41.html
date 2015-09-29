@@ -1,0 +1,482 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="ja">
+<!-- Created on October, 1  2005 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=euc-jp">
+<META NAME="keywords" CONTENT="meadow,mule,emacs,lisp,elisp,gnus,setting,設定,unix,cygwin">
+<META http-equiv="Content-Script-Type" content="text/javascript">
+<META NAME="description" CONTENT="Meadowの設定を紹介するページです">
+<TITLE>GNU Emacs Lispリファレンスマニュアル: A. Emacs 20 Antinews</TITLE>
+
+<META NAME="description" CONTENT="GNU Emacs Lispリファレンスマニュアル: A. Emacs 20 Antinews">
+<META NAME="keywords" CONTENT="GNU Emacs Lispリファレンスマニュアル: A. Emacs 20 Antinews">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+<LINK REL="contents" HREF="elisp_toc.html#SEC_Contents">
+<LINK REL="index" HREF="elisp_48.html#SEC681">
+<LINK REL="next" HREF="elisp_41.html#SEC659">
+<LINK REL="prev" HREF="elisp_40.html#SEC657">
+
+<META http-equiv="Content-Style-Type" content="text/css">
+<!-- 鶯と龜 ←日本語EUC誤判別対策用らしい; -->
+<link rel="StyleSheet" href="../../../../soft/css/midnight.css" type="text/css" id="css1">
+<script type="text/javascript" src="style1.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../soft/css/meadowmemo.css">
+
+</HEAD>
+<BODY LANG="ja" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+<!--Infoseek Analyzer start-->
+<script LANGUAGE="javascript">PgNo=6;</script>
+<script src="http://js1.infoseek.co.jp/bin/57/00170.js"></script>
+<noscript><a href="http://ax1.www.infoseek.co.jp/bin/go?0017057f" target="_blank">
+<img src="http://ax1.www.infoseek.co.jp/bin/logo?0017057f" border=0></a></noscript>
+<!--Infoseek Analyzer end-->
+<a name="top"> </a>
+
+<br><A NAME="SEC658"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_40.html#SEC657"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_41.html#SEC659"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Antinews"></A>
+<H1> A. Emacs 20 Antinews <EM>(2003/10/30)</EM> </H1>
+<!--docid::SEC658::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Antinews">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Antinews</a>"<br>
+"texi/elisp21/A.Emacs20Antinews"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2FA%2EEmacs20Antinews">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+<A HREF="http://www.sodan.org/~knagano/emacs/emacs21-emacs20-antinews-j.html">Emacs
+20 Antinewsの翻訳</A> を参考に翻訳しています。上記文書の翻訳をされた方に深く感謝し
+ます。
+<P>
+
+時代に逆行する皆さんへ、Emacsヴァージョン20.4へのダウングレード情報を
+お届けします。Emacs 21のさまざまな機能が省かれたことによる単純さをお楽
+しみください。後述する節では、Emacs 20.3へダウングレードするための情報
+をお届けします。
+<P>
+
+<div class="menuindex"><SCRIPT language=JavaScript src="indexA.js"></SCRIPT></div><noscript><BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_41.html#SEC659">A.1 Old Lisp Features in Emacs 20 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_41.html#SEC660">A.2 Old Lisp Features in Emacs 20.3 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+</TABLE></BLOCKQUOTE></noscript>
+<P>
+
+<A NAME="Antinews Emacs 20"></A>
+<HR SIZE="6">
+<br><A NAME="SEC659"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_41.html#SEC658"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_41.html#SEC660"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_41.html#SEC658"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Antinews Emacs 20"></A>
+<H2> A.1 Old Lisp Features in Emacs 20 <EM>(2003/10/30)</EM> </H2>
+<!--docid::SEC659::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Antinews%20Emacs%2020">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Antinews%20Emacs%2020</a>"<br>
+"texi/elisp21/A.1OldLispFeaturesinEmacs20"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2FA%2E1OldLispFeaturesinEmacs20">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+<UL>
+<LI>
+マクロの <CODE>push</CODE> と <CODE>pop</CODE> は削除されました。<CODE>dolist</CODE> と
+<CODE>dotimes</CODE>も同様です。
+<P>
+
+<LI>
+Emacsは画像を表示しません。(Emacsがはテキストを編集するためのものですの
+で、)画像もマージンもツールバーも表示しません。
+<P>
+
+<LI>
+テキストプロパティの<CODE>display</CODE>は特別な意味を持たなくなりました。こ
+のため、自分でコードを書かない限り、特別な効果はありませんので、Lispプ
+ログラムで自由に利用できます。ところで、画像を表示しないのであれば、
+<CODE>display</CODE> なんてテキストプロパティは必要なのかい？
+<P>
+
+<LI>
+テキストプロパティの <CODE>field</CODE> はもはや特別な意味を持たなくなりまし
+た。バッファはもはや「領域」には分割されません(「領域」で情報を分ける
+と意図しない動作をしてしまいますから)。
+<P>
+
+コメント：テキストプロパティにfieldが追加されたそう
+な。例えば、M-x shellでプロンプトにfieldを設定しておけば、
+入力されたコマンドかプロンプトかが判断できるので、
+<KBD>C-a</KBD>などの挙動を制御できるわけです。
+<P>
+
+<LI>
+フェイスの属性がシンプルになりました。<CODE>:family</CODE>や<CODE>:height</CODE>、
+<CODE>:width</CODE>、<CODE>:weight</CODE>、<CODE>:slant</CODE>はなくなり、フォント名や太
+字、斜体字かどうかの指定になりました。
+<P>
+
+フェイスの<CODE>:overline</CODE>や<CODE>:strike-through</CODE>、<CODE>:box</CODE>といっ
+た属性も削除されました。下線は常にテキストと同じ色になりました。他の色
+を使うなんて悪趣味ですよ。
+<P>
+
+属性の単純化と合わせて、<CODE>set-face-attribute</CODE> や
+<CODE>face-attribute</CODE> も削除しました。フェイスの属性は
+<CODE>face-font</CODE> などの関数で得ることができますし、
+<CODE>set-face-font</CODE> で値を変更することもできます(これらの関数はEmacs
+21で利用できますが、それほど便利ではありませんでした)。
+<P>
+
+<LI>
+標準のフェイスである <CODE>scroll-bar</CODE>、<CODE>menu</CODE>、<CODE>border</CODE>、
+<CODE>cursor</CODE> や <CODE>mouse</CODE> は削除されました。フェイスでメニューなど
+の色を変えたりするのは、むしろ奇妙な方法ですので、あるべきではないので
+す。フレームの境界やカーソル、マウスカーソルの色を変えるには、
+<CODE>set-border-color</CODE>、<CODE>set-cursor-color</CODE> や
+<CODE>set-mouse-color</CODE> が利用できます。メニューの色はXのリソースを利用
+できます。
+<P>
+
+<LI>
+もはやテキスト端末では色や他のフェイス属性を表示できません。したがって、
+端末がフェイスを表示できるかどうかを心配する必要はないのです。
+<P>
+
+<LI>
+ビープ音以外には音を鳴らす機能はありません。そのため、Emacsはあなたの
+平穏と静寂を乱しません。
+<P>
+
+<LI>
+タイ語などでは、いくつかの文字は重ね合わせて作られた画像として表示しま
+す。Emacs20でこのような言語の合成文字を表示する方法は複雑で練られてい
+ません。恥ずかしいのでこれくらいの説明にしておきます。
+<P>
+
+<LI>
+<CODE>delete-and-extract-region</CODE> (リージョン内のテキストをカットする関
+数)は削除されました。テキストを得るのには<CODE>buffer-substring</CODE>が使え
+ますし、削除するのには<CODE>delete-region</CODE> が利用できます。
+<P>
+
+<LI>
+正規表現は`<SAMP>[:alpha:]</SAMP>'(アルファベットを表す)のようなPOSIX使用の文字をサポートしていませ
+ん。これにより、すべての文字は同じように表現されます。
+<P>
+
+<LI>
+ハッシュテーブルは削除されました。連想リストを利用します。
+<P>
+
+<LI>
+Lispプリンタは循環構造を検出や出力をしません。とにかくLispリーダは循環
+構造を再現できないので、それでいいのです。しかし、循環構造を出力できる
+`<SAMP>cust-print.el</SAMP>' というライブラリはあります。
+<P>
+
+<LI>
+EmacsはX toolkitのツールバーを使わずに、Emacs自身で実現します。そして、常にフレー
+ムの前景色は背景色を使います。そのため、スクロールバーに異なる色を指定することは
+できません。
+<P>
+
+<LI>
+単純にするために、すべてのASCII文字は同じ高さと幅を持ちます(中国語のように
+ある種の文字は常にASCIIの2倍の幅になります)。すべての文字は同じように作られ
+表示されるのです。
+<P>
+
+<LI>
+Emacsのウィンドウサイズを変更でき、あるウィンドウでのサイズ変更は他のすべてのウィ
+ンドウに影響します。Windowsでは<CODE>window-size-fixed</CODE>を利用できなくなりました。
+<P>
+
+<LI>
+<CODE>intern-soft</CODE>はシンボルを引数として受け取らなくなりました。
+<P>
+
+<LI>
+<CODE>bitmap-spec-p</CODE>は<CODE>pixmap-spec-p</CODE>に名前を変更しました。この変更を調べる
+ことでEmacsのヘルプシステムを使う練習になります。
+<P>
+
+<LI>
+ツールチップは通常のフレームを使って処理されます。
+<P>
+
+<LI>
+モードラインの部分はマウスには反応しません。しかし、マウスによるコマンドの一部は
+利用できます。
+<P>
+
+<LI>
+Windowsはヘッダを表示できません。逆にモードラインは消すことはできません。
+<P>
+
+<LI>
+メニューの区切りとして点線のみを利用できます。
+<P>
+
+<LI>
+縦方向の断片的なスクロールは存在しません。
+<P>
+
+<LI>
+関数 <CODE>format</CODE> や <CODE>message</CODE> はテキストプロパティを無視します。
+<P>
+
+<LI>
+<CODE>propertize</CODE>(文字列にテキストプロパティを付けて返す関数)は存在しません。
+<CODE>set-text-properties</CODE>を用います。
+<P>
+
+<LI>
+色はウィンドウシステムでのみサポートされ、テキスト端末ではサポートされません。テ
+キスト端末の色に関連する関数は不要になりましたので、削除しました。
+<P>
+
+<LI>
+関数 <CODE>color-values</CODE>や<CODE>color-defined-p</CODE>、<CODE>defined-colors</CODE> はそれぞ
+れ <CODE>x-color-values</CODE>、<CODE>x-color-defined-p</CODE>、<CODE>x-defined-colors</CODE> に名
+前が変わりました。
+<P>
+
+<LI>
+ウィンドウは固定された幅や高さにすることはできません。Emacsは必要な時、すべての
+ウィンドウのサイズを調整します。
+<P>
+
+<LI>
+プロパティの <CODE>before-string</CODE> や <CODE>after-string</CODE> の値として使わ
+れる文字はシングルコラムとして表示される文字を含まなければいけません。タブや改行
+などの制御文字だと変な結果になるでしょう。
+<P>
+
+<LI>
+ミニバッファのプロンプトは実はミニバッファの内容には表れません。プロンプトはミニ
+バッファウィンドウに特別な方法で表示しているのです。
+<P>
+
+コメント：ミニバッファでC-aを行うと、プロンプトの後にカーソルが移動します。Emacs
+21では左カーソルでこれより前に行くことができます。単なる文字なわけですから、当然
+ですね。しかし、Emacs 20.4では不可能です。これは、単なる文字ではないのでプロンプ
+ト以降のみしか触ることができないのです。
+<P>
+
+<LI>
+<CODE>write-region</CODE>の排他的に開く機能は削除されました。このため、7番目の引数が
+<CODE>nil</CODE> でない場合は、ユーザに確認を求めます。
+<P>
+
+<LI>
+<CODE>buffer-size</CODE>のオプション引数は削除され、常にカレントバッファの文字数を返し
+ます。
+<P>
+
+<LI>
+<CODE>assq-delete-all</CODE> は削除されました。
+<P>
+
+<LI>
+<CODE>:set-after</CODE>はもはや<CODE>defcustom</CODE>にはありません。
+<P>
+
+<LI>
+<CODE>small-temporary-file-directory</CODE>は特別な意味を持たなくなりました。これで
+<CODE>temporary-file-directory</CODE>というたった一つの変数のみで一時ファイルを作るディ
+レクトリを指定できます。しかし、Emacsのすべての機能がその変数を利用するわけでは
+ありません。あるものは環境変数<CODE>TMP</CODE>を使うでしょうし、あるものは
+環境変数<CODE>TMPDIR</CODE>を使うでしょう。
+<P>
+
+<LI>
+<CODE>save-some-buffers</CODE>の2番目の引数<VAR>pred</VAR>が <CODE>nil</CODE> でなければ、正確に
+どのような値であるかは問題にならない。とにかく<CODE>nil</CODE>でないならば、<CODE>t</CODE>と
+同じことになり、ファイルでないバッファも保存する。
+<P>
+
+<LI>
+<CODE>inhibit-modification-hooks</CODE>は特別な意味を持たなくなりました。
+<P>
+
+<LI>
+<CODE>fontification-functions</CODE>は削除されました。<CODE>window-scroll-functions</CODE>の
+ような他のフックを使うことで、同じような処理を行うことができます。
+<P>
+
+<LI>
+<CODE>redisplay-dont-pause</CODE>は特別な意味を持たなくなりました。
+<P>
+
+<LI>
+<CODE>calendar-move-hook</CODE> は削除されました。
+<P>
+
+<LI>
+</UL>
+<CODE>move-to-column</CODE>は2番目の引数が<CODE>nil</CODE>でなければ、<CODE>t</CODE>として扱います。
+<P>
+
+<A NAME="Antinews Emacs 203"></A>
+<HR SIZE="6">
+<br><A NAME="SEC660"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_41.html#SEC659"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_42.html#SEC661"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_41.html#SEC658"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Antinews Emacs 203"></A>
+<H2> A.2 Old Lisp Features in Emacs 20.3 <EM>(2003/10/30)</EM> </H2>
+<!--docid::SEC660::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Antinews%20Emacs%20203">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Antinews%20Emacs%20203</a>"<br>
+"texi/elisp21/A.2OldLispFeaturesinEmacs20.3"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2FA%2E2OldLispFeaturesinEmacs20%2E3">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+ここではEmacs 20.3で削除される機能を紹介しましょう。
+<P>
+
+これらはLisp言語自身の変更です。
+<P>
+
+<UL>
+<LI>
+<CODE>line-beginning-position</CODE> と <CODE>line-end-position</CODE>は削除されました。
+<P>
+
+<LI>
+<CODE>directory-files-and-attributes</CODE>、<CODE>file-attributes-lessp</CODE>、
+<CODE>file-expand-wildcards</CODE> は削除されました。
+<P>
+
+<LI>
+<CODE>decode-coding-region</CODE> と <CODE>encode-coding-region</CODE>は後で役立つようにテキ
+ストプロパティをそのまま残します(もっともめったに役立たないですけど)。
+<P>
+
+<LI>
+<CODE>position-bytes</CODE> と <CODE>byte-to-position</CODE> は削除されました。
+<P>
+
+<LI>
+<CODE>with-output-to-temp-buffer</CODE>で作られる一時バッファは書き込み可能です。
+Fundamental mode以外にしなければヘルプモードになります。
+<P>
+
+<LI>
+<CODE>sref</CODE>は<VAR>index</VAR>を文字数ではなくバイト数として解釈します。そして、
+<CODE>char-bytes</CODE>は文字通り文字が占めるバイト数を返します。
+<P>
+
+<LI>
+<CODE>process-running-child-p</CODE> は削除されました。
+<P>
+
+<LI>
+<CODE>interrupt-process</CODE> とそれと似た関数は2番目の引数が<CODE>lambda</CODE>であれば特
+別なことはしません。
+<P>
+
+<LI>
+<CODE>define-prefix-command</CODE>は2つの引数だけを受け取ります。
+<P>
+
+<LI>
+<CODE>read-char</CODE>、<CODE>read-event</CODE>、<CODE>read-char-exclusive</CODE>の2番目の引数の意
+味がこれまでとは逆になります。引数が<CODE>nil</CODE>であれば、現在の入力方法を用います。
+<P>
+
+<LI>
+<CODE>with-temp-message</CODE>は削除されました。
+<P>
+
+<LI>
+<CODE>clear-this-command-keys</CODE> は削除されました。
+<P>
+
+<LI>
+<CODE>gap-position</CODE> と <CODE>gap-size</CODE>は削除されました。
+<P>
+
+<LI>
+<CODE>modify-face</CODE>で引数が<CODE>(nil)</CODE>であっても特別な意味は持ちません。
+<P>
+
+<LI>
+base64の変換用関数は削除されました。
+<P>
+
+<LI>
+<CODE>find-file</CODE>やそれを利用したような関数でワイルドカードを利用できなくなしまし
+た。
+<P>
+
+<LI>
+<CODE>file-attributes</CODE>はファイルサイズを返します。これは、整数に収まるなら整数に
+なります。収まらないと浮動小数点になります。
+</UL>
+<P>
+
+<A NAME="Tips"></A>
+<HR SIZE="6">
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<a name="bottom"> </a>
+<script type="text/javascript" src="style2.js"></script>
+<div class="footer">
+    <br>
+    このページはMeadow (Emacs) の紹介ページです <br>
+このWebページの各文書は自由にリンク・複製・再配布・改変していただいて構いません．
+<br>ただし，複製・再配布・改変の場合は Meadow Memo のURLを記載しておいて下さい．<br>
+<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=about%20link">Medow memoへのリンクについて</a>．<br>
+
+間違い，要望等があれば<a href="mailto:akihisa@mail.ne.jp">akihisa@mail.ne.jp</a> か下記でどうぞ<br>
+
+<br>
+
+<FORM METHOD="post" ACTION="http://www.bookshelf.jp/cgi-bin/wwwmail.cgi" >
+お名前：<INPUT TYPE="text" NAME="name" SIZE="30" MAXLENGTH="40" VALUE="ななしさん"><br>
+メールアドレス：<INPUT TYPE="text" NAME="EMAIL" SIZE="25" MAXLENGTH="60" VALUE="secret@mail.adr"><br>
+<input type="hidden" name="HPAGE" value="">
+つっこみ：<br><TEXTAREA NAME="MESSAGE" ROWS="5" COLS="50">
+</TEXTAREA><br><br>
+<INPUT TYPE="submit" VALUE="送信">
+<INPUT TYPE="reset" VALUE="クリア">
+</FORM>
+
+<br><A HREF="http://www.bookshelf.jp/cgi-bin/xct.cgi">ページ別カウンタ</a>
+<br> Since 2002/12/13 <br>
+</div>
+
+</BODY>
+
+</HTML>

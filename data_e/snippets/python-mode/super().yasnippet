@@ -1,0 +1,18 @@
+# -*- mode: snippet -*-
+# name: super()
+# key: super
+# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])))
+# 32 = ` '
+# --
+super(${1:`(save-excursion
+  (cond ((re-search-backward py:class-name-re nil 'noerr) (match-string 1))
+         (t "CLASS")))`}, ${2:`(save-excursion (py:goto-def-parameter)
+                                  (let ((param (py:list-parameter)))
+                                  (if param
+                                     (car param)
+                                     "")))`}).${3:`(save-excursion
+  (cond ((re-search-backward py:def-name-re nil 'noerr) (match-string 1))
+        (t "CLASS")))`}(${4:`(save-excursion
+                                (py:goto-def-parameter)
+                                  (py:join-param-list
+                                  (delete "self" (py:list-parameter))))`})

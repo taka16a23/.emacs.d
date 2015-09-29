@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: defdecorator
+# key: defdecorator
+# condition: (not (py:at-string|comment-p))
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
+# --
+def ${1:name}(func):
+    \"\"\"\"\"\"
+
+    @functools.wraps(func)
+    def wrapper($2):
+        func()
+        $0
+    return wrapper`(py--insert-imports "functools" "import functools")`

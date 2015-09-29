@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: auto-insert(scripts)
+# key: scripts_python_auto-insert
+# --
+`(view-mode -1)`#!/bin/sh
+
+python_path="/usr/bin/python"
+script_path="\${HOME}/.zsh/scripts/${1:name}"
+
+[ -x $python_path ] || exit 1
+[ -x $script_path ] || exit 1
+
+$python_path $script_path $@
+
+exit 0

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: assertRegexpMatches()
+# key: assertRegexpMatches
+# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])))
+# 32 = ` '
+# --
+assertRegexpMatches(${1:text}, ${2:unexpected_regexp}${3:, msg=${4:\'${5:Failed: $6}\'}})

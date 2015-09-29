@@ -1,0 +1,2 @@
+>>> a.insert(len(a), x)
+is equivalent to a.append(x)

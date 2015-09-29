@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: _shutil.copy2
+# key: _shutil.copy2
+# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])))
+# --
+_shutil.copy2(${1:SRC}, ${2:DST})$0`(py--insert-imports "shutil[ \t]+as[ \t]+_shutil" "import shutil as _shutil")`

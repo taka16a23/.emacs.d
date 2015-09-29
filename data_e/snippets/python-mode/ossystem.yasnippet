@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: os.system
+# key: os.system
+# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])))
+# --
+os.system(${1:COMMAND})$0`(py--insert-imports "os" "import os")`

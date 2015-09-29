@@ -1,0 +1,1058 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="ja">
+<!-- Created on October, 1  2005 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=euc-jp">
+<META NAME="keywords" CONTENT="meadow,mule,emacs,lisp,elisp,gnus,setting,設定,unix,cygwin">
+<META http-equiv="Content-Script-Type" content="text/javascript">
+<META NAME="description" CONTENT="Meadowの設定を紹介するページです">
+<TITLE>GNU Emacs Lispリファレンスマニュアル: B. ヒントと慣習</TITLE>
+
+<META NAME="description" CONTENT="GNU Emacs Lispリファレンスマニュアル: B. ヒントと慣習">
+<META NAME="keywords" CONTENT="GNU Emacs Lispリファレンスマニュアル: B. ヒントと慣習">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+<LINK REL="contents" HREF="elisp_toc.html#SEC_Contents">
+<LINK REL="index" HREF="elisp_48.html#SEC681">
+<LINK REL="next" HREF="elisp_43.html#SEC667">
+<LINK REL="prev" HREF="elisp_40.html#SEC636">
+
+<META http-equiv="Content-Style-Type" content="text/css">
+<!-- 鶯と龜 ←日本語EUC誤判別対策用らしい; -->
+<link rel="StyleSheet" href="../../../../soft/css/midnight.css" type="text/css" id="css1">
+<script type="text/javascript" src="style1.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../soft/css/meadowmemo.css">
+
+</HEAD>
+<BODY LANG="ja" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+<!--Infoseek Analyzer start-->
+<script LANGUAGE="javascript">PgNo=6;</script>
+<script src="http://js1.infoseek.co.jp/bin/57/00170.js"></script>
+<noscript><a href="http://ax1.www.infoseek.co.jp/bin/go?0017057f" target="_blank">
+<img src="http://ax1.www.infoseek.co.jp/bin/logo?0017057f" border=0></a></noscript>
+<!--Infoseek Analyzer end-->
+<a name="top"> </a>
+
+<br><A NAME="SEC661"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_41.html#SEC660"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_42.html#SEC662"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_40.html#SEC636"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_43.html#SEC667"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Tips"></A>
+<H1> B. ヒントと慣習 </H1>
+<!--docid::SEC661::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Tips">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Tips</a>"<br>
+"texi/elisp21/B.ヒントと慣習"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2FB%2E%A5%D2%A5%F3%A5%C8%A4%C8%B4%B7%BD%AC">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX3215"></A>
+<A NAME="IDX3216"></A>
+<A NAME="IDX3217"></A>
+<P>
+
+本章では、Emacs Lispの機能についてさらに述べることはしません。
+かわりに、前章までに述べてきた機能を効率よく使うための助言や
+Emacs Lispプログラマが従うべき慣習について述べます。
+<P>
+
+<div class="menuindex"><SCRIPT language=JavaScript src="indexB.js"></SCRIPT></div><noscript><BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_42.html#SEC662">B.1 Emacs Lispのコーディングの慣習</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Conventions for clean and robust programs.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_42.html#SEC663">B.2 コンパイル済みコードを速くするヒント</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Making compiled code run fast.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_42.html#SEC664">B.3 説明文字列に関するヒント</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Writing readable documentation strings.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_42.html#SEC665">B.4 コメントの書き方のヒント</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Conventions for writing comments.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_42.html#SEC666">B.5 Emacsライブラリのヘッダの慣習</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Standard headers for library packages.</TD></TR>
+</TABLE></BLOCKQUOTE></noscript>
+<P>
+
+<A NAME="Coding Conventions"></A>
+<HR SIZE="6">
+<br><A NAME="SEC662"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_42.html#SEC661"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_42.html#SEC663"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Coding Conventions"></A>
+<H2> B.1 Emacs Lispのコーディングの慣習 </H2>
+<!--docid::SEC662::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Coding%20Conventions">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Coding%20Conventions</a>"<br>
+"texi/elisp21/B.1EmacsLispのコーディングの慣習"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2FB%2E1EmacsLisp%A4%CE%A5%B3%A1%BC%A5%C7%A5%A3%A5%F3%A5%B0%A4%CE%B4%B7%BD%AC">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+ここでは、読者が広く使われることを意図した
+Emacs Lispコードを書く場合に従うべき慣習について述べます。
+<P>
+
+<UL>
+<LI>
+すべてのグローバル変数は同じ名前空間を共有し、
+すべての関数も別の名前空間を共有するため、
+読者のプログラムを別のLispプログラムと区別するための短い単語を選ぶべきである。
+そして、すべてのグローバル変数、定数、関数の名前を
+選んでおいた接頭辞で始めるように注意する。
+<P>
+
+Emacs Lispでは基本関数ではないがLispの伝統的な基本関数の名前にさえも
+この勧告は適用される。
+たとえ<CODE>copy-list</CODE>にさえもである。
+信じるかどうかは別にして、
+<CODE>copy-list</CODE>のもっともらしい定義方法は複数ある。
+安全であるためには、読者の接頭辞を付けて
+<CODE>foo-copy-list</CODE>や<CODE>mylib-copy-list</CODE>のような名前にする。
+<P>
+
+読者が、<CODE>twiddle-files</CODE>のような特定の名前でEmacsに
+追加すべき関数を書いた場合には、読者のプログラムでは
+その名前で呼ばないようにする。
+読者のプログラムでは<CODE>mylib-twiddle-files</CODE>としておき、
+Emacsに名前を追加するように提案するメイルを
+`<SAMP>bug-gnu-emacs&#64;gnu.org</SAMP>'へ送る。
+われわれがそのようにすることを決定したときには、
+名前をとても簡単に変更できる。
+<P>
+
+1つの接頭辞では不十分な場合には、
+意味がある限りは、
+2つか3つの共通する別の接頭辞を読者のパッケージで使ってもよい。
+<P>
+
+接頭辞とシンボル名の残りの部分とはハイフン`<SAMP>-</SAMP>'で分ける。
+これはEmacs自身やほとんどのEmacs Lispプログラムと一貫性がある。
+<P>
+
+<LI>
+プログラムに少なくとも複数の入り口がある場合には、
+各ライブラリプログラムに<CODE>provide</CODE>の呼び出しがあるとしばしば有用である。
+<P>
+
+<LI>
+別のライブラリプログラムをあらかじめロードしておく必要があるファイルでは、
+ファイルの先頭のコマンドにそのように記述しておくこと。
+さらに、必要なものが確実にロードされておくように<CODE>require</CODE>を使う。
+<P>
+
+<LI>
+別のファイル<VAR>bar</VAR>で定義されるマクロを
+ファイル<VAR>foo</VAR>で使っている場合には、
+<VAR>foo</VAR>でそのマクロを始めて使うまえに<VAR>foo</VAR>につぎの式があること。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(eval-when-compile (require '<VAR>bar</VAR>))
+</pre></td></tr></table><P>
+
+（さらに、<CODE>require</CODE>が働くように、
+ライブラリ<VAR>bar</VAR>には<CODE>(provide '<VAR>bar</VAR>)</CODE>があること。）
+この式により、<VAR>foo</VAR>をバイトコンパイルするときに
+<VAR>bar</VAR>をロードすることになる。
+さもないと、必要なマクロをロードせずに<VAR>foo</VAR>をコンパイルする危険を侵し、
+正しく動作しないコンパイル済みコードを生成することになる。
+see 節 <A HREF="elisp_13.html#SEC174">12.3 マクロとバイトコンパイル</A>。
+<P>
+
+<CODE>eval-when-compile</CODE>を使うことで、
+<VAR>foo</VAR>のコンパイル済みの版を<EM>使う</EM>ときには
+<VAR>bar</VAR>をロードしない。
+<P>
+
+<LI>
+メジャーモードを定義するときには、
+メジャーモードの慣習に従うこと。
+see 節 <A HREF="elisp_23.html#SEC341">22.1.1 メジャーモードの慣習</A>。
+<P>
+
+<LI>
+マイナモードを定義するときには、
+マイナモードの慣習に従うこと。
+see 節 <A HREF="elisp_23.html#SEC347">22.2.1 マイナモードを書くための慣習</A>。
+<P>
+
+<LI>
+関数の目的が特定の条件を満たすかどうかを報告するのであれば、
+その関数には`<SAMP>p</SAMP>'で終る名前を付ける。
+名前が1単語である場合には`<SAMP>p</SAMP>'だけを付加する。
+複数の単語であれば`<SAMP>-p</SAMP>'を付加する。
+たとえば、<CODE>framep</CODE>や<CODE>frame-live-p</CODE>である。
+<P>
+
+<LI>
+真偽の条件を記録するユーザーオプション変数には、
+`<SAMP>-flag</SAMP>'で終る名前を付ける。
+<P>
+
+<LI>
+<A NAME="IDX3218"></A>
+<A NAME="IDX3219"></A>
+読者のメジャーモードでは、
+<KBD>C-c <VAR>letter</VAR></KBD>をキーとして定義しないこと。
+これらのキー列はユーザー向けに予約済みである。
+それら<STRONG>だけ</STRONG>がユーザー向けに予約されたキー列であり、
+それらを禁止しないこと。
+<P>
+
+かわりに、<KBD>C-c</KBD>のあとにコントロール文字か数字文字か特定の句読点文字が続く
+キー列を定義する。
+これらのキー列は、メジャーモード用に予約してある。
+<P>
+
+Emacsのすべてのモードをこの慣習に従うように変換するのは
+たいへんな作業量であった。
+この慣習を捨てさるとその作業をむだにしてしまい、ユーザーにも不便である。
+<P>
+
+<LI>
+<KBD>C-c</KBD>のあとに<KBD>{</KBD>、<KBD>}</KBD>、<KBD>&#60;</KBD>、<KBD>&#62;</KBD>、<KBD>:</KBD>、<KBD>;</KBD>の
+いずれかが続くキー列もメジャーモード用に予約してある。
+<P>
+
+<LI>
+<KBD>C-c</KBD>のあとにこれら以外の句読点文字が続くキー列は、
+マイナモード用に割り当ててある。
+これらをメジャーモードで使うことは絶対禁止ではないが、
+これらを使うと、メジャーモードのバインディングが
+マイナモードでときどき隠されてしまう。
+<P>
+
+<LI>
+修飾キーを使わないファンクションキー<KBD>F5</KBD>から<KBD>F9</KBD>は、
+ユーザーが定義するように予約してある。
+<P>
+
+<LI>
+（<KBD>C-c</KBD>を含む）任意のプレフィックス文字に続く
+<KBD>C-h</KBD>をバインドしないこと。
+<KBD>C-h</KBD>をバインドしなければ、これは自動的に
+プレフィックス文字のサブコマンド一覧を表示するヘルプ文字になる。
+<P>
+
+<LI>
+<KBD>ESC</KBD>に続く<KBD>ESC</KBD>以外には、
+<KBD>ESC</KBD>で終るキー列をバインドしないこと。
+（つまり、<KBD><KBD>ESC</KBD> <KBD>ESC</KBD></KBD>で終るキー列をバインドするのはよい。）
+<P>
+
+この規則の理由は、任意の文脈において
+<KBD>ESC</KBD>に対するプレフィックスでないバインディングがあることで、
+エスケープシーケンスをその文脈におけるファンクションキーと
+認識することを防げる。
+<P>
+
+<LI>
+ユーザーが出入りできる一時的なモードや状態のように働くものでは、
+脱出手段として<KBD><KBD>ESC</KBD> <KBD>ESC</KBD></KBD>や
+<KBD><KBD>ESC</KBD> <KBD>ESC</KBD> <KBD>ESC</KBD></KBD>を定義する。
+<P>
+
+Emacsの普通のコマンドを受け付ける状態、、あるいは、
+より一般的には<KBD>ESC</KBD>に続けてファンクションキーや矢印キーが
+意味を持つ可能性がある任意の状態では、
+<KBD>ESC</KBD>に続くエスケープシーケンスの認識を妨げる
+<KBD><KBD>ESC</KBD> <KBD>ESC</KBD></KBD>を定義するべきではない。
+そのような状態では、脱出手段として<KBD><KBD>ESC</KBD> <KBD>ESC</KBD> <KBD>ESC</KBD></KBD>を
+定義する。
+さもなければ脱出手段として<KBD><KBD>ESC</KBD> <KBD>ESC</KBD></KBD>を定義する。
+<P>
+
+<LI>
+アプリケーションでは、シフトキーを押し下げたボタン1関連のマウスイベントを
+バインドすべきではない。
+これらのイベントには、<KBD>S-mouse-1</KBD>、<KBD>M-S-mouse-1</KBD>、
+<KBD>C-S-mouse-1</KBD>などが含まれる。
+これらはユーザー向けに予約してある。
+<P>
+
+<LI>
+読み出し専用のテキスト向けの特別なメジャーモードでは、普通、
+<KBD>mouse-2</KBD>と<KBD>RET</KBD>をテキスト内のある種の参照を
+辿るように再定義するべきである。
+dired、info、コンパイル（compilation）、出現（occur）などのモードは
+このように再定義している。
+<P>
+
+<LI>
+Emacsの普通のふるまいを変更するようなパッケージでは、
+その機能をオン／オフするコマンドを含めるとよい。
+その機能をオン／オフする<CODE><VAR>whatever</VAR>-mode</CODE>という
+名前のコマンドを用意し、自動ロード（see 節 <A HREF="elisp_15.html#SEC195">14.4 自動ロード</A>）するようにする。
+パッケージをロードしただけでは見ためには効果がない、
+つまり、その機能をオンにしないようにパッケージを設計すること。
+ユーザーはコマンドを起動してその機能をオンにする。
+<P>
+
+<LI>
+Emacsの基本関数の別名を定義することは悪い考えである。
+そのかわりに標準の名前を使う。
+<P>
+
+<LI>
+Emacsの基本関数を再定義（あるいはアドバイス）することは謹むべきである。
+特定のプログラムに対しては正しく動作するであろうが、
+他のプログラムがその結果どうなるかはわからない。
+<P>
+
+<LI>
+Emacsの標準の関数やライブラリプログラムを置き換えるようなファイルでは、
+そのファイルの先頭の目立つコメントに
+どの関数を置き換え元のふるまいとの相違点を記述すること。
+<P>
+
+<LI>
+読者のEmacs Lispのソースファイルの名前は13文字以下にすること。
+こうすると、ファイルをコンパイルしても、
+コンパイル済みのファイル名は14文字以下になり、
+どんな種類のUNIXシステムにも収まるだけの短さである。
+<P>
+
+<LI>
+プログラムでは<CODE>next-line</CODE>や<CODE>previous-line</CODE>を使わないこと。
+ほとんどの場合、<CODE>forward-line</CODE>のほうがより便利であり、
+予測可能で堅牢でもある。
+see 節 <A HREF="elisp_30.html#SEC468">29.2.4 テキスト行単位の移動</A>。
+<P>
+
+<LI>
+マークを設定することが読者のプログラムの意図した機能の一部でなければ、
+マークを設定する関数は呼び出さないこと。
+マークはユーザーレベルの機能であり、
+ユーザーの便宜のために値を指定する以外には、
+マークを変更するのは正しくない。
+see 節 <A HREF="elisp_31.html#SEC481">30.7 マーク</A>。
+<P>
+
+特に、以下のいずれの関数も使わないこと。
+<P>
+
+<UL>
+<LI>
+<CODE>beginning-of-buffer</CODE>, <CODE>end-of-buffer</CODE>
+<LI>
+<CODE>replace-string</CODE>, <CODE>replace-regexp</CODE>
+</UL>
+<P>
+
+対話的なユーザー向けの他の機能を必要とせずに
+単にポイントを移動したり特定の文字列を置換するには、
+これらの関数は1行か2行の単純なLispコードで置き換えられる。
+<P>
+
+<LI>
+ベクトルを使う特別な理由がない限りは、ベクトルではなくリストを使う。
+Lispには、ベクトルに対するよりもリストを操作する機能のほうが多くあり、
+リストを扱うほうが普通はより簡便である。
+<P>
+
+（リストだけが許す）要素を挿入したり削除する必要がないのであれば、
+ある程度のサイズがあり
+（先頭から末尾に向けての探索ではなく）ランダムに参照する表には
+ベクトルのほうが適している。
+<P>
+
+<LI>
+エコー領域にメッセージを表示する推奨方法は、
+<CODE>princ</CODE>ではなく関数<CODE>message</CODE>を使うことである。
+see 節 <A HREF="elisp_38.html#SEC602">37.3 エコー領域</A>。
+<P>
+
+<LI>
+エラー条件に出会ったときには、
+関数<CODE>error</CODE>（あるいは<CODE>signal</CODE>）を呼び出す。
+関数<CODE>error</CODE>は戻ってこない。
+see 節 <A HREF="elisp_10.html#SEC131">9.5.3.1 エラーの通知方法</A>。
+<P>
+
+エラーを報告するために、
+<CODE>message</CODE>、<CODE>throw</CODE>、<CODE>sleep-for</CODE>、<CODE>beep</CODE>は使わないこと。
+<P>
+
+<LI>
+エラーメッセージは大英文字で始め、ピリオドで終えないこと。
+<P>
+
+<LI>
+実行に時間を要する多くのコマンドでは、
+開始時には`<SAMP>Operating...</SAMP>'のメッセージを表示し、
+終了時にはそれを`<SAMP>Operating...done</SAMP>'と変える。
+これらのメッセージの形を同じにしておくこと。
+<CODE>...</CODE>の周りに空白は<EM>なく</EM>、末尾にピリオドも<EM>ない</EM>。
+<P>
+
+<LI>
+再帰編集の使用は避けるように努めること。
+そのかわりにrmailのコマンド<KBD>e</KBD>のようにする。
+つまり、古いローカルキーマップに戻るためのコマンドを収めた
+新しいローカルキーマップを使う。
+あるいは、コマンド<CODE>edit-options</CODE>のようにする。
+別のバッファに切り替え、戻るのはユーザーに任せる。
+see 節 <A HREF="elisp_21.html#SEC313">20.11 再帰編集</A>。
+<P>
+
+<LI>
+変数名を`<SAMP>*</SAMP>'で始めたり終える慣習があるシステムもある。
+Emacs Lispではこの慣習を使わないので、読者のプログラムでも使わないこと。
+（Emacsでは、特別な目的のバッファにのみそのような名前を使う。）
+すべてのライブラリで同じ慣習を使うと、
+ユーザーにはEmacsがより整合して見える。
+<P>
+
+<LI>
+自由変数には<CODE>defvar</CODE>の定義を追加して、
+コンパイル時の未定義な自由変数に対する警告を避けるように努めること。
+<P>
+
+ある関数で変数を束縛しその変数を別の関数で使ったり設定すると、
+その変数を定義しない限りコンパイラは後者の関数について警告を出す。
+しかし、しばしばこれらの変数は短い名前で、
+Lispパッケージでそのような変数名を定義すべきかどうか明らかでない。
+したがって、そのような変数の名前は、
+読者のパッケージの他の関数や変数に使っている接頭辞で
+始まる名前に改名すべきである。
+<P>
+
+<LI>
+デフォルトの字下げパラメータを使って、
+各関数を<KBD>C-M-q</KBD>（<CODE>indent-sexp</CODE>）で字下げすること。
+<P>
+
+<LI>
+閉じ括弧だけの行にする癖をつけないこと。
+Lispプログラマはこれに当惑する。
+たまには、閉じ括弧が多数個連続するときに
+それらを1つか2つの塊に分けることは意味がある。
+<P>
+
+<LI>
+コピーを配布する場合には、ファイルに著作権表示を入れること。
+つぎのような文面を使う。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>;; Copyright (C) <VAR>year</VAR> <VAR>name</VAR>
+
+;; This program is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU General Public License as
+;; published by the Free Software Foundation; either version 2 of
+;; the License, or (at your option) any later version.
+
+;; This program is distributed in the hope that it will be
+;; useful, but WITHOUT ANY WARRANTY; without even the implied
+;; warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+;; PURPOSE.  See the GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public
+;; License along with this program; if not, write to the Free
+;; Software Foundation, Inc., 59 Temple Place, Suite 330, Boston,
+;; MA 02111-1307 USA
+</FONT></pre></td></tr></table><P>
+
+読者がフリーソフトウェアファウンデーションに著作権を委譲する契約を
+結んでいるときには、
+<VAR>name</VAR>として`<SAMP>Free Software Foundation, Inc.</SAMP>'を使う。
+さもなければ読者自身の名前を使う。
+</UL>
+<P>
+
+<A NAME="Compilation Tips"></A>
+<HR SIZE="6">
+<br><A NAME="SEC663"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_42.html#SEC662"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_42.html#SEC664"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Compilation Tips"></A>
+<H2> B.2 コンパイル済みコードを速くするヒント </H2>
+<!--docid::SEC663::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Compilation%20Tips">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Compilation%20Tips</a>"<br>
+"texi/elisp21/B.2コンパイル済みコードを速くするヒント"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2FB%2E2%A5%B3%A5%F3%A5%D1%A5%A4%A5%EB%BA%D1%A4%DF%A5%B3%A1%BC%A5%C9%A4%F2%C2%AE%A4%AF%A4%B9%A4%EB%A5%D2%A5%F3%A5%C8">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX3220"></A>
+<A NAME="IDX3221"></A>
+<P>
+
+バイトコンパイルしたLispプログラムの実行速度を改良する方法を示します。
+<P>
+
+<UL>
+<LI>
+<A NAME="IDX3222"></A>
+<A NAME="IDX3223"></A>
+<A NAME="IDX3224"></A>
+<A NAME="IDX3225"></A>
+ライブラリ`<TT>profile</TT>'やライブラリ`<TT>elp</TT>'で、
+読者のプログラムを計測する。
+操作方法についてはファイル`<TT>profile.el</TT>'と`<TT>elp.el</TT>'を参照。
+<P>
+
+<LI>
+可能な場合には再帰ではなく繰り返しを使う。
+コンパイル済みの関数が別のコンパイル済み関数を呼び出す場合であっても
+Emacs Lispでは関数呼び出しは遅い。
+<P>
+
+<LI>
+<CODE>memq</CODE>、<CODE>member</CODE>、<CODE>assq</CODE>、<CODE>assoc</CODE>のリスト探索基本関数を
+使うほうが明示的な繰り返しよりも速い。
+これらの探索基本関数の1つを使えるようにデータ構造を変更する価値はある。
+<P>
+
+<LI>
+ある種の組み込み関数は、バイトコンパイル済みのコードでは
+普通の関数呼び出しを避けるように特別に扱われる。
+これらの関数を使うのはよいことである。
+コンパイラが関数を特別に扱うかどうかを調べるには、
+その属性<CODE>byte-compile</CODE>を調べる。
+属性が<CODE>nil</CODE>以外であれば、その関数は特別に扱われる。
+<P>
+
+たとえば、つぎの入力は、<CODE>aref</CODE>が特別にコンパイルされることを示す
+（see 節 <A HREF="elisp_7.html#SEC96">6.3 配列操作関数</A>）。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(get 'aref 'byte-compile)
+     => byte-compile-two-args
+</pre></td></tr></table><P>
+
+<LI>
+読者のプログラムの実行時間のかなりの部分を小さな関数の呼び出しが
+占めるときには、その関数をインラインにする。
+これにより関数呼び出しのオーバヘッドを削除できる。
+関数をインラインにするとプログラム変更の柔軟性を減じるので、
+ユーザーが速度を気にするほど遅い部分の十分な速度向上が得られない限り、
+このようにしないこと。
+see 節 <A HREF="elisp_12.html#SEC169">11.9 インライン関数</A>。
+</UL>
+<P>
+
+<A NAME="Documentation Tips"></A>
+<HR SIZE="6">
+<br><A NAME="SEC664"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_42.html#SEC663"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_42.html#SEC665"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Documentation Tips"></A>
+<H2> B.3 説明文字列に関するヒント </H2>
+<!--docid::SEC664::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Documentation%20Tips">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Documentation%20Tips</a>"<br>
+"texi/elisp21/B.3説明文字列に関するヒント"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2FB%2E3%C0%E2%CC%C0%CA%B8%BB%FA%CE%F3%A4%CB%B4%D8%A4%B9%A4%EB%A5%D2%A5%F3%A5%C8">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+<A NAME="IDX3226"></A>
+<A NAME="IDX3227"></A>
+説明文字列を書くうえでのヒントや慣習を述べます。
+コマンド<KBD>M-x checkdoc-minor-mode</KBD>を実行して、
+これらの慣習の多くを確認できます。
+<P>
+
+<UL>
+<LI>
+ユーザーが知っておくことを意図した各コマンド、関数、変数には、
+説明文字列を付けること。
+<P>
+
+<LI>
+Lispプログラムの内部変数やサブルーティンにも説明文字列を付ける。
+Emacsの初期の版では、説明文字列のかわりにコメントを使うと容量を節約できたが、
+今はこれはあてはまらない。
+<P>
+
+<LI>
+説明文字列の最初の行は、1つか2つの完全な文であり、
+それだけで概要を表していること。
+<KBD>M-x apropos</KBD>は説明文字列の最初の行だけを表示するため、
+それだけで十分に表せないと表示結果が悪くなる。
+特に、最初の行は大文字で始め、ピリオドで終えること。
+<P>
+
+説明文字列には、関数や変数の使い方の詳細を述べる追加の行があってよい。
+それらの行も完全な文から成るべきであるが、見ためをよくするために
+適当に詰めてよい。
+<P>
+
+<LI>
+一貫性があるように、関数の説明文字列の最初の文の動詞は
+『to』を省いた不定詞にする。
+たとえば、『Returns the cons of A and B.』ではなく
+『Return the cons of A and B.』とする。
+最初の行の残りの文についても同様にするとよい。
+以降の文節では適切な主語があるほうが一般にはよい。
+<P>
+
+<LI>
+説明文字列は受動態ではなく能動態で書き、未来形ではなく現在形で書く。
+たとえば、『A list containing A and B will be returned.』ではなく
+『Return a list containing A and B.』と書く。
+<P>
+
+<LI>
+不必要に単語『cause』（および同義語）を使わないこと。
+『Cause Emacs to display text in boldface,』ではなく
+単に『Display text in boldface.』と書く。
+<P>
+
+<LI>
+説明文字列は、白文字で始めたり終えないこと。
+<P>
+
+<LI>
+80コラムのスクリーン上のEmacsのウィンドウに収まるように
+説明文字列を整形する。
+ほとんどの行を60文字を越えないようにするとよい。
+必要な情報を入れるためならば最初の行が長くなってもよい。
+<P>
+
+しかし、説明文字列全体を単純に整形するよりは、
+注意深く行分けすると読みやすくなる。
+説明文字列が長い場合には、話題ごとに空行で区切る。
+ 
+<LI>
+ソースコード上で説明文字列の最初の行に揃えるために
+説明文字列の残りの行を字下げ<STRONG>しないこと</STRONG>。
+ソースコード上では見ためがよくても、
+ユーザーが説明文字を見るときには奇妙に見える。
+文字列を始めるダブルクォートのまえにある字下げは
+文字列の一部ではないことに注意！
+<P>
+
+<LI>
+ユーザーが禁止コマンドを実行しようとすると、
+Emacsは当該コマンドの説明文字列の最初の文節、
+つまり、最初の空行までを表示する。
+必要ならば、最初の空行のまえに入れるべき情報を選んで、
+このような表示が有用であるようにする。
+<P>
+
+<LI>
+ユーザーが対話的に設定したがるような変数では、
+その変数の説明文字列は`<SAMP>*</SAMP>'で始める。
+変数の値が、長いリストや関数であるとき、あるいは、
+初期化ファイルでのみ設定するような変数であるときには、
+その説明文字列を`<SAMP>*</SAMP>'で始めないこと。
+see 節 <A HREF="elisp_11.html#SEC141">10.5 グローバル変数を定義する</A>。
+<P>
+
+<LI>
+yes/noのフラグを表す変数の説明文字列は『Non-nil means<small>...</small>』のような
+単語で始めて、<CODE>nil</CODE>以外の値はすべて同値であることを明らかにし、
+<CODE>nil</CODE>と<CODE>nil</CODE>以外の意味を明確に示すこと。
+<P>
+
+<LI>
+関数の説明文字列でその引数について述べるときには、
+その引数の値を表す名前には大文字で書いた引数名を使う。
+したがって、関数<CODE>/</CODE>の説明文字列では、
+その第2引数の名前は<CODE>divisor</CODE>なので、`<SAMP>DIVISOR</SAMP>'と表す。
+<P>
+
+また、リストやベクトルを（その一部が変化するかもしれない）構成部分に
+分解したものを示すときなどのメタ変数には、すべて大文字を使う。
+<P>
+
+<LI>
+説明文字列でLispシンボルを参照するときには、
+それが表示されるとき（つまり普通はすべて小文字）のように
+シングルクォートで囲って書く。
+たとえば、`<SAMP>lambda</SAMP>'である。
+これには2つ例外があり、tとnilはシングルクォートで囲まずに書く。
+（本書では、すべてのシンボルをシングルクォートで囲む別の慣習を用いている。）
+<P>
+
+ヘルプモードでは、説明文字列でシングルクォートで囲ったシンボルを使うと、
+そのシンボルに関数定義や変数定義があるときには自動的に
+ハイパーリンクを作成する。
+この機能を利用するために特別なことをする必要はない。
+しかし、シンボルに関数定義と変数定義の両方があり、
+どちらか一方のみを参照したい場合には、
+シンボルの名前のまえに
+`<SAMP>variable</SAMP>'、`<SAMP>option</SAMP>'、`<SAMP>function</SAMP>'、`<SAMP>command</SAMP>'の
+いずれかの単語を書くだけでどちらであるかを指定できる。
+（これらの単語を認識するときには大文字小文字は区別しない。）
+たとえばつぎのように書くと、
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>This function sets the variable `buffer-file-name'.
+</pre></td></tr></table><P>
+
+ハイパーリンクは、変数<CODE>buffer-file-name</CODE>の説明文字列を指し、
+その関数の説明文字列は指さない。
+<P>
+
+シンボルに関数定義や変数定義があっても、
+説明文字列でのシンボルの使い方には無関係な場合には、
+シンボルの名前のまえに単語`<SAMP>symbol</SAMP>'を書けば、
+ハイパーリンクを作らないようにできる。
+たとえば、つぎのようにすると、
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>If the argument KIND-OF-RESULT is the symbol `list',
+this function returns a list of all the objects
+that satisfy the criterion.
+</pre></td></tr></table><P>
+
+ここでは<CODE>list</CODE>の関数／変数定義は無関係なので、
+関数<CODE>list</CODE>の説明文字列を指すハイパーリンクは作られない。
+<P>
+
+<LI>
+説明文字列に直接キー列を書き込まないこと。
+そのかわりに、それの標準的なキー列を作成する
+`<SAMP>\\[<small>...</small>]</SAMP>'の書き方を使う。
+たとえば、`<SAMP>C-f</SAMP>'と書くかわりに、`<SAMP>\\[forward-char]</SAMP>'と書く。
+Emacsが説明文字列を表示するときに、
+<CODE>forward-char</CODE>に現在バインドされているキーにEmacsが置き換える。
+（普通は`<SAMP>C-f</SAMP>'であるが、ユーザーがキーバインディングを変更していれば、
+別の文字になる。）
+see 節 <A HREF="elisp_24.html#SEC366">23.3 説明文内のキーバインディングの置換</A>。
+<P>
+
+<LI>
+メジャーモードの説明文字列では、
+グローバルなキーマップではなくそのモードのローカルなキーマップでの
+キーバインディングを参照したいだろう。
+それには、使用するキーマップを指定する構文`<SAMP>\\&#60;<small>...</small>&#62;</SAMP>'を
+説明文字列の中に書く。
+最初に`<SAMP>\\[<small>...</small>]</SAMP>'を使うまえにこうしておくこと。
+`<SAMP>\\&#60;<small>...</small>&#62;</SAMP>'の内側のテキストは、
+メジャーモード向けのローカルキーマップを保持する変数の名前であること。
+<P>
+
+説明文字列の表示を遅くしてしまうので、
+`<SAMP>\\[<small>...</small>]</SAMP>'を何回も使うのは実用的ではない。
+したがって、読者のメジャーモードのもっとも重要なコマンドの記述にこれを使い、
+モードのキーマップの残りを表示するには`<SAMP>\\{<small>...</small>}</SAMP>'を使う。
+</UL>
+<P>
+
+<A NAME="Comment Tips"></A>
+<HR SIZE="6">
+<br><A NAME="SEC665"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_42.html#SEC664"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_42.html#SEC666"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Comment Tips"></A>
+<H2> B.4 コメントの書き方のヒント </H2>
+<!--docid::SEC665::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Comment%20Tips">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Comment%20Tips</a>"<br>
+"texi/elisp21/B.4コメントの書き方のヒント"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2FB%2E4%A5%B3%A5%E1%A5%F3%A5%C8%A4%CE%BD%F1%A4%AD%CA%FD%A4%CE%A5%D2%A5%F3%A5%C8">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+コメントを置く場所とそれらの字下げ方法については以下のような慣習を推奨します。
+<P>
+
+<DL COMPACT>
+<DT>`<SAMP>;</SAMP>'
+<DD>1つのセミコロン`<SAMP>;</SAMP>'で始まるコメントは、
+ソースコードの右側で同じコラム位置に揃えること。
+そのようなコメントは、その行のコードの動作を説明する。
+lispモードやその関連するモードでは、
+コマンド<KBD>M-;</KBD>（<CODE>indent-for-comment</CODE>）で
+自動的に右側の正しい位置に`<SAMP>;</SAMP>'を挿入したり、
+そのようなコメントが既存ならば整列できる。
+<P>
+
+つぎとその下の例は、Emacsのソースから持ってきたものである。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(setq base-version-list                 ; there was a base
+      (assoc (substring fn 0 start-vn)  ; version to which
+             file-version-assoc-list))  ; this looks like
+                                        ; a subversion
+</FONT></pre></td></tr></table><P>
+
+<DT>`<SAMP>;;</SAMP>'
+<DD>2つのセミコロン`<SAMP>;;</SAMP>'で始まるコメントは、
+その部分のコードの字下げに揃えること。
+そのようなコメントは、その後続の行の目的や
+その箇所でのプログラムの状態を記述する。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(prog1 (setq auto-fill-function
+             <small>...</small>
+             <small>...</small>
+  ;; update mode line
+  (force-mode-line-update)))
+</FONT></pre></td></tr></table><P>
+
+説明文字列を持たない各関数
+（所属するパッケージで内部向けにのみ使用される関数）では、
+関数が行うことと正しい呼び出し方を記述した
+2つのセミコロンで始まるコメントを関数のまえに書くこと。
+各引数の意味とその可能な値を関数がどのように解釈するかを正確に説明すること。
+<P>
+
+<DT>`<SAMP>;;;</SAMP>'
+<DD>3つのセミコロン`<SAMP>;;;</SAMP>'で始まるコメントは、左端に揃えること。
+そのようなコメントは、関数定義の外側で使い、
+プログラムの設計原理を説明する一般的な表明である。
+たとえばつぎのとおり。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>;;; This Lisp code is run in Emacs
+;;; when it is to operate as a server
+;;; for other processes.
+</FONT></pre></td></tr></table><P>
+
+3つのセミコロンで始まるコメントの別の使い方は、
+関数内の行をコメントにする場合である。
+そのような行が左端に留まるように3つのセミコロンを使うのである。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(defun foo (a)
+;;; This is no longer necessary.
+;;;  (force-mode-line-update)
+  (message "Finished with %s" a))
+</FONT></pre></td></tr></table><P>
+
+<DT>`<SAMP>;;;;</SAMP>'
+<DD>4つのセミコロン`<SAMP>;;;;</SAMP>'で始まるコメントは、
+左端に揃えて、プログラムの主要な部分のヘッダに使う。
+たとえばつぎのとおり。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>;;;; The kill ring
+</FONT></pre></td></tr></table></DL>
+<P>
+
+<KBD>M-;</KBD>（<CODE>indent-for-comment</CODE>）や
+<KBD>TAB</KBD>（<CODE>lisp-indent-line</CODE>）などの
+Emacsのlispモードの字下げコマンドは、
+これらの慣習にしたがって自動的にコメントを字下げします。
+See <a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=emacs21&node=Comments">GNU Emacs マニュアル</a>。
+<P>
+
+<A NAME="Library Headers"></A>
+<HR SIZE="6">
+<br><A NAME="SEC666"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_42.html#SEC665"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_43.html#SEC667"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Library Headers"></A>
+<H2> B.5 Emacsライブラリのヘッダの慣習 </H2>
+<!--docid::SEC666::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Library%20Headers">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Library%20Headers</a>"<br>
+"texi/elisp21/B.5Emacsライブラリのヘッダの慣習"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2FB%2E5Emacs%A5%E9%A5%A4%A5%D6%A5%E9%A5%EA%A4%CE%A5%D8%A5%C3%A5%C0%A4%CE%B4%B7%BD%AC">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX3228"></A>
+<A NAME="IDX3229"></A>
+<P>
+
+Emacsには、コメントをいくつかの部分に分けて作者などの情報を与えるために、
+Lispライブラリの特別なコメントに対する慣習があります。
+本節ではそれらの慣習について述べます。
+まず、例を示します。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>;;; lisp-mnt.el --- minor mode for Emacs Lisp maintainers
+
+;; Copyright (C) 1992 Free Software Foundation, Inc.
+
+;; Author: Eric S. Raymond &#60;esr&#64;snark.thyrsus.com&#62;
+;; Maintainer: Eric S. Raymond &#60;esr&#64;snark.thyrsus.com&#62;
+;; Created: 14 Jul 1992
+;; Version: 1.2
+;; Keywords: docs
+
+;; This file is part of GNU Emacs.
+<small>...</small>
+;; Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+;; Boston, MA 02111-1307, USA.
+</FONT></pre></td></tr></table><P>
+
+最初の行はつぎの形式であるべきです。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>;;; <VAR>filename</VAR> --- <VAR>description</VAR>
+</pre></td></tr></table><P>
+
+この記述は1行で完全になるようにします。
+<P>
+
+著作権表示のあとには、`<SAMP>;; <VAR>header-name</VAR>:</SAMP>'で始まる
+いくつかの<EM>ヘッダコメント</EM>（header comment）行が続きます。
+<VAR>header-name</VAR>に使う可能性のある慣習の一覧を以下に示します。
+<P>
+
+<DL COMPACT>
+<DT>`<SAMP>Author</SAMP>'
+<DD>この行では、少なくともライブラリの主作者の
+氏名とネットワークアドレスを明記する。
+<P>
+
+複数の作者がいる場合には、以下のように、
+<CODE>;;</CODE>とタブ文字で始めた継続行に
+その人達を列挙する。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>;; Author: Ashwin Ram &#60;Ram-Ashwin&#64;cs.yale.edu&#62;
+;;      Dave Sill &#60;de5&#64;ornl.gov&#62;
+;;      Dave Brennan &#60;brennan&#64;hal.com&#62;
+;;      Eric Raymond &#60;esr&#64;snark.thyrsus.com&#62;
+</FONT></pre></td></tr></table><P>
+
+<DT>`<SAMP>Maintainer</SAMP>'
+<DD>この行には、作者行（`<SAMP>Author</SAMP>'）のように1人の氏名とアドレス、
+アドレスのみ、文字列`<SAMP>FSF</SAMP>'のいずれかを書く。
+保守者行（`<SAMP>Maintainer</SAMP>'）がない場合には、
+作者行の人達が保守していると仮定する。
+上の例は、保守者行が冗長であり、少々いんちきである。
+<P>
+
+作者行（`<SAMP>Author</SAMP>'）と保守者行（`<SAMP>Maintainer</SAMP>'）の考えは、
+手作業で名前を探さずに『保守者にメイルを送る』ようなLisp関数を
+作れるようにするためである。
+<P>
+
+ネットワークアドレスに加えて人の氏名も書く場合には、
+ネットワークアドレスを`<SAMP>&#60;<small>...</small>&#62;</SAMP>'で必ず囲むこと。
+<P>
+
+<DT>`<SAMP>Created</SAMP>'
+<DD>この行は省略できるが、ファイルの作成日時を書く。
+歴史的な意味だけである。
+<P>
+
+<DT>`<SAMP>Version</SAMP>'
+<DD>各Lispプログラムの版番号を記録しておきたい場合に、
+この行に版番号を書く。
+<P>
+
+<DT>`<SAMP>Adapted-By</SAMP>'
+<DD>このヘッダ行では、（たとえば、スタイルの慣習に適合するように変更したなどの）
+インストールのためにライブラリを受理した人の名前を書く。
+<P>
+
+<DT>`<SAMP>Keywords</SAMP>'
+<DD>この行には、ヘルプコマンド<CODE>finder-by-keyword</CODE>向けの
+キーワードを書く。
+意味のあるキーワードを理解するためにこのコマンドを試してほしい。
+<P>
+
+この部分は重要である。
+人々が特定の話題で探して読者のパッケージをみつけるであろう。
+キーワードは空白やカンマで区切る。
+</DL>
+<P>
+
+ほとんどのLispライブラリには、
+`<SAMP>Author</SAMP>'と`<SAMP>Keywords</SAMP>'のヘッダコメント行が必要です。
+残りのものは必要に応じて使います。
+別の名前のヘッダ行があってもかまいません。
+それらには標準的な意味はありませんが、害になることもありません。
+<P>
+
+ライブラリファイルの内容を分割するために形式を定めたコメントも使います。
+それらを以下に示します。
+<P>
+
+<DL COMPACT>
+<DT>`<SAMP>;;; Commentary:</SAMP>'
+<DD>ライブラリの動作を説明する入門的なコメントを始める。
+著作権表示の直後にきて、
+`<SAMP>Change Log</SAMP>'、`<SAMP>History</SAMP>'、`<SAMP>Code</SAMP>'のいずれかのコメント行で終る。
+このテキストはパッケージfinderが使うので、
+その文脈で意味があるようにすること。
+<P>
+
+<DT>`<SAMP>;;; Documentation</SAMP>'
+<DD>`<SAMP>;;; Commentary:</SAMP>'のかわりに使っているファイルもあるが、
+`<SAMP>;;; Commentary:</SAMP>'のほうが好ましい。
+<P>
+
+<DT>`<SAMP>;;; Change Log:</SAMP>'
+<DD>（変更履歴をライブラリに収める場合の）
+ライブラリファイルに収めた変更記録情報を始める。
+Emacsで配布されるほとんどのLispファイルでは、
+変更履歴はファイル`<TT>ChangeLog</TT>'に収めてあり、
+ソースファイルには収めない。
+それらのファイルには`<SAMP>;;; Change Log:</SAMP>'行はない。
+<P>
+
+<DT>`<SAMP>;;; Code:</SAMP>'
+<DD>プログラムの実際のコードを始める。
+<P>
+
+<DT>`<SAMP>;;; <VAR>filename</VAR> ends here</SAMP>'
+<DD>これは<EM>最終行</EM>（footer line）であり、ファイルの末尾に現れる。
+その目的は、最終行が欠如していることでファイルが切り詰められていることが
+わかるようにするのである。
+</DL>
+<A NAME="GNU Emacs Internals"></A>
+<HR SIZE="6">
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<a name="bottom"> </a>
+<script type="text/javascript" src="style2.js"></script>
+<div class="footer">
+    <br>
+    このページはMeadow (Emacs) の紹介ページです <br>
+このWebページの各文書は自由にリンク・複製・再配布・改変していただいて構いません．
+<br>ただし，複製・再配布・改変の場合は Meadow Memo のURLを記載しておいて下さい．<br>
+<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=about%20link">Medow memoへのリンクについて</a>．<br>
+
+間違い，要望等があれば<a href="mailto:akihisa@mail.ne.jp">akihisa@mail.ne.jp</a> か下記でどうぞ<br>
+
+<br>
+
+<FORM METHOD="post" ACTION="http://www.bookshelf.jp/cgi-bin/wwwmail.cgi" >
+お名前：<INPUT TYPE="text" NAME="name" SIZE="30" MAXLENGTH="40" VALUE="ななしさん"><br>
+メールアドレス：<INPUT TYPE="text" NAME="EMAIL" SIZE="25" MAXLENGTH="60" VALUE="secret@mail.adr"><br>
+<input type="hidden" name="HPAGE" value="">
+つっこみ：<br><TEXTAREA NAME="MESSAGE" ROWS="5" COLS="50">
+</TEXTAREA><br><br>
+<INPUT TYPE="submit" VALUE="送信">
+<INPUT TYPE="reset" VALUE="クリア">
+</FORM>
+
+<br><A HREF="http://www.bookshelf.jp/cgi-bin/xct.cgi">ページ別カウンタ</a>
+<br> Since 2002/12/13 <br>
+</div>
+
+</BODY>
+
+</HTML>

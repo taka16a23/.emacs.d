@@ -1,0 +1,2115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="ja">
+<!-- Created on October, 1  2005 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=euc-jp">
+<META NAME="keywords" CONTENT="meadow,mule,emacs,lisp,elisp,gnus,setting,設定,unix,cygwin">
+<META http-equiv="Content-Script-Type" content="text/javascript">
+<META NAME="description" CONTENT="Meadowの設定を紹介するページです">
+<TITLE>GNU Emacs Lispリファレンスマニュアル:  変数</TITLE>
+
+<META NAME="description" CONTENT="GNU Emacs Lispリファレンスマニュアル:  変数">
+<META NAME="keywords" CONTENT="GNU Emacs Lispリファレンスマニュアル:  変数">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+<LINK REL="contents" HREF="elisp_toc.html#SEC_Contents">
+<LINK REL="index" HREF="elisp_48.html#SEC681">
+<LINK REL="next" HREF="elisp_12.html#SEC156">
+<LINK REL="prev" HREF="elisp_10.html#SEC122">
+
+<META http-equiv="Content-Style-Type" content="text/css">
+<!-- 鶯と龜 ←日本語EUC誤判別対策用らしい; -->
+<link rel="StyleSheet" href="../../../../soft/css/midnight.css" type="text/css" id="css1">
+<script type="text/javascript" src="style1.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../soft/css/meadowmemo.css">
+
+</HEAD>
+<BODY LANG="ja" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+<!--Infoseek Analyzer start-->
+<script LANGUAGE="javascript">PgNo=6;</script>
+<script src="http://js1.infoseek.co.jp/bin/57/00170.js"></script>
+<noscript><a href="http://ax1.www.infoseek.co.jp/bin/go?0017057f" target="_blank">
+<img src="http://ax1.www.infoseek.co.jp/bin/logo?0017057f" border=0></a></noscript>
+<!--Infoseek Analyzer end-->
+<a name="top"> </a>
+
+<br><A NAME="SEC136"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_10.html#SEC135"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_11.html#SEC137"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_10.html#SEC122"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_12.html#SEC156"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Variables"></A>
+<H1> 10. 変数 </H1>
+<!--docid::SEC136::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Variables">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Variables</a>"<br>
+"texi/elisp21/変数"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%CA%D1%BF%F4">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX578"></A>
+<P>
+
+<EM>変数</EM>（variable）は、プログラムにおいて値を表すために使う名前です。
+ほとんどすべてのプログラム言語には、ある種の変数があります。
+Lispプログラムのテキストでは、シンボルの構文を使って変数を書きます。
+<P>
+
+ほとんどのプログラム言語と違って、Lispでは、
+プログラムはLispオブジェクトで表現し、テキスト表現は副次的なものです。
+変数として使うLispオブジェクトはシンボルです。
+シンボル名が変数名であり、変数の値はシンボルの値セルに格納されています。
+変数としてのシンボルの使い方は、関数名としての使い方とは独立しています。
+See 節 <A HREF="elisp_8.html#SEC102">7.1 シンボルの構成要素</A>。
+<P>
+
+Lispプログラムを構成するLispオブジェクト群は、
+プログラムのテキスト表現を決定します。
+つまり、Lispオブジェクト群に対する単なる入力構文です。
+これは、たとえば、Lispプログラムのテキスト表現では、
+変数を表現するシンボルの入力構文で変数を書く理由です。
+<P>
+
+<div class="menuindex"><SCRIPT language=JavaScript src="index10.js"></SCRIPT></div><noscript><BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_11.html#SEC137">10.1 グローバル変数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Variable values that exist permanently, everywhere.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_11.html#SEC138">10.2 変更不可能な変数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Certain "variables" have values that never change.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_11.html#SEC139">10.3 ローカル変数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Variable values that exist only temporarily.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_11.html#SEC140">10.4 変数が『空』であるとき</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Symbols that lack values.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_11.html#SEC141">10.5 グローバル変数を定義する</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">A definition says a symbol is used as a variable.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_11.html#SEC142">10.6 変数を堅牢に定義するためのヒント</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How to avoid bad results from quitting
+                            within the code to initialize a variable.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_11.html#SEC143">10.7 変数値の参照</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Examining values of variables whose names
+                            are known only at run time.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_11.html#SEC144">10.8 変数値の変更</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Storing new values in variables.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_11.html#SEC145">10.9 変数束縛のスコープルール</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How Lisp chooses among local and global values.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_11.html#SEC150">10.10 バッファローカルな変数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Variable values in effect only in one buffer.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_11.html#SEC154">10.11 フレームローカルな変数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Variable values in effect only in one frame.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_11.html#SEC155">10.12 将来のローカル変数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">New kinds of local values we might add some day.</TD></TR>
+</TABLE></BLOCKQUOTE></noscript>
+<P>
+
+<A NAME="Global Variables"></A>
+<HR SIZE="6">
+<br><A NAME="SEC137"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_11.html#SEC136"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_11.html#SEC138"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Global Variables"></A>
+<H2> 10.1 グローバル変数 </H2>
+<!--docid::SEC137::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Global%20Variables">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Global%20Variables</a>"<br>
+"texi/elisp21/グローバル変数"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%B0%A5%ED%A1%BC%A5%D0%A5%EB%CA%D1%BF%F4">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX579"></A>
+<A NAME="IDX580"></A>
+<P>
+
+変数を使うもっとも簡単な方法は、
+<EM>グローバルに</EM>（globally、大局的に）使うことです。
+つまり、どんなときにも変数にはたった1つの値だけがあり、
+（少なくともここでは）Lispシステム全体にその値が有効になります。
+新たな値を設定するまで、その値が有効であり続けます。
+新たな値で古い値を置き換えると、変数には古い値の痕跡はなにも残りません。
+<P>
+
+シンボルの値は<CODE>setq</CODE>で指定します。
+たとえば、
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(setq x '(a b))
+</pre></td></tr></table><P>
+
+は、変数<CODE>x</CODE>に値<CODE>(a b)</CODE>を与えます。
+<CODE>setq</CODE>は、最初の引数、つまり、変数の名前を評価せず、
+新しい値である第2引数を評価することに注意してください。
+<P>
+
+変数にいったん値を与えれば、
+式としてシンボルそのものを使うことによりその値を参照できます。
+つまり、つぎのとおりです。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>x => (a b)
+</pre></td></tr></table><P>
+
+ただし、上に示したフォーム<CODE>setq</CODE>を実行してあると仮定します。
+<P>
+
+同じ変数に値を設定し直すと、
+新しい値で古い値を置き換えます。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>x
+     => (a b)
+(setq x 4)
+     => 4
+x
+     => 4
+</pre></td></tr></table><P>
+
+<A NAME="Constant Variables"></A>
+<HR SIZE="6">
+<br><A NAME="SEC138"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_11.html#SEC137"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_11.html#SEC139"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Constant Variables"></A>
+<H2> 10.2 変更不可能な変数 </H2>
+<!--docid::SEC138::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Constant%20Variables">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Constant%20Variables</a>"<br>
+"texi/elisp21/変更不可能な変数"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%CA%D1%B9%B9%C9%D4%B2%C4%C7%BD%A4%CA%CA%D1%BF%F4">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX581"></A>
+<A NAME="IDX582"></A>
+<A NAME="IDX583"></A>
+<P>
+
+Emacs Lispには、通常それ自身に評価されるある種のシンボルがあります。
+`<SAMP>:</SAMP>'で始まる名前の任意の変数、および、<CODE>nil</CODE>と<CODE>t</CODE>です。
+これらのシンボルを再束縛することはできず、
+それらの値を変更することもできません。
+<CODE>nil</CODE>や<CODE>t</CODE>を設定しようとしたり束縛しようとすると、
+エラー<CODE>setting-constant</CODE>を通知します。
+`<SAMP>:</SAMP>'で始まる名前のシンボルに関してもそうですが、
+そのようなシンボルにそれ自身を設定することはできます。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>nil == 'nil
+     => nil
+(setq nil 500)
+error--> Attempt to set constant symbol: nil
+</pre></td></tr></table><P>
+
+<A NAME="IDX584"></A>
+<DL>
+<DT><U>Variable:</U> <B>keyword-symbols-constant-flag</B>
+<DD><A NAME="IDX585"></A>
+この変数が<CODE>nil</CODE>であると、
+`<SAMP>:</SAMP>'で始まる名前の変数を望みの値に設定したり束縛したりできる。
+これは、そのようなことを行う古いLispプログラムの実行を可能にするためである。
+</DL>
+<P>
+
+<A NAME="Local Variables"></A>
+<HR SIZE="6">
+<br><A NAME="SEC139"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_11.html#SEC138"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_11.html#SEC140"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Local Variables"></A>
+<H2> 10.3 ローカル変数 </H2>
+<!--docid::SEC139::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Local%20Variables">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Local%20Variables</a>"<br>
+"texi/elisp21/ローカル変数"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%ED%A1%BC%A5%AB%A5%EB%CA%D1%BF%F4">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX586"></A>
+<A NAME="IDX587"></A>
+<A NAME="IDX588"></A>
+<A NAME="IDX589"></A>
+<A NAME="IDX590"></A>
+<P>
+
+グローバル変数は、
+明示的に新しい値で置き換えない限り存続する値を持ちます。
+一時的にしか存在しない変数値、
+つまり、プログラムのある部分を完了するまでのみ存在する変数値を
+作れると便利なことがあります。
+このような値を<EM>ローカル</EM>（local、局所的）と呼び、
+そのように使われる変数を<EM>ローカル変数</EM>（local variables）と呼びます。
+<P>
+
+たとえば、関数を呼び出したとき、その引数変数は、
+関数を抜けるまで存続する新たなローカルな値を受け取ります。
+スペシャルフォーム<CODE>let</CODE>は、指定した変数の新たなローカル値を
+明示的に確立します。
+これらはフォーム<CODE>let</CODE>を抜けるまで存続します。
+<P>
+
+<A NAME="IDX591"></A>
+ローカル値を確立すると、
+変数の以前の値（あるいは値がないこと）を保存します。
+ローカル値の存続期間が終了すると、以前の値を復元します。
+この期間は、以前の値を<EM>隠して</EM>（shadowed）いて
+以前の値は<EM>見えません</EM>。
+グローバル値でもローカル値でも隠せます（see 節 <A HREF="elisp_11.html#SEC146">10.9.1 スコープ</A>）。
+<P>
+
+変数がローカルなときに（<CODE>setq</CODE>などで）その変数を設定すると、
+ローカル値を置き換えます。
+隠されているグローバル値や以前のローカル値を変更しません。
+このふるまいをモデル化するために、
+変数のローカル値に加えて変数の<EM>ローカル束縛</EM>（local binding）を
+考えます。
+<P>
+
+ローカル束縛とは、ローカル値を保持する概念的な場所です。
+関数や<CODE>let</CODE>などのスペシャルフォームに入るたびに
+ローカル束縛を作成します。
+関数やフォーム<CODE>let</CODE>から抜けるとローカル束縛を削除します。
+ローカル束縛が存続する限り、変数の値はそこに保持されています。
+ローカル束縛が存在するときに<CODE>setq</CODE>や<CODE>set</CODE>を使うと、
+ローカル束縛の中に別の値を格納します。
+新たな束縛を作るのではありません。
+<P>
+
+グローバル値を保持する概念的な場所を
+<EM>グローバル束縛</EM>（global binding）ともいいます。
+<P>
+
+<A NAME="IDX592"></A>
+変数には一度に複数のローカル束縛がありえます
+（たとえば、同じ変数を束縛する入れ子になったフォーム<CODE>let</CODE>があるとき）。
+そのような場合、既存のもっとも最近に作成されたローカル束縛が、
+変数の<EM>現在の束縛</EM>（current binding）です。
+（この規則を<EM>動的スコープ</EM>（dynamic scoping）と呼びます。
+see 節 <A HREF="elisp_11.html#SEC145">10.9 変数束縛のスコープルール</A>）
+ローカル束縛がまったくなければ、変数のグローバル束縛が現在の束縛です。
+現在の束縛のことを強調して<EM>既存の最ローカル束縛</EM>と呼ぶこともあります。
+シンボルの通常の評価では、その現在の束縛の値を返します。
+<P>
+
+スペシャルフォーム<CODE>let</CODE>や<CODE>let*</CODE>は、
+ローカル束縛を作るためにあります。
+<P>
+
+<A NAME="IDX593"></A>
+<DL>
+<DT><U>Special Form:</U> <B>let</B> <I>(bindings<small>...</small>) forms<small>...</small></I>
+<DD>このスペシャルフォームは、<VAR>bindings</VAR>に従って変数を束縛し、
+<VAR>forms</VAR>のすべてをテキスト上の順に評価する。
+<CODE>let</CODE>フォームは、<VAR>forms</VAR>の最後のフォームの値を返す。
+<P>
+
+<VAR>bindings</VAR>のおのおのは、(i)シンボルであるか、
+(ii)フォーム<CODE>(<VAR>symbol</VAR> <VAR>value-form</VAR>)</CODE>のリストである。
+前者は、シンボルに<CODE>nil</CODE>を束縛する。
+後者は、<VAR>symbol</VAR>に<VAR>value-form</VAR>の評価結果を束縛する。
+<VAR>value-form</VAR>を省略すると<CODE>nil</CODE>を使う。
+<P>
+
+<VAR>bindings</VAR>の<VAR>value-form</VAR>群すべてを現れる順に評価して<EM>から</EM>、
+シンボルにそれらの値を束縛する。
+例をつぎに示す。
+<CODE>Z</CODE>は、<CODE>Y</CODE>の古い値2に束縛され、<CODE>Y</CODE>の新しい値1ではない。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(setq Y 2)
+     => 2
+(let ((Y 1) 
+      (Z Y))
+  (list Y Z))
+     => (1 2)
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX594"></A>
+<DL>
+<DT><U>Special Form:</U> <B>let*</B> <I>(bindings<small>...</small>) forms<small>...</small></I>
+<DD>このスペシャルフォームは<CODE>let</CODE>に似ているが、
+変数のローカル値を計算し終えた直後にその変数を束縛し、
+つぎの変数のローカル値の計算に進む。
+したがって、<VAR>bindings</VAR>内の式では、この<CODE>let*</CODE>フォーム内で
+まえにあるシンボルを参照できる。
+つぎの例を上の<CODE>let</CODE>の例と比較してほしい。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(setq Y 2)
+     => 2
+(let* ((Y 1)
+       (Z Y))    ; 設定し終えたばかりの<CODE>Y</CODE>の値を使う
+  (list Y Z))
+     => (1 1)
+</pre></td></tr></table></DL>
+<P>
+
+以下にローカル束縛を作成するその他の機能の完全な一覧をあげておきます。
+<P>
+
+<UL>
+<LI>
+関数呼び出し（see 節 <A HREF="elisp_12.html#SEC156">11. 関数</A>）。
+<P>
+
+<LI>
+マクロ呼び出し（see 節 <A HREF="elisp_13.html#SEC171">12. マクロ</A>）。
+<P>
+
+<LI>
+<CODE>condition-case</CODE>（see 節 <A HREF="elisp_10.html#SEC130">9.5.3 エラー</A>）。
+</UL>
+<P>
+
+変数は、バッファローカルな束縛（see 節 <A HREF="elisp_11.html#SEC150">10.10 バッファローカルな変数</A>や
+フレームローカルな束縛（see 節 <A HREF="elisp_11.html#SEC154">10.11 フレームローカルな変数</A>）を持つことができます。
+少数の変数は、端末にローカルな束縛（see 節 <A HREF="elisp_29.html#SEC436">28.2 複数ディスプレイ</A>）
+を持つこともできます。
+この種の束縛は普通のローカル束縛と同じように働きますが、
+これらはEmacsの『どの部分』にいるかに依存したローカル化であり、
+時間的なローカル化ではありません。
+<P>
+
+<A NAME="IDX595"></A>
+<DL>
+<DT><U>Variable:</U> <B>max-specpdl-size</B>
+<DD><A NAME="IDX596"></A>
+<A NAME="IDX597"></A>
+<A NAME="IDX598"></A>
+この変数は、（<CODE>"Variable binding depth exceeds max-specpdl-size"</CODE>を
+伴った）エラーを通知するまでに許される、
+ローカル変数束縛と
+<CODE>unwind-protect</CODE>による後始末（see 節 <A HREF="elisp_10.html#SEC127">9.5 非ローカル脱出</A>）の
+全体の個数の制限を定義する。
+<P>
+
+この制限、および、これを超えたときのエラーは、
+不正に定義された関数によってLispが無限に再帰することを防止する
+1つの方法である。
+<P>
+
+デフォルト値は600である。
+Lispデバッガに入ったとき、
+制限に近い場合にはデバッガ自身が実行できることを保証するために値を増やす。
+</DL>
+<P>
+
+<A NAME="Void Variables"></A>
+<HR SIZE="6">
+<br><A NAME="SEC140"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_11.html#SEC139"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_11.html#SEC141"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Void Variables"></A>
+<H2> 10.4 変数が『空』であるとき </H2>
+<!--docid::SEC140::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Void%20Variables">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Void%20Variables</a>"<br>
+"texi/elisp21/変数が『空』であるとき"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%CA%D1%BF%F4%A4%AC%A1%D8%B6%F5%A1%D9%A4%C7%A4%A2%A4%EB%A4%C8%A4%AD">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX599"></A>
+<A NAME="IDX600"></A>
+<P>
+
+シンボルにグローバル変数としての値を一度も与えていないとき、
+そのシンボルのグローバル値は<EM>空</EM>（void）であるといいます。
+いいかえれば、シンボルの値セルにはどんなLispオブジェクトも入っていません。
+シンボルを評価しようとすると、値ではなくエラー<CODE>void-variable</CODE>を得ます。
+<P>
+
+<CODE>nil</CODE>という値は空とは異なることに注意してください。
+シンボル<CODE>nil</CODE>はLispオブジェクトであり、他のオブジェクトと同様に
+変数の値になりえます。
+それは<EM>値</EM>なのです。
+空な変数はいかなる値も持たないのです。
+<P>
+
+変数に値を与えたあとでは、<CODE>makunbound</CODE>を使って
+再度その変数を空にできます。
+<P>
+
+<A NAME="IDX601"></A>
+<DL>
+<DT><U>Function:</U> <B>makunbound</B> <I>symbol</I>
+<DD>この関数は、<VAR>symbol</VAR>の現在の変数束縛を空にする。
+これ以降に変数としてこのシンボルの値を使おうとすると、
+再度設定していない限り、エラー<CODE>void-variable</CODE>を通知する。
+<P>
+
+<CODE>makunbound</CODE>は<VAR>symbol</VAR>を返す。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(makunbound 'x)      ; 変数<CODE>x</CODE>のグローバル値を空にする
+     => x
+x
+error--> Symbol's value as variable is void: x
+</pre></td></tr></table><P>
+
+<VAR>symbol</VAR>がローカルに束縛されていると、
+<CODE>makunbound</CODE>は既存の最ローカル束縛に作用する。
+ローカル束縛を作成するすべての構文は変数に値を与えるため、
+これはシンボルのローカル束縛を空にする唯一の方法である。
+この場面では、空の状態は、束縛が存在する限り存続する。
+束縛を作成した構造から抜け出して束縛が削除されると、
+通常どおりそれ以前のローカル束縛かグローバル束縛が有効になり、
+その束縛が空でなければ変数は空ではない。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(setq x 1)               ; グローバル束縛に値を入れる
+     => 1
+(let ((x 2))             ; ローカルに束縛する
+  (makunbound 'x)        ; ローカル束縛を空にする
+  x)
+error--> Symbol's value as variable is void: x
+x                        ; グローバル束縛は変更されていない
+     => 1
+
+(let ((x 2))             ; ローカルに束縛する
+  (let ((x 3))           ; もう一度
+    (makunbound 'x)      ; もっとも内側のローカル束縛を空にする
+    x))                  ; 参照するが、それは空
+error--> Symbol's value as variable is void: x
+
+(let ((x 2))
+  (let ((x 3))
+    (makunbound 'x))     ; 内側の束縛を空にし、それを削除する
+  x)                     ; 外側の<CODE>let</CODE>の束縛が見える
+     => 2
+</FONT></pre></td></tr></table></DL>
+<P>
+
+<CODE>makunbound</CODE>で空にした変数は、
+一度も値を受け取ったことがなく、そのために空である変数と区別できません。
+<P>
+
+変数が現在、空であるかどうかは関数<CODE>boundp</CODE>を使って調べられます。
+<P>
+
+<A NAME="IDX602"></A>
+<DL>
+<DT><U>Function:</U> <B>boundp</B> <I>variable</I>
+<DD><CODE>boundp</CODE>は、（シンボル）<VAR>variable</VAR>が空でなければ、
+より正確にいえば、現在の束縛が空でなければ<CODE>t</CODE>を返す。
+さもなければ<CODE>nil</CODE>を返す。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(boundp 'abracadabra)          ; 空で始める
+     => nil
+(let ((abracadabra 5))         ; ローカルに束縛する
+  (boundp 'abracadabra))
+     => t
+(boundp 'abracadabra)          ; グローバルにはまだ空である
+     => nil
+(setq abracadabra 5)           ; グローバルに空でなくする
+     => 5
+(boundp 'abracadabra)
+     => t
+</FONT></pre></td></tr></table></DL>
+<P>
+
+<A NAME="Defining Variables"></A>
+<HR SIZE="6">
+<br><A NAME="SEC141"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_11.html#SEC140"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_11.html#SEC142"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Defining Variables"></A>
+<H2> 10.5 グローバル変数を定義する </H2>
+<!--docid::SEC141::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Defining%20Variables">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Defining%20Variables</a>"<br>
+"texi/elisp21/グローバル変数を定義する"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%B0%A5%ED%A1%BC%A5%D0%A5%EB%CA%D1%BF%F4%A4%F2%C4%EA%B5%C1%A4%B9%A4%EB">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX603"></A>
+<P>
+
+スペシャルフォーム<CODE>defconst</CODE>や<CODE>defvar</CODE>の<EM>変数定義</EM>を使って、
+シンボルをグローバル変数として使う意図を表明できます。
+<P>
+
+Emacs Lispでは、定義には3つの目的があります。
+まず、コードを読む人向けに、特定のシンボルを（変数として）特定目的に
+使う<EM>意図</EM>があることを知らせます。
+第2に、Lispシステムに対しては、値と説明文字列を提供して
+これらのことを伝えます。
+第3に、プログラム内の関数や変数のデータベースを作成する
+<CODE>etags</CODE>や<CODE>make-docfile</CODE>などのユーティリティに情報を提供します。
+<P>
+
+<CODE>defconst</CODE>と<CODE>defvar</CODE>の違いは、主に好みの問題であり、
+値が変更されるかどうかを人に伝えます。
+Emacs Lispは、<CODE>defconst</CODE>や<CODE>defvar</CODE>の宣言に基づいて
+変数の使い方を制限することはしません。
+しかしながら、初期化に関しては違いがあります。
+<CODE>defconst</CODE>は無条件に変数を初期化しますが、
+<CODE>defvar</CODE>は変数が空である場合にのみ初期化します。
+<P>
+
+<A NAME="IDX604"></A>
+<DL>
+<DT><U>Special Form:</U> <B>defvar</B> <I>symbol [value [doc-string]]</I>
+<DD>このスペシャルフォームは、<VAR>symbol</VAR>を変数として定義し、
+初期値や説明文字列を設定する。
+この定義は、コードを読む人向けに、
+値を設定したり変更する変数として<VAR>symbol</VAR>を使うことを伝える。
+<VAR>symbol</VAR>は評価されないことに注意。
+定義するシンボルは、<CODE>defvar</CODE>に明示的に現れる必要がある。
+<P>
+
+<VAR>symbol</VAR>の値が空であり<VAR>value</VAR>を指定してあると、
+<CODE>defvar</CODE>は<VAR>value</VAR>を評価し、その結果を<VAR>symbol</VAR>に設定する。
+しかし、<VAR>symbol</VAR>にすでに値があれば（つまり、空でなければ）、
+<VAR>value</VAR>をまったく評価せず、<VAR>symbol</VAR>の値も変更しない。
+<VAR>value</VAR>を省略した場合、<VAR>symbol</VAR>の値をいっさい変更しない。
+<P>
+
+<VAR>symbol</VAR>にカレントバッファでバッファローカルな束縛がある場合には、
+<CODE>defvar</CODE>はデフォルト値に作用する。
+それは、バッファには独立であり、現在の（バッファローカルな）束縛ではない。
+<CODE>defvar</CODE>は、デフォルト値が空の場合にデフォルト値を設定する。
+see 節 <A HREF="elisp_11.html#SEC150">10.10 バッファローカルな変数</A>。
+<P>
+
+emacs-lispモードにおいて<KBD>C-M-x</KBD>（<CODE>eval-defun</CODE>）でトップレベルの
+フォーム<CODE>defvar</CODE>を評価すると、
+<CODE>eval-defun</CODE>の特別な機能により、
+変数の値が空かどうかを調べずに無条件に変数に設定する。
+<P>
+
+<VAR>doc-string</VAR>があれば、それは変数の説明文を指定する。
+（説明文を指定できるのは、変数定義の主な利点の1つである。）
+説明文はシンボルの属性<CODE>variable-documentation</CODE>に格納する。
+Emacsのヘルプ関数（see 節 <A HREF="elisp_24.html#SEC363">23. 説明文</A>）は、この属性を調べる。
+<P>
+
+<VAR>doc-string</VAR>の最初の文字が`<SAMP>*</SAMP>'であると、
+この変数をユーザーオプションと考えることを意味する。
+これにより、ユーザーはコマンド<CODE>set-variable</CODE>や<CODE>edit-options</CODE>を
+使って簡単に変数を設定できる。
+しかしながら、ユーザーオプションの変数には、
+<CODE>defvar</CODE>ではなく<CODE>defcustom</CODE>を使ったほうがよく、
+そうすればカスタマイズ情報を指定できる。
+see 節 <A HREF="elisp_14.html#SEC182">13. カスタマイズ定義の書き方</A>。
+<P>
+
+いくつか例をあげる。
+つぎのフォームは<CODE>foo</CODE>を定義するが初期化はしない。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(defvar foo)
+     => foo
+</pre></td></tr></table><P>
+
+つぎの例は、<CODE>bar</CODE>の値を<CODE>23</CODE>に初期化し、説明文字列を与える。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(defvar bar 23
+  "The normal weight of a bar.")
+     => bar
+</pre></td></tr></table><P>
+
+つぎの例は、<CODE>bar</CODE>の説明文字列を変更し、
+この変数をユーザーオプションにする。
+しかし、<CODE>bar</CODE>にはすでに値が設定してあるので、
+その値は変更しない。
+（さらに<CODE>(1+ nil)</CODE>は評価するとエラーになるが、
+評価されないのでエラーはない。）
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(defvar bar (1+ nil)
+  "*The normal weight of a bar.")
+     => bar
+bar
+     => 23
+</pre></td></tr></table><P>
+
+つぎの例は、スペシャルフォーム<CODE>defvar</CODE>に等価な式である。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(defvar <VAR>symbol</VAR> <VAR>value</VAR> <VAR>doc-string</VAR>)
+==
+(progn
+  (if (not (boundp '<VAR>symbol</VAR>))
+      (setq <VAR>symbol</VAR> <VAR>value</VAR>))
+  (if '<VAR>doc-string</VAR>
+    (put '<VAR>symbol</VAR> 'variable-documentation '<VAR>doc-string</VAR>))
+  '<VAR>symbol</VAR>)
+</pre></td></tr></table><P>
+
+フォーム<CODE>defvar</CODE>は<VAR>symbol</VAR>を返すが、
+通常このフォームはファイルのトップレベルで使われ、そこでは値は関係ない。
+</DL>
+<P>
+
+<A NAME="IDX605"></A>
+<DL>
+<DT><U>Special Form:</U> <B>defconst</B> <I>symbol [value [doc-string]]</I>
+<DD>このスペシャルフォームは、<VAR>symbol</VAR>を変数として定義し初期化する。
+この定義は、コードを読む人向けに、
+<VAR>symbol</VAR>はこれ以降標準のグローバル値を持ち、
+ユーザーや他のプログラムが変更すべきでないことを伝える。
+<VAR>symbol</VAR>は評価されないことに注意。
+定義するシンボルは、<CODE>defconst</CODE>に明示的に現れる必要がある。
+<P>
+
+<CODE>defconst</CODE>は、<VAR>value</VAR>があればつねに<VAR>value</VAR>を評価し、
+その結果を<VAR>symbol</VAR>に設定する。
+<VAR>symbol</VAR>にカレントバッファのバッファローカルな束縛がある場合には、
+<CODE>defconst</CODE>はデフォルト値を設定し、
+バッファローカルな値にではない。
+（しかし、<CODE>defconst</CODE>で定義するシンボルには、
+バッファローカルな束縛を作るべきではない。）
+<P>
+
+つぎの例では、<CODE>pi</CODE>は、（インディアナ州立法府はいうにおよばず）
+だれも変更すべきではないと考えられる定数である。
+しかし、2番目のフォームからわかるように、これは単に助言でしかない。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(defconst pi 3.1415 "Pi to five places.")
+     => pi
+(setq pi 3)
+     => pi
+pi
+     => 3
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX606"></A>
+<DL>
+<DT><U>Function:</U> <B>user-variable-p</B> <I>variable</I>
+<DD><A NAME="IDX607"></A>
+この関数は、<VAR>variable</VAR>がユーザーオプション、つまり、
+カスタマイズのためにユーザーが設定することを意図した変数であると、
+<CODE>t</CODE>を返し、さもなければ<CODE>nil</CODE>を返す。
+（ユーザーオプション向け以外の変数は、Lispプログラムの内部目的用にあり、
+それらについてユーザーが知る必要はない。）
+<P>
+
+ユーザーオプション変数は、
+属性<CODE>variable-documentation</CODE>の最初の文字で他の変数と区別される。
+その属性が存在して文字列であり、最初の文字が`<SAMP>*</SAMP>'であれば、
+その変数はユーザーオプションである。
+</DL>
+<P>
+
+<A NAME="IDX608"></A>
+ユーザーオプション変数に属性<CODE>variable-interactive</CODE>があると、
+コマンド<CODE>set-variable</CODE>はその属性値を使って、
+変数の新しい値の読み取りを制御します。
+この属性値は、<CODE>interactive</CODE>の引数（see 節 <A HREF="elisp_21.html#SEC284">20.2.1 <CODE>interactive</CODE>の使い方</A>）
+のように使われます。
+しかしながら、この機能は<CODE>defcustom</CODE>（see 節 <A HREF="elisp_14.html#SEC182">13. カスタマイズ定義の書き方</A>）により
+ほとんど廃れています。
+<P>
+
+<STRONG>警告：</STRONG><CODE> </CODE>
+変数にローカル束縛があるときに
+スペシャルフォーム<CODE>defconst</CODE>や<CODE>defvar</CODE>を使うと、
+ローカル束縛の値を変更し、グローバル束縛は変更しない。
+これは望む効果ではない。
+これを防ぐには、これらのスペシャルフォームはファイルのトップレベルで使う。
+そうすれば、普通は有効なローカル束縛はない。
+さらに、変数のローカル束縛を作るまえに、
+確実にファイルをロードしておく。
+<P>
+
+<A NAME="Tips for Defining"></A>
+<HR SIZE="6">
+<br><A NAME="SEC142"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_11.html#SEC141"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_11.html#SEC143"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Tips for Defining"></A>
+<H2> 10.6 変数を堅牢に定義するためのヒント </H2>
+<!--docid::SEC142::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Tips%20for%20Defining">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Tips%20for%20Defining</a>"<br>
+"texi/elisp21/変数を堅牢に定義するためのヒント"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%CA%D1%BF%F4%A4%F2%B7%F8%CF%B4%A4%CB%C4%EA%B5%C1%A4%B9%A4%EB%A4%BF%A4%E1%A4%CE%A5%D2%A5%F3%A5%C8">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+（内部に束縛を含むようなキーマップなどの）複雑な値を保持する変数を
+定義し初期化するときには、つぎのように、
+値の計算全体を<CODE>defvar</CODE>の内部に入れておくのが最良です。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(defvar my-mode-map
+  (let ((map (make-sparse-keymap)))
+    (define-key map "\C-c\C-a" 'my-command)
+    <small>...</small>
+    map)
+  <VAR>docstring</VAR>)
+</pre></td></tr></table><P>
+
+この方法には、いくつかの利点があります。
+まず、ファイルのロード中にユーザーが中断した場合、
+変数は初期化されないか正しく初期化されるかのいずれかであり、
+その中間状態ということはありません。
+第2に、変数をすでに初期化したあとにファイルをロードし直しても、
+変数を変更しません。
+（キーをバインドし直すなどの）内容の一部を変更するために
+ユーザーがフックを実行した場合などには、これは重要です。
+第3に、<KBD>C-M-x</KBD>でフォーム<CODE>defvar</CODE>を評価すると、
+マップを完全に初期化し<EM>直せます</EM>。
+<P>
+
+フォーム<CODE>defvar</CODE>の内側に多くのコードを置くことには、欠点が1つあります。
+変数の名前を指定した行から説明文字列が離れすぎてしまうことです。
+つぎのようにしてこれを安全に防げます。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(defvar my-mode-map nil
+  <VAR>docstring</VAR>)
+(if my-mode-map
+    nil
+  (let ((map (make-sparse-keymap)))
+    (define-key my-mode-map "\C-c\C-a" 'my-command)
+    <small>...</small>
+    (setq my-mode-map map)))
+</pre></td></tr></table><P>
+
+これには、<CODE>defvar</CODE>の内側に初期化を入れたときと同じ利点がありますが、
+変数を再初期化するには、各フォームそれぞれについて
+<KBD>C-M-x</KBD>を打つ必要があります。
+<P>
+
+しかし、つぎのようなコードは書かないでください。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(defvar my-mode-map nil
+  <VAR>docstring</VAR>)
+(if my-mode-map
+    nil
+  (setq my-mode-map (make-sparse-keymap))
+  (define-key my-mode-map "\C-c\C-a" 'my-command)
+  <small>...</small>)
+</pre></td></tr></table><P>
+
+このコードでは、変数を設定してから変更しますが、
+それを複数の手順で行います。
+<CODE>setq</CODE>の直後にユーザーが中断すると、
+変数は正しく初期化されておらず、空でも<CODE>nil</CODE>でもありません。
+こうなったときにファイルを再ロードしても変数を初期化できません。
+変数は不完全な状態のままです。
+<P>
+
+<A NAME="Accessing Variables"></A>
+<HR SIZE="6">
+<br><A NAME="SEC143"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_11.html#SEC142"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_11.html#SEC144"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Accessing Variables"></A>
+<H2> 10.7 変数値の参照 </H2>
+<!--docid::SEC143::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Accessing%20Variables">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Accessing%20Variables</a>"<br>
+"texi/elisp21/変数値の参照"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%CA%D1%BF%F4%C3%CD%A4%CE%BB%B2%BE%C8">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+変数を参照する普通の方法は、
+変数を指名するシンボルを書くことです（see 節 <A HREF="elisp_9.html#SEC113">8.2.2 シンボルフォーム</A>）。
+これには、プログラムを書くときに変数名を指定する必要があります。
+読者は、普通このようにするでしょう。
+場合によっては、実行時にどの変数を参照するか選ぶ必要があり、
+そのときには<CODE>symbol-value</CODE>を使います。
+<P>
+
+<A NAME="IDX609"></A>
+<DL>
+<DT><U>Function:</U> <B>symbol-value</B> <I>symbol</I>
+<DD>この関数は<VAR>symbol</VAR>の値を返す。
+これは、シンボルのもっとも内側のローカル束縛の値、あるいは、
+ローカル束縛がなければグローバル値である。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(setq abracadabra 5)
+     => 5
+(setq foo 9)
+     => 9
+
+;; ここで、<CODE>abracadabra</CODE>は、
+;;   その値を調べるシンボル
+(let ((abracadabra 'foo))
+  (symbol-value 'abracadabra))
+     => foo
+
+;; ここで、<CODE>abracadabra</CODE>の値、
+;;   つまり<CODE>foo</CODE>が、
+;;   その値を調べるシンボル
+(let ((abracadabra 'foo))
+  (symbol-value abracadabra))
+     => 9
+
+(symbol-value 'abracadabra)
+     => 5
+</pre></td></tr></table><P>
+
+<VAR>symbol</VAR>の現在の束縛が空であると、
+エラー<CODE>void-variable</CODE>を通知する。
+</DL>
+<P>
+
+<A NAME="Setting Variables"></A>
+<HR SIZE="6">
+<br><A NAME="SEC144"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_11.html#SEC143"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_11.html#SEC145"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Setting Variables"></A>
+<H2> 10.8 変数値の変更 </H2>
+<!--docid::SEC144::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Setting%20Variables">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Setting%20Variables</a>"<br>
+"texi/elisp21/変数値の変更"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%CA%D1%BF%F4%C3%CD%A4%CE%CA%D1%B9%B9">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+変数の値を変更する普通の方法は、スペシャルフォーム<CODE>setq</CODE>を使うことです。
+実行時に選択する変数を計算する必要があるときには、
+関数<CODE>set</CODE>を使います。
+<P>
+
+<A NAME="IDX610"></A>
+<DL>
+<DT><U>Special Form:</U> <B>setq</B> <I>[symbol form]<small>...</small></I>
+<DD>このスペシャルフォームは、変数の値を変更するもっとも一般的な方法である。
+各<VAR>symbol</VAR>に、対応する<VAR>form</VAR>の評価結果である新たな値を与える。
+シンボルの既存の際、ローカルの束縛を変更する。
+<P>
+
+<CODE>setq</CODE>は<VAR>symbol</VAR>を評価しない。
+読者が書いたシンボルに設定する。
+この変数は<EM>自動的にクォートされる</EM>のである。
+<CODE>setq</CODE>の`<SAMP>q</SAMP>'は、『quoted（クォートする）』を表す。
+<P>
+
+フォーム<CODE>setq</CODE>の値は、最後の<VAR>form</VAR>の値である。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(setq x (1+ 2))
+     => 3
+x                   ; <CODE>x</CODE>はグローバル値を持つ
+     => 3
+(let ((x 5)) 
+  (setq x 6)        ; <CODE>x</CODE>のローカル束縛を設定する
+  x)
+     => 6
+x                   ; グローバル値は変更されない
+     => 3
+</pre></td></tr></table><P>
+
+最初の<VAR>form</VAR>を評価して最初の<VAR>symbol</VAR>に設定し、
+つぎに、2番目の<VAR>form</VAR>を評価して2番目の<VAR>symbol</VAR>に設定し、
+といった具合になることに注意。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(setq x 10          ; <CODE>x</CODE>は、<CODE>y</CODE>の値を計算するまえに
+      y (1+ x))     ;   設定されることに注意
+     => 11             
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX611"></A>
+<DL>
+<DT><U>Function:</U> <B>set</B> <I>symbol value</I>
+<DD>この関数は、<VAR>symbol</VAR>の値として<VAR>value</VAR>を設定し、<VAR>value</VAR>を返す。
+<CODE>set</CODE>は関数なので、<VAR>symbol</VAR>として書いた式は、
+設定するシンボルを得るために評価される。
+<P>
+
+変数の既存の最ローカルの束縛に設定する。
+隠されている束縛には影響しない。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(set one 1)
+error--> Symbol's value as variable is void: one
+(set 'one 1)
+     => 1
+(set 'two 'one)
+     => one
+(set two 2)         ; <CODE>two</CODE>はシンボル<CODE>one</CODE>に評価される
+     => 2
+one                 ; そのため、<CODE>one</CODE>に設定される
+     => 2
+(let ((one 1))      ; <CODE>one</CODE>のこの束縛が設定され、
+  (set 'one 3)      ;   グローバル値は設定されない
+  one)
+     => 3
+one
+     => 2
+</pre></td></tr></table><P>
+
+<VAR>symbol</VAR>（の評価結果）が実際にはシンボルでないと、
+エラー<CODE>wrong-type-argument</CODE>を通知する。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(set '(x y) 'z)
+error--> Wrong type argument: symbolp, (x y)
+</pre></td></tr></table><P>
+
+論理的には、<CODE>set</CODE>は<CODE>setq</CODE>よりもさらに基本的な操作である。
+どんな<CODE>setq</CODE>の使い方でも、<CODE>set</CODE>で素直に書き直せる。
+<CODE>setq</CODE>は、<CODE>set</CODE>を使ってマクロとして定義することも可能である。
+しかし、<CODE>set</CODE>そのものを使うことは稀であり、
+初心者は<CODE>set</CODE>を知る必要がほとんどない。
+設定する変数を実行時に選ぶときにのみ有用である。
+たとえば、コマンド<CODE>set-variable</CODE>は、
+ユーザーから変数名を読み取りその変数に設定するので、
+<CODE>set</CODE>を使う必要がある。
+<P>
+
+<A NAME="IDX612"></A>
+<BLOCKQUOTE>
+<B>Common Lispに関した注意：</B><CODE> </CODE>
+Common Lispでは、<CODE>set</CODE>はつねにシンボルの『スペシャル』な、つまり、
+動的な値を変更し、文脈上の束縛を無視する。
+Emacs Lispでは、すべての変数とすべての束縛は動的であり、
+<CODE>set</CODE>はつねに既存の最ローカルの束縛に作用する。
+</BLOCKQUOTE>
+</DL>
+<P>
+
+変数に設定する別の関数は、リストに既存でない要素を追加するように
+設計されたものです。
+<P>
+
+<A NAME="IDX613"></A>
+<DL>
+<DT><U>Function:</U> <B>add-to-list</B> <I>symbol element</I>
+<DD>この関数は、<VAR>element</VAR>が変数<VAR>symbol</VAR>の値のリストのメンバでなければ、
+<VAR>element</VAR>と変数<VAR>symbol</VAR>の値をコンスした値を
+変数<VAR>symbol</VAR>に設定する。
+リストを変更してもしなくても結果のリストを返す。
+呼び出すまえに、<VAR>symbol</VAR>の値はリストであるほうがよい。
+<P>
+
+引数<VAR>symbol</VAR>は暗黙にクォートされない。
+<CODE>add-to-list</CODE>は、<CODE>set</CODE>のように普通の関数であり、
+<CODE>setq</CODE>とは違う。
+必要ならば、読者自身でクォートする。
+</DL>
+<P>
+
+<CODE>add-to-list</CODE>の使い方を以下に示します。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(setq foo '(a b))
+     => (a b)
+
+(add-to-list 'foo 'c)     ;; <CODE>c</CODE>を追加する
+     => (c a b)
+
+(add-to-list 'foo 'b)     ;; なんの効果もない
+     => (c a b)
+
+foo                       ;; <CODE>foo</CODE>は変更されている
+     => (c a b)
+</pre></td></tr></table><P>
+
+<CODE>(add-to-list '<VAR>var</VAR> <VAR>value</VAR>)</CODE>に等価な式はつぎのとおりです。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(or (member <VAR>value</VAR> <VAR>var</VAR>)
+    (setq <VAR>var</VAR> (cons <VAR>value</VAR> <VAR>var</VAR>)))
+</pre></td></tr></table><P>
+
+<A NAME="Variable Scoping"></A>
+<HR SIZE="6">
+<br><A NAME="SEC145"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_11.html#SEC144"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_11.html#SEC146"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Variable Scoping"></A>
+<H2> 10.9 変数束縛のスコープルール </H2>
+<!--docid::SEC145::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Variable%20Scoping">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Variable%20Scoping</a>"<br>
+"texi/elisp21/変数束縛のスコープルール"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%CA%D1%BF%F4%C2%AB%C7%FB%A4%CE%A5%B9%A5%B3%A1%BC%A5%D7%A5%EB%A1%BC%A5%EB">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+あるシンボル<CODE>foo</CODE>は、さまざまなローカルな変数束縛を持つことができます。
+Lispプログラムの異なる場所で確立されたものや
+グローバル束縛です。
+もっとも最近に確立した束縛が他のものに優先します。
+<P>
+
+<A NAME="IDX614"></A>
+<A NAME="IDX615"></A>
+<A NAME="IDX616"></A>
+Emacs Lispのローカル束縛は、<EM>無限のスコープ</EM>（indefinite scope）と
+<EM>動的存続期間</EM>（dynamic extent）を持ちます。
+<EM>スコープ</EM>（scope）とは、ソースコードのテキスト上の
+<EM>どこ</EM>から束縛を参照できるかを表します。
+無限のスコープとは、プログラムのどこからでも変数束縛を参照できることを
+意味します。
+<EM>存続期間</EM>（extent）とは、プログラムの実行にしたがって、
+<EM>いつ</EM>束縛が存在するかを表します。
+動的存続期間とは、束縛を作成した構造が有効である限り、
+束縛が存続することを意味します。
+<P>
+
+動的存続期間と無限のスコープの組み合せを
+<EM>動的スコープ</EM>（dynamic scoping）と呼びます。
+対照的に、ほとんどのプログラム言語は、
+<EM>レキシカルスコープ</EM>（lexical scoping）を用います。
+つまり、ローカル変数の参照は、
+その変数を束縛する関数やブロックのテキスト上で内側にある必要があります。
+<P>
+
+<A NAME="IDX617"></A>
+<BLOCKQUOTE>
+<B>Common Lispに関した注意：</B><CODE> </CODE>
+Common Lispでは、『スペシャル』と宣言した変数は、
+Emacs Lispのすべての変数と同様に、動的スコープである。
+</BLOCKQUOTE>
+<P>
+
+<BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_11.html#SEC146">10.9.1 スコープ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Scope means where in the program a value is visible.
+                     Comparison with other languages.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_11.html#SEC147">10.9.2 存続期間</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Extent means how long in time a value exists.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_11.html#SEC148">10.9.3 動的スコープの実装</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Two ways to implement dynamic scoping.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_11.html#SEC149">10.9.4 動的スコープの正しい使い方</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How to use dynamic scoping carefully and avoid problems.</TD></TR>
+</TABLE></BLOCKQUOTE>
+<P>
+
+<A NAME="Scope"></A>
+<HR SIZE="6">
+<br><A NAME="SEC146"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_11.html#SEC145"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_11.html#SEC147"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Scope"></A>
+<H3> 10.9.1 スコープ </H3>
+<!--docid::SEC146::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Scope">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Scope</a>"<br>
+"texi/elisp21/スコープ"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%B9%A5%B3%A1%BC%A5%D7">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+Emacs Lispでは、
+ローカル変数束縛は<EM>無限のスコープ</EM>（indefinite scope）です。
+つまり、プログラムテキスト上のどの関数からでも、
+ある変数束縛を参照できるのです。
+つぎの関数定義を考えてみましょう。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(defun binder (x)   ; <CODE>x</CODE>は、<CODE>binder</CODE>で束縛
+   (foo 5))         ; <CODE>foo</CODE>は別の関数
+
+(defun user ()      ; <CODE>x</CODE>は、<CODE>user</CODE>において『自由』
+  (list x))
+</pre></td></tr></table><P>
+
+テキスト上のスコープを用いる言語では、
+<CODE>binder</CODE>内の<CODE>x</CODE>の束縛を、<CODE>user</CODE>で参照することはできません。
+なぜなら、<CODE>user</CODE>は、テキスト上で関数<CODE>binder</CODE>の内側にはないからです。
+しかしながら、動的スコープのEmacs Lispでは、
+状況に応じて、<CODE>binder</CODE>内で確立した<CODE>x</CODE>の束縛を
+<CODE>user</CODE>から参照してもしなくてもよいのです。
+<P>
+
+<UL>
+<LI>
+<CODE>binder</CODE>をまったく呼び出さずに、直接<CODE>user</CODE>を呼び出したときには、
+とにかくみつかった<CODE>x</CODE>の束縛を使うが、
+それは<CODE>binder</CODE>のものではありえない。
+<P>
+
+<LI>
+<CODE>foo</CODE>をつぎのように定義して<CODE>binder</CODE>を呼び出したときには、
+<CODE>binder</CODE>が作った束縛を<CODE>user</CODE>で見える。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(defun foo (lose)
+  (user))
+</pre></td></tr></table><P>
+
+<LI>
+しかし、<CODE>foo</CODE>をつぎのように定義して<CODE>binder</CODE>を呼び出したときには、
+<CODE>binder</CODE>が作った束縛は<CODE>user</CODE>では<EM>見えない</EM>。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(defun foo (x)
+  (user))
+</pre></td></tr></table><P>
+
+ここで、<CODE>binder</CODE>が<CODE>foo</CODE>を呼び出すと、
+<CODE>foo</CODE>は<CODE>x</CODE>を束縛する。
+（<CODE>foo</CODE>の束縛は<CODE>binder</CODE>の束縛を<EM>隠す</EM>（shadow）という。）
+したがって、<CODE>user</CODE>は、<CODE>binder</CODE>の束縛ではなく、
+<CODE>foo</CODE>の束縛を参照することになる。
+</UL>
+<P>
+
+Emacs Lispで動的スコープを使うのは、
+テキスト上のスコープの単純な実装は遅いからです。
+さらに、すべてのLispシステムは、少なくともオプションとして、
+動的スコープを使えるようにする必要があります。
+テキスト上のスコープが標準であると、
+特定の変数に対して動的スコープを指定する方法が必要になります。
+Emacsで両方のスコープを使えるようにしてもよいのですが、
+動的スコープだけだと実装がより簡単になります。
+<P>
+
+<A NAME="Extent"></A>
+<HR SIZE="6">
+<br><A NAME="SEC147"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_11.html#SEC146"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_11.html#SEC148"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Extent"></A>
+<H3> 10.9.2 存続期間 </H3>
+<!--docid::SEC147::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Extent">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Extent</a>"<br>
+"texi/elisp21/存続期間"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%C2%B8%C2%B3%B4%FC%B4%D6">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+<EM>存続期間</EM>（Extent）とは、プログラムの実行中において、
+変数名が有効である期間を指します。
+Emacs Lispでは、束縛を作ったフォームを実行している期間中だけ、
+変数は有効です。
+これを<EM>動的存続期間</EM>（dynamic extent）と呼びます。
+CやPascalなどのほとんどの言語の『ローカル』変数や『自動』変数も
+動的存続期間です。
+<P>
+
+動的存続期間とは別のものに<EM>無限の存続期間</EM>（indefinite extent）があります。
+つまり、変数束縛は、その束縛を作ったフォームから抜けても存続するのです。
+たとえば、Common LispやSchemeにはこれがありますが、Emacs Lispにはありません。
+<P>
+
+これを説明するために、つぎの関数<CODE>make-add</CODE>を考えます。
+この関数は、<VAR>n</VAR>に自身の引数<VAR>m</VAR>を加算する関数を返します。
+この関数はCommon Lispでは動作しますが、Emacs Lispではだめです。
+というのは、<CODE>make-add</CODE>の呼び出しを抜けると、
+変数<VAR>n</VAR>は実引数2に束縛されなくなるからです。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(defun make-add (n)
+    (function (lambda (m) (+ n m))))  ; 関数を返す
+     => make-add
+(fset 'add2 (make-add 2))  ; 関数<CODE>add2</CODE>を
+                           ;   <CODE>(make-add 2)</CODE>を使って定義する
+     => (lambda (m) (+ n m))
+(add2 4)                   ; 4に2を加算してみる
+error--> Symbol's value as variable is void: n
+</pre></td></tr></table><P>
+
+<A NAME="IDX618"></A>
+Lispの方言のいくつかには『クロージャ』（closure）があります。
+それは関数のようなオブジェクトですが、追加の変数束縛を記録します。
+Emacs Lispにはクロージャはありません。
+<P>
+
+<A NAME="Impl of Scope"></A>
+<HR SIZE="6">
+<br><A NAME="SEC148"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_11.html#SEC147"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_11.html#SEC149"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Impl of Scope"></A>
+<H3> 10.9.3 動的スコープの実装 </H3>
+<!--docid::SEC148::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Impl%20of%20Scope">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Impl%20of%20Scope</a>"<br>
+"texi/elisp21/動的スコープの実装"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%C6%B0%C5%AA%A5%B9%A5%B3%A1%BC%A5%D7%A4%CE%BC%C2%C1%F5">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX619"></A>
+<P>
+
+（Emacs Lispの実際の動作とは異なるが）単純な実装例が、
+動的束縛を理解する助けになるでしょう。
+この技法を<EM>深い束縛</EM>（ディープバインディング、deep binding）と呼び、
+初期のLispシステムで使われていました。
+<P>
+
+変数・値の対である束縛のスタックがあるとしましょう。
+関数やフォーム<CODE>let</CODE>に入ると、
+引数やローカル変数の束縛をスタックに積みます。
+束縛を作った構造から抜けるとそれらの束縛を取りさります。
+<P>
+
+変数の値は、スタックの先頭から底へ向けてその変数の束縛を探索します。
+その束縛から得る値が変数の値になります。
+変数に設定するには、現在の束縛を探して、その束縛に新たな値を格納します。
+<P>
+
+これからわかるように、関数の束縛は、その関数の実行中には、
+たとえ別の関数を呼び出していても、存続しています。
+これが束縛の存続が動的であるという理由です。
+また、その束縛が有効である期間中ならば、同じ変数を使えば他の関数からも
+束縛を参照できるのです。
+これがスコープが無限であるという理由です。
+<P>
+
+<A NAME="IDX620"></A>
+GNU Emacs Lispにおいて、変数のスコープの実際の実装には、
+<EM>浅い束縛</EM>（シャローバインディング、shallow binding）と呼ばれる
+技法を用いています。
+各変数には現在値を保存しておく標準の場所、シンボルの値セルがあります。
+<P>
+
+浅い束縛では、変数の設定は値セルに値を格納することで動作します。
+新たな束縛を作成すると（以前の束縛に属する）古い値をスタックに積み、
+新たなローカル値を値セルに格納します。
+束縛を解くときには、古い値をスタックから取り出して値セルに格納します。
+<P>
+
+浅い束縛を用いる理由は、束縛を探索する必要がないため、
+深い束縛と同じ結果を持ちながら高速に動作するからです。
+<P>
+
+<A NAME="Using Scoping"></A>
+<HR SIZE="6">
+<br><A NAME="SEC149"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_11.html#SEC148"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_11.html#SEC150"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Using Scoping"></A>
+<H3> 10.9.4 動的スコープの正しい使い方 </H3>
+<!--docid::SEC149::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Using%20Scoping">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Using%20Scoping</a>"<br>
+"texi/elisp21/動的スコープの正しい使い方"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%C6%B0%C5%AA%A5%B9%A5%B3%A1%BC%A5%D7%A4%CE%C0%B5%A4%B7%A4%A4%BB%C8%A4%A4%CA%FD">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+ある関数で変数を束縛し別の関数でそれを使うことは、強力な技法ですが、
+なんの制限もせずに使うとプログラムを理解し難いものにしてしまいます。
+この技法を見通しよく使うための2つの方法があります。
+<P>
+
+<UL>
+<LI>
+1つのファイル内で近くに書いた関連する少数の関数でだけ、
+変数を使ったり束縛したりする。
+そのような変数は、1つのプログラム内での通信に使う。
+<P>
+
+他のプログラマに対して、彼らがそのような変数を目にするまえに、
+そのような変数の使い方がわかるようなコメントを書き、
+他の場所では使わないように助言しておく。
+<P>
+
+<LI>
+変数にはよくわかる意味を与え、
+それに関連する適切なすべての関数が（束縛も設定もしないで）参照するようにする。
+たとえば、変数<CODE>case-fold-search</CODE>は、
+『<CODE>nil</CODE>以外であれば探索時に大文字小文字を区別しない』と定義されている。
+さまざまな探索関数や置換関数が、この変数を直接に、あるいは、
+サブルーティンを介して参照するが、
+この変数を束縛したり設定したりしない。
+<P>
+
+こうしておいて別のプログラムで変数を束縛するが、
+それにどのような効果があるか確実に知ってから行える。
+</UL>
+<P>
+
+いずれの場合でも、変数は<CODE>defvar</CODE>で定義するべきです。
+これは、関数間での変数の使い方を見るように伝えることで、
+他人が読者のプログラムを理解するのを助けます。
+また、バイトコンパイラからの警告も防ぎます。
+変数名が衝突しないようにも注意しましょう。
+<CODE>x</CODE>のような短い名前を使わないでください。
+<P>
+
+<A NAME="Buffer-Local Variables"></A>
+<HR SIZE="6">
+<br><A NAME="SEC150"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_11.html#SEC149"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_11.html#SEC151"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Buffer-Local Variables"></A>
+<H2> 10.10 バッファローカルな変数 </H2>
+<!--docid::SEC150::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Buffer-Local%20Variables">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Buffer-Local%20Variables</a>"<br>
+"texi/elisp21/バッファローカルな変数"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D0%A5%C3%A5%D5%A5%A1%A5%ED%A1%BC%A5%AB%A5%EB%A4%CA%CA%D1%BF%F4">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX621"></A>
+<A NAME="IDX622"></A>
+<P>
+
+グローバルとローカルの変数束縛は、
+ほとんどのプログラム言語にいろいろな形であります。
+Emacsには、あまり普通でない追加の種類の変数束縛があります。
+1つのバッファだけに適用される<EM>バッファローカル</EM>な束縛、
+1つのフレームだけに適用されるフレームローカルな束縛です。
+異なるバッファやフレームごとに変数に異なる値があるということは、
+重要なカスタマイズ技法です。
+<P>
+
+本節では、バッファローカルな束縛を説明します。
+フレームローカルな束縛については、つぎの節と
+See 節 <A HREF="elisp_11.html#SEC154">10.11 フレームローカルな変数</A>。
+（各端末にローカルな束縛を持つ変数も少数ある。
+see 節 <A HREF="elisp_29.html#SEC436">28.2 複数ディスプレイ</A>。）
+<P>
+
+<BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_11.html#SEC151">10.10.1 バッファローカルな変数の紹介</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Introduction and concepts.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_11.html#SEC152">10.10.2 バッファローカルな束縛の作成と削除</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Creating and destroying buffer-local bindings.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_11.html#SEC153">10.10.3 バッファローカル変数のデフォルト値</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">The default value is seen in buffers
+                                 that don't have their own buffer-local values.</TD></TR>
+</TABLE></BLOCKQUOTE>
+<P>
+
+<A NAME="Intro to Buffer-Local"></A>
+<HR SIZE="6">
+<br><A NAME="SEC151"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_11.html#SEC150"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_11.html#SEC152"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Intro to Buffer-Local"></A>
+<H3> 10.10.1 バッファローカルな変数の紹介 </H3>
+<!--docid::SEC151::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Intro%20to%20Buffer-Local">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Intro%20to%20Buffer-Local</a>"<br>
+"texi/elisp21/バッファローカルな変数の紹介"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D0%A5%C3%A5%D5%A5%A1%A5%ED%A1%BC%A5%AB%A5%EB%A4%CA%CA%D1%BF%F4%A4%CE%BE%D2%B2%F0">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+バッファローカルな変数には、特定のバッファに関連したバッファローカルな
+束縛があります。
+この束縛は、そのバッファがカレントバッファであるときに有効になります。
+さもなければなんの効果もありません。
+バッファローカルな束縛が有効なときに変数に設定すると、
+新しい値はその束縛に入り、他の束縛は変更されません。
+つまり、その変更は、変更を行ったバッファだけで見ることができるのです。
+<P>
+
+変数の通常の束縛、つまり、特定のバッファに関連していない束縛を
+<EM>デフォルトの束縛</EM>（default binding）と呼びます。
+多くの場合、これはグローバル束縛です。
+<P>
+
+変数は、あるバッファ群ではバッファローカルな束縛を持ち、
+他のバッファではそのような束縛を持たないようにできます。
+変数に対する独自の束縛を持たないバッファすべてでは、
+デフォルトの束縛を共有します。
+（これには、新たに作成されるバッファも含む。）
+バッファローカルな束縛を持たないバッファで変数に設定すると、
+（状況を複雑にするフレームローカルな束縛はないと仮定して）
+デフォルトの束縛を使います。
+したがって、新たな値はデフォルトの束縛を見るバッファすべてで見えます。
+<P>
+
+バッファローカルな束縛のもっとも一般的な使い方は、
+メジャーモードでコマンドのふるまいを制御する変数に変更することです。
+たとえば、CモードやLispモードでは、変数<CODE>paragraph-start</CODE>を設定して、
+空行だけが段落を区切るように指定します。
+これには、CモードやLispモードになったバッファでは、
+変数をバッファローカルにしてから、
+そのモード用の新たな値を変数に設定するのです。
+See 節 <A HREF="elisp_23.html#SEC340">22.1 メジャーモード</A>。
+<P>
+
+バッファローカルな束縛を作る普通の方法は、
+<CODE>make-local-variable</CODE>です。
+メジャーモードのコマンドは典型的にこれを使います。
+これはカレントバッファだけに影響します。
+（これから作成するものも含めて）他のすべてのバッファは、
+それ専用のバッファローカルな束縛を明示的に与えない限り、
+デフォルト値を共有し続けます。
+<P>
+
+<A NAME="IDX623"></A>
+より強力な操作は、<CODE>make-variable-buffer-local</CODE>を呼び出して
+変数を<EM>自動的にバッファローカルに</EM>するように印を付けることです。
+これは、これから作成するものも含めたバッファすべてで、
+変数をバッファローカルにすると考えることができます。
+より正確には、変数がカレントバッファにローカルでなければ、
+自動的に変数をカレントバッファにローカルにするように設定する効果があります。
+すべてのバッファは通常どおり変数のデフォルト値を共有して始まりますが、
+変数に設定するとカレントバッファにバッファローカルな束縛を作ります。
+新たな値はバッファローカルな束縛に格納され、デフォルトの束縛は変更しません。
+つまり、どのバッファでもデフォルト値を<CODE>setq</CODE>では変更できません。
+デフォルト値を変更する唯一の方法は、<CODE>setq-default</CODE>を使うことです。
+<P>
+
+<STRONG>警告：</STRONG><CODE> </CODE>
+複数のバッファにおいて変数にバッファローカルな値があるときに、
+変数を<CODE>let</CODE>で束縛してから、
+別の束縛が有効である別のバッファに切り替えて<CODE>let</CODE>を抜けると、
+Emacsをとても混乱させることになる。
+こうすると、バッファローカルな束縛とデフォルトの束縛を混ぜ合わせてしまう。
+<P>
+
+混乱を避けるために、このような変数の使い方は避けてください。
+別のバッファに切り替える各コード部分を<CODE>save-excursion</CODE>で囲めば、
+このような問題はありません。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(setq foo 'b)
+(set-buffer "a")
+(make-local-variable 'foo)
+(setq foo 'a)
+(let ((foo 'temp))
+  (set-buffer "b")
+  <VAR>body</VAR><small>...</small>)
+foo => 'a      ; バッファ`<SAMP>a</SAMP>'の古いバッファローカルな値が
+               ;   現在のデフォルト値
+(set-buffer "a")
+foo => 'temp   ; 消えているべきローカルな<CODE>let</CODE>の値が
+               ;   バッファ`<SAMP>a</SAMP>'の現在のバッファローカルな値
+</pre></td></tr></table><P>
+
+しかし、つぎに示すように<CODE>save-excursion</CODE>を使えば、この問題を回避できます。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(let ((foo 'temp))
+  (save-excursion
+    (set-buffer "b")
+    <VAR>body</VAR><small>...</small>))
+</pre></td></tr></table><P>
+
+<VAR>body</VAR>内での<CODE>foo</CODE>への参照は、
+バッファ`<SAMP>b</SAMP>'のバッファローカルな束縛を使います。
+<P>
+
+ファイルでローカル変数の値を指定していると、
+そのファイルを訪問したときに、それらはバッファローカルな値になります。
+See <a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=emacs21&node=File%20Variables">GNU Emacs マニュアル</a>。
+<P>
+
+<A NAME="Creating Buffer-Local"></A>
+<HR SIZE="6">
+<br><A NAME="SEC152"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_11.html#SEC151"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_11.html#SEC153"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Creating Buffer-Local"></A>
+<H3> 10.10.2 バッファローカルな束縛の作成と削除 </H3>
+<!--docid::SEC152::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Creating%20Buffer-Local">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Creating%20Buffer-Local</a>"<br>
+"texi/elisp21/バッファローカルな束縛の作成と削除"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D0%A5%C3%A5%D5%A5%A1%A5%ED%A1%BC%A5%AB%A5%EB%A4%CA%C2%AB%C7%FB%A4%CE%BA%EE%C0%AE%A4%C8%BA%EF%BD%FC">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+<A NAME="IDX624"></A>
+<DL>
+<DT><U>コマンド:</U> <B>make-local-variable</B> <I>variable</I>
+<DD>この関数は、カレントバッファにおいて、
+<VAR>variable</VAR>（シンボル）のバッファローカルな束縛を作る。
+他のバッファは影響されない。
+返す値は<VAR>variable</VAR>。
+<P>
+
+<VAR>variable</VAR>のバッファローカルな値は、
+<VAR>variable</VAR>の以前と同じ値で始まる。
+<VAR>variable</VAR>が空であれば、空のままである。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>;; バッファ`<SAMP>b1</SAMP>'では、
+(setq foo 5)                ; すべてのバッファに影響する
+     => 5
+(make-local-variable 'foo)  ; `<SAMP>b1</SAMP>'にローカル
+     => foo
+foo                         ; これは値を
+     => 5                   ;   変えない
+(setq foo 6)                ; `<SAMP>b1</SAMP>'での値を
+     => 6                   ;   変更する
+foo
+     => 6
+
+;; バッファ`<SAMP>b2</SAMP>'では、値は変わっていない
+(save-excursion
+  (set-buffer "b2")
+  foo)
+     => 5
+</pre></td></tr></table><P>
+
+変数の<CODE>let</CODE>束縛の内側でその変数をバッファローカルにしても、
+そのバッファが<CODE>let</CODE>に入るときや抜けるときに
+カレントバッファになっていないと、正しく動作しない。
+これは、<CODE>let</CODE>が、異なる種類の束縛を区別しないからであり、
+どの変数の束縛を作るかだけを知っているからである。
+<P>
+
+変数が端末にローカルなときには、この関数はエラーを通知する。
+そのような変数は、同時にバッファローカルな束縛を持てない。
+See 節 <A HREF="elisp_29.html#SEC436">28.2 複数ディスプレイ</A>。
+<P>
+
+<STRONG>注意：</STRONG><CODE> </CODE>
+フック変数に対して<CODE>make-local-variable</CODE>を使わないこと。
+そのかわりに<CODE>make-local-hook</CODE>を使う。
+see 節 <A HREF="elisp_23.html#SEC362">22.6 フック</A>。
+</DL>
+<P>
+
+<A NAME="IDX625"></A>
+<DL>
+<DT><U>コマンド:</U> <B>make-variable-buffer-local</B> <I>variable</I>
+<DD>この関数は、<VAR>variable</VAR>（シンボル）を
+自動的にバッファローカルにするように印を付け、
+これ以降にその変数に設定しようとすると、
+その時点のカレントバッファにローカルにする。
+<P>
+
+この機能の重要な点は、
+（<CODE>let</CODE>や他の束縛を作る構文で）変数を束縛しても、
+その変数のバッファローカルな束縛を作らないことである。
+（<CODE>set</CODE>や<CODE>setq</CODE>で）変数を設定して初めてそのようにする。
+<P>
+
+返す値は<VAR>variable</VAR>である。
+<P>
+
+<STRONG>警告：</STRONG><CODE> </CODE>
+ユーザーが異なるバッファでは異なったカスタマイズをするかも<EM>しれない</EM>と
+いうだけで、ユーザーオプション変数に<CODE>make-variable-buffer-local</CODE>を
+使うべきだと仮定しないこと。
+ユーザーは、必要ならば、どんな変数でもローカルにできる。
+選択はユーザーに任せるのがよい。
+<P>
+
+2つのバッファが同じ束縛を共有しないことが重要な場面では、
+<CODE>make-variable-buffer-local</CODE>を使う。
+たとえば、異なるバッファでは異なる値を持つことに依存するような
+Lispプログラムで内部目的に変数を使うときには、
+<CODE>make-variable-buffer-local</CODE>を使うのが最良である。
+</DL>
+<P>
+
+<A NAME="IDX626"></A>
+<DL>
+<DT><U>Function:</U> <B>local-variable-p</B> <I>variable &#38;optional buffer</I>
+<DD>これは、<VAR>variable</VAR>がバッファ<VAR>buffer</VAR>
+（デフォルトはカレントバッファ）において
+バッファローカルであれば<CODE>t</CODE>を返し、
+さもなければ<CODE>nil</CODE>を返す。
+</DL>
+<P>
+
+<A NAME="IDX627"></A>
+<DL>
+<DT><U>Function:</U> <B>buffer-local-variables</B> <I>&#38;optional buffer</I>
+<DD>この関数は、バッファ<VAR>buffer</VAR>のバッファローカルな変数を
+記述したリストを返す。
+（<VAR>buffer</VAR>を省略するとカレントバッファを使う。）
+バッファローカルな変数とその値を入れた要素から成る連想リスト
+（see 節 <A HREF="elisp_6.html#SEC92">5.8 連想リスト</A>）を返す。
+しかし、<VAR>buffer</VAR>における変数のバッファローカルな束縛が空であると、
+変数は結果のリストに直接現れる。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(make-local-variable 'foobar)
+(makunbound 'foobar)
+(make-local-variable 'bind-me)
+(setq bind-me 69)
+(setq lcl (buffer-local-variables))
+    ;; まず、すべてのバッファでローカルな組み込み変数
+=> ((mark-active . nil)
+    (buffer-undo-list . nil)
+    (mode-name . "Fundamental")
+    <small>...</small>
+    ;; 続いて、組み込みでないバッファローカルな変数 
+    ;; これはバッファローカルで、かつ、空
+    foobar
+    ;; これはバッファローカルで、かつ、空ではない
+    (bind-me . 69))
+</pre></td></tr></table><P>
+
+このリストのコンスセルのCDRに新たな値を格納しても、
+変数のバッファローカルな値を変更<EM>しない</EM>ことに注意してほしい。
+</DL>
+<P>
+
+<A NAME="IDX628"></A>
+<DL>
+<DT><U>コマンド:</U> <B>kill-local-variable</B> <I>variable</I>
+<DD>この関数は、カレントバッファにおける<VAR>variable</VAR>（シンボル）の
+バッファローカルな束縛を（あれば）削除する。
+その結果、このバッファでは、<VAR>variable</VAR>のデフォルトの束縛が
+見えるようになる。
+典型的には、<VAR>variable</VAR>の値が変わる。
+なぜなら、デフォルト値は、削除したバッファローカルな値とは
+普通は異なるからである。
+<P>
+
+自動的にバッファローカルにする印が付いた変数のバッファローカルな束縛を
+削除すると、カレントバッファではデフォルト値が見えるようになる。
+しかし、変数に再度設定すると、それに対するバッファローカルな束縛が
+再度作成される。
+<P>
+
+<CODE>kill-local-variable</CODE>は<VAR>variable</VAR>を返す。
+<P>
+
+この関数がコマンドであるのは、
+対話的にバッファローカルな変数を作るのが有用なように、
+対話的にバッファローカルな変数を削除するのが有用な場合があるからである。
+</DL>
+<P>
+
+<A NAME="IDX629"></A>
+<DL>
+<DT><U>Function:</U> <B>kill-all-local-variables</B>
+<DD>この関数は、カレントバッファにおいて、
+『恒久的』と印付けしてある変数を除いて、
+すべてのバッファローカルな変数束縛を削除する。
+その結果、バッファでは、ほとんどの変数のデフォルト値が見えるようになる。
+<P>
+
+この関数は、バッファに属する他のある種の情報もリセットする。
+つまり、ローカルキーマップに<CODE>nil</CODE>、
+構文テーブルに<CODE>(standard-syntax-table)</CODE>の値、
+大文字小文字テーブルに<CODE>(standard-case-table)</CODE>、
+略語テーブルに<CODE>fundamental-mode-abbrev-table</CODE>の値を設定する。
+<P>
+
+この関数が最初に行うことは、
+ノーマルフック<CODE>change-major-mode-hook</CODE>（下記参照）を
+実行することである。
+<P>
+
+各メジャーモードコマンドはこの関数を呼び出すことから始める。
+つまり、基本（fundamental）モードに切り替え、
+それ以前のメジャーモードのほとんどの効果を消しさる。
+この処理を保証するために、メジャーモードで設定する変数には、
+恒久的の印を付けないこと。
+<P>
+
+<CODE>kill-all-local-variables</CODE>は<CODE>nil</CODE>を返す。
+</DL>
+<P>
+
+<A NAME="IDX630"></A>
+<DL>
+<DT><U>Variable:</U> <B>change-major-mode-hook</B>
+<DD>関数<CODE>kill-all-local-variables</CODE>は、最初にこのノーマルフックを実行する。
+このフックはメジャーモードに対して、
+ユーザーが別のメジャーモードに切り替えていた場合には、
+なにか特別なことを行う情報を提供する。
+最良の結果を得るためには、この変数をバッファローカルにしておくと
+その役目を終えると変数は消えてしまい、それ以降のメジャーモードに干渉しない。
+see 節 <A HREF="elisp_23.html#SEC362">22.6 フック</A>。
+</DL>
+<P>
+
+<A NAME="IDX631"></A>
+バッファローカル変数は、
+変数名（シンボル）の属性<CODE>permanent-local</CODE>が<CODE>nil</CODE>以外であると、
+<EM>恒久的</EM>（permanent）です。
+恒久的なローカル変数は、編集作業の文脈ではなく、
+どのファイルを訪問中であるとかどのように保存するとかに関連する情報に
+適しています。
+<P>
+
+<A NAME="Default Value"></A>
+<HR SIZE="6">
+<br><A NAME="SEC153"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_11.html#SEC152"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_11.html#SEC154"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Default Value"></A>
+<H3> 10.10.3 バッファローカル変数のデフォルト値 </H3>
+<!--docid::SEC153::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Default%20Value">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Default%20Value</a>"<br>
+"texi/elisp21/バッファローカル変数のデフォルト値"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D0%A5%C3%A5%D5%A5%A1%A5%ED%A1%BC%A5%AB%A5%EB%CA%D1%BF%F4%A4%CE%A5%C7%A5%D5%A5%A9%A5%EB%A5%C8%C3%CD">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX632"></A>
+<P>
+
+バッファローカルな束縛がある変数のグローバル値を、
+<EM>デフォルト</EM>値とも呼びます。
+カレントバッファや選択したフレームに変数の独自の束縛がない場合に、
+グローバル値を使うからです。
+<P>
+
+関数<CODE>default-value</CODE>と関数<CODE>setq-default</CODE>は、
+カレントバッファにバッファローカルな束縛があるかどうかに関わらず、
+変数のデフォルト値を参照したり変更したりします。
+たとえば、<CODE>setq-default</CODE>を使って、
+ほとんどのバッファの<CODE>paragraph-start</CODE>のデフォルト値を変更できます。
+この変数のバッファローカルな値があるCモードやLispモードのバッファで
+行ってもこれは動作します。
+<P>
+
+スペシャルフォーム<CODE>defvar</CODE>や<CODE>defconst</CODE>も、
+バッファローカルやフレームローカルな値ではなく、
+（変数に設定する場合には）デフォルト値を設定します。
+<P>
+
+<A NAME="IDX633"></A>
+<DL>
+<DT><U>Function:</U> <B>default-value</B> <I>symbol</I>
+<DD>この関数は、<VAR>symbol</VAR>のデフォルト値を返す。
+この値は、この変数に対して独自の値を持たないバッファやフレームで見える
+値である。
+<VAR>symbol</VAR>がバッファローカルでなければ、
+これは、<CODE>symbol-value</CODE>（see 節 <A HREF="elisp_11.html#SEC143">10.7 変数値の参照</A>）と等価。
+</DL>
+<P>
+
+<A NAME="IDX634"></A>
+<DL>
+<DT><U>Function:</U> <B>default-boundp</B> <I>symbol</I>
+<DD>関数<CODE>default-boundp</CODE>は、
+<VAR>symbol</VAR>のデフォルト値が空でないことを調べる。
+<CODE>(default-boundp 'foo)</CODE>が<CODE>nil</CODE>を返せば、
+<CODE>(default-value 'foo)</CODE>はエラーになる。
+<P>
+
+<CODE>default-boundp</CODE>は、<CODE>boundp</CODE>が<CODE>symbol-value</CODE>に対応するように、
+<CODE>default-value</CODE>に対応する。
+</DL>
+<P>
+
+<A NAME="IDX635"></A>
+<DL>
+<DT><U>Special Form:</U> <B>setq-default</B> <I>[symbol form]<small>...</small></I>
+<DD>このスペシャルフォームは、各<VAR>symbol</VAR>に、
+対応する<VAR>form</VAR>の評価結果である新たなデフォルト値を与える。
+<VAR>symbol</VAR>は評価しないが、<VAR>form</VAR>は評価する。
+フォーム<CODE>setq-default</CODE>の値は、最後の<VAR>form</VAR>の値である。
+<P>
+
+<VAR>symbol</VAR>がカレントバッファでバッファローカルではなく、かつ、
+自動的にバッファローカルにする印が付いていなければ、
+<CODE>setq-default</CODE>は<CODE>setq</CODE>と同じ効果がある。
+<VAR>symbol</VAR>がカレントバッファでバッファローカルならば、
+（バッファローカルな値を持たない）別のバッファが見る値を変更し、
+カレントバッファが見る値は変更しない。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>;; バッファ`<SAMP>foo</SAMP>'において、
+(make-local-variable 'buffer-local)
+     => buffer-local
+(setq buffer-local 'value-in-foo)
+     => value-in-foo
+(setq-default buffer-local 'new-default)
+     => new-default
+buffer-local
+     => value-in-foo
+(default-value 'buffer-local)
+     => new-default
+
+;; （新たな）バッファ`<SAMP>bar</SAMP>'では、
+buffer-local
+     => new-default
+(default-value 'buffer-local)
+     => new-default
+(setq buffer-local 'another-default)
+     => another-default
+(default-value 'buffer-local)
+     => another-default
+
+;; バッファ`<SAMP>foo</SAMP>'に戻ってみると
+buffer-local
+     => value-in-foo
+(default-value 'buffer-local)
+     => another-default
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX636"></A>
+<DL>
+<DT><U>Function:</U> <B>set-default</B> <I>symbol value</I>
+<DD>この関数は<CODE>setq-default</CODE>に似ているが、
+<VAR>symbol</VAR>は普通どおりに評価される引数である。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(set-default (car '(a b c)) 23)
+     => 23
+(default-value 'a)
+     => 23
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="Frame-Local Variables"></A>
+<HR SIZE="6">
+<br><A NAME="SEC154"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_11.html#SEC153"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_11.html#SEC155"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Frame-Local Variables"></A>
+<H2> 10.11 フレームローカルな変数 </H2>
+<!--docid::SEC154::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Frame-Local%20Variables">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Frame-Local%20Variables</a>"<br>
+"texi/elisp21/フレームローカルな変数"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D5%A5%EC%A1%BC%A5%E0%A5%ED%A1%BC%A5%AB%A5%EB%A4%CA%CA%D1%BF%F4">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+変数にバッファローカルな束縛があるように、
+変数にはフレームローカルな束縛もあります。
+これらの束縛は1つのフレームに属し、
+そのフレームを選択しているときに有効になります。
+フレームローカルな束縛は、実際にはフレームパラメータです。
+特定のフレームでフレームローカルな束縛を作るには
+<CODE>modify-frame-parameters</CODE>を呼び出し、
+パラメータ名として変数名を指定します。
+<P>
+
+特定の変数に対するフレームローカルな束縛を有効にするには、
+関数<CODE>make-variable-frame-local</CODE>を呼び出します。
+<P>
+
+<A NAME="IDX637"></A>
+<DL>
+<DT><U>コマンド:</U> <B>make-variable-frame-local</B> <I>variable</I>
+<DD><VAR>variable</VAR>に対してフレームローカルな束縛を使うようにする。
+この関数そのものは<VAR>variable</VAR>に対してフレームローカルな束縛を作成しない。
+しかし、フレームパラメータとして<VAR>variable</VAR>の値を持つフレームが
+すでに存在すれば、その値は自動的にフレームローカルな束縛になる。
+<P>
+
+変数が端末にローカルであると、この関数はエラーを通知する。
+そのような変数はフレームローカルな束縛を同時には持てないからである。
+see 節 <A HREF="elisp_29.html#SEC436">28.2 複数ディスプレイ</A>。
+Emacsで特別に実装されている少数の変数は（普通）
+バッファローカルになることができるが、フレームローカルにはならない。
+</DL>
+<P>
+
+バッファローカルな束縛はフレームローカルな束縛に優先します。
+変数<CODE>foo</CODE>を考えてみましょう。
+カレントバッファに<CODE>foo</CODE>のバッファローカルな束縛があると、
+その束縛が有効になります。
+選択したフレームに<CODE>foo</CODE>のフレームローカルな束縛があると、
+その束縛が有効になります。
+さもなければ、<CODE>foo</CODE>のデフォルトの束縛が有効になります。
+<P>
+
+つぎに例を示します。
+まず、<CODE>foo</CODE>の束縛を準備しておきます。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(setq f1 (selected-frame))
+(make-variable-frame-local 'foo)
+
+;; `<SAMP>b1</SAMP>'において、<CODE>foo</CODE>のバッファローカルな束縛を作る
+(set-buffer (get-buffer-create "b1"))
+(make-local-variable 'foo)
+(setq foo '(b 1))
+
+;; 新しいフレームで<CODE>foo</CODE>のフレームローカルな束縛を作る
+;; そのフレームを<CODE>f2</CODE>に格納する
+(setq f2 (make-frame))
+(modify-frame-parameters f2 '((foo . (f 2))))
+</pre></td></tr></table><P>
+
+では、さまざまな文脈で<CODE>foo</CODE>を調べてみましょう。
+バッファ`<SAMP>b1</SAMP>'がカレントバッファであれば、
+選択したフレームに関係なく、
+`<SAMP>b1</SAMP>'のバッファローカルな束縛が有効になっています。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(select-frame f1)
+(set-buffer (get-buffer-create "b1"))
+foo
+     => (b 1)
+
+(select-frame f2)
+(set-buffer (get-buffer-create "b1"))
+foo
+     => (b 1)
+</pre></td></tr></table><P>
+
+さもなければ、フレームの束縛を使う可能性があります。
+フレーム<CODE>f2</CODE>を選択していると、
+そのフレームローカルな束縛が有効になります。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(select-frame f2)
+(set-buffer (get-buffer "*scratch*"))
+foo
+     => (f 2)
+</pre></td></tr></table><P>
+
+カレントバッファにもフレームにも束縛がなければ、
+デフォルトの束縛を使います。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(select-frame f1)
+(set-buffer (get-buffer "*scratch*"))
+foo
+     => nil
+</pre></td></tr></table><P>
+
+変数の有効な束縛がフレームローカルな束縛であるとき、
+変数に設定するとその束縛を変更します。
+<CODE>frame-parameters</CODE>でその結果を見ることができます。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(select-frame f2)
+(set-buffer (get-buffer "*scratch*"))
+(setq foo 'nobody)
+(assq 'foo (frame-parameters f2))
+     => (foo . nobody)
+</pre></td></tr></table><P>
+
+<A NAME="Future Local Variables"></A>
+<HR SIZE="6">
+<br><A NAME="SEC155"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_11.html#SEC154"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_12.html#SEC156"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Future Local Variables"></A>
+<H2> 10.12 将来のローカル変数 </H2>
+<!--docid::SEC155::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Future%20Local%20Variables">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Future%20Local%20Variables</a>"<br>
+"texi/elisp21/将来のローカル変数"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%BE%AD%CD%E8%A4%CE%A5%ED%A1%BC%A5%AB%A5%EB%CA%D1%BF%F4">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+フレームに分類されるものでローカルな束縛というアイデアを考察しています。
+たとえば、すべてのカラーフレーム、暗い背景色のすべてのフレームなどです。
+この機能が本当に有用なのか明らかでないので、それらをまだ実装してはいません。
+<CODE>after-make-frame-hook</CODE>に関数を追加して、
+各フレームの適切な状態に応じたフレームパラメータを設定すれば、
+同じような結果を得られます。
+<P>
+
+ウィンドウローカルな束縛を実装することも可能です。
+これが有用である多くの状況を知りませんが、
+バッファローカルな束縛を持つ間接バッファ（see 節 <A HREF="elisp_27.html#SEC414">26.11 間接バッファ <EM>(2003/10/30)</EM></A>）で、
+そのような状況をより堅牢に扱えると思います。
+<P>
+
+これら2種類のローカル束縛のいずれかを必要とする十分な数のアプリケーションが
+みつかれば、Emacsの将来の版でそのような束縛を提供するでしょう。
+<P>
+
+<A NAME="Functions"></A>
+<HR SIZE="6">
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<a name="bottom"> </a>
+<script type="text/javascript" src="style2.js"></script>
+<div class="footer">
+    <br>
+    このページはMeadow (Emacs) の紹介ページです <br>
+このWebページの各文書は自由にリンク・複製・再配布・改変していただいて構いません．
+<br>ただし，複製・再配布・改変の場合は Meadow Memo のURLを記載しておいて下さい．<br>
+<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=about%20link">Medow memoへのリンクについて</a>．<br>
+
+間違い，要望等があれば<a href="mailto:akihisa@mail.ne.jp">akihisa@mail.ne.jp</a> か下記でどうぞ<br>
+
+<br>
+
+<FORM METHOD="post" ACTION="http://www.bookshelf.jp/cgi-bin/wwwmail.cgi" >
+お名前：<INPUT TYPE="text" NAME="name" SIZE="30" MAXLENGTH="40" VALUE="ななしさん"><br>
+メールアドレス：<INPUT TYPE="text" NAME="EMAIL" SIZE="25" MAXLENGTH="60" VALUE="secret@mail.adr"><br>
+<input type="hidden" name="HPAGE" value="">
+つっこみ：<br><TEXTAREA NAME="MESSAGE" ROWS="5" COLS="50">
+</TEXTAREA><br><br>
+<INPUT TYPE="submit" VALUE="送信">
+<INPUT TYPE="reset" VALUE="クリア">
+</FORM>
+
+<br><A HREF="http://www.bookshelf.jp/cgi-bin/xct.cgi">ページ別カウンタ</a>
+<br> Since 2002/12/13 <br>
+</div>
+
+</BODY>
+
+</HTML>

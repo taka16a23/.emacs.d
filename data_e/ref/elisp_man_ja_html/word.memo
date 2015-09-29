@@ -1,0 +1,14 @@
+・できる限り分かりやすく、読みやすく。
+・原文の文にはこだわりすぎない
+・必要であれば、文章の分割・結合を行う
+・例の追加・コメントの追加もがしがし行う
+・元訳を尊重しすぎない(全文書き換えるつもりで)
+・とりあえずはマージを優先
+
+field：領域(テキストプロパティ)
+Attributes：属性
+character terminals：テキスト端末
+Hash table：ハッシュテーブル
+alist：連想リスト
+Lisp printer：Lispプリンタ（関数@code{prin1}）
+Lisp reader：Lispリーダ

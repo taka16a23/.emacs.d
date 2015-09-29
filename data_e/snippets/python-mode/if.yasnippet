@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: if
+# key: if
+# condition: (and (not (py:at-string|comment-p)) (not (py:in-square-p)))
+# --
+if $0`(progn (end-of-line) (skip-chars-backward " \t") (unless (eq (char-before) 58) (insert ":")))`

@@ -1,0 +1,6 @@
+1
+
+(subrp 'message)            ; `message' is a symbol,
+     => nil                 ;   not a subr object.
+(subrp (symbol-function 'message))
+     => t

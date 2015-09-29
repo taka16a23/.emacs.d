@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: defun-test
+# key: (defun-test
+# condition: (not (at-string|comment-p))
+# --
+(defun ${1:NAME} (${2:ARGS})
+  ""
+  (interactive)
+$0)
+(global-set-key (kbd "H-${3:@}") '$1)`(progn (forward-line 1) (delete-char -2))`

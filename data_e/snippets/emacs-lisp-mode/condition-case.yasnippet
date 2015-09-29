@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: condition-case
+# key: (condition-case
+# condition: (not (at-string|comment-p))
+# --
+(condition-case ${1:VAR}
+  (${3:BODYFORM})
+  ${2:HANDLER$$(yas/choose-value '("(file-error (message ))" ""))}

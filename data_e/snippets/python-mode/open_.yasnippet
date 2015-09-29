@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: open_
+# key: open
+# condition: (and (not (py:at-string|comment-p)) (equal (this-command-keys-vector) [32]) (not (save-excursion (backward-char 4) (looking-back "[.]"))))
+# 32 = ` '
+# --
+open_ $0

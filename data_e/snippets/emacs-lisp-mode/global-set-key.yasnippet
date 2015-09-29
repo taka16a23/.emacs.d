@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: global-set-key
+# key: (global-set-key
+# condition: (not (at-string|comment-p))
+# --
+(global-set-key ${1:"$2"} '${3:(lambda () (interactive) $4)}

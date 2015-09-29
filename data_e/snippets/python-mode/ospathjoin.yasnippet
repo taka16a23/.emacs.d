@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: os.path.join
+# key: os.path.join
+# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])))
+# --
+os.path.join(${1:APATH}, ${2:BPATH},${3: ${4:*CPATH},}$0)`(py--insert-imports "os" "import os")`

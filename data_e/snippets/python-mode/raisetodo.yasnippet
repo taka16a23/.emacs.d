@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: raise_todo
+# key: raisetodo
+# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])))
+# --
+# TODO: (Atami) [`(format-time-string "%Y/%m/%d")`]
+raise StandardError($1)

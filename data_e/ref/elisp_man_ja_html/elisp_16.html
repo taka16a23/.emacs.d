@@ -1,0 +1,969 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="ja">
+<!-- Created on October, 1  2005 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=euc-jp">
+<META NAME="keywords" CONTENT="meadow,mule,emacs,lisp,elisp,gnus,setting,設定,unix,cygwin">
+<META http-equiv="Content-Script-Type" content="text/javascript">
+<META NAME="description" CONTENT="Meadowの設定を紹介するページです">
+<TITLE>GNU Emacs Lispリファレンスマニュアル:  バイトコンパイル</TITLE>
+
+<META NAME="description" CONTENT="GNU Emacs Lispリファレンスマニュアル:  バイトコンパイル">
+<META NAME="keywords" CONTENT="GNU Emacs Lispリファレンスマニュアル:  バイトコンパイル">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+<LINK REL="contents" HREF="elisp_toc.html#SEC_Contents">
+<LINK REL="index" HREF="elisp_48.html#SEC681">
+<LINK REL="next" HREF="elisp_17.html#SEC208">
+<LINK REL="prev" HREF="elisp_15.html#SEC191">
+
+<META http-equiv="Content-Style-Type" content="text/css">
+<!-- 鶯と龜 ←日本語EUC誤判別対策用らしい; -->
+<link rel="StyleSheet" href="../../../../soft/css/midnight.css" type="text/css" id="css1">
+<script type="text/javascript" src="style1.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../soft/css/meadowmemo.css">
+
+</HEAD>
+<BODY LANG="ja" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+<!--Infoseek Analyzer start-->
+<script LANGUAGE="javascript">PgNo=6;</script>
+<script src="http://js1.infoseek.co.jp/bin/57/00170.js"></script>
+<noscript><a href="http://ax1.www.infoseek.co.jp/bin/go?0017057f" target="_blank">
+<img src="http://ax1.www.infoseek.co.jp/bin/logo?0017057f" border=0></a></noscript>
+<!--Infoseek Analyzer end-->
+<a name="top"> </a>
+
+<br><A NAME="SEC200"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_15.html#SEC199"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_16.html#SEC201"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_15.html#SEC191"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_17.html#SEC208"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Byte Compilation"></A>
+<H1> 15. バイトコンパイル </H1>
+<!--docid::SEC200::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Byte%20Compilation">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Byte%20Compilation</a>"<br>
+"texi/elisp21/バイトコンパイル"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D0%A5%A4%A5%C8%A5%B3%A5%F3%A5%D1%A5%A4%A5%EB">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX755"></A>
+<A NAME="IDX756"></A>
+<P>
+
+Emacs Lispには、Lispで書いた関数を
+より効率よく実行可能な<EM>バイトコード</EM>（byte-code）と呼ばれる
+特別な表現に変換する<EM>コンパイラ</EM>（compiler）があります。
+コンパイラはLispの関数定義をバイトコードで置き換えます。
+バイトコード関数を呼び出すと、
+<EM>バイトコードインタープリタ</EM>（byte-code interpreter）が
+その定義を評価します。
+<P>
+
+（真のコンパイル済みコードのように）計算機ハードウェアが直接実行するかわりに、
+バイトコードインタープリタがバイトコンパイル済みのコードを評価するので、
+バイトコードは、再コンパイルせずに計算機から計算機に移せます。
+しかしながら、真のコンパイル済みコードほど速くはありません。
+<P>
+
+EmacsバイトコンパイラがLispファイルをコンパイルするときには、
+`<SAMP>--unibyte</SAMP>'を指定してEmacsを起動したとしても、
+ファイルで特に指定しなければ、
+つねにファイルをマルチバイトテキストとして読みます。
+コンパイルしても、コンパイルせずに同じファイルを実行した場合と同じ結果を
+得るようにするためです。
+See 節 <A HREF="elisp_15.html#SEC194">14.3 非ASCII文字のロード</A>。
+<P>
+
+一般に、Emacsの任意の版は、それよりまえの版でバイトコンパイルしたコードを
+実行できますが、その逆は真ではありません。
+Emacs 19.29では互換性のない大きな変更を行いましたから、
+それ以降の版でコンパイルしたファイルは、
+特別なオプションを指定しない限り、それ以前の版ではまったく動きません。
+さらに、Emacs 19.29では、キーボード文字の修飾ビットを変更しました。
+その結果、19.29よりまえの版でコンパイルしたファイルは、
+修飾ビットを含む文字定数を使っているとそれ以降の版では動作しません。
+<P>
+
+バイトコンパイル中に生起するエラーについては、
+See 節 <A HREF="elisp_18.html#SEC257">17.4 コンパイル時の問題のデバッグ</A>。
+<P>
+
+<div class="menuindex"><SCRIPT language=JavaScript src="index15.js"></SCRIPT></div><noscript><BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_16.html#SEC201">15.1 バイトコンパイルコードの性能</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">An example of speedup from byte compilation.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_16.html#SEC202">15.2 コンパイル関数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Byte compilation functions.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_16.html#SEC203">15.3 説明文字列とコンパイル</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Dynamic loading of documentation strings.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_16.html#SEC204">15.4 個別関数の動的ロード</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Dynamic loading of individual functions.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_16.html#SEC205">15.5 コンパイル時の評価</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Code to be evaluated when you compile.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_16.html#SEC206">15.6 バイトコード関数オブジェクト</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">The data type used for byte-compiled functions.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_16.html#SEC207">15.7 バイトコードの逆アセンブル</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Disassembling byte-code; how to read byte-code.</TD></TR>
+</TABLE></BLOCKQUOTE></noscript>
+<P>
+
+<A NAME="Speed of Byte-Code"></A>
+<HR SIZE="6">
+<br><A NAME="SEC201"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_16.html#SEC200"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_16.html#SEC202"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Speed of Byte-Code"></A>
+<H2> 15.1 バイトコンパイルコードの性能 </H2>
+<!--docid::SEC201::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Speed%20of%20Byte-Code">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Speed%20of%20Byte-Code</a>"<br>
+"texi/elisp21/バイトコンパイルコードの性能"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D0%A5%A4%A5%C8%A5%B3%A5%F3%A5%D1%A5%A4%A5%EB%A5%B3%A1%BC%A5%C9%A4%CE%C0%AD%C7%BD">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+バイトコンパイルした関数は、Cで書いた基本関数ほど効率よくはありませんが、
+Lispで書いた版よりはよほど速く動きます。
+例を示しましょう。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(defun silly-loop (n)
+  "Return time before and after N iterations of a loop."
+  (let ((t1 (current-time-string)))
+    (while (&#62; (setq n (1- n)) 
+              0))
+    (list t1 (current-time-string))))
+=> silly-loop
+
+(silly-loop 100000)
+=> ("Fri Mar 18 17:25:57 1994"
+    "Fri Mar 18 17:26:28 1994")  ; 31秒
+
+(byte-compile 'silly-loop)
+=> [コンパイルしたコードは省略]
+
+(silly-loop 100000)
+=> ("Fri Mar 18 17:26:52 1994"
+    "Fri Mar 18 17:26:58 1994")  ; 6秒
+</pre></td></tr></table><P>
+
+この例では、解釈実行するコードでは実行に31秒必要でしたが、
+バイトコンパイルしたコードでは6秒でした。
+この結果は代表的なのもですが、実際の結果は大きく変動します。
+<P>
+
+<A NAME="Compilation Functions"></A>
+<HR SIZE="6">
+<br><A NAME="SEC202"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_16.html#SEC201"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_16.html#SEC203"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Compilation Functions"></A>
+<H2> 15.2 コンパイル関数 </H2>
+<!--docid::SEC202::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Compilation%20Functions">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Compilation%20Functions</a>"<br>
+"texi/elisp21/コンパイル関数"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%B3%A5%F3%A5%D1%A5%A4%A5%EB%B4%D8%BF%F4">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX757"></A>
+<P>
+
+関数<CODE>byte-compile</CODE>で、
+個々の関数定義やマクロ定義をバイトコンパイルできます。
+<CODE>byte-compile-file</CODE>で1つのファイル全体をコンパイルしたり、
+<CODE>byte-recompile-directory</CODE>や<CODE>batch-byte-compile</CODE>で
+複数個のファイルをコンパイルできます。
+<P>
+
+バイトコンパイラは、
+各ファイルに対するエラーメッセージや警告メッセージを
+`<SAMP>*Compile-Log*</SAMP>'と呼ばれるバッファに出力します。
+読者のプログラムに関してここに報告されたことがらは、
+問題点を指摘しますが、必ずしもエラーとは限りません。
+<P>
+
+<A NAME="IDX758"></A>
+<A NAME="IDX759"></A>
+バイトコンパイルする可能性のあるファイルにマクロ呼び出しを書くときには
+注意してください。
+マクロ呼び出しはコンパイル時に展開されるので、
+正しくコンパイルするためにはマクロは定義済みである必要があります。
+詳しくは、See 節 <A HREF="elisp_13.html#SEC174">12.3 マクロとバイトコンパイル</A>。
+<P>
+
+通常、ファイルをコンパイルしてもファイルの内容を評価したり、
+ファイルをロードしません。
+しかし、ファイルのトップレベルに書いた<CODE>require</CODE>は実行します。
+コンパイル時に必要なマクロ定義が存在することを保証する1つの方法は、
+それらを定義するファイルを要求（<CODE>require</CODE>）することです
+（see 節 <A HREF="elisp_15.html#SEC197">14.6 機能</A>）。
+コンパイルしたプログラムを<EM>実行する</EM>ときに
+マクロ定義ファイルのロードを防ぐには、
+<CODE>require</CODE>の呼び出しの周りに<CODE>eval-when-compile</CODE>を書きます
+（see 節 <A HREF="elisp_16.html#SEC205">15.5 コンパイル時の評価</A>）。
+<P>
+
+<A NAME="IDX760"></A>
+<DL>
+<DT><U>Function:</U> <B>byte-compile</B> <I>symbol</I>
+<DD>この関数は、<VAR>symbol</VAR>の関数定義をバイトコンパイルし、
+以前の定義をコンパイルしたもので置き換える。
+<VAR>symbol</VAR>の関数定義は、関数の実際のコードであること。
+つまり、コンパイラは、別のシンボルへの間接参照を辿らない。
+<CODE>byte-compile</CODE>は、<VAR>symbol</VAR>のコンパイル済みの新たな定義を返す。
+<P>
+
+<VAR>symbol</VAR>の定義がバイトコード関数オブジェクトであると、
+<CODE>byte-compile</CODE>はなにもせずに<CODE>nil</CODE>を返す。
+Lispはどんなシンボルに対しても関数定義を1つだけ記録するので、
+それがすでにコンパイル済みであると、
+コンパイルまえのコードはどこにもないのである。
+したがって、『同じ定義をコンパイルし直す』方法はない。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(defun factorial (integer)
+  "Compute factorial of INTEGER."
+  (if (= 1 integer) 1
+    (* integer (factorial (1- integer)))))
+=> factorial
+
+(byte-compile 'factorial)
+=>
+#[(integer)
+  "^H\301U\203^H^&#64;\301\207\302^H\303^HS!\"\207"
+  [integer 1 * factorial]
+  4 "Compute factorial of INTEGER."]
+</pre></td></tr></table><P>
+
+結果は、バイトコード関数オブジェクトである。
+この文字列には実際のバイトコードが入っている。
+その各文字は、命令や命令のオペランドである。
+ベクトルには、特別な命令に符号化される特定の基本関数を除いて、
+関数が使うすべての定数、変数名、関数名が入っている。
+</DL>
+<P>
+
+<A NAME="IDX761"></A>
+<DL>
+<DT><U>コマンド:</U> <B>compile-defun</B>
+<DD>このコマンドはポイントを含む<CODE>defun</CODE>を読み取り、
+それをコンパイルして、結果を評価する。
+実際に関数定義である<CODE>defun</CODE>でこのコマンドを使うと、
+その関数をコンパイルしたものをインストールすることになる。
+</DL>
+<P>
+
+<A NAME="IDX762"></A>
+<DL>
+<DT><U>コマンド:</U> <B>byte-compile-file</B> <I>filename</I>
+<DD>この関数は、<VAR>filename</VAR>という名前のLispコードのファイルを
+コンパイルしバイトコードのファイルにする。
+出力ファイルの名前は、接頭辞`<SAMP>.el</SAMP>'を`<SAMP>.elc</SAMP>'に換えて作る。
+<VAR>filename</VAR>が`<SAMP>.el</SAMP>'で終っていないときには、
+<VAR>filename</VAR>の末尾に`<SAMP>.elc</SAMP>'を付加する。
+<P>
+
+入力ファイルから一度に1つずつフォームを読みながらコンパイルを行う。
+それが関数定義やマクロ定義であると、
+コンパイルした関数定義やマクロ定義を書き出す。
+他のフォームは一塊にして、各塊をコンパイルして書き出し、
+ファイルを読むとコンパイルしたコードが実行されるようにする。
+入力ファイルを読むときにすべてのコメントを捨てる。
+<P>
+
+このコマンドは<CODE>t</CODE>を返す。
+対話的に呼び出すとファイル名を問い合わせる。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>% ls -l push*
+-rw-r--r--  1 lewis     791 Oct  5 20:31 push.el
+
+(byte-compile-file "~/emacs/push.el")
+     => t
+
+% ls -l push*
+-rw-r--r--  1 lewis     791 Oct  5 20:31 push.el
+-rw-rw-rw-  1 lewis     638 Oct  8 20:25 push.elc
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX763"></A>
+<DL>
+<DT><U>コマンド:</U> <B>byte-recompile-directory</B> <I>directory flag</I>
+<DD><A NAME="IDX764"></A>
+<A NAME="IDX765"></A>
+この関数は、<VAR>directory</VAR>にある再コンパイルが必要な
+個々の`<SAMP>.el</SAMP>'ファイルを再コンパイルする。
+ファイルを再コンパイルする必要があるのは、
+`<SAMP>.elc</SAMP>'ファイルが存在しても`<SAMP>.el</SAMP>'ファイルより古い場合である。
+<P>
+
+`<SAMP>.el</SAMP>'ファイルに対応する`<SAMP>.elc</SAMP>'ファイルが存在しない場合には、
+<VAR>flag</VAR>が動作を指示する。
+それが<CODE>nil</CODE>であると、そのようなファイルは無視する。
+<CODE>nil</CODE>以外であると、そのような各ファイルをコンパイルするかどうか
+ユーザーに問い合わせる。
+<P>
+
+このコマンドの戻り値は予測できない。
+</DL>
+<P>
+
+<A NAME="IDX766"></A>
+<DL>
+<DT><U>Function:</U> <B>batch-byte-compile</B>
+<DD>この関数は、コマンド行に指定したファイル群に対して
+<CODE>byte-compile-file</CODE>を実行する。
+この関数はEmacsをバッチモードで実行しているときにだけ使うこと。
+完了するとEmacsを終了するからである。
+1つのファイルでエラーが発生しても、後続のファイルの処理には影響しないが、
+エラーを起こしたファイルに対する出力ファイルは生成せず、
+Emacsのプロセスは0以外の状態コードで終了する。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>% emacs -batch -f batch-byte-compile *.el
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX767"></A>
+<DL>
+<DT><U>Function:</U> <B>byte-code</B> <I>code-string data-vector max-stack</I>
+<DD><A NAME="IDX768"></A>
+<A NAME="IDX769"></A>
+この関数はバイトコードを実際に解釈実行する。
+バイトコンパイルした関数は、実際には、
+<CODE>byte-code</CODE>を呼び出すような本体として定義される。
+この関数を読者自身で呼び出さないこと。
+この関数の正しい呼び出しを生成する方法はバイトコンパイラだけが知っている。
+<P>
+
+Emacs 18版では、バイトコードは関数<CODE>byte-code</CODE>をつねに呼び出すことで
+実行していた。
+現在では、バイトコード関数オブジェクトの一部としてバイトコードを実行するのが
+普通であり、<CODE>byte-code</CODE>を明示的に呼び出すことは稀である。
+</DL>
+<P>
+
+<A NAME="Docs and Compilation"></A>
+<HR SIZE="6">
+<br><A NAME="SEC203"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_16.html#SEC202"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_16.html#SEC204"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Docs and Compilation"></A>
+<H2> 15.3 説明文字列とコンパイル </H2>
+<!--docid::SEC203::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Docs%20and%20Compilation">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Docs%20and%20Compilation</a>"<br>
+"texi/elisp21/説明文字列とコンパイル"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%C0%E2%CC%C0%CA%B8%BB%FA%CE%F3%A4%C8%A5%B3%A5%F3%A5%D1%A5%A4%A5%EB">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX770"></A>
+<P>
+
+バイトコンパイルしたファイルからロードした関数や変数では、
+それらの説明文字列は、必要に応じてそのファイルを動的に参照します。
+これはEmacs内のメモリを節約しロード処理も速くなります。
+というのは、ファイルのロード処理で説明文字列を処理する必要がないからです。
+説明文字列を実際に参照するのは遅くなりますが、
+普通、ユーザーをいらいらさせるほとではありません。
+<P>
+
+説明文字列を動的に参照することには欠点があります。
+<P>
+
+<UL>
+<LI>
+コンパイルしたファイルをロード後に削除したり移動したりすると、
+そのファイル内の関数や変数に対する説明文字列をEmacsから参照できなくなる。
+<P>
+
+<LI>
+コンパイルしたファイルを（新版をコンパイルするなどして）変更すると、
+それ以降にそのファイルから説明文字列を参照すると、無意味な結果になる。
+</UL>
+<P>
+
+読者のサイトでEmacsを通常の手順でインストールした場合には、
+これらの問題は普通起こらないはずです。
+新版のインストールには別のディレクトリを使いますから、
+旧版をインストールしてある限り、そのファイル群は意図した場所に
+無変更で残っているはずです。
+<P>
+
+しかしながら、読者自身がEmacsを構築して、
+構築したディレクトリからEmacsを使う場合、
+Lispファイルを編集して再コンパイルすると、
+しばしばこの問題を経験するでしょう。
+そのような場合には、再コンパイルしたあとでファイルを再ロードすれば
+問題を解決できます。
+<P>
+
+旧版ではこの機能を使えないので、
+Emacsの（19.29以降の）最近の版でバイトコンパイルしたファイルは
+旧版ではロードできません。
+<CODE>byte-compile-dynamic-docstrings</CODE>に<CODE>nil</CODE>を設定すれば、
+コンパイル時にこの機能をオフにできます。
+Emacsの旧版にロードできるようにファイルをコンパイルできるのです。
+すべてのファイルをこのようにコンパイルしたり、あるいは、
+この変数をファイルにローカルな束縛に指定して1つのソースファイルだけを
+このようにコンパイルしたりもできます。
+そのようにする1つの方法は、つぎの文字列をファイルの先頭行に追加することです。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>-*-byte-compile-dynamic-docstrings: nil;-*-
+</pre></td></tr></table><P>
+
+<A NAME="IDX771"></A>
+<DL>
+<DT><U>Variable:</U> <B>byte-compile-dynamic-docstrings</B>
+<DD>これが<CODE>nil</CODE>以外であると、
+バイトコンパイラは、説明文字列を動的にロードするように設定した
+コンパイル済みファイルを生成する。
+</DL>
+<P>
+
+<A NAME="IDX772"></A>
+<A NAME="IDX773"></A>
+説明文字列を動的に扱う場合、
+コンパイル済みのファイルではLispリーダの特別な構文`<SAMP>#&#64;<VAR>count</VAR></SAMP>'を
+使います。
+この構文は後続の<VAR>count</VAR>文字を読み飛ばします。
+また、`<SAMP>#$</SAMP>'という構文も使います。
+これは、『文字列としてのこのファイルの名前』を表します。
+Lispのソースファイルでは、これらの構文を使わないのが最良です。
+これらは人が読むファイル向けに設計したものではないからです。
+<P>
+
+<A NAME="Dynamic Loading"></A>
+<HR SIZE="6">
+<br><A NAME="SEC204"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_16.html#SEC203"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_16.html#SEC205"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Dynamic Loading"></A>
+<H2> 15.4 個別関数の動的ロード </H2>
+<!--docid::SEC204::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Dynamic%20Loading">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Dynamic%20Loading</a>"<br>
+"texi/elisp21/個別関数の動的ロード"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%B8%C4%CA%CC%B4%D8%BF%F4%A4%CE%C6%B0%C5%AA%A5%ED%A1%BC%A5%C9">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+<A NAME="IDX774"></A>
+<A NAME="IDX775"></A>
+ファイルをコンパイルするとき、
+<EM>動的関数ロード</EM>（dynamic function loading、
+<EM>遅延ロード</EM>（lazy loading）ともいう）機能を指定できます。
+動的関数ロードでは、ロードするときにファイル内の関数定義をすべて
+読むわけではありません。
+そのかわりに、各関数定義には、
+そのファイルを指す埋め草が入っています。
+それぞれの関数を初めて呼び出したときに、
+その完全な定義をファイルから読み取り、埋め草を置き換えます。
+<P>
+
+動的関数ロードの利点は、ファイルをロードするよりかなり速いことです。
+ユーザーが呼び出せる数多くの別々の関数を収めたファイルにおいては、
+それらの1つだけを使って残りのものを使わないのであれば、
+これは有利なことです。
+キーボードコマンドを提供する特別なモードには、
+しばしばこのような使い方のパターンがあります。
+ユーザーがモードを起動しても、提供するコマンドの一部しか使わないのです。
+<P>
+
+動的関数ロードの機能には、ある種の欠点もあります。
+<P>
+
+<UL>
+<LI>
+コンパイルしたファイルをロードしたあとにそのファイルを削除したり移動したり
+すると、未ロードの残りの関数定義をEmacsはロードできない。
+<P>
+
+<LI>
+コンパイルしたファイルを（新版をコンパイルするなどして）変更すると、
+未ロードの関数をロードすると、無意味な結果になる。
+</UL>
+<P>
+
+Emacsのファイル群をインストールした普通の状況では、
+このような問題は起きないはずです。
+しかし、Lispファイルを読者が変更すると起こりえます。
+これらの問題を回避するもっとも簡単な方法は、
+再コンパイルするたびに新たにコンパイルしたファイルを
+ただちに再ロードすることです。
+<P>
+
+バイトコンパイラは、コンパイル時に変数<CODE>byte-compile-dynamic</CODE>が
+<CODE>nil</CODE>以外であれば、動的関数ロードの機能を使います。
+動的ロードは特定のファイルで必要なだけですから、
+この変数をグローバルに設定しないでください。
+そのかわりにファイルにローカルな変数束縛を使って
+特定のソースファイルだけでこの機能をオンにします。
+たとえば、ソースファイルの先頭行につぎのテキストを書けば、
+そのようにできます。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>-*-byte-compile-dynamic: t;-*-
+</pre></td></tr></table><P>
+
+<A NAME="IDX776"></A>
+<DL>
+<DT><U>Variable:</U> <B>byte-compile-dynamic</B>
+<DD>これが<CODE>nil</CODE>以外であると、
+バイトコンパイラは、動的関数ロードを使うように設定した
+コンパイル済みのファイルを生成する。
+</DL>
+<P>
+
+<A NAME="IDX777"></A>
+<DL>
+<DT><U>Function:</U> <B>fetch-bytecode</B> <I>function</I>
+<DD><VAR>function</VAR>を完全にロードしていないと、
+バイトコンパイルしたファイルからただちに<VAR>function</VAR>の定義をロードする。
+引数<VAR>function</VAR>は、バイトコード関数オブジェクトか関数名である。
+</DL>
+<P>
+
+<A NAME="Eval During Compile"></A>
+<HR SIZE="6">
+<br><A NAME="SEC205"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_16.html#SEC204"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_16.html#SEC206"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Eval During Compile"></A>
+<H2> 15.5 コンパイル時の評価 </H2>
+<!--docid::SEC205::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Eval%20During%20Compile">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Eval%20During%20Compile</a>"<br>
+"texi/elisp21/コンパイル時の評価"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%B3%A5%F3%A5%D1%A5%A4%A5%EB%BB%FE%A4%CE%C9%BE%B2%C1">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+プログラムのコンパイル時に評価されるようなコードを書くための機能です。
+<P>
+
+<A NAME="IDX778"></A>
+<DL>
+<DT><U>Special Form:</U> <B>eval-and-compile</B> <I>body</I>
+<DD>このフォームは、コンパイルしたり実行したり
+（コンパイルしてあってもしてなくても）するときに
+<VAR>body</VAR>を評価するように印を付ける。
+<P>
+
+<VAR>body</VAR>を別のファイルに収め、そのファイルを<CODE>require</CODE>で参照しても
+同じ結果を得ることができる。
+<VAR>body</VAR>が大きい場合には、そのほうが好ましい。
+</DL>
+<P>
+
+<A NAME="IDX779"></A>
+<DL>
+<DT><U>Special Form:</U> <B>eval-when-compile</B> <I>body</I>
+<DD>このフォームは、コンパイルしたプログラムをロードするときではなく、
+プログラムのコンパイル時に<VAR>body</VAR>を評価するように印を付ける。
+コンパイラが評価した結果は、コンパイルしたプログラム内に定数として現れる。
+ソースファイルをコンパイルせずにロードすると、
+<VAR>body</VAR>を普通どおり評価する。
+<P>
+
+<STRONG>Common Lispに関した注意：</STRONG><CODE> </CODE>
+トップレベルでは、
+Common Lispの<CODE>(eval-when (compile eval) <small>...</small>)</CODE>の常套句に似ている。
+それ以外の箇所では、Common Lispの`<SAMP>#.</SAMP>'リーダマクロは
+（解釈実行時ではなければ）<CODE>eval-when-compile</CODE>が行うことに近い。
+</DL>
+<P>
+
+<A NAME="Byte-Code Objects"></A>
+<HR SIZE="6">
+<br><A NAME="SEC206"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_16.html#SEC205"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_16.html#SEC207"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Byte-Code Objects"></A>
+<H2> 15.6 バイトコード関数オブジェクト </H2>
+<!--docid::SEC206::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Byte-Code%20Objects">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Byte-Code%20Objects</a>"<br>
+"texi/elisp21/バイトコード関数オブジェクト"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D0%A5%A4%A5%C8%A5%B3%A1%BC%A5%C9%B4%D8%BF%F4%A5%AA%A5%D6%A5%B8%A5%A7%A5%AF%A5%C8">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX780"></A>
+<A NAME="IDX781"></A>
+<P>
+
+バイトコンパイルした関数は、特別なデータ型、
+<EM>バイトコード関数オブジェクト</EM>（byte-code function objects）です。
+<P>
+
+内部的には、バイトコード関数オブジェクトはベクトルによく似ています。
+しかし、評価時にこのデータ型が呼び出すべき関数として現れると、
+特別に扱います。
+バイトコード関数オブジェクトの表示表現はベクトルに似ていますが、
+開き角括弧`<SAMP>[</SAMP>'のまえに余分に`<SAMP>#</SAMP>'が付きます。
+<P>
+
+バイトコード関数オブジェクトには、少なくとも4つの要素が必要です。
+最大個数に制限はありませんが、最初の6つ個の要素にだけ
+普通の用途があります。
+つぎのとおりです。
+<P>
+
+<DL COMPACT>
+<DT><VAR>引数リスト</VAR>
+<DD>引数シンボルのリスト。
+<P>
+
+<DT><VAR>バイトコード</VAR>
+<DD>バイトコード命令を収めた文字列。
+<P>
+
+<DT><VAR>定数群</VAR>
+<DD>バイトコードが参照するLispオブジェクトのベクトル。
+関数名や変数名として使われるシンボルを含む。
+<P>
+
+<DT><VAR>スタックサイズ</VAR>
+<DD>この関数に必要なスタックサイズの最大値。
+<P>
+
+<DT><VAR>説明文字列</VAR>
+<DD>（あれば）説明文字列。
+さもなければ<CODE>nil</CODE>。
+説明文字列がファイルに収めてあれば、値は数かリストである。
+実際の説明文字列を取得するには関数<CODE>documentation</CODE>を使う
+（see 節 <A HREF="elisp_24.html#SEC365">23.2 説明文字列の参照</A>）。
+<P>
+
+<DT><VAR>対話指定</VAR>
+<DD>（あれば）対話指定。
+これは文字列かLisp式。
+対話的でない関数では<CODE>nil</CODE>。
+</DL>
+<P>
+
+バイトコード関数オブジェクトの例を表示表現でつぎに示します。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>#[(&#38;optional arg)
+  "^H\204^F^&#64;\301^P\302^H[!\207"
+  [arg 1 forward-sexp]
+  2
+  254435
+  "p"]
+</pre></td></tr></table><P>
+
+バイトコードオブジェクトを作る基本的な方法は、
+<CODE>make-byte-code</CODE>を使うことです。
+<P>
+
+<A NAME="IDX782"></A>
+<DL>
+<DT><U>Function:</U> <B>make-byte-code</B> <I>&#38;rest elements</I>
+<DD>この関数は、<VAR>elements</VAR>を要素とする
+バイトコード関数オブジェクトを作成し返す。
+</DL>
+<P>
+
+バイトコード関数の要素を自分で作ったりしないでください。
+それらに整合性がないと、
+その関数を呼び出すとEmacsがクラッシュすることもあります。
+これらのオブジェクトの作成は、バイトコンパイラに任せるべきです。
+バイトコンパイラは整合した要素を作成します（と期待する）。
+<P>
+
+バイトコードオブジェクトの要素は<CODE>aref</CODE>で参照できます。
+同じ要素群のベクトルを<CODE>vconcat</CODE>で作ることもできます。
+<P>
+
+<A NAME="Disassembly"></A>
+<HR SIZE="6">
+<br><A NAME="SEC207"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_16.html#SEC206"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_17.html#SEC208"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Disassembly"></A>
+<H2> 15.7 バイトコードの逆アセンブル </H2>
+<!--docid::SEC207::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Disassembly">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Disassembly</a>"<br>
+"texi/elisp21/バイトコードの逆アセンブル"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D0%A5%A4%A5%C8%A5%B3%A1%BC%A5%C9%A4%CE%B5%D5%A5%A2%A5%BB%A5%F3%A5%D6%A5%EB">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX783"></A>
+<A NAME="IDX784"></A>
+<P>
+
+人間はバイトコードを書きません。
+それはバイトコンパイラの仕事です。
+しかし、好奇心を満たすために逆アセンブラを用意してあります。
+逆アセンブラはバイトコンパイルしたコードを人が読める形式に変換します。
+<P>
+
+バイトコードインタープリタは、単純なスタックマシンとして実装してあります。
+値を自前のスタックに積み、計算に使うためにスタックから取り出し、
+計算結果そのものはスタックにまた積みます。
+バイトコード関数から戻るときには、スタックから値を取り出して
+関数値としてその値を返します。
+<P>
+
+スタックに加えて、変数とスタックのあいだで値を転送することで、
+バイトコード関数は、普通のLisp変数を使ったり、
+束縛したり、値を設定できます。
+<P>
+
+<A NAME="IDX785"></A>
+<DL>
+<DT><U>コマンド:</U> <B>disassemble</B> <I>object &#38;optional stream</I>
+<DD>この関数は<VAR>object</VAR>の逆アセンブルしたコードを出力する。
+<VAR>stream</VAR>を指定すると、そこへ出力する。
+さもなければ、逆アセンブルしたコードはストリーム<CODE>standard-output</CODE>へ
+出力する。
+引数<VAR>object</VAR>は関数名かラムダ式である。
+<P>
+
+特別な例外として、この関数を対話的に使うと、
+`<SAMP>*Disassemble*</SAMP>'という名前のバッファへ出力する。
+</DL>
+<P>
+
+<CODE>disassemble</CODE>関数の使用例を2つ示します。
+バイトコードとLispソースとの対応を取れるように
+特別なコメントを追加してありますが、
+これらは<CODE>disassemble</CODE>の出力には現れません。
+これらの例は、最適化してないバイトコードです。
+現在、バイトコードは、普通、最適化しますが、
+目的は果たせるので、例を書き換えてありません。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(defun factorial (integer)
+  "Compute factorial of an integer."
+  (if (= 1 integer) 1
+    (* integer (factorial (1- integer)))))
+     => factorial
+
+(factorial 4)
+     => 24
+
+(disassemble 'factorial)
+     -| byte-code for factorial:
+ doc: Compute factorial of an integer.
+ args: (integer)
+
+0   constant 1              ; スタックに1を積む
+
+1   varref   integer        ; 環境から<CODE>integer</CODE>の値を取得し、 
+                            ; スタックに積む
+
+2   eqlsign                 ; スタックの先頭から2つの値を
+                            ; 取りさって比較し、
+                            ; 結果をスタックに積む
+
+3   goto-if-nil 10          ; スタックの先頭から値を取りさり
+                            ; 検査する。<CODE>nil</CODE>ならば10へ飛び、
+                            ; さもなければつぎへ進む
+
+6   constant 1              ; スタックに1を積む
+
+7   goto     17             ; 17へ飛ぶ（この場合、関数は1を返す）
+
+10  constant *              ; スタックにシンボル<CODE>*</CODE>を積む
+
+11  varref   integer        ; スタックに<CODE>integer</CODE>の値を積む
+
+12  constant factorial      ; スタックに<CODE>factorial</CODE>を積む
+
+13  varref   integer        ; スタックに<CODE>integer</CODE>の値を積む
+
+14  sub1                    ; スタックから<CODE>integer</CODE>を取りさり、
+                            ; 減した新たな値をスタックに積む
+
+                            ; スタックの現在の内容はつぎのとおり
+                            ; - <CODE>integer</CODE>を減らした値
+                            ; - <CODE>factorial</CODE> 
+                            ; - <CODE>integer</CODE>の値
+                            ; - <CODE>*</CODE>
+
+15  call     1              ; スタックの最初（先頭）要素を使って
+                            ; 関数<CODE>factorial</CODE>を呼び出す
+                            ; 戻り値をスタックに積む
+
+                            ; スタックの現在の内容はつぎのとおり
+                            ; - <CODE>factorial</CODE>の
+                            ;      再帰呼び出しの結果
+                            ; - <CODE>integer</CODE>の値
+                            ; - <CODE>*</CODE>
+
+16  call     2              ; スタックの最初の要素の2つ
+                            ; （先頭の2つ）を引数として
+                            ; 関数<CODE>*</CODE>を呼び出し
+                            ; 結果をスタックに積む
+
+17  return                  ; スタックの先頭要素を返す
+     => nil
+</pre></td></tr></table><P>
+
+関数<CODE>silly-loop</CODE>は、少々複雑です。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(defun silly-loop (n)
+  "Return time before and after N iterations of a loop."
+  (let ((t1 (current-time-string)))
+    (while (&#62; (setq n (1- n)) 
+              0))
+    (list t1 (current-time-string))))
+     => silly-loop
+
+(disassemble 'silly-loop)
+     -| byte-code for silly-loop:
+ doc: Return time before and after N iterations of a loop.
+ args: (n)
+
+0   constant current-time-string  ; <CODE>current-time-string</CODE>を
+                                  ; スタックの先頭に積む
+
+1   call     0              ; 引数なしで<CODE>current-time-string</CODE>を
+                            ; 呼び出し、結果をスタックに積む
+
+2   varbind  t1             ; スタックから値を取りさり、
+                            ; <CODE>t1</CODE>に束縛する
+
+3   varref   n              ; 環境から<CODE>n</CODE>の値を取得し、
+                            ; 値をスタックに積む
+
+4   sub1                    ; スタックの先頭から1を引く
+
+5   dup                     ; スタックの先頭の値を複製する
+                            ; つまり、スタックの先頭の値を
+                            ; コピーして、それをスタックに積む
+
+6   varset   n              ; スタックの先頭から値を取りさり、
+                            ; 値を<CODE>n</CODE>に束縛する
+
+                            ; つまり、<CODE>dup varset</CODE>は
+                            ; スタックの先頭の値を取りさらずに
+                            ; <CODE>n</CODE>にコピーする
+
+7   constant 0              ; スタックに0を積む
+
+8   gtr                     ; スタックから2つの値を取りさり、
+                            ; <VAR>n</VAR>が0より大きいか調べ、
+                            ; 結果をスタックに積む
+
+9   goto-if-nil-else-pop 17 ; <CODE>n</CODE> &#60;= 0ならば17へ飛ぶ
+                            ; （whileループから抜ける）
+                            ; さもなければ、スタックの先頭から
+                            ; 値を取りさり、つぎへ進む
+
+12  constant nil            ; スタックに<CODE>nil</CODE>を積む
+                            ; （これはループの本体）
+
+13  discard                 ; ループの本体の結果を捨てる
+                            ; （whileループは副作用のために
+                            ; つねに評価される）
+
+14  goto     3              ; whileループの先頭へ飛ぶ
+
+17  discard                 ; スタックの先頭の値を取りさって、
+                            ; whileループの結果を捨てる。
+                            ; これは、9での飛び越しのために
+                            ; 取りさっていない値<CODE>nil</CODE>
+
+18  varref   t1             ; <CODE>t1</CODE>の値をスタックに積む
+
+19  constant current-time-string  ; <CODE>current-time-string</CODE>を 
+                                  ; スタックに積む
+
+20  call     0              ; ふたたび<CODE>current-time-string</CODE>を
+                            ; 呼び出す
+
+21  list2                   ; スタックの先頭から2つの値を取りさり
+                            ; それらのリストを作り、
+                            ; リストをスタックに積む
+
+22  unbind   1              ; ローカルの環境の<CODE>t1</CODE>の束縛を解く
+
+23  return                  ; スタックの先頭の値を返す
+
+     => nil
+</pre></td></tr></table><P>
+
+<A NAME="Advising Functions"></A>
+<HR SIZE="6">
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<a name="bottom"> </a>
+<script type="text/javascript" src="style2.js"></script>
+<div class="footer">
+    <br>
+    このページはMeadow (Emacs) の紹介ページです <br>
+このWebページの各文書は自由にリンク・複製・再配布・改変していただいて構いません．
+<br>ただし，複製・再配布・改変の場合は Meadow Memo のURLを記載しておいて下さい．<br>
+<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=about%20link">Medow memoへのリンクについて</a>．<br>
+
+間違い，要望等があれば<a href="mailto:akihisa@mail.ne.jp">akihisa@mail.ne.jp</a> か下記でどうぞ<br>
+
+<br>
+
+<FORM METHOD="post" ACTION="http://www.bookshelf.jp/cgi-bin/wwwmail.cgi" >
+お名前：<INPUT TYPE="text" NAME="name" SIZE="30" MAXLENGTH="40" VALUE="ななしさん"><br>
+メールアドレス：<INPUT TYPE="text" NAME="EMAIL" SIZE="25" MAXLENGTH="60" VALUE="secret@mail.adr"><br>
+<input type="hidden" name="HPAGE" value="">
+つっこみ：<br><TEXTAREA NAME="MESSAGE" ROWS="5" COLS="50">
+</TEXTAREA><br><br>
+<INPUT TYPE="submit" VALUE="送信">
+<INPUT TYPE="reset" VALUE="クリア">
+</FORM>
+
+<br><A HREF="http://www.bookshelf.jp/cgi-bin/xct.cgi">ページ別カウンタ</a>
+<br> Since 2002/12/13 <br>
+</div>
+
+</BODY>
+
+</HTML>

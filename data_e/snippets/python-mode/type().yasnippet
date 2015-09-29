@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: type()
+# key: type
+# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])))
+# 32 = ` '
+# --
+type(${1:\'name\', (bases, ), {dict: func}})

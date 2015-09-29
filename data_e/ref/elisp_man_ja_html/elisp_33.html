@@ -1,0 +1,1914 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="ja">
+<!-- Created on October, 1  2005 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=euc-jp">
+<META NAME="keywords" CONTENT="meadow,mule,emacs,lisp,elisp,gnus,setting,設定,unix,cygwin">
+<META http-equiv="Content-Script-Type" content="text/javascript">
+<META NAME="description" CONTENT="Meadowの設定を紹介するページです">
+<TITLE>GNU Emacs Lispリファレンスマニュアル:  非ASCII文字</TITLE>
+
+<META NAME="description" CONTENT="GNU Emacs Lispリファレンスマニュアル:  非ASCII文字">
+<META NAME="keywords" CONTENT="GNU Emacs Lispリファレンスマニュアル:  非ASCII文字">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+<LINK REL="contents" HREF="elisp_toc.html#SEC_Contents">
+<LINK REL="index" HREF="elisp_48.html#SEC681">
+<LINK REL="next" HREF="elisp_34.html#SEC549">
+<LINK REL="prev" HREF="elisp_32.html#SEC483">
+
+<META http-equiv="Content-Style-Type" content="text/css">
+<!-- 鶯と龜 ←日本語EUC誤判別対策用らしい; -->
+<link rel="StyleSheet" href="../../../../soft/css/midnight.css" type="text/css" id="css1">
+<script type="text/javascript" src="style1.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../soft/css/meadowmemo.css">
+
+</HEAD>
+<BODY LANG="ja" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+<!--Infoseek Analyzer start-->
+<script LANGUAGE="javascript">PgNo=6;</script>
+<script src="http://js1.infoseek.co.jp/bin/57/00170.js"></script>
+<noscript><a href="http://ax1.www.infoseek.co.jp/bin/go?0017057f" target="_blank">
+<img src="http://ax1.www.infoseek.co.jp/bin/logo?0017057f" border=0></a></noscript>
+<!--Infoseek Analyzer end-->
+<a name="top"> </a>
+
+<br><A NAME="SEC528"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_32.html#SEC527"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_33.html#SEC529"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_32.html#SEC483"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_34.html#SEC549"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Non-ASCII Characters"></A>
+<H1> 32. 非ASCII文字 </H1>
+<!--docid::SEC528::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Non-ASCII%20Characters">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Non-ASCII%20Characters</a>"<br>
+"texi/elisp21/非ASCII文字"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%C8%F3ASCII%CA%B8%BB%FA">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX2391"></A>
+<A NAME="IDX2392"></A>
+<P>
+
+本章では、非ASCIIに関連する特別なことがらと
+それらが文字列やバッファにどのように保存されるかについて述べます。
+<P>
+
+<div class="menuindex"><SCRIPT language=JavaScript src="index32.js"></SCRIPT></div><noscript><BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_33.html#SEC529">32.1 テキスト表現</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_33.html#SEC530">32.2 テキスト表現の変換</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_33.html#SEC531">32.3 表現の選択</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_33.html#SEC532">32.4 文字コード</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_33.html#SEC533">32.5 文字集合</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_33.html#SEC534">32.6 文字とバイト</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_33.html#SEC535">32.7 文字の分割</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_33.html#SEC536">32.8 文字集合の走査</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_33.html#SEC537">32.9 文字の変換</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_33.html#SEC538">32.10 コーディングシステム</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_33.html#SEC548">32.11 入力方式</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+</TABLE></BLOCKQUOTE></noscript>
+<P>
+
+<A NAME="Text Representations"></A>
+<HR SIZE="6">
+<br><A NAME="SEC529"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_33.html#SEC528"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_33.html#SEC530"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Text Representations"></A>
+<H2> 32.1 テキスト表現 </H2>
+<!--docid::SEC529::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Text%20Representations">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Text%20Representations</a>"<br>
+"texi/elisp21/テキスト表現"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%C6%A5%AD%A5%B9%A5%C8%C9%BD%B8%BD">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX2393"></A>
+<P>
+
+Emacsには2つの<EM>テキスト表現</EM>、つまり、
+文字列やバッファでテキストを表す方法が2つあります。
+これらは、<EM>ユニバイト</EM>（unibyte）と
+<EM>マルチバイト</EM>（multibyte）と呼ばれます。
+各文字列や各バッファでは、これらの2つの表現の一方を使います。
+ほとんどの目的には、Emacsがこれらのあいだで適切に変換するので、
+読者はこれらの表現に関しては無視できます。
+Lispプログラムでは、これらの違いに注意する必要がしばしばあります。
+<P>
+
+<A NAME="IDX2394"></A>
+ユニバイト表現では、各文字は1バイトを占め、
+そのため、可能な文字コードの範囲は0から255です。
+コード0から127はASCII文字です。
+コード128から255は非ASCII文字集合の1つ
+（変数<CODE>nonascii-insert-offset</CODE>に設定して文字集合を選べる）
+に使われます。
+<P>
+
+<A NAME="IDX2395"></A>
+<A NAME="IDX2396"></A>
+<A NAME="IDX2397"></A>
+マルチバイト表現では、1文字は1バイト以上を占め、
+そのため、Emacsの文字コードの範囲全体を格納できるのです。
+マルチバイト文字の最初のバイトはつねに128から159（8進数で0200から0237）の
+範囲にあります。
+これらの値を<EM>リーディングコード</EM>（leading code）と呼びます。
+マルチバイト文字の2バイト以降はつねに160から255（8進数で0240から0377）の
+範囲にあります。
+これらの値を<EM>トレイリングコード</EM>（trailing code）と呼びます。
+<P>
+
+バッファでは、変数<CODE>enable-multibyte-characters</CODE>の
+バッファローカルな値が使用する表現を指定します。
+文字列の表現は、文字列を作成するときの文字列の内容に基づいて決定されます。
+<P>
+
+<A NAME="IDX2398"></A>
+<DL>
+<DT><U>Variable:</U> <B>enable-multibyte-characters</B>
+<DD><A NAME="IDX2399"></A>
+この変数は、バッファのテキスト表現を指定する。
+これが<CODE>nil</CODE>以外であると、バッファはマルチバイトテキストを保持する。
+さもなければユニバイトテキストを保持する。
+<P>
+
+この変数に直接設定することはできない。
+そのかわりに、バッファの表現を変更するには、
+関数<CODE>set-buffer-multibyte</CODE>を使う。
+</DL>
+<P>
+
+<A NAME="IDX2400"></A>
+<DL>
+<DT><U>Variable:</U> <B>default-enable-multibyte-characters</B>
+<DD><A NAME="IDX2401"></A>
+この変数の値は、
+<CODE>(default-value 'enable-multibyte-characters)</CODE>に完全に等価であり、
+この変数に設定するとデフォルト値を変更する。
+バッファの<CODE>enable-multibyte-characters</CODE>のローカルな束縛に設定することは
+許されていないが、デフォルト値を変更することは可能であり、
+そうしても既存のバッファには影響しないので理にかなっている。
+<P>
+
+コマンド行オプション`<SAMP>--unibyte</SAMP>'は、
+起動時の早い段階でデフォルト値に<CODE>nil</CODE>を設定することで役目を果たす。
+</DL>
+<P>
+
+<A NAME="IDX2402"></A>
+<DL>
+<DT><U>Function:</U> <B>multibyte-string-p</B> <I>string</I>
+<DD><A NAME="IDX2403"></A>
+文字列<VAR>string</VAR>にマルチバイト文字が含まれると<CODE>t</CODE>を返す。
+</DL>
+<P>
+
+<A NAME="Converting Representations"></A>
+<HR SIZE="6">
+<br><A NAME="SEC530"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_33.html#SEC529"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_33.html#SEC531"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Converting Representations"></A>
+<H2> 32.2 テキスト表現の変換 </H2>
+<!--docid::SEC530::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Converting%20Representations">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Converting%20Representations</a>"<br>
+"texi/elisp21/テキスト表現の変換"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%C6%A5%AD%A5%B9%A5%C8%C9%BD%B8%BD%A4%CE%CA%D1%B4%B9">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+Emacsはユニバイトテキストをマルチバイトに変換できます。
+マルチバイトテキストをユニバイトにも変換できますが、
+この変換では情報が欠落します。
+バッファにテキストを挿入するとき、あるいは、
+複数の文字列から1つの文字列にテキストを収めるときに、
+一般にこれらの変換が行われます。
+文字列の内容をどちらかの表現に明示的にも変換できます。
+<P>
+
+Emacsは、文字列を作成するときにはその内容に基づいて
+文字列の表現を選びます。
+一般則は、ユニバイトテキストを他のマルチバイトテキストに組み入れるときには
+ユニバイトテキストをマルチバイトテキストに変換します。
+マルチバイト表現のほうが汎用であり、
+ユニバイトテキストのどんな文字でも保持できるからです。
+<P>
+
+バッファにテキストを挿入するときには、Emacsは、
+当該バッファの<CODE>enable-multibyte-characters</CODE>の指定に従った
+バッファの表現にテキストを変換します。
+特に、ユニバイトバッファにマルチバイトテキストを挿入するときには、
+マルチバイトテキスト内のすべての文字を一般には保存できなくても、
+Emacsはテキストをユニバイトに変換します。
+自然な代替案はバッファ内容をマルチバイトに変換することですが、
+これは受け入れられません。
+バッファの表現はユーザーが選択したものであり自動的には無視できないからです。
+<P>
+
+ユニバイトテキストをマルチバイトテキストに変換しても
+ASCII文字は無変更であり、128から159も同様です。
+160から255の非ASCIIについては、
+各文字に<CODE>nonascii-insert-offset</CODE>の値を加算することで変換します。
+この変数に設定すると、ユニバイト文字がどの文字集合に対応するかを指定できます
+（see 節 <A HREF="elisp_33.html#SEC533">32.5 文字集合</A>）。
+たとえば、<CODE>nonascii-insert-offset</CODE>が
+<CODE>(- (make-char 'latin-iso8859-1) 128)</CODE>の2048であると、
+非ASCIIのユニバイトはLatin 1に対応します。
+<CODE>(- (make-char 'greek-iso8859-7) 128)</CODE>の2688であると、
+ギリシャ文字に対応します。
+<P>
+
+マルチバイトテキストをユニバイトに変換するのは簡単で、
+各文字コードと255の論理積をとります。
+<CODE>nonascii-insert-offset</CODE>に
+文字集合の始まりに対応する合理的な値が設定されていれば、
+この変換は逆変換になります。
+つまり、ユニバイトテキストをマルチバイトに変換し、
+それをユニバイトに戻すともとのユニバイトテキストになります。
+<P>
+
+<A NAME="IDX2404"></A>
+<DL>
+<DT><U>Variable:</U> <B>nonascii-insert-offset</B>
+<DD><A NAME="IDX2405"></A>
+この変数は、ユニバイトテキストをマルチバイトに変換するときに
+非ASCII文字に加算する値を指定する。
+これは、128から255のユニバイトの非ASCIIの範囲の文字を挿入する
+<CODE>self-insert-command</CODE>にも適用される。
+しかし、関数<CODE>insert-char</CODE>はこの変換を行わない。
+<P>
+
+文字集合<VAR>cs</VAR>を選択する正しい値は、
+<CODE>(- (make-char <VAR>cs</VAR>) 128)</CODE>である。
+<CODE>nonascii-insert-offset</CODE>の値が0であると、
+実際の変換には0ではなくLatin 1文字集合に対する値を使う。
+</DL>
+<P>
+
+<A NAME="IDX2406"></A>
+<DL>
+<DT><U>Variable:</U> <B>nonascii-translation-table</B>
+<DD><A NAME="IDX2407"></A>
+この変数は、<CODE>nonascii-insert-offset</CODE>のより一般的な代替を提供する。
+128から255の範囲の各コードをマルチバイト文字に変換する方法を
+独立して指定するために使える。
+その値はベクトルか<CODE>nil</CODE>であること。
+これが<CODE>nil</CODE>以外であると、<CODE>nonascii-insert-offset</CODE>に優先する。
+</DL>
+<P>
+
+<A NAME="IDX2408"></A>
+<DL>
+<DT><U>Function:</U> <B>string-make-unibyte</B> <I>string</I>
+<DD><A NAME="IDX2409"></A>
+この関数は、<VAR>string</VAR>のテキストがすでにユニバイトでなければ
+ユニバイト表現に変換してから結果を返す。
+<VAR>string</VAR>がユニバイトであれば無変更で返す。
+</DL>
+<P>
+
+<A NAME="IDX2410"></A>
+<DL>
+<DT><U>Function:</U> <B>string-make-multibyte</B> <I>string</I>
+<DD><A NAME="IDX2411"></A>
+この関数は、<VAR>string</VAR>のテキストがすでにマルチバイトでなければ
+マルチバイト表現に変換してから結果を返す。
+<VAR>string</VAR>がマルチバイトであれば無変更で返す。
+</DL>
+<P>
+
+<A NAME="Selecting a Representation"></A>
+<HR SIZE="6">
+<br><A NAME="SEC531"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_33.html#SEC530"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_33.html#SEC532"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Selecting a Representation"></A>
+<H2> 32.3 表現の選択 </H2>
+<!--docid::SEC531::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Selecting%20a%20Representation">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Selecting%20a%20Representation</a>"<br>
+"texi/elisp21/表現の選択"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%C9%BD%B8%BD%A4%CE%C1%AA%C2%F2">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+既存のバッファや文字列がユニバイトであるときに
+マルチバイトとして調べたり、その逆のように調べるのが
+有用なこともあります
+<P>
+
+<A NAME="IDX2412"></A>
+<DL>
+<DT><U>Function:</U> <B>set-buffer-multibyte</B> <I>multibyte</I>
+<DD><A NAME="IDX2413"></A>
+カレントバッファの表現方法を設定する。
+<VAR>multibyte</VAR>が<CODE>nil</CODE>以外であると、バッファはマルチバイトになる。
+<VAR>multibyte</VAR>が<CODE>nil</CODE>であると、バッファはユニバイトになる。
+<P>
+
+この関数は、バイト列としてみたバッファ内容を変更しない。
+その結果、文字として見たときの内容を変更できる。
+マルチバイト表現では1文字とみなされる2バイトの列は、
+ユニバイト表現では2文字になる。
+<P>
+
+この関数は、<CODE>enable-multibyte-characters</CODE>に
+どちらの表現を使用しているかを記録する。
+さらに（オーバレイ、テキスト属性、マーカなどの）バッファ内のさまざまな
+データを調整して、それ以前と同様に同じテキストに及ぶようにする。
+</DL>
+<P>
+
+<A NAME="IDX2414"></A>
+<DL>
+<DT><U>Function:</U> <B>string-as-unibyte</B> <I>string</I>
+<DD><A NAME="IDX2415"></A>
+この関数は、各バイトを1文字とみなして
+<VAR>string</VAR>と同じバイトの文字列を返す。
+つまり、値には<VAR>string</VAR>より多くの文字が含まれることがある。
+<P>
+
+<VAR>string</VAR>がすでにユニバイトであると、
+値は<VAR>string</VAR>そのものである。
+</DL>
+<P>
+
+<A NAME="IDX2416"></A>
+<DL>
+<DT><U>Function:</U> <B>string-as-multibyte</B> <I>string</I>
+<DD><A NAME="IDX2417"></A>
+この関数は、マルチバイトの各列を1文字とみなして
+<VAR>string</VAR>と同じバイトの文字列を返す。
+つまり、値には<VAR>string</VAR>より少ない文字が含まれることがある。
+<P>
+
+<VAR>string</VAR>がすでにマルチバイトであると、
+値は<VAR>string</VAR>そのものである。
+</DL>
+<P>
+
+<A NAME="Character Codes"></A>
+<HR SIZE="6">
+<br><A NAME="SEC532"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_33.html#SEC531"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_33.html#SEC533"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Character Codes"></A>
+<H2> 32.4 文字コード </H2>
+<!--docid::SEC532::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Character%20Codes">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Character%20Codes</a>"<br>
+"texi/elisp21/文字コード"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%CA%B8%BB%FA%A5%B3%A1%BC%A5%C9">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX2418"></A>
+<P>
+
+ユニバイトとマルチバイトのテキスト表現では、
+異なる文字コードを使っています。
+ユニバイト表現において正しい文字コードは0から255の範囲であり、
+これらの値は1バイトに収まります。
+マルチバイト表現において正しい文字コードは0から524287の範囲ですが、
+この範囲のすべての値が正しいとは限りません。
+特に、値128から255は
+（『生のバイト』にはありうる。see 節 <A HREF="elisp_33.html#SEC545">32.10.7 明示的な符号化と復号化</A>）、
+マルチバイトテキストでは正しくありません。
+0から127のASCIIコードのみが、どちらの表現でも完全に正しいのです。
+<P>
+
+<A NAME="IDX2419"></A>
+<DL>
+<DT><U>Function:</U> <B>char-valid-p</B> <I>charcode</I>
+<DD>この関数は、<VAR>charcode</VAR>が2つのテキスト表現のどちらか一方で
+正しければ<CODE>t</CODE>を返す。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(char-valid-p 65)
+     => t
+(char-valid-p 256)
+     => nil
+(char-valid-p 2248)
+     => t
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="Character Sets"></A>
+<HR SIZE="6">
+<br><A NAME="SEC533"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_33.html#SEC532"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_33.html#SEC534"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Character Sets"></A>
+<H2> 32.5 文字集合 </H2>
+<!--docid::SEC533::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Character%20Sets">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Character%20Sets</a>"<br>
+"texi/elisp21/文字集合"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%CA%B8%BB%FA%BD%B8%B9%E7">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX2420"></A>
+<P>
+
+Emacsは文字をさまざまな<EM>文字集合</EM>（character set）に分類します。
+文字集合にはシンボルである名前があります。
+各文字はたった1つの文字集合に属します。
+<P>
+
+一般に、異なる文字体系ごとに1つの文字集合があります。
+たとえば、<CODE>latin-iso8859-1</CODE>は1つの文字集合であり、
+<CODE>greek-iso8859-7</CODE>は別の文字集合であり、
+<CODE>ascii</CODE>も別の文字集合です。
+Emacsの1つの文字集合には最大9025個の文字を保持できます。
+したがって、論理的には1つの文字集合にまとめられる文字群を、
+複数の文字集合に分割する場合もあります。
+たとえば、Big 5として一般には知られている中国文字の1つの集合は、
+Emacsの2つの文字集合、<CODE>chinese-big5-1</CODE>と<CODE>chinese-big5-2</CODE>に
+分割されます。
+<P>
+
+<A NAME="IDX2421"></A>
+<DL>
+<DT><U>Function:</U> <B>charsetp</B> <I>object</I>
+<DD><A NAME="IDX2422"></A>
+<VAR>object</VAR>が文字集合の名前のシンボルであれば<CODE>t</CODE>を返す。
+さもなければ<CODE>nil</CODE>を返す。
+</DL>
+<P>
+
+<A NAME="IDX2423"></A>
+<DL>
+<DT><U>Function:</U> <B>charset-list</B>
+<DD><A NAME="IDX2424"></A>
+この関数は、定義されているすべての文字集合の名前のリストを返す。
+</DL>
+<P>
+
+<A NAME="IDX2425"></A>
+<DL>
+<DT><U>Function:</U> <B>char-charset</B> <I>character</I>
+<DD><A NAME="IDX2426"></A>
+この関数は文字<VAR>character</VAR>が属する文字集合の名前を返す。
+</DL>
+<P>
+
+<A NAME="Chars and Bytes"></A>
+<HR SIZE="6">
+<br><A NAME="SEC534"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_33.html#SEC533"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_33.html#SEC535"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Chars and Bytes"></A>
+<H2> 32.6 文字とバイト </H2>
+<!--docid::SEC534::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Chars%20and%20Bytes">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Chars%20and%20Bytes</a>"<br>
+"texi/elisp21/文字とバイト"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%CA%B8%BB%FA%A4%C8%A5%D0%A5%A4%A5%C8">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX2427"></A>
+<P>
+
+<A NAME="IDX2428"></A>
+<A NAME="IDX2429"></A>
+マルチバイト表現では、各文字は1バイトかそれ以上のバイトを占めます。
+各文字集合には、通常は1バイト長か2バイト長の
+<EM>導入列</EM>（introduction sequence）があります
+（例外：ASCIIの導入列は0バイト長である）。
+導入列は、文字集合の任意の文字のバイト列の始まりです。
+文字のバイト列の残りの部分は、同じ文字集合内で他の文字とその文字を区別します。
+文字集合に依存して、区別するためのバイトは1バイトか2バイトです。
+そのようなバイト数を文字集合の<EM>次元</EM>（dimension）と呼びます。
+<P>
+
+<A NAME="IDX2430"></A>
+<DL>
+<DT><U>Function:</U> <B>charset-dimension</B> <I>charset</I>
+<DD><A NAME="IDX2431"></A>
+この関数は、文字集合<VAR>charset</VAR>の次元を返す。
+現在、次元はつねに1か2である。
+</DL>
+<P>
+
+文字集合の導入列のバイト長を判定するもっとも簡単な方法はつぎのとおりです。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(- (char-bytes (make-char <VAR>charset</VAR>))
+   (charset-dimension <VAR>charset</VAR>))
+</pre></td></tr></table><P>
+
+<A NAME="Splitting Characters"></A>
+<HR SIZE="6">
+<br><A NAME="SEC535"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_33.html#SEC534"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_33.html#SEC536"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Splitting Characters"></A>
+<H2> 32.7 文字の分割 </H2>
+<!--docid::SEC535::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Splitting%20Characters">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Splitting%20Characters</a>"<br>
+"texi/elisp21/文字の分割"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%CA%B8%BB%FA%A4%CE%CA%AC%B3%E4">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+本節の関数は、文字とそれを表現するために用いられるバイト値のあいだの
+変換を行います。
+ほとんどの目的に関しては、Emacsが必要に応じて自動的に行うため、
+文字を表現するためのバイト列を扱う必要はありません。
+<P>
+
+<A NAME="IDX2432"></A>
+<DL>
+<DT><U>Function:</U> <B>char-bytes</B> <I>character</I>
+<DD><A NAME="IDX2433"></A>
+この関数は、文字<VAR>character</VAR>を表現するために必要なバイト数を返す。
+これは、文字<VAR>character</VAR>が属する文字集合だけに依存し、
+その文字集合（see 節 <A HREF="elisp_33.html#SEC533">32.5 文字集合</A>）の次元とその導入列の和に等しい。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(char-bytes 2248)
+     => 2
+(char-bytes 65)
+     => 1
+(char-bytes 192)
+     => 1
+</pre></td></tr></table><P>
+
+マルチバイト表現とユニバイト表現のどちらに対しても
+この関数で正しい結果を得られるのは、
+2つの表現で用いられる非ASCII文字コードに重なりがないからである。
+</DL>
+<P>
+
+<A NAME="IDX2434"></A>
+<DL>
+<DT><U>Function:</U> <B>split-char</B> <I>character</I>
+<DD><A NAME="IDX2435"></A>
+文字<VAR>character</VAR>の文字集合の名前に続けて、
+その文字集合で<VAR>character</VAR>を識別する1バイトか2バイトの値（整数）から
+成るリストを返す。
+バイト値の個数はその文字集合の次元である。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(split-char 2248)
+     => (latin-iso8859-1 72)
+(split-char 65)
+     => (ascii 65)
+</pre></td></tr></table><P>
+
+ユニバイトの非ASCII文字は、
+文字集合<CODE>ascii</CODE>の一部とみなす。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(split-char 192)
+     => (ascii 192)
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX2436"></A>
+<DL>
+<DT><U>Function:</U> <B>make-char</B> <I>charset &#38;rest byte-values</I>
+<DD><A NAME="IDX2437"></A>
+この関数は、文字集合<VAR>charset</VAR>において
+<VAR>byte-values</VAR>で識別される文字を返す。
+これは、<CODE>split-char</CODE>のほぼ逆関数にあたる。
+通常、文字集合<VAR>charset</VAR>の次元に応じて、
+1つか2つの<VAR>byte-values</VAR>を指定する。
+たとえばつぎのとおり。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(make-char 'latin-iso8859-1 72)
+     => 2248
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX2438"></A>
+<VAR>byte-values</VAR>を指定せずに<CODE>make-char</CODE>を呼び出すと、
+その結果は文字集合<VAR>charset</VAR>を代表する
+<EM>汎用文字</EM>（generic character）である。
+汎用文字は整数であるが、文字としてバッファに挿入するには
+正しく<EM>ない</EM>ものである。
+1つの文字集合全体を表すために<CODE>char-table-range</CODE>で使える
+（see 節 <A HREF="elisp_7.html#SEC99">6.6 文字テーブル</A>）。
+<CODE>char-valid-p</CODE>は汎用文字に対しては<CODE>nil</CODE>を返す。
+たとえばつぎのとおり。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(make-char 'latin-iso8859-1)
+     => 2176
+(char-valid-p 2176)
+     => nil
+(split-char 2176)
+     => (latin-iso8859-1 0)
+</pre></td></tr></table><P>
+
+<A NAME="Scanning Charsets"></A>
+<HR SIZE="6">
+<br><A NAME="SEC536"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_33.html#SEC535"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_33.html#SEC537"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Scanning Charsets"></A>
+<H2> 32.8 文字集合の走査 </H2>
+<!--docid::SEC536::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Scanning%20Charsets">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Scanning%20Charsets</a>"<br>
+"texi/elisp21/文字集合の走査"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%CA%B8%BB%FA%BD%B8%B9%E7%A4%CE%C1%F6%BA%BA">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+バッファや文字列の一部分にどの文字集合が現れるかを
+調べられると有用なことがあります。
+その1つの用途は、当該テキストすべてを表現する能力がある
+コーディングシステム（see 節 <A HREF="elisp_33.html#SEC538">32.10 コーディングシステム</A>）を探すことです。
+<P>
+
+<A NAME="IDX2439"></A>
+<DL>
+<DT><U>Function:</U> <B>find-charset-region</B> <I>beg end &#38;optional translation</I>
+<DD><A NAME="IDX2440"></A>
+この関数は、カレントバッファの<VAR>beg</VAR>と<VAR>end</VAR>のあいだに
+現れる文字集合のリストを返す。
+<P>
+
+省略可能な引数<VAR>translation</VAR>は、
+テキストを走査するときに使用する変換表を指定する
+（see 節 <A HREF="elisp_33.html#SEC537">32.9 文字の変換</A>）。
+これが<CODE>nil</CODE>以外であると、領域内の各文字をこの表を介して変換し、
+戻り値は、バッファ内の実際の文字のかわりに変換した文字に関する情報を与える。
+</DL>
+<P>
+
+<A NAME="IDX2441"></A>
+<DL>
+<DT><U>Function:</U> <B>find-charset-string</B> <I>string &#38;optional translation</I>
+<DD><A NAME="IDX2442"></A>
+この関数は、文字列<VAR>string</VAR>に現れる文字集合のリストを返す。
+<P>
+
+省略可能な引数<VAR>translation</VAR>は変換表を指定する。
+上記の<CODE>find-charset-region</CODE>を参照。
+</DL>
+<P>
+
+<A NAME="Translation of Characters"></A>
+<HR SIZE="6">
+<br><A NAME="SEC537"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_33.html#SEC536"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_33.html#SEC538"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Translation of Characters"></A>
+<H2> 32.9 文字の変換 </H2>
+<!--docid::SEC537::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Translation%20of%20Characters">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Translation%20of%20Characters</a>"<br>
+"texi/elisp21/文字の変換"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%CA%B8%BB%FA%A4%CE%CA%D1%B4%B9">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX2443"></A>
+<A NAME="IDX2444"></A>
+<P>
+
+<EM>変換表</EM>（translation table）は、文字群を文字群へ対応付けます。
+これらの表は、符号化と復号化、他の目的に使われます。
+独自の変換表を指定するコーディングシステムもあります。
+他のすべてのコーディングシステムに適用される
+デフォルトの変換表もあります。
+<P>
+
+<A NAME="IDX2445"></A>
+<DL>
+<DT><U>Function:</U> <B>make-translation-table</B> <I>translations</I>
+<DD>この関数は、引数<VAR>translations</VAR>に基づいた変換表を返す。
+引数<VAR>translations</VAR>の各要素は、
+<CODE>(<VAR>from</VAR> . <VAR>to</VAR>)</CODE>の形であり、
+文字<VAR>from</VAR>を<VAR>to</VAR>へ変換することを意味する。
+<P>
+
+1つの文字集合全体を同じ次元の別の文字集合へ対応付けることも可能である。
+それには、<VAR>from</VAR>に（文字集合を表す）汎用文字を指定する
+（see 節 <A HREF="elisp_33.html#SEC535">32.7 文字の分割</A>）。
+この場合、<VAR>to</VAR>も、同じ次元の別の文字集合の汎用文字であること。
+こうすると、この変換表は、<VAR>from</VAR>の文字集合の各文字を
+<VAR>to</VAR>の文字集合の対応する文字へ変換する。
+</DL>
+<P>
+
+復号化では、もとの復号化結果の文字に変換表による変換を適用します。
+コーディングシステムに属性<CODE>character-translation-table-for-decode</CODE>が
+あれば、これは使用する変換表を指定します。
+さもなければ、<CODE>standard-character-translation-table-for-decode</CODE>が
+<CODE>nil</CODE>以外であれば、復号化ではその表を使います。
+<P>
+
+符号化では、バッファ内の文字に変換表による変換を適用し、
+変換結果を実際に符号化します。
+コーディングシステムに属性<CODE>character-translation-table-for-encode</CODE>が
+あれば、これは使用する変換表を指定します。
+さもなければ、変数<CODE>standard-character-translation-table-for-encode</CODE>が
+使用する変換表を指定します。
+<P>
+
+<A NAME="IDX2446"></A>
+<DL>
+<DT><U>Variable:</U> <B>standard-character-translation-table-for-decode</B>
+<DD>これは、変換表を指定しないコーディングシステムに対する
+復号化時のデフォルトの変換表である。
+</DL>
+<P>
+
+<A NAME="IDX2447"></A>
+<DL>
+<DT><U>Variable:</U> <B>standard-character-translation-table-for-encode</B>
+<DD>これは、変換表を指定しないコーディングシステムに対する
+符号化時のデフォルトの変換表である。
+</DL>
+<P>
+
+<A NAME="Coding Systems"></A>
+<HR SIZE="6">
+<br><A NAME="SEC538"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_33.html#SEC537"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_33.html#SEC539"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Coding Systems"></A>
+<H2> 32.10 コーディングシステム </H2>
+<!--docid::SEC538::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Coding%20Systems">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Coding%20Systems</a>"<br>
+"texi/elisp21/コーディングシステム"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%B3%A1%BC%A5%C7%A5%A3%A5%F3%A5%B0%A5%B7%A5%B9%A5%C6%A5%E0">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+<A NAME="IDX2448"></A>
+Emacsがファイルを読み書きしたり、
+Emacsがサブプロセスへテキストを送ったり
+サブプロセスからテキストを受け取るときには、
+<EM>コーディングシステム</EM>（coding system）で指定される
+文字コード変換と行末変換を行います。
+<P>
+
+<BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_33.html#SEC539">32.10.1 コーディングシステムの基本概念</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_33.html#SEC540">32.10.2 符号化と入出力</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_33.html#SEC541">32.10.3 Lispにおけるコーディングシステム</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_33.html#SEC542">32.10.4 ユーザー指定のコーディングシステム</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_33.html#SEC543">32.10.5 デフォルトのコーディングシステム</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_33.html#SEC544">32.10.6 1つの操作向けにコーディングシステムを指定する</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_33.html#SEC545">32.10.7 明示的な符号化と復号化</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_33.html#SEC546">32.10.8 端末入出力の符号化</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_33.html#SEC547">32.10.9 MS-DOSのファイル型</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"></TD></TR>
+</TABLE></BLOCKQUOTE>
+<P>
+
+<A NAME="Coding System Basics"></A>
+<HR SIZE="6">
+<br><A NAME="SEC539"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_33.html#SEC538"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_33.html#SEC540"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Coding System Basics"></A>
+<H3> 32.10.1 コーディングシステムの基本概念 </H3>
+<!--docid::SEC539::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Coding%20System%20Basics">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Coding%20System%20Basics</a>"<br>
+"texi/elisp21/コーディングシステムの基本概念"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%B3%A1%BC%A5%C7%A5%A3%A5%F3%A5%B0%A5%B7%A5%B9%A5%C6%A5%E0%A4%CE%B4%F0%CB%DC%B3%B5%C7%B0">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+<A NAME="IDX2449"></A>
+<EM>文字コード変換</EM>（character code conversion）とは、
+Emacsの内部で使用する符号と他の符号とのあいだでの変換のことです。
+Emacsでは、相互に変換できる多くの異なる符号を扱えます。
+たとえば、Emacsは、Latin 1、Latin 2、Latin 3、Latin 4、Latin 5、
+ISO 2022のいくつかの変種を相互に変換できます。
+同じ文字集合に対する異なる符号を扱うこともできます。
+たとえば、キリル（ロシア語）文字に対しては
+ISO、Alternativnyj、KOI8の3つのコーディングシステムがあります。
+<P>
+
+ほとんどのコーディングシステムでは変換する文字コードを特定しますが、
+指定せずにデータに基づいて発見的手法で選ぶものもあります。
+<P>
+
+<A NAME="IDX2450"></A>
+<EM>行末変換</EM>（end of line conversion）は、
+ファイル内の行の終りを表すさまざまなシステムで
+使われている3つの異なる慣習を扱います。
+UNIXの慣習では、行送り文字（改行文字とも呼ぶ）を使います。
+DOSの慣習では、行末には復帰と行送りの2文字の列を使います。
+Macの慣習では、復帰のみを使います。
+<P>
+
+<A NAME="IDX2451"></A>
+<A NAME="IDX2452"></A>
+<CODE>latin-1</CODE>のような<EM>基底コーディングシステム</EM>（base coding system）
+では、行末変換を指定せずにデータに基づいて選びます。
+<CODE>latin-1-unix</CODE>、<CODE>latin-1-dos</CODE>、<CODE>latin-1-mac</CODE>のような
+<EM>変種コーディングシステム</EM>（variant coding system）では、
+明示的に行末変換も指定します。
+ほとんどの基底コーディングシステムには、
+`<SAMP>-unix</SAMP>'、`<SAMP>-dos</SAMP>'、`<SAMP>-mac</SAMP>'を付加して作られる名前の
+対応する3つの変種があります。
+<P>
+
+コーディングシステム<CODE>raw-text</CODE>は
+文字コード変換を行わない特別なもので、
+このコーディングシステムで訪問したバッファはユニバイトバッファになります。
+行末変換も指定しないので内容に基づいて決定でき、
+行末変換を指定する3つの変種もあります。
+<CODE>no-conversion</CODE>は<CODE>raw-text-unix</CODE>に等価であり、
+文字コードも行末も変換しないことを指定します。
+<P>
+
+コーディングシステム<CODE>emacs-mule</CODE>は、
+Emacs内部での符号でデータを表現することを指定します。
+これは、コード変換を行わないという意味では<CODE>raw-text</CODE>に似ていますが、
+結果がマルチバイトデータになる点が異なります。
+<P>
+
+<A NAME="IDX2453"></A>
+<DL>
+<DT><U>Function:</U> <B>coding-system-get</B> <I>coding-system property</I>
+<DD><A NAME="IDX2454"></A>
+この関数は、コーディングシステム<VAR>coding-system</VAR>の指定した属性を返す。
+コーディングシステムのほとんどの属性は内部目的用であるが、
+読者が有用と思うものが1つ、<CODE>mime-charset</CODE>がある。
+この属性の値は、当該コーディングシステムで読み書きする
+文字コード向けのMIMEに使用する名前である。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(coding-system-get 'iso-latin-1 'mime-charset)
+     => iso-8859-1
+(coding-system-get 'iso-2022-cn 'mime-charset)
+     => iso-2022-cn
+(coding-system-get 'cyrillic-koi8 'mime-charset)
+     => koi8-r
+</pre></td></tr></table><P>
+
+属性<CODE>mime-charset</CODE>の値は、
+コーディングシステムの別名としても定義されている。
+</DL>
+<P>
+
+<A NAME="Encoding and I/O"></A>
+<HR SIZE="6">
+<br><A NAME="SEC540"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_33.html#SEC539"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_33.html#SEC541"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Encoding and I/O"></A>
+<H3> 32.10.2 符号化と入出力 </H3>
+<!--docid::SEC540::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Encoding%20and%20I/O">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Encoding%20and%20I/O</a>"<br>
+"texi/elisp21/符号化と入出力"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%C9%E4%B9%E6%B2%BD%A4%C8%C6%FE%BD%D0%CE%CF">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+コーディングシステムの主目的は、ファイルの読み書きに使うことです。
+関数<CODE>insert-file-contents</CODE>はファイルのデータを復号化するために
+コーディングシステムを使い、
+<CODE>write-region</CODE>はバッファ内容を符号化するために
+コーディングシステムを使います。
+<P>
+
+使用するコーディングシステムを明示する（see 節 <A HREF="elisp_33.html#SEC544">32.10.6 1つの操作向けにコーディングシステムを指定する</A>）
+こともできるし、
+デフォルトの機構（see 節 <A HREF="elisp_33.html#SEC543">32.10.5 デフォルトのコーディングシステム</A>）を暗に使うこともできます。
+しかし、これらの方式ではすべきことを完全に指定しきれないこともあります。
+たとえば、<CODE>undefined</CODE>のようなコーディングシステムを選んで、
+データに基づいて文字コード変換を行うようにするかもしれません。
+そのような場合、コーディングシステムの選択は
+入出力操作によって完了します。
+しばしば、選択されたコーディングシステムをあとで知りたくなります。
+<P>
+
+<A NAME="IDX2455"></A>
+<DL>
+<DT><U>Variable:</U> <B>buffer-file-coding-system</B>
+<DD><A NAME="IDX2456"></A>
+この変数は、カレントバッファで訪問するときに使用した
+コーディングシステムを記録する。
+これは、バッファを保存したり、
+<CODE>write-region</CODE>でバッファの一部を書くときに使われる。
+これらの操作において、ユーザーに別のコーディングシステムを指定するように
+問い合わせた場合には、<CODE>buffer-file-coding-system</CODE>は
+指定された別のコーディングシステムに更新される。
+</DL>
+<P>
+
+<A NAME="IDX2457"></A>
+<DL>
+<DT><U>Variable:</U> <B>save-buffer-coding-system</B>
+<DD><A NAME="IDX2458"></A>
+この変数は、<CODE>write-region</CODE>には使わないが、
+バッファを保存するために使うコーディングシステムを指定する。
+バッファを保存する際に、ユーザーに別のコーディングシステムを指定するように
+問い合わせ、かつ、<CODE>save-buffer-coding-system</CODE>を用いている場合には、
+これは指定された別のコーディングシステムに更新される。
+</DL>
+<P>
+
+<A NAME="IDX2459"></A>
+<DL>
+<DT><U>Variable:</U> <B>last-coding-system-used</B>
+<DD><A NAME="IDX2460"></A>
+ファイルやサブプロセスに対する入出力操作では、
+使用したコーディングシステム名をこの変数に設定する。
+明示的に符号化／復号化する関数（see 節 <A HREF="elisp_33.html#SEC545">32.10.7 明示的な符号化と復号化</A>）も
+この変数に設定する。
+<P>
+
+<STRONG>警告：</STRONG><CODE> </CODE>
+サブプロセスから出力を受け取るとこの変数が設定されるため、
+Emacsが待つたびに変化する可能性がある。
+したがって、読者の興味がある値を保存するような関数を呼び出した直後に
+その値をコピーして使うこと。
+</DL>
+<P>
+
+変数<CODE>selection-coding-system</CODE>は、
+ウィンドウシステムのセレクションを符号化する方法を指定します。
+See 節 <A HREF="elisp_29.html#SEC456">28.18 ウィンドウシステムのセレクション</A>。
+<P>
+
+<A NAME="Lisp and Coding Systems"></A>
+<HR SIZE="6">
+<br><A NAME="SEC541"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_33.html#SEC540"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_33.html#SEC542"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Lisp and Coding Systems"></A>
+<H3> 32.10.3 Lispにおけるコーディングシステム </H3>
+<!--docid::SEC541::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Lisp%20and%20Coding%20Systems">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Lisp%20and%20Coding%20Systems</a>"<br>
+"texi/elisp21/Lispにおけるコーディングシステム"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2FLisp%A4%CB%A4%AA%A4%B1%A4%EB%A5%B3%A1%BC%A5%C7%A5%A3%A5%F3%A5%B0%A5%B7%A5%B9%A5%C6%A5%E0">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+コーディングシステムを扱うLispの機能について述べます。
+<P>
+
+<A NAME="IDX2461"></A>
+<DL>
+<DT><U>Function:</U> <B>coding-system-list</B> <I>&#38;optional base-only</I>
+<DD><A NAME="IDX2462"></A>
+この関数は、すべてのコーディングシステム名（シンボル）のリストを返す。
+<VAR>base-only</VAR>が<CODE>nil</CODE>以外であると、
+値には基底コーディングシステムのみを含める。
+さもなければ、値には変種コーディングシステムも含まれる。
+</DL>
+<P>
+
+<A NAME="IDX2463"></A>
+<DL>
+<DT><U>Function:</U> <B>coding-system-p</B> <I>object</I>
+<DD><A NAME="IDX2464"></A>
+この関数は、<VAR>object</VAR>がコーディングシステム名であると<CODE>t</CODE>を返す。
+</DL>
+<P>
+
+<A NAME="IDX2465"></A>
+<DL>
+<DT><U>Function:</U> <B>check-coding-system</B> <I>coding-system</I>
+<DD><A NAME="IDX2466"></A>
+この関数は、<VAR>coding-system</VAR>の正当性を調べる。
+正しいものならば<VAR>coding-system</VAR>を返す。
+さもなければ、条件<CODE>coding-system-error</CODE>付きのエラーを通知する。
+</DL>
+<P>
+
+<A NAME="IDX2467"></A>
+<DL>
+<DT><U>Function:</U> <B>coding-system-change-eol-conversion</B> <I>coding-system eol-type</I>
+<DD><A NAME="IDX2468"></A>
+この関数は、<VAR>coding-system</VAR>に類似のコーディングシステムを返すが、
+<CODE>eol-type</CODE>で指定された行末変換のものである。
+<VAR>eol-type</VAR>は、<CODE>unix</CODE>、<CODE>dos</CODE>、<CODE>mac</CODE>、<CODE>nil</CODE>の
+いずれかであること。
+<CODE>nil</CODE>であると、返されたコーディングシステムは、
+データから行末変換を決定する。
+</DL>
+<P>
+
+<A NAME="IDX2469"></A>
+<DL>
+<DT><U>Function:</U> <B>coding-system-change-text-conversion</B> <I>eol-coding text-coding</I>
+<DD><A NAME="IDX2470"></A>
+この関数は、行末変換に<VAR>eol-coding</VAR>を使い、
+テキストの変換に<VAR>text-coding</VAR>を使っているコーディングシステムを返す。
+<VAR>text-coding</VAR>が<CODE>nil</CODE>であると、
+<CODE>undecided</CODE>か<VAR>eol-coding</VAR>に応じた<CODE>undecided</CODE>の変種の1つを返す。
+</DL>
+<P>
+
+<A NAME="IDX2471"></A>
+<DL>
+<DT><U>Function:</U> <B>find-coding-systems-region</B> <I>from to</I>
+<DD><A NAME="IDX2472"></A>
+この関数は、<VAR>from</VAR>と<VAR>to</VAR>のあいだのテキストの符号化に使用できる
+コーディングシステムのリストを返す。
+リスト内のすべてのコーディングシステムは、当該部分のテキストの
+どんなマルチバイト文字も安全に符号化できる。
+<P>
+
+テキストにマルチバイト文字が含まれない場合、
+関数はリスト<CODE>(undecided)</CODE>を返す。
+</DL>
+<P>
+
+<A NAME="IDX2473"></A>
+<DL>
+<DT><U>Function:</U> <B>find-coding-systems-string</B> <I>string</I>
+<DD><A NAME="IDX2474"></A>
+この関数は、文字列<VAR>string</VAR>のテキストの符号化に使用できる
+コーディングシステムのリストを返す。
+リスト内のすべてのコーディングシステムは、<VAR>string</VAR>の
+どんなマルチバイト文字も安全に符号化できる。
+テキストにマルチバイト文字が含まれない場合、
+これはリスト<CODE>(undecided)</CODE>を返す。
+</DL>
+<P>
+
+<A NAME="IDX2475"></A>
+<DL>
+<DT><U>Function:</U> <B>find-coding-systems-for-charsets</B> <I>charsets</I>
+<DD><A NAME="IDX2476"></A>
+この関数は、リスト<VAR>charsets</VAR>内のすべての文字集合の符号化に使用できる
+コーディングシステムのリストを返す。
+</DL>
+<P>
+
+<A NAME="IDX2477"></A>
+<DL>
+<DT><U>Function:</U> <B>detect-coding-region</B> <I>start end &#38;optional highest</I>
+<DD><A NAME="IDX2478"></A>
+この関数は、<VAR>start</VAR>から<VAR>end</VAR>までのテキストを復号化する
+もっともらしいコーディングシステムを選ぶ。
+このテキストは『生のバイト』（see 節 <A HREF="elisp_33.html#SEC545">32.10.7 明示的な符号化と復号化</A>）であること。
+<P>
+
+この関数は、通常、走査したテキストの復号化を扱える
+コーディングシステムのリストを返す。
+それらは優先順位の降順に並ぶ。
+しかし、<VAR>highest</VAR>が<CODE>nil</CODE>以外であると、
+戻り値はもっとも順位の高い1つのコーディングシステムである。
+<P>
+
+領域にASCII文字だけが含まれる場合、
+値は<CODE>undecided</CODE>か<CODE>(undecided)</CODE>である。
+</DL>
+<P>
+
+<A NAME="IDX2479"></A>
+<DL>
+<DT><U>Function:</U> <B>detect-coding-string</B> <I>string highest</I>
+<DD><A NAME="IDX2480"></A>
+この関数は<CODE>detect-coding-region</CODE>と同様であるが、
+バッファ内のバイトのかわりに文字列<VAR>string</VAR>の内容に作用する。
+</DL>
+<P>
+
+サブプロセスとの入出力に使用されるコーディングシステムを
+調べたり設定する方法については、See 節 <A HREF="elisp_37.html#SEC589">36.6 プロセス情報</A>。
+<P>
+
+<A NAME="User-Chosen Coding Systems"></A>
+<HR SIZE="6">
+<br><A NAME="SEC542"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_33.html#SEC541"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_33.html#SEC543"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="User-Chosen Coding Systems"></A>
+<H3> 32.10.4 ユーザー指定のコーディングシステム </H3>
+<!--docid::SEC542::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=User-Chosen%20Coding%20Systems">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=User-Chosen%20Coding%20Systems</a>"<br>
+"texi/elisp21/ユーザー指定のコーディングシステム"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%E6%A1%BC%A5%B6%A1%BC%BB%D8%C4%EA%A4%CE%A5%B3%A1%BC%A5%C7%A5%A3%A5%F3%A5%B0%A5%B7%A5%B9%A5%C6%A5%E0">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+<A NAME="IDX2481"></A>
+<A NAME="IDX2482"></A>
+<DL>
+<DT><U>Function:</U> <B>select-safe-coding-system</B> <I>from to &#38;optional preferred-coding-system</I>
+<DD>この関数は<VAR>from</VAR>と<VAR>to</VAR>のあいだのテキストを符号化する
+コーディングシステムを選ぶが、
+必要ならばユーザーに問い合わせる。
+<P>
+
+省略可能な引数<VAR>preferred-coding-system</VAR>は、
+最初に試すコーディングシステムを指定する。
+それが指定領域のテキストを処理できるならば、それを使う。
+この引数を省略すると、
+<CODE>buffer-file-coding-system</CODE>のカレントバッファでの値をまず試す。
+<P>
+
+領域内に<VAR>preferred-coding-system</VAR>で符号化できない
+マルチバイト文字がある場合、
+この関数は、当該テキストを符号化可能なコーディングシステム一覧から
+ユーザーに選択してもらい、ユーザーが選択したものを返す。
+<P>
+
+特殊機能：<CODE> </CODE><VAR>from</VAR>が文字列であると、
+文字列を調べる対象とし、<VAR>to</VAR>は無視する。
+</DL>
+<P>
+
+補完を用いてユーザーにコーディングシステムを指定させるために使える
+2つの関数はつぎのとおりです。
+See 節 <A HREF="elisp_20.html#SEC270">19.5 補完</A>。
+<P>
+
+<A NAME="IDX2483"></A>
+<DL>
+<DT><U>Function:</U> <B>read-coding-system</B> <I>prompt &#38;optional default</I>
+<DD><A NAME="IDX2484"></A>
+この関数は、文字列<VAR>prompt</VAR>をプロンプトとして
+ミニバッファを使ってコーディングシステムを読み取り、
+コーディングシステム名をシンボルとして返す。
+ユーザーの入力が空であると、
+<VAR>default</VAR>は返すべきコーディングシステムを指定する。
+それはシンボルか文字列であること。
+</DL>
+<P>
+
+<A NAME="IDX2485"></A>
+<DL>
+<DT><U>Function:</U> <B>read-non-nil-coding-system</B> <I>prompt</I>
+<DD><A NAME="IDX2486"></A>
+この関数は、文字列<VAR>prompt</VAR>をプロンプトとして
+ミニバッファを使ってコーディングシステムを読み取り、
+コーディングシステム名をシンボルとして返す。
+ユーザーが空を入力しようとすると再度問い合わせる。
+see 節 <A HREF="elisp_33.html#SEC538">32.10 コーディングシステム</A>。
+</DL>
+<P>
+
+<A NAME="Default Coding Systems"></A>
+<HR SIZE="6">
+<br><A NAME="SEC543"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_33.html#SEC542"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_33.html#SEC544"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Default Coding Systems"></A>
+<H3> 32.10.5 デフォルトのコーディングシステム </H3>
+<!--docid::SEC543::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Default%20Coding%20Systems">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Default%20Coding%20Systems</a>"<br>
+"texi/elisp21/デフォルトのコーディングシステム"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%C7%A5%D5%A5%A9%A5%EB%A5%C8%A4%CE%A5%B3%A1%BC%A5%C7%A5%A3%A5%F3%A5%B0%A5%B7%A5%B9%A5%C6%A5%E0">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+本節では、特定のファイルや特定のサブプログラムを実行するときの
+デフォルトのコーディングシステムを指定する変数と、
+それらを使った入出力操作を行う関数について述べます。
+<P>
+
+これらの変数の目的は、読者が望むデフォルトをいったんこれらに設定しておけば、
+再度変更する必要がないようにすることです。
+Lispプログラムの特定の操作向けに特定のコーディングシステムを指定するには、
+これらの変数を変更しないでください。
+かわりに、<CODE>coding-system-for-read</CODE>や<CODE>coding-system-for-write</CODE>を
+使って上書きします（see 節 <A HREF="elisp_33.html#SEC544">32.10.6 1つの操作向けにコーディングシステムを指定する</A>）。
+<P>
+
+<A NAME="IDX2487"></A>
+<DL>
+<DT><U>Variable:</U> <B>file-coding-system-alist</B>
+<DD><A NAME="IDX2488"></A>
+この変数は、特定のファイルの読み書きに使用する
+コーディングシステムを指定する連想リストである。
+各要素は<CODE>(<VAR>pattern</VAR> . <VAR>coding</VAR>)</CODE>の形であり、
+<VAR>pattern</VAR>は特定のファイル名に一致する正規表現である。
+<VAR>pattern</VAR>に一致するファイル名に当該要素を適用する。
+<P>
+
+要素のCDR、<VAR>coding</VAR>はコーディングシステムであるか、
+2つのコーディングシステムを収めたコンスセルであるか、
+関数シンボルであること。
+<VAR>coding</VAR>がコーディングシステムであると、
+ファイルの読み書きの両方にそのコーディングシステムを使う。
+<VAR>coding</VAR>が2つのコーディングシステムを収めたコンスセルであると、
+そのCARは復号化に使うコーディングシステムを指定し、
+そのCDRは符号化に使うコーディングシステムを指定する。
+<P>
+
+<VAR>coding</VAR>が関数シンボルであると、
+その関数は、コーディングシステムか、
+2つのコーディングシステムを収めたコンスセルを返すこと。
+その値は上に述べたように使われる。
+</DL>
+<P>
+
+<A NAME="IDX2489"></A>
+<DL>
+<DT><U>Variable:</U> <B>process-coding-system-alist</B>
+<DD><A NAME="IDX2490"></A>
+この変数は、サブプロセスで実行しているプログラムに依存して
+サブプロセスに使うコーディングシステムを指定する連想リストである。
+<CODE>file-coding-system-alist</CODE>と同様に働くが、
+<VAR>pattern</VAR>はサブプロセスを始めるために用いたプログラム名に対して
+一致を取る点が異なる。
+この連想リストに指定したコーディングシステムは、
+サブプロセスとの入出力に使用するコーディングシステムの初期化に用いれるが、
+<CODE>set-process-coding-system</CODE>を使って、
+あとで別のコーディングシステムを指定できる。
+</DL>
+<P>
+
+<STRONG>警告：</STRONG><CODE> </CODE>
+データからコーディングシステムを決定する<CODE>undecided</CODE>のような
+コーディングシステムは、非同期サブプロセスの出力に対しては
+完全に信頼性のある動作はできない。
+これは、Emacsが非同期サブプロセスの出力が
+到着するたびに一塊で処理するからである。
+コーディングシステムが文字コード変換や行末変換を未指定にしていると、
+Emacsは1つの塊から正しい変換を検出しようと試みるが、
+これがつねに動作するとは限らない。
+<P>
+
+したがって、非同期サブプロセスでは、可能な限り
+文字コード変換と行末変換の両方を指定したコーディングシステムを使います。
+つまり、<CODE>undecided</CODE>や<CODE>latin-1</CODE>などではなく、
+<CODE>latin-1-unix</CODE>のようなものを使います。
+<P>
+
+<A NAME="IDX2491"></A>
+<DL>
+<DT><U>Variable:</U> <B>network-coding-system-alist</B>
+<DD><A NAME="IDX2492"></A>
+この変数は、ネットワークストリームに使用するコーディングシステムを
+指定する連想リストである。
+<CODE>file-coding-system-alist</CODE>と同様に働くが、
+要素内の<VAR>pattern</VAR>はポート番号か正規表現である点が異なる。
+それが正規表現であると、ネットワークストリームを開くために
+使用したネットワークサービス名に対して一致をとる。
+</DL>
+<P>
+
+<A NAME="IDX2493"></A>
+<DL>
+<DT><U>Variable:</U> <B>default-process-coding-system</B>
+<DD><A NAME="IDX2494"></A>
+この変数は、なにも指定されていないサブプロセス（やネットワークストリーム）
+の入出力に使用するコーディングシステムを指定する。
+<P>
+
+値は、<CODE>(<VAR>input-coding</VAR> . <VAR>output-coding</VAR>)</CODE>の形の
+コンスセルであること。
+ここで、<VAR>input-coding</VAR>はサブプロセスからの入力に適用され、
+<VAR>output-coding</VAR>はそれへの出力に適用される。
+</DL>
+<P>
+
+<A NAME="IDX2495"></A>
+<DL>
+<DT><U>Function:</U> <B>find-operation-coding-system</B> <I>operation &#38;rest arguments</I>
+<DD><A NAME="IDX2496"></A>
+この関数は、<VAR>arguments</VAR>を指定して<VAR>operation</VAR>を行うときに
+（デフォルトで）使用されるコーディングシステムを返す。
+その値はつぎの形である。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(<VAR>decoding-system</VAR> <VAR>encoding-system</VAR>)
+</pre></td></tr></table><P>
+
+第1要素<VAR>decoding-system</VAR>は
+（<VAR>operation</VAR>が復号化を行う場合には）復号化に用いる
+コーディングシステムであり、
+<VAR>encoding-system</VAR>は
+（<VAR>operation</VAR>が符号化を行う場合には）符号化に用いる
+コーディングシステムである。
+<P>
+
+引数<VAR>operation</VAR>は、Emacsの入出力基本関数の
+<CODE>insert-file-contents</CODE>、<CODE>write-region</CODE>、<CODE>call-process</CODE>、
+<CODE>call-process-region</CODE>、<CODE>start-process</CODE>、
+<CODE>open-network-stream</CODE>のいずれかであること。
+<P>
+
+残りの引数は、これらの入出力基本関数に指定するであろう引数と同じであること。
+基本関数に依存して、引数の1つを<EM>対象</EM>として選ぶ。
+たとえば、<VAR>operation</VAR>がファイル入出力を行う場合、
+ファイル名を指定する引数が対象である。
+サブプロセスの基本関数では、プロセス名が対象である。
+<CODE>open-network-stream</CODE>では、サービス名やポート番号が対象である。
+<P>
+
+この関数は、<VAR>operation</VAR>に応じて当該対象を
+<CODE>file-coding-system-alist</CODE>や
+<CODE>process-coding-system-alist</CODE>や
+<CODE>network-coding-system-alist</CODE>で探す。
+see 節 <A HREF="elisp_33.html#SEC543">32.10.5 デフォルトのコーディングシステム</A>。
+</DL>
+<P>
+
+<A NAME="Specifying Coding Systems"></A>
+<HR SIZE="6">
+<br><A NAME="SEC544"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_33.html#SEC543"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_33.html#SEC545"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Specifying Coding Systems"></A>
+<H3> 32.10.6 1つの操作向けにコーディングシステムを指定する </H3>
+<!--docid::SEC544::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Specifying%20Coding%20Systems">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Specifying%20Coding%20Systems</a>"<br>
+"texi/elisp21/1つの操作向けにコーディングシステムを指定する"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F1%A4%C4%A4%CE%C1%E0%BA%EE%B8%FE%A4%B1%A4%CB%A5%B3%A1%BC%A5%C7%A5%A3%A5%F3%A5%B0%A5%B7%A5%B9%A5%C6%A5%E0%A4%F2%BB%D8%C4%EA%A4%B9%A4%EB">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+変数<CODE>coding-system-for-read</CODE>と／や<CODE>coding-system-for-write</CODE>を
+束縛することで、特定の1つの操作向けのコーディングシステムを指定できます。
+<P>
+
+<A NAME="IDX2497"></A>
+<DL>
+<DT><U>Variable:</U> <B>coding-system-for-read</B>
+<DD><A NAME="IDX2498"></A>
+この変数が<CODE>nil</CODE>以外であると、
+ファイルを読むときや同期プロセスからの入力に用いる
+コーディングシステムを指定する。
+<P>
+
+これは非同期プロセスやネットワークストリームにも適用されるが、
+異なった方法で適用される。
+サブプロセスを開始したりネットワークストリームを開いたときの
+<CODE>coding-system-for-read</CODE>の値は、
+そのサブプロセスやネットワークストリームの入力の復号化方法を指定する。
+変更されない限り、そのサブプロセスやネットワークストリームに
+対して使われ続ける。
+<P>
+
+この変数の正しい使い方は、特定の入出力操作に対して
+<CODE>let</CODE>で束縛することである。
+そのグローバルな値は通常は<CODE>nil</CODE>であり、
+グローバルにこれ以外の値を設定するべきではない。
+この変数の正しい使い方の例をつぎに示す。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>;; 文字コード変換せずにファイルから読む
+;; CRLFが行末を表すと仮定する
+(let ((coding-system-for-write 'emacs-mule-dos))
+  (insert-file-contents filename))
+</pre></td></tr></table><P>
+
+その値が<CODE>nil</CODE>以外であると、
+<CODE>coding-system-for-read</CODE>は、
+<CODE>file-coding-system-alist</CODE>、
+<CODE>process-coding-system-alist</CODE>、<CODE>network-coding-system-alist</CODE>、
+を含めて入力に用いるコーディングシステムの
+他のすべての指定方法に優先する。
+</DL>
+<P>
+
+<A NAME="IDX2499"></A>
+<DL>
+<DT><U>Variable:</U> <B>coding-system-for-write</B>
+<DD><A NAME="IDX2500"></A>
+これは<CODE>coding-system-for-read</CODE>と同様に働くが、
+入力ではなく出力に適用される点が異なる。
+ファイル、サブプロセス、ネットワーク接続へ書くことに影響する。
+<P>
+
+<CODE>call-process-region</CODE>と<CODE>start-process</CODE>のように、
+1つの操作で入力と出力を行うときには、
+<CODE>coding-system-for-read</CODE>と<CODE>coding-system-for-write</CODE>の
+両方が影響する。
+</DL>
+<P>
+
+<A NAME="IDX2501"></A>
+<DL>
+<DT><U>Variable:</U> <B>inhibit-eol-conversion</B>
+<DD><A NAME="IDX2502"></A>
+この変数が<CODE>nil</CODE>以外であると、
+コーディングシステムでなにが指定されていようと行末変換を行わない。
+これは、Emacsの入出力とサブプロセスのすべての基本関数、
+明示的な符号化／復号化関数（see 節 <A HREF="elisp_33.html#SEC545">32.10.7 明示的な符号化と復号化</A>）に適用される。
+</DL>
+<P>
+
+<A NAME="Explicit Encoding"></A>
+<HR SIZE="6">
+<br><A NAME="SEC545"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_33.html#SEC544"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_33.html#SEC546"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Explicit Encoding"></A>
+<H3> 32.10.7 明示的な符号化と復号化 </H3>
+<!--docid::SEC545::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Explicit%20Encoding">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Explicit%20Encoding</a>"<br>
+"texi/elisp21/明示的な符号化と復号化"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%CC%C0%BC%A8%C5%AA%A4%CA%C9%E4%B9%E6%B2%BD%A4%C8%C9%FC%B9%E6%B2%BD">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX2503"></A>
+<A NAME="IDX2504"></A>
+<P>
+
+Emacsへ／からテキストを転送するすべての操作には、
+テキストを符号化したり復号化するコーディングシステムを使う能力があります。
+本節に述べる関数を用いてテキストを明示的に符号化したり復号化できます。
+<P>
+
+<A NAME="IDX2505"></A>
+符号化の結果と復号化する入力は、通常のEmacsのテキストではありません。
+それらは『生のバイト』、つまり、外部ファイルと同じ方法で
+テキストを表現するバイト列です。
+バッファに生のバイトが収められている場合、
+<CODE>set-buffer-multibyte</CODE>（see 節 <A HREF="elisp_33.html#SEC531">32.3 表現の選択</A>）を用いて
+バッファはユニバイト表現であると印を付けるのがもっとも自然ですが、
+これは必須ではありません。
+バッファの内容が単に一時的に生のバイトであるときには、
+バッファはマルチバイトのままにしておきます。
+バッファ内容を復号化すれば正しくなります。
+<P>
+
+明示的に復号化するためにバッファに生のバイトを入れる普通の方法は、
+<CODE>insert-file-contents-literally</CODE>（see 節 <A HREF="elisp_25.html#SEC374">24.3 ファイルの読み込み</A>）で
+ファイルから読むか、
+<CODE>find-file-noselect</CODE>でファイルを訪問するときに引数<VAR>rawfile</VAR>に
+<CODE>nil</CODE>以外を指定します。
+<P>
+
+テキストの明示的な符号化で得た結果である生のバイトを使う普通の方法は、
+ファイルやプロセスへそれらをコピーします。
+たとえば、<CODE>write-region</CODE>（see 節 <A HREF="elisp_25.html#SEC375">24.4 ファイルへの書き出し</A>）でそれらを書くには、
+<CODE>coding-system-for-write</CODE>に<CODE>no-conversion</CODE>を束縛して
+<CODE>write-region</CODE>の符号化を抑制します。
+<P>
+
+生のバイトには、正しいマルチバイト文字に
+余分なトレイリングコードが付いたように見える長すぎるバイト列が
+含まれる場合があります。
+ほとんどの目的には、バッファや文字列のそのような列をEmacsは1文字として扱い、
+その文字コードを調べるとマルチバイト文字の列に対応した値を得るはずです。
+余分なバイト列は無視されます。
+このふるまいは透明性がよくありませんが、
+生のバイトはEmacsの限定された場面でのみ使われ、実用上の問題は回避できます。
+<P>
+
+<A NAME="IDX2506"></A>
+<DL>
+<DT><U>Function:</U> <B>encode-coding-region</B> <I>start end coding-system</I>
+<DD><A NAME="IDX2507"></A>
+この関数は、コーディングシステム<VAR>coding-system</VAR>に従って
+<VAR>start</VAR>から<VAR>end</VAR>のテキストを符号化する。
+符号化結果はバッファ内のもとのテキストを置き換える。
+符号化結果は『生のバイト』であるが、
+マルチバイトであったバッファはマルチバイトのままである。
+</DL>
+<P>
+
+<A NAME="IDX2508"></A>
+<DL>
+<DT><U>Function:</U> <B>encode-coding-string</B> <I>string coding-system</I>
+<DD><A NAME="IDX2509"></A>
+この関数は、コーディングシステム<VAR>coding-system</VAR>に従って
+文字列<VAR>string</VAR>のテキストを符号化する。
+符号化したテキストを含む新たな文字列を返す。
+符号化結果は『生のバイト』のユニバイト文字列である。
+</DL>
+<P>
+
+<A NAME="IDX2510"></A>
+<DL>
+<DT><U>Function:</U> <B>decode-coding-region</B> <I>start end coding-system</I>
+<DD><A NAME="IDX2511"></A>
+この関数は、コーディングシステム<VAR>coding-system</VAR>に従って
+<VAR>start</VAR>から<VAR>end</VAR>のテキストを復号化する。
+復号化結果はバッファ内のもとのテキストを置き換える。
+明示的な復号化が有用であるためには、
+復号化前のテキストは『生のバイト』であること。
+</DL>
+<P>
+
+<A NAME="IDX2512"></A>
+<DL>
+<DT><U>Function:</U> <B>decode-coding-string</B> <I>string coding-system</I>
+<DD><A NAME="IDX2513"></A>
+この関数は、コーディングシステム<VAR>coding-system</VAR>に従って
+文字列<VAR>string</VAR>のテキストを復号化する。
+復号化したテキストを含む新たな文字列を返す。
+明示的な復号化が有用であるためには、
+復号化前の<VAR>string</VAR>の内容は『生のバイト』であること。
+</DL>
+<P>
+
+<A NAME="Terminal I/O Encoding"></A>
+<HR SIZE="6">
+<br><A NAME="SEC546"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_33.html#SEC545"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_33.html#SEC547"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Terminal I/O Encoding"></A>
+<H3> 32.10.8 端末入出力の符号化 </H3>
+<!--docid::SEC546::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Terminal%20I/O%20Encoding">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Terminal%20I/O%20Encoding</a>"<br>
+"texi/elisp21/端末入出力の符号化"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%C3%BC%CB%F6%C6%FE%BD%D0%CE%CF%A4%CE%C9%E4%B9%E6%B2%BD">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+Emacsは、コーディングシステムを用いてキーボード入力を復号化したり、
+端末出力を符号化できます。
+Latin-1などの特定の符号を用いてテキストを送信したり表示する
+端末に対しては、これは有用です。
+Emacsは、端末に対する符号化や復号化では
+<CODE>last-coding-system-used</CODE>に設定しません。
+<P>
+
+<A NAME="IDX2514"></A>
+<DL>
+<DT><U>Function:</U> <B>keyboard-coding-system</B>
+<DD><A NAME="IDX2515"></A>
+この関数は、キーボード入力の復号化に用いている
+コーディングシステムを返す。
+コーディングシステムを使用していなければ<CODE>nil</CODE>を返す。
+</DL>
+<P>
+
+<A NAME="IDX2516"></A>
+<DL>
+<DT><U>Function:</U> <B>set-keyboard-coding-system</B> <I>coding-system</I>
+<DD><A NAME="IDX2517"></A>
+この関数は、キーボード入力の復号化に使用するコーディングシステムとして
+<VAR>coding-system</VAR>を指定する。
+<VAR>coding-system</VAR>が<CODE>nil</CODE>であると、
+キーボード入力に復号化を用いないことを意味する。
+</DL>
+<P>
+
+<A NAME="IDX2518"></A>
+<DL>
+<DT><U>Function:</U> <B>terminal-coding-system</B>
+<DD><A NAME="IDX2519"></A>
+この関数は、端末出力の符号化に用いている
+コーディングシステムを返す。
+コーディングシステムを使用していなければ<CODE>nil</CODE>を返す。
+</DL>
+<P>
+
+<A NAME="IDX2520"></A>
+<DL>
+<DT><U>Function:</U> <B>set-terminal-coding-system</B> <I>coding-system</I>
+<DD><A NAME="IDX2521"></A>
+この関数は、端末出力の符号化に使用するコーディングシステムとして
+<VAR>coding-system</VAR>を指定する。
+<VAR>coding-system</VAR>が<CODE>nil</CODE>であると、
+端末出力に符号化を用いないことを意味する。
+</DL>
+<P>
+
+<A NAME="MS-DOS File Types"></A>
+<HR SIZE="6">
+<br><A NAME="SEC547"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_33.html#SEC546"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_33.html#SEC548"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="MS-DOS File Types"></A>
+<H3> 32.10.9 MS-DOSのファイル型 </H3>
+<!--docid::SEC547::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=MS-DOS%20File%20Types">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=MS-DOS%20File%20Types</a>"<br>
+"texi/elisp21/MS-DOSのファイル型"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2FMS%2DDOS%A4%CE%A5%D5%A5%A1%A5%A4%A5%EB%B7%BF">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX2522"></A>
+<A NAME="IDX2523"></A>
+<A NAME="IDX2524"></A>
+<A NAME="IDX2525"></A>
+<A NAME="IDX2526"></A>
+<A NAME="IDX2527"></A>
+<P>
+
+MS-DOSやMS-Windows上のEmacsは、
+特定のファイル名をテキストファイルやバイナリファイルとして認識します。
+『バイナリファイル』とは、必ずしも文字を意味しないバイト値のファイルです。
+Emacsは、バイナリファイルに対しては行末変換や文字コード変換を行いません。
+一方、その名前から『テキストファイル』と印が付いた
+新規ファイルを作成すると、EmacsはDOSの行末変換を行います。
+<P>
+
+<A NAME="IDX2528"></A>
+<DL>
+<DT><U>Variable:</U> <B>buffer-file-type</B>
+<DD>この変数は、各バッファで自動的にバッファローカルになり、
+バッファで訪問したファイルのファイル型を記録する。
+バッファが<CODE>buffer-file-coding-system</CODE>で
+コーディングシステムを指定しない場合、
+バッファ内容を書き出すときに用いるコーディングシステムを
+この変数を用いて決定する。
+テキストに対しては<CODE>nil</CODE>、バイナリに対して<CODE>t</CODE>であること。
+これが<CODE>t</CODE>であると、コーディングシステムは<CODE>no-conversion</CODE>である。
+さもなければ、<CODE>undecided-dos</CODE>を用いる。
+<P>
+
+通常、この変数はファイルを訪問すると設定される。
+いかなる変換も行わずにファイルを訪問すると<CODE>nil</CODE>に設定される。
+</DL>
+<P>
+
+<A NAME="IDX2529"></A>
+<DL>
+<DT><U>User Option:</U> <B>file-name-buffer-file-type-alist</B>
+<DD>この変数は、テキスト／バイナリファイルを認識するための連想リストを保持する。
+各要素は(<VAR>regexp</VAR> . <VAR>type</VAR>)の形である。
+ここで、<VAR>regexp</VAR>はファイル名に対して一致をとり、
+<VAR>type</VAR>は、テキストファイルでは<CODE>nil</CODE>、
+バイナリファイルでは<CODE>t</CODE>、あるいは、
+どちらであるかを計算するために呼び出す関数である。
+それが関数であると、1つの引数（ファイル名）で呼ばれ、
+<CODE>t</CODE>か<CODE>nil</CODE>を返すこと。
+<P>
+
+MS-DOSやMS-Windowsで動作しているEmacsは、
+この連想リストを調べて、ファイルを読む際に使用する
+コーディングシステムを決定する。
+テキストファイルでは<CODE>undecided-dos</CODE>が使われる。
+バイナリファイルでは<CODE>no-conversion</CODE>が使われる。
+<P>
+
+指定したファイルがこの連想リストの要素に一致しないと、
+<CODE>default-buffer-file-type</CODE>がファイルの扱い方を指定する。
+</DL>
+<P>
+
+<A NAME="IDX2530"></A>
+<DL>
+<DT><U>User Option:</U> <B>default-buffer-file-type</B>
+<DD>この変数は、<CODE>file-name-buffer-file-type-alist</CODE>が指定しない型の
+ファイルの扱い方を指定する。
+<P>
+
+この変数が<CODE>nil</CODE>以外であると、そのようなファイルはバイナリとして扱われ、
+コーディングシステム<CODE>no-conversion</CODE>を用いる。
+さもなければそれらに対して特別なことを行わずに、
+Emacsの通常のとおりにファイル内容からコーディングシステムを決定する。
+</DL>
+<P>
+
+<A NAME="Input Methods"></A>
+<HR SIZE="6">
+<br><A NAME="SEC548"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_33.html#SEC547"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_34.html#SEC549"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Input Methods"></A>
+<H2> 32.11 入力方式 </H2>
+<!--docid::SEC548::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Input%20Methods">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Input%20Methods</a>"<br>
+"texi/elisp21/入力方式"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%C6%FE%CE%CF%CA%FD%BC%B0">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX2531"></A>
+<P>
+
+<EM>入力方式</EM>（input method）は、
+キーボードから非ASCII文字を入力する簡便な方法を提供します。
+プログラムが読み取るための非ASCII文字の符号変換を行う
+コーディングシステムと異なり、
+入力方式は人間向けのコマンドを提供します。
+（テキストを入力するための入力方式の使い方については、
+see <a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=emacs21&node=Input%20Methods">GNU Emacs マニュアル</a>。）
+入力方式の定義方法については本書ではまだ明文化してありませんが、
+ここではそれらの使い方について述べます。
+<P>
+
+各入力方式には名前があります。
+それは現在のところ文字列ですが、
+将来は入力方式名としてシンボルも使えるようになります。
+<P>
+
+<A NAME="IDX2532"></A>
+<A NAME="IDX2533"></A>
+<DL>
+<DT><U>Variable:</U> <B>current-input-method</B>
+<DD>この変数は、カレントバッファで現在活性な入力方式の名前を保持する。
+（この変数に設定すると自動的にバッファローカルになる。）
+<CODE>nil</CODE>であると、バッファでは入力方式が活性ではない。
+</DL>
+<P>
+
+<A NAME="IDX2534"></A>
+<A NAME="IDX2535"></A>
+<DL>
+<DT><U>Variable:</U> <B>default-input-method</B>
+<DD>この変数は、入力方式を選ぶコマンド向けのデフォルトの入力方式を保持する。
+<CODE>current-input-method</CODE>と異なり、この変数は通常はグローバルである。
+</DL>
+<P>
+
+<A NAME="IDX2536"></A>
+<A NAME="IDX2537"></A>
+<DL>
+<DT><U>Function:</U> <B>set-input-method</B> <I>input-method</I>
+<DD>この関数は、カレントバッファにおいて
+入力方式<VAR>input-method</VAR>を活性にする。
+<CODE>default-input-method</CODE>にも<VAR>input-method</VAR>を設定する。
+<VAR>input-method</VAR>が<CODE>nil</CODE>であると、
+この関数はカレントバッファの入力方式を不活性にする。
+</DL>
+<P>
+
+<A NAME="IDX2538"></A>
+<A NAME="IDX2539"></A>
+<DL>
+<DT><U>Function:</U> <B>read-input-method-name</B> <I>prompt &#38;optional default inhibit-null</I>
+<DD>この関数は、プロンプト<VAR>prompt</VAR>を用いてミニバッファで入力方式名を読む。
+<VAR>default</VAR>が<CODE>nil</CODE>以外であると、
+ユーザーが空の入力をするとデフォルトでこれを返す。
+しかし、<VAR>inhibit-null</VAR>が<CODE>nil</CODE>以外であると、
+空の入力はエラーを通知する。
+<P>
+
+戻り値は文字列である。
+</DL>
+<P>
+
+<A NAME="IDX2540"></A>
+<A NAME="IDX2541"></A>
+<DL>
+<DT><U>Variable:</U> <B>input-method-alist</B>
+<DD>この変数は、使用可能なすべての入力方式を定義する。
+各要素は1つの入力方式を定義し、つぎの形であること。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(<VAR>input-method</VAR> <VAR>language-env</VAR> <VAR>activate-func</VAR>
+ <VAR>title</VAR> <VAR>description</VAR> <VAR>args</VAR>...)
+</pre></td></tr></table><P>
+
+ここで、<VAR>input-method</VAR>は入力方式名であり文字列である。
+<VAR>language-env</VAR>も別の文字列であり当該入力方式を
+推奨する言語環境の名前である。
+（これは説明文目的のためだけである。）
+<P>
+
+<VAR>title</VAR>は、この入力方式が活性である場合に
+モード行に表示される文字列である。
+<VAR>description</VAR>はこの入力方式と何向きであるかを
+説明する文字列である。
+<P>
+
+<VAR>activate-func</VAR>は、この入力方式を活性にするために呼び出す関数である。
+<VAR>args</VAR>があれば<VAR>activate-func</VAR>への引数として渡される。
+つまり、<VAR>activate-func</VAR>の引数は<VAR>input-method</VAR>と<VAR>args</VAR>である。
+</DL>
+<P>
+
+入力方式に対する基本的なインターフェイスは
+変数<CODE>input-method-function</CODE>を介して行います。
+See 節 <A HREF="elisp_21.html#SEC306">20.6.2 単一イベントの読み取り</A>。
+<P>
+
+<A NAME="Searching and Matching"></A>
+<HR SIZE="6">
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<a name="bottom"> </a>
+<script type="text/javascript" src="style2.js"></script>
+<div class="footer">
+    <br>
+    このページはMeadow (Emacs) の紹介ページです <br>
+このWebページの各文書は自由にリンク・複製・再配布・改変していただいて構いません．
+<br>ただし，複製・再配布・改変の場合は Meadow Memo のURLを記載しておいて下さい．<br>
+<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=about%20link">Medow memoへのリンクについて</a>．<br>
+
+間違い，要望等があれば<a href="mailto:akihisa@mail.ne.jp">akihisa@mail.ne.jp</a> か下記でどうぞ<br>
+
+<br>
+
+<FORM METHOD="post" ACTION="http://www.bookshelf.jp/cgi-bin/wwwmail.cgi" >
+お名前：<INPUT TYPE="text" NAME="name" SIZE="30" MAXLENGTH="40" VALUE="ななしさん"><br>
+メールアドレス：<INPUT TYPE="text" NAME="EMAIL" SIZE="25" MAXLENGTH="60" VALUE="secret@mail.adr"><br>
+<input type="hidden" name="HPAGE" value="">
+つっこみ：<br><TEXTAREA NAME="MESSAGE" ROWS="5" COLS="50">
+</TEXTAREA><br><br>
+<INPUT TYPE="submit" VALUE="送信">
+<INPUT TYPE="reset" VALUE="クリア">
+</FORM>
+
+<br><A HREF="http://www.bookshelf.jp/cgi-bin/xct.cgi">ページ別カウンタ</a>
+<br> Since 2002/12/13 <br>
+</div>
+
+</BODY>
+
+</HTML>

@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: __get__(self, instance, owner):
+# key: defget
+# condition: (not (py:at-string|comment-p))
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
+# --
+def __get__(self, instance, owner):
+    $0

@@ -1,0 +1,40 @@
+# -*- mode: snippet -*-
+# name: arg_default
+# key: argparse_add_argument
+# condition: (not (py:at-string|comment-p))
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
+# --
+    parser.add_argument(${1:${2:\'${3:-${4:v}}\', }${10:\'${11:--${12:verbose}}\'}},
+                        dest=\'${1:$(py-snippet:argparse-add_argument-convert-dest-name yas-text)}\',
+                        action=\'${70:$$(yas-choose-value \'(\"store_true\"
+                                      \"store_false\"
+                                      \"append\"
+                                      \"append_const\"
+                                      \"store\"
+                                      \"store_const\"
+                                      \"count\"
+                                      \"version\"
+                                      ))}\',
+                        ${80:nargs=${90:\'?\'$(yas-choose-value
+                                        \'(\"argparse.OPTIONAL\"
+                                        \"argparse.ZERO_OR_MORE\"
+                                        \"argparse.ONE_OR_MORE\"
+                                        \"argparse.REMAINDER\"
+                                     \"1\" \"2\" \"3\" \"4\" \"5\" \"6\" \"7\" \"8\" \"9\"))},
+                        }${70:$(if
+    (string= yas-text (or \"store_const\" \"append_const\"))
+      (concat \"const=,\n\" (make-string (current-column) 32))
+      \"\")
+      }default=${70:$(cond ((string= yas-text \"store_true\") \"False\")
+                          ((string= yas-text \"store_false\") \"True\")
+                          (t \"None\"))}$100,
+                        ${110:required=${120:True$(yas-choose-value \'(\"True\" \"False\"))},
+                        }${130:type=${140:int},
+                        }# (yas/expand-link \"argparse_other_options\" t)
+                        ${150:metavar=${160:\'${170:description usage}\'},
+                        }help=${300:\'${400:messages.}\'})
+
+    # (yas/expand-link \"argparse_add_argument\" t)$0
+
+
+

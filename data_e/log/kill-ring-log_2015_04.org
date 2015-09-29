@@ -1,0 +1,4715 @@
+
+* Sat 04 Apr 2015 04:01:55 AM JST
+-rw-------   1 1.7K Apr  4 04:01 mission
+* Sat 04 Apr 2015 04:01:57 AM JST
+mission
+* Sat 04 Apr 2015 04:02:02 AM JST
+mission
+* Sat 04 Apr 2015 04:02:03 AM JST
+mission
+* Sat 04 Apr 2015 04:02:03 AM JST
+mission
+* Sat 04 Apr 2015 04:02:11 AM JST
+misson
+* Sat 04 Apr 2015 04:02:33 AM JST
+None # should raise NotImplementedError()
+* Sat 04 Apr 2015 04:02:39 AM JST
+None # should raise NotImplementedError()
+* Sat 04 Apr 2015 04:02:46 AM JST
+return None # should raise NotImplementedError()
+* Sat 04 Apr 2015 04:02:53 AM JST
+None # should raise NotImplementedError()
+* Sat 04 Apr 2015 04:03:03 AM JST
+False
+* Sat 04 Apr 2015 04:03:14 AM JST
+class Mission:
+    """Class Mission
+    """
+    # Operations
+    def mission_name(self):
+        """function mission_name
+
+        returns
+        """
+        return ''
+
+    def is_ready(self):
+        """function is_ready
+
+        returns bool
+        """
+        return True
+
+    def execute(self):
+        """function execute
+
+        returns
+        """
+        pass
+
+    def is_completed(self):
+        """function is_completed
+
+        returns bool
+        """
+        return False
+
+* Sat 04 Apr 2015 04:04:39 AM JST
+class Mission:
+    """Class Mission
+    """
+    # Operations
+    def mission_name(self):
+        """function mission_name
+
+        returns
+        """
+        return ''
+
+    def is_ready(self):
+        """function is_ready
+
+        returns bool
+        """
+        return True
+
+    def execute(self):
+        """function execute
+
+        returns
+        """
+        pass
+
+    def is_completed(self):
+        """function is_completed
+
+        returns bool
+        """
+        return False
+
+* Sat 04 Apr 2015 04:05:24 AM JST
+
+class MissonListObserver:
+    """Class MissonListObserver
+    """
+    # Attributes:
+    
+    # Operations
+    def on_misson_added(self, mission):
+        """function on_misson_added
+        
+        mission: 
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def on_misson_removed(self, mission):
+        """function on_misson_removed
+        
+        mission: 
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+
+
+* Sat 04 Apr 2015 04:07:23 AM JST
+class MissonListObserver:
+    """Class MissonListObserver
+    """
+    # Attributes:
+
+    # Operations
+    def on_misson_added(self, mission):
+        """function on_misson_added
+
+        mission:
+
+        returns
+        """
+        return None # should raise NotImplementedError()
+
+    def on_misson_removed(self, mission):
+        """function on_misson_removed
+
+        mission:
+
+        returns
+        """
+        return None # should raise NotImplementedError()
+
+* Sat 04 Apr 2015 04:08:29 AM JST
+return None # should raise NotImplementedError()
+* Sat 04 Apr 2015 04:08:32 AM JST
+return None # should raise NotImplementedError()
+* Sat 04 Apr 2015 04:08:55 AM JST
+from MissonListObserver import MissonListObserver
+from Mission import Mission
+
+class MissionList:
+    """Class MissionList
+    """
+    # Attributes:
+    __missions = None  # () 
+    __observer = None  # () 
+    
+    # Operations
+    def append(self, mission):
+        """function append
+        
+        mission: 
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def pop(self):
+        """function pop
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def has_mission(self, mission):
+        """function has_mission
+        
+        mission: 
+        
+        returns bool
+        """
+        return None # should raise NotImplementedError()
+    
+    def is_empty(self):
+        """function is_empty
+        
+        returns bool
+        """
+        return None # should raise NotImplementedError()
+    
+    def add_observer(self, observer):
+        """function add_observer
+        
+        observer: 
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def remove_observer(self, observer):
+        """function remove_observer
+        
+        observer: 
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def has_observer(self, observer):
+        """function has_observer
+        
+        observer: 
+        
+        returns observer
+        """
+        return None # should raise NotImplementedError()
+    
+    def current_mission(self):
+        """function current_mission
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def next_mission(self):
+        """function next_mission
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def __lazy_init_impl(self):
+        """function lazy_init_impl
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+
+
+* Sat 04 Apr 2015 04:10:05 AM JST
+mission
+* Sat 04 Apr 2015 04:10:16 AM JST
+
+* Sat 04 Apr 2015 04:10:16 AM JST
+
+* Sat 04 Apr 2015 04:10:16 AM JST
+        self._iterable = iterable
+
+* Sat 04 Apr 2015 04:10:41 AM JST
+None # should raise NotImplementedError()
+* Sat 04 Apr 2015 04:10:52 AM JST
+None # should raise NotImplementedError()
+* Sat 04 Apr 2015 04:11:03 AM JST
+return 
+* Sat 04 Apr 2015 04:11:11 AM JST
+None # should raise NotImplementedError()
+* Sat 04 Apr 2015 04:11:22 AM JST
+None # should raise NotImplementedError()
+* Sat 04 Apr 2015 04:11:33 AM JST
+
+* Sat 04 Apr 2015 04:11:33 AM JST
+
+* Sat 04 Apr 2015 04:11:33 AM JST
+    __missions = None  # () 
+
+* Sat 04 Apr 2015 04:11:38 AM JST
+_
+* Sat 04 Apr 2015 04:11:39 AM JST
+self._
+* Sat 04 Apr 2015 04:11:49 AM JST
+None  # () 
+* Sat 04 Apr 2015 04:11:55 AM JST
+return None # should raise NotImplementedError()
+* Sat 04 Apr 2015 04:12:13 AM JST
+return None # should raise NotImplementedError()
+* Sat 04 Apr 2015 04:12:25 AM JST
+None # should raise NotImplementedError()
+* Sat 04 Apr 2015 04:13:30 AM JST
+return None # should raise NotImplementedError()
+* Sat 04 Apr 2015 04:14:53 AM JST
+    def __lazy_init_impl(self):
+        """function lazy_init_impl
+        
+        returns 
+        """
+        pass
+
+
+* Sat 04 Apr 2015 04:15:02 AM JST
+_lazy_init_impl
+* Sat 04 Apr 2015 04:15:19 AM JST
+None # should raise NotImplementedError()
+* Sat 04 Apr 2015 04:16:35 AM JST
+_mission
+* Sat 04 Apr 2015 04:16:36 AM JST
+self._mission
+* Sat 04 Apr 2015 04:17:35 AM JST
+None # should raise NotImplementedError()
+* Sat 04 Apr 2015 04:18:11 AM JST
+
+class MissionManagerObserver:
+    """Class MissionManagerObserver
+    """
+    # Attributes:
+    
+    # Operations
+    def before_execute(self, manager, mission):
+        """function before_execute
+        
+        manager: 
+        mission: 
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def after_execute(self, manager, mission):
+        """function after_execute
+        
+        manager: 
+        mission: 
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+
+
+* Sat 04 Apr 2015 04:18:32 AM JST
+return None # should raise NotImplementedError()
+* Sat 04 Apr 2015 04:18:35 AM JST
+return None # should raise NotImplementedError()
+* Sat 04 Apr 2015 04:18:54 AM JST
+observer
+* Sat 04 Apr 2015 04:19:02 AM JST
+observer
+* Sat 04 Apr 2015 04:19:03 AM JST
+observer
+* Sat 04 Apr 2015 04:19:22 AM JST
+from MissionManagerObserver import MissionManagerObserver
+
+class MissionLogger(MissionManagerObserver):
+    """Class MissionLogger
+    """
+    # Attributes:
+    
+    # Operations
+    def before_execute(self, manager, mission):
+        """function before_execute
+        
+        manager: 
+        mission: 
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def after_execute(self, manager, mission):
+        """function after_execute
+        
+        manager: 
+        mission: 
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+
+
+* Sat 04 Apr 2015 04:19:34 AM JST
+MissionManagerObserver
+* Sat 04 Apr 2015 04:20:04 AM JST
+from MissionList import MissionList
+
+class MissionManager:
+    """Class MissionManager
+    """
+    # Attributes:
+    __missions = None  # () 
+    __observers = None  # () 
+    
+    # Operations
+    def run(self, path):
+        """function run
+        
+        path: 
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def remove_saved(self, path):
+        """function remove_saved
+        
+        path: 
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def add_observer(self, observer):
+        """function add_observer
+        
+        observer: 
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def remove_observer(self, observer):
+        """function remove_observer
+        
+        observer: 
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def __handle_missions(self, path):
+        """function handle_missions
+        
+        path: 
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def __handle_mission(self):
+        """function handle_mission
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def __resume(self, path):
+        """function resume
+        
+        path: 
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def __save(self, path):
+        """function save
+        
+        path: 
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+
+
+* Sat 04 Apr 2015 04:20:46 AM JST
+
+* Sat 04 Apr 2015 04:20:46 AM JST
+
+* Sat 04 Apr 2015 04:20:47 AM JST
+    __missions = None  # () 
+
+* Sat 04 Apr 2015 04:21:11 AM JST
+return 
+* Sat 04 Apr 2015 04:21:13 AM JST
+None # should raise NotImplementedError()
+* Sat 04 Apr 2015 04:21:25 AM JST
+return 
+* Sat 04 Apr 2015 04:21:26 AM JST
+return None # should raise NotImplementedError()
+* Sat 04 Apr 2015 04:35:42 AM JST
+from pathhandler import PathHandler
+* Sat 04 Apr 2015 04:38:05 AM JST
+None # should raise NotImplementedError()
+* Sat 04 Apr 2015 04:40:09 AM JST
+return None # should raise NotImplementedError()
+* Sat 04 Apr 2015 04:44:33 AM JST
+return None # should raise NotImplementedError()
+* Sat 04 Apr 2015 04:47:10 AM JST
+            for observer in self._observers:
+                observer.on_before_execute(self, mission)
+
+* Sat 04 Apr 2015 04:50:01 AM JST
+mission
+* Sat 04 Apr 2015 04:50:03 AM JST
+mission
+* Sat 04 Apr 2015 04:50:09 AM JST
+return None # should raise NotImplementedError()
+* Sat 04 Apr 2015 04:50:16 AM JST
+_handle_mi
+* Sat 04 Apr 2015 04:51:02 AM JST
+self._missions.current_mission()
+* Sat 04 Apr 2015 04:52:07 AM JST
+return None # should raise NotImplementedError()
+* Sat 04 Apr 2015 04:52:20 AM JST
+open
+* Sat 04 Apr 2015 04:52:24 AM JST
+with  as:
+* Sat 04 Apr 2015 04:53:04 AM JST
+import cPickle
+* Sat 04 Apr 2015 04:54:00 AM JST
+self, 
+* Sat 04 Apr 2015 04:54:16 AM JST
+pth = PathHandler(path)
+* Sat 04 Apr 2015 04:54:27 AM JST
+retur
+* Sat 04 Apr 2015 04:54:32 AM JST
+return None # should raise NotImplementedError()
+* Sat 04 Apr 2015 05:01:29 AM JST
+return None # should raise NotImplementedError()
+* Sat 04 Apr 2015 05:02:23 AM JST
+return None # should raise NotImplementedError()
+* Sat 04 Apr 2015 05:02:25 AM JST
+
+
+* Sat 04 Apr 2015 05:03:07 AM JST
+mission.mission_name()
+* Sat 04 Apr 2015 05:05:53 AM JST
+'{=<20}'.format('')
+* Sat 04 Apr 2015 05:07:09 AM JST
+
+* Sat 04 Apr 2015 05:07:09 AM JST
+
+* Sat 04 Apr 2015 05:07:09 AM JST
+import os
+
+* Sat 04 Apr 2015 05:07:15 AM JST
+import sys
+import logging
+
+* Sat 04 Apr 2015 05:08:33 AM JST
+
+* Sat 04 Apr 2015 05:08:33 AM JST
+
+* Sat 04 Apr 2015 05:08:33 AM JST
+LOG = logging.getLogger('mission_logger')
+
+* Sat 04 Apr 2015 05:13:06 AM JST
+class Mission1(mission.Mission):
+    r"""Mission1
+    
+    Mission1 is a mission.Mission.
+    Responsibility: 
+    """
+    def __init__(self, ):
+        r"""
+        """
+        self._completed = False
+        
+    def mission_name(self, ):
+        r"""SUMMARY
+        
+        mission_name()
+        
+        @Return:
+
+        @Error:
+        """
+        return 'mission 1'
+
+    def execute(self, ):
+        r"""SUMMARY
+        
+        execute()
+        
+        @Return:
+
+        @Error:
+        """
+        print('try mission1')
+        self._completed = True
+
+    def is_completed(self, ):
+        r"""SUMMARY
+        
+        is_completed()
+        
+        @Return:
+
+        @Error:
+        """
+        return self._completed
+
+* Sat 04 Apr 2015 05:14:14 AM JST
+class Mission2(mission.Mission):
+    r"""Mission1
+    
+    Mission1 is a mission.Mission.
+    Responsibility: 
+    """
+    def __init__(self, ):
+        r"""
+        """
+        self._completed = False
+        
+    def mission_name(self, ):
+        r"""SUMMARY
+        
+        mission_name()
+        
+        @Return:
+
+        @Error:
+        """
+        return 'mission 2'
+
+    def execute(self, ):
+        r"""SUMMARY
+        
+        execute()
+        
+        @Return:
+
+        @Error:
+        """
+        print('try mission2')
+        self._completed = True
+
+    def is_completed(self, ):
+        r"""SUMMARY
+        
+        is_completed()
+        
+        @Return:
+
+        @Error:
+        """
+        return self._completed
+
+
+
+* Sat 04 Apr 2015 05:16:04 AM JST
+        
+* Sat 04 Apr 2015 05:17:02 AM JST
+
+* Sat 04 Apr 2015 05:17:02 AM JST
+
+* Sat 04 Apr 2015 05:17:03 AM JST
+        self._lazy_init_impl()
+
+* Sat 04 Apr 2015 05:21:59 AM JST
+unicode(
+* Sat 04 Apr 2015 05:24:49 AM JST
+'/tmp/tes.pickle'
+* Sat 04 Apr 2015 05:26:57 AM JST
+
+
+* Sat 04 Apr 2015 05:27:02 AM JST
+self._onetime = False
+* Sat 04 Apr 2015 05:27:46 AM JST
+not 
+* Sat 04 Apr 2015 05:33:19 AM JST
+
+* Sat 04 Apr 2015 05:33:20 AM JST
+
+* Sat 04 Apr 2015 05:33:20 AM JST
+        LOGGER.info('{0:=<40}'.format(''))
+
+* Sat 04 Apr 2015 05:33:34 AM JST
+
+* Sat 04 Apr 2015 05:33:35 AM JST
+
+* Sat 04 Apr 2015 05:33:35 AM JST
+    # Attributes:
+
+* Sat 04 Apr 2015 05:36:42 AM JST
+'{0:*<5} Started Mission Task {0:*>5}'.format('')
+* Sat 04 Apr 2015 05:36:46 AM JST
+
+* Sat 04 Apr 2015 05:36:46 AM JST
+
+* Sat 04 Apr 2015 05:36:46 AM JST
+
+* Sat 04 Apr 2015 05:36:51 AM JST
+'{0:*<5} Started Mission Task {0:*>5}'.format('')
+* Sat 04 Apr 2015 05:37:53 AM JST
+manager._observers
+* Sat 04 Apr 2015 05:38:21 AM JST
+_observers
+* Sat 04 Apr 2015 05:40:32 AM JST
+{0:*<5}
+* Sat 04 Apr 2015 05:40:46 AM JST
+LOGGER.info('{0:*<40}'.format(''))
+* Sat 04 Apr 2015 05:40:57 AM JST
+mission
+* Sat 04 Apr 2015 05:41:25 AM JST
+cPickle.load(fobj)
+* Sat 04 Apr 2015 05:42:17 AM JST
+manager
+* Sat 04 Apr 2015 05:43:14 AM JST
+mission
+* Sat 04 Apr 2015 05:43:28 AM JST
+mission
+* Sat 04 Apr 2015 05:45:42 AM JST
+        if not self._lazy_initialized:
+            self._lazy_init_impl()
+            self._lazy_initialized = True
+
+* Sat 04 Apr 2015 05:46:26 AM JST
+self.
+* Sat 04 Apr 2015 05:46:42 AM JST
+        if not self._lazy_initialized:
+            self._lazy_init_impl()
+            self._lazy_initialized = True
+
+* Sat 04 Apr 2015 05:48:47 AM JST
+faile
+* Sat 04 Apr 2015 05:54:07 AM JST
+fobj)
+* Sat 04 Apr 2015 05:54:08 AM JST
+load(fobj)
+* Sat 04 Apr 2015 05:54:08 AM JST
+cPickle.load(fobj)
+* Sat 04 Apr 2015 05:58:31 AM JST
+Mission
+* Sat 04 Apr 2015 05:58:37 AM JST
+Mission 
+* Sat 04 Apr 2015 05:59:08 AM JST
+Start
+* Sat 04 Apr 2015 05:59:13 AM JST
+Mission
+* Sat 04 Apr 2015 05:59:25 AM JST
+Mission
+* Sat 04 Apr 2015 05:59:30 AM JST
+Finished
+* Sat 04 Apr 2015 06:08:13 AM JST
+INFO
+* Sat 04 Apr 2015 06:08:13 AM JST
+logging.INFO
+* Sat 04 Apr 2015 06:08:22 AM JST
+getLevel
+* Sat 04 Apr 2015 06:10:09 AM JST
+Task
+* Sat 04 Apr 2015 06:10:34 AM JST
+
+* Sat 04 Apr 2015 06:10:34 AM JST
+
+* Sat 04 Apr 2015 06:10:34 AM JST
+        LOG.info('* Do prepare')
+
+* Sat 04 Apr 2015 06:13:38 AM JST
+        LOG.info('* Close all thunar.')
+        thunar.close_all()
+
+* Sat 04 Apr 2015 06:14:08 AM JST
+prepares
+* Sat 04 Apr 2015 06:14:55 AM JST
+self.
+* Sat 04 Apr 2015 06:16:30 AM JST
+False
+* Sat 04 Apr 2015 06:16:52 AM JST
+Task
+* Sat 04 Apr 2015 06:18:37 AM JST
+d = True
+* Sat 04 Apr 2015 06:18:45 AM JST
+
+* Sat 04 Apr 2015 06:18:45 AM JST
+
+* Sat 04 Apr 2015 06:18:46 AM JST
+        LOG.info('* Do rss')
+
+* Sat 04 Apr 2015 06:19:43 AM JST
+Read
+* Sat 04 Apr 2015 06:21:30 AM JST
+month = datetime.now().month
+* Sat 04 Apr 2015 06:21:40 AM JST
+if month in (7, 8, 9, 10):
+* Sat 04 Apr 2015 06:23:23 AM JST
+Weather 
+* Sat 04 Apr 2015 06:23:45 AM JST
+Task
+* Sat 04 Apr 2015 06:24:05 AM JST
+Task
+* Sat 04 Apr 2015 06:25:07 AM JST
+month in (2, 3, 4)
+* Sat 04 Apr 2015 06:25:16 AM JST
+month = datetime.now().month
+* Sat 04 Apr 2015 06:25:32 AM JST
+month = 
+* Sat 04 Apr 2015 06:25:38 AM JST
+datetime.now().month
+* Sat 04 Apr 2015 06:25:43 AM JST
+
+* Sat 04 Apr 2015 06:25:43 AM JST
+
+* Sat 04 Apr 2015 06:25:43 AM JST
+        month = 
+
+* Sat 04 Apr 2015 06:26:09 AM JST
+Task
+* Sat 04 Apr 2015 06:26:29 AM JST
+self._complete()
+* Sat 04 Apr 2015 06:27:44 AM JST
+Mapping weather window
+* Sat 04 Apr 2015 06:28:34 AM JST
+
+* Sat 04 Apr 2015 06:28:34 AM JST
+
+* Sat 04 Apr 2015 06:28:34 AM JST
+        LOG.info('Wait close Moon Age web')
+
+* Sat 04 Apr 2015 06:29:16 AM JST
+Task
+* Sat 04 Apr 2015 06:29:22 AM JST
+Task
+* Sat 04 Apr 2015 06:29:46 AM JST
+get_mission
+* Sat 04 Apr 2015 06:31:27 AM JST
+Task
+* Sat 04 Apr 2015 06:33:01 AM JST
+psexists(sleipnir.BIN)
+* Sat 04 Apr 2015 06:33:14 AM JST
+
+* Sat 04 Apr 2015 06:33:14 AM JST
+
+* Sat 04 Apr 2015 06:33:14 AM JST
+        if not psexists(sleipnir.BIN):
+
+* Sat 04 Apr 2015 06:33:34 AM JST
+
+* Sat 04 Apr 2015 06:33:34 AM JST
+
+* Sat 04 Apr 2015 06:33:34 AM JST
+        LOG.info('not exists sleipnir will relaunch')
+
+* Sat 04 Apr 2015 06:33:40 AM JST
+Read
+* Sat 04 Apr 2015 06:35:40 AM JST
+
+* Sat 04 Apr 2015 06:35:40 AM JST
+
+* Sat 04 Apr 2015 06:35:40 AM JST
+        LOG.info('chrome move left')
+
+* Sat 04 Apr 2015 06:36:44 AM JST
+Task
+* Sat 04 Apr 2015 06:36:51 AM JST
+Task
+* Sat 04 Apr 2015 06:37:41 AM JST
+
+* Sat 04 Apr 2015 06:37:41 AM JST
+
+* Sat 04 Apr 2015 06:37:41 AM JST
+        LOG.info('Open daily webpage')
+
+* Sat 04 Apr 2015 06:38:21 AM JST
+Task
+* Sat 04 Apr 2015 06:39:05 AM JST
+
+* Sat 04 Apr 2015 06:39:05 AM JST
+
+* Sat 04 Apr 2015 06:39:05 AM JST
+        ## wait close sleipnir
+
+* Sat 04 Apr 2015 06:39:05 AM JST
+        ## wait close sleipnir
+
+* Sat 04 Apr 2015 06:39:05 AM JST
+        ## wait close sleipnir
+        LOG.debug('Waiting close Sleipnir.exe')
+
+* Sat 04 Apr 2015 06:39:44 AM JST
+Task
+* Sat 04 Apr 2015 06:40:14 AM JST
+
+* Sat 04 Apr 2015 06:40:14 AM JST
+
+* Sat 04 Apr 2015 06:40:14 AM JST
+        LOG.info('Open Foreign Webpage')
+
+* Sat 04 Apr 2015 06:41:10 AM JST
+Task
+* Sat 04 Apr 2015 06:41:54 AM JST
+'Open Nation Webpage'
+* Sat 04 Apr 2015 06:43:52 AM JST
+
+* Sat 04 Apr 2015 06:43:52 AM JST
+
+* Sat 04 Apr 2015 06:43:53 AM JST
+        LOG.info('Open Nation Webpage')
+
+* Sat 04 Apr 2015 06:43:59 AM JST
+        self._complete()
+
+* Sat 04 Apr 2015 06:44:05 AM JST
+Task
+* Sat 04 Apr 2015 06:45:56 AM JST
+Task
+* Sat 04 Apr 2015 06:47:50 AM JST
+    def __init__(self, ):
+        r"""
+        """
+        self._weekday = now_weekday()
+        
+    def mission_name(self, ):
+        r"""SUMMARY
+        
+        mission_name()
+        
+        @Return:
+
+        @Error:
+        """
+        return 'Open Foreign Webpage'
+
+    def is_ready(self, ):
+        r"""SUMMARY
+        
+        is_ready()
+        
+        @Return:
+
+        @Error:
+        """
+        return not self._weekday.is_thursday()
+
+
+* Sat 04 Apr 2015 06:48:26 AM JST
+
+* Sat 04 Apr 2015 06:48:26 AM JST
+
+* Sat 04 Apr 2015 06:48:26 AM JST
+        LOG.info('Create Mail DailyMail')
+
+* Sat 04 Apr 2015 06:48:59 AM JST
+Task
+* Sat 04 Apr 2015 06:49:50 AM JST
+
+* Sat 04 Apr 2015 06:49:50 AM JST
+
+* Sat 04 Apr 2015 06:49:50 AM JST
+        LOG.info('Archive Recipe')
+
+* Sat 04 Apr 2015 06:50:07 AM JST
+Task
+* Sat 04 Apr 2015 06:52:43 AM JST
+
+* Sat 04 Apr 2015 06:52:43 AM JST
+
+* Sat 04 Apr 2015 06:52:43 AM JST
+        LOG.info('Show next recipe')
+
+* Sat 04 Apr 2015 06:52:50 AM JST
+Task
+* Sat 04 Apr 2015 06:53:14 AM JST
+Task
+* Sat 04 Apr 2015 06:54:09 AM JST
+_weekdya = 
+* Sat 04 Apr 2015 06:54:39 AM JST
+if
+* Sat 04 Apr 2015 06:54:50 AM JST
+info
+* Sat 04 Apr 2015 06:56:39 AM JST
+activity
+* Sat 04 Apr 2015 06:57:36 AM JST
+Task
+* Sat 04 Apr 2015 06:57:58 AM JST
+Open
+* Sat 04 Apr 2015 06:58:17 AM JST
+def
+* Sat 04 Apr 2015 06:59:02 AM JST
+
+* Sat 04 Apr 2015 06:59:02 AM JST
+
+* Sat 04 Apr 2015 06:59:02 AM JST
+        LOG.info('* Do v2c')
+
+* Sat 04 Apr 2015 06:59:24 AM JST
+Task
+* Sat 04 Apr 2015 06:59:51 AM JST
+    def __init__(self, ):
+        r"""
+        """
+        super(V2C, self).__init__()
+        self._weekday = now_weekday()
+        
+
+* Sat 04 Apr 2015 07:00:00 AM JST
+    def is_ready(self, ):
+        r"""SUMMARY
+        
+        is_ready()
+        
+        @Return:
+
+        @Error:
+        """
+        return not self._weekday.is_thursday()
+
+
+* Sat 04 Apr 2015 07:00:07 AM JST
+
+* Sat 04 Apr 2015 07:00:08 AM JST
+
+* Sat 04 Apr 2015 07:00:08 AM JST
+        LOG.info('* Do Feedly')
+
+* Sat 04 Apr 2015 07:00:18 AM JST
+V2C
+* Sat 04 Apr 2015 07:00:37 AM JST
+Task
+* Sat 04 Apr 2015 07:06:37 AM JST
+self.
+* Sat 04 Apr 2015 07:09:14 AM JST
+SafeTask
+* Sat 04 Apr 2015 07:09:47 AM JST
+'/tmp/daily.pickle'
+* Sat 04 Apr 2015 07:10:14 AM JST
+
+* Sat 04 Apr 2015 07:10:14 AM JST
+
+* Sat 04 Apr 2015 07:10:14 AM JST
+    manager = 
+
+* Sat 04 Apr 2015 07:11:44 AM JST
+
+* Sat 04 Apr 2015 07:11:44 AM JST
+
+* Sat 04 Apr 2015 07:11:44 AM JST
+from task import Task, TaskBuilder, SafeTask
+
+* Sat 04 Apr 2015 07:12:46 AM JST
+10
+* Sat 04 Apr 2015 07:12:47 AM JST
+times=10
+* Sat 04 Apr 2015 07:16:20 AM JST
+Executing: 
+* Sat 04 Apr 2015 07:37:02 AM JST
+
+* Sat 04 Apr 2015 07:37:02 AM JST
+
+* Sat 04 Apr 2015 07:37:03 AM JST
+from task import Task, TaskBuilder, SafeTask
+
+* Sat 04 Apr 2015 07:39:58 AM JST
+Auto clean Downloads
+* Sat 04 Apr 2015 07:40:20 AM JST
+self.path.expanduser()
+* Sat 04 Apr 2015 07:40:24 AM JST
+
+* Sat 04 Apr 2015 07:40:24 AM JST
+
+* Sat 04 Apr 2015 07:40:24 AM JST
+        download_path = 
+
+* Sat 04 Apr 2015 07:41:18 AM JST
+expanduser().
+* Sat 04 Apr 2015 07:41:55 AM JST
+'Open directory by Thunar'
+* Sat 04 Apr 2015 07:42:14 AM JST
+
+* Sat 04 Apr 2015 07:42:15 AM JST
+
+* Sat 04 Apr 2015 07:42:15 AM JST
+        LOGGER.info('Open directory by Thunar')
+
+* Sat 04 Apr 2015 07:43:02 AM JST
+'Open {}'.format(self.dirs)
+* Sat 04 Apr 2015 07:43:11 AM JST
+
+* Sat 04 Apr 2015 07:43:11 AM JST
+
+* Sat 04 Apr 2015 07:43:11 AM JST
+        LOGGER.info('Open {}'.format(self.dirs))
+
+* Sat 04 Apr 2015 07:43:27 AM JST
+'* Auto Clean Trush.'
+* Sat 04 Apr 2015 07:43:31 AM JST
+
+* Sat 04 Apr 2015 07:43:31 AM JST
+
+* Sat 04 Apr 2015 07:43:31 AM JST
+        LOGGER.info('* Auto Clean Trush.')
+
+* Sat 04 Apr 2015 07:44:48 AM JST
+'\n\n{0:#^40}'.format(' Clean Bookmarks ')
+* Sat 04 Apr 2015 07:44:57 AM JST
+pass
+* Sat 04 Apr 2015 07:48:45 AM JST
+'\n\n{0:#^40}'.format(' Update Knight '
+* Sat 04 Apr 2015 07:48:51 AM JST
+
+* Sat 04 Apr 2015 07:48:51 AM JST
+
+* Sat 04 Apr 2015 07:48:51 AM JST
+        LOGGER.info('\n\n{0:#^40}'.format(' Update Knight '))
+
+* Sat 04 Apr 2015 07:57:11 AM JST
+
+* Sat 04 Apr 2015 07:57:11 AM JST
+
+* Sat 04 Apr 2015 07:57:11 AM JST
+        LOGGER.info('\n\n{0:#^40}'.format(' Remote backup knight '))
+
+* Sat 04 Apr 2015 07:57:35 AM JST
+'\n\n{0:#^40}'.format(' Mirroring /data Push')
+* Sat 04 Apr 2015 07:57:40 AM JST
+
+* Sat 04 Apr 2015 07:57:40 AM JST
+
+* Sat 04 Apr 2015 07:57:40 AM JST
+        LOGGER.info('\n\n{0:#^40}'.format(' Mirroring /data Push'))
+
+* Sat 04 Apr 2015 07:57:50 AM JST
+'\n\n{0:#^40}'.format(' Mirroring /data Pull')
+* Sat 04 Apr 2015 07:57:54 AM JST
+
+* Sat 04 Apr 2015 07:57:54 AM JST
+
+* Sat 04 Apr 2015 07:57:54 AM JST
+        LOGGER.info('\n\n{0:#^40}'.format(' Mirroring /data Pull'))
+
+* Sat 04 Apr 2015 07:58:23 AM JST
+        hsh = hashlib.md5(ChromeHash.path.open('rb').read()).hexdigest()
+        # if self._chromehsh.hsh == ChromeHash.path.read_hash('md5'):
+        if self._chromehsh.hsh == hsh:
+            LOGGER.info('Same chrome hash')
+            return
+
+* Sat 04 Apr 2015 07:58:28 AM JST
+
+* Sat 04 Apr 2015 07:58:28 AM JST
+
+* Sat 04 Apr 2015 07:58:29 AM JST
+            LOGGER.info('Same chrome hash')
+
+* Sat 04 Apr 2015 07:58:29 AM JST
+            LOGGER.info('Same chrome hash')
+
+* Sat 04 Apr 2015 07:58:29 AM JST
+            LOGGER.info('Same chrome hash')
+            return
+
+* Sat 04 Apr 2015 07:58:31 AM JST
+if 
+* Sat 04 Apr 2015 07:58:54 AM JST
+
+* Sat 04 Apr 2015 07:58:54 AM JST
+
+* Sat 04 Apr 2015 07:58:54 AM JST
+        # if self._chromehsh.hsh == ChromeHash.path.read_hash('md5'):
+
+* Sat 04 Apr 2015 08:00:08 AM JST
+'\n\n{0:#^40}'.format(' vmware ')
+* Sat 04 Apr 2015 08:00:15 AM JST
+
+* Sat 04 Apr 2015 08:00:15 AM JST
+
+* Sat 04 Apr 2015 08:00:16 AM JST
+        LOGGER.info('\n\n{0:#^40}'.format(' vmware '))
+
+* Sat 04 Apr 2015 08:00:46 AM JST
+'\n\n{0:#^40}'.format(' Pull backup king ')
+* Sat 04 Apr 2015 08:00:50 AM JST
+
+* Sat 04 Apr 2015 08:00:50 AM JST
+
+* Sat 04 Apr 2015 08:00:51 AM JST
+        LOGGER.info('\n\n{0:#^40}'.format(' Pull backup king '))
+
+* Sat 04 Apr 2015 08:01:39 AM JST
+
+* Sat 04 Apr 2015 08:01:39 AM JST
+
+* Sat 04 Apr 2015 08:01:39 AM JST
+        LOGGER.info('\n\n{0:#^40}'.format(' king server halting '))
+
+* Sat 04 Apr 2015 08:04:31 AM JST
+Clea
+* Sat 04 Apr 2015 08:08:11 AM JST
+
+* Sat 04 Apr 2015 08:08:11 AM JST
+
+* Sat 04 Apr 2015 08:08:11 AM JST
+        self.append(Sleep(60))
+
+* Sat 04 Apr 2015 08:10:18 AM JST
+self._complete()
+* Sat 04 Apr 2015 08:14:12 AM JST
+'/tmp/weekly.pickle'
+* Sat 04 Apr 2015 08:21:42 AM JST
+#!/bin/sh
+/usr/sbin/ntpdate pool.ntp.org 1> /dev/null 2>&1
+* Sat 04 Apr 2015 08:27:49 AM JST
+
+* Sat 04 Apr 2015 08:27:49 AM JST
+
+* Sat 04 Apr 2015 08:27:49 AM JST
+        # self.hsh = None
+
+* Sat 04 Apr 2015 08:27:49 AM JST
+
+* Sat 04 Apr 2015 08:27:49 AM JST
+
+* Sat 04 Apr 2015 08:27:50 AM JST
+        # self.hsh = self.path.read_hash('md5')
+
+* Sat 04 Apr 2015 12:33:28 PM JST
+import android
+from wsgiref.simple_server import make_server
+
+droid=android.Android()
+pic='/sdcard/snapshot.jpg'
+
+def camera(env,res):
+  if env['PATH_INFO']=='/':
+    droid.cameraCapturePicture(pic)
+    res('200 OK',[('Content-type','image/jpeg')])
+    return [file(pic).read()]
+
+httpd=make_server('',9998,camera)
+httpd.serve_forever()
+* Sat 04 Apr 2015 05:55:45 PM JST
+format(
+* Sat 04 Apr 2015 05:55:46 PM JST
+40}'.format(
+* Sat 04 Apr 2015 05:55:46 PM JST
+0:#^40}'.format(
+* Sat 04 Apr 2015 05:55:47 PM JST
+n\
+* Sat 04 Apr 2015 05:56:03 PM JST
+format(
+* Sat 04 Apr 2015 05:56:03 PM JST
+40}'.format(
+* Sat 04 Apr 2015 05:56:04 PM JST
+0:#^40}'.format(
+* Sat 04 Apr 2015 05:56:04 PM JST
+n{0:#^40}'.format(
+* Sat 04 Apr 2015 05:59:28 PM JST
+''.join(self)
+* Sat 04 Apr 2015 05:59:47 PM JST
+print
+* Sat 04 Apr 2015 06:01:43 PM JST
+google-chrome-stable
+* Sat 04 Apr 2015 06:02:05 PM JST
+if 
+* Sat 04 Apr 2015 06:08:12 PM JST
+ --user-data-dir
+* Sat 04 Apr 2015 06:08:56 PM JST
+manager = mission.MissionManager(WeeklyMissions())
+* Sat 04 Apr 2015 06:12:26 PM JST
+manager = mission.MissionManager(WeeklyMissions())
+manager.run('/tmp/tesw.pickle')
+
+* Sat 04 Apr 2015 06:12:49 PM JST
+manager = mission.MissionManager(WeeklyMissions())
+
+* Sat 04 Apr 2015 06:12:51 PM JST
+manager.run('/tmp/tesw.pickle')
+
+* Sat 04 Apr 2015 06:16:01 PM JST
+'chrome modify as allow root'
+* Sat 04 Apr 2015 06:20:47 PM JST
+import weekly
+import mission
+
+
+class WeeklyMissions(weekly.WeeklyMissions):
+    r"""WeeklyMissions
+
+    WeeklyMissions is a weekly.WeeklyMissions.
+    Responsibility:
+    """
+    def _lazy_init_impl(self, ):
+        r"""SUMMARY
+
+        _lazy_init_impl()
+
+        @Return:
+
+        @Error:
+        """
+        result = weekly.Result()
+        result.append('hello google-chrome-stable world')
+        self.append(weekly.ChromeRoot('', result))
+
+* Sat 04 Apr 2015 06:21:12 PM JST
+manager = mission.MissionManager(WeeklyMissions())
+manager.run('/tmp/tesw.pickle')
+
+* Sat 04 Apr 2015 06:21:14 PM JST
+manager = mission.MissionManager(WeeklyMissions())
+
+* Sat 04 Apr 2015 06:21:17 PM JST
+manager.run('/tmp/tesw.pickle')
+
+* Sat 04 Apr 2015 06:21:45 PM JST
+print('DEBUG-1-chrome_allow4root.py')
+* Sat 04 Apr 2015 06:22:33 PM JST
+from mypath import MyArchive
+* Sat 04 Apr 2015 06:22:57 PM JST
+MyArchive().get_path()
+* Sat 04 Apr 2015 06:23:30 PM JST
+'/data/.backup/knight_local'
+* Sat 04 Apr 2015 06:27:33 PM JST
+
+* Sat 04 Apr 2015 06:27:33 PM JST
+
+* Sat 04 Apr 2015 06:27:33 PM JST
+    backup(chromepath=path)
+
+* Sat 04 Apr 2015 06:28:05 PM JST
+not 
+* Sat 04 Apr 2015 06:28:06 PM JST
+
+* Sat 04 Apr 2015 06:28:06 PM JST
+
+* Sat 04 Apr 2015 06:28:06 PM JST
+        return False, 'not exists {}'.format(path)
+
+* Sat 04 Apr 2015 06:28:06 PM JST
+        return False, 'not exists {}'.format(path)
+
+* Sat 04 Apr 2015 06:28:07 PM JST
+        return False, 'not exists {}'.format(path)
+    else:
+
+* Sat 04 Apr 2015 06:31:47 PM JST
+
+* Sat 04 Apr 2015 06:31:47 PM JST
+
+* Sat 04 Apr 2015 06:31:47 PM JST
+    print(target)
+
+* Sat 04 Apr 2015 06:32:32 PM JST
+PathHandler(
+* Sat 04 Apr 2015 06:32:42 PM JST
+target
+* Sat 04 Apr 2015 06:32:44 PM JST
+path
+* Sat 04 Apr 2015 06:34:05 PM JST
+'/data/.backup/knight_local/latest'
+* Sat 04 Apr 2015 06:34:16 PM JST
+/opt/google/chrome/google-chrome
+* Sat 04 Apr 2015 06:36:57 PM JST
+
+* Sat 04 Apr 2015 06:36:57 PM JST
+
+* Sat 04 Apr 2015 06:36:57 PM JST
+    print(target)
+
+* Sat 04 Apr 2015 06:36:57 PM JST
+    print(target)
+
+* Sat 04 Apr 2015 06:36:57 PM JST
+    print(target)
+    print(path)
+
+* Sat 04 Apr 2015 06:38:47 PM JST
+
+* Sat 04 Apr 2015 06:38:47 PM JST
+
+* Sat 04 Apr 2015 06:38:48 PM JST
+    # pth.copy(target)
+
+* Sat 04 Apr 2015 06:38:48 PM JST
+    # pth.copy(target)
+
+* Sat 04 Apr 2015 06:38:48 PM JST
+    # pth.copy(target)
+    # Popen(('cp', str(target), path))
+
+* Sat 04 Apr 2015 06:55:29 PM JST
+class TestTaskBarIcon(wx.TaskBarIcon):
+
+    def __init__(self):
+        wx.TaskBarIcon.__init__(self)
+        # create a test icon
+        bmp = wx.EmptyBitmap(16, 16)
+        dc = wx.MemoryDC(bmp)
+        dc.SetBrush(wx.RED_BRUSH)
+        dc.Clear()
+        dc.SelectObject(wx.NullBitmap)
+
+        testicon = wx.EmptyIcon()
+        testicon.CopyFromBitmap(bmp)
+
+        self.SetIcon(testicon)
+        self.Bind(wx.EVT_TASKBAR_LEFT_UP, lambda e: (self.RemoveIcon(),sys.exit()))
+
+        wx.NotificationMessage("", "Hello world!").Show()
+* Sat 04 Apr 2015 06:56:33 PM JST
+app = wx.PySimpleApp()
+* Sat 04 Apr 2015 07:03:31 PM JST
+
+* Sat 04 Apr 2015 07:03:31 PM JST
+
+* Sat 04 Apr 2015 07:03:31 PM JST
+from subprocess import Popen
+
+* Sat 04 Apr 2015 07:03:34 PM JST
+import pynotify
+* Sat 04 Apr 2015 09:02:35 PM JST
+set_data?
+* Sat 04 Apr 2015 09:19:19 PM JST
+http://www.galago-project.org/specs/notification/
+* Sat 04 Apr 2015 09:25:31 PM JST
+"<font size=16 color=blue><b><i>Hello World</b></i></font>"
+* Sat 04 Apr 2015 09:26:45 PM JST
+'''
+  <b>bold</b>, <i>italic</i>, <u>underline</u>
+  and even <a href="http://google.com">links</a> are supported!
+  '''
+* Sat 04 Apr 2015 09:26:56 PM JST
+and even <a href="http://google.com">links</a> are supported!
+* Sat 04 Apr 2015 09:26:57 PM JST
+  
+* Sat 04 Apr 2015 09:30:43 PM JST
+google-chrome.png
+* Sat 04 Apr 2015 09:30:47 PM JST
+/usr/local/share/icons/hicolor/128x128/apps
+* Sat 04 Apr 2015 09:30:57 PM JST
+calibre-viewer.png
+* Sat 04 Apr 2015 09:39:43 PM JST
+slot-allocation = fixed
+bubble-expire-timeout = 10sec
+bubble-vertical-gap = 5px
+bubble-horizontal-gap = 5px
+bubble-corner-radius = 37,5%
+bubble-icon-size = 30px
+bubble-gauge-size = 6px
+bubble-width = 240px
+bubble-background-color = 131313
+bubble-background-opacity = 90%
+text-margin-size = 10px
+text-title-size = 100%
+text-title-weight = bold
+text-title-color = ffffff
+text-title-opacity = 100%
+text-body-size = 90%
+text-body-weight = normal
+text-body-color = eaeaea
+text-body-opacity = 100%
+text-shadow-opacity = 100%
+* Sat 04 Apr 2015 09:53:07 PM JST
+/usr/share/icons/gnome/48x48/status
+* Sat 04 Apr 2015 09:53:33 PM JST
+dialog-warning.png
+* Sat 04 Apr 2015 09:53:38 PM JST
+/usr/share/icons/gnome/48x48/status
+* Sat 04 Apr 2015 09:54:25 PM JST
+starred.png
+* Sat 04 Apr 2015 09:54:28 PM JST
+/usr/share/icons/gnome/48x48/status
+* Sat 04 Apr 2015 09:54:33 PM JST
+starred.png
+* Sat 04 Apr 2015 10:04:14 PM JST
+from mission._managerobserver import MissionManagerObserver
+* Sat 04 Apr 2015 10:05:34 PM JST
+self.
+* Sat 04 Apr 2015 10:05:48 PM JST
+ini
+* Sat 04 Apr 2015 10:05:48 PM JST
+notify2.ini
+* Sat 04 Apr 2015 10:08:20 PM JST
+def
+* Sat 04 Apr 2015 10:09:01 PM JST
+{} Task
+* Sat 04 Apr 2015 10:09:11 PM JST
+format
+* Sat 04 Apr 2015 10:09:16 PM JST
+.format(
+            len(manager._missions)
+* Sat 04 Apr 2015 10:09:21 PM JST
+            
+* Sat 04 Apr 2015 10:09:46 PM JST
+    
+* Sat 04 Apr 2015 10:09:47 PM JST
+            
+* Sat 04 Apr 2015 10:10:25 PM JST
+'/usr/share/icons/gnome/48x48/status/starred.png'
+* Sat 04 Apr 2015 10:12:09 PM JST
+'/usr/share/icons/gnome/32x32/status/starred.png'
+* Sat 04 Apr 2015 10:13:53 PM JST
+'/usr/share/icons/gnome/34x24/status/starred.png'
+* Sat 04 Apr 2015 10:14:24 PM JST
+'/usr/share/icons/gnome/24x24/status/starred.png'
+* Sat 04 Apr 2015 10:16:09 PM JST
+Missions
+* Sat 04 Apr 2015 10:16:23 PM JST
+Missions
+* Sat 04 Apr 2015 10:16:26 PM JST
+_
+* Sat 04 Apr 2015 10:16:27 PM JST
+self._
+* Sat 04 Apr 2015 10:17:35 PM JST
+                                     
+* Sat 04 Apr 2015 10:20:47 PM JST
+icon = 
+* Sat 04 Apr 2015 10:24:11 PM JST
+        notif.set_timeout(5)
+        notif.show()
+
+* Sat 04 Apr 2015 10:25:01 PM JST
+ERROR_ICON_PATH
+* Sat 04 Apr 2015 10:25:10 PM JST
+
+* Sat 04 Apr 2015 10:25:10 PM JST
+
+* Sat 04 Apr 2015 10:25:10 PM JST
+        icon = STARRED_ICON_PATH if mission.is_complete() else ERROR_ICON_PATH
+
+* Sat 04 Apr 2015 10:29:34 PM JST
+MissionManagerObserver
+* Sat 04 Apr 2015 10:29:42 PM JST
+MissionLogger
+* Sat 04 Apr 2015 10:29:47 PM JST
+MissionNotifier
+* Sat 04 Apr 2015 10:31:54 PM JST
+if sys.stdout.isatty():
+* Sat 04 Apr 2015 10:36:07 PM JST
+000
+* Sat 04 Apr 2015 10:42:06 PM JST
+
+* Sat 04 Apr 2015 10:42:06 PM JST
+
+* Sat 04 Apr 2015 10:42:06 PM JST
+PICKLE_PATH = '/tmp/daily.pickle'
+
+* Sat 04 Apr 2015 10:43:01 PM JST
+import
+* Sat 04 Apr 2015 10:43:20 PM JST
+remote_camera.py
+* Sat 04 Apr 2015 10:45:47 PM JST
+microsecond
+* Sat 04 Apr 2015 10:46:16 PM JST
+now().
+* Sat 04 Apr 2015 10:46:16 PM JST
+datetime.now().
+* Sat 04 Apr 2015 10:46:17 PM JST
+datetime.datetime.now().
+* Sat 04 Apr 2015 10:46:57 PM JST
+p.get_ctime()
+* Sat 04 Apr 2015 10:47:03 PM JST
+now()
+* Sat 04 Apr 2015 10:47:03 PM JST
+datetime.now()
+* Sat 04 Apr 2015 10:47:04 PM JST
+datetime.datetime.now()
+* Sat 04 Apr 2015 10:47:58 PM JST
+time.time() - p.get_ctime()
+* Sat 04 Apr 2015 10:48:29 PM JST
+strftime
+* Sat 04 Apr 2015 10:49:57 PM JST
+get_ctime())
+* Sat 04 Apr 2015 10:49:58 PM JST
+p.get_ctime())
+* Sat 04 Apr 2015 10:49:58 PM JST
+time() - p.get_ctime())
+* Sat 04 Apr 2015 10:49:58 PM JST
+time.time() - p.get_ctime())
+* Sat 04 Apr 2015 10:49:59 PM JST
+H', time.time() - p.get_ctime())
+* Sat 04 Apr 2015 10:50:54 PM JST
+time.time() - p.get_ctime()
+* Sat 04 Apr 2015 10:53:16 PM JST
+(2009, 2, 17, 17, 3, 38, 1, 48, 0)
+* Sat 04 Apr 2015 10:54:45 PM JST
+date
+* Sat 04 Apr 2015 10:59:50 PM JST
+datetime.datetime.fromtimestamp(p.get_ctime())
+* Sat 04 Apr 2015 11:03:00 PM JST
+PICKLE_PATH
+* Sat 04 Apr 2015 11:06:51 PM JST
+before
+* Sat 04 Apr 2015 11:06:51 PM JST
+created before
+* Sun 05 Apr 2015 04:31:58 PM JST
+
+* Sun 05 Apr 2015 04:31:58 PM JST
+
+* Sun 05 Apr 2015 04:31:58 PM JST
+
+* Sun 05 Apr 2015 04:31:58 PM JST
+
+* Sun 05 Apr 2015 04:31:58 PM JST
+
+* Sun 05 Apr 2015 04:31:58 PM JST
+
+* Sun 05 Apr 2015 04:43:52 PM JST
+
+* Sun 05 Apr 2015 04:44:22 PM JST
+
+* Sun 05 Apr 2015 04:44:32 PM JST
+
+* Sun 05 Apr 2015 04:44:38 PM JST
+
+* Sun 05 Apr 2015 04:44:43 PM JST
+
+* Sun 05 Apr 2015 04:44:51 PM JST
+
+* Sun 05 Apr 2015 04:46:24 PM JST
+4">
+* Sun 05 Apr 2015 04:46:26 PM JST
+4">
+* Sun 05 Apr 2015 04:46:26 PM JST
+4">
+* Sun 05 Apr 2015 04:46:26 PM JST
+4">
+* Sun 05 Apr 2015 04:46:26 PM JST
+4">
+* Sun 05 Apr 2015 04:46:27 PM JST
+4">
+* Sun 05 Apr 2015 04:46:27 PM JST
+4">
+* Sun 05 Apr 2015 04:46:27 PM JST
+size="4">
+* Sun 05 Apr 2015 04:46:27 PM JST
+size="4">
+* Sun 05 Apr 2015 04:46:27 PM JST
+size="4">
+* Sun 05 Apr 2015 04:46:27 PM JST
+size="4">
+* Sun 05 Apr 2015 04:46:27 PM JST
+size="4">
+* Sun 05 Apr 2015 04:46:28 PM JST
+size="4">
+* Sun 05 Apr 2015 04:46:28 PM JST
+size="4">
+* Sun 05 Apr 2015 04:46:28 PM JST
+font size="4">
+* Sun 05 Apr 2015 04:46:28 PM JST
+font size="4">
+* Sun 05 Apr 2015 04:46:29 PM JST
+font size="4">
+* Sun 05 Apr 2015 04:46:29 PM JST
+font size="4">
+* Sun 05 Apr 2015 04:46:29 PM JST
+font size="4">
+* Sun 05 Apr 2015 04:46:29 PM JST
+font size="4">
+* Sun 05 Apr 2015 04:46:29 PM JST
+font size="4">
+* Sun 05 Apr 2015 04:48:36 PM JST
+font>
+* Sun 05 Apr 2015 04:48:37 PM JST
+font>
+* Sun 05 Apr 2015 04:48:37 PM JST
+font>
+* Sun 05 Apr 2015 04:48:37 PM JST
+font>
+* Sun 05 Apr 2015 04:48:37 PM JST
+font>
+* Sun 05 Apr 2015 04:48:37 PM JST
+font>
+* Sun 05 Apr 2015 04:51:12 PM JST
+<font size="6">
+* Sun 05 Apr 2015 04:51:16 PM JST
+</font>
+* Sun 05 Apr 2015 04:59:57 PM JST
+style="padding-left:2em"
+* Sun 05 Apr 2015 05:16:25 PM JST
+<p style="text-indent:2em">
+* Sun 05 Apr 2015 05:16:54 PM JST
+<h3>
+* Sun 05 Apr 2015 05:19:08 PM JST
+junk.
+* Sun 05 Apr 2015 05:19:09 PM JST
+171907.junk.
+* Sun 05 Apr 2015 05:19:09 PM JST
+05-171907.junk.
+* Sun 05 Apr 2015 05:19:10 PM JST
+04-05-171907.junk.
+* Sun 05 Apr 2015 05:19:10 PM JST
+2015-04-05-171907.junk.
+* Sun 05 Apr 2015 05:21:48 PM JST
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>-*- coding: utf-8-unix -*-</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="title" content="-*- coding: utf-8-unix -*-"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2015-04-05T17:21+0900"/>
+<meta name="author" content="Atami"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  div.inlinetask {
+    padding:10px;
+    border:2px solid gray;
+    margin:10px;
+    background: #ffffcc;
+  }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+
+<div id="preamble">
+
+</div>
+
+<div id="content">
+<h1 class="title">-*- coding: utf-8-unix -*-</h1>
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 今週の献立</a>
+<ul>
+<li><a href="#sec-1-1">1.1 木曜日</a></li>
+<li><a href="#sec-1-2">1.2 金曜日</a></li>
+<li><a href="#sec-1-3">1.3 土曜日</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> 今週の献立</h2>
+<div class="outline-text-2" id="text-1">
+
+
+</div>
+
+<div id="outline-container-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 木曜日</h3>
+<div class="outline-text-3" id="text-1-1">
+
+<ul>
+<li>鯖
+</li>
+<li>さんま
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 金曜日</h3>
+<div class="outline-text-3" id="text-1-2">
+
+<ul>
+<li><b>いわし</b>
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> 土曜日</h3>
+<div class="outline-text-3" id="text-1-3">
+
+<ul>
+<li>鮭
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="postamble">
+<p class="date">Date: 2015-04-05T17:21+0900</p>
+<p class="author">Author: Atami</p>
+<p class="creator"><a href="http://orgmode.org">Org</a> version 7.9.3f with <a href="http://www.gnu.org/software/emacs/">Emacs</a> version 24</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+
+</div>
+</body>
+</html>
+
+* Sun 05 Apr 2015 05:35:42 PM JST
+
+* Sun 05 Apr 2015 05:35:42 PM JST
+
+* Sun 05 Apr 2015 05:35:42 PM JST
+   <!-- <p style="text-indent:2em"> -->
+
+* Sun 05 Apr 2015 05:35:43 PM JST
+
+* Sun 05 Apr 2015 05:35:43 PM JST
+
+* Sun 05 Apr 2015 05:35:43 PM JST
+   <!-- </p> -->
+
+* Sun 05 Apr 2015 05:35:52 PM JST
+<br>
+* Sun 05 Apr 2015 05:36:07 PM JST
+     <ul>
+       <li>さば</li><br>
+       <li>さんま</li>
+     </ul>
+
+* Sun 05 Apr 2015 05:36:16 PM JST
+<br>
+* Sun 05 Apr 2015 05:52:19 PM JST
+</h2>
+* Sun 05 Apr 2015 05:53:24 PM JST
+4月1日
+* Sun 05 Apr 2015 05:53:48 PM JST
+4月1日
+* Sun 05 Apr 2015 05:54:04 PM JST
+4月1日
+* Sun 05 Apr 2015 05:54:28 PM JST
+4月1日
+* Sun 05 Apr 2015 05:59:34 PM JST
+<a href="index.html">
+* Sun 05 Apr 2015 05:59:48 PM JST
+junk/
+* Sun 05 Apr 2015 05:59:48 PM JST
+e/junk/
+* Sun 05 Apr 2015 05:59:49 PM JST
+var_e/junk/
+* Sun 05 Apr 2015 05:59:49 PM JST
+d/var_e/junk/
+* Sun 05 Apr 2015 05:59:49 PM JST
+emacs.d/var_e/junk/
+* Sun 05 Apr 2015 06:00:33 PM JST
+ナポリタン.pdf
+* Sun 05 Apr 2015 06:00:44 PM JST
+ナポリタン
+* Sun 05 Apr 2015 06:02:24 PM JST
+0thu
+* Sun 05 Apr 2015 06:07:58 PM JST
+
+* Sun 05 Apr 2015 06:07:58 PM JST
+
+* Sun 05 Apr 2015 06:07:59 PM JST
+   </p>
+
+* Sun 05 Apr 2015 06:08:00 PM JST
+
+* Sun 05 Apr 2015 06:08:00 PM JST
+
+* Sun 05 Apr 2015 06:08:00 PM JST
+   <p>
+
+* Sun 05 Apr 2015 06:08:33 PM JST
+br>
+* Sun 05 Apr 2015 06:08:33 PM JST
+br>
+* Sun 05 Apr 2015 06:08:33 PM JST
+br>
+* Sun 05 Apr 2015 06:08:33 PM JST
+br>
+* Sun 05 Apr 2015 06:08:33 PM JST
+br>
+* Sun 05 Apr 2015 06:27:38 PM JST
+{0[wed]}
+* Sun 05 Apr 2015 06:30:16 PM JST
+<h3><ul>{1[sta]}</ul></h3>
+* Sun 05 Apr 2015 06:32:01 PM JST
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+ <head>
+  <title>今週の献立</title>
+ </head>
+ <body>
+   <h1><b>今週の献立</b></h1><br>
+   <h2><u>{0[thu]} 木曜日</u></h2>
+   <h3><ul>{1[thu]}</ul></h3>
+   <!-- <h3>  -->
+   <!--   <ul> -->
+   <!--     <li>さば</li> -->
+   <!--     <li>さんま</li> -->
+   <!--     <li><a href="./3/0thu/ナポリタン.pdf">ナポリタン</a></li> -->
+   <!--   </ul> -->
+   <!-- </h3> -->
+   <h2><u>{0[fri]} 金曜日</u></h2>
+   <h3><ul>{1[fri]}</ul></h3>
+   <h2><u>{0[sta]} 土曜日</u></h2>
+   <h3><ul>{1[sta]}</ul></h3>
+   <h2><u>{0[sun]} 日曜日</u></h2>
+   <h3><ul>{1[sun]}</ul></h3>
+   <h2><u>{0[mon]} 月曜日</u></h2>
+   <h3><ul>{1[mon]}</ul></h3>
+   <h2><u>{0[tue]} 火曜日</u></h2>
+   <h3><ul>{1[tue]}</ul></h3>
+   <h2><u>{0[wed]} 水曜日</u></h2>
+   <h3><ul>{1[wed]}</ul></h3>
+</body></html>
+
+* Sun 05 Apr 2015 06:35:21 PM JST
+'<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">\n<html>\n <head>\n  <title>\xe4\xbb\x8a\xe9\x80\xb1\xe3\x81\xae\xe7\x8c\xae\xe7\xab\x8b</title>\n </head>\n <body>\n   <h1><b>\xe4\xbb\x8a\xe9\x80\xb1\xe3\x81\xae\xe7\x8c\xae\xe7\xab\x8b</b></h1><br>\n   <h2><u>4/4 \xe6\x9c\xa8\xe6\x9b\x9c\xe6\x97\xa5</u></h2>\n   <h3><ul>d</ul></h3>\n   <!-- <h3>  -->\n   <!--   <ul> -->\n   <!--     <li>\xe3\x81\x95\xe3\x81\xb0</li> -->\n   <!--     <li>\xe3\x81\x95\xe3\x82\x93\xe3\x81\xbe</li> -->\n   <!--     <li><a href="./3/0thu/\xe3\x83\x8a\xe3\x83\x9d\xe3\x83\xaa\xe3\x82\xbf\xe3\x83\xb3.pdf">\xe3\x83\x8a\xe3\x83\x9d\xe3\x83\xaa\xe3\x82\xbf\xe3\x83\xb3</a></li> -->\n   <!--   </ul> -->\n   <!-- </h3> -->\n   <h2><u>4/5 \xe9\x87\x91\xe6\x9b\x9c\xe6\x97\xa5</u></h2>\n   <h3><ul>e</ul></h3>\n   <h2><u>4/6 \xe5\x9c\x9f\xe6\x9b\x9c\xe6\x97\xa5</u></h2>\n   <h3><ul>f</ul></h3>\n   <h2><u>4/7 \xe6\x97\xa5\xe6\x9b\x9c\xe6\x97\xa5</u></h2>\n   <h3><ul>g</ul></h3>\n   <h2><u>4/1 \xe6\x9c\x88\xe6\x9b\x9c\xe6\x97\xa5</u></h2>\n   <h3><ul>a</ul></h3>\n   <h2><u>4/2 \xe7\x81\xab\xe6\x9b\x9c\xe6\x97\xa5</u></h2>\n   <h3><ul>b</ul></h3>\n   <h2><u>4/3 \xe6\xb0\xb4\xe6\x9b\x9c\xe6\x97\xa5</u></h2>\n   <h3><ul>c</ul></h3>\n</body></html>\n'
+* Sun 05 Apr 2015 06:37:42 PM JST
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">\n\n<html>\n <head>\n  <title>\u4eca\u9031\u306e\u732e\u7acb</title>\n </head>\n <body>\n   <h1><b>\u4eca\u9031\u306e\u732e\u7acb</b></h1><br>\n   <h2><u>4/4 \u6728\u66dc\u65e5</u></h2>\n   <h3><ul>d</ul></h3>\n   <!-- <h3>  -->\n   <!--   <ul> -->\n   <!--     <li>\u3055\u3070</li> -->\n   <!--     <li>\u3055\u3093\u307e</li> -->\n   <!--     <li><a href="./3/0thu/\u30ca\u30dd\u30ea\u30bf\u30f3.pdf">\u30ca\u30dd\u30ea\u30bf\u30f3</a></li> -->\n   <!--   </ul> -->\n   <!-- </h3> -->\n   <h2><u>4/5 \u91d1\u66dc\u65e5</u></h2>\n   <h3><ul>e</ul></h3>\n   <h2><u>4/6 \u571f\u66dc\u65e5</u></h2>\n   <h3><ul>f</ul></h3>\n   <h2><u>4/7 \u65e5\u66dc\u65e5</u></h2>\n   <h3><ul>g</ul></h3>\n   <h2><u>4/1 \u6708\u66dc\u65e5</u></h2>\n   <h3><ul>a</ul></h3>\n   <h2><u>4/2 \u706b\u66dc\u65e5</u></h2>\n   <h3><ul>b</ul></h3>\n   <h2><u>4/3 \u6c34\u66dc\u65e5</u></h2>\n   <h3><ul>c</ul></h3>\n</body></html>\n'
+
+* Sun 05 Apr 2015 09:09:53 PM JST
+notify2.init('mission')
+* Sun 05 Apr 2015 10:05:35 PM JST
+<html>
+ <head>
+  <title>今週の献立</title>
+ </head>
+ <body>
+   <h1><b>今週の献立</b></h1><br>
+   <h2><u>{0[thu]} 木曜日</u></h2>
+   <h3><ul>{1[thu]}</ul></h3>
+   <!-- <h3>  -->
+   <!--   <ul> -->
+   <!--     <li>さば</li> -->
+   <!--     <li>さんま</li> -->
+   <!--     <li><a href="./3/0thu/ナポリタン.pdf">ナポリタン</a></li> -->
+   <!--   </ul> -->
+   <!-- </h3> -->
+   <h2><u>{0[fri]} 金曜日</u></h2>
+   <h3><ul>{1[fri]}</ul></h3>
+   <h2><u>{0[sta]} 土曜日</u></h2>
+   <h3><ul>{1[sta]}</ul></h3>
+   <h2><u>{0[sun]} 日曜日</u></h2>
+   <h3><ul>{1[sun]}</ul></h3>
+   <h2><u>{0[mon]} 月曜日</u></h2>
+   <h3><ul>{1[mon]}</ul></h3>
+   <h2><u>{0[tue]} 火曜日</u></h2>
+   <h3><ul>{1[tue]}</ul></h3>
+   <h2><u>{0[wed]} 水曜日</u></h2>
+   <h3><ul>{1[wed]}</ul></h3>
+</body></html>
+"""
+* Sun 05 Apr 2015 10:06:01 PM JST
+"""
+* Sun 05 Apr 2015 10:20:56 PM JST
+THURSDAY
+* Sun 05 Apr 2015 10:21:18 PM JST
+iterweekdays?
+* Sun 05 Apr 2015 10:22:11 PM JST
+THURSDAY)
+* Sun 05 Apr 2015 10:22:12 PM JST
+calendar.THURSDAY)
+* Sun 05 Apr 2015 10:22:12 PM JST
+Calendar(calendar.THURSDAY)
+* Mon 06 Apr 2015 02:36:03 AM JST
+   <h2><u>{0[thu]} 木曜日</u></h2>
+   <h3><ul>{1[thu]}</ul></h3>
+
+* Mon 06 Apr 2015 02:37:19 AM JST
+ELEMENTS
+* Mon 06 Apr 2015 02:43:30 AM JST
+get_todaylinkpath
+* Mon 06 Apr 2015 10:09:55 AM JST
+class HTMLTagGenerator:
+    """Class HTMLTagGenerator
+    """
+    # Attributes:
+    
+    # Operations
+    def generate_html_tag(self):
+        """function generate_html_tag
+        
+        returns string
+        """
+        return None # should raise NotImplementedError()
+    
+
+
+* Mon 06 Apr 2015 10:10:01 AM JST
+None # should raise NotImplementedError()
+* Mon 06 Apr 2015 10:10:27 AM JST
+class Show:
+    """Class Show
+    """
+    # Attributes:
+    
+    # Operations
+    def show(self):
+        """function show
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+
+
+* Mon 06 Apr 2015 10:10:47 AM JST
+return None # should raise NotImplementedError()
+* Mon 06 Apr 2015 10:12:02 AM JST
+HTMLTagGenerator
+* Mon 06 Apr 2015 10:12:41 AM JST
+html_tag_gen
+* Mon 06 Apr 2015 10:12:48 AM JST
+Show
+* Mon 06 Apr 2015 10:13:34 AM JST
+from . import html_tag_gen
+from . import show
+
+
+class Recipe(show.Show, html_tag_gen.HTMLTagGenerator):
+    """Class Recipe
+    """
+    pass
+    
+* Mon 06 Apr 2015 10:14:07 AM JST
+class PDFRecipe(Recipe):
+    """Class PDFRecipe
+    """
+    # Attributes:
+    
+    # Operations
+    def show(self):
+        """function show
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def generate_html_tag(self):
+        """function generate_html_tag
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+
+
+* Mon 06 Apr 2015 10:15:26 AM JST
+LINK_RECIPE_TEMPLATE = '<li><a href="{0}">{1}</a></li>'
+* Mon 06 Apr 2015 10:15:29 AM JST
+RECIPE_TEMPLATE = '<li>{}</li>'
+LINK_RECIPE_TEMPLATE = '<li><a href="{0}">{1}</a></li>'
+
+* Mon 06 Apr 2015 10:16:08 AM JST
+from mygoogle import chrome
+* Mon 06 Apr 2015 10:16:29 AM JST
+None # should raise NotImplementedError()
+* Mon 06 Apr 2015 10:17:51 AM JST
+return 
+* Mon 06 Apr 2015 10:18:01 AM JST
+None # should raise NotImplementedError()
+* Mon 06 Apr 2015 10:18:34 AM JST
+LINK_RECIPE_TEMPLATE
+* Mon 06 Apr 2015 10:19:14 AM JST
+_path, 
+* Mon 06 Apr 2015 10:19:15 AM JST
+self._path, 
+* Mon 06 Apr 2015 10:19:34 AM JST
+path
+* Mon 06 Apr 2015 10:19:46 AM JST
+self._path
+* Mon 06 Apr 2015 10:20:02 AM JST
+_
+* Mon 06 Apr 2015 10:20:02 AM JST
+self._
+* Mon 06 Apr 2015 10:20:26 AM JST
+l[0].getpath()
+* Mon 06 Apr 2015 10:21:13 AM JST
+            
+* Mon 06 Apr 2015 10:22:03 AM JST
+from . import recipe
+from . import html_tag_gen
+
+* Mon 06 Apr 2015 10:23:53 AM JST
+RECIPE_TEMPLATE
+* Mon 06 Apr 2015 10:23:58 AM JST
+LINK_RECIPE_TEMPLATE
+* Mon 06 Apr 2015 10:24:35 AM JST
+self._path.splitext()[0]
+* Mon 06 Apr 2015 10:25:15 AM JST
+from . import recipe
+* Mon 06 Apr 2015 10:25:19 AM JST
+from . import recipe
+from . import html_tag_gen
+
+* Mon 06 Apr 2015 10:25:58 AM JST
+html_tag_gen.
+* Mon 06 Apr 2015 10:25:59 AM JST
+return html_tag_gen.
+* Mon 06 Apr 2015 10:26:09 AM JST
+
+* Mon 06 Apr 2015 10:26:09 AM JST
+
+* Mon 06 Apr 2015 10:26:09 AM JST
+from . import html_tag_gen
+
+* Mon 06 Apr 2015 10:27:00 AM JST
+from subprocess import Popen
+
+from . import recipe
+from . import html_tag_gen
+
+* Mon 06 Apr 2015 10:27:21 AM JST
+Popen(('xnview', unicode(self._path)))
+* Mon 06 Apr 2015 10:28:23 AM JST
+self._path.splitext()[0]
+* Mon 06 Apr 2015 10:29:26 AM JST
+file
+* Mon 06 Apr 2015 10:29:44 AM JST
+
+* Mon 06 Apr 2015 10:29:45 AM JST
+file
+* Mon 06 Apr 2015 10:29:49 AM JST
+File
+* Mon 06 Apr 2015 10:29:52 AM JST
+
+* Mon 06 Apr 2015 10:29:53 AM JST
+image
+* Mon 06 Apr 2015 10:29:57 AM JST
+Image
+* Mon 06 Apr 2015 10:30:00 AM JST
+
+* Mon 06 Apr 2015 10:30:06 AM JST
+PDF
+* Mon 06 Apr 2015 10:31:43 AM JST
+class Menu:
+    """Class Menu
+    """
+    # Attributes:
+    name = None  # () 
+    
+    # Operations
+    def get_name(self):
+        """function get_name
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def list_recipes(self):
+        """function list_recipes
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def has_recipes(self):
+        """function has_recipes
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def generate_html_tag(self):
+        """function generate_html_tag
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def add_recipe(self, path):
+        """function add_recipe
+        
+        path: 
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def add_recipe(self, fobj):
+        """function add_recipe
+        
+        fobj: 
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def remove(self):
+        """function remove
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def exists(self):
+        """function exists
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def open_editor(self):
+        """function open_editor
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def show_recipes(self):
+        """function show_recipes
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def __mkdir(self):
+        """function mkdir
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+
+
+* Mon 06 Apr 2015 10:32:07 AM JST
+None # should raise NotImplementedError()
+* Mon 06 Apr 2015 10:37:04 AM JST
+
+* Mon 06 Apr 2015 10:37:04 AM JST
+
+* Mon 06 Apr 2015 10:37:04 AM JST
+from menu2.common import DEFAULT_DIR
+
+* Mon 06 Apr 2015 10:37:06 AM JST
+name
+* Mon 06 Apr 2015 10:37:11 AM JST
+name
+* Mon 06 Apr 2015 10:37:14 AM JST
+_name
+* Mon 06 Apr 2015 10:37:36 AM JST
+directory
+* Mon 06 Apr 2015 10:38:39 AM JST
+None # should raise NotImplementedError()
+* Mon 06 Apr 2015 10:45:14 AM JST
+MIAD-762.torrent
+* Mon 06 Apr 2015 10:47:06 AM JST
+茗荷の酢漬け.png
+* Mon 06 Apr 2015 10:47:44 AM JST
+/data/archive/ref/recipe/一品
+* Mon 06 Apr 2015 10:48:31 AM JST
+なすピーマン鶏むね肉で簡単中華.pdf
+* Mon 06 Apr 2015 10:50:37 AM JST
+鶏団子.txt
+* Mon 06 Apr 2015 10:51:43 AM JST
+path
+* Mon 06 Apr 2015 10:52:51 AM JST
+path
+* Mon 06 Apr 2015 10:54:43 AM JST
+炊き込み
+* Mon 06 Apr 2015 10:54:57 AM JST
+/root/recipe/3/6wed
+* Mon 06 Apr 2015 10:57:35 AM JST
+スイカ切り方.jpg
+* Mon 06 Apr 2015 10:57:50 AM JST
+/data/archive/ref/etc
+* Mon 06 Apr 2015 11:00:36 AM JST
+return None # should raise NotImplementedError()
+* Mon 06 Apr 2015 11:01:13 AM JST
+None # should raise NotImplementedError()
+* Mon 06 Apr 2015 11:02:52 AM JST
+return None # should raise NotImplementedError()
+* Mon 06 Apr 2015 11:03:57 AM JST
+exists()
+* Mon 06 Apr 2015 11:05:51 AM JST
+form 
+* Mon 06 Apr 2015 11:06:07 AM JST
+return None # should raise NotImplementedError()
+* Mon 06 Apr 2015 11:06:18 AM JST
+from ref.CMD import icedove, sleipnir, thunar
+* Mon 06 Apr 2015 11:06:25 AM JST
+sleipnir, 
+* Mon 06 Apr 2015 11:06:25 AM JST
+icedove, sleipnir, 
+* Mon 06 Apr 2015 11:07:07 AM JST
+return None # should raise NotImplementedError()
+* Mon 06 Apr 2015 11:07:32 AM JST
+open
+* Mon 06 Apr 2015 11:09:30 AM JST
+"""\
+   <h2><u>{0[thu]}</u></h2>
+   <h3><ul>{1[thu]}</ul></h3>"""
+* Mon 06 Apr 2015 11:09:32 AM JST
+   
+* Mon 06 Apr 2015 11:11:59 AM JST
+fmt = 
+* Mon 06 Apr 2015 11:12:02 AM JST
+        
+* Mon 06 Apr 2015 11:14:11 AM JST
+datetime
+* Mon 06 Apr 2015 11:16:58 AM JST
+.strftime('')
+* Mon 06 Apr 2015 11:19:46 AM JST
+d')
+* Mon 06 Apr 2015 11:19:47 AM JST
+m_%d')
+* Mon 06 Apr 2015 11:19:47 AM JST
+Y_%m_%d')
+* Mon 06 Apr 2015 11:19:47 AM JST
+strftime('%Y_%m_%d')
+* Mon 06 Apr 2015 11:20:48 AM JST
+'2000_02_01'
+* Mon 06 Apr 2015 11:21:02 AM JST
+'%Y_%m_%d'
+* Mon 06 Apr 2015 11:21:23 AM JST
+'2000_02_01', '%Y_%m_%d'
+* Mon 06 Apr 2015 11:23:35 AM JST
+self.
+* Mon 06 Apr 2015 11:27:42 AM JST
+day = 
+* Mon 06 Apr 2015 11:28:37 AM JST
+'%Y_%m_%d'
+* Mon 06 Apr 2015 11:32:05 AM JST
+
+* Mon 06 Apr 2015 11:32:05 AM JST
+
+* Mon 06 Apr 2015 11:32:05 AM JST
+        return None # should raise NotImplementedError()
+
+* Mon 06 Apr 2015 11:32:46 AM JST
+2000_02_01
+* Mon 06 Apr 2015 11:35:04 AM JST
+self.get_name()
+* Mon 06 Apr 2015 11:35:52 AM JST
+tags
+* Mon 06 Apr 2015 11:37:50 AM JST
+class MenuOrganizer:
+    """Class MenuOrganizer
+    """
+    # Attributes:
+    directory = None  # () 
+    
+    # Operations
+    def get_menu(self, date):
+        """function get_menu
+        
+        date: 
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def list_menus(self, start_date, end_date):
+        """function list_menus
+        
+        start_date: 
+        end_date: 
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def list_exists_menus(self):
+        """function list_exists_menus
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def remove_between_date(self, start, end):
+        """function remove_between_date
+        
+        start: 
+        end: 
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def remove_empty_menus(self):
+        """function remove_empty_menus
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+
+
+* Mon 06 Apr 2015 11:38:20 AM JST
+pat
+* Mon 06 Apr 2015 11:38:20 AM JST
+form pat
+* Mon 06 Apr 2015 11:38:34 AM JST
+directory
+* Mon 06 Apr 2015 11:39:33 AM JST
+directory
+* Mon 06 Apr 2015 11:39:40 AM JST
+_directory
+* Mon 06 Apr 2015 11:40:01 AM JST
+'%Y_%m_%d'
+* Mon 06 Apr 2015 11:42:41 AM JST
+None # should raise NotImplementedError()
+* Mon 06 Apr 2015 11:47:09 AM JST
+dirs.basename()
+* Mon 06 Apr 2015 11:47:26 AM JST
+'%Y_%m_%d'
+* Mon 06 Apr 2015 11:48:53 AM JST
+None # should raise NotImplementedError()
+* Mon 06 Apr 2015 11:51:14 AM JST
+
+* Mon 06 Apr 2015 11:51:14 AM JST
+
+* Mon 06 Apr 2015 11:51:14 AM JST
+        lis = 
+
+* Mon 06 Apr 2015 11:51:15 AM JST
+None # should raise NotImplementedError()
+* Mon 06 Apr 2015 11:51:30 AM JST
+date
+* Mon 06 Apr 2015 11:52:05 AM JST
+datetime(MINYEAR, 1)
+* Mon 06 Apr 2015 11:52:08 AM JST
+MINYEAR
+* Mon 06 Apr 2015 11:52:09 AM JST
+datetime.MINYEAR
+* Mon 06 Apr 2015 11:52:13 AM JST
+2000
+* Mon 06 Apr 2015 11:54:00 AM JST
+return None # should raise NotImplementedError()
+* Mon 06 Apr 2015 11:54:38 AM JST
+self.list_menus(MINDATE, MAXDATE)
+* Mon 06 Apr 2015 11:54:54 AM JST
+pass
+* Mon 06 Apr 2015 11:58:42 AM JST
+self.list_menus(MINDATE, MAXDATE)
+* Mon 06 Apr 2015 11:58:56 AM JST
+list_
+* Mon 06 Apr 2015 11:58:56 AM JST
+mm.list_
+* Mon 06 Apr 2015 11:59:56 AM JST
+dirs.basename
+* Mon 06 Apr 2015 12:02:20 PM JST
+datetime.datetime(2015, 4,3)
+* Mon 06 Apr 2015 12:08:46 PM JST
+timedelta
+* Mon 06 Apr 2015 12:09:03 PM JST
+result.append(
+* Mon 06 Apr 2015 12:09:03 PM JST
+            result.append(
+* Mon 06 Apr 2015 12:09:12 PM JST
+
+* Mon 06 Apr 2015 12:09:12 PM JST
+
+* Mon 06 Apr 2015 12:09:12 PM JST
+        result = []
+
+* Mon 06 Apr 2015 12:09:21 PM JST
+list
+* Mon 06 Apr 2015 12:10:17 PM JST
+mm.
+* Mon 06 Apr 2015 12:10:21 PM JST
+iter
+* Mon 06 Apr 2015 12:15:08 PM JST
+        for dirs in self._basedir.listdir():
+            date = datetime.strptime(unicode(dirs.basename), '%Y_%m_%d')
+            if start_date <= date <= end_date:
+                result.append(Menu(dirs))
+        return result
+
+* Mon 06 Apr 2015 12:19:39 PM JST
+
+* Mon 06 Apr 2015 12:19:39 PM JST
+
+* Mon 06 Apr 2015 12:19:39 PM JST
+        return list(self.iter_menus(MINDATE, MAXDATE))
+
+* Mon 06 Apr 2015 12:20:07 PM JST
+
+* Mon 06 Apr 2015 12:20:07 PM JST
+
+* Mon 06 Apr 2015 12:20:07 PM JST
+        for dirs in self._basedir.listdir():
+
+* Mon 06 Apr 2015 12:22:47 PM JST
+datetime.strptime(unicode(self.get_name()), '%Y_%m_%d')
+* Mon 06 Apr 2015 12:23:06 PM JST
+day
+* Mon 06 Apr 2015 12:23:13 PM JST
+day
+* Mon 06 Apr 2015 12:26:29 PM JST
+iter_m
+* Mon 06 Apr 2015 12:34:20 PM JST
+
+* Mon 06 Apr 2015 12:34:21 PM JST
+MenuManager
+* Mon 06 Apr 2015 12:34:21 PM JST
+import MenuManager
+* Mon 06 Apr 2015 12:34:21 PM JST
+manager import MenuManager
+* Mon 06 Apr 2015 12:34:28 PM JST
+import
+* Mon 06 Apr 2015 12:34:28 PM JST
+function import
+* Mon 06 Apr 2015 12:34:59 PM JST
+impor
+* Mon 06 Apr 2015 12:35:04 PM JST
+dateti
+* Mon 06 Apr 2015 12:38:37 PM JST
+form 
+* Mon 06 Apr 2015 12:41:46 PM JST
+TODAY_MENU.get_path()
+* Mon 06 Apr 2015 12:42:26 PM JST
+datetime.now()
+* Mon 06 Apr 2015 12:42:53 PM JST
+str
+* Mon 06 Apr 2015 12:47:16 PM JST
+from menu2 import MenuManager
+from menu2.common import DEFAULT_DIR
+
+* Mon 06 Apr 2015 12:47:20 PM JST
+
+* Mon 06 Apr 2015 12:47:20 PM JST
+
+* Mon 06 Apr 2015 12:47:20 PM JST
+from menu2 import MenuManager
+
+* Mon 06 Apr 2015 12:56:34 PM JST
+__str__
+* Mon 06 Apr 2015 12:57:38 PM JST
+self._path.basename.splitext()[0]
+* Mon 06 Apr 2015 12:58:04 PM JST
+self.get_name()
+* Mon 06 Apr 2015 12:58:18 PM JST
+    def generate_html_tag(self):
+        """function generate_html_tag
+
+        returns
+        """
+        return html_tag_gen.LINK_RECIPE_TEMPLATE.format(
+            unicode(self._path), self.get_name())
+
+* Mon 06 Apr 2015 01:00:03 PM JST
+.get_menu(datetime.now())
+* Mon 06 Apr 2015 01:01:19 PM JST
+MenuManager(DEFAULT_DIR)
+* Mon 06 Apr 2015 01:01:59 PM JST
+
+* Mon 06 Apr 2015 01:01:59 PM JST
+
+* Mon 06 Apr 2015 01:02:00 PM JST
+from . import html_tag_gen
+
+* Mon 06 Apr 2015 01:02:45 PM JST
+MenuManager(DEFAULT_DIR)
+* Mon 06 Apr 2015 01:03:07 PM JST
+get_menu(datetime.now())
+* Mon 06 Apr 2015 01:04:03 PM JST
+.get_menu(datetime.now())
+* Mon 06 Apr 2015 01:05:07 PM JST
+MANAGER = MenuManager(DEFAULT_DIR)
+* Mon 06 Apr 2015 01:05:32 PM JST
+MANAGER
+* Mon 06 Apr 2015 01:05:34 PM JST
+MenuManager()
+* Mon 06 Apr 2015 01:05:44 PM JST
+datetime.now() + timedelta(1)
+* Mon 06 Apr 2015 01:07:13 PM JST
+men
+* Mon 06 Apr 2015 01:07:14 PM JST
+ifrom men
+* Mon 06 Apr 2015 01:07:39 PM JST
+from menu2 import MenuManager
+* Mon 06 Apr 2015 01:09:28 PM JST
+ActivityTime
+* Mon 06 Apr 2015 01:11:46 PM JST
+Archiving
+* Mon 06 Apr 2015 01:55:48 PM JST
+MenuManager
+* Mon 06 Apr 2015 01:55:56 PM JST
+MenuManager
+* Mon 06 Apr 2015 02:04:17 PM JST
+calc_weeklink(1)
+* Mon 06 Apr 2015 02:05:16 PM JST
+weekdir
+* Mon 06 Apr 2015 02:10:27 PM JST
+import 
+* Mon 06 Apr 2015 02:10:35 PM JST
+imp
+* Mon 06 Apr 2015 02:10:35 PM JST
+dateutil imp
+* Mon 06 Apr 2015 02:12:17 PM JST
+6wed'
+* Mon 06 Apr 2015 02:12:17 PM JST
+5tue'
+* Mon 06 Apr 2015 02:12:17 PM JST
+4mon'
+* Mon 06 Apr 2015 02:12:17 PM JST
+3sun'
+* Mon 06 Apr 2015 02:12:17 PM JST
+2sta'
+* Mon 06 Apr 2015 02:12:17 PM JST
+1fri'
+* Mon 06 Apr 2015 02:12:17 PM JST
+0thu'
+* Mon 06 Apr 2015 02:13:04 PM JST
+6wed'
+* Mon 06 Apr 2015 02:13:04 PM JST
+5tue'
+* Mon 06 Apr 2015 02:13:04 PM JST
+4mon'
+* Mon 06 Apr 2015 02:13:04 PM JST
+3sun'
+* Mon 06 Apr 2015 02:13:04 PM JST
+2sta'
+* Mon 06 Apr 2015 02:14:40 PM JST
+menu.get_date().weekday()
+* Mon 06 Apr 2015 02:15:58 PM JST
+sbp.Popen([thunar.BINPATH, win.dir])
+* Mon 06 Apr 2015 02:16:13 PM JST
+menu.get_path()
+* Mon 06 Apr 2015 02:16:24 PM JST
+
+* Mon 06 Apr 2015 02:16:24 PM JST
+
+* Mon 06 Apr 2015 02:16:24 PM JST
+            sbp.Popen([thunar.BINPATH, unicode(menu.get_path())])
+
+* Mon 06 Apr 2015 02:16:57 PM JST
+x=fgeo[0], y=fgeo[1], height=fgeo[2], width=fgeo[3]
+* Mon 06 Apr 2015 02:24:15 PM JST
+from ref.CMD import icedove, sleipnir, thunar
+* Mon 06 Apr 2015 02:24:39 PM JST
+thunar.ThunarWMHandle
+* Mon 06 Apr 2015 02:25:52 PM JST
+wm.WinWait(sec=5).win(title=fmanager.title)
+* Mon 06 Apr 2015 02:26:14 PM JST
+thunar.ThunarWMHandle(unicode(menu.get_path()))
+* Mon 06 Apr 2015 02:27:23 PM JST
+import daily
+daily.CreateRecipe().execute()
+
+* Mon 06 Apr 2015 02:28:36 PM JST
+MenuManager(DEFAULT_DIR).iter_menus(nextweek, next2week)
+* Mon 06 Apr 2015 02:29:18 PM JST
+import daily
+daily.CreateRecipe().execute()
+
+* Mon 06 Apr 2015 02:30:48 PM JST
+fmanager = thunar.ThunarWMHandle(unicode(dirs))
+* Mon 06 Apr 2015 02:31:07 PM JST
+
+* Mon 06 Apr 2015 02:31:07 PM JST
+
+* Mon 06 Apr 2015 02:31:07 PM JST
+        fmanager = thunar.ThunarWMHandle(unicode(dirs))
+
+* Mon 06 Apr 2015 02:31:50 PM JST
+x=fgeo[0], y=fgeo[1], height=fgeo[2], width=fgeo[3]
+* Mon 06 Apr 2015 02:31:55 PM JST
+0]
+* Mon 06 Apr 2015 02:31:56 PM JST
+fgeo[0]
+* Mon 06 Apr 2015 02:32:06 PM JST
+562
+* Mon 06 Apr 2015 02:32:10 PM JST
+635
+* Mon 06 Apr 2015 02:32:19 PM JST
+
+* Mon 06 Apr 2015 02:32:19 PM JST
+
+* Mon 06 Apr 2015 02:32:19 PM JST
+        wingeos.append((archivedir, (0, 0, 562, 635)))
+
+* Mon 06 Apr 2015 02:32:20 PM JST
+
+* Mon 06 Apr 2015 02:32:20 PM JST
+
+* Mon 06 Apr 2015 02:32:20 PM JST
+        wingeos = []
+
+* Mon 06 Apr 2015 02:36:56 PM JST
+MenuManager
+* Mon 06 Apr 2015 02:37:07 PM JST
+DEFAULT_DIR
+* Mon 06 Apr 2015 02:39:55 PM JST
+
+* Mon 06 Apr 2015 02:39:55 PM JST
+
+* Mon 06 Apr 2015 02:39:55 PM JST
+        today = datetime(2015, 4, 2)
+
+* Mon 06 Apr 2015 02:50:50 PM JST
+MenuManager(DEFAULT_DIR).list_exists_menus()
+* Mon 06 Apr 2015 02:52:01 PM JST
+
+* Mon 06 Apr 2015 02:52:01 PM JST
+
+* Mon 06 Apr 2015 02:52:01 PM JST
+import os
+
+* Mon 06 Apr 2015 02:53:02 PM JST
+
+* Mon 06 Apr 2015 02:53:02 PM JST
+
+* Mon 06 Apr 2015 02:53:02 PM JST
+    # MenuManager().lotate_weeklink()
+
+* Mon 06 Apr 2015 02:54:22 PM JST
+
+* Mon 06 Apr 2015 02:54:22 PM JST
+
+* Mon 06 Apr 2015 02:54:22 PM JST
+if True:
+
+* Mon 06 Apr 2015 02:58:52 PM JST
+TODAY < 
+* Mon 06 Apr 2015 02:59:52 PM JST
+, timedelta
+* Mon 06 Apr 2015 03:02:00 PM JST
+MenuManager
+* Mon 06 Apr 2015 03:04:45 PM JST
+
+* Mon 06 Apr 2015 03:08:40 PM JST
+d(2015, 4,6)
+* Mon 06 Apr 2015 03:16:30 PM JST
+HTML_TEMPLATE = """
+<html>
+ <head>
+  <title>今週の献立</title>
+ </head>
+ <body>
+   <h1><b>今週の献立</b></h1><br>
+   {}
+</body></html>
+"""
+
+* Mon 06 Apr 2015 03:16:42 PM JST
+
+* Mon 06 Apr 2015 03:16:43 PM JST
+
+* Mon 06 Apr 2015 03:16:43 PM JST
+        # empty_remove(menu)
+
+* Mon 06 Apr 2015 03:17:17 PM JST
+
+* Mon 06 Apr 2015 03:17:17 PM JST
+
+* Mon 06 Apr 2015 03:17:17 PM JST
+from t1.dateutil import now_weekday
+
+* Mon 06 Apr 2015 03:19:32 PM JST
+# gen html
+HTML_TEMPLATE = """
+<html>
+ <head>
+  <title>今週の献立</title>
+ </head>
+ <body>
+   <h1><b>今週の献立</b></h1><br>
+   {}
+</body></html>
+"""
+
+
+* Mon 06 Apr 2015 03:19:47 PM JST
+from menu2 import MenuManager
+from menu2.common import DEFAULT_DIR
+* Mon 06 Apr 2015 03:20:53 PM JST
+iter_
+* Mon 06 Apr 2015 03:21:35 PM JST
+manager =
+* Mon 06 Apr 2015 03:21:37 PM JST
+MenuManager(DEFAULT_DIR).list_exists_menus()
+* Mon 06 Apr 2015 03:24:02 PM JST
+
+* Mon 06 Apr 2015 03:24:02 PM JST
+
+* Mon 06 Apr 2015 03:24:02 PM JST
+    with path.open as:
+
+* Mon 06 Apr 2015 03:32:35 PM JST
+.encode('utf-8')
+* Mon 06 Apr 2015 03:35:09 PM JST
+    def generate_html_tag(self):
+        """function generate_html_tag
+
+        returns
+        """
+        return html_tag_gen.LINK_RECIPE_TEMPLATE.format(
+            unicode(self._path).encode('utf-8'), self.get_name().encode('utf-8'))
+
+* Mon 06 Apr 2015 03:35:28 PM JST
+from . import html_tag_gen
+* Mon 06 Apr 2015 03:35:32 PM JST
+LINK_
+* Mon 06 Apr 2015 03:35:44 PM JST
+RECIPE_TEMPLATE
+* Mon 06 Apr 2015 03:37:39 PM JST
+basedir
+* Mon 06 Apr 2015 03:37:57 PM JST
+.join('index.html')
+* Mon 06 Apr 2015 03:38:00 PM JST
+
+* Mon 06 Apr 2015 03:38:00 PM JST
+
+* Mon 06 Apr 2015 03:38:00 PM JST
+    path = path
+
+* Mon 06 Apr 2015 03:38:53 PM JST
+self._path
+* Mon 06 Apr 2015 03:42:05 PM JST
+lambda key: sd[key]
+* Mon 06 Apr 2015 03:42:12 PM JST
+lambda key: key.getmodifier()
+* Mon 06 Apr 2015 03:56:31 PM JST
+generate_recipe_html.py
+* Mon 06 Apr 2015 03:59:06 PM JST
+weekday = now_weekday()
+if weekday.is_wednesday():
+
+* Mon 06 Apr 2015 03:59:40 PM JST
+from t1.dateutil import now_weekday
+* Mon 06 Apr 2015 04:00:25 PM JST
+weekday = now_weekday()
+* Mon 06 Apr 2015 04:00:40 PM JST
+from t1.dateutil import now_weekday
+* Mon 06 Apr 2015 04:00:45 PM JST
+weekday = now_weekday()
+* Mon 06 Apr 2015 04:02:23 PM JST
+00
+* Mon 06 Apr 2015 09:36:47 PM JST
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>-*- coding: utf-8-unix -*-</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="title" content="-*- coding: utf-8-unix -*-"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2015-04-06T21:36+0900"/>
+<meta name="author" content="Atami"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  div.inlinetask {
+    padding:10px;
+    border:2px solid gray;
+    margin:10px;
+    background: #ffffcc;
+  }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+
+<div id="preamble">
+
+</div>
+
+<div id="content">
+<h1 class="title">-*- coding: utf-8-unix -*-</h1>
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 今週の献立</a>
+<ul>
+<li><a href="#sec-1-1">1.1 木曜日</a></li>
+<li><a href="#sec-1-2">1.2 金曜日</a></li>
+<li><a href="#sec-1-3">1.3 土曜日</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> 今週の献立</h2>
+<div class="outline-text-2" id="text-1">
+
+
+</div>
+
+<div id="outline-container-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 木曜日</h3>
+<div class="outline-text-3" id="text-1-1">
+
+<ul>
+<li>鯖
+</li>
+<li>さんま
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 金曜日</h3>
+<div class="outline-text-3" id="text-1-2">
+
+<ul>
+<li><b>いわし</b>
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> 土曜日</h3>
+<div class="outline-text-3" id="text-1-3">
+
+<ul>
+<li>鮭
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="postamble">
+<p class="date">Date: 2015-04-06T21:36+0900</p>
+<p class="author">Author: Atami</p>
+<p class="creator"><a href="http://orgmode.org">Org</a> version 7.9.3f with <a href="http://www.gnu.org/software/emacs/">Emacs</a> version 24</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+
+</div>
+</body>
+</html>
+
+* Mon 06 Apr 2015 09:40:11 PM JST
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+* Mon 06 Apr 2015 09:44:47 PM JST
+
+* Mon 06 Apr 2015 09:44:47 PM JST
+
+* Mon 06 Apr 2015 09:44:47 PM JST
+return os.EX_OK
+
+* Mon 06 Apr 2015 09:45:10 PM JST
+
+* Mon 06 Apr 2015 09:45:10 PM JST
+
+* Mon 06 Apr 2015 09:45:10 PM JST
+if __name__ == '__main__':
+
+* Tue 07 Apr 2015 04:21:12 PM JST
+_NET_WM_WINDOW_TYPE_DESKTOP
+* Wed 08 Apr 2015 11:18:13 PM JST
+
+* Wed 08 Apr 2015 11:18:14 PM JST
+
+* Wed 08 Apr 2015 11:18:14 PM JST
+        notify2.init('mission')
+
+* Wed 08 Apr 2015 11:18:19 PM JST
+notify2.init('mission')
+* Wed 08 Apr 2015 11:18:20 PM JST
+
+* Wed 08 Apr 2015 11:18:20 PM JST
+
+* Wed 08 Apr 2015 11:18:20 PM JST
+        notify2.init('mission')
+
+* Wed 08 Apr 2015 11:18:30 PM JST
+notify2.init('mission')
+* Fri 10 Apr 2015 04:03:20 PM JST
+SIGFPE SIGHUP SIGILL SIGINT SIGIO  SIGIOT SIGKILL SIGPIPE SIGPOLL SIGPROF SIGPWR 
+* Sun 12 Apr 2015 01:02:29 AM JST
+_main()
+* Sun 12 Apr 2015 01:03:29 AM JST
+''.join(tags)
+* Sun 12 Apr 2015 01:05:20 AM JST
+
+* Sun 12 Apr 2015 01:05:20 AM JST
+
+* Sun 12 Apr 2015 01:05:20 AM JST
+_main()
+
+* Sun 12 Apr 2015 01:05:21 AM JST
+
+* Sun 12 Apr 2015 01:05:22 AM JST
+
+* Sun 12 Apr 2015 01:05:22 AM JST
+    print(''.join(tags))
+
+* Sun 12 Apr 2015 01:24:56 PM JST
+DISPLAY = None
+
+
+def get_display():
+    r"""SUMMARY
+
+    get_display()
+
+    @Return:
+
+    @Error:
+    """
+    global DISPLAY
+    if DISPLAY is None:
+        DISPLAY = xcb.connect()
+    # TODO: (Atami) [2015/03/26]
+    # temp
+    DISPLAY.core.ChangeWindowAttributes(
+        482, xcb.xproto.CW.EventMask, [xcb.xproto.EventMask.SubstructureNotify])
+    DISPLAY.flush()
+    return DISPLAY
+
+
+
+* Sun 12 Apr 2015 01:25:31 PM JST
+import xcb, xcb.xproto
+* Sun 12 Apr 2015 01:26:04 PM JST
+
+* Sun 12 Apr 2015 01:26:04 PM JST
+
+* Sun 12 Apr 2015 01:26:04 PM JST
+import xcb, xcb.xproto
+
+* Sun 12 Apr 2015 01:28:03 PM JST
+_window_
+* Sun 12 Apr 2015 01:30:11 PM JST
+self
+* Sun 12 Apr 2015 01:32:30 PM JST
+xcb
+* Sun 12 Apr 2015 01:32:30 PM JST
+import xcb
+* Sun 12 Apr 2015 01:33:11 PM JST
+object
+* Sun 12 Apr 2015 01:39:57 PM JST
+QueryTree
+* Sun 12 Apr 2015 01:47:31 PM JST
+remove_
+* Sun 12 Apr 2015 01:48:46 PM JST
+not 
+* Sun 12 Apr 2015 01:52:55 PM JST
+xproto
+* Sun 12 Apr 2015 01:53:14 PM JST
+CreateNotifyEvent, DestroyNotifyEvent,
+                        ReparentNotifyEvent
+* Sun 12 Apr 2015 01:53:59 PM JST
+CreateNotifyEvent
+* Sun 12 Apr 2015 01:55:57 PM JST
+self.
+* Sun 12 Apr 2015 02:02:35 PM JST
+_destroy_
+* Sun 12 Apr 2015 02:02:40 PM JST
+_remove_
+* Sun 12 Apr 2015 02:08:13 PM JST
+self.
+* Sun 12 Apr 2015 02:10:26 PM JST
+import
+* Sun 12 Apr 2015 02:10:55 PM JST
+_window
+* Sun 12 Apr 2015 02:10:55 PM JST
+ww._window
+* Sun 12 Apr 2015 02:14:57 PM JST
+WindowFactory
+* Sun 12 Apr 2015 02:14:58 PM JST
+import
+* Sun 12 Apr 2015 02:14:59 PM JST
+windowfactory import
+* Sun 12 Apr 2015 05:52:22 PM JST
+prin
+* Sun 12 Apr 2015 05:53:57 PM JST
+Window
+* Sun 12 Apr 2015 05:54:09 PM JST
+DebugWindowFactoryObserver
+* Sun 12 Apr 2015 05:58:12 PM JST
+_reparent_window
+* Sun 12 Apr 2015 05:58:35 PM JST
+from _xahk.window_factory_observer import DebugWindowFactoryObserver
+o=DebugWindowFactoryObserver()
+from _xahk.eventloop import EventLoop
+e=EventLoop()
+
+* Sun 12 Apr 2015 05:58:42 PM JST
+e=EventLoop.get_instance()
+
+* Sun 12 Apr 2015 05:58:44 PM JST
+
+* Sun 12 Apr 2015 05:58:44 PM JST
+
+* Sun 12 Apr 2015 05:58:44 PM JST
+e=EventLoop()
+
+* Sun 12 Apr 2015 05:58:49 PM JST
+e.dispatch_event()
+while 1:
+        e.dispatch_event()
+
+* Sun 12 Apr 2015 05:58:51 PM JST
+
+* Sun 12 Apr 2015 05:58:51 PM JST
+
+* Sun 12 Apr 2015 05:58:51 PM JST
+e.dispatch_event()
+
+* Sun 12 Apr 2015 05:59:22 PM JST
+ReparentNotifyEvent
+* Sun 12 Apr 2015 06:00:32 PM JST
+from _xahk.window_factory_observer import DebugWindowFactoryObserver
+o=DebugWindowFactoryObserver()
+from _xahk.eventloop import EventLoop
+e=EventLoop.get_instance()
+
+* Sun 12 Apr 2015 06:00:36 PM JST
+while 1:
+* Sun 12 Apr 2015 06:00:40 PM JST
+   e.dispatch_event()
+* Sun 12 Apr 2015 10:19:10 PM JST
+        for oldwid in self._window_map.iterkeys():
+            self._remove_orphan(oldwid, windows)
+
+* Sun 12 Apr 2015 10:20:47 PM JST
+        for wid in windows:
+            self._create_window(wid)
+
+* Sun 12 Apr 2015 10:23:51 PM JST
+from _xahk.window_factory_observer import DebugWindowFactoryObserver
+from _xahk.eventloop import EventLoop
+from _xahk.windowfactory import WindowFactory
+
+* Sun 12 Apr 2015 10:23:54 PM JST
+WindowFactory.get_instance().update_window_list()
+
+* Sun 12 Apr 2015 10:24:05 PM JST
+_window_map
+* Sun 12 Apr 2015 10:24:36 PM JST
+o=DebugWindowFactoryObserver()
+e=EventLoop.get_instance()
+
+* Sun 12 Apr 2015 10:24:41 PM JST
+while 1:
+   e.dispatch_event()
+
+* Sun 12 Apr 2015 11:05:09 PM JST
+if window_id not in self._window_map:
+* Sun 12 Apr 2015 11:05:33 PM JST
+from _xahk.window_factory_observer import DebugWindowFactoryObserver
+from _xahk.eventloop import EventLoop
+from _xahk.windowfactory import WindowFactory
+WindowFactory.get_instance().update_window_list()
+
+* Sun 12 Apr 2015 11:05:39 PM JST
+o=DebugWindowFactoryObserver()
+e=EventLoop.get_instance()
+
+* Sun 12 Apr 2015 11:05:42 PM JST
+while 1:
+   e.dispatch_event()
+
+* Sun 12 Apr 2015 11:06:20 PM JST
+not 
+* Sun 12 Apr 2015 11:06:28 PM JST
+from _xahk.window_factory_observer import DebugWindowFactoryObserver
+from _xahk.eventloop import EventLoop
+from _xahk.windowfactory import WindowFactory
+WindowFactory.get_instance().update_window_list()
+
+* Sun 12 Apr 2015 11:06:31 PM JST
+o=DebugWindowFactoryObserver()
+e=EventLoop.get_instance()
+
+* Sun 12 Apr 2015 11:06:34 PM JST
+while 1:
+   e.dispatch_event()
+
+* Mon 13 Apr 2015 01:32:11 AM JST
+WindowFactory.get_instance().update_window_list()
+* Mon 13 Apr 2015 01:32:39 AM JST
+iter
+* Mon 13 Apr 2015 01:57:09 AM JST
+WindowFactory.get_instance().update_window_list()
+* Mon 13 Apr 2015 03:40:47 AM JST
+
+* Mon 13 Apr 2015 03:40:48 AM JST
+
+* Mon 13 Apr 2015 03:40:48 AM JST
+        self._create_window(root)
+
+* Tue 14 Apr 2015 05:53:38 AM JST
+path.Path
+* Tue 14 Apr 2015 05:53:56 AM JST
+pathlib.Path
+* Tue 14 Apr 2015 07:13:41 AM JST
+変更対応
+* Tue 14 Apr 2015 07:13:44 AM JST
+アルゴリズムの変更
+* Tue 14 Apr 2015 07:15:12 AM JST
+*** 変更対応
+* Tue 14 Apr 2015 07:15:21 AM JST
+オブジェクトの状態
+* Tue 14 Apr 2015 07:15:52 AM JST
+*** 変更対応
+* Tue 14 Apr 2015 07:16:01 AM JST
+オブジェクトの振る舞い
+* Tue 14 Apr 2015 07:16:30 AM JST
+*** 変更対応
+* Tue 14 Apr 2015 07:17:01 AM JST
+に対応
+* Tue 14 Apr 2015 07:17:32 AM JST
+*** 変更対応
+* Tue 14 Apr 2015 07:17:45 AM JST
+*** 変更対応
+* Tue 14 Apr 2015 07:17:54 AM JST
+オブジェクト間の通信方法
+* Tue 14 Apr 2015 07:18:21 AM JST
+Iterator
+* Tue 14 Apr 2015 07:18:23 AM JST
+*** 変更対応
+* Tue 14 Apr 2015 07:18:30 AM JST
+コンテナクラスのアクセス方法
+* Tue 14 Apr 2015 08:45:27 AM JST
+クラスの数が多くなる
+* Tue 14 Apr 2015 08:49:45 AM JST
+Abstract Factoryは、沢山のオブジェクトで構成される「固定的な」オブジェクトを生成するときに利用すると便利です。例えば、RPGに出てくる主人公クラスのキャラクターについて、「剣」「鎧」「兜」「盾」というオブジェクトの組み合わせで「武具」が構成されるとき、これらをAbstract Factoryでまとめておくと、別のキャラクタにはそれようのクラスを作れば独自のキャラクタをどんどん作成できます。
+
+　Windows Media Playerなどアプリケーションを着飾る「スキン」にはAbstract Factoryが使えます。スキンは、「外枠」「再生ボタン」「停止ボタン」など画面を構成する部品が厳格に決まっているので、Abstract Factoryが使いやすいでしょう。
+* Tue 14 Apr 2015 08:50:50 AM JST
+http://marupeke296.com/DP_AbstractFactory.html
+* Tue 14 Apr 2015 08:51:12 AM JST
+てきよう
+* Tue 14 Apr 2015 08:51:12 AM JST
+作成できます。
+
+- てきよう
+* Tue 14 Apr 2015 08:51:42 AM JST
+Abstract Factoryは、構成オブジェクトの種類が増減するオブジェクトへは適用しにくいかと思います。さきほどの「武具」について、新しく「ガントレット」を追加したいと考えて、Abstract Factoryクラスへそれを追加した場合、派生するクラスすべてを更新する必要が出てきます。そういう追加を行う場合、元のクラスを変更するのではなく、ガントレットは別のAbstract Factoryクラスとして定義して使用するしかないでしょう。
+* Tue 14 Apr 2015 09:06:41 AM JST
+コンストラクタ
+* Tue 14 Apr 2015 09:15:02 AM JST
+http://think-on-object.blogspot.jp/2011/11/factoryfactory-methodabstract-factory.html
+* Tue 14 Apr 2015 09:17:29 AM JST
+親クラスであるファクトリが、実際のオブジェクトの生成をサブクラスに委譲する
+* Tue 14 Apr 2015 09:44:02 AM JST
+http://www.ogis-ri.co.jp/otc/hiroba/technical/DesignPatternsWithExample/chapter04.html
+* Tue 14 Apr 2015 09:47:50 AM JST
+http://think-on-object.blogspot.jp/2011/11/factoryfactory-methodabstract-factory.html
+* Tue 14 Apr 2015 09:51:32 AM JST
+http://marupeke296.com/DP_FactoryMethod.html
+* Wed 15 Apr 2015 02:50:54 AM JST
+magi
+* Wed 15 Apr 2015 02:50:54 AM JST
+return magi
+* Wed 15 Apr 2015 02:51:11 AM JST
+unicode(
+* Wed 15 Apr 2015 02:51:32 AM JST
+from menu2 import recipe
+* Wed 15 Apr 2015 02:54:53 AM JST
+recipe
+* Wed 15 Apr 2015 02:56:20 AM JST
+facroty
+* Wed 15 Apr 2015 04:19:20 AM JST
+Menu
+* Wed 15 Apr 2015 08:42:14 AM JST
+http://www.ogis-ri.co.jp/otc/hiroba/technical/DesignPatternsWithExample/chapter02.html
+* Wed 15 Apr 2015 09:24:09 PM JST
+
+* Wed 15 Apr 2015 09:24:10 PM JST
+
+* Wed 15 Apr 2015 09:24:10 PM JST
+
+
+* Wed 15 Apr 2015 09:27:06 PM JST
+
+* Wed 15 Apr 2015 09:27:06 PM JST
+** Adaptor
+* Wed 15 Apr 2015 09:27:06 PM JST
+** Adaptor
+
+* Thu 16 Apr 2015 05:18:08 AM JST
+http://www.ogis-ri.co.jp/otc/hiroba/technical/DesignPatternsWithExample/chapter05.html
+* Thu 16 Apr 2015 05:51:42 AM JST
+http://www.ogis-ri.co.jp/otc/hiroba/technical/DesignPatternsWithExample/chapter06.html
+* Thu 16 Apr 2015 11:45:31 AM JST
+追ぺれーしょんん
+* Thu 16 Apr 2015 02:15:21 PM JST
+Visitor
+* Thu 16 Apr 2015 02:16:10 PM JST
+Template
+* Thu 16 Apr 2015 02:22:06 PM JST
+
+* Thu 16 Apr 2015 02:22:06 PM JST
+
+* Thu 16 Apr 2015 02:22:06 PM JST
+
+
+* Thu 16 Apr 2015 02:24:08 PM JST
+
+* Thu 16 Apr 2015 02:24:08 PM JST
+
+* Thu 16 Apr 2015 02:24:08 PM JST
+
+
+* Thu 16 Apr 2015 02:24:10 PM JST
+
+* Thu 16 Apr 2015 02:24:10 PM JST
+
+* Thu 16 Apr 2015 02:24:10 PM JST
+
+
+* Thu 16 Apr 2015 02:24:10 PM JST
+
+
+* Thu 16 Apr 2015 02:24:10 PM JST
+
+
+
+* Thu 16 Apr 2015 02:27:08 PM JST
+
+* Thu 16 Apr 2015 02:27:08 PM JST
+
+* Thu 16 Apr 2015 02:27:08 PM JST
+
+
+* Thu 16 Apr 2015 02:27:08 PM JST
+
+
+* Thu 16 Apr 2015 02:27:08 PM JST
+
+
+
+* Thu 16 Apr 2015 02:30:25 PM JST
+
+* Thu 16 Apr 2015 02:30:25 PM JST
+
+* Thu 16 Apr 2015 02:30:25 PM JST
+
+
+* Thu 16 Apr 2015 02:30:25 PM JST
+
+
+* Thu 16 Apr 2015 02:30:25 PM JST
+
+
+
+* Thu 16 Apr 2015 02:30:25 PM JST
+
+
+
+* Thu 16 Apr 2015 02:30:25 PM JST
+
+
+
+
+* Thu 16 Apr 2015 02:30:25 PM JST
+
+
+
+
+* Thu 16 Apr 2015 02:30:25 PM JST
+
+
+
+
+
+* Thu 16 Apr 2015 02:30:26 PM JST
+
+
+
+
+
+* Thu 16 Apr 2015 02:30:26 PM JST
+
+
+
+
+
+
+* Thu 16 Apr 2015 02:30:26 PM JST
+
+
+
+
+
+
+* Thu 16 Apr 2015 02:30:26 PM JST
+
+
+
+
+
+
+
+* Thu 16 Apr 2015 02:30:26 PM JST
+
+
+
+
+
+
+
+* Thu 16 Apr 2015 02:30:26 PM JST
+
+
+
+
+
+
+
+
+* Thu 16 Apr 2015 02:30:48 PM JST
+ry
+* Thu 16 Apr 2015 02:30:49 PM JST
+とry
+* Thu 16 Apr 2015 02:30:50 PM JST
+cとry
+* Thu 16 Apr 2015 02:30:50 PM JST
+アcとry
+* Thu 16 Apr 2015 02:31:08 PM JST
+
+* Thu 16 Apr 2015 02:31:08 PM JST
+
+* Thu 16 Apr 2015 02:31:08 PM JST
+
+
+* Thu 16 Apr 2015 02:31:09 PM JST
+
+
+* Thu 16 Apr 2015 02:31:09 PM JST
+
+
+
+* Thu 16 Apr 2015 02:33:32 PM JST
+
+* Thu 16 Apr 2015 02:33:32 PM JST
+
+* Thu 16 Apr 2015 02:33:32 PM JST
+
+
+* Thu 16 Apr 2015 02:34:26 PM JST
+
+* Thu 16 Apr 2015 02:34:26 PM JST
+
+* Thu 16 Apr 2015 02:34:27 PM JST
+
+
+* Fri 17 Apr 2015 01:32:48 AM JST
+欠点
+* Fri 17 Apr 2015 01:32:55 AM JST
+
+* Fri 17 Apr 2015 01:32:55 AM JST
+*** 欠点
+* Fri 17 Apr 2015 01:32:55 AM JST
+*** 欠点
+
+* Fri 17 Apr 2015 09:54:15 PM JST
+利点・欠点
+* Fri 17 Apr 2015 10:00:25 PM JST
+
+* Fri 17 Apr 2015 10:00:25 PM JST
+ 
+* Fri 17 Apr 2015 10:00:25 PM JST
+ 
+
+* Fri 17 Apr 2015 10:00:27 PM JST
+
+* Fri 17 Apr 2015 10:00:27 PM JST
+
+* Fri 17 Apr 2015 10:00:27 PM JST
+
+
+* Fri 17 Apr 2015 10:00:27 PM JST
+
+
+* Fri 17 Apr 2015 10:00:27 PM JST
+
+
+
+* Fri 17 Apr 2015 10:00:34 PM JST
+
+* Fri 17 Apr 2015 10:00:34 PM JST
+
+* Fri 17 Apr 2015 10:00:34 PM JST
+
+
+* Fri 17 Apr 2015 11:03:49 PM JST
+
+        """function get_name
+* Fri 17 Apr 2015 11:05:47 PM JST
+export 
+* Fri 17 Apr 2015 11:06:05 PM JST
+/usr/bin/python /root/.pylib/generate_recipe_html.py
+* Fri 17 Apr 2015 11:29:03 PM JST
+
+* Fri 17 Apr 2015 11:29:03 PM JST
+
+* Fri 17 Apr 2015 11:29:03 PM JST
+
+
+* Fri 17 Apr 2015 11:30:25 PM JST
+
+* Fri 17 Apr 2015 11:30:25 PM JST
+
+* Fri 17 Apr 2015 11:30:25 PM JST
+
+
+* Sat 18 Apr 2015 03:07:36 AM JST
+*** 利点・欠点
+* Sat 18 Apr 2015 03:10:29 AM JST
+
+* Sat 18 Apr 2015 03:10:29 AM JST
+
+* Sat 18 Apr 2015 03:10:29 AM JST
+
+
+* Sat 18 Apr 2015 03:10:30 AM JST
+
+
+* Sat 18 Apr 2015 03:10:30 AM JST
+
+
+
+* Sat 18 Apr 2015 03:12:13 AM JST
+
+* Sat 18 Apr 2015 03:12:13 AM JST
+
+* Sat 18 Apr 2015 03:12:13 AM JST
+
+
+* Sat 18 Apr 2015 06:30:18 AM JST
+sphc
+* Sat 18 Apr 2015 06:32:33 AM JST
+_name
+* Sat 18 Apr 2015 06:32:33 AM JST
+DIV()._name
+* Sun 19 Apr 2015 10:13:56 AM JST
+*** 利点・欠点
+* Sun 19 Apr 2015 10:18:49 AM JST
+
+* Sun 19 Apr 2015 10:18:49 AM JST
+
+* Sun 19 Apr 2015 10:18:49 AM JST
+
+
+* Sun 19 Apr 2015 10:18:49 AM JST
+
+
+* Sun 19 Apr 2015 10:18:49 AM JST
+
+
+
+* Sun 19 Apr 2015 10:18:50 AM JST
+
+
+
+* Sun 19 Apr 2015 10:18:50 AM JST
+
+
+
+
+* Sun 19 Apr 2015 02:11:46 PM JST
+*** 利点・欠点
+* Mon 20 Apr 2015 02:29:05 PM JST
+*** 利点・欠点
+* Mon 20 Apr 2015 03:01:54 PM JST
+*** 利点・欠点
+* Mon 20 Apr 2015 03:21:31 PM JST
+*** 利点・欠点
+* Tue 21 Apr 2015 05:11:47 AM JST
+*** 利点・欠点
+* Tue 21 Apr 2015 05:15:23 AM JST
+
+* Tue 21 Apr 2015 05:15:23 AM JST
+
+* Tue 21 Apr 2015 05:15:23 AM JST
+
+
+* Tue 21 Apr 2015 06:45:03 AM JST
+
+* Tue 21 Apr 2015 06:45:03 AM JST
+
+* Tue 21 Apr 2015 06:45:03 AM JST
+
+
+* Tue 21 Apr 2015 06:45:03 AM JST
+
+
+* Tue 21 Apr 2015 06:45:03 AM JST
+
+
+
+* Tue 21 Apr 2015 07:29:58 AM JST
+*** 利点・欠点
+* Tue 21 Apr 2015 10:38:18 AM JST
+
+* Tue 21 Apr 2015 10:38:18 AM JST
+
+* Tue 21 Apr 2015 10:38:18 AM JST
+
+
+* Tue 21 Apr 2015 10:40:05 AM JST
+*** 利点・欠点
+* Tue 21 Apr 2015 10:43:20 AM JST
+
+* Tue 21 Apr 2015 10:43:20 AM JST
+
+* Tue 21 Apr 2015 10:43:20 AM JST
+
+
+* Tue 21 Apr 2015 10:43:20 AM JST
+
+
+* Tue 21 Apr 2015 10:43:20 AM JST
+
+
+
+* Tue 21 Apr 2015 10:43:20 AM JST
+
+
+
+* Tue 21 Apr 2015 10:43:20 AM JST
+
+
+
+
+* Tue 21 Apr 2015 12:48:51 PM JST
+
+* Tue 21 Apr 2015 12:48:51 PM JST
+
+* Tue 21 Apr 2015 12:48:51 PM JST
+
+
+* Tue 21 Apr 2015 12:48:52 PM JST
+
+
+* Tue 21 Apr 2015 12:48:52 PM JST
+
+
+
+* Tue 21 Apr 2015 02:11:45 PM JST
+*** 利点・欠点
+* Tue 21 Apr 2015 02:14:59 PM JST
+
+* Tue 21 Apr 2015 02:14:59 PM JST
+
+* Tue 21 Apr 2015 02:14:59 PM JST
+
+
+* Tue 21 Apr 2015 02:14:59 PM JST
+
+
+* Tue 21 Apr 2015 02:15:00 PM JST
+
+
+
+* Tue 21 Apr 2015 04:43:52 PM JST
+Tes
+* Tue 21 Apr 2015 04:43:56 PM JST
+Tes
+* Tue 21 Apr 2015 04:44:22 PM JST
+
+* Tue 21 Apr 2015 04:44:22 PM JST
+
+* Tue 21 Apr 2015 04:44:22 PM JST
+    tes = Tes()
+
+* Wed 22 Apr 2015 09:30:12 AM JST
+/usr/lib/python2.7
+* Wed 22 Apr 2015 03:27:10 PM JST
+
+* Wed 22 Apr 2015 03:27:10 PM JST
+
+* Wed 22 Apr 2015 03:27:10 PM JST
+import thirdparty
+
+* Wed 22 Apr 2015 04:34:35 PM JST
+proeprty
+* Wed 22 Apr 2015 04:36:28 PM JST
+property
+* Thu 23 Apr 2015 09:59:57 AM JST
+exe()
+* Thu 23 Apr 2015 10:20:25 AM JST
+io_nice()
+* Thu 23 Apr 2015 10:22:38 AM JST
+RLIMIT_NICE
+* Thu 23 Apr 2015 10:25:46 AM JST
+get_cpu_affinity()
+* Thu 23 Apr 2015 11:29:58 AM JST
+get_num_ctx_switches
+* Thu 23 Apr 2015 11:32:45 AM JST
+get_cpu_times()
+* Thu 23 Apr 2015 11:35:02 AM JST
+get_memory_maps()
+* Thu 23 Apr 2015 11:35:04 AM JST
+get_
+* Thu 23 Apr 2015 02:06:35 PM JST
+_abstract
+* Thu 23 Apr 2015 02:06:46 PM JST
+class ProcessAdapter:
+    """Class ProcessAdapter
+    """
+    # Attributes:
+    
+    # Operations
+    def as_dict(self, attrs, ad_value):
+        """function as_dict
+        
+        attrs: list
+        ad_value: None
+        
+        returns dict
+        """
+        return None # should raise NotImplementedError()
+    
+    def is_running(self):
+        """function is_running
+        
+        returns bool
+        """
+        return None # should raise NotImplementedError()
+    
+    def get_parent(self):
+        """function get_parent
+        
+        returns Process
+        """
+        return None # should raise NotImplementedError()
+    
+    def parent(self):
+        """function parent
+        
+        returns Process
+        """
+        return None # should raise NotImplementedError()
+    
+    def get_pid(self):
+        """function get_pid
+        
+        returns int
+        """
+        return None # should raise NotImplementedError()
+    
+    def pid(self):
+        """function pid
+        
+        returns int
+        """
+        return None # should raise NotImplementedError()
+    
+    def get_ppid(self):
+        """function get_ppid
+        
+        returns int
+        """
+        return None # should raise NotImplementedError()
+    
+    def ppid(self):
+        """function ppid
+        
+        returns int
+        """
+        return None # should raise NotImplementedError()
+    
+    def get_name(self):
+        """function get_name
+        
+        returns str
+        """
+        return None # should raise NotImplementedError()
+    
+    def name(self):
+        """function name
+        
+        returns str
+        """
+        return None # should raise NotImplementedError()
+    
+    def get_exe(self):
+        """function get_exe
+        
+        returns str
+        """
+        return None # should raise NotImplementedError()
+    
+    def exe(self):
+        """function exe
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def get_cmdline(self):
+        """function get_cmdline
+        
+        returns str
+        """
+        return None # should raise NotImplementedError()
+    
+    def cmdline(self):
+        """function cmdline
+        
+        returns list
+        """
+        return None # should raise NotImplementedError()
+    
+    def get_status(self):
+        """function get_status
+        
+        returns str
+        """
+        return None # should raise NotImplementedError()
+    
+    def status(self):
+        """function status
+        
+        returns str
+        """
+        return None # should raise NotImplementedError()
+    
+    def get_username(self):
+        """function get_username
+        
+        returns str
+        """
+        return None # should raise NotImplementedError()
+    
+    def username(self):
+        """function username
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def get_create_time(self):
+        """function get_create_time
+        
+        returns float
+        """
+        return None # should raise NotImplementedError()
+    
+    def create_time(self):
+        """function create_time
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def get_cwd(self):
+        """function get_cwd
+        
+        returns str
+        """
+        return None # should raise NotImplementedError()
+    
+    def cwd(self):
+        """function cwd
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def get_nice(self):
+        """function get_nice
+        
+        returns int
+        """
+        return None # should raise NotImplementedError()
+    
+    def set_nice(self, value):
+        """function set_nice
+        
+        value: int
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def nice(self):
+        """function nice
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def get_uids(self):
+        """function get_uids
+        
+        returns ntuple
+        """
+        return None # should raise NotImplementedError()
+    
+    def uids(self):
+        """function uids
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def get_gids(self):
+        """function get_gids
+        
+        returns ntuple
+        """
+        return None # should raise NotImplementedError()
+    
+    def gids(self):
+        """function gids
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def get_terminal(self):
+        """function get_terminal
+        
+        returns str
+        """
+        return None # should raise NotImplementedError()
+    
+    def terminal(self):
+        """function terminal
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def get_num_fds(self):
+        """function get_num_fds
+        
+        returns int
+        """
+        return None # should raise NotImplementedError()
+    
+    def num_fds(self):
+        """function num_fds
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def get_io_counters(self):
+        """function get_io_counters
+        
+        returns ntuple
+        """
+        return None # should raise NotImplementedError()
+    
+    def io_counters(self):
+        """function io_counters
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def get_ionice(self, ioclass):
+        """function get_ionice
+        
+        ioclass: 
+        
+        returns ntuple
+        """
+        return None # should raise NotImplementedError()
+    
+    def set_ionice(self, ioclass, value):
+        """function set_ionice
+        
+        ioclass: 
+        value: 
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def io_nice(self):
+        """function io_nice
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def get_rlimit(self, resource, limits):
+        """function get_rlimit
+        
+        resource: 
+        limits: 
+        
+        returns tuple
+        """
+        return None # should raise NotImplementedError()
+    
+    def set_rlimit(self, resource, limits):
+        """function set_rlimit
+        
+        resource: 
+        limits: 
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def rlimit(self):
+        """function rlimit
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def list_cpu_affinity(self):
+        """function list_cpu_affinity
+        
+        returns list
+        """
+        return None # should raise NotImplementedError()
+    
+    def set_cpu_affinity(self, cpus):
+        """function set_cpu_affinity
+        
+        cpus: 
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def cpu_affinity(self):
+        """function cpu_affinity
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def get_num_ctx_switches(self):
+        """function get_num_ctx_switches
+        
+        returns ntuple
+        """
+        return None # should raise NotImplementedError()
+    
+    def num_ctx_switches(self):
+        """function num_ctx_switches
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def list_threads(self):
+        """function list_threads
+        
+        returns list
+        """
+        return None # should raise NotImplementedError()
+    
+    def threads(self):
+        """function threads
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def list_children(self, recursive = False):
+        """function list_children
+        
+        recursive: bool
+        
+        returns list
+        """
+        return None # should raise NotImplementedError()
+    
+    def children(self):
+        """function children
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def get_cpu_percent(self, interval):
+        """function get_cpu_percent
+        
+        interval: 
+        
+        returns float
+        """
+        return None # should raise NotImplementedError()
+    
+    def cpu_percent(self):
+        """function cpu_percent
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def get_cpu_tims(self):
+        """function get_cpu_tims
+        
+        returns ntuple
+        """
+        return None # should raise NotImplementedError()
+    
+    def cpu_times(self):
+        """function cpu_times
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def get_memory_info(self):
+        """function get_memory_info
+        
+        returns ntuple
+        """
+        return None # should raise NotImplementedError()
+    
+    def memory_info(self):
+        """function memory_info
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def get_memory_info_ex(self):
+        """function get_memory_info_ex
+        
+        returns ntuple
+        """
+        return None # should raise NotImplementedError()
+    
+    def memory_info_ex(self):
+        """function memory_info_ex
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def get_memory_percent(self):
+        """function get_memory_percent
+        
+        returns float
+        """
+        return None # should raise NotImplementedError()
+    
+    def memory_percent(self):
+        """function memory_percent
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def list_memory_maps(self, grouped = True):
+        """function list_memory_maps
+        
+        grouped: bool
+        
+        returns list
+        """
+        return None # should raise NotImplementedError()
+    
+    def memory_maps(self):
+        """function memory_maps
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def list_open_files(self):
+        """function list_open_files
+        
+        returns list
+        """
+        return None # should raise NotImplementedError()
+    
+    def open_files(self):
+        """function open_files
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def list_connections(self, kind = 'inet'):
+        """function list_connections
+        
+        kind: 
+        
+        returns list
+        """
+        return None # should raise NotImplementedError()
+    
+    def connections(self):
+        """function connections
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def get_num_threads(self):
+        """function get_num_threads
+        
+        returns int
+        """
+        return None # should raise NotImplementedError()
+    
+    def num_threads(self):
+        """function num_threads
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def send_signal(self, signal):
+        """function send_signal
+        
+        signal: 
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def suspend(self):
+        """function suspend
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def resume(self):
+        """function resume
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def terminate(self):
+        """function terminate
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def kill(self):
+        """function kill
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+    def wait(self, timeout = None):
+        """function wait
+        
+        timeout: 
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+    
+
+
+* Thu 23 Apr 2015 02:07:11 PM JST
+Process
+* Thu 23 Apr 2015 02:07:12 PM JST
+psutil.Process
+* Thu 23 Apr 2015 02:07:12 PM JST
+import psutil.Process
+* Thu 23 Apr 2015 02:10:46 PM JST
+None # should raise NotImplementedError()
+* Thu 23 Apr 2015 02:11:45 PM JST
+'2.1.1'
+* Thu 23 Apr 2015 02:11:52 PM JST
+None # should raise NotImplementedError()
+* Thu 23 Apr 2015 02:13:02 PM JST
+None # should raise NotImplementedError()
+* Thu 23 Apr 2015 02:14:11 PM JST
+get_
+* Thu 23 Apr 2015 02:14:51 PM JST
+self._process.pid
+* Thu 23 Apr 2015 02:15:31 PM JST
+None # should raise NotImplementedError()
+* Thu 23 Apr 2015 02:15:49 PM JST
+get_
+* Thu 23 Apr 2015 02:16:22 PM JST
+get_
+* Thu 23 Apr 2015 02:16:45 PM JST
+None # should raise NotImplementedError()
+* Thu 23 Apr 2015 02:16:57 PM JST
+get_
+* Thu 23 Apr 2015 02:17:04 PM JST
+get_
+* Thu 23 Apr 2015 02:35:19 PM JST
+None # should raise NotImplementedError()
+* Thu 23 Apr 2015 02:35:45 PM JST
+None # should raise NotImplementedError()
+* Thu 23 Apr 2015 02:35:56 PM JST
+get_
+* Thu 23 Apr 2015 02:36:15 PM JST
+None # should raise NotImplementedError()
+* Thu 23 Apr 2015 02:36:47 PM JST
+e # should raise NotImplementedError()
+* Thu 23 Apr 2015 02:36:48 PM JST
+Nonself.
+* Thu 23 Apr 2015 02:36:49 PM JST
+return Nonself.
+* Thu 23 Apr 2015 02:36:59 PM JST
+get_username
+* Thu 23 Apr 2015 02:37:05 PM JST
+    def username(self):
+        """function username
+        
+        returns 
+        """
+        return None # should raise NotImplementedError()
+
+* Thu 23 Apr 2015 02:37:17 PM JST
+None # should raise NotImplementedError()
+* Thu 23 Apr 2015 02:37:34 PM JST
+create_time
+* Thu 23 Apr 2015 02:38:01 PM JST
+None # should raise NotImplementedError()
+* Thu 23 Apr 2015 02:38:19 PM JST
+None # should raise NotImplementedError()
+* Thu 23 Apr 2015 02:38:32 PM JST
+None # should raise NotImplementedError()
+* Thu 23 Apr 2015 02:38:33 PM JST
+self.
+* Thu 23 Apr 2015 02:38:34 PM JST
+return self.
+* Thu 23 Apr 2015 02:38:57 PM JST
+None # should raise NotImplementedError()
+* Thu 23 Apr 2015 02:39:28 PM JST
+_POSIX = os.name == 'posix'
+_WINDOWS = os.name == 'nt'
+
+* Thu 23 Apr 2015 02:40:37 PM JST
+None # should raise NotImplementedError()
+* Thu 23 Apr 2015 02:41:11 PM JST
+None # should raise NotImplementedError()
+* Thu 23 Apr 2015 02:41:16 PM JST
+property
+* Thu 23 Apr 2015 02:42:07 PM JST
+None # should raise NotImplementedError()
+* Thu 23 Apr 2015 02:43:08 PM JST
+None # should raise NotImplementedError()
+* Thu 23 Apr 2015 02:44:37 PM JST
+None # should raise NotImplementedError()
+* Thu 23 Apr 2015 02:44:59 PM JST
+return None # should raise NotImplementedError()
+* Thu 23 Apr 2015 02:45:54 PM JST
+None # should raise NotImplementedError()
+* Thu 23 Apr 2015 02:46:17 PM JST
+return None # should raise NotImplementedError()
+* Thu 23 Apr 2015 02:46:58 PM JST
+        def rlimit(self):
+            """function rlimit
+
+            returns 
+            """
+            return None # should raise NotImplementedError()
+
+* Thu 23 Apr 2015 02:48:57 PM JST
+p.num_threads()
+* Thu 23 Apr 2015 02:49:02 PM JST
+num_
+* Thu 23 Apr 2015 02:49:08 PM JST
+None # should raise NotImplementedError()
+* Thu 23 Apr 2015 02:49:51 PM JST
+return None # should raise NotImplementedError()
+* Thu 23 Apr 2015 02:50:37 PM JST
+child
+* Thu 23 Apr 2015 02:51:28 PM JST
+None # should raise NotImplementedError()
+* Thu 23 Apr 2015 02:52:17 PM JST
+None # should raise NotImplementedError()
+* Thu 23 Apr 2015 02:52:55 PM JST
+None # should raise NotImplementedError()
+* Thu 23 Apr 2015 02:52:56 PM JST
+lsef.
+* Thu 23 Apr 2015 02:53:21 PM JST
+None # should raise NotImplementedError()
+* Thu 23 Apr 2015 02:53:51 PM JST
+None # should raise NotImplementedError()
+* Thu 23 Apr 2015 02:53:52 PM JST
+lsef.
+* Thu 23 Apr 2015 02:53:57 PM JST
+_memory
+* Thu 23 Apr 2015 02:54:33 PM JST
+None # should raise NotImplementedError()
+* Thu 23 Apr 2015 02:55:06 PM JST
+None # should raise NotImplementedError()
+* Thu 23 Apr 2015 02:55:41 PM JST
+None # should raise NotImplementedError()
+* Thu 23 Apr 2015 02:55:49 PM JST
+list_
+* Thu 23 Apr 2015 02:59:22 PM JST
+None # should raise NotImplementedError()
+* Thu 23 Apr 2015 02:59:38 PM JST
+return None # should raise NotImplementedError()
+* Thu 23 Apr 2015 02:59:39 PM JST
+f
+* Thu 23 Apr 2015 02:59:40 PM JST
+se
+* Thu 23 Apr 2015 02:59:40 PM JST
+lse.se
+* Thu 23 Apr 2015 03:00:26 PM JST
+None # should raise NotImplementedError()
+* Thu 23 Apr 2015 03:01:25 PM JST
+None # should raise NotImplementedError()
+* Thu 23 Apr 2015 03:02:00 PM JST
+None # should raise NotImplementedError()
+* Thu 23 Apr 2015 03:02:12 PM JST
+None # should raise NotImplementedError()
+* Thu 23 Apr 2015 03:02:24 PM JST
+None # should raise NotImplementedError()
+* Thu 23 Apr 2015 03:02:36 PM JST
+return 
+* Thu 23 Apr 2015 03:02:39 PM JST
+return 
+* Thu 23 Apr 2015 03:02:44 PM JST
+return 
+* Thu 23 Apr 2015 03:02:50 PM JST
+return None # should raise NotImplementedError()
+* Thu 23 Apr 2015 03:02:52 PM JST
+lsef.
+* Thu 23 Apr 2015 03:03:05 PM JST
+return None # should raise NotImplementedError()
+* Thu 23 Apr 2015 03:03:31 PM JST
+None # should raise NotImplementedError()
+* Thu 23 Apr 2015 03:03:57 PM JST
+wai
+* Fri 24 Apr 2015 12:48:54 PM JST
+['__class__', '__delattr__', '__dict__', '__doc__', '__eq__', '__format__', '__getattr
+ibute__', '__hash__', '__init__', '__module__', '__new__', '__reduce__', '__reduce_ex_
+_', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref
+__', 'cmdline', 'deproxy', 'gid', 'is_running', 'kill', 'name', 'parent', 'path', 'pid
+', 'ppid', 'uid']                                                                    
+
+* Fri 24 Apr 2015 12:49:23 PM JST
+'cmdline', 'deproxy', 'gid', 'is_running', 'kill', 'name', 'parent', 'path', 'pid
+', 'ppid', 'uid'
+* Fri 24 Apr 2015 12:50:39 PM JST
+'cmdline', 'create_time', 'deproxy', 'get_cpu_percent', 'get_cpu_times', 'get_mem
+ory_info', 'get_memory_percent', 'gid', 'is_running', 'kill', 'name', 'parent', 'path'
+, 'pid', 'ppid', 'uid'
+* Fri 24 Apr 2015 12:53:51 PM JST
+'as_d
+ict', 'cmdline', 'create_time', 'exe', 'get_children', 'get_connections', 'get_cpu_aff
+inity', 'get_cpu_percent', 'get_cpu_times', 'get_ext_memory_info', 'get_io_counters', 
+'get_ionice', 'get_memory_info', 'get_memory_maps', 'get_memory_percent', 'get_nice', 
+'get_num_ctx_switches', 'get_num_fds', 'get_num_threads', 'get_open_files', 'get_threa
+ds', 'getcwd', 'gids', 'is_running', 'kill', 'name', 'nice', 'parent', 'pid', 'ppid', 
+'resume', 'send_signal', 'set_cpu_affinity', 'set_ionice', 'set_nice', 'status', 'susp
+end', 'terminal', 'terminate', 'uids', 'username', 'wait'
+* Fri 24 Apr 2015 12:54:46 PM JST
+__class__             _name                 get_num_fds       set_ionice
+__delattr__           _pid                  get_num_threads   set_nice  
+__dict__              _ppid                 get_open_files    set_rlimit
+__doc__               _proc                 get_rlimit        status    
+__eq__                _send_signal          get_threads       suspend   
+__format__            as_dict               getcwd            terminal  
+__getattribute__      children              gids              terminate 
+__hash__              cmdline               io_counters       threads   
+__init__              connections           ionice            uids      
+__module__            cpu_affinity          is_running        username  
+__ne__                cpu_percent           kill              wait      
+__new__               cpu_times             memory_info     
+__reduce__            create_time           memory_info_ex  
+__reduce_ex__         cwd                   memory_maps     
+__repr__              exe                   memory_percent  
+__setattr__           get_children          name            
+__sizeof__            get_connections       nice            
+__str__               get_cpu_affinity      num_ctx_switches
+__subclasshook__      get_cpu_percent       num_fds         
+__weakref__           get_cpu_times         num_threads     
+_create_time          get_ext_memory_info   open_files      
+_exe                  get_io_counters       parent          
+_gone                 get_ionice            pid             
+_hash                 get_memory_info       ppid            
+_ident                get_memory_maps       resume          
+_init                 get_memory_percent    rlimit          
+_last_proc_cpu_times  get_nice              send_signal     
+_last_sys_cpu_times   get_num_ctx_switches  set_cpu_affinity[0
+
+* Fri 24 Apr 2015 01:17:29 PM JST
+QU /root/.pylib# 111111111111111111111111111111111111111111111111111111111
+* Fri 24 Apr 2015 01:28:16 PM JST
+import logging
+from path import Path
+from logging.handlers import RotatingFileHandler
+
+* Fri 24 Apr 2015 01:32:21 PM JST
+    with open('/tmp/tes1', 'wb') as fobj:
+        fobj.write('err')
+
+* Fri 24 Apr 2015 01:34:41 PM JST
+with open('/tmp/tes2', 'wb') as fobj:
+    fobj.write('err')
+
+
+* Fri 24 Apr 2015 01:36:42 PM JST
+generate_recipe_html.py
+* Fri 24 Apr 2015 01:42:27 PM JST
+with open('/tmp/tes2', 'wb') as fobj:
+    fobj.write('tes')
+
+* Fri 24 Apr 2015 01:42:48 PM JST
+with open('/tmp/tes3', 'wb') as fobj:
+    fobj.write('tes')
+
+* Fri 24 Apr 2015 01:43:02 PM JST
+NOTSET
+* Fri 24 Apr 2015 01:43:10 PM JST
+NOTSET
+* Fri 24 Apr 2015 01:43:14 PM JST
+DEBUG
+* Fri 24 Apr 2015 01:43:17 PM JST
+NOTSET
+* Fri 24 Apr 2015 01:43:47 PM JST
+with open('/tmp/tes4', 'wb') as fobj:
+    fobj.write('tes')
+
+* Fri 24 Apr 2015 01:45:54 PM JST
+    with open('/tmp/tes1', 'wb') as fobj:
+        fobj.write('err')
+
+* Fri 24 Apr 2015 01:46:00 PM JST
+err
+* Fri 24 Apr 2015 01:47:58 PM JST
+export DISPLAY=:0 && 
+* Fri 24 Apr 2015 01:52:16 PM JST
+
+* Fri 24 Apr 2015 01:52:16 PM JST
+
+* Fri 24 Apr 2015 01:52:16 PM JST
+try:
+
+* Sat 25 Apr 2015 11:31:08 AM JST
+Dinamic
+* Sat 25 Apr 2015 05:01:27 PM JST
+
+* Sat 25 Apr 2015 05:01:27 PM JST
+
+* Sat 25 Apr 2015 05:01:27 PM JST
+
+
+* Sat 25 Apr 2015 06:45:59 PM JST
+ウィンドウ操作を自動化
+* Sat 25 Apr 2015 06:46:14 PM JST
+キーボードやマウスをカスタマイズ
+* Mon 27 Apr 2015 12:53:16 PM JST
+xobject
+* Wed 29 Apr 2015 09:48:42 AM JST
+
+* Wed 29 Apr 2015 09:48:42 AM JST
+
+* Wed 29 Apr 2015 09:48:43 AM JST
+            sleep(1)
+
+* Wed 29 Apr 2015 09:49:47 AM JST
+self.disk.decrypt(self._getpassword())
+* Wed 29 Apr 2015 09:50:14 AM JST
+self._getpassword()
+* Wed 29 Apr 2015 09:55:37 AM JST
+
+* Wed 29 Apr 2015 09:55:37 AM JST
+
+* Wed 29 Apr 2015 09:55:37 AM JST
+            print(passwd)
+
+* Wed 29 Apr 2015 09:55:41 AM JST
+self._getpassword()
+* Wed 29 Apr 2015 09:55:44 AM JST
+
+* Wed 29 Apr 2015 09:55:44 AM JST
+
+* Wed 29 Apr 2015 09:55:44 AM JST
+            passwd = 

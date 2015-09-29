@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: initialize(auto-insert)
+# key: initialize_auto-insert
+# --
+`(view-mode -1)`$0
+#include <cstdlib>
+${1:#include <${2:iostream}>}
+
+int main(int argc, char **argv)
+{
+  return EXIT_SUCCESS;
+}

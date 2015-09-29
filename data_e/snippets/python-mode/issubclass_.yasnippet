@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: issubclass_
+# key: issubclass
+# condition: (and (not (py:at-string|comment-p)) (equal (this-command-keys-vector) [32]) (not (save-excursion (backward-char 11) (looking-back "[.]"))))
+# 32 = ` '
+# --
+issubclass_ $0

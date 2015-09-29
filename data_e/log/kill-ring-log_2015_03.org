@@ -1,0 +1,5745 @@
+
+* Sun 01 Mar 2015 10:41:16 PM JST
+from t1.dateutil import now_weekday
+* Sun 01 Mar 2015 10:43:18 PM JST
+MenuManager().lotate_todaylink() # one day
+* Sun 01 Mar 2015 10:43:28 PM JST
+from menu import MenuManager
+* Sun 01 Mar 2015 10:44:24 PM JST
+        if not self.isdebug() and weekday.is_wednesday():
+            self._tasks.append(CleanRecipe())
+
+* Sun 01 Mar 2015 10:44:35 PM JST
+and 
+* Sun 01 Mar 2015 10:44:36 PM JST
+isdebug() and 
+* Sun 01 Mar 2015 10:44:36 PM JST
+self.isdebug() and 
+* Sun 01 Mar 2015 10:44:36 PM JST
+not self.isdebug() and 
+* Sun 01 Mar 2015 10:44:52 PM JST
+        def recur_rm(path):
+            r"""SUMMARY
+
+            recur_rm(path)
+
+            @Arguments:
+            - `path`:
+
+            @Return:
+
+            @Error:
+            """
+            if path.issymlink():
+                return
+            elif path.isfile():
+                try:
+                    os.remove(unicode(path).encode('utf-8'))
+                except IOError as err:
+                    LOG.error(err)
+            else:
+                for pth in path.listdir():
+                    recur_rm(pth)
+
+        basepath = MenuManager().calc_weeklink(-1)
+        recur_rm(basepath)
+
+* Sun 01 Mar 2015 10:45:14 PM JST
+
+* Sun 01 Mar 2015 10:45:14 PM JST
+
+* Sun 01 Mar 2015 10:45:15 PM JST
+        self._tasks.append(CleanRecipe())
+
+* Sun 01 Mar 2015 10:46:17 PM JST
+        if not self.isdebug() and weekday.is_wednesday():
+            self._tasks.append(LotateRecipeWeekLink())
+
+* Sun 01 Mar 2015 10:46:27 PM JST
+and 
+* Sun 01 Mar 2015 10:46:27 PM JST
+isdebug() and 
+* Sun 01 Mar 2015 10:46:28 PM JST
+self.isdebug() and 
+* Sun 01 Mar 2015 10:46:28 PM JST
+not self.isdebug() and 
+* Sun 01 Mar 2015 10:46:39 PM JST
+MenuManager().lotate_weeklink()
+* Mon 02 Mar 2015 12:15:02 AM JST
+import sys
+import os
+import argparse
+
+from t1.dateutil import now_weekday
+from menu import MenuManager
+
+# for debug
+import cgitb
+cgitb.enable(format='text')
+
+
+__revision__ = '$Revision$'
+__version__ = '0.0.1'
+
+
+def _predef_options():
+    parser = argparse.ArgumentParser(description="""""")
+    parser.add_argument('--version',
+                        dest='version',
+                        action='version',
+                        version=__version__,
+                        help='Version Strings.')
+    # (yas/expand-link "argparse_add_argument" t)
+    return parser
+
+def _main():
+    r"""Main function."""
+    parser = _predef_options()
+    opts = parser.parse_args()
+    # parser.print_usage()
+    weekday = now_weekday()
+    # rotate weeklink
+    if weekday.is_wednesday():
+        MenuManager().lotate_weeklink()
+
+    # rotate today link
+    MenuManager().lotate_todaylink() # one day
+
+    # clean link
+    if weekday.is_wednesday():
+        def recur_rm(path):
+            if path.issymlink():
+                return
+            elif path.isfile():
+                try:
+                    os.remove(unicode(path).encode('utf-8'))
+                except IOError as err:
+                    pass
+            else:
+                for pth in path.listdir():
+                    recur_rm(pth)
+
+        basepath = MenuManager().calc_weeklink(-1)
+        recur_rm(basepath)
+
+    return os.EX_OK
+
+if __name__ == '__main__':
+    sys.exit(_main())
+
+* Mon 02 Mar 2015 12:16:12 AM JST
+
+* Mon 02 Mar 2015 12:16:12 AM JST
+
+* Mon 02 Mar 2015 12:16:12 AM JST
+from t1.dateutil import now_weekday
+
+* Mon 02 Mar 2015 12:23:20 AM JST
+NOTSET
+* Mon 02 Mar 2015 12:23:22 AM JST
+NOTSET
+* Mon 02 Mar 2015 12:23:25 AM JST
+NOTSET
+* Mon 02 Mar 2015 12:25:41 AM JST
+NOTSET
+* Mon 02 Mar 2015 12:33:33 AM JST
+from pathhandler import PathHandler
+* Mon 02 Mar 2015 12:33:41 AM JST
+PathHandler
+* Mon 02 Mar 2015 12:35:46 AM JST
+scripts/
+* Mon 02 Mar 2015 12:35:47 AM JST
+zsh/scripts/
+* Mon 02 Mar 2015 12:37:00 AM JST
+/root/.pylib/
+* Mon 02 Mar 2015 12:39:00 AM JST
+PYTHONPATH=/root/.pylib:/root/.emacs.d/data_e/pylib
+* Mon 02 Mar 2015 12:40:01 AM JST
+PYTHONPATH=/root/.pylib:/root/.emacs.d/data_e/pylib
+* Mon 02 Mar 2015 12:42:17 AM JST
+debug
+* Mon 02 Mar 2015 12:42:18 AM JST
+debug
+* Mon 02 Mar 2015 12:44:38 AM JST
+rotate
+* Mon 02 Mar 2015 12:44:39 AM JST
+rotate_recipe_daily
+* Mon 02 Mar 2015 12:47:00 AM JST
+import logging
+from pathhandler import PathHandler
+from logging.handlers import RotatingFileHandler
+
+* Mon 02 Mar 2015 12:47:29 AM JST
+NOTSET
+* Mon 02 Mar 2015 12:47:32 AM JST
+NOTSET
+* Mon 02 Mar 2015 01:38:52 AM JST
+from pathhandler import PathHandler
+from logging.handlers import RotatingFileHandler
+
+* Mon 02 Mar 2015 01:38:55 AM JST
+
+* Mon 02 Mar 2015 01:38:55 AM JST
+
+* Mon 02 Mar 2015 01:38:55 AM JST
+import logging
+
+* Mon 02 Mar 2015 01:39:09 AM JST
+
+* Mon 02 Mar 2015 01:39:09 AM JST
+
+* Mon 02 Mar 2015 01:39:09 AM JST
+from menu import MenuManager
+
+* Mon 02 Mar 2015 01:39:44 AM JST
+LOG.info('started')
+* Mon 02 Mar 2015 01:44:02 AM JST
+MenuManager
+* Mon 02 Mar 2015 01:46:28 AM JST
+ImportError
+* Mon 02 Mar 2015 01:48:32 AM JST
+export DISPLAY=:0
+* Mon 02 Mar 2015 01:50:02 AM JST
+
+* Mon 02 Mar 2015 01:50:02 AM JST
+
+* Mon 02 Mar 2015 01:50:02 AM JST
+try:
+
+* Mon 02 Mar 2015 01:50:46 AM JST
+from t1.dateutil import now_weekday
+* Mon 02 Mar 2015 01:50:53 AM JST
+weekday = now_weekday()
+* Mon 02 Mar 2015 01:51:00 AM JST
+    if weekday.is_wednesday():
+        MenuManager().lotate_weeklink()
+
+* Mon 02 Mar 2015 01:51:11 AM JST
+    # clean link
+    if weekday.is_wednesday():
+        def recur_rm(path):
+            if path.issymlink():
+                return
+            elif path.isfile():
+                try:
+                    os.remove(unicode(path).encode('utf-8'))
+                except IOError as err:
+                    pass
+            else:
+                for pth in path.listdir():
+                    recur_rm(pth)
+
+        basepath = MenuManager().calc_weeklink(-1)
+        recur_rm(basepath)
+
+
+* Mon 02 Mar 2015 01:51:25 AM JST
+from t1.dateutil import now_weekday
+from menu import MenuManager
+
+* Tue 03 Mar 2015 01:33:11 AM JST
+cpu_percent
+* Tue 03 Mar 2015 05:16:31 AM JST
+cpu_percent(interval=interval, percpu=False)
+* Tue 03 Mar 2015 05:16:37 AM JST
+self._percent 
+* Tue 03 Mar 2015 05:19:53 AM JST
+cpu_percent(interval=interval, percpu=False)
+* Tue 03 Mar 2015 05:23:03 AM JST
+self._isbusy(cpu_percent(interval=interval, percpu=False))
+* Tue 03 Mar 2015 05:23:53 AM JST
+current = 
+* Tue 03 Mar 2015 05:24:00 AM JST
+start - 
+* Tue 03 Mar 2015 05:25:03 AM JST
+        while 1:
+            percents = cpu_percent(interval=interval, percpu=True)
+            for percent in percents:
+                if not self._isbusy(percent):
+                    break
+
+* Tue 03 Mar 2015 05:25:31 AM JST
+            if timeup <= time.time() - start:
+                break
+
+* Tue 03 Mar 2015 05:25:38 AM JST
+start = time.time()
+* Tue 03 Mar 2015 05:28:54 AM JST
+BusyWait
+* Tue 03 Mar 2015 05:34:29 AM JST
+import busywait
+b=busywait.BusyWait(10)
+
+* Tue 03 Mar 2015 05:34:33 AM JST
+b.wait(2,percpu=True,timeout=10)
+* Tue 03 Mar 2015 05:34:42 AM JST
+import busywait
+b=busywait.BusyWait(10)
+
+* Tue 03 Mar 2015 05:34:45 AM JST
+b.wait(2,percpu=True,timeout=10)
+* Tue 03 Mar 2015 05:36:08 AM JST
+percent
+* Tue 03 Mar 2015 05:38:40 AM JST
+self._isbusy(percent)
+* Tue 03 Mar 2015 05:42:22 AM JST
+            for percent in percents:
+                print(percent)
+                print(self._isbusy(percent))
+                if not self._isbusy(percent):
+                    break
+
+* Tue 03 Mar 2015 05:42:28 AM JST
+break
+* Tue 03 Mar 2015 05:44:26 AM JST
+self, 
+* Tue 03 Mar 2015 05:47:47 AM JST
+pass
+* Tue 03 Mar 2015 05:48:29 AM JST
+        def isbusyes(prcnts):
+            for percent in prcnts:
+                if not self._isbusy(percent):
+                    return False
+            return True
+
+* Tue 03 Mar 2015 05:48:39 AM JST
+            if not isbusyes(percents):
+                break
+
+* Tue 03 Mar 2015 05:50:24 AM JST
+import busywait
+b=busywait.BusyWait(10)
+
+* Tue 03 Mar 2015 05:50:27 AM JST
+b.wait(2,percpu=True,timeout=10)
+* Tue 03 Mar 2015 05:51:11 AM JST
+print(percents)
+* Tue 03 Mar 2015 05:52:15 AM JST
+
+* Tue 03 Mar 2015 05:52:15 AM JST
+
+* Tue 03 Mar 2015 05:52:15 AM JST
+            print(percents)
+
+* Tue 03 Mar 2015 05:52:16 AM JST
+
+* Tue 03 Mar 2015 05:52:17 AM JST
+
+* Tue 03 Mar 2015 05:52:17 AM JST
+            sleep(interval)
+
+* Tue 03 Mar 2015 05:52:19 AM JST
+
+* Tue 03 Mar 2015 05:52:20 AM JST
+
+* Tue 03 Mar 2015 05:52:20 AM JST
+            sleep(interval)
+
+* Tue 03 Mar 2015 05:52:25 AM JST
+
+* Tue 03 Mar 2015 05:52:25 AM JST
+
+* Tue 03 Mar 2015 05:52:25 AM JST
+            sleep(interval)
+
+* Tue 03 Mar 2015 05:52:49 AM JST
+print(percents)
+* Tue 03 Mar 2015 05:55:30 AM JST
+
+* Tue 03 Mar 2015 05:55:31 AM JST
+
+* Tue 03 Mar 2015 05:55:31 AM JST
+from time import sleep
+
+* Tue 03 Mar 2015 05:55:56 AM JST
+break
+* Tue 03 Mar 2015 05:56:08 AM JST
+raise TimeOut(timeout)
+* Tue 03 Mar 2015 05:58:18 AM JST
+import busywait
+b=busywait.BusyWait(10)
+
+* Tue 03 Mar 2015 05:58:23 AM JST
+b.wait(2,percpu=True,timeout=10)
+* Tue 03 Mar 2015 05:59:51 AM JST
+from psutil import cpu_percent
+* Tue 03 Mar 2015 06:04:35 AM JST
+        if timeout < interval:
+            interval = timeout
+
+* Tue 03 Mar 2015 06:04:43 AM JST
+        if timeout < interval:
+            interval = timeout
+
+
+* Tue 03 Mar 2015 06:22:45 AM JST
+percent
+* Tue 03 Mar 2015 06:22:58 AM JST
+cpu_percent(interval=interval, percpu=False)
+* Tue 03 Mar 2015 06:24:46 AM JST
+            for percent in prcnts:
+                if not self._isbusy(percent):
+                    return False
+            return True
+
+* Tue 03 Mar 2015 06:24:59 AM JST
+prcnts
+* Tue 03 Mar 2015 06:25:15 AM JST
+self._percent < percents
+* Tue 03 Mar 2015 06:29:05 AM JST
+import busywait
+b=busywait.BusyWait(10)
+
+* Tue 03 Mar 2015 06:32:47 AM JST
+
+* Tue 03 Mar 2015 06:32:47 AM JST
+
+* Tue 03 Mar 2015 06:32:49 AM JST
+
+* Tue 03 Mar 2015 06:32:49 AM JST
+
+* Tue 03 Mar 2015 06:32:49 AM JST
+        if isinstance(object, (class, )):
+
+* Tue 03 Mar 2015 07:11:49 AM JST
+YES
+* Tue 03 Mar 2015 09:31:10 AM JST
+#---------------------------------------------------------------------------
+# configuration options related to the HTML output
+#---------------------------------------------------------------------------
+GENERATE_HTML          = YES
+HTML_OUTPUT            = doxygen_html
+HTML_FILE_EXTENSION    = .html
+HTML_HEADER            =
+HTML_FOOTER            =
+HTML_STYLESHEET        =
+HTML_EXTRA_STYLESHEET  =
+HTML_EXTRA_FILES       =
+HTML_COLORSTYLE_HUE    = 220
+HTML_COLORSTYLE_SAT    = 100
+HTML_COLORSTYLE_GAMMA  = 80
+HTML_TIMESTAMP         = NO
+HTML_DYNAMIC_SECTIONS  = NO
+HTML_INDEX_NUM_ENTRIES = 100
+GENERATE_DOCSET        = NO
+DOCSET_FEEDNAME        = "Doxygen generated docs"
+DOCSET_BUNDLE_ID       = org.doxygen.Project
+DOCSET_PUBLISHER_ID    = org.doxygen.Publisher
+DOCSET_PUBLISHER_NAME  = Publisher
+GENERATE_HTMLHELP      = NO
+CHM_FILE               =
+HHC_LOCATION           =
+GENERATE_CHI           = NO
+CHM_INDEX_ENCODING     =
+BINARY_TOC             = NO
+TOC_EXPAND             = NO
+GENERATE_QHP           = NO
+QCH_FILE               =
+QHP_NAMESPACE          = org.doxygen.Project
+QHP_VIRTUAL_FOLDER     = doc
+QHP_CUST_FILTER_NAME   =
+QHP_CUST_FILTER_ATTRS  =
+QHP_SECT_FILTER_ATTRS  =
+QHG_LOCATION           =
+GENERATE_ECLIPSEHELP   = NO
+ECLIPSE_DOC_ID         = org.doxygen.Project
+DISABLE_INDEX          = NO
+GENERATE_TREEVIEW      = YES
+ENUM_VALUES_PER_LINE   = 4
+TREEVIEW_WIDTH         = 250
+EXT_LINKS_IN_WINDOW    = NO
+FORMULA_FONTSIZE       = 10
+FORMULA_TRANSPARENT    = YES
+USE_MATHJAX            = NO
+MATHJAX_FORMAT         = HTML-CSS
+MATHJAX_RELPATH        = http://cdn.mathjax.org/mathjax/latest
+MATHJAX_EXTENSIONS     =
+SEARCHENGINE           = YES
+SERVER_BASED_SEARCH    = NO
+EXTERNAL_SEARCH        = NO
+SEARCHENGINE_URL       =
+SEARCHDATA_FILE        = searchdata.xml
+EXTERNAL_SEARCH_ID     =
+EXTRA_SEARCH_MAPPINGS  =
+
+#---------------------------------------------------------------------------
+# configuration options related to the LaTeX output
+#---------------------------------------------------------------------------
+GENERATE_LATEX         = NO
+LATEX_OUTPUT           = latex
+LATEX_CMD_NAME         = latex
+MAKEINDEX_CMD_NAME     = makeindex
+COMPACT_LATEX          = NO
+PAPER_TYPE             = a4
+EXTRA_PACKAGES         =
+LATEX_HEADER           =
+LATEX_FOOTER           =
+PDF_HYPERLINKS         = YES
+USE_PDFLATEX           = YES
+LATEX_BATCHMODE        = NO
+LATEX_HIDE_INDICES     = NO
+LATEX_SOURCE_CODE      = NO
+LATEX_BIB_STYLE        = plain
+
+#---------------------------------------------------------------------------
+# configuration options related to the RTF output
+#---------------------------------------------------------------------------
+GENERATE_RTF           = NO
+RTF_OUTPUT             = rtf
+COMPACT_RTF            = NO
+RTF_HYPERLINKS         = NO
+RTF_STYLESHEET_FILE    =
+RTF_EXTENSIONS_FILE    =
+
+#---------------------------------------------------------------------------
+# configuration options related to the man page output
+#---------------------------------------------------------------------------
+GENERATE_MAN           = NO
+MAN_OUTPUT             = man
+MAN_EXTENSION          = .3
+MAN_LINKS              = NO
+
+#---------------------------------------------------------------------------
+# configuration options related to the XML output
+#---------------------------------------------------------------------------
+GENERATE_XML           = NO
+XML_OUTPUT             = xml
+XML_SCHEMA             =
+XML_DTD                =
+XML_PROGRAMLISTING     = YES
+
+
+* Tue 03 Mar 2015 05:21:17 PM JST
+ Test* *Test* *test
+* Tue 03 Mar 2015 05:35:31 PM JST
+YES
+* Tue 03 Mar 2015 05:36:14 PM JST
+NO
+* Wed 04 Mar 2015 07:26:04 AM JST
+*/test/* 
+* Wed 04 Mar 2015 07:33:34 AM JST
+*/test/*
+* Wed 04 Mar 2015 07:33:50 AM JST
+*unittest.cc 
+* Wed 04 Mar 2015 07:45:43 AM JST
+.mm
+* Wed 04 Mar 2015 07:45:59 AM JST
+*unittest.cc 
+* Wed 04 Mar 2015 07:46:15 AM JST
+*test.h 
+* Thu 05 Mar 2015 01:16:31 PM JST
+                         */test/* \
+                         */Tests/* \
+                         */tests/* \
+
+* Thu 05 Mar 2015 01:16:36 PM JST
+*messages.cc \
+* Thu 05 Mar 2015 01:16:40 PM JST
+                         
+* Thu 05 Mar 2015 01:16:51 PM JST
+                         *messages.cc \
+                         *message_generator.cc \
+                         *traits.cc \
+
+* Thu 05 Mar 2015 01:22:01 PM JST
+about_flags::testing
+* Thu 05 Mar 2015 01:23:14 PM JST
+admin_servlets_test
+* Thu 05 Mar 2015 01:24:42 PM JST
+api_categorizer_test 
+* Thu 05 Mar 2015 01:33:08 PM JST
+rowsertest.cc.
+* Thu 05 Mar 2015 02:10:49 PM JST
+
+* Thu 05 Mar 2015 02:10:49 PM JST
+
+* Thu 05 Mar 2015 02:10:49 PM JST
+                         Test* \
+
+* Thu 05 Mar 2015 02:28:48 PM JST
+SYMBOL
+* Thu 05 Mar 2015 02:28:49 PM JST
+SYMBOL_CACHE_SIZE
+* Thu 05 Mar 2015 02:33:45 PM JST
+LOOKUP_CACHE_SIZE
+* Thu 05 Mar 2015 03:38:25 PM JST
+
+* Thu 05 Mar 2015 03:38:25 PM JST
+
+* Thu 05 Mar 2015 03:38:25 PM JST
+                         # *.java \
+
+* Thu 05 Mar 2015 03:38:35 PM JST
+
+* Thu 05 Mar 2015 03:38:35 PM JST
+
+* Thu 05 Mar 2015 03:38:35 PM JST
+                         # *.py \
+
+* Thu 05 Mar 2015 03:42:54 PM JST
+
+* Thu 05 Mar 2015 03:42:54 PM JST
+
+* Thu 05 Mar 2015 03:42:54 PM JST
+                         # test_*.* \
+
+* Thu 05 Mar 2015 03:42:55 PM JST
+
+* Thu 05 Mar 2015 03:42:55 PM JST
+
+* Thu 05 Mar 2015 03:42:55 PM JST
+                         # *unittest*.* \
+
+* Thu 05 Mar 2015 03:42:56 PM JST
+
+* Thu 05 Mar 2015 03:42:56 PM JST
+
+* Thu 05 Mar 2015 03:42:56 PM JST
+                         # *browsertest.cc \
+
+* Thu 05 Mar 2015 03:47:11 PM JST
+                         
+* Thu 05 Mar 2015 03:47:25 PM JST
+                         
+* Thu 05 Mar 2015 03:48:02 PM JST
+                         *.php \
+                         *.php3 \
+
+* Thu 05 Mar 2015 03:48:17 PM JST
+                         *.cs \
+
+* Thu 05 Mar 2015 03:48:25 PM JST
+
+* Thu 05 Mar 2015 03:48:25 PM JST
+
+* Thu 05 Mar 2015 03:48:25 PM JST
+                         *.dox \
+
+* Thu 05 Mar 2015 03:48:34 PM JST
+                         *.idl \
+                         *.odl \
+                         *.inc \
+
+* Thu 05 Mar 2015 03:48:51 PM JST
+                         *.markdown \
+                         *.md \
+
+* Thu 05 Mar 2015 03:49:11 PM JST
+                         *.ii \
+                         *.ixx \
+                         *.ipp \
+                         *.i++ \
+                         *.inl \
+
+* Thu 05 Mar 2015 04:07:22 PM JST
+waitbusy, 
+* Thu 05 Mar 2015 04:29:57 PM JST
+frame_param.cc
+* Thu 05 Mar 2015 04:55:54 PM JST
+input_event_filter.cc
+* Thu 05 Mar 2015 05:25:21 PM JST
+ipclist.cc
+* Thu 05 Mar 2015 05:57:46 PM JST
+message_names.cc
+* Thu 05 Mar 2015 05:59:07 PM JST
+/message_lib/
+* Thu 05 Mar 2015 09:54:28 PM JST
+
+* Thu 05 Mar 2015 09:54:28 PM JST
+
+* Thu 05 Mar 2015 09:54:28 PM JST
+                         *.d \
+
+* Fri 06 Mar 2015 05:59:52 AM JST
+third_party
+* Fri 06 Mar 2015 05:27:29 PM JST
+
+* Sat 07 Mar 2015 04:58:22 AM JST
+/chromium
+* Sat 07 Mar 2015 07:15:18 AM JST
+                         
+* Sat 07 Mar 2015 07:15:20 AM JST
+party
+* Sat 07 Mar 2015 07:15:20 AM JST
+third_party
+* Sat 07 Mar 2015 07:18:54 AM JST
+YES
+* Sat 07 Mar 2015 07:19:16 AM JST
+YES
+* Sat 07 Mar 2015 07:19:36 AM JST
+YES
+* Sat 07 Mar 2015 07:39:06 AM JST
+
+/dev/sdb1   *          63      417689      208813+  83  Linux
+/dev/sdb2          417690     4626719     2104515   83  Linux
+/dev/sdb3         4626781   976768064   486070642    f  W95 Ext'd (LBA)
+/dev/sdb5         4626783    61432559    28402888+  83  Linux
+/dev/sdb6        61435904   976766975   457665536   83  Linux
+
+Disk /dev/sdg: 31.5 GB, 31457280000 bytes
+255 heads, 63 sectors/track, 3824 cylinders, total 61440000 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk identifier: 0x0003d229
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sdg1   *          63      417689      208813+  83  Linux
+/dev/sdg3          417790    61432559    30507385    5  Extended
+/dev/sdg5         4626783    61432559    28402888+  83  Linux
+/dev/sdg6          417792     4626431     2104320   83  Linux
+
+Partition table entries are not in disk order
+
+Disk /dev/mapper/sdf5_crypt: 29.1 GB, 29082460672 bytes
+255 heads, 63 sectors/track, 3535 cylinders, total 56801681 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk identifier: 0x00000000
+
+Disk /dev/mapper/sdf5_crypt doesn't contain a valid partition table
+
+Disk /dev/mapper/sdf2_crypt: 2155 MB, 2155023360 bytes
+255 heads, 63 sectors/track, 262 cylinders, total 4209030 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk identifier: 0x268288ef
+
+Disk /dev/mapper/sdf2_crypt doesn't contain a valid partition table
+
+Disk /dev/mapper/data: 468.6 GB, 468647411712 bytes
+255 heads, 63 sectors/track, 56976 cylinders, total 915326976 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk identifier: 0x00000000
+
+Disk /dev/mapper/data doesn't contain a valid partition table
+QU /media/Data/MYTEMP/src/chromium# wol
+Enter private key password: 
+* Sat 07 Mar 2015 07:58:18 AM JST
+/media/portable/dos/graphviz/doxygen.conf
+* Sat 07 Mar 2015 08:08:00 AM JST
+iptables -I INPUT 5 -i eth0 -p tcp --dport 80 -m state --state NEW,ESTABLISHED -j ACCEPT
+* Sat 07 Mar 2015 08:09:45 AM JST
+git clone https://chromium.googlesource.com/chromium/src
+* Sat 07 Mar 2015 09:37:06 AM JST
+dox_ui.tag
+* Sat 07 Mar 2015 09:39:06 AM JST
+#---------------------------------------------------------------------------
+# Configuration::additions related to external references
+#---------------------------------------------------------------------------
+TAGFILES               = ui/dox_ui.tag=ui/doxyhtml
+GENERATE_TAGFILE       = 
+ALLEXTERNALS           = NO
+EXTERNAL_GROUPS        = YES
+PERL_PATH              = /usr/bin/perl
+
+
+* Sat 07 Mar 2015 09:43:15 AM JST
+#---------------------------------------------------------------------------
+# Configuration::additions related to external references
+#---------------------------------------------------------------------------
+TAGFILES               =
+GENERATE_TAGFILE       = dox_ui.tag
+ALLEXTERNALS           = NO
+EXTERNAL_GROUPS        = YES
+PERL_PATH              = /usr/bin/perl
+
+
+* Sat 07 Mar 2015 11:21:47 AM JST
+
+* Sat 07 Mar 2015 11:21:48 AM JST
+
+* Sat 07 Mar 2015 11:21:48 AM JST
+OUTPUT_DIRECTORY       = ui
+
+* Sat 07 Mar 2015 11:22:47 AM JST
+webview
+* Sat 07 Mar 2015 11:22:48 AM JST
+android_webview
+* Sat 07 Mar 2015 11:22:56 AM JST
+webview
+* Sat 07 Mar 2015 11:22:57 AM JST
+android_webview
+* Sat 07 Mar 2015 11:23:59 AM JST
+apps
+* Sat 07 Mar 2015 11:24:12 AM JST
+apps
+* Sat 07 Mar 2015 11:25:05 AM JST
+ash
+* Sat 07 Mar 2015 11:25:09 AM JST
+ash
+* Sat 07 Mar 2015 11:25:31 AM JST
+blink
+* Sat 07 Mar 2015 11:47:46 AM JST
+                         
+* Sat 07 Mar 2015 11:48:44 AM JST
+buffer-file-name
+* Sat 07 Mar 2015 11:53:38 AM JST
+buffer-file-name
+* Sat 07 Mar 2015 11:53:59 AM JST
+(s-split "/" buffer-file-name)
+* Sat 07 Mar 2015 11:54:20 AM JST
+(cdr (s-split "/" buffer-file-name))
+* Sat 07 Mar 2015 11:54:40 AM JST
+(last(s-split "/" buffer-file-name))
+* Sat 07 Mar 2015 11:54:43 AM JST
+(last (s-split "/" buffer-file-name))
+* Sat 07 Mar 2015 11:54:54 AM JST
+(car (last (s-split "/" buffer-file-name)))
+* Sat 07 Mar 2015 11:55:16 AM JST
+(car (s-split "." (car (last (s-split "/" buffer-file-name)))))
+* Sat 07 Mar 2015 11:55:22 AM JST
+(car 
+* Sat 07 Mar 2015 11:55:35 AM JST
+(car (cdr (s-split "." (car (last (s-split "/" buffer-file-name))))))
+* Sat 07 Mar 2015 11:55:44 AM JST
+(car (cdr 
+* Sat 07 Mar 2015 11:55:47 AM JST
+(s-split "." (car (last (s-split "/" buffer-file-name))))
+* Sat 07 Mar 2015 11:56:10 AM JST
+(s-split "\." (car (last (s-split "/" buffer-file-name))))
+* Sat 07 Mar 2015 11:56:51 AM JST
+(s-split "\." 
+* Sat 07 Mar 2015 11:56:53 AM JST
+(car (last (s-split "/" buffer-file-name)))
+* Sat 07 Mar 2015 11:57:08 AM JST
+(car (last (s-split "/" buffer-file-name)))
+* Sat 07 Mar 2015 11:57:22 AM JST
+(s-split "dox_" (car (last (s-split "/" buffer-file-name))))
+* Sat 07 Mar 2015 11:58:22 AM JST
+(s-split "\\." (car (last (s-split "dox_" (car (last (s-split "/" buffer-file-name)))))))
+* Sat 07 Mar 2015 11:58:41 AM JST
+(car (s-split "\\." (car (last (s-split "dox_" (car (last (s-split "/" buffer-file-name))))))))
+* Sat 07 Mar 2015 11:59:22 AM JST
+(car (s-split "\\." (car (last (s-split "dox_" (car (last (s-split "/" buffer-file-name))))))))
+* Sat 07 Mar 2015 11:59:30 AM JST
+(s-concat " " (car (s-split "\\." (car (last (s-split "dox_" (car (last (s-split "/" buffer-file-name)))))))))
+* Sat 07 Mar 2015 12:00:07 PM JST
+(s-concat " " (car (s-split "\\." (car (last (s-split "dox_" (car (last (s-split "/" buffer-file-name)))))))))
+* Sat 07 Mar 2015 12:00:13 PM JST
+(query-replace " android_webview" (s-concat " " (car (s-split "\\." (car (last (s-split "dox_" (car (last (s-split "/" buffer-file-name))))))))))
+* Sat 07 Mar 2015 01:34:24 PM JST
+apps
+* Sat 07 Mar 2015 01:36:02 PM JST
+cloud
+* Sat 07 Mar 2015 01:36:04 PM JST
+cloud_print
+* Sat 07 Mar 2015 01:36:10 PM JST
+components
+* Sat 07 Mar 2015 01:36:15 PM JST
+content
+* Sat 07 Mar 2015 01:36:20 PM JST
+courgette
+* Sat 07 Mar 2015 01:36:25 PM JST
+crypto
+* Sat 07 Mar 2015 01:36:30 PM JST
+dbus
+* Sat 07 Mar 2015 01:36:35 PM JST
+device
+* Sat 07 Mar 2015 01:36:40 PM JST
+extensions
+* Sat 07 Mar 2015 01:36:45 PM JST
+gin
+* Sat 07 Mar 2015 01:36:49 PM JST
+google
+* Sat 07 Mar 2015 01:36:51 PM JST
+google_apis
+* Sat 07 Mar 2015 01:36:55 PM JST
+google
+* Sat 07 Mar 2015 01:36:57 PM JST
+google_update
+* Sat 07 Mar 2015 01:37:01 PM JST
+gpu
+* Sat 07 Mar 2015 01:37:05 PM JST
+ios
+* Sat 07 Mar 2015 01:37:11 PM JST
+ipc
+* Sat 07 Mar 2015 01:37:15 PM JST
+jingle
+* Sat 07 Mar 2015 01:37:20 PM JST
+media
+* Sat 07 Mar 2015 01:37:24 PM JST
+mojo
+* Sat 07 Mar 2015 01:37:29 PM JST
+native
+* Sat 07 Mar 2015 01:37:30 PM JST
+native_client_sdk
+* Sat 07 Mar 2015 01:37:36 PM JST
+net
+* Sat 07 Mar 2015 01:37:41 PM JST
+pdf
+* Sat 07 Mar 2015 01:37:45 PM JST
+ppapi
+* Sat 07 Mar 2015 01:37:49 PM JST
+printing
+* Sat 07 Mar 2015 01:37:54 PM JST
+remoting
+* Sat 07 Mar 2015 01:37:59 PM JST
+rlz
+* Sat 07 Mar 2015 01:38:06 PM JST
+sandbox
+* Sat 07 Mar 2015 01:38:11 PM JST
+sdch
+* Sat 07 Mar 2015 01:38:15 PM JST
+skia
+* Sat 07 Mar 2015 01:38:20 PM JST
+sql
+* Sat 07 Mar 2015 01:38:26 PM JST
+storage
+* Sat 07 Mar 2015 01:38:31 PM JST
+styleguide
+* Sat 07 Mar 2015 01:38:36 PM JST
+sync
+* Sat 07 Mar 2015 01:38:41 PM JST
+third
+* Sat 07 Mar 2015 01:38:43 PM JST
+third_party
+* Sat 07 Mar 2015 01:38:47 PM JST
+tools
+* Sat 07 Mar 2015 01:38:59 PM JST
+ui
+* Sat 07 Mar 2015 01:39:05 PM JST
+url
+* Sat 07 Mar 2015 01:39:11 PM JST
+webkit
+* Sat 07 Mar 2015 01:39:16 PM JST
+win8
+* Sat 07 Mar 2015 01:39:27 PM JST
+doxyhtml \
+* Sat 07 Mar 2015 01:39:27 PM JST
+ui/doxyhtml \
+* Sat 07 Mar 2015 01:39:28 PM JST
+tag=../ui/doxyhtml \
+* Sat 07 Mar 2015 01:39:28 PM JST
+ui.tag=../ui/doxyhtml \
+* Sat 07 Mar 2015 01:39:29 PM JST
+dox_ui.tag=../ui/doxyhtml \
+* Sat 07 Mar 2015 01:39:30 PM JST
+ui/dox_ui.tag=../ui/doxyhtml \
+* Sun 08 Mar 2015 04:55:42 AM JST
+dox_
+* Sun 08 Mar 2015 05:00:02 AM JST
+dox_
+* Sun 08 Mar 2015 06:33:13 AM JST
+onfo
+* Sun 08 Mar 2015 06:37:38 AM JST
+for
+* Sun 08 Mar 2015 06:42:27 AM JST
+eval
+* Sun 08 Mar 2015 06:48:22 AM JST
+
+* Sun 08 Mar 2015 06:48:27 AM JST
+0 && 
+* Sun 08 Mar 2015 06:48:27 AM JST
+DISPLAY=:0 && 
+* Sun 08 Mar 2015 06:48:27 AM JST
+export DISPLAY=:0 && 
+* Sun 08 Mar 2015 06:48:28 AM JST
+root export DISPLAY=:0 && 
+* Sun 08 Mar 2015 06:50:07 AM JST
+
+* Sun 08 Mar 2015 06:50:07 AM JST
+
+* Sun 08 Mar 2015 06:50:07 AM JST
+50 6 * * * root /usr/bin/python /root/.pylib/contes.py
+
+* Sun 08 Mar 2015 06:54:12 AM JST
+CH = logging.StreamHandler()
+* Sun 08 Mar 2015 06:55:28 AM JST
+CH.setLevel(logging.FATAL)
+* Sun 08 Mar 2015 06:55:38 AM JST
+LOG = logging.getLogger('daily')
+* Sun 08 Mar 2015 06:55:45 AM JST
+LOG.setLevel(logging.INFO)
+* Sun 08 Mar 2015 06:55:50 AM JST
+LOG.addHandler(_CH)
+* Sun 08 Mar 2015 06:56:57 AM JST
+
+* Sun 08 Mar 2015 06:56:57 AM JST
+
+* Sun 08 Mar 2015 06:56:58 AM JST
+LOG = logging.getLogger('daily')
+
+* Sun 08 Mar 2015 06:57:03 AM JST
+
+* Sun 08 Mar 2015 06:57:03 AM JST
+
+* Sun 08 Mar 2015 06:57:04 AM JST
+LOG.setLevel(logging.INFO)
+
+* Sun 08 Mar 2015 06:57:07 AM JST
+
+* Sun 08 Mar 2015 06:57:07 AM JST
+
+* Sun 08 Mar 2015 06:57:07 AM JST
+LOG.addHandler(_RH)
+
+* Sun 08 Mar 2015 06:57:30 AM JST
+
+* Sun 08 Mar 2015 06:57:30 AM JST
+
+* Sun 08 Mar 2015 06:57:30 AM JST
+_CH = logging.StreamHandler()
+
+* Sun 08 Mar 2015 07:05:47 AM JST
+LOG = logging.getLogger(${9:'${10:logname$(replace-regexp-in-string "[[:blank:]]" "_" text)}'})
+LOG.setLevel(logging.${11:GENERAL$(yas/choose-value '("NOTSET" "DEBUG" "INFO" "WARN" "ERROR" "FATAL"))})
+
+* Sun 08 Mar 2015 07:29:44 AM JST
+from mygoogle import chrome
+* Sun 08 Mar 2015 07:30:24 AM JST
+Foreign News
+* Sun 08 Mar 2015 07:43:36 AM JST
+'Foreign News'
+* Sun 08 Mar 2015 07:45:03 AM JST
+CHROME_OPTS + ['--new-window']
+* Sun 08 Mar 2015 07:45:10 AM JST
+
+* Sun 08 Mar 2015 07:45:11 AM JST
+
+* Sun 08 Mar 2015 07:45:11 AM JST
+        chrome_opts = CHROME_OPTS + ['--new-window']
+
+* Sun 08 Mar 2015 07:48:25 AM JST
+
+* Sun 08 Mar 2015 07:48:25 AM JST
+
+* Sun 08 Mar 2015 07:48:25 AM JST
+        # chrome.open_folder('Foreign News', options=chrome_opts, reverse=True)
+
+* Sun 08 Mar 2015 07:48:46 AM JST
+        urls = chrome.get_urls('Foreign News')
+        try:
+            chrome.run(urls.pop(), CHROME_OPTS + ['--new-window'])
+        except IndexError:
+            pass
+        bwait = busywait.BusyWait(20)
+        while urls:
+            bwait.wait_timeout(interval=1, timeout=30)
+            chrome.run(urls.pop(), CHROME_OPTS)
+
+* Sun 08 Mar 2015 07:49:02 AM JST
+'Nation'
+* Sun 08 Mar 2015 08:15:53 AM JST
+
+* Sun 08 Mar 2015 08:15:53 AM JST
+
+* Sun 08 Mar 2015 08:15:54 AM JST
+                         third_party/dox.tag=../third_party/doxyhtml \
+
+* Sun 08 Mar 2015 10:55:35 AM JST
+
+* Sun 08 Mar 2015 10:55:35 AM JST
+
+* Sun 08 Mar 2015 10:55:36 AM JST
+                         tools/dox.tag=../tools/doxyhtml \
+
+* Sun 08 Mar 2015 12:27:46 PM JST
+
+* Sun 08 Mar 2015 12:27:46 PM JST
+
+* Sun 08 Mar 2015 12:27:46 PM JST
+                         ios/dox.tag=../ios/doxyhtml \
+
+* Sun 08 Mar 2015 12:27:56 PM JST
+android_webview/dox.tag=../android_webview/doxyhtml \
+* Sun 08 Mar 2015 12:59:23 PM JST
+
+* Sun 08 Mar 2015 12:59:24 PM JST
+
+* Sun 08 Mar 2015 12:59:24 PM JST
+                         sandbox/dox.tag=../sandbox/doxyhtml \
+
+* Sun 08 Mar 2015 12:59:33 PM JST
+
+* Sun 08 Mar 2015 12:59:33 PM JST
+
+* Sun 08 Mar 2015 12:59:33 PM JST
+                         styleguide/dox.tag=../styleguide/doxyhtml \
+
+* Sun 08 Mar 2015 01:00:25 PM JST
+
+* Sun 08 Mar 2015 01:00:25 PM JST
+
+* Sun 08 Mar 2015 01:00:26 PM JST
+                         gpu/dox.tag=../gpu/doxyhtml \
+
+* Sun 08 Mar 2015 01:00:32 PM JST
+
+* Sun 08 Mar 2015 01:00:33 PM JST
+
+* Sun 08 Mar 2015 01:00:33 PM JST
+                         sql/dox.tag=../sql/doxyhtml \
+
+* Sun 08 Mar 2015 10:15:19 PM JST
+
+* Sun 08 Mar 2015 10:15:19 PM JST
+
+* Sun 08 Mar 2015 10:15:19 PM JST
+                         */ios/* \
+
+* Sun 08 Mar 2015 10:15:20 PM JST
+                         */ios/* \
+
+* Sun 08 Mar 2015 10:15:20 PM JST
+                         */ios/* \
+                         */android/* \
+
+* Sun 08 Mar 2015 10:15:23 PM JST
+                         */ios/* \
+                         */android/* \
+
+* Sun 08 Mar 2015 10:15:23 PM JST
+                         */ios/* \
+                         */android/* \
+                         */android_webview/* \
+
+* Sun 08 Mar 2015 10:15:33 PM JST
+/media/Data/MYTEMP/src/src/android_webview \
+* Sun 08 Mar 2015 10:15:33 PM JST
+                         
+* Mon 09 Mar 2015 02:21:05 AM JST
+from sh import lsmod, modprobe, rmmod, beep
+* Mon 09 Mar 2015 02:21:35 AM JST
+
+* Mon 09 Mar 2015 02:21:35 AM JST
+
+* Mon 09 Mar 2015 02:21:36 AM JST
+from sh import lsmod, modprobe, rmmod, beep
+
+* Mon 09 Mar 2015 02:25:21 AM JST
+from sh import lsmod, modprobe, rmmod, beep
+* Mon 09 Mar 2015 02:28:55 AM JST
+sikuli
+* Mon 09 Mar 2015 02:39:01 AM JST
+from menu import MenuManager
+* Mon 09 Mar 2015 02:39:10 AM JST
+weekdir = MenuManager().calc_weeklink(1)
+* Mon 09 Mar 2015 02:40:22 AM JST
+from ref.CMD import icedove, sleipnir, thunar
+* Mon 09 Mar 2015 02:40:54 AM JST
+"/root/recipe/4/1fri"
+* Mon 09 Mar 2015 02:43:30 AM JST
+geo.get(name)
+* Mon 09 Mar 2015 02:44:10 AM JST
+x=fgeo[0], y=fgeo[1], height=fgeo[2], width=fgeo[3]
+* Mon 09 Mar 2015 02:45:40 AM JST
+
+* Mon 09 Mar 2015 02:45:40 AM JST
+
+* Mon 09 Mar 2015 02:45:40 AM JST
+            # fgeo = geo.get(name)
+
+* Mon 09 Mar 2015 02:45:40 AM JST
+            # fgeo = geo.get(name)
+
+* Mon 09 Mar 2015 02:45:40 AM JST
+            # fgeo = geo.get(name)
+            # fmanager.move(x=fgeo[0], y=fgeo[1], height=fgeo[2], width=fgeo[3])
+
+* Mon 09 Mar 2015 02:45:54 AM JST
+
+* Mon 09 Mar 2015 02:45:54 AM JST
+
+* Mon 09 Mar 2015 02:45:54 AM JST
+        wingeos = []
+
+* Mon 09 Mar 2015 02:46:37 AM JST
+562
+* Mon 09 Mar 2015 02:46:43 AM JST
+635
+* Mon 09 Mar 2015 02:46:46 AM JST
+
+* Mon 09 Mar 2015 02:46:46 AM JST
+
+* Mon 09 Mar 2015 02:46:46 AM JST
+        archivedir.move(x=0, y=0, height=562, width=635)
+
+* Mon 09 Mar 2015 02:49:28 AM JST
+r'
+* Mon 09 Mar 2015 02:50:11 AM JST
+before
+* Mon 09 Mar 2015 02:50:42 AM JST
+looking-
+* Mon 09 Mar 2015 02:51:40 AM JST
+char 
+* Mon 09 Mar 2015 02:51:40 AM JST
+before-char 
+* Mon 09 Mar 2015 02:51:50 AM JST
+(char-before)
+* Mon 09 Mar 2015 02:53:04 AM JST
+(equal (char-before) [32])
+* Mon 09 Mar 2015 02:53:31 AM JST
+(equal (char-before) 32)
+* Mon 09 Mar 2015 02:53:49 AM JST
+(equal (char-before) (or 32 10))
+* Mon 09 Mar 2015 02:54:30 AM JST
+(equal (char-before) 32)
+* Mon 09 Mar 2015 02:54:41 AM JST
+open()
+* Mon 09 Mar 2015 02:55:21 AM JST
+open()
+* Mon 09 Mar 2015 02:55:30 AM JST
+open()
+* Mon 09 Mar 2015 02:56:50 AM JST
+
+* Mon 09 Mar 2015 02:56:50 AM JST
+
+* Mon 09 Mar 2015 02:56:51 AM JST
+            # fmanager.open()
+
+* Mon 09 Mar 2015 02:56:53 AM JST
+
+* Mon 09 Mar 2015 02:56:53 AM JST
+
+* Mon 09 Mar 2015 02:56:54 AM JST
+        # archivedir.open()
+
+* Mon 09 Mar 2015 03:09:23 AM JST
+daily.CreateRecipe().execute()
+* Mon 09 Mar 2015 02:21:37 PM JST
+taka16.no-ip.info
+* Mon 09 Mar 2015 09:33:49 PM JST
+YES
+* Mon 09 Mar 2015 09:33:52 PM JST
+YES
+* Mon 09 Mar 2015 09:34:53 PM JST
+android_webview
+* Mon 09 Mar 2015 09:35:02 PM JST
+                         
+* Mon 09 Mar 2015 09:36:59 PM JST
+ios
+* Mon 09 Mar 2015 09:37:05 PM JST
+
+* Mon 09 Mar 2015 09:37:39 PM JST
+native_client_sdk
+* Mon 09 Mar 2015 09:37:42 PM JST
+                         
+* Mon 09 Mar 2015 09:43:21 PM JST
+base
+* Mon 09 Mar 2015 09:43:26 PM JST
+                         
+* Mon 09 Mar 2015 09:43:35 PM JST
+                         */android/* \
+                         */chromeos/* \
+                         */chromium/ios/* \
+
+* Mon 09 Mar 2015 09:46:02 PM JST
+                         
+* Mon 09 Mar 2015 09:46:14 PM JST
+win8
+* Mon 09 Mar 2015 09:46:17 PM JST
+                         
+* Mon 09 Mar 2015 09:47:07 PM JST
+chromium
+* Mon 09 Mar 2015 09:48:13 PM JST
+
+* Mon 09 Mar 2015 09:48:13 PM JST
+
+* Mon 09 Mar 2015 09:48:14 PM JST
+                         */chromium/base/* \
+
+* Tue 10 Mar 2015 09:57:31 PM JST
+"cron\\(tab\\)?\\."
+* Tue 10 Mar 2015 09:58:52 PM JST
+"cron\\(tab\\)?\\."
+* Fri 13 Mar 2015 04:06:42 PM JST
+
+* Fri 13 Mar 2015 04:06:42 PM JST
+
+* Fri 13 Mar 2015 04:06:42 PM JST
+          'a': SendKeyCommand('{F11}'),
+
+* Fri 13 Mar 2015 04:07:00 PM JST
+        
+* Fri 13 Mar 2015 04:07:34 PM JST
+
+* Fri 13 Mar 2015 04:07:35 PM JST
+
+* Fri 13 Mar 2015 04:07:35 PM JST
+         'a': SendKeyCommand('{F11}'),
+
+* Fri 13 Mar 2015 04:07:36 PM JST
+
+* Fri 13 Mar 2015 04:07:36 PM JST
+
+* Fri 13 Mar 2015 04:07:36 PM JST
+         'a': SendKeyCommand('{F11}'),
+
+* Sat 14 Mar 2015 07:06:45 AM JST
+aquos.Aquos('yukio', 192.168.1.115)
+* Sat 14 Mar 2015 08:45:58 AM JST
+import
+* Sat 14 Mar 2015 09:37:18 PM JST
+import busywait
+* Sat 14 Mar 2015 09:38:15 PM JST
+TimeOut
+* Sat 14 Mar 2015 09:39:10 PM JST
+            try:                
+                bwait.wait_timeout(interval=1, timeout=30)
+            except busywait.TimeOut:
+                pass
+
+* Sat 14 Mar 2015 10:04:04 PM JST
+import pynotify
+from pathhandler import PathHandler
+
+* Sat 14 Mar 2015 10:04:11 PM JST
+NOTIFY = pynotify.init('chrome_allow4root')
+* Sat 14 Mar 2015 10:05:01 PM JST
+PathHandler('/data/.backup/knight_local').listdir()
+* Sat 14 Mar 2015 10:05:37 PM JST
+.listdir()[-3]
+* Sun 15 Mar 2015 01:09:07 PM JST
+    _instance = None
+    def __new__(class_, *args, **kwargs):
+        if not isinstance(class_._instance, class_):
+            class_._instance = object.__new__(class_, *args, **kwargs)
+        return class_._instance
+
+
+* Sun 15 Mar 2015 01:21:11 PM JST
+self
+* Sun 15 Mar 2015 01:22:36 PM JST
+static
+* Wed 18 Mar 2015 12:50:19 AM JST
+Convert
+* Wed 18 Mar 2015 02:01:36 PM JST
+c.core.GrabKey.async(True, 482, 0, 38)
+* Wed 18 Mar 2015 02:24:57 PM JST
+c.core.GrabKey.async(True, 482, 0, 38)
+* Wed 18 Mar 2015 02:26:22 PM JST
+title
+* Wed 18 Mar 2015 02:26:25 PM JST
+85983254
+* Wed 18 Mar 2015 02:31:11 PM JST
+GrabKey
+* Wed 18 Mar 2015 02:31:32 PM JST
+async
+* Wed 18 Mar 2015 02:31:45 PM JST
+a
+* Wed 18 Mar 2015 02:31:53 PM JST
+True
+* Wed 18 Mar 2015 02:33:18 PM JST
+(38, 85983254, 0)
+* Wed 18 Mar 2015 02:33:21 PM JST
+UngarbKey?
+* Wed 18 Mar 2015 03:44:55 PM JST
+list(wm.iter_wins())[3].title
+* Wed 18 Mar 2015 03:44:57 PM JST
+title
+* Wed 18 Mar 2015 03:45:01 PM JST
+39845892
+* Wed 18 Mar 2015 03:45:34 PM JST
+39845892
+* Wed 18 Mar 2015 03:46:58 PM JST
+39845892
+* Wed 18 Mar 2015 04:05:11 PM JST
+title
+* Wed 18 Mar 2015 04:05:14 PM JST
+40177399
+* Wed 18 Mar 2015 04:43:14 PM JST
+title
+* Wed 18 Mar 2015 04:43:22 PM JST
+40177641
+* Wed 18 Mar 2015 04:43:48 PM JST
+39845892
+* Wed 18 Mar 2015 04:44:20 PM JST
+85983254
+* Wed 18 Mar 2015 04:45:36 PM JST
+a
+* Wed 18 Mar 2015 04:51:29 PM JST
+CreateWindow
+* Wed 18 Mar 2015 04:52:19 PM JST
+        from _xclient import XClient
+        from _xclient._define import EventMask,WindowClass
+        x=XClient(':0.0')
+        setup=x.get_setup()
+        root=setup.roots[0].root
+        white=setup.roots[0].white_pixel
+        depth=setup.roots[0].root_depth
+        visual=setup.roots[0].root_visual
+
+* Wed 18 Mar 2015 04:52:32 PM JST
+40177641
+* Wed 18 Mar 2015 04:52:50 PM JST
+        x.CreateWindow(depth, window, root, 0, 0, 640, 480, 0,
+                        WindowClass.InputOutput, visual,
+                    event_mask=EventMask.ButtonPress | EventMask.EnterWindow |
+                    EventMask.LeaveWindow | EventMask.Exposure)
+
+* Wed 18 Mar 2015 04:53:54 PM JST
+c.core.UngrabKey(38, 85983254, 0)
+* Sat 21 Mar 2015 03:57:49 PM JST
+*** Result chrome update
+* Sat 21 Mar 2015 03:58:06 PM JST
+*** Result chrome 
+* Sat 21 Mar 2015 03:58:12 PM JST
+
+* Sat 21 Mar 2015 03:58:13 PM JST
+
+* Sat 21 Mar 2015 03:58:13 PM JST
+        self._result.append('*** Result chrome update')
+
+* Sat 21 Mar 2015 03:58:14 PM JST
+
+* Sat 21 Mar 2015 03:58:14 PM JST
+
+* Sat 21 Mar 2015 03:58:14 PM JST
+            self._result.append('Same chrome hash')
+
+* Tue 24 Mar 2015 12:46:43 PM JST
+D Xlib.xobject.
+* Tue 24 Mar 2015 01:48:59 PM JST
+__cmp__              get_full_property         poly_rectangle         
+__doc__              get_geometry              poly_segment           
+__drawable__         get_image                 poly_text              
+__hash__             get_motion_events         poly_text_16           
+__init__             get_property              put_image              
+__module__           get_wm_class              put_pil_image          
+__repr__             get_wm_client_machine     query_best_size        
+__resource__         get_wm_colormap_windows   query_pointer          
+__str__              get_wm_hints              query_tree             
+__window__           get_wm_icon_name          raise_window           
+_get_struct_prop     get_wm_icon_size          rectangle              
+_set_struct_prop     get_wm_name               reparent               
+arc                  get_wm_normal_hints       rotate_properties      
+change_attributes    get_wm_protocols          send_event             
+change_property      get_wm_state              set_input_focus        
+change_save_set      get_wm_transient_for      set_selection_owner    
+circulate            grab_button               set_wm_class           
+clear_area           grab_key                  set_wm_client_machine  
+configure            grab_keyboard             set_wm_colormap_windows
+convert_selection    grab_pointer              set_wm_hints           
+copy_area            image_text                set_wm_icon_name       
+copy_plane           image_text_16             set_wm_icon_size       
+create_colormap      kill_client               set_wm_name            
+create_gc            line                      set_wm_normal_hints    
+create_pixmap        list_installed_colormaps  set_wm_protocols       
+create_window        list_properties           set_wm_state           
+delete_property      map                       set_wm_transient_for   
+destroy              map_sub_windows           translate_coords       
+destroy_sub_windows  point                     ungrab_button          
+draw_text            poly_arc                  ungrab_key             
+fill_arc             poly_fill_arc             unmap                  
+fill_poly            poly_fill_rectangle       unmap_sub_windows      
+fill_rectangle       poly_line                 warp_pointer           
+get_attributes       poly_point             
+
+* Tue 24 Mar 2015 03:51:08 PM JST
+GrabServer
+* Thu 26 Mar 2015 04:16:50 PM JST
+self, 
+* Thu 26 Mar 2015 04:16:58 PM JST
+staticmethod
+* Thu 26 Mar 2015 04:17:42 PM JST
+    _instance = None
+    def __new__(class_, *args, **kwargs):
+        if not isinstance(class_._instance, class_):
+            class_._instance = object.__new__(class_, *args, **kwargs)
+        return class_._instance
+
+* Thu 26 Mar 2015 04:18:24 PM JST
+not
+* Thu 26 Mar 2015 04:18:44 PM JST
+self
+* Thu 26 Mar 2015 04:18:55 PM JST
+return 
+* Thu 26 Mar 2015 04:20:07 PM JST
+get_instance()
+* Thu 26 Mar 2015 04:21:31 PM JST
+dispatchers
+* Thu 26 Mar 2015 04:24:02 PM JST
+self._on_dispatcher_list_changed()
+* Thu 26 Mar 2015 04:51:06 PM JST
+continu
+* Thu 26 Mar 2015 04:57:05 PM JST
+event
+* Thu 26 Mar 2015 04:57:10 PM JST
+event
+* Thu 26 Mar 2015 04:57:15 PM JST
+event
+* Thu 26 Mar 2015 05:01:27 PM JST
+    _instance = None
+
+    def __new__(class_, *args, **kwargs):
+        if not isinstance(class_._instance, class_):
+            class_._instance = object.__new__(class_, *args, **kwargs)
+        return class_._instance
+
+
+* Thu 26 Mar 2015 05:01:47 PM JST
+self
+* Thu 26 Mar 2015 05:01:57 PM JST
+    @classmethod
+    def get_instance(cls):
+        r"""SUMMARY
+
+        get_instance()
+
+        @Return:
+
+        @Error:
+        """
+        if cls._instance is None:
+            return cls()
+        return cls._instance
+
+* Thu 26 Mar 2015 05:02:07 PM JST
+
+* Thu 26 Mar 2015 05:02:07 PM JST
+
+* Thu 26 Mar 2015 05:02:08 PM JST
+    @classmethod
+
+* Thu 26 Mar 2015 05:04:28 PM JST
+CreateNotifyEvent
+* Thu 26 Mar 2015 05:04:50 PM JST
+if :
+* Thu 26 Mar 2015 05:05:15 PM JST
+form 
+* Thu 26 Mar 2015 05:05:37 PM JST
+DestroyNotifyEvent
+* Thu 26 Mar 2015 05:05:47 PM JST
+xproto
+* Thu 26 Mar 2015 05:05:55 PM JST
+xproto.
+* Thu 26 Mar 2015 05:05:58 PM JST
+xproto.
+* Thu 26 Mar 2015 05:09:38 PM JST
+eventloop
+* Thu 26 Mar 2015 05:09:51 PM JST
+eventloop.
+* Thu 26 Mar 2015 05:09:53 PM JST
+EventLoop.get_instance().add_event_dispatcher(self)
+* Thu 26 Mar 2015 05:09:57 PM JST
+add
+* Thu 26 Mar 2015 05:10:57 PM JST
+from xcb.xproto import CreateNotifyEvent, DestroyNotifyEvent
+
+from . import eventdispatcher
+from .eventloop import EventLoop
+
+
+class WindowManager(eventdispatcher.EventDispatcher):
+    r"""WindowManager
+
+    WindowManager is a EventDispatcher.
+    Responsibility:
+    """
+    _instance = None
+
+    def __init__(self, ):
+        r"""
+        """
+        windows = list()
+        observers = list()
+
+    @classmethod
+    def get_instance(cls):
+        r"""SUMMARY
+
+        get_instance()
+
+        @Return:
+
+        @Error:
+        """
+        if cls._instance is None:
+            return cls()
+        return cls._instance
+
+    def can_dispatch_event(self, event):
+        r"""SUMMARY
+
+        can_dispatch_event(event)
+
+        @Arguments:
+        - `event`:
+
+        @Return:
+
+        @Error:
+        """
+        return isinstance(event, (CreateNotifyEvent, DestroyNotifyEvent))
+
+    def dispatch_event(self, event):
+        r"""SUMMARY
+
+        dispatch_event(event)
+
+        @Arguments:
+        - `event`:
+
+        @Return:
+
+        @Error:
+        """
+        print(dir(event))
+
+    def _start_listening(self, ):
+        r"""SUMMARY
+
+        _start_listening()
+
+        @Return:
+
+        @Error:
+        """
+        EventLoop.get_instance().add_event_dispatcher(self)
+
+    def _stop_listening(self, ):
+        r"""SUMMARY
+
+        _stop_listening()
+
+        @Return:
+
+        @Error:
+        """
+        EventLoop.get_instance().remove_event_dispatcher(self)
+
+* Thu 26 Mar 2015 05:11:29 PM JST
+from _xahk.windowmanager import WindowManager
+* Thu 26 Mar 2015 05:12:05 PM JST
+from _xahk.windowmanager import WindowManager
+w=WindowManager.get_instance()
+
+* Thu 26 Mar 2015 05:25:44 PM JST
+from _xahk.windowmanager import WindowManager
+w=WindowManager.get_instance()
+
+* Thu 26 Mar 2015 05:25:47 PM JST
+from _xahk.eventloop import EventLoop
+* Thu 26 Mar 2015 05:25:56 PM JST
+
+* Thu 26 Mar 2015 05:25:56 PM JST
+
+* Thu 26 Mar 2015 05:25:56 PM JST
+w=WindowManager.get_instance()
+
+* Thu 26 Mar 2015 05:26:01 PM JST
+e=EventLoop.get_instance()
+* Thu 26 Mar 2015 05:26:05 PM JST
+e.dispatch_event()
+* Thu 26 Mar 2015 05:26:14 PM JST
+from _xahk.windowmanager import WindowManager
+from _xahk.eventloop import EventLoop
+w=WindowManager.get_instance()
+e=EventLoop.get_instance()
+
+* Thu 26 Mar 2015 05:26:17 PM JST
+e.dispatch_event()
+* Thu 26 Mar 2015 05:26:54 PM JST
+from _xahk.windowmanager import WindowManager
+from _xahk.eventloop import EventLoop
+w=WindowManager.get_instance()
+e=EventLoop.get_instance()
+
+* Thu 26 Mar 2015 05:26:57 PM JST
+e.dispatch_event()
+* Thu 26 Mar 2015 05:30:59 PM JST
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+DEBUG-1-eventloop.py
+
+* Thu 26 Mar 2015 05:36:41 PM JST
+ChangeWindowAttribute
+* Thu 26 Mar 2015 05:37:06 PM JST
+ChangeWindowAttributes
+* Thu 26 Mar 2015 05:37:20 PM JST
+Change
+* Thu 26 Mar 2015 05:37:40 PM JST
+GetWindowAttributes
+* Thu 26 Mar 2015 05:38:51 PM JST
+Structure
+* Thu 26 Mar 2015 05:39:11 PM JST
+8028207
+* Thu 26 Mar 2015 05:39:17 PM JST
+131072
+* Thu 26 Mar 2015 05:40:31 PM JST
+your_event_mask      
+* Thu 26 Mar 2015 05:42:30 PM JST
+core.
+* Thu 26 Mar 2015 05:43:08 PM JST
+8028207
+* Thu 26 Mar 2015 05:43:32 PM JST
+8028207
+* Thu 26 Mar 2015 05:44:39 PM JST
+ChangeWindowAttributes
+* Thu 26 Mar 2015 05:44:46 PM JST
+ChangeWindowAttributes
+* Thu 26 Mar 2015 05:49:27 PM JST
+your_event_mask
+* Thu 26 Mar 2015 05:49:40 PM JST
+all_event_masks
+* Thu 26 Mar 2015 05:51:22 PM JST
+import xcb, xcb.xproto
+c=xcb.connect()
+
+* Thu 26 Mar 2015 05:51:41 PM JST
+c.core.ChangeWindowAttributes(482, xcb.xproto.CW.EventMask, [8028207])
+
+* Thu 26 Mar 2015 05:51:51 PM JST
+c.poll_for_event()
+* Thu 26 Mar 2015 05:51:59 PM JST
+import xcb, xcb.xproto
+c=xcb.connect()
+c.core.ChangeWindowAttributes(482, xcb.xproto.CW.EventMask, [8028207])
+
+* Thu 26 Mar 2015 05:52:03 PM JST
+c.poll_for_event()
+* Thu 26 Mar 2015 05:55:27 PM JST
+c.core.ChangeWindowAttributes(482, xcb.xproto.CW.EventMask, [8028207])
+* Thu 26 Mar 2015 05:55:30 PM JST
+8028207
+* Thu 26 Mar 2015 05:56:10 PM JST
+c.core.ChangeWindowAttributes(482, xcb.xproto.CW.EventMask, [xcb.xproto.EventMask.StructureNotify])
+* Thu 26 Mar 2015 05:56:18 PM JST
+xcb.xproto.EventMask.StructureNotify
+* Thu 26 Mar 2015 05:56:27 PM JST
+c.core.ChangeWindowAttributes(482, xcb.xproto.CW.EventMask, [xcb.xproto.EventMask.StructureNotify])
+
+* Thu 26 Mar 2015 05:57:07 PM JST
+import xcb, xcb.xproto
+c=xcb.connect()
+
+* Thu 26 Mar 2015 05:57:30 PM JST
+all_event_masks
+* Thu 26 Mar 2015 05:57:34 PM JST
+all_event_masks
+* Thu 26 Mar 2015 05:58:18 PM JST
+from Xlib.display import Display
+from Xlib import X, Xatom
+* Thu 26 Mar 2015 05:58:30 PM JST
+display = Display()
+root = display.screen().root
+* Thu 26 Mar 2015 05:58:43 PM JST
+root.change_attributes(event_mask = X.SubstructureNotifyMask)
+
+* Thu 26 Mar 2015 06:05:27 PM JST
+import xcb, xcb.xproto
+c=xcb.connect()
+
+* Thu 26 Mar 2015 06:05:55 PM JST
+c.get_setup().roots[0].root
+* Thu 26 Mar 2015 06:06:38 PM JST
+StructureNotify
+* Thu 26 Mar 2015 06:12:44 PM JST
+import xcb
+import xcb.xproto as xproto
+conn = xcb.connect()
+* Thu 26 Mar 2015 06:12:53 PM JST
+root = conn.get_setup().roots[0].root
+* Thu 26 Mar 2015 06:13:01 PM JST
+conn.core.ChangeWindowAttributesChecked(self.root, xproto.CW.EventMask, [xproto.EventMask.SubstructureRedirect|xproto.EventMask.SubstructureNotify])
+* Thu 26 Mar 2015 06:14:25 PM JST
+StructureNotify
+* Thu 26 Mar 2015 06:31:03 PM JST
+from Xlib.display import Display
+* Thu 26 Mar 2015 06:31:11 PM JST
+display = Display()
+root = display.screen().root
+* Thu 26 Mar 2015 06:31:18 PM JST
+root.change_attributes(event_mask = X.SubstructureNotifyMask)
+* Thu 26 Mar 2015 06:31:40 PM JST
+from Xlib import X
+* Thu 26 Mar 2015 06:31:48 PM JST
+display.next_event()
+* Thu 26 Mar 2015 06:31:52 PM JST
+from Xlib.display import Display
+from Xlib import X
+display = Display()
+root = display.screen().root
+root.change_attributes(event_mask = X.StructureNotifyMask)
+
+* Thu 26 Mar 2015 06:32:03 PM JST
+display.next_event()
+* Thu 26 Mar 2015 06:32:37 PM JST
+display.next_event()
+* Thu 26 Mar 2015 06:32:52 PM JST
+display.next_event()
+* Thu 26 Mar 2015 06:33:20 PM JST
+import xcb, xcb.xproto
+c=xcb.connect()
+c.core.ChangeWindowAttributes(482, xcb.xproto.CW.EventMask, [8028207])
+c.core.ChangeWindowAttributes(482, xcb.xproto.CW.EventMask, [xcb.xproto.EventMask.SubstructureNotify])
+
+* Thu 26 Mar 2015 06:33:28 PM JST
+
+* Thu 26 Mar 2015 06:33:28 PM JST
+
+* Thu 26 Mar 2015 06:33:28 PM JST
+c.core.ChangeWindowAttributes(482, xcb.xproto.CW.EventMask, [8028207])
+
+* Thu 26 Mar 2015 06:33:42 PM JST
+import xcb, xcb.xproto
+c=xcb.connect()
+c.core.ChangeWindowAttributes(482, xcb.xproto.CW.EventMask, [xcb.xproto.EventMask.SubstructureNotify])
+
+* Thu 26 Mar 2015 06:33:49 PM JST
+c.poll_for_event()
+* Thu 26 Mar 2015 06:35:16 PM JST
+c.core.ChangeWindowAttributes(482, xcb.xproto.CW.EventMask, [xcb.xproto.EventMask.SubstructureNotify])
+
+* Thu 26 Mar 2015 06:35:50 PM JST
+olary
+* Thu 26 Mar 2015 06:36:13 PM JST
+from _xahk.windowmanager import WindowManager
+from _xahk.eventloop import EventLoop
+w=WindowManager.get_instance()
+e=EventLoop.get_instance()
+e.dispatch_event()
+
+* Thu 26 Mar 2015 11:39:06 PM JST
+
+* Thu 26 Mar 2015 11:39:06 PM JST
+
+* Thu 26 Mar 2015 11:39:06 PM JST
+        print(dir(event))
+
+* Thu 26 Mar 2015 11:40:16 PM JST
+from _xahk.windowmanager import WindowManager
+from _xahk.eventloop import EventLoop
+w=WindowManager.get_instance()
+e=EventLoop.get_instance()
+e.dispatch_event()
+
+* Thu 26 Mar 2015 11:42:46 PM JST
+
+* Thu 26 Mar 2015 11:42:46 PM JST
+
+* Thu 26 Mar 2015 11:42:46 PM JST
+                print('DEBUG-1-eventloop.py')
+
+* Thu 26 Mar 2015 11:50:06 PM JST
+        print('window {} will add'.format(event.window))
+        print(manager.list_windows())
+
+* Thu 26 Mar 2015 11:51:04 PM JST
+DebugWindow
+* Thu 26 Mar 2015 11:51:08 PM JST
+DebugWindowManagerObserver
+* Thu 26 Mar 2015 11:53:17 PM JST
+DebugWindowManagerObserver
+* Thu 26 Mar 2015 11:54:37 PM JST
+from _xahk.windowmanager import WindowManager
+from _xahk.eventloop import EventLoop
+from _xahk.window_manager_observer import DebugWindowManagerObserver
+w=WindowManager.get_instance()
+DebugWindowManagerObserver()
+e=EventLoop.get_instance()
+
+* Thu 26 Mar 2015 11:54:48 PM JST
+e.dispatch_event()
+* Thu 26 Mar 2015 11:56:12 PM JST
+        for observer in self._observers:
+            observer.on_window_added(self, window)
+
+* Thu 26 Mar 2015 11:56:35 PM JST
+event
+* Thu 26 Mar 2015 11:56:39 PM JST
+event
+* Thu 26 Mar 2015 11:56:43 PM JST
+event.
+* Thu 26 Mar 2015 11:56:47 PM JST
+event
+* Thu 26 Mar 2015 11:56:50 PM JST
+event
+* Thu 26 Mar 2015 11:56:54 PM JST
+event.
+* Thu 26 Mar 2015 11:56:59 PM JST
+event
+* Thu 26 Mar 2015 11:57:02 PM JST
+event
+* Thu 26 Mar 2015 11:57:06 PM JST
+event
+* Thu 26 Mar 2015 11:57:09 PM JST
+event
+* Thu 26 Mar 2015 11:57:11 PM JST
+event
+* Thu 26 Mar 2015 11:57:15 PM JST
+event
+* Thu 26 Mar 2015 11:57:20 PM JST
+event
+* Thu 26 Mar 2015 11:57:26 PM JST
+event
+* Thu 26 Mar 2015 11:58:00 PM JST
+from _xahk.windowmanager import WindowManager
+from _xahk.eventloop import EventLoop
+from _xahk.window_manager_observer import DebugWindowManagerObserver
+w=WindowManager.get_instance()
+DebugWindowManagerObserver()
+e=EventLoop.get_instance()
+
+* Thu 26 Mar 2015 11:58:04 PM JST
+e.dispatch_event()
+* Thu 26 Mar 2015 11:58:13 PM JST
+while 1:
+   ....:     e.dispatch_event()
+* Thu 26 Mar 2015 11:58:19 PM JST
+....:
+* Fri 27 Mar 2015 12:02:35 AM JST
+lsf.
+* Fri 27 Mar 2015 12:03:02 AM JST
+self
+* Fri 27 Mar 2015 12:03:23 AM JST
+get
+* Fri 27 Mar 2015 12:04:01 AM JST
+
+* Fri 27 Mar 2015 12:04:01 AM JST
+
+* Fri 27 Mar 2015 12:04:01 AM JST
+        display = get_display()
+
+* Fri 27 Mar 2015 12:04:37 AM JST
+from _xahk.windowmanager import WindowManager
+from _xahk.eventloop import EventLoop
+from _xahk.window_manager_observer import DebugWindowManagerObserver
+w=WindowManager.get_instance()
+DebugWindowManagerObserver()
+e=EventLoop.get_instance()
+
+* Fri 27 Mar 2015 12:04:42 AM JST
+while 1:
+    e.dispatch_event()
+
+* Fri 27 Mar 2015 12:09:19 AM JST
+cls()
+* Fri 27 Mar 2015 12:09:29 AM JST
+
+* Fri 27 Mar 2015 12:09:29 AM JST
+
+* Fri 27 Mar 2015 12:09:29 AM JST
+            return 
+
+* Fri 27 Mar 2015 12:09:53 AM JST
+cls.create_default()
+* Fri 27 Mar 2015 12:09:55 AM JST
+
+* Fri 27 Mar 2015 12:09:55 AM JST
+
+* Fri 27 Mar 2015 12:09:55 AM JST
+            return 
+
+* Fri 27 Mar 2015 12:18:44 AM JST
+def
+* Fri 27 Mar 2015 12:18:58 AM JST
+self
+* Fri 27 Mar 2015 12:19:53 AM JST
+display.
+* Fri 27 Mar 2015 12:22:02 AM JST
+instance
+* Fri 27 Mar 2015 12:22:03 AM JST
+c
+* Fri 27 Mar 2015 12:22:05 AM JST
+get_
+* Fri 27 Mar 2015 12:22:18 AM JST
+from _xahk.windowmanager import WindowManager
+from _xahk.eventloop import EventLoop
+from _xahk.window_manager_observer import DebugWindowManagerObserver
+
+* Fri 27 Mar 2015 12:22:25 AM JST
+w=WindowManager.create_defualt()
+DebugWindowManagerObserver()
+e=EventLoop.get_instance()
+
+* Fri 27 Mar 2015 12:22:52 AM JST
+from _xahk.windowmanager import WindowManager
+from _xahk.eventloop import EventLoop
+from _xahk.window_manager_observer import DebugWindowManagerObserver
+w=WindowManager.create_default()
+DebugWindowManagerObserver()
+e=EventLoop.get_instance()
+
+* Fri 27 Mar 2015 12:23:03 AM JST
+while 1:
+    e.dispatch_event()
+
+* Fri 27 Mar 2015 12:27:12 AM JST
+23133245
+* Fri 27 Mar 2015 12:30:34 AM JST
+from _xahk.windowmanager import WindowManager
+from _xahk.eventloop import EventLoop
+from _xahk.window_manager_observer import DebugWindowManagerObserver
+w=WindowManager.create_default()
+DebugWindowManagerObserver()
+e=EventLoop.get_instance()
+
+* Fri 27 Mar 2015 12:30:38 AM JST
+e.dispatch_event()
+* Fri 27 Mar 2015 12:32:48 AM JST
+from _xahk.windowmanager import WindowManager
+from _xahk.eventloop import EventLoop
+from _xahk.window_manager_observer import DebugWindowManagerObserver
+w=WindowManager.create_default()
+DebugWindowManagerObserver()
+e=EventLoop.get_instance()
+
+* Fri 27 Mar 2015 12:32:51 AM JST
+e.dispatch_event()
+* Fri 27 Mar 2015 12:50:52 AM JST
+event.window
+* Fri 27 Mar 2015 12:50:58 AM JST
+window
+* Fri 27 Mar 2015 12:51:20 AM JST
+from _xahk.windowmanager import WindowManager
+from _xahk.eventloop import EventLoop
+from _xahk.window_manager_observer import DebugWindowManagerObserver
+w=WindowManager.create_default()
+DebugWindowManagerObserver()
+e=EventLoop.get_instance()
+
+* Fri 27 Mar 2015 12:51:24 AM JST
+e.dispatch_event()
+* Fri 27 Mar 2015 12:51:29 AM JST
+while 1:
+    e.dispatch_event()
+
+* Fri 27 Mar 2015 12:52:00 AM JST
+
+* Fri 27 Mar 2015 12:52:00 AM JST
+
+* Fri 27 Mar 2015 12:52:00 AM JST
+            print(event.event)
+
+* Fri 27 Mar 2015 12:53:46 AM JST
+event
+* Fri 27 Mar 2015 12:54:04 AM JST
+
+* Fri 27 Mar 2015 12:54:04 AM JST
+
+* Fri 27 Mar 2015 12:54:04 AM JST
+            print(event.parent)
+
+* Fri 27 Mar 2015 02:26:15 PM JST
+ChangeKeyboardMapping
+* Fri 27 Mar 2015 02:33:43 PM JST
+import
+* Fri 27 Mar 2015 02:41:29 PM JST
+from t1.listutil import ListUtil
+* Fri 27 Mar 2015 02:55:46 PM JST
+113
+* Fri 27 Mar 2015 02:56:18 PM JST
+97
+* Fri 27 Mar 2015 02:57:24 PM JST
+c.core.GetKeyboardMapping(8, 248).reply().keysyms
+* Fri 27 Mar 2015 02:57:44 PM JST
+113
+* Fri 27 Mar 2015 02:57:51 PM JST
+97
+* Fri 27 Mar 2015 02:58:32 PM JST
+113)
+* Fri 27 Mar 2015 03:01:07 PM JST
+c.core.ChangeKeyboardMapping(
+* Fri 27 Mar 2015 03:02:42 PM JST
+c.core.GetKeyboardMapping(8, 248).reply().keysyms
+list(c.core.GetKeyboardMapping(8, 248).reply().keysyms)
+D list(c.core.GetKeyboardMapping(8, 248).reply().keysyms)
+list(c.core.GetKeyboardMapping(8, 248).reply().keysyms).index(113)
+list(c.core.GetKeyboardMapping(8, 248).reply().keysyms)[112]
+l=list(c.core.GetKeyboardMapping(8, 248).reply().keysyms)
+l
+l[112]
+l[112]=97
+l
+c.core.ChangeKeyboardMapping?
+c.core.ChangeKeyboardMapping(len(l), 8, 7, l)
+len(l)
+len(l) / 7
+c.core.ChangeKeyboardMapping(len(l)/7, 8, 7, l)
+c.flush()
+
+* Fri 27 Mar 2015 05:03:16 PM JST
+Create
+* Fri 27 Mar 2015 05:03:21 PM JST
+Destroy
+* Fri 27 Mar 2015 05:03:24 PM JST
+NotifyEvent
+* Fri 27 Mar 2015 05:03:34 PM JST
+Create
+* Fri 27 Mar 2015 05:03:37 PM JST
+Destroy
+* Fri 27 Mar 2015 05:03:42 PM JST
+Create
+* Fri 27 Mar 2015 05:03:46 PM JST
+Destroy
+* Fri 27 Mar 2015 05:04:28 PM JST
+from _xahk.windowmanager import WindowManager
+from _xahk.eventloop import EventLoop
+from _xahk.window_manager_observer import DebugWindowManagerObserver
+w=WindowManager.create_default()
+DebugWindowManagerObserver()
+e=EventLoop.get_instance()
+
+* Fri 27 Mar 2015 05:04:32 PM JST
+while 1:
+    e.dispatch_event()
+
+* Fri 27 Mar 2015 05:05:45 PM JST
+from _xahk.windowmanager import WindowManager
+from _xahk.eventloop import EventLoop
+from _xahk.window_manager_observer import DebugWindowManagerObserver
+w=WindowManager.create_default()
+DebugWindowManagerObserver()
+e=EventLoop.get_instance()
+e.dispatch_event()
+
+* Fri 27 Mar 2015 05:05:49 PM JST
+while 1:
+    e.dispatch_event()
+
+* Fri 27 Mar 2015 05:07:44 PM JST
+from _xahk.windowmanager import WindowManager
+from _xahk.eventloop import EventLoop
+from _xahk.window_manager_observer import DebugWindowManagerObserver
+w=WindowManager.create_default()
+DebugWindowManagerObserver()
+e=EventLoop.get_instance()
+
+* Fri 27 Mar 2015 05:07:49 PM JST
+while 1:
+    e.dispatch_event()
+
+
+* Fri 27 Mar 2015 05:34:17 PM JST
+from _xahk.windowmanager import WindowManager
+from _xahk.eventloop import EventLoop
+from _xahk.window_manager_observer import DebugWindowManagerObserver
+w=WindowManager.create_default()
+DebugWindowManagerObserver()
+e=EventLoop.get_instance()
+
+* Fri 27 Mar 2015 05:34:21 PM JST
+while 1:
+    e.dispatch_event()
+
+* Fri 27 Mar 2015 05:37:43 PM JST
+event.window
+* Fri 27 Mar 2015 05:38:13 PM JST
+from _xahk.windowmanager import WindowManager
+from _xahk.eventloop import EventLoop
+from _xahk.window_manager_observer import DebugWindowManagerObserver
+w=WindowManager.create_default()
+DebugWindowManagerObserver()
+e=EventLoop.get_instance()
+
+* Fri 27 Mar 2015 05:38:17 PM JST
+
+* Fri 27 Mar 2015 05:38:17 PM JST
+
+* Fri 27 Mar 2015 05:38:17 PM JST
+e.dispatch_event()
+
+* Fri 27 Mar 2015 05:38:18 PM JST
+while 1:
+    e.dispatch_event()
+
+* Fri 27 Mar 2015 05:41:33 PM JST
+ReparentNotifyEvent
+* Fri 27 Mar 2015 05:42:53 PM JST
+from _xahk.windowmanager import WindowManager
+from _xahk.eventloop import EventLoop
+from _xahk.window_manager_observer import DebugWindowManagerObserver
+w=WindowManager.create_default()
+DebugWindowManagerObserver()
+e=EventLoop.get_instance()
+while 1:
+    e.dispatch_event()
+
+* Fri 27 Mar 2015 05:46:08 PM JST
+
+* Fri 27 Mar 2015 05:46:08 PM JST
+
+* Fri 27 Mar 2015 05:46:08 PM JST
+            # print('window: {}, parent: {}'.format(event.window, event.parent))
+
+* Fri 27 Mar 2015 06:22:09 PM JST
+from ref.CMD import icedove, sleipnir, thunar
+* Fri 27 Mar 2015 06:22:43 PM JST
+thunar.ThunarWMHandle(unicode(dirs))
+* Fri 27 Mar 2015 06:24:05 PM JST
+dialy
+* Fri 27 Mar 2015 06:25:25 PM JST
+
+* Fri 27 Mar 2015 06:25:25 PM JST
+
+* Fri 27 Mar 2015 06:25:25 PM JST
+        import multiprocessing
+
+* Fri 27 Mar 2015 06:27:31 PM JST
+import daily
+daily.CreateRecipe().execute()
+
+* Fri 27 Mar 2015 06:32:44 PM JST
+target=
+* Fri 27 Mar 2015 06:33:13 PM JST
+p = 
+* Fri 27 Mar 2015 06:35:47 PM JST
+multiprocessing.Process(target=win.move, kwargs=kwargs)
+* Fri 27 Mar 2015 06:35:52 PM JST
+                
+* Fri 27 Mar 2015 06:36:00 PM JST
+        # for p in processes:
+            # p.join()
+
+* Fri 27 Mar 2015 06:36:22 PM JST
+import daily
+daily.CreateRecipe().execute()
+
+* Fri 27 Mar 2015 06:39:06 PM JST
+
+* Fri 27 Mar 2015 06:39:06 PM JST
+
+* Fri 27 Mar 2015 06:39:06 PM JST
+        print('mapping')
+
+* Fri 27 Mar 2015 06:39:20 PM JST
+win.title
+* Fri 27 Mar 2015 06:40:24 PM JST
+win.title
+* Fri 27 Mar 2015 06:41:04 PM JST
+from _xahk.windowmanager import WindowManager
+from _xahk.eventloop import EventLoop
+from _xahk.window_manager_observer import DebugWindowManagerObserver
+w=WindowManager.create_default()
+DebugWindowManagerObserver()
+e=EventLoop.get_instance()
+
+* Fri 27 Mar 2015 06:41:07 PM JST
+while 1:
+    e.dispatch_event()
+
+* Fri 27 Mar 2015 06:41:19 PM JST
+import daily
+daily.CreateRecipe().execute()
+
+* Fri 27 Mar 2015 06:42:09 PM JST
+wm.WinWait(sec=5).win(title=wingeos[-1][0].title)
+* Fri 27 Mar 2015 06:42:36 PM JST
+import daily
+daily.CreateRecipe().execute()
+
+* Fri 27 Mar 2015 06:43:58 PM JST
+https://shop.nanairo.coop/front/bb/shiga/common/login?pc=15041000&b=TmpBean--2076791836
+* Fri 27 Mar 2015 06:44:24 PM JST
+import daily
+daily.CreateRecipe().execute()
+
+* Fri 27 Mar 2015 10:27:48 PM JST
+list
+* Fri 27 Mar 2015 10:28:03 PM JST
+append
+* Mon 30 Mar 2015 09:24:11 PM JST
+daily

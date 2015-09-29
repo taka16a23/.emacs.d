@@ -1,0 +1,206 @@
+body
+{
+  line-height: 130%;
+  color: black;
+  background-color: #FFFBCE;
+  margin-right: 3%;
+  margin-left: 5%;
+  }
+
+/* 本文の文字色 （NN4での不具合対策）*/
+div.day, p, dl, th, td, ul, div.version, address
+{
+  color: black;
+  }
+
+h1
+{
+  font-size: 150%;
+  text-decoration: underline;
+  text-align: center; 
+  }
+
+h2
+{
+  font-size: 130%;
+  font-weight: bold;
+  text-align: center;
+  }
+
+h3
+{
+  font-size: 110%;
+  text-align: center;
+  margin-right: 3%; 
+  }
+
+h4
+{
+  font-size: 100%;
+  color: black;
+  text-align: center;
+  margin-right: 3%; 
+  }
+
+h5
+{
+  text-align: center;
+  font-size: 100%;
+  line-height: 80%;
+  }
+
+/* コード表示 索引部分など */
+code
+{
+  font-size: 100%;
+  line-height: 110%;
+  white-space:  pre;
+  /*font-style: italic;*/
+  }
+
+dl
+{
+  margin-right: 1em;
+  margin-left: 1em;
+  }
+
+/* 定義リスト */
+dt
+{
+  color: black;
+  line-height: 120%;
+  }
+
+ul
+{
+  line-height: 130%;
+  }
+
+
+/* 引用 */
+blockquote
+{
+  /* font-style: italic;*/
+  color: deeppink;
+  }
+
+/* 更新日付けなどの強調 */
+em
+{
+  font-style: italic;
+  color: red;
+  }
+
+/* リンク */
+a:link
+{
+  text-decoration: none;
+  color: blue;
+  }
+
+a:hover
+{
+  text-decoration: underline;
+  }
+
+a:visited
+{
+  text-decoration: none;
+  color: #c00060;
+  }
+
+/* Meadow memo用 */
+
+/* 画面サンプル */
+div.meadow
+{
+  margin-right: 3%;
+  margin-left: 3%;
+  font-size: 90%;
+  line-height: 120%;
+  color: #c1cdcd;
+  background-color: black;
+  margin-right: 3%;
+  margin-left: 3%;
+  padding: 0em 1.5em 0em 1.5em;
+  }
+
+/* lisp コード */
+table td.example
+{
+  font-size: 90%;
+  color: #c1cdcd;
+  background-color: black;
+  }
+
+TABLE
+{
+  margin-left:2%;
+  margin-right:2%;
+  padding: 0em 1.5em 0em 1.5em;
+  line-height: 120%;
+  }
+
+div.modeline
+{
+  font-size: 100%;
+  color: #87ceeb;
+  background-color: #1a1a1a;
+  }
+
+/* @comm */
+div.comment
+{
+  text-decoration: underline;
+  font-weight: bold;
+  margin-left: -2%;
+}
+
+/* @dif の部分*/
+div.dif
+{
+  font-size: 120%;
+  font-weight: bold;
+  margin-left: 5%;
+  color: red;
+}
+
+/* キーバインド */
+kbd
+{
+  font-size: 100%;
+  color: red;
+  /*        font-style: italic;*/
+  }
+
+/* @cite での引用 */
+div.cite
+{
+  color: deeppink;
+  /*   background-color: #313142;*/
+  margin-right: 6%; 
+  margin-left: 8%; 
+  font-style: italic;
+  /*   background-repeat: repeat-y*/
+  }
+
+/* フッター */
+div.footer
+{
+  font-size: 80%;
+  }
+
+/* goto.cgi のURLなど */
+div.info
+{
+  font-size: 80%;
+  margin-right: 3%;
+  margin-left: 20%;
+  text-align: right;
+  }
+
+div.elispindex
+{
+  font-size: 90%;
+  /*margin-left: 20%;*/
+  }

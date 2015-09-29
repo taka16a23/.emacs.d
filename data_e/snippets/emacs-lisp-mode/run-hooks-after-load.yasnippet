@@ -1,0 +1,42 @@
+# -*- mode: snippet -*-
+# name: run-hooks-after-load
+# key: (run-hooks-after-load
+# --
+(eval-when-compile
+  (require 't1macro "t1macro"))
+
+;;;###autoload
+(defun $1-mode-custom-predefine ()
+ "For `eval-after-load' $1 customize."
+ (message "eval-after-load: \"$1\" customizing..")
+ (custom-set-variables
+  '($2))
+ )
+
+;;;###autoload
+(defun $1-mode-predefine ()
+  "For \`eval-after-load' $1 function."
+  (message "eval-after-load: \"$1\" setting..")
+  )
+
+;;;###autoload
+(defun $1-mode-map-predefine ()
+ "For $1 key bindings."
+ (interactive)
+ (unless (called-interactively-p 'interactive)
+   (message "eval-after-load: \"$1\" keymaping.."))
+ ($0))
+
+;;;###autoload
+(defun $1-mode-face-predefine ()
+  "For $1 face."
+  (message "eval-after-load: \"$1\" Setting faces..")
+  )
+
+(defvar $1-eval-after-load-hook nil
+  "Hook for $1 \`eval-after-load'.")
+(add-hook '$1-eval-after-load-hook '$1-mode-custom-predefine)
+(add-hook '$1-eval-after-load-hook '$1-mode-predefine 'append)
+(add-hook '$1-eval-after-load-hook '$1-mode-map-predefine 'append)
+(add-hook '$1-eval-after-load-hook '$1-mode-face-predefine 'append)
+(run-hooks-after-load "${1:filename}" '$1-eval-after-load-hook

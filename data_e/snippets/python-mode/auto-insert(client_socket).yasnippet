@@ -1,0 +1,37 @@
+# -*- mode: snippet -*-
+# name: client_socket_auto-insert
+# key: client_socket_auto-insert
+# 末尾の`'は"Local Variables"用。改頁前には"\n"を入れること。fileの読込を早くする。
+# 'r' charactor before the first triple-quote for doctest
+# don't want escape sequences - e.g '\n'
+# --
+`(view-mode -1)`#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+# $Id$    
+# $Revision$
+# $Date$    
+# $Author$  
+# $LastChangedBy$
+# $LastChangedDate$
+
+r\"\"\"Name: `(file-name-nondirectory (buffer-file-name))`
+
+\"\"\"
+
+
+from socket import *
+
+s = socket(${1:family$(yas/choose-value \'(\"AF_INET\" \"AF_INET6\" \"AF_UNIX\"))}, ${2:type$(yas/choose-value \'(\"SOCK_STREAM\" \"SOCK_DGRAM\"))})
+
+s.connect((\'${3:ip or hosts}\', ${4:PORT}))
+
+$0
+
+
+
+# For Emacs
+# Local Variables:
+# coding: utf-8
+# End:
+# `(file-name-nondirectory (buffer-file-name))` ends here

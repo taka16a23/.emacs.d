@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: memoryview_
+# key: memoryview
+# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [40])) (not (save-excursion (backward-char 10) (looking-back "[.]"))))
+# 32 = ` '
+# --
+memoryview_ $0
