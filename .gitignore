@@ -1,0 +1,4 @@
+*.elc
+*.pyc
+var_e/*
+backup_e/*
