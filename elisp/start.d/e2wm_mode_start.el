@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.1
 ;; Created:      Tue Dec 11 23:35:08 2012 (+0900)
-;; Last-Updated: 2015/09/21 09:22:18 (+0900)
+;; Last-Updated: 2015/09/30 07:56:14 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -415,6 +415,8 @@
                    (e2wm:pst-window-select-main))))))
   t)
 
+;;;; pycode
+;;
 (defun e2wm-pycode-predefine () ;[2013/11/15]
   (message "Defining Perspective pycode.")
   (defvar e2wm:py-code-recipe)
@@ -442,113 +444,6 @@
   (defvar e2wm:py-code-show-main-regexp
     "\\*\\(vc-diff\\)\\*")
   (autoload 'w3m-list-buffers "w3m-util")
-  (defun e2wm:dp-pycode-init ()
-    (let*
-        ((code-wm
-          (wlf:no-layout
-           e2wm:py-code-recipe
-           e2wm:py-code-winfo))
-         (buf (or e2wm:prev-selected-buffer
-                  (e2wm:history-get-main-buffer)))
-         (ipython-buf (get-buffer "*IPython*"))
-         (w3m-buffers (w3m-list-buffers t))
-         (pylib-dired (dired-noselect (expand-file-name "~/.pylib")))
-         )
-      ;; set ipython in sub
-      (unless ipython-buf
-        (setq ipython-buf (funcall 'ipython)))
-      (wlf:set-buffer code-wm 'sub ipython-buf)
-      ;; set w3m in right if exists
-      (when w3m-buffers
-        (wlf:set-buffer code-wm 'right (car w3m-buffers)))
-      ;; set pylib dired in files
-      (when pylib-dired
-                                        ; TODO: (Atami) [2015/01/06]
-                                        ; failed switch
-        (wlf:set-buffer code-wm 'files pylib-dired))
-      ;; main
-      (when (e2wm:history-recordable-p e2wm:prev-selected-buffer)
-        (e2wm:history-add e2wm:prev-selected-buffer))
-      (wlf:set-buffer code-wm 'main buf)
-      code-wm))
-  (defun e2wm:dp-pycode-switch (buf)
-    (if (e2wm:history-recordable-p buf)
-        (let ((buf-name (buffer-name buf))
-              (wm (e2wm:pst-get-wm)))
-          (cond ((string-match "\\*w3m\\*" buf-name)
-                 (e2wm:pst-buffer-set 'right buf)
-                 t)
-                ((eq (selected-window) (wlf:get-window wm 'right))
-                 (e2wm:pst-buffer-set 'right buf)
-                 t)
-                ((eql (get-buffer buf) (wlf:get-buffer wm 'main))
-                 (e2wm:pst-update-windows)
-                 (e2wm:pst-buffer-set 'main buf)
-                 t)
-                (t (e2wm:pst-show-history-main)
-                   (e2wm:pst-window-select-main))))))
-  (defun e2wm:dp-pycode-popup-upsub (buf)
-    (let ((wm (e2wm:pst-get-wm))
-          (not-minibufp (= 0 (minibuffer-depth))))
-      (e2wm:with-advice
-       (e2wm:pst-buffer-set 'upsub buf t not-minibufp))))
-  (defun e2wm:dp-pycode-popup-sub (buf)
-    (let ((wm (e2wm:pst-get-wm))
-          (not-minibufp (= 0 (minibuffer-depth))))
-      (e2wm:with-advice
-       (e2wm:pst-buffer-set 'sub buf t not-minibufp))))
-  (defun e2wm:dp-pycode-popup (buf)
-    (let ((buf-name (buffer-name buf))
-          (wm (e2wm:pst-get-wm)))
-      (cond ((e2wm:history-recordable-p buf)
-             (e2wm:pst-show-history-main)
-             ;;記録対象なら履歴に残るのでupdateで表示を更新させる
-             t)
-            ((and e2wm:override-window-cfg-backup
-                  (eq (selected-window) (wlf:get-window wm 'sub)))
-             ;;現在subならmainに表示しようとする
-             ;;minibuffer以外の補完バッファは動きが特殊なのでbackupをnilにする
-             (setq e2wm:override-window-cfg-backup nil)
-             ;;一時的に表示するためにset-window-bufferを使う
-             ;;(prefix) C-lなどで元のバッファに戻すため
-             (set-window-buffer (wlf:get-window wm 'right) buf)
-             t)
-            ((and e2wm:c-code-show-main-regexp
-                  (string-match e2wm:c-code-show-main-regexp buf-name))
-             (e2wm:pst-buffer-set 'main buf t)
-             t)
-            (t
-             (e2wm:dp-pycode-popup-sub buf)
-             t))))
-  (defun e2wm-pycode-start (wm) ;[2013/11/15]
-    "WM"
-    (let ((buffers (buffer-list))
-          (regexp "\\.py$")
-          done)
-      (while (and buffers (not done))
-        (when (string-match regexp (buffer-name (car buffers)))
-          (setq done (car buffers)))
-        (setq buffers (cdr buffers)))
-      (when done
-        (wlf:set-buffer wm 'main done))))
-  (defun e2wm:dp-pycode-navi-sub-ipython () ;[2013/11/23], [2015/06/11]
-    ""
-    (interactive)
-    (let ((wm (e2wm:pst-get-wm))
-          (winfo-name 'sub)
-          (ipython-buf (get-buffer "*IPython*")))
-      (unless ipython-buf
-        (setq ipython-buf (funcall 'ipython)))
-      (e2wm:pst-buffer-set winfo-name ipython-buf)
-      (unless (wlf:window-shown-p
-               (wlf:get-winfo winfo-name (wlf:wset-winfo-list wm)))
-        (wlf:show wm winfo-name))
-      (e2wm:pst-window-select winfo-name))
-    ;; no query exit process
-    (when (process-list)
-      (dolist (p (process-list))
-        (when (s-starts-with? "ipython" (process-name p))
-          (set-process-query-on-exit-flag p nil)))))
   (defvar e2wm:dp-pycode-minor-mode-map)
   (setq e2wm:dp-pycode-minor-mode-map
         (e2wm:define-keymap
@@ -597,6 +492,122 @@
     :keymap 'e2wm:dp-pycode-minor-mode-map))
   t)
 
+(defun e2wm:dp-pycode-init ()
+  (let*
+      ((code-wm
+        (wlf:no-layout
+         e2wm:py-code-recipe
+         e2wm:py-code-winfo))
+       (buf (or e2wm:prev-selected-buffer
+                (e2wm:history-get-main-buffer)))
+       (ipython-buf (get-buffer "*IPython*"))
+       (w3m-buffers (w3m-list-buffers t))
+       (pylib-dired (dired-noselect (expand-file-name "~/.pylib")))
+       )
+    ;; set ipython in sub
+    (unless ipython-buf
+      (setq ipython-buf (funcall 'ipython)))
+    (wlf:set-buffer code-wm 'sub ipython-buf)
+    ;; set w3m in right if exists
+    (when w3m-buffers
+      (wlf:set-buffer code-wm 'right (car w3m-buffers)))
+    ;; set pylib dired in files
+    (when pylib-dired
+                                        ; TODO: (Atami) [2015/01/06]
+                                        ; failed switch
+      (wlf:set-buffer code-wm 'files pylib-dired))
+    ;; main
+    (when (e2wm:history-recordable-p e2wm:prev-selected-buffer)
+      (e2wm:history-add e2wm:prev-selected-buffer))
+    (wlf:set-buffer code-wm 'main buf)
+    code-wm))
+
+(defun e2wm:dp-pycode-switch (buf)
+  (if (e2wm:history-recordable-p buf)
+      (let ((buf-name (buffer-name buf))
+            (wm (e2wm:pst-get-wm)))
+        (cond ((string-match "\\*w3m\\*" buf-name)
+               (e2wm:pst-buffer-set 'right buf)
+               t)
+              ((eq (selected-window) (wlf:get-window wm 'right))
+               (e2wm:pst-buffer-set 'right buf)
+               t)
+              ((eql (get-buffer buf) (wlf:get-buffer wm 'main))
+               (e2wm:pst-update-windows)
+               (e2wm:pst-buffer-set 'main buf)
+               t)
+              (t (e2wm:pst-show-history-main)
+                 (e2wm:pst-window-select-main))))))
+
+(defun e2wm:dp-pycode-popup-upsub (buf)
+  (let ((wm (e2wm:pst-get-wm))
+        (not-minibufp (= 0 (minibuffer-depth))))
+    (e2wm:with-advice
+     (e2wm:pst-buffer-set 'upsub buf t not-minibufp))))
+
+(defun e2wm:dp-pycode-popup-sub (buf)
+  (let ((wm (e2wm:pst-get-wm))
+        (not-minibufp (= 0 (minibuffer-depth))))
+    (e2wm:with-advice
+     (e2wm:pst-buffer-set 'sub buf t not-minibufp))))
+
+(defun e2wm:dp-pycode-popup (buf)
+  (let ((buf-name (buffer-name buf))
+        (wm (e2wm:pst-get-wm)))
+    (cond ((e2wm:history-recordable-p buf)
+           (e2wm:pst-show-history-main)
+           ;;記録対象なら履歴に残るのでupdateで表示を更新させる
+           t)
+          ((and e2wm:override-window-cfg-backup
+                (eq (selected-window) (wlf:get-window wm 'sub)))
+           ;;現在subならmainに表示しようとする
+           ;;minibuffer以外の補完バッファは動きが特殊なのでbackupをnilにする
+           (setq e2wm:override-window-cfg-backup nil)
+           ;;一時的に表示するためにset-window-bufferを使う
+           ;;(prefix) C-lなどで元のバッファに戻すため
+           (set-window-buffer (wlf:get-window wm 'right) buf)
+           t)
+          ((and e2wm:c-code-show-main-regexp
+                (string-match e2wm:c-code-show-main-regexp buf-name))
+           (e2wm:pst-buffer-set 'main buf t)
+           t)
+          (t
+           (e2wm:dp-pycode-popup-sub buf)
+           t))))
+
+(defun e2wm-pycode-start (wm) ;[2013/11/15]
+  "WM"
+  (let ((buffers (buffer-list))
+        (regexp "\\.py$")
+        done)
+    (while (and buffers (not done))
+      (when (string-match regexp (buffer-name (car buffers)))
+        (setq done (car buffers)))
+      (setq buffers (cdr buffers)))
+    (when done
+      (wlf:set-buffer wm 'main done))))
+
+(defun e2wm:dp-pycode-navi-sub-ipython () ;[2013/11/23], [2015/06/11]
+  ""
+  (interactive)
+  (let ((wm (e2wm:pst-get-wm))
+        (winfo-name 'sub)
+        (ipython-buf (get-buffer "*IPython*")))
+    (unless ipython-buf
+      (setq ipython-buf (funcall 'ipython)))
+    (e2wm:pst-buffer-set winfo-name ipython-buf)
+    (unless (wlf:window-shown-p
+             (wlf:get-winfo winfo-name (wlf:wset-winfo-list wm)))
+      (wlf:show wm winfo-name))
+    (e2wm:pst-window-select winfo-name))
+  ;; no query exit process
+  (when (process-list)
+    (dolist (p (process-list))
+      (when (s-starts-with? "ipython" (process-name p))
+        (set-process-query-on-exit-flag p nil)))))
+
+;;;; elisp
+;;
 (defun e2wm-elisp-predefine () ;[2013/11/28]
   ""
   (message "Defining Perspective emacs lisp.")
@@ -621,6 +632,7 @@
           (:name history :plugin history-list :default-hide t)
           (:name right)
           (:name sub)))
+
   (defun e2wm:dp-elispcode-init ()
     (let*
         ((code-wm
@@ -641,6 +653,7 @@
         (e2wm:history-add e2wm:prev-selected-buffer))
       (wlf:set-buffer code-wm 'main buf)
       code-wm))
+
   (defun e2wm:dp-elispcode-switch (buf)
     (if (e2wm:history-recordable-p buf)
         (let ((buf-name (buffer-name buf))
@@ -657,46 +670,7 @@
                  t)
                 (t (e2wm:pst-show-history-main)
                    (e2wm:pst-window-select-main))))))
-  (defun e2wm:dp-elispcode-popup-sub (buf)
-    (let ((wm (e2wm:pst-get-wm))
-          (not-minibufp (= 0 (minibuffer-depth))))
-      (e2wm:with-advice
-       (e2wm:pst-buffer-set 'sub buf t not-minibufp))))
-  (defun e2wm:dp-elispcode-popup (buf)
-    (let ((buf-name (buffer-name buf))
-          (wm (e2wm:pst-get-wm)))
-      (cond ((e2wm:history-recordable-p buf)
-             (e2wm:pst-show-history-main)
-             ;;記録対象なら履歴に残るのでupdateで表示を更新させる
-             t)
-            ((and e2wm:override-window-cfg-backup
-                  (eq (selected-window) (wlf:get-window wm 'sub)))
-             ;;現在subならmainに表示しようとする
-             ;;minibuffer以外の補完バッファは動きが特殊なのでbackupをnilにする
-             (setq e2wm:override-window-cfg-backup nil)
-             ;;一時的に表示するためにset-window-bufferを使う
-             ;;(prefix) C-lなどで元のバッファに戻すため
-             (set-window-buffer (wlf:get-window wm 'right) buf)
-             t)
-            ((and e2wm:c-code-show-main-regexp
-                  (string-match e2wm:c-code-show-main-regexp buf-name))
-             (e2wm:pst-buffer-set 'main buf t)
-             t)
-            (t
-             (e2wm:dp-elispcode-popup-sub buf)
-             t))))
-  (defun e2wm-elispcode-start (wm) ;[2013/11/15]
-    "WM"
-    (let ((buffers (buffer-list))
-          (regexp "\\.el$")
-          done)
-      (while (and buffers (not done))
-        (when (string-match regexp (buffer-name (car buffers)))
-          (setq done (car buffers)))
-        (setq buffers (cdr buffers)))
-      (when done
-        (wlf:set-buffer wm 'main done))))
-  (defvar e2wm:dp-elispcode-minor-mode-map)
+    (defvar e2wm:dp-elispcode-minor-mode-map)
   (setq e2wm:dp-elispcode-minor-mode-map
         (e2wm:define-keymap
          '(("C-x 0"   . e2wm-hide-command)
@@ -732,6 +706,50 @@
     :keymap 'e2wm:dp-elispcode-minor-mode-map))
   )
 
+(defun e2wm:dp-elispcode-popup-sub (buf)
+  (let ((wm (e2wm:pst-get-wm))
+        (not-minibufp (= 0 (minibuffer-depth))))
+    (e2wm:with-advice
+     (e2wm:pst-buffer-set 'sub buf t not-minibufp))))
+
+(defun e2wm:dp-elispcode-popup (buf)
+  (let ((buf-name (buffer-name buf))
+        (wm (e2wm:pst-get-wm)))
+    (cond ((e2wm:history-recordable-p buf)
+           (e2wm:pst-show-history-main)
+           ;;記録対象なら履歴に残るのでupdateで表示を更新させる
+           t)
+          ((and e2wm:override-window-cfg-backup
+                (eq (selected-window) (wlf:get-window wm 'sub)))
+           ;;現在subならmainに表示しようとする
+           ;;minibuffer以外の補完バッファは動きが特殊なのでbackupをnilにする
+           (setq e2wm:override-window-cfg-backup nil)
+           ;;一時的に表示するためにset-window-bufferを使う
+           ;;(prefix) C-lなどで元のバッファに戻すため
+           (set-window-buffer (wlf:get-window wm 'right) buf)
+           t)
+          ((and e2wm:c-code-show-main-regexp
+                (string-match e2wm:c-code-show-main-regexp buf-name))
+           (e2wm:pst-buffer-set 'main buf t)
+           t)
+          (t
+           (e2wm:dp-elispcode-popup-sub buf)
+           t))))
+
+(defun e2wm-elispcode-start (wm) ;[2013/11/15]
+  "WM"
+  (let ((buffers (buffer-list))
+        (regexp "\\.el$")
+        done)
+    (while (and buffers (not done))
+      (when (string-match regexp (buffer-name (car buffers)))
+        (setq done (car buffers)))
+      (setq buffers (cdr buffers)))
+    (when done
+      (wlf:set-buffer wm 'main done))))
+
+;;;; web
+;;
 (defun e2wm-web-predefine () ;[2013/11/15]
   (message "Defining Perspective web.")
   (defvar e2wm:web-recipe)
@@ -759,32 +777,6 @@
   (defun e2wm:web-buffer-p (buf)
     "BUF"
     (string-match "\\*w3m\\*" (buffer-name buf)))
-  (defun e2wm:web-switch (buf)
-    (let ((buf-name (buffer-name buf))
-          (wm (e2wm:pst-get-wm)))
-      (if (e2wm:history-recordable-p buf)
-          (cond ((e2wm:web-buffer-p buf)
-                 (e2wm:pst-buffer-set 'main buf))
-                (t (e2wm:pst-show-history-main)
-                   (e2wm:pst-buffer-set 'right buf))
-                ))))
-  (defun e2wm:web-popup (buf)
-    (let ((buf-name (buffer-name buf)))
-      (cond
-       ((e2wm:web-buffer-p buf)
-        (e2wm:pst-buffer-set 'main buf)
-        t)
-       ((e2wm:history-recordable-p buf)
-        (e2wm:pst-buffer-set 'right buf)
-        t)
-       (t
-        (e2wm:dp-two-popup-sub buf)
-        t))))
-  (defun e2wm:web-popup-sub (buf)
-    (let ((wm (e2wm:pst-get-wm))
-          (not-minibufp (= 0 (minibuffer-depth))))
-      (e2wm:with-advice
-       (e2wm:pst-buffer-set 'sub buf t not-minibufp))))
   (e2wm:pst-class-register
    (make-e2wm:$pst-class
     :name   'web
@@ -796,6 +788,38 @@
     :popup  'e2wm:web-popup))
   t)
 
+(defun e2wm:web-switch (buf)
+  (let ((buf-name (buffer-name buf))
+        (wm (e2wm:pst-get-wm)))
+    (if (e2wm:history-recordable-p buf)
+        (cond ((e2wm:web-buffer-p buf)
+               (e2wm:pst-buffer-set 'main buf))
+              (t (e2wm:pst-show-history-main)
+                 (e2wm:pst-buffer-set 'right buf))
+              ))))
+
+(defun e2wm:web-popup (buf)
+  (let ((buf-name (buffer-name buf)))
+    (cond
+     ((e2wm:web-buffer-p buf)
+      (e2wm:pst-buffer-set 'main buf)
+      t)
+     ((e2wm:history-recordable-p buf)
+      (e2wm:pst-buffer-set 'right buf)
+      t)
+     (t
+      (e2wm:dp-two-popup-sub buf)
+      t))))
+
+(defun e2wm:web-popup-sub (buf)
+  (let ((wm (e2wm:pst-get-wm))
+        (not-minibufp (= 0 (minibuffer-depth))))
+    (e2wm:with-advice
+     (e2wm:pst-buffer-set 'sub buf t not-minibufp))))
+
+
+;;;; book
+;;
 (defun e2wm-book-predefine () ;[2013/11/15]
   ""
   (message "Defining Perspective book.")
