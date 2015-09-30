@@ -67,6 +67,248 @@ See `auto-complete-mode' for more information on Auto-Complete mode.
 
 ;;;***
 
+;;;### (autoloads nil "auto-highlight-symbol/auto-highlight-symbol"
+;;;;;;  "auto-highlight-symbol/auto-highlight-symbol.el" (22027 30758
+;;;;;;  450597 608000))
+;;; Generated autoloads from auto-highlight-symbol/auto-highlight-symbol.el
+
+(defvar global-auto-highlight-symbol-mode nil "\
+Non-nil if Global-Auto-Highlight-Symbol mode is enabled.
+See the command `global-auto-highlight-symbol-mode' for a description of this minor mode.
+Setting this variable directly does not take effect;
+either customize it (see the info node `Easy Customization')
+or call the function `global-auto-highlight-symbol-mode'.")
+
+(custom-autoload 'global-auto-highlight-symbol-mode "auto-highlight-symbol/auto-highlight-symbol" nil)
+
+(autoload 'global-auto-highlight-symbol-mode "auto-highlight-symbol/auto-highlight-symbol" "\
+Toggle Auto-Highlight-Symbol mode in all buffers.
+With prefix ARG, enable Global-Auto-Highlight-Symbol mode if ARG is positive;
+otherwise, disable it.  If called from Lisp, enable the mode if
+ARG is omitted or nil.
+
+Auto-Highlight-Symbol mode is enabled in all buffers where
+`ahs-mode-maybe' would do it.
+See `auto-highlight-symbol-mode' for more information on Auto-Highlight-Symbol mode.
+
+\(fn &optional ARG)" t nil)
+
+(autoload 'auto-highlight-symbol-mode "auto-highlight-symbol/auto-highlight-symbol" "\
+Toggle Auto Highlight Symbol Mode
+
+\(fn &optional ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "bm/bm" "bm/bm.el" (22027 22172 183803 518000))
+;;; Generated autoloads from bm/bm.el
+
+(autoload 'bm-toggle "bm/bm" "\
+Toggle bookmark at point.
+
+\(fn)" t nil)
+
+(autoload 'bm-toggle-mouse "bm/bm" "\
+Toggle a bookmark with a mouse click.
+EV is the mouse event.
+
+\(fn EV)" t nil)
+
+(autoload 'bm-lifo-previous "bm/bm" "\
+Goto previous bookmark in LIFO order . (that is, most
+recently set ones come first, oldest ones come last)
+
+\(fn)" t nil)
+
+(autoload 'bm-lifo-next "bm/bm" "\
+Goto next bookmark in LIFO order .(that is, most
+recently set ones come first, oldest ones come last)
+
+\(fn)" t nil)
+
+(autoload 'bm-next "bm/bm" "\
+
+
+\(fn)" t nil)
+
+(autoload 'bm-common-next "bm/bm" "\
+Goto next bookmark.
+
+\(fn)" t nil)
+
+(autoload 'bm-next-mouse "bm/bm" "\
+Go to the next bookmark with the scroll wheel.
+EV is the mouse event.
+
+\(fn EV)" t nil)
+
+(autoload 'bm-previous "bm/bm" "\
+
+
+\(fn)" t nil)
+
+(autoload 'bm-common-previous "bm/bm" "\
+Goto previous bookmark.
+
+\(fn)" t nil)
+
+(autoload 'bm-previous-mouse "bm/bm" "\
+Go to the previous bookmark with the scroll wheel.
+EV is the mouse event.
+
+\(fn EV)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "c-eldoc/c-eldoc" "c-eldoc/c-eldoc.el" (22027
+;;;;;;  30758 114597 616000))
+;;; Generated autoloads from c-eldoc/c-eldoc.el
+
+(autoload 'c-turn-on-eldoc-mode "c-eldoc/c-eldoc" "\
+Enable c-eldoc-mode
+
+\(fn)" t nil)
+
+(autoload 'c-eldoc-print-current-symbol-info "c-eldoc/c-eldoc" "\
+Returns documentation string for the current symbol.
+
+\(fn)" nil nil)
+
+;;;***
+
+;;;### (autoloads nil "col-highlight/col-highlight" "col-highlight/col-highlight.el"
+;;;;;;  (22027 21712 7814 553000))
+;;; Generated autoloads from col-highlight/col-highlight.el
+
+(let ((loads (get 'column-highlight 'custom-loads))) (if (member '"col-highlight/col-highlight" loads) nil (put 'column-highlight 'custom-loads (cons '"col-highlight/col-highlight" loads))))
+
+(defvar col-highlight-show-only nil "\
+Non-nil means `column-highlight-mode' affects only a section of text.
+This affects `vline-mode' also.
+
+The non-nil value determines the type of text section: paragraph,
+sentence, defun, page...
+
+The actual non-nil value is a forward movement command for the given
+section type, e.g., `forward-paragraph', `end-of-defun'.")
+
+(custom-autoload 'col-highlight-show-only "col-highlight/col-highlight" t)
+
+(defvar col-highlight-vline-face-flag t "\
+*Non-nil means `column-highlight-mode' uses `col-highlight-face'.
+nil means that it uses `vline-face'.")
+
+(custom-autoload 'col-highlight-vline-face-flag "col-highlight/col-highlight" t)
+
+(defvar col-highlight-period 1 "\
+*Number of seconds to highlight the current column.")
+
+(custom-autoload 'col-highlight-period "col-highlight/col-highlight" t)
+
+(defvar col-highlight-overlay-priority 300 "\
+*Priority to use for overlays in `vline-overlay-table'.
+A higher priority can make the vline highlighting appear on top of
+other overlays that might exist.")
+
+(custom-autoload 'col-highlight-overlay-priority "col-highlight/col-highlight" t)
+
+(defface col-highlight '((t (:background "SlateGray3"))) "\
+*Face for current-column highlighting by `column-highlight-mode'.
+Not used if `col-highlight-vline-face-flag' is nil." :group (quote column-highlight) :group (quote faces))
+
+(defvar column-highlight-mode nil "\
+Non-nil if Column-Highlight mode is enabled.
+See the command `column-highlight-mode' for a description of this minor mode.
+Setting this variable directly does not take effect;
+either customize it (see the info node `Easy Customization')
+or call the function `column-highlight-mode'.")
+
+(custom-autoload 'column-highlight-mode "col-highlight/col-highlight" nil)
+
+(autoload 'column-highlight-mode "col-highlight/col-highlight" "\
+Toggle highlighting the current column.
+With ARG, turn column highlighting on if and only if ARG is positive.
+
+Column-Highlight mode uses the functions
+`col-highlight-unhighlight' and `col-highlight-highlight'
+on `pre-command-hook' and `post-command-hook'.
+
+\(fn &optional ARG)" t nil)
+
+(defalias 'toggle-highlight-column-when-idle 'col-highlight-toggle-when-idle)
+
+(autoload 'col-highlight-toggle-when-idle "col-highlight/col-highlight" "\
+Turn on or off highlighting the current column when Emacs is idle.
+With prefix argument, turn on if ARG > 0; else turn off.
+
+\(fn &optional ARG)" t nil)
+
+(autoload 'col-highlight-set-interval "col-highlight/col-highlight" "\
+Set the delay before highlighting current column when Emacs is idle.
+Whenever Emacs has been idle for N seconds, the current column is
+highlighted using the face that is the value of variable
+`col-highlight-face'.
+
+To turn on or off automatically highlighting the current column
+when Emacs is idle, use `\\[toggle-highlight-column-when-idle].
+
+\(fn N)" t nil)
+
+(defalias 'flash-column-highlight 'col-highlight-flash)
+
+(autoload 'col-highlight-flash "col-highlight/col-highlight" "\
+Highlight the current column for `col-highlight-period' seconds.
+With a prefix ARG, highlight for that many seconds.
+
+\(fn &optional ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "color-moccur/color-moccur" "color-moccur/color-moccur.el"
+;;;;;;  (22027 27574 28673 974000))
+;;; Generated autoloads from color-moccur/color-moccur.el
+
+(autoload 'occur-by-moccur "color-moccur/color-moccur" "\
+Use this instead of occur.
+Argument REGEXP regexp.
+Argument ARG whether buffers which is not related to files are searched.
+
+\(fn REGEXP ARG)" t nil)
+
+(autoload 'moccur-grep-find "color-moccur/color-moccur" "\
+
+
+\(fn DIR INPUTS)" t nil)
+
+(autoload 'dired-do-moccur "color-moccur/color-moccur" "\
+Show all lines of all buffers containing a match for REGEXP.
+The lines are shown in a buffer named *Moccur*.
+It serves as a menu to find any of the occurrences in this buffer.
+\\[describe-mode] in that buffer will explain how.
+
+\(fn REGEXP ARG)" t nil)
+
+(autoload 'grep-buffers "color-moccur/color-moccur" "\
+*Run `grep` PROGRAM to match EXPRESSION (with optional OPTIONS) on all visited files.
+
+\(fn)" t nil)
+
+(autoload 'search-buffers "color-moccur/color-moccur" "\
+*Search string of all buffers.
+
+\(fn REGEXP ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "column-marker/column-marker" "column-marker/column-marker.el"
+;;;;;;  (22027 30759 360597 586000))
+;;; Generated autoloads from column-marker/column-marker.el
+
+(autoload 'column-marker-1 "column-marker" "\
+Highlight a column." t)
+
+;;;***
+
 ;;;### (autoloads nil "crontab-mode/crontab-mode" "crontab-mode/crontab-mode.el"
 ;;;;;;  (22026 35520 648055 44000))
 ;;; Generated autoloads from crontab-mode/crontab-mode.el
@@ -2126,6 +2368,21 @@ would be called at `e2wm:pst-change'. Then, NOT-PST-CHANGE is not
 
 ;;;***
 
+;;;### (autoloads nil "edit-server/edit-server" "edit-server/edit-server.el"
+;;;;;;  (22027 30760 823597 551000))
+;;; Generated autoloads from edit-server/edit-server.el
+
+(autoload 'edit-server-start "edit-server/edit-server" "\
+Start the edit server.
+
+If argument VERBOSE is non-nil, logs all server activity to buffer
+`*edit-server-log*'.  When called interactivity, a prefix argument
+will cause it to be verbose.
+
+\(fn &optional VERBOSE)" t nil)
+
+;;;***
+
 ;;;### (autoloads nil "emacs-w3m/bookmark-w3m" "emacs-w3m/bookmark-w3m.el"
 ;;;;;;  (22026 35730 954050 1000))
 ;;; Generated autoloads from emacs-w3m/bookmark-w3m.el
@@ -2707,6 +2964,72 @@ Display weather report.
 
 ;;;***
 
+;;;### (autoloads nil "expand-region/expand-region" "expand-region/expand-region.el"
+;;;;;;  (22027 23656 708767 917000))
+;;; Generated autoloads from expand-region/expand-region.el
+
+(autoload 'er/expand-region "expand-region/expand-region" "\
+Increase selected region by semantic units.
+
+With prefix argument expands the region that many times.
+If prefix argument is negative calls `er/contract-region'.
+If prefix argument is 0 it resets point and mark to their state
+before calling `er/expand-region' for the first time.
+
+\(fn ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "expand-region/expand-region-custom" "expand-region/expand-region-custom.el"
+;;;;;;  (22027 23656 708767 917000))
+;;; Generated autoloads from expand-region/expand-region-custom.el
+
+(let ((loads (get 'expand-region 'custom-loads))) (if (member '"expand-region/expand-region-custom" loads) nil (put 'expand-region 'custom-loads (cons '"expand-region/expand-region-custom" loads))))
+
+(defvar expand-region-preferred-python-mode 'python "\
+The name of your preferred python mode")
+
+(custom-autoload 'expand-region-preferred-python-mode "expand-region/expand-region-custom" t)
+
+(defvar expand-region-guess-python-mode t "\
+If expand-region should attempt to guess your preferred python mode")
+
+(custom-autoload 'expand-region-guess-python-mode "expand-region/expand-region-custom" t)
+
+(defvar expand-region-autocopy-register "" "\
+If set to a string of a single character (try \"e\"), then the
+contents of the most recent expand or contract command will
+always be copied to the register named after that character.")
+
+(custom-autoload 'expand-region-autocopy-register "expand-region/expand-region-custom" t)
+
+(defvar expand-region-skip-whitespace t "\
+If expand-region should skip past whitespace on initial expansion")
+
+(custom-autoload 'expand-region-skip-whitespace "expand-region/expand-region-custom" t)
+
+(defvar expand-region-fast-keys-enabled t "\
+If expand-region should bind fast keys after initial expand/contract")
+
+(custom-autoload 'expand-region-fast-keys-enabled "expand-region/expand-region-custom" t)
+
+(defvar expand-region-contract-fast-key "-" "\
+Key to use after an initial expand/contract to contract once more.")
+
+(custom-autoload 'expand-region-contract-fast-key "expand-region/expand-region-custom" t)
+
+(defvar expand-region-reset-fast-key "0" "\
+Key to use after an initial expand/contract to undo.")
+
+(custom-autoload 'expand-region-reset-fast-key "expand-region/expand-region-custom" t)
+
+(defvar expand-region-exclude-text-mode-expansions '(html-mode nxml-mode) "\
+List of modes which derive from `text-mode' for which text mode expansions are not appropriate.")
+
+(custom-autoload 'expand-region-exclude-text-mode-expansions "expand-region/expand-region-custom" t)
+
+;;;***
+
 ;;;### (autoloads nil "flycheck/flycheck" "flycheck/flycheck.el"
 ;;;;;;  (22026 35521 971055 13000))
 ;;; Generated autoloads from flycheck/flycheck.el
@@ -2921,6 +3244,180 @@ Use this together with the `option', `option-list' and
 
 ;;;***
 
+;;;### (autoloads nil "google-this/google-this" "google-this/google-this.el"
+;;;;;;  (22027 30759 557597 581000))
+;;; Generated autoloads from google-this/google-this.el
+
+(autoload 'google-this-search "google-this/google-this" "\
+Write and do a google search.
+Interactively PREFIX determines quoting.
+Non-interactively SEARCH-STRING is the string to search.
+
+\(fn PREFIX &optional SEARCH-STRING)" t nil)
+
+(autoload 'google-this-lucky-and-insert-url "google-this/google-this" "\
+Fetch the url that would be visited by `google-this-lucky'.
+
+If you just want to do an \"I'm feeling lucky search\", use
+`google-this-lucky-search' instead.
+
+Interactively:
+* Insert the URL at point,
+* Kill the searched term, removing it from the buffer (it is killed, not
+  deleted, so it can be easily yanked back if desired).
+* Search term defaults to region or line, and always queries for
+  confirmation.
+
+Non-Interactively:
+* Runs synchronously,
+* Search TERM is an argument without confirmation,
+* Only insert if INSERT is non-nil, otherwise return.
+
+\(fn TERM &optional INSERT)" t nil)
+
+(autoload 'google-this-lucky-search "google-this/google-this" "\
+Exactly like `google-this-search', but use the \"I'm feeling lucky\" option.
+PREFIX determines quoting.
+
+\(fn PREFIX)" t nil)
+
+(autoload 'google-this-string "google-this/google-this" "\
+Google given TEXT, but ask the user first if NOCONFIRM is nil.
+PREFIX determines quoting.
+
+\(fn PREFIX &optional TEXT NOCONFIRM)" nil nil)
+
+(autoload 'google-this-line "google-this/google-this" "\
+Google the current line.
+PREFIX determines quoting.
+NOCONFIRM goes without asking for confirmation.
+
+\(fn PREFIX &optional NOCONFIRM)" t nil)
+
+(autoload 'google-this-word "google-this/google-this" "\
+Google the current word.
+PREFIX determines quoting.
+
+\(fn PREFIX)" t nil)
+
+(autoload 'google-this-symbol "google-this/google-this" "\
+Google the current symbol.
+PREFIX determines quoting.
+
+\(fn PREFIX)" t nil)
+
+(autoload 'google-this-region "google-this/google-this" "\
+Google the current region.
+PREFIX determines quoting.
+NOCONFIRM goes without asking for confirmation.
+
+\(fn PREFIX &optional NOCONFIRM)" t nil)
+
+(autoload 'google-this "google-this/google-this" "\
+Decide what the user wants to google (always something under point).
+Unlike `google-this-search' (which presents an empty prompt with
+\"this\" as the default value), this function inserts the query
+in the minibuffer to be edited.
+PREFIX argument determines quoting.
+NOCONFIRM goes without asking for confirmation.
+
+\(fn PREFIX &optional NOCONFIRM)" t nil)
+
+(autoload 'google-this-noconfirm "google-this/google-this" "\
+Decide what the user wants to google and go without confirmation.
+Exactly like `google-this' or `google-this-search', but don't ask
+for confirmation.
+PREFIX determines quoting.
+
+\(fn PREFIX)" t nil)
+
+(autoload 'google-this-error "google-this/google-this" "\
+Google the current error in the compilation buffer.
+PREFIX determines quoting.
+
+\(fn PREFIX)" t nil)
+
+(autoload 'google-this-clean-error-string "google-this/google-this" "\
+Parse error string S and turn it into googleable strings.
+
+Removes unhelpful details like file names and line numbers from
+simple error strings (such as c-like erros).
+
+Uses replacements in `google-this-error-regexp' and stops at the first match.
+
+\(fn S)" t nil)
+
+(autoload 'google-this-cpp-reference "google-this/google-this" "\
+Visit the most probable cppreference.com page for this word.
+
+\(fn)" t nil)
+
+(autoload 'google-this-forecast "google-this/google-this" "\
+Search google for \"weather\".
+With PREFIX, ask for location.
+
+\(fn PREFIX)" t nil)
+
+(defvar google-this-mode nil "\
+Non-nil if Google-This mode is enabled.
+See the command `google-this-mode' for a description of this minor mode.")
+
+(custom-autoload 'google-this-mode "google-this/google-this" nil)
+
+(autoload 'google-this-mode "google-this/google-this" "\
+Toggle Google-This mode on or off.
+With a prefix argument ARG, enable Google-This mode if ARG is
+positive, and disable it otherwise.  If called from Lisp, enable
+the mode if ARG is omitted or nil, and toggle it if ARG is `toggle'.
+\\{google-this-mode-map}
+
+\(fn &optional ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "gtags/gtags" "gtags/gtags.el" (22027 30760
+;;;;;;  321597 563000))
+;;; Generated autoloads from gtags/gtags.el
+
+(autoload 'gtags-mode "gtags/gtags" "\
+Toggle Gtags mode, a minor mode for browsing source code using GLOBAL.
+
+Specify the root directory of project.
+	\\[gtags-visit-rootdir]
+Input tag name and move to the definition.
+	\\[gtags-find-tag]
+Input tag name and move to the definition in other window.
+        \\[gtags-find-tag-other-window]
+Input tag name and move to the referenced point.
+	\\[gtags-find-rtag]
+Input symbol and move to the locations.
+	\\[gtags-find-symbol]
+Input pattern, search with grep(1) and move to the locations.
+	\\[gtags-find-with-grep]
+Input pattern, search with idutils(1) and move to the locations.
+	\\[gtags-find-with-idutils]
+Input pattern and move to the top of the file.
+	\\[gtags-find-file]
+Input pattern and show the list of definitions of the file.
+	\\[gtags-parse-file]
+Get the expression as a tagname around here and move there.
+	\\[gtags-find-tag-from-here]
+Display current screen on hypertext browser.
+	\\[gtags-display-browser]
+Get the expression as a tagname around here and move there.
+	\\[gtags-find-tag-by-event]
+Move to previous point on the stack.
+	\\[gtags-pop-stack]
+
+Key definitions:
+\\{gtags-mode-map}
+Turning on Gtags mode calls the value of the variable `gtags-mode-hook'
+with no args, if that value is non-nil.
+
+\(fn &optional FORCES)" t nil)
+
+;;;***
+
 ;;;### (autoloads nil "header2/header2" "header2/header2.el" (22026
 ;;;;;;  39390 263962 246000))
 ;;; Generated autoloads from header2/header2.el
@@ -2958,6 +3455,75 @@ Search the first `header-max' chars in buffer using regexps in
 corresponding function with point located just after the match.
 The functions can use `match-beginning' and `match-end' to find
 the strings that cause them to be invoked.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "hide-lines/hide-lines" "hide-lines/hide-lines.el"
+;;;;;;  (22027 28374 35654 789000))
+;;; Generated autoloads from hide-lines/hide-lines.el
+
+(autoload 'hide-lines "hide-lines/hide-lines" "\
+Hide lines matching the specified regexp.
+With prefix arg of 4 (C-u) hide lines that do not match the specified regexp.
+With any other prefix arg, reveal all hidden lines.
+
+\(fn &optional ARG)" t nil)
+
+(autoload 'hide-lines-not-matching "hide-lines/hide-lines" "\
+Hide lines that don't match the specified regexp.
+
+\(fn SEARCH-TEXT)" t nil)
+
+(autoload 'hide-lines-matching "hide-lines/hide-lines" "\
+Hide lines matching the specified regexp.
+
+\(fn SEARCH-TEXT)" t nil)
+
+(autoload 'hide-lines-show-all "hide-lines/hide-lines" "\
+Show all areas hidden by the filter-buffer command.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "highlight-indentation/highlight-indentation"
+;;;;;;  "highlight-indentation/highlight-indentation.el" (22027 30759
+;;;;;;  833597 574000))
+;;; Generated autoloads from highlight-indentation/highlight-indentation.el
+
+(autoload 'highlight-indentation-mode "highlight-indentation/highlight-indentation" "\
+Highlight indentation minor mode highlights indentation based on spaces
+
+\(fn &optional ARG)" t nil)
+
+(autoload 'highlight-indentation-set-offset "highlight-indentation/highlight-indentation" "\
+Set indentation offset localy in buffer, will prevent
+highlight-indentation from trying to guess indentation offset
+from major mode
+
+\(fn OFFSET)" t nil)
+
+(autoload 'highlight-indentation-current-column-mode "highlight-indentation/highlight-indentation" "\
+Hilight Indentation minor mode displays a vertical bar
+corresponding to the indentation of the current line
+
+\(fn &optional ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "init-loader/init-loader" "init-loader/init-loader.el"
+;;;;;;  (22027 29755 123621 669000))
+;;; Generated autoloads from init-loader/init-loader.el
+
+(autoload 'init-loader-load "init-loader/init-loader" "\
+Load configuration files in INIT-DIR.
+
+\(fn &optional (init-dir init-loader-directory))" nil nil)
+
+(autoload 'init-loader-show-log "init-loader/init-loader" "\
+Show init-loader log buffer.
 
 \(fn)" t nil)
 
@@ -3084,6 +3650,62 @@ See also:
 Blocking version `jedi:install-server'.
 
 \(fn)" nil nil)
+
+;;;***
+
+;;;### (autoloads nil "key-chord/key-chord" "key-chord/key-chord.el"
+;;;;;;  (22027 22856 390787 110000))
+;;; Generated autoloads from key-chord/key-chord.el
+
+(autoload 'key-chord-mode "key-chord/key-chord" "\
+Toggle key chord mode.
+With positive ARG enable the mode. With zero or negative arg disable the mode.
+A key chord is two keys that are pressed simultaneously, or one key quickly
+pressed twice.
+
+See functions `key-chord-define-global', `key-chord-define-local', and
+`key-chord-define' and variables `key-chord-two-keys-delay' and
+`key-chord-one-key-delay'.
+
+\(fn ARG)" t nil)
+
+(autoload 'key-chord-define-global "key-chord/key-chord" "\
+Define a key-chord of the two keys in KEYS starting a COMMAND.
+
+KEYS can be a string or a vector of two elements. Currently only elements
+that corresponds to ascii codes in the range 32 to 126 can be used.
+
+COMMAND can be an interactive function, a string, or nil.
+If COMMAND is nil, the key-chord is removed.
+
+Note that KEYS defined locally in the current buffer will have precedence.
+
+\(fn KEYS COMMAND)" t nil)
+
+(autoload 'key-chord-define-local "key-chord/key-chord" "\
+Locally define a key-chord of the two keys in KEYS starting a COMMAND.
+
+KEYS can be a string or a vector of two elements. Currently only elements
+that corresponds to ascii codes in the range 32 to 126 can be used.
+
+COMMAND can be an interactive function, a string, or nil.
+If COMMAND is nil, the key-chord is removed.
+
+The binding goes in the current buffer's local map,
+which in most cases is shared with all other buffers in the same major mode.
+
+\(fn KEYS COMMAND)" t nil)
+
+(autoload 'key-chord-define "key-chord/key-chord" "\
+Define in KEYMAP, a key-chord of the two keys in KEYS starting a COMMAND.
+
+KEYS can be a string or a vector of two elements. Currently only elements
+that corresponds to ascii codes in the range 32 to 126 can be used.
+
+COMMAND can be an interactive function, a string, or nil.
+If COMMAND is nil, the key-chord is removed.
+
+\(fn KEYMAP KEYS COMMAND)" nil nil)
 
 ;;;***
 
@@ -4406,6 +5028,103 @@ command which is about to be called are committed.
 
 ;;;***
 
+;;;### (autoloads nil "mark-multiple/inline-string-rectangle" "mark-multiple/inline-string-rectangle.el"
+;;;;;;  (22027 23303 496776 387000))
+;;; Generated autoloads from mark-multiple/inline-string-rectangle.el
+
+(autoload 'inline-string-rectangle "mark-multiple/inline-string-rectangle" "\
+
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "mark-multiple/mark-more-like-this" "mark-multiple/mark-more-like-this.el"
+;;;;;;  (22027 23303 496776 387000))
+;;; Generated autoloads from mark-multiple/mark-more-like-this.el
+
+(autoload 'mark-next-like-this "mark-multiple/mark-more-like-this" "\
+Find and mark the next part of the buffer matching the currently active region
+With negative ARG, delete the last one instead.
+With zero ARG, skip the last one and mark next.
+
+\(fn ARG)" t nil)
+
+(autoload 'mark-previous-like-this "mark-multiple/mark-more-like-this" "\
+Find and mark the previous part of the buffer matching the currently active region
+With negative ARG, delete the last one instead.
+With zero ARG, skip the last one and mark previous.
+
+\(fn ARG)" t nil)
+
+(autoload 'mark-all-like-this "mark-multiple/mark-more-like-this" "\
+Find and mark all the parts of the buffer matching the currently active region
+
+\(fn)" t nil)
+
+(autoload 'mark-all-like-this-in-region "mark-multiple/mark-more-like-this" "\
+Find and mark all the parts in the region matching the given search
+
+\(fn REG-START REG-END)" t nil)
+
+(autoload 'mark-more-like-this "mark-multiple/mark-more-like-this" "\
+Marks next part of buffer that matches the currently active region ARG times.
+Given a negative ARG it searches backwards instead.
+
+\(fn ARG)" t nil)
+
+(autoload 'mark-more-like-this-extended "mark-multiple/mark-more-like-this" "\
+Like mark-more-like-this, but then lets you adjust with arrows key.
+The actual adjustment made depends on the final component of the
+key-binding used to invoke the command, with all modifiers removed:
+
+   <up>    Mark previous like this
+   <down>  Mark next like this
+   <left>  If last was previous, skip it
+           If last was next, remove it
+   <right> If last was next, skip it
+           If last was previous, remove it
+
+Then, continue to read input events and further add or move marks
+as long as the input event read (with all modifiers removed)
+is one of the above.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "mark-multiple/mark-multiple" "mark-multiple/mark-multiple.el"
+;;;;;;  (22027 23303 496776 387000))
+;;; Generated autoloads from mark-multiple/mark-multiple.el
+
+(autoload 'mm/deactivate-region-or-clear-all "mark-multiple/mark-multiple" "\
+Deactivate mark if active, otherwise clear all.
+
+\(fn)" t nil)
+
+(autoload 'mm/deactivate-region-and-clear-all "mark-multiple/mark-multiple" "\
+Deactivate mark and clear all.
+
+\(fn)" t nil)
+
+(autoload 'mm/clear-all "mark-multiple/mark-multiple" "\
+Remove all marks
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "mark-multiple/rename-sgml-tag" "mark-multiple/rename-sgml-tag.el"
+;;;;;;  (22027 23303 497776 387000))
+;;; Generated autoloads from mark-multiple/rename-sgml-tag.el
+
+(autoload 'rename-sgml-tag "mark-multiple/rename-sgml-tag" "\
+
+
+\(fn)" t nil)
+
+;;;***
+
 ;;;### (autoloads nil "multi-term/multi-term" "multi-term/multi-term.el"
 ;;;;;;  (22026 35731 68049 998000))
 ;;; Generated autoloads from multi-term/multi-term.el
@@ -4729,6 +5448,1355 @@ A mode for creating a rectangular region to edit
 
 ;;;***
 
+;;;### (autoloads nil "org-doing/org-doing" "org-doing/org-doing.el"
+;;;;;;  (22027 29190 473635 210000))
+;;; Generated autoloads from org-doing/org-doing.el
+
+(autoload 'org-doing-log "org-doing/org-doing" "\
+Logs the `description' of what you're doing now in the file
+`org-doing-file' at the *top* of the file.
+
+When `later-p' is true, logs the item as something to be done
+later.
+
+\(fn DESCRIPTION &optional LATER-P)" t nil)
+
+(autoload 'org-doing "org-doing/org-doing" "\
+Interactive function for running any org-doing command.
+
+The first part of the `command' string is parsed as a command:
+- now: calls `org-doing-log'
+- later: calls `org-doing-log'
+- done: calls `org-doing-done'
+
+\(fn COMMAND)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "org-mode/contrib/lisp/htmlize" "org-mode/contrib/lisp/htmlize.el"
+;;;;;;  (22027 29138 100636 466000))
+;;; Generated autoloads from org-mode/contrib/lisp/htmlize.el
+
+(autoload 'htmlize-buffer "org-mode/contrib/lisp/htmlize" "\
+Convert BUFFER to HTML, preserving colors and decorations.
+
+The generated HTML is available in a new buffer, which is returned.
+When invoked interactively, the new buffer is selected in the current
+window.  The title of the generated document will be set to the buffer's
+file name or, if that's not available, to the buffer's name.
+
+Note that htmlize doesn't fontify your buffers, it only uses the
+decorations that are already present.  If you don't set up font-lock or
+something else to fontify your buffers, the resulting HTML will be
+plain.  Likewise, if you don't like the choice of colors, fix the mode
+that created them, or simply alter the faces it uses.
+
+\(fn &optional BUFFER)" t nil)
+
+(autoload 'htmlize-region "org-mode/contrib/lisp/htmlize" "\
+Convert the region to HTML, preserving colors and decorations.
+See `htmlize-buffer' for details.
+
+\(fn BEG END)" t nil)
+
+(autoload 'htmlize-file "org-mode/contrib/lisp/htmlize" "\
+Load FILE, fontify it, convert it to HTML, and save the result.
+
+Contents of FILE are inserted into a temporary buffer, whose major mode
+is set with `normal-mode' as appropriate for the file type.  The buffer
+is subsequently fontified with `font-lock' and converted to HTML.  Note
+that, unlike `htmlize-buffer', this function explicitly turns on
+font-lock.  If a form of highlighting other than font-lock is desired,
+please use `htmlize-buffer' directly on buffers so highlighted.
+
+Buffers currently visiting FILE are unaffected by this function.  The
+function does not change current buffer or move the point.
+
+If TARGET is specified and names a directory, the resulting file will be
+saved there instead of to FILE's directory.  If TARGET is specified and
+does not name a directory, it will be used as output file name.
+
+\(fn FILE &optional TARGET)" t nil)
+
+(autoload 'htmlize-many-files "org-mode/contrib/lisp/htmlize" "\
+Convert FILES to HTML and save the corresponding HTML versions.
+
+FILES should be a list of file names to convert.  This function calls
+`htmlize-file' on each file; see that function for details.  When
+invoked interactively, you are prompted for a list of files to convert,
+terminated with RET.
+
+If TARGET-DIRECTORY is specified, the HTML files will be saved to that
+directory.  Normally, each HTML file is saved to the directory of the
+corresponding source file.
+
+\(fn FILES &optional TARGET-DIRECTORY)" t nil)
+
+(autoload 'htmlize-many-files-dired "org-mode/contrib/lisp/htmlize" "\
+HTMLize dired-marked files.
+
+\(fn ARG &optional TARGET-DIRECTORY)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "org-mode/contrib/lisp/org-annotate-file" "org-mode/contrib/lisp/org-annotate-file.el"
+;;;;;;  (22027 29138 102636 466000))
+;;; Generated autoloads from org-mode/contrib/lisp/org-annotate-file.el
+
+(autoload 'org-annotate-file "org-mode/contrib/lisp/org-annotate-file" "\
+Visit `org-annotate-file-storage-file` and add a new annotation section.
+The annotation is opened at the new section which will be referencing
+the point in the current file.
+
+\(fn)" t nil)
+
+(autoload 'org-annotate-file-show-section "org-mode/contrib/lisp/org-annotate-file" "\
+Add or show annotation entry in STORAGE-FILE and return the buffer.
+The annotation will link to ANNOTATED-BUFFER if specified,
+  otherwise the current buffer is used.
+
+\(fn STORAGE-FILE &optional ANNOTATED-BUFFER)" nil nil)
+
+;;;***
+
+;;;### (autoloads nil "org-mode/contrib/lisp/org-bullets" "org-mode/contrib/lisp/org-bullets.el"
+;;;;;;  (22027 29138 103636 466000))
+;;; Generated autoloads from org-mode/contrib/lisp/org-bullets.el
+
+(autoload 'org-bullets-mode "org-mode/contrib/lisp/org-bullets" "\
+UTF-8 bullets for `org-mode'.
+
+\(fn &optional ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "org-mode/contrib/lisp/org-colview-xemacs"
+;;;;;;  "org-mode/contrib/lisp/org-colview-xemacs.el" (22027 29138
+;;;;;;  105636 466000))
+;;; Generated autoloads from org-mode/contrib/lisp/org-colview-xemacs.el
+
+(autoload 'org-columns-remove-overlays "org-mode/contrib/lisp/org-colview-xemacs" "\
+Remove all currently active column overlays.
+
+\(fn)" t nil)
+
+(autoload 'org-columns-get-format-and-top-level "org-mode/contrib/lisp/org-colview-xemacs" "\
+
+
+\(fn)" nil nil)
+
+(autoload 'org-columns-compute "org-mode/contrib/lisp/org-colview-xemacs" "\
+Sum the values of property PROPERTY hierarchically, for the entire buffer.
+
+\(fn PROPERTY)" t nil)
+
+(autoload 'org-columns-number-to-string "org-mode/contrib/lisp/org-colview-xemacs" "\
+Convert a computed column number to a string value, according to FMT.
+
+\(fn N FMT &optional PRINTF)" nil nil)
+
+;;;***
+
+;;;### (autoloads nil "org-mode/contrib/lisp/org-contacts" "org-mode/contrib/lisp/org-contacts.el"
+;;;;;;  (22027 29138 106636 466000))
+;;; Generated autoloads from org-mode/contrib/lisp/org-contacts.el
+
+(autoload 'org-contacts "org-mode/contrib/lisp/org-contacts" "\
+Create agenda view for contacts matching NAME.
+
+\(fn NAME)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "org-mode/contrib/lisp/org-eldoc" "org-mode/contrib/lisp/org-eldoc.el"
+;;;;;;  (22027 29138 109636 466000))
+;;; Generated autoloads from org-mode/contrib/lisp/org-eldoc.el
+
+(autoload 'org-eldoc-load "org-mode/contrib/lisp/org-eldoc" "\
+Set up org-eldoc documentation function.
+
+\(fn)" t nil)
+
+(add-hook 'org-mode-hook #'org-eldoc-load)
+
+;;;***
+
+;;;### (autoloads nil "org-mode/contrib/lisp/org-link-edit" "org-mode/contrib/lisp/org-link-edit.el"
+;;;;;;  (22027 29138 113636 465000))
+;;; Generated autoloads from org-mode/contrib/lisp/org-link-edit.el
+
+(autoload 'org-link-edit-forward-slurp "org-mode/contrib/lisp/org-link-edit" "\
+Slurp N trailing blobs into link's description.
+
+  The [[http://orgmode.org/][Org mode]] site
+
+                        |
+                        v
+
+  The [[http://orgmode.org/][Org mode site]]
+
+A blob is a block of non-whitespace characters.  When slurping
+forward, trailing punctuation characters are not considered part
+of a blob.
+
+After slurping, return the slurped text and move point to the
+beginning of the link.
+
+If N is negative, slurp leading blobs instead of trailing blobs.
+
+\(fn &optional N)" t nil)
+
+(autoload 'org-link-edit-backward-slurp "org-mode/contrib/lisp/org-link-edit" "\
+Slurp N leading blobs into link's description.
+
+  The [[http://orgmode.org/][Org mode]] site
+
+                        |
+                        v
+
+  [[http://orgmode.org/][The Org mode]] site
+
+A blob is a block of non-whitespace characters.
+
+After slurping, return the slurped text and move point to the
+beginning of the link.
+
+If N is negative, slurp trailing blobs instead of leading blobs.
+
+\(fn &optional N)" t nil)
+
+(autoload 'org-link-edit-forward-barf "org-mode/contrib/lisp/org-link-edit" "\
+Barf N trailing blobs from link's description.
+
+  The [[http://orgmode.org/][Org mode]] site
+
+                        |
+                        v
+
+  The [[http://orgmode.org/][Org]] mode site
+
+A blob is a block of non-whitespace characters.
+
+After barfing, return the barfed text and move point to the
+beginning of the link.
+
+If N is negative, barf leading blobs instead of trailing blobs.
+
+\(fn &optional N)" t nil)
+
+(autoload 'org-link-edit-backward-barf "org-mode/contrib/lisp/org-link-edit" "\
+Barf N leading blobs from link's description.
+
+  The [[http://orgmode.org/][Org mode]] site
+
+                        |
+                        v
+
+  The Org [[http://orgmode.org/][mode]] site
+
+A blob is a block of non-whitespace characters.
+
+After barfing, return the barfed text and move point to the
+beginning of the link.
+
+If N is negative, barf trailing blobs instead of leading blobs.
+
+\(fn &optional N)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "org-mode/contrib/lisp/org-passwords" "org-mode/contrib/lisp/org-passwords.el"
+;;;;;;  (22027 29138 117636 465000))
+;;; Generated autoloads from org-mode/contrib/lisp/org-passwords.el
+
+(autoload 'org-passwords-mode "org-mode/contrib/lisp/org-passwords" "\
+Mode for storing passwords
+
+\(fn)" t nil)
+
+(autoload 'org-passwords "org-mode/contrib/lisp/org-passwords" "\
+Open the password file. Open the password file defined by the
+variable `org-password-file' in read-only mode and kill that
+buffer later according to the value of the variable
+`org-passwords-time-opened'. It also adds the `org-password-file'
+to the auto-mode-alist so that it is opened with its mode being
+`org-passwords-mode'.
+
+With prefix arg ARG, the command does not set up a timer to kill the buffer.
+
+With a double prefix arg \\[universal-argument] \\[universal-argument], open the file for editing.
+
+\(fn &optional ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "org-mode/contrib/lisp/org-registry" "org-mode/contrib/lisp/org-registry.el"
+;;;;;;  (22027 29138 117636 465000))
+;;; Generated autoloads from org-mode/contrib/lisp/org-registry.el
+
+(autoload 'org-registry-show "org-mode/contrib/lisp/org-registry" "\
+Show Org files where there are links pointing to the current
+buffer.
+
+\(fn &optional VISIT)" t nil)
+
+(autoload 'org-registry-visit "org-mode/contrib/lisp/org-registry" "\
+If an Org file contains a link to the current location, visit
+this file.
+
+\(fn)" t nil)
+
+(autoload 'org-registry-initialize "org-mode/contrib/lisp/org-registry" "\
+Initialize `org-registry-alist'.
+If FROM-SCRATCH is non-nil or the registry does not exist yet,
+create a new registry from scratch and eval it. If the registry
+exists, eval `org-registry-file' and make it the new value for
+`org-registry-alist'.
+
+\(fn &optional FROM-SCRATCH)" t nil)
+
+(autoload 'org-registry-insinuate "org-mode/contrib/lisp/org-registry" "\
+Call `org-registry-update' after saving in Org-mode.
+Use with caution.  This could slow down things a bit.
+
+\(fn)" t nil)
+
+(autoload 'org-registry-update "org-mode/contrib/lisp/org-registry" "\
+Update the registry for the current Org file.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "org-mode/contrib/lisp/org-screenshot" "org-mode/contrib/lisp/org-screenshot.el"
+;;;;;;  (22027 29138 118636 465000))
+;;; Generated autoloads from org-mode/contrib/lisp/org-screenshot.el
+
+(autoload 'org-screenshot-take "org-mode/contrib/lisp/org-screenshot" "\
+Take a screenshot and insert link to it at point, if image
+display is already on (see \\[org-toggle-inline-images])
+screenshot will be displayed as an image
+
+Screen area for the screenshot is selected with the mouse, left
+click on a window screenshots that window, while left click and
+drag selects a region. Pressing any key cancels the screen shot
+
+With `C-u' universal argument waits one second after target is
+selected before taking the screenshot. With double `C-u' wait two
+seconds.
+
+With triple `C-u' wait 3 seconds, and also rings the bell when
+screenshot is done, any more `C-u' after that increases delay by
+2 seconds
+
+\(fn &optional DELAY)" t nil)
+
+(autoload 'org-screenshot-rotate-prev "org-mode/contrib/lisp/org-screenshot" "\
+Rotate last screenshot with one of the previously taken
+screenshots from the same directory. If DIR is negative, rotate
+in the other direction
+
+\(fn DIR)" t nil)
+
+(autoload 'org-screenshot-rotate-next "org-mode/contrib/lisp/org-screenshot" "\
+Rotate last screenshot with one of the previously taken
+screenshots from the same directory. If DIR is negative, rotate
+in the other direction
+
+\(fn DIR)" t nil)
+
+(autoload 'org-screenshot-show-unused "org-mode/contrib/lisp/org-screenshot" "\
+Open A Dired buffer with unused screenshots marked
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "org-mode/contrib/lisp/org-toc" "org-mode/contrib/lisp/org-toc.el"
+;;;;;;  (22027 29138 119636 465000))
+;;; Generated autoloads from org-mode/contrib/lisp/org-toc.el
+
+(autoload 'org-toc-show "org-mode/contrib/lisp/org-toc" "\
+Show the table of contents of the current Org-mode buffer.
+
+\(fn &optional DEPTH POSITION)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "org-mode/contrib/lisp/org-track" "org-mode/contrib/lisp/org-track.el"
+;;;;;;  (22027 29138 119636 465000))
+;;; Generated autoloads from org-mode/contrib/lisp/org-track.el
+
+(autoload 'org-track-fetch-package "org-mode/contrib/lisp/org-track" "\
+Fetch Org package depending on `org-track-fetch-package-extension'.
+If DIRECTORY is defined, unpack the package there, i.e. add the
+subdirectory org-mode/ to DIRECTORY.
+
+\(fn &optional DIRECTORY)" t nil)
+
+(autoload 'org-track-compile-org "org-mode/contrib/lisp/org-track" "\
+Compile all *.el files that come with org-mode.
+Generate the autoloads file `org-loaddefs.el'.
+
+DIRECTORY is where the directory org-mode/ lives (i.e. the
+          parent directory of your local repo.
+
+\(fn &optional DIRECTORY)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "org-mode/contrib/lisp/ox-freemind" "org-mode/contrib/lisp/ox-freemind.el"
+;;;;;;  (22027 29138 122636 465000))
+;;; Generated autoloads from org-mode/contrib/lisp/ox-freemind.el
+
+(autoload 'org-freemind-export-to-freemind "org-mode/contrib/lisp/ox-freemind" "\
+Export current buffer to a Freemind Mindmap file.
+
+If narrowing is active in the current buffer, only export its
+narrowed part.
+
+If a region is active, export that region.
+
+A non-nil optional argument ASYNC means the process should happen
+asynchronously.  The resulting file should be accessible through
+the `org-export-stack' interface.
+
+When optional argument SUBTREEP is non-nil, export the sub-tree
+at point, extracting information from the headline properties
+first.
+
+When optional argument VISIBLE-ONLY is non-nil, don't export
+contents of hidden elements.
+
+When optional argument BODY-ONLY is non-nil, only write code
+between \"<body>\" and \"</body>\" tags.
+
+EXT-PLIST, when provided, is a property list with external
+parameters overriding Org default settings, but still inferior to
+file-local settings.
+
+Return output file's name.
+
+\(fn &optional ASYNC SUBTREEP VISIBLE-ONLY BODY-ONLY EXT-PLIST)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "org-mode/contrib/lisp/ox-koma-letter" "org-mode/contrib/lisp/ox-koma-letter.el"
+;;;;;;  (22027 29138 124636 465000))
+;;; Generated autoloads from org-mode/contrib/lisp/ox-koma-letter.el
+
+(autoload 'org-koma-letter-export-as-latex "org-mode/contrib/lisp/ox-koma-letter" "\
+Export current buffer as a KOMA Scrlttr2 letter.
+
+If narrowing is active in the current buffer, only export its
+narrowed part.
+
+If a region is active, export that region.
+
+A non-nil optional argument ASYNC means the process should happen
+asynchronously.  The resulting buffer should be accessible
+through the `org-export-stack' interface.
+
+When optional argument SUBTREEP is non-nil, export the sub-tree
+at point, extracting information from the headline properties
+first.
+
+When optional argument VISIBLE-ONLY is non-nil, don't export
+contents of hidden elements.
+
+When optional argument BODY-ONLY is non-nil, only write code
+between \"\\begin{letter}\" and \"\\end{letter}\".
+
+EXT-PLIST, when provided, is a proeprty list with external
+parameters overriding Org default settings, but still inferior to
+file-local settings.
+
+Export is done in a buffer named \"*Org KOMA-LETTER Export*\".  It
+will be displayed if `org-export-show-temporary-export-buffer' is
+non-nil.
+
+\(fn &optional ASYNC SUBTREEP VISIBLE-ONLY BODY-ONLY EXT-PLIST)" t nil)
+
+(autoload 'org-koma-letter-export-to-latex "org-mode/contrib/lisp/ox-koma-letter" "\
+Export current buffer as a KOMA Scrlttr2 letter (tex).
+
+If narrowing is active in the current buffer, only export its
+narrowed part.
+
+If a region is active, export that region.
+
+A non-nil optional argument ASYNC means the process should happen
+asynchronously.  The resulting file should be accessible through
+the `org-export-stack' interface.
+
+When optional argument SUBTREEP is non-nil, export the sub-tree
+at point, extracting information from the headline properties
+first.
+
+When optional argument VISIBLE-ONLY is non-nil, don't export
+contents of hidden elements.
+
+When optional argument BODY-ONLY is non-nil, only write code
+between \"\\begin{letter}\" and \"\\end{letter}\".
+
+EXT-PLIST, when provided, is a property list with external
+parameters overriding Org default settings, but still inferior to
+file-local settings.
+
+When optional argument PUB-DIR is set, use it as the publishing
+directory.
+
+Return output file's name.
+
+\(fn &optional ASYNC SUBTREEP VISIBLE-ONLY BODY-ONLY EXT-PLIST)" t nil)
+
+(autoload 'org-koma-letter-export-to-pdf "org-mode/contrib/lisp/ox-koma-letter" "\
+Export current buffer as a KOMA Scrlttr2 letter (pdf).
+
+If narrowing is active in the current buffer, only export its
+narrowed part.
+
+If a region is active, export that region.
+
+A non-nil optional argument ASYNC means the process should happen
+asynchronously.  The resulting file should be accessible through
+the `org-export-stack' interface.
+
+When optional argument SUBTREEP is non-nil, export the sub-tree
+at point, extracting information from the headline properties
+first.
+
+When optional argument VISIBLE-ONLY is non-nil, don't export
+contents of hidden elements.
+
+When optional argument BODY-ONLY is non-nil, only write code
+between \"\\begin{letter}\" and \"\\end{letter}\".
+
+EXT-PLIST, when provided, is a property list with external
+parameters overriding Org default settings, but still inferior to
+file-local settings.
+
+Return PDF file's name.
+
+\(fn &optional ASYNC SUBTREEP VISIBLE-ONLY BODY-ONLY EXT-PLIST)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "org-mode/contrib/lisp/ox-rss" "org-mode/contrib/lisp/ox-rss.el"
+;;;;;;  (22027 29138 124636 465000))
+;;; Generated autoloads from org-mode/contrib/lisp/ox-rss.el
+
+(autoload 'org-rss-export-as-rss "org-mode/contrib/lisp/ox-rss" "\
+Export current buffer to a RSS buffer.
+
+If narrowing is active in the current buffer, only export its
+narrowed part.
+
+If a region is active, export that region.
+
+A non-nil optional argument ASYNC means the process should happen
+asynchronously.  The resulting buffer should be accessible
+through the `org-export-stack' interface.
+
+When optional argument SUBTREEP is non-nil, export the sub-tree
+at point, extracting information from the headline properties
+first.
+
+When optional argument VISIBLE-ONLY is non-nil, don't export
+contents of hidden elements.
+
+Export is done in a buffer named \"*Org RSS Export*\", which will
+be displayed when `org-export-show-temporary-export-buffer' is
+non-nil.
+
+\(fn &optional ASYNC SUBTREEP VISIBLE-ONLY)" t nil)
+
+(autoload 'org-rss-export-to-rss "org-mode/contrib/lisp/ox-rss" "\
+Export current buffer to a RSS file.
+
+If narrowing is active in the current buffer, only export its
+narrowed part.
+
+If a region is active, export that region.
+
+A non-nil optional argument ASYNC means the process should happen
+asynchronously.  The resulting file should be accessible through
+the `org-export-stack' interface.
+
+When optional argument SUBTREEP is non-nil, export the sub-tree
+at point, extracting information from the headline properties
+first.
+
+When optional argument VISIBLE-ONLY is non-nil, don't export
+contents of hidden elements.
+
+Return output file's name.
+
+\(fn &optional ASYNC SUBTREEP VISIBLE-ONLY)" t nil)
+
+(autoload 'org-rss-publish-to-rss "org-mode/contrib/lisp/ox-rss" "\
+Publish an org file to RSS.
+
+FILENAME is the filename of the Org file to be published.  PLIST
+is the property list for the given project.  PUB-DIR is the
+publishing directory.
+
+Return output file name.
+
+\(fn PLIST FILENAME PUB-DIR)" nil nil)
+
+;;;***
+
+;;;### (autoloads nil "org-mode/contrib/lisp/ox-taskjuggler" "org-mode/contrib/lisp/ox-taskjuggler.el"
+;;;;;;  (22027 29138 125636 465000))
+;;; Generated autoloads from org-mode/contrib/lisp/ox-taskjuggler.el
+
+(autoload 'org-taskjuggler-export "org-mode/contrib/lisp/ox-taskjuggler" "\
+Export current buffer to a TaskJuggler file.
+
+The exporter looks for a tree with tag that matches
+`org-taskjuggler-project-tag' and takes this as the tasks for
+this project.  The first node of this tree defines the project
+properties such as project name and project period.
+
+If there is a tree with tag that matches
+`org-taskjuggler-resource-tag' this tree is taken as resources
+for the project.  If no resources are specified, a default
+resource is created and allocated to the project.
+
+Also the TaskJuggler project will be created with default reports
+as defined in `org-taskjuggler-default-reports'.
+
+If narrowing is active in the current buffer, only export its
+narrowed part.
+
+If a region is active, export that region.
+
+A non-nil optional argument ASYNC means the process should happen
+asynchronously.  The resulting file should be accessible through
+the `org-export-stack' interface.
+
+When optional argument SUBTREEP is non-nil, export the sub-tree
+at point, extracting information from the headline properties
+first.
+
+When optional argument VISIBLE-ONLY is non-nil, don't export
+contents of hidden elements.
+
+Return output file's name.
+
+\(fn &optional ASYNC SUBTREEP VISIBLE-ONLY)" t nil)
+
+(autoload 'org-taskjuggler-export-and-process "org-mode/contrib/lisp/ox-taskjuggler" "\
+Export current buffer to a TaskJuggler file and process it.
+
+The exporter looks for a tree with tag that matches
+`org-taskjuggler-project-tag' and takes this as the tasks for
+this project.  The first node of this tree defines the project
+properties such as project name and project period.
+
+If there is a tree with tag that matches
+`org-taskjuggler-resource-tag' this tree is taken as resources
+for the project.  If no resources are specified, a default
+resource is created and allocated to the project.
+
+Also the TaskJuggler project will be created with default reports
+as defined in `org-taskjuggler-default-reports'.
+
+If narrowing is active in the current buffer, only export its
+narrowed part.
+
+If a region is active, export that region.
+
+When optional argument SUBTREEP is non-nil, export the sub-tree
+at point, extracting information from the headline properties
+first.
+
+When optional argument VISIBLE-ONLY is non-nil, don't export
+contents of hidden elements.
+
+Return a list of reports.
+
+\(fn &optional SUBTREEP VISIBLE-ONLY)" t nil)
+
+(autoload 'org-taskjuggler-export-process-and-open "org-mode/contrib/lisp/ox-taskjuggler" "\
+Export current buffer to a TaskJuggler file, process and open it.
+
+Export and process the file using
+`org-taskjuggler-export-and-process' and open the generated
+reports with a browser.
+
+If you are targeting TaskJuggler 2.4 (see
+`org-taskjuggler-target-version') the processing and display of
+the reports is done using the TaskJuggler GUI.
+
+\(fn &optional SUBTREEP VISIBLE-ONLY)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "org-mode/lisp/org" "org-mode/lisp/org.el"
+;;;;;;  (22027 29138 234636 463000))
+;;; Generated autoloads from org-mode/lisp/org.el
+
+(autoload 'org-babel-do-load-languages "org-mode/lisp/org" "\
+Load the languages defined in `org-babel-load-languages'.
+
+\(fn SYM VALUE)" nil nil)
+
+(autoload 'org-babel-load-file "org-mode/lisp/org" "\
+Load Emacs Lisp source code blocks in the Org-mode FILE.
+This function exports the source code using `org-babel-tangle'
+and then loads the resulting file using `load-file'.  With prefix
+arg (noninteractively: 2nd arg) COMPILE the tangled Emacs Lisp
+file to byte-code before it is loaded.
+
+\(fn FILE &optional COMPILE)" t nil)
+
+(autoload 'org-version "org-mode/lisp/org" "\
+Show the org-mode version.
+Interactively, or when MESSAGE is non-nil, show it in echo area.
+With prefix argument, or when HERE is non-nil, insert it at point.
+In non-interactive uses, a reduced version string is output unless
+FULL is given.
+
+\(fn &optional HERE FULL MESSAGE)" t nil)
+
+(autoload 'turn-on-orgtbl "org-mode/lisp/org" "\
+Unconditionally turn on `orgtbl-mode'.
+
+\(fn)" nil nil)
+
+(autoload 'org-clock-persistence-insinuate "org-mode/lisp/org" "\
+Set up hooks for clock persistence.
+
+\(fn)" nil nil)
+
+(autoload 'org-mode "org-mode/lisp/org" "\
+Outline-based notes management and organizer, alias
+\"Carsten's outline-mode for keeping track of everything.\"
+
+Org-mode develops organizational tasks around a NOTES file which
+contains information about projects as plain text.  Org-mode is
+implemented on top of outline-mode, which is ideal to keep the content
+of large files well structured.  It supports ToDo items, deadlines and
+time stamps, which magically appear in the diary listing of the Emacs
+calendar.  Tables are easily created with a built-in table editor.
+Plain text URL-like links connect to websites, emails (VM), Usenet
+messages (Gnus), BBDB entries, and any files related to the project.
+For printing and sharing of notes, an Org-mode file (or a part of it)
+can be exported as a structured ASCII or HTML file.
+
+The following commands are available:
+
+\\{org-mode-map}
+
+\(fn)" t nil)
+
+(autoload 'org-cycle "org-mode/lisp/org" "\
+TAB-action and visibility cycling for Org-mode.
+
+This is the command invoked in Org-mode by the TAB key.  Its main purpose
+is outline visibility cycling, but it also invokes other actions
+in special contexts.
+
+- When this function is called with a prefix argument, rotate the entire
+  buffer through 3 states (global cycling)
+  1. OVERVIEW: Show only top-level headlines.
+  2. CONTENTS: Show all headlines of all levels, but no body text.
+  3. SHOW ALL: Show everything.
+  With a double \\[universal-argument] prefix argument, switch to the startup visibility,
+  determined by the variable `org-startup-folded', and by any VISIBILITY
+  properties in the buffer.
+  With a triple \\[universal-argument] prefix argument, show the entire buffer, including any drawers.
+
+- When inside a table, re-align the table and move to the next field.
+
+- When point is at the beginning of a headline, rotate the subtree started
+  by this line through 3 different states (local cycling)
+  1. FOLDED:   Only the main headline is shown.
+  2. CHILDREN: The main headline and the direct children are shown.
+               From this state, you can move to one of the children
+               and zoom in further.
+  3. SUBTREE:  Show the entire subtree, including body text.
+  If there is no subtree, switch directly from CHILDREN to FOLDED.
+
+- When point is at the beginning of an empty headline and the variable
+  `org-cycle-level-after-item/entry-creation' is set, cycle the level
+  of the headline by demoting and promoting it to likely levels.  This
+  speeds up creation document structure by pressing TAB once or several
+  times right after creating a new headline.
+
+- When there is a numeric prefix, go up to a heading with level ARG, do
+  a `show-subtree' and return to the previous cursor position.  If ARG
+  is negative, go up that many levels.
+
+- When point is not at the beginning of a headline, execute the global
+  binding for TAB, which is re-indenting the line.  See the option
+  `org-cycle-emulate-tab' for details.
+
+- Special case: if point is at the beginning of the buffer and there is
+  no headline in line 1, this function will act as if called with prefix arg
+  (\\[universal-argument] TAB, same as S-TAB) also when called without prefix arg.
+  But only if also the variable `org-cycle-global-at-bob' is t.
+
+\(fn &optional ARG)" t nil)
+
+(autoload 'org-global-cycle "org-mode/lisp/org" "\
+Cycle the global visibility.  For details see `org-cycle'.
+With \\[universal-argument] prefix arg, switch to startup visibility.
+With a numeric prefix, show all headlines up to that level.
+
+\(fn &optional ARG)" t nil)
+(put 'orgstruct-heading-prefix-regexp 'safe-local-variable 'stringp)
+
+(autoload 'orgstruct-mode "org-mode/lisp/org" "\
+Toggle the minor mode `orgstruct-mode'.
+This mode is for using Org-mode structure commands in other
+modes.  The following keys behave as if Org-mode were active, if
+the cursor is on a headline, or on a plain list item (both as
+defined by Org-mode).
+
+\(fn &optional ARG)" t nil)
+
+(autoload 'turn-on-orgstruct "org-mode/lisp/org" "\
+Unconditionally turn on `orgstruct-mode'.
+
+\(fn)" nil nil)
+
+(autoload 'turn-on-orgstruct++ "org-mode/lisp/org" "\
+Unconditionally turn on `orgstruct++-mode'.
+
+\(fn)" nil nil)
+
+(autoload 'org-run-like-in-org-mode "org-mode/lisp/org" "\
+Run a command, pretending that the current buffer is in Org-mode.
+This will temporarily bind local variables that are typically bound in
+Org-mode to the values they have in Org-mode, and then interactively
+call CMD.
+
+\(fn CMD)" nil nil)
+
+(autoload 'org-store-link "org-mode/lisp/org" "\
+\\<org-mode-map>Store an org-link to the current location.
+This link is added to `org-stored-links' and can later be inserted
+into an Org buffer with \\[org-insert-link].
+
+For some link types, a prefix ARG is interpreted.
+For links to Usenet articles, ARG negates `org-gnus-prefer-web-links'.
+For file links, ARG negates `org-context-in-file-links'.
+
+A double prefix ARG force skipping storing functions that are not
+part of Org's core.
+
+A triple prefix ARG force storing a link for each line in the
+active region.
+
+\(fn ARG)" t nil)
+
+(autoload 'org-insert-link-global "org-mode/lisp/org" "\
+Insert a link like Org-mode does.
+This command can be called in any mode to insert a link in Org-mode syntax.
+
+\(fn)" t nil)
+
+(autoload 'org-open-at-point-global "org-mode/lisp/org" "\
+Follow a link like Org-mode does.
+This command can be called in any mode to follow a link that has
+Org-mode syntax.
+
+\(fn)" t nil)
+
+(autoload 'org-open-link-from-string "org-mode/lisp/org" "\
+Open a link in the string S, as if it was in Org-mode.
+
+\(fn S &optional ARG REFERENCE-BUFFER)" t nil)
+
+(autoload 'org-switchb "org-mode/lisp/org" "\
+Switch between Org buffers.
+With one prefix argument, restrict available buffers to files.
+With two prefix arguments, restrict available buffers to agenda files.
+
+Defaults to `iswitchb' for buffer name completion.
+Set `org-completion-use-ido' to make it use ido instead.
+
+\(fn &optional ARG)" t nil)
+
+(defalias 'org-ido-switchb 'org-switchb)
+
+(defalias 'org-iswitchb 'org-switchb)
+
+(autoload 'org-cycle-agenda-files "org-mode/lisp/org" "\
+Cycle through the files in `org-agenda-files'.
+If the current buffer visits an agenda file, find the next one in the list.
+If the current buffer does not, find the first agenda file.
+
+\(fn)" t nil)
+
+(autoload 'org-submit-bug-report "org-mode/lisp/org" "\
+Submit a bug report on Org-mode via mail.
+
+Don't hesitate to report any problems or inaccurate documentation.
+
+If you don't have setup sending mail from (X)Emacs, please copy the
+output buffer into your mail program, as it gives us important
+information about your Org-mode version and configuration.
+
+\(fn)" t nil)
+
+(autoload 'org-reload "org-mode/lisp/org" "\
+Reload all org lisp files.
+With prefix arg UNCOMPILED, load the uncompiled versions.
+
+\(fn &optional UNCOMPILED)" t nil)
+
+(autoload 'org-customize "org-mode/lisp/org" "\
+Call the customize function with org as argument.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "org-mode/lisp/org-agenda" "org-mode/lisp/org-agenda.el"
+;;;;;;  (22027 29138 187636 464000))
+;;; Generated autoloads from org-mode/lisp/org-agenda.el
+
+(autoload 'org-toggle-sticky-agenda "org-mode/lisp/org-agenda" "\
+Toggle `org-agenda-sticky'.
+
+\(fn &optional ARG)" t nil)
+
+(autoload 'org-agenda "org-mode/lisp/org-agenda" "\
+Dispatch agenda commands to collect entries to the agenda buffer.
+Prompts for a command to execute.  Any prefix arg will be passed
+on to the selected command.  The default selections are:
+
+a     Call `org-agenda-list' to display the agenda for current day or week.
+t     Call `org-todo-list' to display the global todo list.
+T     Call `org-todo-list' to display the global todo list, select only
+      entries with a specific TODO keyword (the user gets a prompt).
+m     Call `org-tags-view' to display headlines with tags matching
+      a condition  (the user is prompted for the condition).
+M     Like `m', but select only TODO entries, no ordinary headlines.
+L     Create a timeline for the current buffer.
+e     Export views to associated files.
+s     Search entries for keywords.
+S     Search entries for keywords, only with TODO keywords.
+/     Multi occur across all agenda files and also files listed
+      in `org-agenda-text-search-extra-files'.
+<     Restrict agenda commands to buffer, subtree, or region.
+      Press several times to get the desired effect.
+>     Remove a previous restriction.
+#     List \"stuck\" projects.
+!     Configure what \"stuck\" means.
+C     Configure custom agenda commands.
+
+More commands can be added by configuring the variable
+`org-agenda-custom-commands'.  In particular, specific tags and TODO keyword
+searches can be pre-defined in this way.
+
+If the current buffer is in Org-mode and visiting a file, you can also
+first press `<' once to indicate that the agenda should be temporarily
+\(until the next use of \\[org-agenda]) restricted to the current file.
+Pressing `<' twice means to restrict to the current subtree or region
+\(if active).
+
+\(fn &optional ARG ORG-KEYS RESTRICTION)" t nil)
+
+(autoload 'org-batch-agenda "org-mode/lisp/org-agenda" "\
+Run an agenda command in batch mode and send the result to STDOUT.
+If CMD-KEY is a string of length 1, it is used as a key in
+`org-agenda-custom-commands' and triggers this command.  If it is a
+longer string it is used as a tags/todo match string.
+Parameters are alternating variable names and values that will be bound
+before running the agenda command.
+
+\(fn CMD-KEY &rest PARAMETERS)" nil t)
+
+(autoload 'org-batch-agenda-csv "org-mode/lisp/org-agenda" "\
+Run an agenda command in batch mode and send the result to STDOUT.
+If CMD-KEY is a string of length 1, it is used as a key in
+`org-agenda-custom-commands' and triggers this command.  If it is a
+longer string it is used as a tags/todo match string.
+Parameters are alternating variable names and values that will be bound
+before running the agenda command.
+
+The output gives a line for each selected agenda item.  Each
+item is a list of comma-separated values, like this:
+
+category,head,type,todo,tags,date,time,extra,priority-l,priority-n
+
+category     The category of the item
+head         The headline, without TODO kwd, TAGS and PRIORITY
+type         The type of the agenda entry, can be
+                todo               selected in TODO match
+                tagsmatch          selected in tags match
+                diary              imported from diary
+                deadline           a deadline on given date
+                scheduled          scheduled on given date
+                timestamp          entry has timestamp on given date
+                closed             entry was closed on given date
+                upcoming-deadline  warning about deadline
+                past-scheduled     forwarded scheduled item
+                block              entry has date block including g. date
+todo         The todo keyword, if any
+tags         All tags including inherited ones, separated by colons
+date         The relevant date, like 2007-2-14
+time         The time, like 15:00-16:50
+extra        Sting with extra planning info
+priority-l   The priority letter if any was given
+priority-n   The computed numerical priority
+agenda-day   The day in the agenda where this is listed
+
+\(fn CMD-KEY &rest PARAMETERS)" nil t)
+
+(autoload 'org-store-agenda-views "org-mode/lisp/org-agenda" "\
+Store agenda views.
+
+\(fn &rest PARAMETERS)" t nil)
+
+(autoload 'org-batch-store-agenda-views "org-mode/lisp/org-agenda" "\
+Run all custom agenda commands that have a file argument.
+
+\(fn &rest PARAMETERS)" nil t)
+
+(autoload 'org-agenda-list "org-mode/lisp/org-agenda" "\
+Produce a daily/weekly view from all files in variable `org-agenda-files'.
+The view will be for the current day or week, but from the overview buffer
+you will be able to go to other days/weeks.
+
+With a numeric prefix argument in an interactive call, the agenda will
+span ARG days.  Lisp programs should instead specify SPAN to change
+the number of days.  SPAN defaults to `org-agenda-span'.
+
+START-DAY defaults to TODAY, or to the most recent match for the weekday
+given in `org-agenda-start-on-weekday'.
+
+When WITH-HOUR is non-nil, only include scheduled and deadline
+items if they have an hour specification like [h]h:mm.
+
+\(fn &optional ARG START-DAY SPAN WITH-HOUR)" t nil)
+
+(autoload 'org-search-view "org-mode/lisp/org-agenda" "\
+Show all entries that contain a phrase or words or regular expressions.
+
+With optional prefix argument TODO-ONLY, only consider entries that are
+TODO entries.  The argument STRING can be used to pass a default search
+string into this function.  If EDIT-AT is non-nil, it means that the
+user should get a chance to edit this string, with cursor at position
+EDIT-AT.
+
+The search string can be viewed either as a phrase that should be found as
+is, or it can be broken into a number of snippets, each of which must match
+in a Boolean way to select an entry.  The default depends on the variable
+`org-agenda-search-view-always-boolean'.
+Even if this is turned off (the default) you can always switch to
+Boolean search dynamically by preceding the first word with  \"+\" or \"-\".
+
+The default is a direct search of the whole phrase, where each space in
+the search string can expand to an arbitrary amount of whitespace,
+including newlines.
+
+If using a Boolean search, the search string is split on whitespace and
+each snippet is searched separately, with logical AND to select an entry.
+Words prefixed with a minus must *not* occur in the entry.  Words without
+a prefix or prefixed with a plus must occur in the entry.  Matching is
+case-insensitive.  Words are enclosed by word delimiters (i.e. they must
+match whole words, not parts of a word) if
+`org-agenda-search-view-force-full-words' is set (default is nil).
+
+Boolean search snippets enclosed by curly braces are interpreted as
+regular expressions that must or (when preceded with \"-\") must not
+match in the entry.  Snippets enclosed into double quotes will be taken
+as a whole, to include whitespace.
+
+- If the search string starts with an asterisk, search only in headlines.
+- If (possibly after the leading star) the search string starts with an
+  exclamation mark, this also means to look at TODO entries only, an effect
+  that can also be achieved with a prefix argument.
+- If (possibly after star and exclamation mark) the search string starts
+  with a colon, this will mean that the (non-regexp) snippets of the
+  Boolean search must match as full words.
+
+This command searches the agenda files, and in addition the files listed
+in `org-agenda-text-search-extra-files'.
+
+\(fn &optional TODO-ONLY STRING EDIT-AT)" t nil)
+
+(autoload 'org-todo-list "org-mode/lisp/org-agenda" "\
+Show all (not done) TODO entries from all agenda file in a single list.
+The prefix arg can be used to select a specific TODO keyword and limit
+the list to these.  When using \\[universal-argument], you will be prompted
+for a keyword.  A numeric prefix directly selects the Nth keyword in
+`org-todo-keywords-1'.
+
+\(fn &optional ARG)" t nil)
+
+(autoload 'org-tags-view "org-mode/lisp/org-agenda" "\
+Show all headlines for all `org-agenda-files' matching a TAGS criterion.
+The prefix arg TODO-ONLY limits the search to TODO entries.
+
+\(fn &optional TODO-ONLY MATCH)" t nil)
+
+(autoload 'org-agenda-list-stuck-projects "org-mode/lisp/org-agenda" "\
+Create agenda view for projects that are stuck.
+Stuck projects are project that have no next actions.  For the definitions
+of what a project is and how to check if it stuck, customize the variable
+`org-stuck-projects'.
+
+\(fn &rest IGNORE)" t nil)
+
+(autoload 'org-diary "org-mode/lisp/org-agenda" "\
+Return diary information from org files.
+This function can be used in a \"sexp\" diary entry in the Emacs calendar.
+It accesses org files and extracts information from those files to be
+listed in the diary.  The function accepts arguments specifying what
+items should be listed.  For a list of arguments allowed here, see the
+variable `org-agenda-entry-types'.
+
+The call in the diary file should look like this:
+
+   &%%(org-diary) ~/path/to/some/orgfile.org
+
+Use a separate line for each org file to check.  Or, if you omit the file name,
+all files listed in `org-agenda-files' will be checked automatically:
+
+   &%%(org-diary)
+
+If you don't give any arguments (as in the example above), the default value
+of `org-agenda-entry-types' is used: (:deadline :scheduled :timestamp :sexp).
+So the example above may also be written as
+
+   &%%(org-diary :deadline :timestamp :sexp :scheduled)
+
+The function expects the lisp variables `entry' and `date' to be provided
+by the caller, because this is how the calendar works.  Don't use this
+function from a program - use `org-agenda-get-day-entries' instead.
+
+\(fn &rest ARGS)" nil nil)
+
+(autoload 'org-agenda-check-for-timestamp-as-reason-to-ignore-todo-item "org-mode/lisp/org-agenda" "\
+Do we have a reason to ignore this TODO entry because it has a time stamp?
+
+\(fn &optional END)" nil nil)
+
+(autoload 'org-agenda-set-restriction-lock "org-mode/lisp/org-agenda" "\
+Set restriction lock for agenda, to current subtree or file.
+Restriction will be the file if TYPE is `file', or if type is the
+universal prefix \\='(4), or if the cursor is before the first headline
+in the file.  Otherwise, restriction will be to the current subtree.
+
+\(fn &optional TYPE)" t nil)
+
+(autoload 'org-calendar-goto-agenda "org-mode/lisp/org-agenda" "\
+Compute the Org-mode agenda for the calendar date displayed at the cursor.
+This is a command that has to be installed in `calendar-mode-map'.
+
+\(fn)" t nil)
+
+(autoload 'org-agenda-to-appt "org-mode/lisp/org-agenda" "\
+Activate appointments found in `org-agenda-files'.
+With a \\[universal-argument] prefix, refresh the list of
+appointments.
+
+If FILTER is t, interactively prompt the user for a regular
+expression, and filter out entries that don't match it.
+
+If FILTER is a string, use this string as a regular expression
+for filtering entries out.
+
+If FILTER is a function, filter out entries against which
+calling the function returns nil.  This function takes one
+argument: an entry from `org-agenda-get-day-entries'.
+
+FILTER can also be an alist with the car of each cell being
+either `headline' or `category'.  For example:
+
+  \\='((headline \"IMPORTANT\")
+    (category \"Work\"))
+
+will only add headlines containing IMPORTANT or headlines
+belonging to the \"Work\" category.
+
+ARGS are symbols indicating what kind of entries to consider.
+By default `org-agenda-to-appt' will use :deadline*, :scheduled*
+\(i.e., deadlines and scheduled items with a hh:mm specification)
+and :timestamp entries.  See the docstring of `org-diary' for
+details and examples.
+
+If an entry has a APPT_WARNTIME property, its value will be used
+to override `appt-message-warning-time'.
+
+\(fn &optional REFRESH FILTER &rest ARGS)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "org-mode/lisp/org-capture" "org-mode/lisp/org-capture.el"
+;;;;;;  (22027 29138 190636 464000))
+;;; Generated autoloads from org-mode/lisp/org-capture.el
+
+(autoload 'org-capture-string "org-mode/lisp/org-capture" "\
+Capture STRING with the template selected by KEYS.
+
+\(fn STRING &optional KEYS)" t nil)
+
+(autoload 'org-capture "org-mode/lisp/org-capture" "\
+Capture something.
+\\<org-capture-mode-map>
+This will let you select a template from `org-capture-templates', and then
+file the newly captured information.  The text is immediately inserted
+at the target location, and an indirect buffer is shown where you can
+edit it.  Pressing \\[org-capture-finalize] brings you back to the previous state
+of Emacs, so that you can continue your work.
+
+When called interactively with a \\[universal-argument] prefix argument GOTO, don't capture
+anything, just go to the file/headline where the selected template
+stores its notes.  With a double prefix argument \\[universal-argument] \\[universal-argument], go to the last note
+stored.
+
+When called with a `C-0' (zero) prefix, insert a template at point.
+
+ELisp programs can set KEYS to a string associated with a template
+in `org-capture-templates'.  In this case, interactive selection
+will be bypassed.
+
+If `org-capture-use-agenda-date' is non-nil, capturing from the
+agenda will use the date at point as the default date.  Then, a
+`C-1' prefix will tell the capture process to use the HH:MM time
+of the day at point (if any) or the current HH:MM time.
+
+\(fn &optional GOTO KEYS)" t nil)
+
+(autoload 'org-capture-import-remember-templates "org-mode/lisp/org-capture" "\
+Set `org-capture-templates' to be similar to `org-remember-templates'.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "org-mode/lisp/org-colview" "org-mode/lisp/org-colview.el"
+;;;;;;  (22027 29138 194636 463000))
+;;; Generated autoloads from org-mode/lisp/org-colview.el
+
+(autoload 'org-columns-remove-overlays "org-mode/lisp/org-colview" "\
+Remove all currently active column overlays.
+
+\(fn)" t nil)
+
+(autoload 'org-columns-get-format-and-top-level "org-mode/lisp/org-colview" "\
+
+
+\(fn)" nil nil)
+
+(autoload 'org-columns "org-mode/lisp/org-colview" "\
+Turn on column view on an org-mode file.
+When COLUMNS-FMT-STRING is non-nil, use it as the column format.
+
+\(fn &optional COLUMNS-FMT-STRING)" t nil)
+
+(autoload 'org-columns-compute "org-mode/lisp/org-colview" "\
+Sum the values of property PROPERTY hierarchically, for the entire buffer.
+
+\(fn PROPERTY)" t nil)
+
+(autoload 'org-columns-number-to-string "org-mode/lisp/org-colview" "\
+Convert a computed column number to a string value, according to FMT.
+
+\(fn N FMT &optional PRINTF)" nil nil)
+
+(autoload 'org-dblock-write:columnview "org-mode/lisp/org-colview" "\
+Write the column view table.
+PARAMS is a property list of parameters:
+
+:width    enforce same column widths with <N> specifiers.
+:id       the :ID: property of the entry where the columns view
+	  should be built.  When the symbol `local', call locally.
+	  When `global' call column view with the cursor at the beginning
+	  of the buffer (usually this means that the whole buffer switches
+	  to column view).  When \"file:path/to/file.org\", invoke column
+	  view at the start of that file.  Otherwise, the ID is located
+	  using `org-id-find'.
+:hlines   When t, insert a hline before each item.  When a number, insert
+	  a hline before each level <= that number.
+:vlines   When t, make each column a colgroup to enforce vertical lines.
+:maxlevel When set to a number, don't capture headlines below this level.
+:skip-empty-rows
+	  When t, skip rows where all specifiers other than ITEM are empty.
+:format   When non-nil, specify the column view format to use.
+
+\(fn PARAMS)" nil nil)
+
+(autoload 'org-insert-columns-dblock "org-mode/lisp/org-colview" "\
+Create a dynamic block capturing a column view table.
+
+\(fn)" t nil)
+
+(autoload 'org-agenda-columns "org-mode/lisp/org-colview" "\
+Turn on or update column view in the agenda.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "org-mode/lisp/org-compat" "org-mode/lisp/org-compat.el"
+;;;;;;  (22027 29138 194636 463000))
+;;; Generated autoloads from org-mode/lisp/org-compat.el
+
+(autoload 'org-check-version "org-mode/lisp/org-compat" "\
+Try very hard to provide sensible version strings.
+
+\(fn)" nil t)
+
+;;;***
+
+;;;### (autoloads nil "org-mode/lisp/org-lint" "org-mode/lisp/org-lint.el"
+;;;;;;  (22027 29138 206636 463000))
+;;; Generated autoloads from org-mode/lisp/org-lint.el
+
+(autoload 'org-lint "org-mode/lisp/org-lint" "\
+Check current Org buffer for syntax mistakes.
+
+By default, run all checkers.  With a single prefix ARG \\[universal-argument],
+select one category of checkers only.  With a double prefix
+\\[universal-argument] \\[universal-argument], select one precise checker by its name.
+
+ARG can also be a list of checker names, as symbols, to run.
+
+\(fn &optional ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "org-mode/lisp/org-macs" "org-mode/lisp/org-macs.el"
+;;;;;;  (22027 29138 212636 463000))
+;;; Generated autoloads from org-mode/lisp/org-macs.el
+
+(autoload 'org-load-noerror-mustsuffix "org-mode/lisp/org-macs" "\
+Load FILE with optional arguments NOERROR and MUSTSUFFIX.  Drop the MUSTSUFFIX argument for XEmacs, which doesn't recognize it.
+
+\(fn FILE)" nil t)
+
+;;;***
+
+;;;### (autoloads nil "org-mode/lisp/org-version" "org-mode/lisp/org-version.el"
+;;;;;;  (22027 29142 23636 372000))
+;;; Generated autoloads from org-mode/lisp/org-version.el
+
+(autoload 'org-release "org-mode/lisp/org-version" "\
+The release version of org-mode.
+  Inserted by installing org-mode or when a release is made.
+
+\(fn)" nil nil)
+
+(autoload 'org-git-version "org-mode/lisp/org-version" "\
+The Git version of org-mode.
+  Inserted by installing org-mode or when a release is made.
+
+\(fn)" nil nil)
+
+(defvar org-odt-data-dir "/usr/share/emacs/etc/org" "\
+The location of ODT styles.")
+
+;;;***
+
 ;;;### (autoloads nil "pkg-info/pkg-info" "pkg-info/pkg-info.el"
 ;;;;;;  (22026 35522 239055 6000))
 ;;; Generated autoloads from pkg-info/pkg-info.el
@@ -4840,6 +6908,542 @@ version.
 
 ;;;***
 
+;;;### (autoloads nil "python-mode/test/doctest-mode" "python-mode/test/doctest-mode.el"
+;;;;;;  (22027 24281 867820 0))
+;;; Generated autoloads from python-mode/test/doctest-mode.el
+
+(autoload 'doctest-register-mmm-classes "python-mode/test/doctest-mode" "\
+Register doctest's mmm classes, allowing doctest to be used as a
+submode region in other major modes, such as python-mode and rst-mode.
+Two classes are registered:
+
+`doctest-docstring'
+
+    Used to edit docstrings containing doctest examples in python-
+    mode.  Docstring submode regions start and end with triple-quoted
+    strings (\"\"\").  In order to avoid confusing start-string
+    markers and end-string markers, all triple-quote strings in the
+    buffer are treated as submode regions (even if they're not
+    actually docstrings).  Use (C-c % C-d) to insert a new doctest-
+    docstring region.  When `doctest-execute' (C-c C-c) is called
+    inside a doctest-docstring region, it executes just the current
+    docstring.  The globals for this execution are constructed by
+    importing the current buffer's contents in Python.
+
+`doctest-example'
+
+    Used to edit doctest examples in text-editing modes, such as
+    `rst-mode' or `text-mode'.  Docstring submode regions start with
+    optionally indented prompts (>>>) and end with blank lines.  Use
+    (C-c % C-e) to insert a new doctest-example region.  When
+    `doctest-execute' (C-c C-c) is called inside a doctest-example
+    region, it executes all examples in the buffer.
+
+If ADD-MODE-EXT-CLASSES is true, then register the new classes in
+`mmm-mode-ext-classes-alist', which will cause them to be used by
+default in the following modes:
+
+    doctest-docstring:  python-mode
+    doctest-example:    rst-mode
+
+If FIX-MMM-FONTIFY-REGION-BUG is true, then register a hook that will
+fix a bug in `mmm-fontify-region' that affects some (but not all)
+versions of emacs.  (See `doctest-fixed-mmm-fontify-region' for more
+info.)
+
+\(fn &optional ADD-MODE-EXT-CLASSES FIX-MMM-FONTIFY-REGION-BUG)" t nil)
+
+(add-to-list 'auto-mode-alist '("\\.doctest$" . doctest-mode))
+
+(autoload 'doctest-mode "python-mode/test/doctest-mode" "\
+A major mode for editing text files that contain Python
+doctest examples.  Doctest is a testing framework for Python that
+emulates an interactive session, and checks the result of each
+command.  For more information, see the Python library reference:
+<http://docs.python.org/lib/module-doctest.html>
+
+`doctest-mode' defines three kinds of line, each of which is
+treated differently:
+
+  - 'Source lines' are lines consisting of a Python prompt
+    ('>>>' or '...'), followed by source code.  Source lines are
+    colored (similarly to `python-mode') and auto-indented.
+
+  - 'Output lines' are non-blank lines immediately following
+    source lines.  They are colored using several doctest-
+    specific output faces.
+
+  - 'Text lines' are any other lines.  They are not processed in
+    any special way.
+
+\\{doctest-mode-map}
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "python-pep8/python-pep8" "python-pep8/python-pep8.el"
+;;;;;;  (22027 30760 116597 568000))
+;;; Generated autoloads from python-pep8/python-pep8.el
+
+(autoload 'python-pep8 "python-pep8/python-pep8" "\
+Run PEP8, and collect output in a buffer.
+While pep8 runs asynchronously, you can use \\[next-error] (M-x next-error),
+or \\<python-pep8-mode-map>\\[compile-goto-error] in the grep output buffer, to go to the lines where pep8 found matches.
+
+\(fn)" t nil)
+
+(defalias 'pep8 'python-pep8)
+
+;;;***
+
+;;;### (autoloads nil "quickrun/quickrun" "quickrun/quickrun.el"
+;;;;;;  (22027 27947 92665 28000))
+;;; Generated autoloads from quickrun/quickrun.el
+
+(autoload 'quickrun-set-default "quickrun/quickrun" "\
+Set `key' as default key in programing language `lang'
+
+\(fn LANG KEY)" nil nil)
+
+(autoload 'quickrun-add-command "quickrun/quickrun" "\
+
+
+\(fn KEY ALIST &key DEFAULT MODE OVERRIDE)" nil nil)
+
+(autoload 'quickrun "quickrun/quickrun" "\
+Run commands quickly for current buffer
+   With universal prefix argument(C-u), select command-key,
+   With double prefix argument(C-u C-u), run in compile-only-mode
+
+\(fn &rest PLIST)" t nil)
+
+(autoload 'quickrun-with-arg "quickrun/quickrun" "\
+Run commands quickly for current buffer with arguments
+
+\(fn ARG)" t nil)
+
+(autoload 'quickrun-region "quickrun/quickrun" "\
+Run commands with specified region
+
+\(fn START END)" t nil)
+
+(autoload 'quickrun-replace-region "quickrun/quickrun" "\
+Run commands with specified region and replace
+
+\(fn START END)" t nil)
+
+(autoload 'quickrun-eval-print "quickrun/quickrun" "\
+Run commands with specified region and replace
+
+\(fn START END)" t nil)
+
+(autoload 'quickrun-compile-only "quickrun/quickrun" "\
+Exec only compilation
+
+\(fn)" t nil)
+
+(autoload 'quickrun-shell "quickrun/quickrun" "\
+Run commands in shell for interactive programs
+
+\(fn)" t nil)
+
+(autoload 'quickrun-autorun-mode "quickrun/quickrun" "\
+`quickrun' after saving buffer
+
+\(fn &optional ARG)" t nil)
+
+(autoload 'anything-quickrun "quickrun/quickrun" "\
+
+
+\(fn)" t nil)
+
+(autoload 'helm-quickrun "quickrun/quickrun" "\
+
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "rainbow-delimiters/rainbow-delimiters" "rainbow-delimiters/rainbow-delimiters.el"
+;;;;;;  (22027 23057 437782 288000))
+;;; Generated autoloads from rainbow-delimiters/rainbow-delimiters.el
+
+(autoload 'rainbow-delimiters-mode "rainbow-delimiters/rainbow-delimiters" "\
+Highlight nested parentheses, brackets, and braces according to their depth.
+
+\(fn &optional ARG)" t nil)
+
+(autoload 'rainbow-delimiters-mode-enable "rainbow-delimiters/rainbow-delimiters" "\
+Enable `rainbow-delimiters-mode'.
+
+\(fn)" nil nil)
+
+(autoload 'rainbow-delimiters-mode-disable "rainbow-delimiters/rainbow-delimiters" "\
+Disable `rainbow-delimiters-mode'.
+
+\(fn)" nil nil)
+
+;;;***
+
+;;;### (autoloads nil "revive/revive" "revive/revive.el" (22027 29601
+;;;;;;  73625 363000))
+;;; Generated autoloads from revive/revive.el
+
+(autoload 'current-window-configuration-printable "revive/revive" "\
+Return the printable current-window-configuration.
+This configuration will be stored by restore-window-configuration.
+Returned configurations are list of:
+'(Screen-Width Screen-Height Edge-List Buffer-List)
+
+Edge-List is a return value of revive:all-window-edges, list of all
+window-edges whose first member is always of north west window.
+
+Buffer-List is a list of buffer property list of all windows.  This
+property lists are stored in order corresponding to Edge-List.  Buffer
+property list is formed as
+'((buffer-file-name) (buffer-name) (point) (window-start)).
+
+\(fn)" nil nil)
+
+(autoload 'restore-window-configuration "revive/revive" "\
+Restore the window configuration.
+Configuration CONFIG should be created by
+current-window-configuration-printable.
+
+\(fn CONFIG)" nil nil)
+
+(autoload 'wipe "revive/revive" "\
+Wipe Emacs.
+
+\(fn)" t nil)
+
+(autoload 'save-current-configuration "revive/revive" "\
+Save current window/buffer configuration into configuration file.
+
+\(fn &optional NUM)" t nil)
+
+(autoload 'resume "revive/revive" "\
+Resume window/buffer configuration.
+Configuration should be saved by save-current-configuration.
+
+\(fn &optional NUM)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "smart-operator/smart-operator" "smart-operator/smart-operator.el"
+;;;;;;  (22027 29421 602629 667000))
+;;; Generated autoloads from smart-operator/smart-operator.el
+
+(autoload 'smart-operator-mode "smart-operator/smart-operator" "\
+Insert operators with surrounding spaces smartly.
+
+\(fn &optional ARG)" t nil)
+
+(autoload 'smart-operator-mode-on "smart-operator/smart-operator" "\
+Turn on `smart-operator-mode'.  
+
+\(fn)" nil nil)
+
+(autoload 'smart-operator-self-insert-command "smart-operator/smart-operator" "\
+Insert the entered operator plus surrounding spaces.
+
+\(fn ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "syslog-mode/syslog-mode" "syslog-mode/syslog-mode.el"
+;;;;;;  (22027 28377 395654 708000))
+;;; Generated autoloads from syslog-mode/syslog-mode.el
+
+(defvar syslog-setup-on-load nil "\
+*If not nil setup syslog mode on load by running syslog-add-hooks.")
+
+(autoload 'syslog-filter-lines "syslog-mode/syslog-mode" "\
+Restrict buffer to lines matching regexp.
+With prefix arg: remove lines matching regexp.
+
+\(fn &optional ARG)" t nil)
+
+(defvar syslog-datetime-regexp "^[a-z]\\{3\\} [0-9]\\{1,2\\} \\([0-9]\\{2\\}:\\)\\{2\\}[0-9]\\{2\\} " "\
+A regular expression matching the date-time at the beginning of each line in the log file.")
+
+(custom-autoload 'syslog-datetime-regexp "syslog-mode/syslog-mode" t)
+
+(autoload 'syslog-date-to-time "syslog-mode/syslog-mode" "\
+Convert DATE string to time.
+If no year is present in the date then the current year is used.
+If DATE can't be parsed then if SAFE is non-nil return nil otherwise throw an error.
+
+\(fn DATE &optional SAFE)" nil nil)
+
+(autoload 'syslog-filter-dates "syslog-mode/syslog-mode" "\
+Restrict buffer to lines between dates.
+With prefix arg: remove lines between dates.
+
+\(fn START END &optional ARG)" t nil)
+
+(autoload 'syslog-mode "syslog-mode/syslog-mode" "\
+Major mode for working with system logs.
+
+\\{syslog-mode-map}
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "systemd-mode/systemd" "systemd-mode/systemd.el"
+;;;;;;  (22027 28316 709656 164000))
+;;; Generated autoloads from systemd-mode/systemd.el
+ (add-to-list 'auto-mode-alist '("\\.automount\\'" . systemd-mode))
+ (add-to-list 'auto-mode-alist '("\\.busname\\'" . systemd-mode))
+ (add-to-list 'auto-mode-alist '("\\.mount\\'" . systemd-mode))
+ (add-to-list 'auto-mode-alist '("\\.service\\'" . systemd-mode))
+ (add-to-list 'auto-mode-alist '("\\.slice\\'" . systemd-mode))
+ (add-to-list 'auto-mode-alist '("\\.socket\\'" . systemd-mode))
+ (add-to-list 'auto-mode-alist '("\\.target\\'" . systemd-mode))
+ (add-to-list 'auto-mode-alist '("\\.timer\\'" . systemd-mode))
+ (add-to-list 'auto-mode-alist '("\\.link\\'" . systemd-mode))
+ (add-to-list 'auto-mode-alist '("\\.netdev\\'" . systemd-mode))
+ (add-to-list 'auto-mode-alist '("\\.network\\'" . systemd-mode))
+ (add-to-list 'auto-mode-alist '("\\.override\\.conf.*\\'" . systemd-mode))
+
+(autoload 'systemd-mode "systemd-mode/systemd" "\
+Major mode for editing systemd unit files.
+See http://www.freedesktop.org/wiki/Software/systemd/ for more
+information about systemd.
+
+In addition to any hooks its parent mode might have run, this
+mode runs the hook `systemd-mode-hook' at mode initialization.
+
+Key bindings:
+\\{systemd-mode-map}
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "tabbar/revive" "tabbar/revive.el" (22027 28117
+;;;;;;  659660 937000))
+;;; Generated autoloads from tabbar/revive.el
+
+(autoload 'current-window-configuration-printable "tabbar/revive" "\
+Return the printable current-window-configuration.
+This configuration will be stored by restore-window-configuration.
+Returned configurations are list of:
+'(Screen-Width Screen-Height Edge-List Buffer-List)
+
+Edge-List is a return value of revive:all-window-edges, list of all
+window-edges whose first member is always of north west window.
+
+Buffer-List is a list of buffer property list of all windows.  This
+property lists are stored in order corresponding to Edge-List.  Buffer
+property list is formed as
+'((buffer-file-name) (buffer-name) (point) (window-start) tabs).
+
+\(fn)" nil nil)
+
+(autoload 'restore-window-configuration "tabbar/revive" "\
+Restore the window configuration.
+Configuration CONFIG should be created by
+current-window-configuration-printable.
+
+\(fn CONFIG)" nil nil)
+
+(autoload 'wipe "tabbar/revive" "\
+Wipe Emacs.
+
+\(fn)" t nil)
+
+(autoload 'save-current-configuration "tabbar/revive" "\
+Save current window/buffer configuration into configuration file.
+
+\(fn &optional NUM)" t nil)
+
+(autoload 'resume "tabbar/revive" "\
+Resume window/buffer configuration.
+Configuration should be saved by save-current-configuration.
+
+\(fn &optional NUM)" t nil)
+
+(autoload 'revive-desktop "tabbar/revive" "\
+Restores the application state.
+Similar to `resume', though using `desktop' to restore buffers.
+
+\(fn &optional FILE AUTO)" t nil)
+
+(autoload 'revive-save-desktop "tabbar/revive" "\
+Save application state with `desktop' and `revive'.
+Similar to `save-current-configuration', 
+though uses `desktop' to restore buffers.
+
+\(fn &optional FILE AUTO)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "tabbar/tabbar" "tabbar/tabbar.el" (22027 28117
+;;;;;;  661660 937000))
+;;; Generated autoloads from tabbar/tabbar.el
+
+(autoload 'tabbar-backward "tabbar/tabbar" "\
+Select the previous available tab.
+Depend on the setting of the option `tabbar-cycle-scope'.
+
+\(fn)" t nil)
+
+(autoload 'tabbar-forward "tabbar/tabbar" "\
+Select the next available tab.
+Depend on the setting of the option `tabbar-cycle-scope'.
+
+\(fn)" t nil)
+
+(autoload 'tabbar-backward-group "tabbar/tabbar" "\
+Go to selected tab in the previous available group.
+
+\(fn)" t nil)
+
+(autoload 'tabbar-forward-group "tabbar/tabbar" "\
+Go to selected tab in the next available group.
+
+\(fn)" t nil)
+
+(autoload 'tabbar-backward-tab "tabbar/tabbar" "\
+Select the previous visible tab.
+
+\(fn)" t nil)
+
+(autoload 'tabbar-forward-tab "tabbar/tabbar" "\
+Select the next visible tab.
+
+\(fn)" t nil)
+
+(autoload 'tabbar-press-home "tabbar/tabbar" "\
+Press the tab bar home button.
+That is, simulate a mouse click on that button.
+A numeric prefix ARG value of 2, or 3, respectively simulates a
+mouse-2, or mouse-3 click.  The default is a mouse-1 click.
+
+\(fn &optional ARG)" t nil)
+
+(autoload 'tabbar-press-scroll-left "tabbar/tabbar" "\
+Press the tab bar scroll-left button.
+That is, simulate a mouse click on that button.
+A numeric prefix ARG value of 2, or 3, respectively simulates a
+mouse-2, or mouse-3 click.  The default is a mouse-1 click.
+
+\(fn &optional ARG)" t nil)
+
+(autoload 'tabbar-press-scroll-right "tabbar/tabbar" "\
+Press the tab bar scroll-right button.
+That is, simulate a mouse click on that button.
+A numeric prefix ARG value of 2, or 3, respectively simulates a
+mouse-2, or mouse-3 click.  The default is a mouse-1 click.
+
+\(fn &optional ARG)" t nil)
+
+(autoload 'tabbar-mwheel-backward "tabbar/tabbar" "\
+Select the previous available tab.
+EVENT is the mouse event that triggered this command.
+Mouse-enabled equivalent of the command `tabbar-backward'.
+
+\(fn EVENT)" t nil)
+
+(autoload 'tabbar-mwheel-forward "tabbar/tabbar" "\
+Select the next available tab.
+EVENT is the mouse event that triggered this command.
+Mouse-enabled equivalent of the command `tabbar-forward'.
+
+\(fn EVENT)" t nil)
+
+(autoload 'tabbar-mwheel-backward-group "tabbar/tabbar" "\
+Go to selected tab in the previous available group.
+If there is only one group, select the previous visible tab.
+EVENT is the mouse event that triggered this command.
+Mouse-enabled equivalent of the command `tabbar-backward-group'.
+
+\(fn EVENT)" t nil)
+
+(autoload 'tabbar-mwheel-forward-group "tabbar/tabbar" "\
+Go to selected tab in the next available group.
+If there is only one group, select the next visible tab.
+EVENT is the mouse event that triggered this command.
+Mouse-enabled equivalent of the command `tabbar-forward-group'.
+
+\(fn EVENT)" t nil)
+
+(autoload 'tabbar-mwheel-backward-tab "tabbar/tabbar" "\
+Select the previous visible tab.
+EVENT is the mouse event that triggered this command.
+Mouse-enabled equivalent of the command `tabbar-backward-tab'.
+
+\(fn EVENT)" t nil)
+
+(autoload 'tabbar-mwheel-forward-tab "tabbar/tabbar" "\
+Select the next visible tab.
+EVENT is the mouse event that triggered this command.
+Mouse-enabled equivalent of the command `tabbar-forward-tab'.
+
+\(fn EVENT)" t nil)
+
+(autoload 'tabbar-mwheel-switch-tab "tabbar/tabbar" "\
+Select the next or previous tab according to EVENT.
+
+\(fn EVENT)" t nil)
+
+(autoload 'tabbar-mwheel-switch-group "tabbar/tabbar" "\
+Select the next or previous group of tabs according to EVENT.
+
+\(fn EVENT)" t nil)
+
+(autoload 'tabbar-local-mode "tabbar/tabbar" "\
+Toggle local display of the tab bar.
+With prefix argument ARG, turn on if positive, otherwise off.
+Returns non-nil if the new state is enabled.
+When turned on, if a local header line is shown, it is hidden to show
+the tab bar.  The tab bar is locally hidden otherwise.  When turned
+off, if a local header line is hidden or the tab bar is locally
+hidden, it is shown again.  Signal an error if Tabbar mode is off.
+
+\(fn &optional ARG)" t nil)
+
+(defvar tabbar-mode nil "\
+Non-nil if Tabbar mode is enabled.
+See the command `tabbar-mode' for a description of this minor mode.
+Setting this variable directly does not take effect;
+either customize it (see the info node `Easy Customization')
+or call the function `tabbar-mode'.")
+
+(custom-autoload 'tabbar-mode "tabbar/tabbar" nil)
+
+(autoload 'tabbar-mode "tabbar/tabbar" "\
+Toggle display of a tab bar in the header line.
+With prefix argument ARG, turn on if positive, otherwise off.
+Returns non-nil if the new state is enabled.
+
+\\{tabbar-mode-map}
+
+\(fn &optional ARG)" t nil)
+
+(defvar tabbar-mwheel-mode nil "\
+Non-nil if Tabbar-Mwheel mode is enabled.
+See the command `tabbar-mwheel-mode' for a description of this minor mode.
+Setting this variable directly does not take effect;
+either customize it (see the info node `Easy Customization')
+or call the function `tabbar-mwheel-mode'.")
+
+(custom-autoload 'tabbar-mwheel-mode "tabbar/tabbar" nil)
+
+(autoload 'tabbar-mwheel-mode "tabbar/tabbar" "\
+Toggle use of the mouse wheel to navigate through tabs or groups.
+With prefix argument ARG, turn on if positive, otherwise off.
+Returns non-nil if the new state is enabled.
+
+\\{tabbar-mwheel-mode-map}
+
+\(fn &optional ARG)" t nil)
+
+;;;***
+
 ;;;### (autoloads nil "undo-tree/undo-tree" "undo-tree/undo-tree.el"
 ;;;;;;  (22026 35522 487055 0))
 ;;; Generated autoloads from undo-tree/undo-tree.el
@@ -4882,6 +7486,38 @@ ARG is omitted or nil.
 Undo-Tree mode is enabled in all buffers where
 `turn-on-undo-tree-mode' would do it.
 See `undo-tree-mode' for more information on Undo-Tree mode.
+
+\(fn &optional ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "vline/vline" "vline/vline.el" (22027 21708
+;;;;;;  389814 640000))
+;;; Generated autoloads from vline/vline.el
+
+(autoload 'vline-mode "vline/vline" "\
+Display vertical line mode.
+
+\(fn &optional ARG)" t nil)
+
+(defvar vline-global-mode nil "\
+Non-nil if Vline-Global mode is enabled.
+See the command `vline-global-mode' for a description of this minor mode.
+Setting this variable directly does not take effect;
+either customize it (see the info node `Easy Customization')
+or call the function `vline-global-mode'.")
+
+(custom-autoload 'vline-global-mode "vline/vline" nil)
+
+(autoload 'vline-global-mode "vline/vline" "\
+Toggle Vline mode in all buffers.
+With prefix ARG, enable Vline-Global mode if ARG is positive;
+otherwise, disable it.  If called from Lisp, enable the mode if
+ARG is omitted or nil.
+
+Vline mode is enabled in all buffers where
+`(lambda nil (unless (minibufferp) (vline-mode 1)))' would do it.
+See `vline-mode' for more information on Vline mode.
 
 \(fn &optional ARG)" t nil)
 
@@ -4930,7 +7566,117 @@ See `yas-minor-mode' for more information on Yas minor mode.
 
 ;;;***
 
-;;;### (autoloads nil nil ("csv/csv.el") (22027 21232 612826 50000))
+;;;### (autoloads nil nil ("auto-highlight-symbol/auto-highlight-symbol-config.el"
+;;;;;;  "basic-edit-toolkit/basic-edit-toolkit.el" "bm/bm-tests.el"
+;;;;;;  "csv/csv.el" "expand-region/cc-mode-expansions.el" "expand-region/clojure-mode-expansions.el"
+;;;;;;  "expand-region/cperl-mode-expansions.el" "expand-region/css-mode-expansions.el"
+;;;;;;  "expand-region/enh-ruby-mode-expansions.el" "expand-region/er-basic-expansions.el"
+;;;;;;  "expand-region/erlang-mode-expansions.el" "expand-region/expand-region-core.el"
+;;;;;;  "expand-region/expand-region-pkg.el" "expand-region/feature-mode-expansions.el"
+;;;;;;  "expand-region/html-mode-expansions.el" "expand-region/js-mode-expansions.el"
+;;;;;;  "expand-region/js2-mode-expansions.el" "expand-region/jsp-expansions.el"
+;;;;;;  "expand-region/latex-mode-expansions.el" "expand-region/nxml-mode-expansions.el"
+;;;;;;  "expand-region/octave-expansions.el" "expand-region/python-el-expansions.el"
+;;;;;;  "expand-region/python-el-fgallina-expansions.el" "expand-region/python-mode-expansions.el"
+;;;;;;  "expand-region/ruby-mode-expansions.el" "expand-region/sml-mode-expansions.el"
+;;;;;;  "expand-region/subword-mode-expansions.el" "expand-region/text-mode-expansions.el"
+;;;;;;  "expand-region/the-org-mode-expansions.el" "expand-region/web-mode-expansions.el"
+;;;;;;  "fold-dwim/fold-dwim.el" "frame-fns/frame-fns.el" "init-loader/test-init-loader.el"
+;;;;;;  "linkd/linkd.el" "linum-off/linum-off.el" "mark-multiple/mark-multiple-pkg.el"
+;;;;;;  "mark-multiple/mm-pabbrev-integration.el" "moccur-edit/moccur-edit.el"
+;;;;;;  "org-mode/contrib/lisp/ob-eukleides.el" "org-mode/contrib/lisp/ob-fomus.el"
+;;;;;;  "org-mode/contrib/lisp/ob-julia.el" "org-mode/contrib/lisp/ob-mathematica.el"
+;;;;;;  "org-mode/contrib/lisp/ob-mathomatic.el" "org-mode/contrib/lisp/ob-oz.el"
+;;;;;;  "org-mode/contrib/lisp/ob-stata.el" "org-mode/contrib/lisp/ob-tcl.el"
+;;;;;;  "org-mode/contrib/lisp/org-bibtex-extras.el" "org-mode/contrib/lisp/org-bookmark.el"
+;;;;;;  "org-mode/contrib/lisp/org-checklist.el" "org-mode/contrib/lisp/org-choose.el"
+;;;;;;  "org-mode/contrib/lisp/org-collector.el" "org-mode/contrib/lisp/org-contribdir.el"
+;;;;;;  "org-mode/contrib/lisp/org-depend.el" "org-mode/contrib/lisp/org-download.el"
+;;;;;;  "org-mode/contrib/lisp/org-drill.el" "org-mode/contrib/lisp/org-ebib.el"
+;;;;;;  "org-mode/contrib/lisp/org-effectiveness.el" "org-mode/contrib/lisp/org-elisp-symbol.el"
+;;;;;;  "org-mode/contrib/lisp/org-eval-light.el" "org-mode/contrib/lisp/org-eval.el"
+;;;;;;  "org-mode/contrib/lisp/org-eww.el" "org-mode/contrib/lisp/org-expiry.el"
+;;;;;;  "org-mode/contrib/lisp/org-git-link.el" "org-mode/contrib/lisp/org-index.el"
+;;;;;;  "org-mode/contrib/lisp/org-interactive-query.el" "org-mode/contrib/lisp/org-invoice.el"
+;;;;;;  "org-mode/contrib/lisp/org-learn.el" "org-mode/contrib/lisp/org-license.el"
+;;;;;;  "org-mode/contrib/lisp/org-mac-iCal.el" "org-mode/contrib/lisp/org-mac-link.el"
+;;;;;;  "org-mode/contrib/lisp/org-mairix.el" "org-mode/contrib/lisp/org-man.el"
+;;;;;;  "org-mode/contrib/lisp/org-mew.el" "org-mode/contrib/lisp/org-mime.el"
+;;;;;;  "org-mode/contrib/lisp/org-notify.el" "org-mode/contrib/lisp/org-notmuch.el"
+;;;;;;  "org-mode/contrib/lisp/org-panel.el" "org-mode/contrib/lisp/org-screen.el"
+;;;;;;  "org-mode/contrib/lisp/org-secretary.el" "org-mode/contrib/lisp/org-static-mathjax.el"
+;;;;;;  "org-mode/contrib/lisp/org-sudoku.el" "org-mode/contrib/lisp/org-velocity.el"
+;;;;;;  "org-mode/contrib/lisp/org-vm.el" "org-mode/contrib/lisp/org-wikinodes.el"
+;;;;;;  "org-mode/contrib/lisp/org-wl.el" "org-mode/contrib/lisp/orgtbl-sqlinsert.el"
+;;;;;;  "org-mode/contrib/lisp/ox-bibtex.el" "org-mode/contrib/lisp/ox-confluence.el"
+;;;;;;  "org-mode/contrib/lisp/ox-deck.el" "org-mode/contrib/lisp/ox-extra.el"
+;;;;;;  "org-mode/contrib/lisp/ox-gfm.el" "org-mode/contrib/lisp/ox-groff.el"
+;;;;;;  "org-mode/contrib/lisp/ox-s5.el" "org-mode/lisp/ob-C.el"
+;;;;;;  "org-mode/lisp/ob-J.el" "org-mode/lisp/ob-R.el" "org-mode/lisp/ob-abc.el"
+;;;;;;  "org-mode/lisp/ob-asymptote.el" "org-mode/lisp/ob-awk.el"
+;;;;;;  "org-mode/lisp/ob-calc.el" "org-mode/lisp/ob-clojure.el"
+;;;;;;  "org-mode/lisp/ob-comint.el" "org-mode/lisp/ob-coq.el" "org-mode/lisp/ob-core.el"
+;;;;;;  "org-mode/lisp/ob-css.el" "org-mode/lisp/ob-ditaa.el" "org-mode/lisp/ob-dot.el"
+;;;;;;  "org-mode/lisp/ob-ebnf.el" "org-mode/lisp/ob-emacs-lisp.el"
+;;;;;;  "org-mode/lisp/ob-eval.el" "org-mode/lisp/ob-exp.el" "org-mode/lisp/ob-forth.el"
+;;;;;;  "org-mode/lisp/ob-fortran.el" "org-mode/lisp/ob-gnuplot.el"
+;;;;;;  "org-mode/lisp/ob-groovy.el" "org-mode/lisp/ob-haskell.el"
+;;;;;;  "org-mode/lisp/ob-io.el" "org-mode/lisp/ob-java.el" "org-mode/lisp/ob-js.el"
+;;;;;;  "org-mode/lisp/ob-keys.el" "org-mode/lisp/ob-latex.el" "org-mode/lisp/ob-ledger.el"
+;;;;;;  "org-mode/lisp/ob-lilypond.el" "org-mode/lisp/ob-lisp.el"
+;;;;;;  "org-mode/lisp/ob-lob.el" "org-mode/lisp/ob-makefile.el"
+;;;;;;  "org-mode/lisp/ob-matlab.el" "org-mode/lisp/ob-maxima.el"
+;;;;;;  "org-mode/lisp/ob-mscgen.el" "org-mode/lisp/ob-ocaml.el"
+;;;;;;  "org-mode/lisp/ob-octave.el" "org-mode/lisp/ob-org.el" "org-mode/lisp/ob-perl.el"
+;;;;;;  "org-mode/lisp/ob-picolisp.el" "org-mode/lisp/ob-plantuml.el"
+;;;;;;  "org-mode/lisp/ob-processing.el" "org-mode/lisp/ob-python.el"
+;;;;;;  "org-mode/lisp/ob-ref.el" "org-mode/lisp/ob-ruby.el" "org-mode/lisp/ob-sass.el"
+;;;;;;  "org-mode/lisp/ob-scala.el" "org-mode/lisp/ob-scheme.el"
+;;;;;;  "org-mode/lisp/ob-screen.el" "org-mode/lisp/ob-sed.el" "org-mode/lisp/ob-shell.el"
+;;;;;;  "org-mode/lisp/ob-shen.el" "org-mode/lisp/ob-sql.el" "org-mode/lisp/ob-sqlite.el"
+;;;;;;  "org-mode/lisp/ob-stan.el" "org-mode/lisp/ob-table.el" "org-mode/lisp/ob-tangle.el"
+;;;;;;  "org-mode/lisp/ob.el" "org-mode/lisp/org-archive.el" "org-mode/lisp/org-attach.el"
+;;;;;;  "org-mode/lisp/org-bbdb.el" "org-mode/lisp/org-bibtex.el"
+;;;;;;  "org-mode/lisp/org-clock.el" "org-mode/lisp/org-crypt.el"
+;;;;;;  "org-mode/lisp/org-ctags.el" "org-mode/lisp/org-datetree.el"
+;;;;;;  "org-mode/lisp/org-docview.el" "org-mode/lisp/org-element.el"
+;;;;;;  "org-mode/lisp/org-entities.el" "org-mode/lisp/org-eshell.el"
+;;;;;;  "org-mode/lisp/org-faces.el" "org-mode/lisp/org-feed.el"
+;;;;;;  "org-mode/lisp/org-footnote.el" "org-mode/lisp/org-gnus.el"
+;;;;;;  "org-mode/lisp/org-habit.el" "org-mode/lisp/org-id.el" "org-mode/lisp/org-indent.el"
+;;;;;;  "org-mode/lisp/org-info.el" "org-mode/lisp/org-inlinetask.el"
+;;;;;;  "org-mode/lisp/org-install.el" "org-mode/lisp/org-irc.el"
+;;;;;;  "org-mode/lisp/org-list.el" "org-mode/lisp/org-macro.el"
+;;;;;;  "org-mode/lisp/org-mhe.el" "org-mode/lisp/org-mobile.el"
+;;;;;;  "org-mode/lisp/org-mouse.el" "org-mode/lisp/org-pcomplete.el"
+;;;;;;  "org-mode/lisp/org-plot.el" "org-mode/lisp/org-protocol.el"
+;;;;;;  "org-mode/lisp/org-rmail.el" "org-mode/lisp/org-src.el" "org-mode/lisp/org-table.el"
+;;;;;;  "org-mode/lisp/org-timer.el" "org-mode/lisp/org-w3m.el" "org-mode/lisp/ox-ascii.el"
+;;;;;;  "org-mode/lisp/ox-beamer.el" "org-mode/lisp/ox-html.el" "org-mode/lisp/ox-icalendar.el"
+;;;;;;  "org-mode/lisp/ox-latex.el" "org-mode/lisp/ox-man.el" "org-mode/lisp/ox-md.el"
+;;;;;;  "org-mode/lisp/ox-odt.el" "org-mode/lisp/ox-org.el" "org-mode/lisp/ox-publish.el"
+;;;;;;  "org-mode/lisp/ox-texinfo.el" "org-mode/lisp/ox.el" "python-mode/python-mode-pkg.el"
+;;;;;;  "python-mode/python-mode.el" "python-mode/test/pars-part-output.el"
+;;;;;;  "python-mode/test/py-bug-numbered-tests.el" "python-mode/test/py-completion-tests.el"
+;;;;;;  "python-mode/test/py-ert-always-split-lp-1361531-tests.el"
+;;;;;;  "python-mode/test/py-ert-beginning-tests.el" "python-mode/test/py-ert-end-tests.el"
+;;;;;;  "python-mode/test/py-ert-execute-block-test.el" "python-mode/test/py-ert-execute-region-test.el"
+;;;;;;  "python-mode/test/py-ert-forward-tests.el" "python-mode/test/py-ert-function-tests.el"
+;;;;;;  "python-mode/test/py-ert-interactive-tests.el" "python-mode/test/py-ert-just-two-split-lp-1361531-tests.el"
+;;;;;;  "python-mode/test/py-ert-tests-1.el" "python-mode/test/py-ert-tests-2.el"
+;;;;;;  "python-mode/test/py-ert-tests-3.el" "python-mode/test/py-ert-variablen-tests.el"
+;;;;;;  "python-mode/test/py-execute-region-commandp-test.el" "python-mode/test/py-interactive-tests.el"
+;;;;;;  "python-mode/test/py-non-travis-tests.el" "python-mode/test/py-shell-arg-ert-tests.el"
+;;;;;;  "python-mode/test/py-shell-completion-tests.el" "python-mode/test/py-shell-ert-tests.el"
+;;;;;;  "python-mode/test/py-split-window-on-execute-lp-1361531-test.el"
+;;;;;;  "python-mode/test/python-extended-executes-test.el" "python-mode/test/python-mode-syntax-test.el"
+;;;;;;  "python-mode/test/python-mode-test.el" "python-mode/test/setup-ert-tests.el"
+;;;;;;  "rainbow-delimiters/rainbow-delimiters-test.el" "recentf-ext/recentf-ext.el"
+;;;;;;  "smartchr/smartchr.el" "smartrep/smartrep.el" "space-chord/space-chord.el"
+;;;;;;  "systemd-mode/systemd-company.el" "tabbar/aquamacs-compat.el"
+;;;;;;  "tabbar/aquamacs-tabbar.el" "tabbar/aquamacs-tools.el" "tabbar/one-buffer-one-frame.el"
+;;;;;;  "tabbar/tabbar-window.el" "tail/tail.el" "w3m-extension/w3m-extension.el")
+;;;;;;  (22027 30760 409597 561000))
 
 ;;;***
 
