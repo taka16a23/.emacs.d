@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:25:06 2012 (+0900)
-;; Last-Updated: 2015/09/30 09:43:01 (+0900)
+;; Last-Updated: 2015/09/30 11:50:13 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -137,6 +137,7 @@
   (           "m" 'switch-message              )
   (           "a" 'switch-allinone             )
   (        "\C-a" 'switch-allinone             )
+  (           "D" 'switch-doing                )
   ;; (        "\C-b" 'next-buffer                 )
   (        "\C-f" 'previous-buffer             )
   (           "@" 'find-file-conf              )
