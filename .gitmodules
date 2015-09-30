@@ -55,3 +55,21 @@
 [submodule "elisp/el-got/init-loader"]
 	path = elisp/el-got/init-loader
 	url = https://github.com/emacs-jp/init-loader.git
+[submodule "elisp/el-got/auto-highlight-symbol"]
+	path = elisp/el-got/auto-highlight-symbol
+	url = https://github.com/emacsmirror/auto-highlight-symbol.git
+[submodule "elisp/el-got/c-eldoc"]
+	path = elisp/el-got/c-eldoc
+	url = https://github.com/nflath/c-eldoc.git
+[submodule "elisp/el-got/fold-dwim"]
+	path = elisp/el-got/fold-dwim
+	url = https://github.com/emacsmirror/fold-dwim.git
+[submodule "elisp/el-got/google-this"]
+	path = elisp/el-got/google-this
+	url = https://github.com/Bruce-Connor/emacs-google-this.git
+[submodule "elisp/el-got/highlight-indentation"]
+	path = elisp/el-got/highlight-indentation
+	url = https://github.com/antonj/Highlight-Indentation-for-Emacs
+[submodule "elisp/el-got/python-pep8"]
+	path = elisp/el-got/python-pep8
+	url = https://github.com/emacsmirror/python-pep8.git
