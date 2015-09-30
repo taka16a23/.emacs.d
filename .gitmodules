@@ -22,3 +22,6 @@
 [submodule "elisp/el-got/quickrun"]
 	path = elisp/el-got/quickrun
 	url = https://github.com/syohex/emacs-quickrun.git
+[submodule "elisp/el-got/tabbar"]
+	path = elisp/el-got/tabbar
+	url = https://github.com/dholm/tabbar.git
