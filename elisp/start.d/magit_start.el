@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2015/09/30 08:27:13 (+0900)
-;; Last-Updated: 2015/09/30 08:49:50 (+0900)
+;; Last-Updated: 2015/09/30 10:20:11 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -63,6 +63,9 @@
   (interactive)
   (unless (called-interactively-p 'interactive)
     (message "eval-after-load: \"magit\" keymaping.."))
+  ;; (define-many-keys magit-status-mode-map
+    ;; ("j" 'backward-char))
+
   )
 
 ;;;###autoload
