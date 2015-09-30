@@ -29427,6 +29427,7 @@ with-editor-mode-map
 
 * Wed 30 Sep 2015 08:50:50 AM JST
 magit
+<<<<<<< HEAD
 * Wed 30 Sep 2015 09:04:49 AM JST
 magit-get-top-dir
 * Wed 30 Sep 2015 09:23:34 AM JST
@@ -29510,3 +29511,239 @@ when
 eval-when
 * Wed 30 Sep 2015 10:16:32 AM JST
 run-hooks-after-load
+=======
+* Wed 30 Sep 2015 10:09:17 AM JST
+magit-status-mode-map
+>>>>>>> feature-magit
+
+* Wed 30 Sep 2015 10:29:45 AM JST
+(setq e2wm:c-magit-recipe
+      '(| (:left-size-ratio 0.3)
+          (- (:upper-size-ratio 0.6)
+             status branches)
+          (| (:left-size-ratio 0.2)
+             (- (:upper-size-ratio 0.5)
+                logs
+                (- (:upper-size-ratio 0.5)
+                   main sub))
+             diff)))
+* Wed 30 Sep 2015 10:30:06 AM JST
+(setq e2wm:c-magit-winfo
+      '((:name status   :plugin magit-status)
+        (:name branches :plugin magit-branches)
+        (:name logs     :plugin magit-logs)
+        (:name diff     :buffer "*magit-diff*" :default-hide t)
+        (:name main)
+        (:name sub      :buffer nil :default-hide t)))
+* Wed 30 Sep 2015 10:30:26 AM JST
+(setf (e2wm:$pst-class-main (e2wm:pst-class-get 'magit)) 'status)
+* Wed 30 Sep 2015 10:30:36 AM JST
+(defadvice e2wm:dp-magit-popup (around ~e2wm:mng-diff activate)
+  (if (string= (buffer-name (ad-get-arg 0)) "*magit-diff*")
+      (e2wm:with-advice
+       (e2wm:pst-buffer-set 'diff (ad-get-arg 0) t t))
+    ad-do-it))
+* Wed 30 Sep 2015 10:37:29 AM JST
+(defun e2wm:def-plugin-magit-status (frame wm winfo)
+  (e2wm:def-plugin-vcs-with-window
+   'magit-toplevel
+   (lambda (dir topdir)
+     (magit-status (file-name-as-directory dir)))
+   (lambda () (e2wm:history-get-main-buffer))))
+
+
+* Wed 30 Sep 2015 10:41:03 AM JST
+(setq e2wm:c-magit-recipe
+      '(| (:left-size-ratio 0.3)
+          (- (:upper-size-ratio 0.6)
+             status branches)
+          (| (:left-size-ratio 0.2)
+             (- (:upper-size-ratio 0.5)
+                logs
+                (- (:upper-size-ratio 0.5)
+                   main sub))
+             diff)))
+
+(setq e2wm:c-magit-winfo
+      '((:name status   :plugin magit-status)
+        (:name branches :plugin magit-branches)
+        (:name logs     :plugin magit-logs)
+        (:name diff     :buffer "*magit-diff*" :default-hide t)
+        (:name main)
+        (:name sub      :buffer nil :default-hide t)))
+
+* Wed 30 Sep 2015 10:41:21 AM JST
+(defadvice e2wm:dp-magit-popup (around ~e2wm:mng-diff activate)
+  (if (string= (buffer-name (ad-get-arg 0)) "*magit-diff*")
+      (e2wm:with-advice
+       (e2wm:pst-buffer-set 'diff (ad-get-arg 0) t t))
+    ad-do-it))
+
+(defun e2wm:def-plugin-magit-status (frame wm winfo)
+  (e2wm:def-plugin-vcs-with-window
+   'magit-toplevel
+   (lambda (dir topdir)
+     (magit-status (file-name-as-directory dir)))
+   (lambda () (e2wm:history-get-main-buffer))))
+
+(defun e2wm:def-plugin-magit-branches (frame wm winfo)
+  (e2wm:def-plugin-vcs-with-window
+   'magit-toplevel
+   (if (fboundp 'magit-branch-manager)
+       (lambda (dir topdir) (magit-branch-manager))
+     (lambda (dir topdir) (magit-show-branches)))
+   (lambda () (e2wm:def-plugin-vcs-na-buffer "Git N/A"))))
+
+(defun e2wm:def-plugin-magit-logs (frame wm winfo)
+  (e2wm:def-plugin-vcs-with-window
+   'magit-toplevel
+   (lambda (dir topdir)
+     (magit-log nil))
+   (lambda () (e2wm:def-plugin-vcs-na-buffer "Git N/A"))))
+
+(defun e2wm:start-direct-pycode () ;[2015/09/30]
+  ""
+  (interactive)
+  (when (not (and (boundp 'e2wm:pst-minor-mode) e2wm:pst-minor-mode))
+    (e2wm:start-management)
+    (e2wm:dp-pycode)))
+* Wed 30 Sep 2015 10:41:48 AM JST
+(setf (e2wm:$pst-class-main (e2wm:pst-class-get 'magit)) 'status)
+* Wed 30 Sep 2015 10:43:19 AM JST
+(setf (e2wm:$pst-class-main (e2wm:pst-class-get 'magit)) 'status)
+* Wed 30 Sep 2015 10:43:22 AM JST
+(setf (e2wm:$pst-class-main (e2wm:pst-class-get 'magit)) 'status)
+* Wed 30 Sep 2015 10:44:12 AM JST
+
+* Wed 30 Sep 2015 10:44:12 AM JST
+
+* Wed 30 Sep 2015 10:44:12 AM JST
+  (setf (e2wm:$pst-class-main (e2wm:pst-class-get 'magit)) 'status)
+
+* Wed 30 Sep 2015 10:44:18 AM JST
+
+* Wed 30 Sep 2015 10:44:18 AM JST
+
+* Wed 30 Sep 2015 10:44:18 AM JST
+(setf (e2wm:$pst-class-main (e2wm:pst-class-get 'magit)) 'status)
+
+* Wed 30 Sep 2015 10:44:51 AM JST
+(setf (e2wm:$pst-class-main (e2wm:pst-class-get 'magit)) 'status)
+* Wed 30 Sep 2015 11:03:17 AM JST
+(magit-toplevel)
+* Wed 30 Sep 2015 11:08:11 AM JST
+(setq e2wm:c-magit-recipe
+        '(| (:left-size-ratio 0.3)
+            (- (:upper-size-ratio 0.6)
+               status branches)
+            (| (:left-size-ratio 0.2)
+               (- (:upper-size-ratio 0.5)
+                  logs
+                  (- (:upper-size-ratio 0.5)
+                     main sub))
+               diff)))
+* Wed 30 Sep 2015 11:12:22 AM JST
+magit-commit-buffer-name
+* Wed 30 Sep 2015 11:21:07 AM JST
+COMMIT_EDITMSG
+* Wed 30 Sep 2015 11:21:26 AM JST
+(defun e2wm:dp-magit-popup (buf)
+  (let ((cb (current-buffer)))
+    (e2wm:message "#DP MAGIT popup : %s (current %s / backup %s)"
+                  buf cb e2wm:override-window-cfg-backup))
+  (unless (e2wm:vcs-select-if-plugin buf)
+    (let ((buf-name (buffer-name buf))
+          (wm (e2wm:pst-get-wm))
+          (not-minibufp (= 0 (minibuffer-depth))))
+      (e2wm:with-advice
+       (cond
+        ((equal buf-name magit-commit-buffer-name)
+         ;; displaying commit objects in the main window
+         (e2wm:pst-buffer-set 'main buf t nil))
+        ((string-match "^\\*magit: .*\\*$" buf-name)
+         ;; displaying status object in the status window
+         (e2wm:pst-buffer-set 'status buf t t))
+        ((buffer-file-name buf)
+         ;; displaying file buffer in the main window
+         (e2wm:pst-buffer-set 'main buf t t))
+        (t
+         ;; displaying other objects in the sub window
+         (e2wm:pst-buffer-set 'sub buf t not-minibufp)))))))
+* Wed 30 Sep 2015 11:21:43 AM JST
+COMMIT_EDITMSG
+* Wed 30 Sep 2015 11:25:45 AM JST
+branches
+* Wed 30 Sep 2015 11:27:33 AM JST
+(defun e2wm:dp-magit-popup (buf)
+  (let ((cb (current-buffer)))
+    (e2wm:message "#DP MAGIT popup : %s (current %s / backup %s)"
+                  buf cb e2wm:override-window-cfg-backup))
+  (unless (e2wm:vcs-select-if-plugin buf)
+    (let ((buf-name (buffer-name buf))
+          (wm (e2wm:pst-get-wm))
+          (not-minibufp (= 0 (minibuffer-depth))))
+      (e2wm:with-advice
+       (cond
+        ((equal buf-name "COMMIT_EDITMSG")
+         ;; displaying commit objects in the main window
+         (e2wm:pst-buffer-set 'main buf t nil))
+        ((string-match "^\\*magit: .*\\*$" buf-name)
+         ;; displaying status object in the status window
+         (e2wm:pst-buffer-set 'status buf t t))
+        ((buffer-file-name buf)
+         ;; displaying file buffer in the main window
+         (e2wm:pst-buffer-set 'main buf t t))
+        (t
+         ;; displaying other objects in the sub window
+         (e2wm:pst-buffer-set 'sub buf t not-minibufp)))))))
+* Wed 30 Sep 2015 11:28:28 AM JST
+  (defadvice e2wm:dp-magit-popup (around ~e2wm:mng-diff activate)
+    (if (string= (buffer-name (ad-get-arg 0)) "*magit-diff*")
+        (e2wm:with-advice
+         (e2wm:pst-buffer-set 'diff (ad-get-arg 0) t t))
+      ad-do-it))
+
+
+* Wed 30 Sep 2015 11:29:10 AM JST
+    
+* Wed 30 Sep 2015 11:30:28 AM JST
+(setq e2wm:c-magit-recipe
+      '(| (:left-size-ratio 0.4)
+          (- (:upper-size-ratio 0.6)
+             status sub)
+          (| (:left-size-ratio 0.2)
+             (- (:upper-size-ratio 0.5)
+                logs
+                (- (:upper-size-ratio 0.5)
+                   main branches))
+             diff)))
+* Wed 30 Sep 2015 11:31:51 AM JST
+branches
+* Wed 30 Sep 2015 11:31:54 AM JST
+logs
+* Wed 30 Sep 2015 11:37:33 AM JST
+main
+* Wed 30 Sep 2015 11:38:38 AM JST
+logs
+* Wed 30 Sep 2015 11:38:41 AM JST
+                
+* Wed 30 Sep 2015 11:49:16 AM JST
+my-emacs-dir
+* Wed 30 Sep 2015 11:49:44 AM JST
+switch-allinone
+* Wed 30 Sep 2015 11:49:57 AM JST
+  
+* Wed 30 Sep 2015 11:52:30 AM JST
+doing.org
+* Wed 30 Sep 2015 11:57:27 AM JST
+(| (:left-max-size 34)
+            ;; left
+            (- (:upper-max-size 50)
+               files
+               (- (:upper-max-size 20)
+                  imenu history))
+            (| (:left-max-size 85) ;linum +4
+               ;; center
+               main
+               ;; right
+               (- (:lower-max-size 22) right sub)))

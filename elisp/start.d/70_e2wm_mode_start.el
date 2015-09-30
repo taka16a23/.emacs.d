@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Tue Dec 11 23:33:01 2012 (+0900)
-;; Last-Updated: 2015/09/29 22:18:40 (+0900)
+;; Last-Updated: 2015/09/30 11:28:33 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -59,6 +59,104 @@
 (add-hook 'e2wm-eval-after-load-hook 'e2wm-mode-map-predefine 'append)
 (add-hook 'e2wm-eval-after-load-hook 'e2wm-mode-face-predefine 'append)
 (run-hooks-after-load "e2wm" 'e2wm-eval-after-load-hook)
+
+
+(eval-when-compile
+  (require 't1macro "t1macro"))
+
+;;;###autoload
+(defun e2wm-vcs-mode-custom-predefine ()
+  "For `eval-after-load' e2wm-vcs customize."
+  (message "eval-after-load: \"e2wm-vcs\" customizing..")
+  (setq e2wm:c-magit-recipe
+        '(| (:left-size-ratio 0.3)
+            (- (:upper-size-ratio 0.6)
+               status branches)
+            (| (:left-size-ratio 0.2)
+               (- (:upper-size-ratio 0.5)
+                  logs
+                  (- (:upper-size-ratio 0.5)
+                     main sub))
+               diff)))
+
+  (setq e2wm:c-magit-winfo
+        '((:name status   :plugin magit-status)
+          (:name branches :plugin magit-branches)
+          (:name logs     :plugin magit-logs)
+          (:name diff     :buffer "*magit-diff*" :default-hide t)
+          (:name main)
+          (:name sub      :buffer nil :default-hide t)))
+  )
+
+;;;###autoload
+(defun e2wm-vcs-mode-predefine ()
+  "For `eval-after-load' e2wm-vcs function."
+  (message "eval-after-load: \"e2wm-vcs\" setting..")
+
+  ;; override
+  (defun e2wm:def-plugin-magit-status (frame wm winfo)
+    (e2wm:def-plugin-vcs-with-window
+     'magit-toplevel
+     (lambda (dir topdir)
+       (magit-status (file-name-as-directory dir)))
+     (lambda () (e2wm:history-get-main-buffer))))
+
+  (defun e2wm:def-plugin-magit-branches (frame wm winfo)
+    (e2wm:def-plugin-vcs-with-window
+     'magit-toplevel
+     (if (fboundp 'magit-branch-manager)
+         (lambda (dir topdir) (magit-branch-manager))
+       (lambda (dir topdir) (magit-show-branches)))
+     (lambda () (e2wm:def-plugin-vcs-na-buffer "Git N/A"))))
+
+  (defun e2wm:def-plugin-magit-logs (frame wm winfo)
+    (e2wm:def-plugin-vcs-with-window
+     'magit-toplevel
+     (lambda (dir topdir)
+       (magit-log nil))
+     (lambda () (e2wm:def-plugin-vcs-na-buffer "Git N/A"))))
+
+  (defun e2wm:start-direct-pycode () ;[2015/09/30]
+    ""
+    (interactive)
+    (when (not (and (boundp 'e2wm:pst-minor-mode) e2wm:pst-minor-mode))
+      (e2wm:start-management)
+      (e2wm:dp-pycode)))
+  (defun e2wm:dp-magit-popup (buf)
+    (let ((cb (current-buffer)))
+      (e2wm:message "#DP MAGIT popup : %s (current %s / backup %s)"
+                    buf cb e2wm:override-window-cfg-backup))
+    (unless (e2wm:vcs-select-if-plugin buf)
+      (let ((buf-name (buffer-name buf))
+            (wm (e2wm:pst-get-wm))
+            (not-minibufp (= 0 (minibuffer-depth))))
+        (e2wm:with-advice
+         (cond
+          ((equal buf-name "COMMIT_EDITMSG")
+           ;; displaying commit objects in the main window
+           (e2wm:pst-buffer-set 'main buf t nil))
+          ((string-match "^\\*magit: .*\\*$" buf-name)
+           ;; displaying status object in the status window
+           (e2wm:pst-buffer-set 'status buf t t))
+          ((buffer-file-name buf)
+           ;; displaying file buffer in the main window
+           (e2wm:pst-buffer-set 'main buf t t))
+          (t
+           ;; displaying other objects in the sub window
+           (e2wm:pst-buffer-set 'sub buf t not-minibufp)))))))
+  (defadvice e2wm:dp-magit-popup (around ~e2wm:mng-diff activate)
+    (if (string= (buffer-name (ad-get-arg 0)) "*magit-diff*")
+        (e2wm:with-advice
+         (e2wm:pst-buffer-set 'diff (ad-get-arg 0) t t))
+      ad-do-it))
+  )
+
+
+(defvar e2wm-vcs-eval-after-load-hook nil
+  "Hook for e2wm-vcs `eval-after-load'.")
+(add-hook 'e2wm-vcs-eval-after-load-hook 'e2wm-vcs-mode-custom-predefine)
+(add-hook 'e2wm-vcs-eval-after-load-hook 'e2wm-vcs-mode-predefine 'append)
+(run-hooks-after-load "e2wm-vcs" 'e2wm-vcs-eval-after-load-hook)
 
 
 
