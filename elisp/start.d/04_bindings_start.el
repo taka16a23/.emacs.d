@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:25:06 2012 (+0900)
-;; Last-Updated: 2015/09/13 22:03:40 (+0900)
+;; Last-Updated: 2015/09/30 09:43:01 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -437,6 +437,7 @@
   (       (kbd "S-<f4>") 'kmacro-start-macro-or-insert-counter)
   (      (kbd "s-<f12>") 'rest-room                           )
   (          (kbd "M-+") 'e2wm:toggle-start-stop              )
+  (          (kbd "M-P") 'e2wm:start-direct-pycode            )
   ;; annotation
   (            "\C-\M-o" 'annotation                          )
   )

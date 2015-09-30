@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.1
 ;; Created:      Tue Dec 11 23:35:08 2012 (+0900)
-;; Last-Updated: 2015/09/30 07:56:14 (+0900)
+;; Last-Updated: 2015/09/30 09:42:03 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -417,6 +417,14 @@
 
 ;;;; pycode
 ;;
+;;;###autoload
+(defun e2wm:start-direct-pycode () ;[2015/09/30]
+  ""
+  (interactive)
+  (when (not (and (boundp 'e2wm:pst-minor-mode) e2wm:pst-minor-mode))
+    (e2wm:start-management)
+    (e2wm:dp-pycode)))
+
 (defun e2wm-pycode-predefine () ;[2013/11/15]
   (message "Defining Perspective pycode.")
   (defvar e2wm:py-code-recipe)
