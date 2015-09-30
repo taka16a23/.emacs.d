@@ -29500,3 +29500,7 @@ start-stop
 toggle-start-stop
 * Wed 30 Sep 2015 09:44:36 AM JST
 e2wm:start-direct-pycode
+* Wed 30 Sep 2015 09:51:39 AM JST
+06_loaddefs_start.el
+* Wed 30 Sep 2015 09:52:12 AM JST
+06_loaddefs_start.el
