@@ -8,7 +8,7 @@
 ;;;###autoload
 (defun $1-mode-custom-predefine ()
  "For `eval-after-load' $1 customize."
- (message "eval-after-load: \"$1\" customizing..")
+ (message "eval-after-load: \\"$1\\" customizing..")
  (custom-set-variables
   '($2))
  )
@@ -16,7 +16,7 @@
 ;;;###autoload
 (defun $1-mode-predefine ()
   "For \`eval-after-load' $1 function."
-  (message "eval-after-load: \"$1\" setting..")
+  (message "eval-after-load: \\"$1\\" setting..")
   )
 
 ;;;###autoload
@@ -24,13 +24,13 @@
  "For $1 key bindings."
  (interactive)
  (unless (called-interactively-p 'interactive)
-   (message "eval-after-load: \"$1\" keymaping.."))
+   (message "eval-after-load: \\"$1\\" keymaping.."))
  ($0))
 
 ;;;###autoload
 (defun $1-mode-face-predefine ()
   "For $1 face."
-  (message "eval-after-load: \"$1\" Setting faces..")
+  (message "eval-after-load: \\"$1\\" Setting faces..")
   )
 
 (defvar $1-eval-after-load-hook nil
