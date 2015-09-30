@@ -1,3 +1,6 @@
 [submodule "elisp/el-got/col-highlight"]
 	path = elisp/el-got/col-highlight
 	url = https://github.com/emacsmirror/col-highlight.git
+[submodule "elisp/el-got/bm"]
+	path = elisp/el-got/bm
+	url = https://github.com/joodland/bm.git
