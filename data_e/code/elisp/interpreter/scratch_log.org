@@ -21286,3 +21286,61 @@ rsync -av --delete --force --exclude-from=/root/.zsh/ni_rsync_exclude.list / /me
 ** Fri 25 Sep 2015 10:47:51 AM JST
 (hotstring-mode)
 (hots:)
+** Wed 30 Sep 2015 11:02:54 AM JST
+magit-toplevel
+
+(setq e2wm:c-magit-recipe
+      '(| (:left-size-ratio 0.3)
+          (- (:upper-size-ratio 0.6)
+             status branches)
+          (| (:left-size-ratio 0.2)
+             (- (:upper-size-ratio 0.5)
+                logs
+                (- (:upper-size-ratio 0.5)
+                   main sub))
+             diff)))
+
+(setq e2wm:c-magit-winfo
+      '((:name status   :plugin magit-status)
+        (:name branches :plugin magit-branches)
+        (:name logs     :plugin magit-logs)
+        (:name diff     :buffer "*magit-diff*" :default-hide t)
+        (:name main)
+        (:name sub      :buffer nil :default-hide t)))
+
+(setf (e2wm:$pst-class-main (e2wm:pst-class-get 'magit)) 'status)
+
+(defadvice e2wm:dp-magit-popup (around ~e2wm:mng-diff activate)
+  (if (string= (buffer-name (ad-get-arg 0)) "*magit-diff*")
+      (e2wm:with-advice
+       (e2wm:pst-buffer-set 'diff (ad-get-arg 0) t t))
+    ad-do-it))
+
+(defun e2wm:def-plugin-magit-status (frame wm winfo)
+  (e2wm:def-plugin-vcs-with-window
+   'magit-toplevel
+   (lambda (dir topdir)
+     (magit-status (file-name-as-directory dir)))
+   (lambda () (e2wm:history-get-main-buffer))))
+
+(defun e2wm:def-plugin-magit-branches (frame wm winfo)
+  (e2wm:def-plugin-vcs-with-window
+   'magit-toplevel
+   (if (fboundp 'magit-branch-manager)
+       (lambda (dir topdir) (magit-branch-manager))
+     (lambda (dir topdir) (magit-show-branches)))
+   (lambda () (e2wm:def-plugin-vcs-na-buffer "Git N/A"))))
+
+(defun e2wm:def-plugin-magit-logs (frame wm winfo)
+  (e2wm:def-plugin-vcs-with-window
+   'magit-toplevel
+   (lambda (dir topdir)
+     (magit-log nil))
+   (lambda () (e2wm:def-plugin-vcs-na-buffer "Git N/A"))))
+
+(defun e2wm:start-direct-pycode () ;[2015/09/30]
+  ""
+  (interactive)
+  (when (not (and (boundp 'e2wm:pst-minor-mode) e2wm:pst-minor-mode))
+    (e2wm:start-management)
+    (e2wm:dp-pycode)))
