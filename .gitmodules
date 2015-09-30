@@ -13,3 +13,6 @@
 [submodule "elisp/el-got/expand-region"]
 	path = elisp/el-got/expand-region
 	url = https://github.com/magnars/expand-region.el.git
+[submodule "elisp/el-got/helm"]
+	path = elisp/el-got/helm
+	url = https://github.com/emacs-helm/helm.git
