@@ -29747,3 +29747,21 @@ doing.org
                main
                ;; right
                (- (:lower-max-size 22) right sub)))
+* Wed 30 Sep 2015 12:34:26 PM JST
+hl-line
+* Wed 30 Sep 2015 12:35:35 PM JST
+http://www.emacswiki.org/hl-line+.el
+* Wed 30 Sep 2015 12:40:15 PM JST
+plugin 
+* Wed 30 Sep 2015 12:44:17 PM JST
+package
+* Wed 30 Sep 2015 01:24:42 PM JST
+(when (bobp)(point))
+* Wed 30 Sep 2015 01:24:59 PM JST
+(bobp)
+* Wed 30 Sep 2015 02:02:20 PM JST
+Loading
+* Wed 30 Sep 2015 02:15:47 PM JST
+http://www.cbrunzema.de/software.html#ll-debug
+* Wed 30 Sep 2015 02:37:42 PM JST
+http://mwolson.org/static/dist/elisp/edit-list.el
