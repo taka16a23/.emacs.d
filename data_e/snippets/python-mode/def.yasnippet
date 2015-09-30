@@ -9,7 +9,7 @@
 # --
 def ${1:name$(replace-regexp-in-string \"[[:punct:][:blank:]]\" \"_\" yas-text)}(`(cond ((save-excursion
   (re-search-backward "^[ ]+def[ ]" nil 'noerr)
-  (if (py-beginning-of-buffer-p)
+  (if (bobp)
       nil
       (previous-line 1)
       (beginning-of-line)
