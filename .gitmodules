@@ -16,3 +16,6 @@
 [submodule "elisp/el-got/helm"]
 	path = elisp/el-got/helm
 	url = https://github.com/emacs-helm/helm.git
+[submodule "elisp/el-got/color-moccur"]
+	path = elisp/el-got/color-moccur
+	url = https://github.com/myuhe/color-moccur.el.git
