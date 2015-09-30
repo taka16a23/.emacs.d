@@ -37,3 +37,6 @@
 [submodule "elisp/el-got/moccur-edit"]
 	path = elisp/el-got/moccur-edit
 	url = https://github.com/myuhe/moccur-edit.el.git
+[submodule "elisp/el-got/smartchr"]
+	path = elisp/el-got/smartchr
+	url = https://github.com/imakado/emacs-smartchr.git
