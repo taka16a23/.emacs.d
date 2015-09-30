@@ -4,3 +4,6 @@
 [submodule "elisp/el-got/bm"]
 	path = elisp/el-got/bm
 	url = https://github.com/joodland/bm.git
+[submodule "elisp/el-got/rainbow-delimiters"]
+	path = elisp/el-got/rainbow-delimiters
+	url = https://github.com/Fanael/rainbow-delimiters.git
