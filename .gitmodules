@@ -10,3 +10,6 @@
 [submodule "elisp/el-got/mark-multiple"]
 	path = elisp/el-got/mark-multiple
 	url = https://github.com/magnars/mark-multiple.el.git
+[submodule "elisp/el-got/expand-region"]
+	path = elisp/el-got/expand-region
+	url = https://github.com/magnars/expand-region.el.git
