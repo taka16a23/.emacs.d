@@ -49,3 +49,6 @@
 [submodule "elisp/el-got/smartrep"]
 	path = elisp/el-got/smartrep
 	url = https://github.com/myuhe/smartrep.el.git
+[submodule "elisp/el-got/smart-operator"]
+	path = elisp/el-got/smart-operator
+	url = https://github.com/xwl/smart-operator.git
