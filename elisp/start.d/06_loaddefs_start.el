@@ -7933,7 +7933,7 @@ For dsvn key bindings.
 ;;;***
 
 ;;;### (autoloads nil "e2wm_mode_start" "e2wm_mode_start.el" (22027
-;;;;;;  5902 604193 684000))
+;;;;;;  12251 418041 431000))
 ;;; Generated autoloads from e2wm_mode_start.el
 
 (autoload 'e2wm-mode-custom-predefine "e2wm_mode_start" "\
@@ -7970,6 +7970,11 @@ Try window move down. If not exist window then split it vertically
 Try window move up. If not exist window then split it vertically
 
 \(fn &optional ARGS)" t nil)
+
+(autoload 'e2wm:start-direct-pycode "e2wm_mode_start" "\
+
+
+\(fn)" t nil)
 
 ;;;***
 
@@ -8441,8 +8446,8 @@ For `eval-after-load' ll-debug function.
 
 ;;;***
 
-;;;### (autoloads nil "magit_start" "magit_start.el" (22027 9118
-;;;;;;  678116 558000))
+;;;### (autoloads nil "magit_start" "magit_start.el" (22027 9370
+;;;;;;  984110 508000))
 ;;; Generated autoloads from magit_start.el
 
 (autoload 'magit-mode-custom-predefine "magit_start" "\
@@ -9448,7 +9453,7 @@ Predefine for Snippet Major Mode.
 ;;;;;;  "Windows_start.el" "_60_c-includes_plugin_start.el" "_60_gccsense_plugin_start.el"
 ;;;;;;  "_61_tempbuf_plugin_start.el" "_70_cvs_mode_start.el" "anything-complete_plugin_start.el"
 ;;;;;;  "header2_plugin_start.el" "subroutines_start.el" "test_start.el")
-;;;;;;  (22027 9123 131467 676000))
+;;;;;;  (22027 12318 287098 567000))
 
 ;;;***
 
