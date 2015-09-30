@@ -29504,3 +29504,9 @@ e2wm:start-direct-pycode
 06_loaddefs_start.el
 * Wed 30 Sep 2015 09:52:12 AM JST
 06_loaddefs_start.el
+* Wed 30 Sep 2015 10:15:18 AM JST
+when
+* Wed 30 Sep 2015 10:15:19 AM JST
+eval-when
+* Wed 30 Sep 2015 10:16:32 AM JST
+run-hooks-after-load
