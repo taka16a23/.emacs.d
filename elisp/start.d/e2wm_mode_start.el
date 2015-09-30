@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.1
 ;; Created:      Tue Dec 11 23:35:08 2012 (+0900)
-;; Last-Updated: 2015/09/30 09:42:03 (+0900)
+;; Last-Updated: 2015/09/30 12:01:43 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -170,6 +170,7 @@
   (unless (e2wm-elisp-predefine)
     (message "Failed e2wm define elispcode." ))
   (load "e2wm-vcs" 'noerr)
+  (setf (e2wm:$pst-class-main (e2wm:pst-class-get 'magit)) 'status)
   )
 
 ;;;###autoload
@@ -197,6 +198,7 @@
     ((kbd "M-!") 'e2wm:dp-svn)
     ((kbd "M-)") 'e2wm:dp-code)
     ((kbd "M-C") 'e2wm:dp-code)
+    ((kbd "M-V") 'e2wm:dp-magit)
     ("\M-N" 'e2wm:windmove-down-or-splitmove)
     ("\M-K" 'e2wm:windmove-up-or-splitmove)
     )
@@ -429,13 +431,13 @@
   (message "Defining Perspective pycode.")
   (defvar e2wm:py-code-recipe)
   (setq e2wm:py-code-recipe
-        '(| (:left-max-size 28)
+        '(| (:left-max-size 32)
             ;; left
             (- (:upper-max-size 50)
                files
                (- (:upper-max-size 20)
                   imenu history))
-            (| (:left-max-size 84) ;linum +4
+            (| (:left-max-size 88) ;linum +4
                ;; center
                (- (:upper-max-size 20) upsub main)
                ;; right
@@ -621,13 +623,13 @@
   (message "Defining Perspective emacs lisp.")
   (defvar e2wm:elisp-code-recipe)
   (setq e2wm:elisp-code-recipe
-        '(| (:left-max-size 28)
+        '(| (:left-max-size 32)
             ;; left
             (- (:upper-max-size 50)
                files
                (- (:upper-max-size 20)
                   imenu history))
-            (| (:left-max-size 84) ;linum +4
+            (| (:left-max-size 88) ;linum +4
                ;; center
                main
                ;; right
