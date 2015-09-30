@@ -52,3 +52,6 @@
 [submodule "elisp/el-got/smart-operator"]
 	path = elisp/el-got/smart-operator
 	url = https://github.com/xwl/smart-operator.git
+[submodule "elisp/el-got/init-loader"]
+	path = elisp/el-got/init-loader
+	url = https://github.com/emacs-jp/init-loader.git
