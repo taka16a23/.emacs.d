@@ -29427,3 +29427,5 @@ with-editor-mode-map
 
 * Wed 30 Sep 2015 08:50:50 AM JST
 magit
+* Wed 30 Sep 2015 10:09:17 AM JST
+magit-status-mode-map
