@@ -28,3 +28,9 @@
 [submodule "elisp/el-got/systemd-mode"]
 	path = elisp/el-got/systemd-mode
 	url = https://github.com/holomorph/systemd-mode.git
+[submodule "elisp/el-got/hide-lines"]
+	path = elisp/el-got/hide-lines
+	url = https://github.com/vapniks/hide-lines.git
+[submodule "elisp/el-got/syslog-mode"]
+	path = elisp/el-got/syslog-mode
+	url = https://github.com/vapniks/syslog-mode.git
