@@ -40,3 +40,9 @@
 [submodule "elisp/el-got/smartchr"]
 	path = elisp/el-got/smartchr
 	url = https://github.com/imakado/emacs-smartchr.git
+[submodule "elisp/el-got/org-doing"]
+	path = elisp/el-got/org-doing
+	url = https://github.com/omouse/org-doing.git
+[submodule "elisp/el-got/org-mode"]
+	path = elisp/el-got/org-mode
+	url = git://orgmode.org/org-mode.git
