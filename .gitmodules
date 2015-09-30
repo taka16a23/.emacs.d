@@ -25,3 +25,6 @@
 [submodule "elisp/el-got/tabbar"]
 	path = elisp/el-got/tabbar
 	url = https://github.com/dholm/tabbar.git
+[submodule "elisp/el-got/systemd-mode"]
+	path = elisp/el-got/systemd-mode
+	url = https://github.com/holomorph/systemd-mode.git
