@@ -29427,3 +29427,76 @@ with-editor-mode-map
 
 * Wed 30 Sep 2015 08:50:50 AM JST
 magit
+* Wed 30 Sep 2015 09:04:49 AM JST
+magit-get-top-dir
+* Wed 30 Sep 2015 09:23:34 AM JST
+(magit-toplevel)
+* Wed 30 Sep 2015 09:26:15 AM JST
+magit-toplevel)
+* Wed 30 Sep 2015 09:26:18 AM JST
+magit-toplevel
+* Wed 30 Sep 2015 09:26:24 AM JST
+(defun e2wm:def-plugin-magit-status (frame wm winfo)
+  (e2wm:def-plugin-vcs-with-window
+   'magit-get-top-dir
+   (lambda (dir topdir)
+     (magit-status (file-name-as-directory dir)))
+   (lambda () (e2wm:history-get-main-buffer))))
+* Wed 30 Sep 2015 09:26:33 AM JST
+(defun e2wm:def-plugin-magit-logs (frame wm winfo)
+  (e2wm:def-plugin-vcs-with-window
+   'magit-get-top-dir
+   (lambda (dir topdir)
+     (magit-log nil))
+   (lambda () (e2wm:def-plugin-vcs-na-buffer "Git N/A"))))
+
+* Wed 30 Sep 2015 09:26:39 AM JST
+(defun e2wm:def-plugin-magit-branches (frame wm winfo)
+  (e2wm:def-plugin-vcs-with-window
+   'magit-get-top-dir
+   (if (fboundp 'magit-branch-manager)
+       (lambda (dir topdir) (magit-branch-manager))
+     (lambda (dir topdir) (magit-show-branches)))
+   (lambda () (e2wm:def-plugin-vcs-na-buffer "Git N/A"))))
+
+* Wed 30 Sep 2015 09:26:48 AM JST
+magit-toplevel
+* Wed 30 Sep 2015 09:31:28 AM JST
+e2wm:toggle-start-stop
+* Wed 30 Sep 2015 09:37:38 AM JST
+(when (not )
+* Wed 30 Sep 2015 09:37:47 AM JST
+(e2wm:start-management)
+* Wed 30 Sep 2015 09:38:56 AM JST
+(e2wm:dp-pycode)
+* Wed 30 Sep 2015 09:39:01 AM JST
+  
+* Wed 30 Sep 2015 09:40:34 AM JST
+(defun e2wm:start-direct-pycode () ;[2015/09/30]
+  ""
+  (interactive)
+  (when (not (and (boundp 'e2wm:pst-minor-mode) e2wm:pst-minor-mode))
+    (e2wm:start-management)
+    (e2wm:dp-pycode)))
+* Wed 30 Sep 2015 09:41:46 AM JST
+;;;###autoload
+(defun e2wm:start-direct-pycode () ;[2015/09/30]
+  ""
+  (interactive)
+  (when (not (and (boundp 'e2wm:pst-minor-mode) e2wm:pst-minor-mode))
+    (e2wm:start-management)
+    (e2wm:dp-pycode)))
+
+
+* Wed 30 Sep 2015 09:42:26 AM JST
+e2wm:toggle-start-stop
+* Wed 30 Sep 2015 09:42:39 AM JST
+  
+* Wed 30 Sep 2015 09:42:50 AM JST
+stop
+* Wed 30 Sep 2015 09:42:50 AM JST
+start-stop
+* Wed 30 Sep 2015 09:42:51 AM JST
+toggle-start-stop
+* Wed 30 Sep 2015 09:44:36 AM JST
+e2wm:start-direct-pycode
