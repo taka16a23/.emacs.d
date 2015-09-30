@@ -7,3 +7,6 @@
 [submodule "elisp/el-got/rainbow-delimiters"]
 	path = elisp/el-got/rainbow-delimiters
 	url = https://github.com/Fanael/rainbow-delimiters.git
+[submodule "elisp/el-got/mark-multiple"]
+	path = elisp/el-got/mark-multiple
+	url = https://github.com/magnars/mark-multiple.el.git
