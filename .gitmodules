@@ -34,3 +34,6 @@
 [submodule "elisp/el-got/syslog-mode"]
 	path = elisp/el-got/syslog-mode
 	url = https://github.com/vapniks/syslog-mode.git
+[submodule "elisp/el-got/moccur-edit"]
+	path = elisp/el-got/moccur-edit
+	url = https://github.com/myuhe/moccur-edit.el.git
