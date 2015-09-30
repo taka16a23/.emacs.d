@@ -3,18 +3,18 @@
 ;; Filename: frame-fns.el
 ;; Description: Non-interactive frame and window functions.
 ;; Author: Drew Adams
-;; Maintainer: Drew Adams
-;; Copyright (C) 1996-2013, Drew Adams, all rights reserved.
+;; Maintainer: Drew Adams (concat "drew.adams" "@" "oracle" ".com")
+;; Copyright (C) 1996-2015, Drew Adams, all rights reserved.
 ;; Created: Tue Mar  5 16:15:50 1996
 ;; Version: 0
 ;; Package-Requires: ()
-;; Last-Updated: 2013/11/03 03:27:33 (+0900)
+;; Last-Updated: Thu Jan  1 10:45:03 2015 (-0800)
 ;;           By: dradams
-;;     Update #: 224
+;;     Update #: 227
 ;; URL: http://www.emacswiki.org/frame-fns.el
 ;; Doc URL: http://emacswiki.org/FrameModes
 ;; Keywords: internal, extensions, local, frames
-;; Compatibility: GNU Emacs: 20.x, 21.x, 22.x, 23.x, 24.x
+;; Compatibility: GNU Emacs: 20.x, 21.x, 22.x, 23.x, 24.x, 25.x
 ;;
 ;; Features that might be required by this library:
 ;;
