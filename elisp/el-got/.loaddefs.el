@@ -87,6 +87,33 @@ Get the crontab for the HOST into a buffer.
 
 ;;;***
 
+;;;### (autoloads nil "cython-mode/cython-mode" "cython-mode/cython-mode.el"
+;;;;;;  (22027 21407 390821 858000))
+;;; Generated autoloads from cython-mode/cython-mode.el
+
+(add-to-list 'auto-mode-alist '("\\.pyx\\'" . cython-mode))
+
+(add-to-list 'auto-mode-alist '("\\.pxd\\'" . cython-mode))
+
+(add-to-list 'auto-mode-alist '("\\.pxi\\'" . cython-mode))
+
+(let ((loads (get 'cython 'custom-loads))) (if (member '"cython-mode/cython-mode" loads) nil (put 'cython 'custom-loads (cons '"cython-mode/cython-mode" loads))))
+
+(defvar cython-default-compile-format "cython -a %s" "\
+Format for the default command to compile a Cython file.
+It will be passed to `format' with `buffer-file-name' as the only other argument.")
+
+(custom-autoload 'cython-default-compile-format "cython-mode/cython-mode" t)
+
+(autoload 'cython-mode "cython-mode/cython-mode" "\
+Major mode for Cython development, derived from Python mode.
+
+\\{cython-mode-map}
+
+\(fn)" t nil)
+
+;;;***
+
 ;;;### (autoloads nil "dired+/dired+" "dired+/dired+.el" (22026 35730
 ;;;;;;  926050 2000))
 ;;; Generated autoloads from dired+/dired+.el
@@ -4900,6 +4927,10 @@ Yas minor mode is enabled in all buffers where
 See `yas-minor-mode' for more information on Yas minor mode.
 
 \(fn &optional ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads nil nil ("csv/csv.el") (22027 21232 612826 50000))
 
 ;;;***
 

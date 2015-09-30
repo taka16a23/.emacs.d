@@ -19,8 +19,12 @@
          (:name cl-lib :builtin "24.3" :type elpa :description "Properly prefixed CL functions and macros" :url "http://elpa.gnu.org/packages/cl-lib.html"))
  (crontab-mode status "installed" recipe
                (:name crontab-mode :description "Mode for editing crontab files" :type http :url "http://web.archive.org/web/20080716014153/http://www.mahalito.net/~harley/elisp/crontab-mode.el"))
+ (csv status "installed" recipe
+      (:name csv :description "Functions for reading and parsing CSV (Comma Separated Value) files." :type http :url "http://ulf.epplejasper.de/downloads/csv.el" :features csv))
  (ctable status "installed" recipe
          (:name ctable :description "Table Component for elisp" :type github :pkgname "kiwanami/emacs-ctable"))
+ (cython-mode status "installed" recipe
+              (:name cython-mode :description "Major mode for the Cython language" :type http :url "https://raw.github.com/cython/cython/master/Tools/cython-mode.el" :features cython-mode :localname "cython-mode.el"))
  (dash status "installed" recipe
        (:name dash :description "A modern list api for Emacs. No 'cl required." :type github :pkgname "magnars/dash.el"))
  (deferred status "installed" recipe
