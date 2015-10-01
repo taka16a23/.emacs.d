@@ -127,3 +127,6 @@
 [submodule "elisp/el-got/s"]
 	path = elisp/el-got/s
 	url = https://github.com/magnars/s.el.git
+[submodule "elisp/el-got/undo-tree"]
+	path = elisp/el-got/undo-tree
+	url = http://www.dr-qubit.org/git/undo-tree.git/
