@@ -106,3 +106,6 @@
 [submodule "elisp/el-got/fuzzy"]
 	path = elisp/el-got/fuzzy
 	url = https://github.com/auto-complete/fuzzy-el.git
+[submodule "elisp/el-got/jedi"]
+	path = elisp/el-got/jedi
+	url = https://github.com/tkf/emacs-jedi.git
