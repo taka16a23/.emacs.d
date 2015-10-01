@@ -121,3 +121,6 @@
 [submodule "elisp/el-got/popup"]
 	path = elisp/el-got/popup
 	url = https://github.com/auto-complete/popup-el.git
+[submodule "elisp/el-got/python-environment"]
+	path = elisp/el-got/python-environment
+	url = https://github.com/tkf/emacs-python-environment.git
