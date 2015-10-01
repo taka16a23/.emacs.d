@@ -112,3 +112,6 @@
 [submodule "elisp/el-got/magit"]
 	path = elisp/el-got/magit
 	url = https://github.com/magit/magit.git
+[submodule "elisp/el-got/multiple-cursors"]
+	path = elisp/el-got/multiple-cursors
+	url = https://github.com/magnars/multiple-cursors.el.git
