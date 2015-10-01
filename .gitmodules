@@ -88,3 +88,6 @@
 [submodule "elisp/el-got/deferred"]
 	path = elisp/el-got/deferred
 	url = https://github.com/kiwanami/emacs-deferred.git
+[submodule "elisp/el-got/e2wm"]
+	path = elisp/el-got/e2wm
+	url = https://github.com/kiwanami/emacs-window-manager.git
