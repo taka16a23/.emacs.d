@@ -76,3 +76,6 @@
 [submodule "elisp/el-got/apache-mode"]
 	path = elisp/el-got/apache-mode
 	url = https://github.com/emacsmirror/apache-mode.git
+[submodule "elisp/el-got/auto-complete"]
+	path = elisp/el-got/auto-complete
+	url = https://github.com/auto-complete/auto-complete.git
