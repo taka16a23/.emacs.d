@@ -79,3 +79,6 @@
 [submodule "elisp/el-got/auto-complete"]
 	path = elisp/el-got/auto-complete
 	url = https://github.com/auto-complete/auto-complete.git
+[submodule "elisp/el-got/ctable"]
+	path = elisp/el-got/ctable
+	url = https://github.com/kiwanami/emacs-ctable.git
