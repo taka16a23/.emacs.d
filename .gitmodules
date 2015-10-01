@@ -91,3 +91,6 @@
 [submodule "elisp/el-got/e2wm"]
 	path = elisp/el-got/e2wm
 	url = https://github.com/kiwanami/emacs-window-manager.git
+[submodule "elisp/el-got/epc"]
+	path = elisp/el-got/epc
+	url = https://github.com/kiwanami/emacs-epc.git
