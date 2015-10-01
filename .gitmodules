@@ -124,3 +124,6 @@
 [submodule "elisp/el-got/python-environment"]
 	path = elisp/el-got/python-environment
 	url = https://github.com/tkf/emacs-python-environment.git
+[submodule "elisp/el-got/s"]
+	path = elisp/el-got/s
+	url = https://github.com/magnars/s.el.git
