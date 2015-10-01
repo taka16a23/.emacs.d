@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Tue Dec 11 23:33:01 2012 (+0900)
-;; Last-Updated: 2015/09/30 11:28:33 (+0900)
+;; Last-Updated: 2015/10/01 11:10:56 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -116,12 +116,6 @@
        (magit-log nil))
      (lambda () (e2wm:def-plugin-vcs-na-buffer "Git N/A"))))
 
-  (defun e2wm:start-direct-pycode () ;[2015/09/30]
-    ""
-    (interactive)
-    (when (not (and (boundp 'e2wm:pst-minor-mode) e2wm:pst-minor-mode))
-      (e2wm:start-management)
-      (e2wm:dp-pycode)))
   (defun e2wm:dp-magit-popup (buf)
     (let ((cb (current-buffer)))
       (e2wm:message "#DP MAGIT popup : %s (current %s / backup %s)"

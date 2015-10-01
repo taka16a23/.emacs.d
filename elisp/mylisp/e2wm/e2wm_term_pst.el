@@ -1,4 +1,4 @@
-;;; e2wm_term_perspective.el ---
+;;; e2wm_term_pst.el ---
 ;;
 ;; Copyright (C) 2015 Atami
 ;;
@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2015/10/01 08:55:15 (+0900)
-;; Last-Updated: 2015/10/01 10:16:45 (+0900)
+;; Last-Updated: 2015/10/01 12:36:43 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -38,6 +38,9 @@
 ;;
 ;;; Code:
 
+
+(eval-when-compile
+  (require 'e2wm "e2wm" 'noerr))
 
 (defvar e2wm:term-buf-regexp "^\*terminal.+")
 
@@ -96,8 +99,8 @@
 
 (e2wm:pst-class-register
  (make-e2wm:$pst-class
-  :name 'term
   :extend 'two
+  :name 'term
   :title "term"
   :init 'e2wm:term-init
   :main 'main
@@ -112,8 +115,9 @@
 
 
 
+(provide 'e2wm_term_pst)
 ;; For Emacs
 ;; Local Variables:
 ;; coding: utf-8
 ;; End:
-;;; e2wm_term_perspective.el ends here
+;;; e2wm_term_pst.el ends here
