@@ -94,3 +94,6 @@
 [submodule "elisp/el-got/epc"]
 	path = elisp/el-got/epc
 	url = https://github.com/kiwanami/emacs-epc.git
+[submodule "elisp/el-got/epl"]
+	path = elisp/el-got/epl
+	url = https://github.com/cask/epl.git
