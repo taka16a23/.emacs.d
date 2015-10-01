@@ -130,3 +130,6 @@
 [submodule "elisp/el-got/undo-tree"]
 	path = elisp/el-got/undo-tree
 	url = http://www.dr-qubit.org/git/undo-tree.git/
+[submodule "elisp/el-got/window-layout"]
+	path = elisp/el-got/window-layout
+	url = https://github.com/kiwanami/emacs-window-layout.git
