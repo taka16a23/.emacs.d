@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.1
 ;; Created:      Tue Dec 11 23:35:08 2012 (+0900)
-;; Last-Updated: 2015/09/30 12:01:43 (+0900)
+;; Last-Updated: 2015/10/01 10:23:22 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -192,6 +192,7 @@
     ((kbd "M-P") 'e2wm:dp-pycode)
     ((kbd "M-E") 'e2wm:dp-elispcode)
     ((kbd "M-T") 'e2wm:dp-two)
+    ((kbd "M-Z") 'e2wm:dp-term)
     ((kbd "M-&") 'e2wm:dp-doc)
     ((kbd "M-B") 'e2wm:dp-book)
     ((kbd "M-W") 'e2wm:dp-web)
