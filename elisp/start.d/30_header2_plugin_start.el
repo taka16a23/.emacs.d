@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2012/12/09 18:25:57 (+0900)
-;; Last-Updated: 2015/09/24 13:51:58 (+0900)
+;; Last-Updated: 2015/10/01 08:54:52 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -161,7 +161,7 @@ with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.
   (let ((lineno  1)
         beg end nb-lines)
     (beginning-of-line)
-    (if comment-end-p
+    (if (nonempty-comment-end)
         (insert "\n" comment-start)
       (header-blank)
       (insert header-prefix-string))
@@ -176,7 +176,7 @@ with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.
       (forward-line 1)
       (setq lineno  (1+ lineno)))
     (goto-char end)
-    (when comment-end-p (insert "\n"))
+    (when (nonempty-comment-end) (insert "\n"))
     (insert comment-end)
     (insert "\n")
     ;; (unless comment-end-p
@@ -203,7 +203,7 @@ with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.
 
 (defsubst header-end-line ()
   "Insert a divider line."
-  (insert (cond (comment-end-p comment-end)
+  (insert (cond ((nonempty-comment-end) comment-end)
                 ((and comment-start (= 1 (length comment-start)))
                  (make-string 79 (aref comment-start 0)))
                 (comment-start-p comment-start)
@@ -252,7 +252,7 @@ This is normally overwritten with each file save."
                (file-name-nondirectory (buffer-file-name))
              (buffer-name))
            " ends here"
-           (if comment-end-p comment-end "\n"))))
+           (if (nonempty-comment-end) comment-end "\n"))))
 
 ;;;; updater
 ;;
