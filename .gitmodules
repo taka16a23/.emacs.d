@@ -73,3 +73,6 @@
 [submodule "elisp/el-got/python-pep8"]
 	path = elisp/el-got/python-pep8
 	url = https://github.com/emacsmirror/python-pep8.git
+[submodule "elisp/el-got/apache-mode"]
+	path = elisp/el-got/apache-mode
+	url = https://github.com/emacsmirror/apache-mode.git
