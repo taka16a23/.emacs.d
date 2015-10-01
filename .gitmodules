@@ -118,3 +118,6 @@
 [submodule "elisp/el-got/pkg-info"]
 	path = elisp/el-got/pkg-info
 	url = https://github.com/lunaryorn/pkg-info.el.git
+[submodule "elisp/el-got/popup"]
+	path = elisp/el-got/popup
+	url = https://github.com/auto-complete/popup-el.git
