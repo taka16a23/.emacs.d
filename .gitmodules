@@ -133,3 +133,6 @@
 [submodule "elisp/el-got/window-layout"]
 	path = elisp/el-got/window-layout
 	url = https://github.com/kiwanami/emacs-window-layout.git
+[submodule "elisp/el-got/yasnippet"]
+	path = elisp/el-got/yasnippet
+	url = https://github.com/capitaomorte/yasnippet.git
