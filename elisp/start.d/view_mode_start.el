@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Mon Dec 10 19:23:22 2012 (+0900)
-;; Last-Updated: 2013/11/29 02:40:34 (+0900)
+;; Last-Updated: 2015/10/01 14:02:16 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -51,12 +51,18 @@
   (require 'viewer "viewer" 'noerr)
   (require 'subroutines_start "subroutines_start" 'noerr))
 
+(defcustom view-mode-by-exclude-regexp ""
+  "Document"
+  :type 'string
+  :group 'viewer)
+
+
 ;;;###autoload
 (defun view-mode-custom-predefine ()
   "For `eval-after-load' view customize."
   (message "eval-after-load: \"view\" customizing..")
-  ;; (custom-set-variables
-  ;; '())
+  (custom-set-variables
+   '(view-mode-by-exclude-regexp "\.loaddefs.el"))
   )
 
 ;;;###autoload
@@ -65,6 +71,12 @@
   (message "eval-after-load: \"view\" setting..")
   ;; Modeline's name
   (setcar (cdr (assq 'view-mode minor-mode-alist)) "")
+  (defadvice view-mode-by-default-setup
+      (around exclude-viewer activate)
+    (unless (string-match view-mode-by-exclude-regexp buffer-file-name)
+      ad-do-it
+      ))
+  ;; (progn (ad-disable-advice 'view-mode-by-default-setup 'around 'exclude-viewer) (ad-update 'view-mode-by-default-setup))
   )
 
 ;;;###autoload

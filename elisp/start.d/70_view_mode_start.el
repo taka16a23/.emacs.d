@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:28:05 2012 (+0900)
-;; Last-Updated: 2013/11/02 02:30:30 (+0900)
+;; Last-Updated: 2015/10/01 13:34:35 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -50,7 +50,7 @@
 (eval-when-compile
   (require 't1macro "t1macro"))
 
-(add-hook 'after-init-hook '(lambda () (require 'viewer "viewer" 'noerr)))
+;; (add-hook 'after-init-hook '(lambda () (require 'viewer "viewer" 'noerr)))
 ;; (remove-hook 'after-init-hook '(lambda () ))
 
 (defvar view-eval-after-load-hook nil
@@ -67,6 +67,7 @@
 (add-hook 'viewer-eval-after-load-hook 'viewer-mode-map-predefine 'append)
 (add-hook 'viewer-eval-after-load-hook 'viewer-mode-face-predefine 'append)
 (run-hooks-after-load "viewer" 'viewer-eval-after-load-hook)
+
 
 
 ;; For Emacs
