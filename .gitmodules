@@ -97,3 +97,6 @@
 [submodule "elisp/el-got/epl"]
 	path = elisp/el-got/epl
 	url = https://github.com/cask/epl.git
+[submodule "elisp/el-got/f"]
+	path = elisp/el-got/f
+	url = https://github.com/rejeep/f.el.git
