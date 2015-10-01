@@ -85,3 +85,6 @@
 [submodule "elisp/el-got/dash"]
 	path = elisp/el-got/dash
 	url = https://github.com/magnars/dash.el.git
+[submodule "elisp/el-got/deferred"]
+	path = elisp/el-got/deferred
+	url = https://github.com/kiwanami/emacs-deferred.git
