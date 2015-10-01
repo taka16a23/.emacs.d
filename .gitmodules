@@ -109,3 +109,6 @@
 [submodule "elisp/el-got/jedi"]
 	path = elisp/el-got/jedi
 	url = https://github.com/tkf/emacs-jedi.git
+[submodule "elisp/el-got/magit"]
+	path = elisp/el-got/magit
+	url = https://github.com/magit/magit.git
