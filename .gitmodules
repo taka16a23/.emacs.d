@@ -115,3 +115,6 @@
 [submodule "elisp/el-got/multiple-cursors"]
 	path = elisp/el-got/multiple-cursors
 	url = https://github.com/magnars/multiple-cursors.el.git
+[submodule "elisp/el-got/pkg-info"]
+	path = elisp/el-got/pkg-info
+	url = https://github.com/lunaryorn/pkg-info.el.git
