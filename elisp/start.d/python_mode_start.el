@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Mon Dec 10 22:33:33 2012 (+0900)
-;; Last-Updated: 2015/09/29 22:33:44 (+0900)
+;; Last-Updated: 2015/10/01 23:19:26 (+0900)
 ;; Last-Updated: 2013/11/03 16:25:37 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -162,6 +162,8 @@
 (defun python-mode-predefine ()
   "For `eval-after-load' python function."
   (message "eval-after-load: \"python\" setting..")
+  ;; before load jedi. escape to override dot keybind.
+  (require 'smart-operator "smart-operator" 'noerr)
   (python-setenv)
   (require 'python "python" 'noerr)
   (add-hook 'python-mode-hook 'python-coding-style)
