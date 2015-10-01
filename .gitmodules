@@ -136,3 +136,6 @@
 [submodule "elisp/el-got/yasnippet"]
 	path = elisp/el-got/yasnippet
 	url = https://github.com/capitaomorte/yasnippet.git
+[submodule "elisp/plugin/el-get"]
+	path = elisp/plugin/el-get
+	url = https://github.com/dimitri/el-get.git
