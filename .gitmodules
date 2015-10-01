@@ -82,3 +82,6 @@
 [submodule "elisp/el-got/ctable"]
 	path = elisp/el-got/ctable
 	url = https://github.com/kiwanami/emacs-ctable.git
+[submodule "elisp/el-got/dash"]
+	path = elisp/el-got/dash
+	url = https://github.com/magnars/dash.el.git
