@@ -2,6 +2,10 @@
 #+TITLE: doing
 #+STARTUP: overview
 #+TODO: TODO LATER | DONE
+* TODO disable view mode on magit commit buffer
+  <2015-10-02 Fri 11:48>
+* TODO magit keybind C-j move left
+  <2015-10-02 Fri 11:47>
 * TODO insert commit template
   <2015-10-02 Fri 11:45>
 * TODO python elisp_compileall.py wait close all process
