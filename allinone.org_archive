@@ -1122,3 +1122,181 @@ class def if while
 5) 結果
 6) time/ref
     / cf. [[http://lists.gnu.org/archive/html/emacs-devel/][emacs-devel Archives]]
+* DONE upgrade emacs package
+  CLOSED: [2015-10-02 Fri 10:18]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2015-10-02 Fri 10:25
+  :ARCHIVE_FILE: ~/.emacs.d/doing.org
+  :ARCHIVE_CATEGORY: doing
+  :ARCHIVE_TODO: DONE
+  :END:
+  <2015-09-26 Sat 11:09>
+
+* DONE upgrade emacs package
+  CLOSED: [2015-10-02 Fri 10:18]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2015-10-02 Fri 10:26
+  :ARCHIVE_FILE: ~/.emacs.d/doing.org
+  :ARCHIVE_CATEGORY: doing
+  :ARCHIVE_TODO: DONE
+  :END:
+  <2015-09-26 Sat 11:09>
+
+* DONE super grub2 burn to cd
+  CLOSED: [2015-10-02 Fri 09:58]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2015-10-02 Fri 10:26
+  :ARCHIVE_FILE: ~/.emacs.d/doing.org
+  :ARCHIVE_CATEGORY: doing
+  :ARCHIVE_TODO: DONE
+  :END:
+  <2015-09-26 Sat 11:08>
+
+* DONE fix yasnippet run-hook-after-load escape message
+  CLOSED: [2015-09-30 Wed 11:48]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2015-10-02 Fri 10:26
+  :ARCHIVE_FILE: ~/.emacs.d/doing.org
+  :ARCHIVE_CATEGORY: doing
+  :ARCHIVE_TODO: DONE
+  :END:
+  <2015-09-30 Wed 08:45>
+
+* DONE daily user active time check
+  CLOSED: [2015-08-14 Fri 22:36]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2015-10-02 Fri 10:26
+  :ARCHIVE_FILE: ~/.emacs.d/doing.org
+  :ARCHIVE_CATEGORY: doing
+  :ARCHIVE_TODO: DONE
+  :END:
+  <2015-08-09 Sun 20:23>
+
+* DONE holiday
+  CLOSED: [2015-08-11 Tue 02:10]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2015-10-02 Fri 10:26
+  :ARCHIVE_FILE: ~/.emacs.d/doing.org
+  :ARCHIVE_CATEGORY: doing
+  :ARCHIVE_TODO: DONE
+  :END:
+  <2015-08-07 Fri 09:47>
+
+* DONE 雑誌 show
+  CLOSED: [2015-08-06 Thu 01:55]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2015-10-02 Fri 10:26
+  :ARCHIVE_FILE: ~/.emacs.d/doing.org
+  :ARCHIVE_CATEGORY: doing
+  :ARCHIVE_TODO: DONE
+  :END:
+  <2015-08-05 Wed 22:52>
+
+* DONE create recipe show past recipe
+  CLOSED: [2015-08-17 Mon 16:37]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2015-10-02 Fri 10:26
+  :ARCHIVE_FILE: ~/.emacs.d/doing.org
+  :ARCHIVE_CATEGORY: doing
+  :ARCHIVE_TODO: DONE
+  :END:
+  <2015-08-05 Wed 21:38>
+
+* DONE coding test WindowClient
+  CLOSED: [2015-08-05 Wed 23:28]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2015-10-02 Fri 10:26
+  :ARCHIVE_FILE: ~/.emacs.d/doing.org
+  :ARCHIVE_CATEGORY: doing
+  :ARCHIVE_TODO: DONE
+  :END:
+  <2015-07-22 Wed 01:23>
+
+* DONE bug fix daily feedly
+  CLOSED: [2015-08-05 Wed 22:36]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2015-10-02 Fri 10:26
+  :ARCHIVE_FILE: ~/.emacs.d/doing.org
+  :ARCHIVE_CATEGORY: doing
+  :ARCHIVE_TODO: DONE
+  :END:
+  <2015-08-05 Wed 21:38>
+
+* DONE weather on daily
+  CLOSED: [2015-08-05 Wed 23:23]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2015-10-02 Fri 10:26
+  :ARCHIVE_FILE: ~/.emacs.d/doing.org
+  :ARCHIVE_CATEGORY: doing
+  :ARCHIVE_TODO: DONE
+  :END:
+  <2015-08-05 Wed 21:37>
+
+* DONE sleipnir bug fix dialog
+  CLOSED: [2015-08-05 Wed 23:23]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2015-10-02 Fri 10:26
+  :ARCHIVE_FILE: ~/.emacs.d/doing.org
+  :ARCHIVE_CATEGORY: doing
+  :ARCHIVE_TODO: DONE
+  :END:
+  <2015-08-05 Wed 21:37>
+
+* DONE new beep python xahk error
+  CLOSED: [2015-07-22 Wed 01:22]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2015-10-02 Fri 10:26
+  :ARCHIVE_FILE: ~/.emacs.d/doing.org
+  :ARCHIVE_CATEGORY: doing
+  :ARCHIVE_TODO: DONE
+  :END:
+  <2015-07-21 Tue 23:54>
+
+* DONE kali linux upgrade
+  CLOSED: [2015-10-02 Fri 10:17]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2015-10-02 Fri 10:26
+  :ARCHIVE_FILE: ~/.emacs.d/doing.org
+  :ARCHIVE_CATEGORY: doing
+  :ARCHIVE_TODO: DONE
+  :END:
+cat << EOF > /etc/apt/sources.list
+deb http://http.kali.org/kali sana main non-free contrib
+deb http://security.kali.org/kali-security/ sana/updates main contrib non-free
+EOF
+
+apt-get update
+apt-get dist-upgrade # get a coffee, or 10.
+reboot
+  <2015-08-20 Thu 06:37>
+
+* DONE hello
+  CLOSED: [2015-07-21 Tue 23:54]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2015-10-02 Fri 10:26
+  :ARCHIVE_FILE: ~/.emacs.d/doing.org
+  :ARCHIVE_CATEGORY: doing
+  :ARCHIVE_TODO: DONE
+  :END:
+  <2015-07-21 Tue 23:53>
+
+* DONE debian dist-upgrade
+  CLOSED: [2015-10-02 Fri 10:16]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2015-10-02 Fri 10:26
+  :ARCHIVE_FILE: ~/.emacs.d/doing.org
+  :ARCHIVE_CATEGORY: doing
+  :ARCHIVE_TODO: DONE
+  :END:
+  http://scribble.washo3.com/linux/debian-wheezy7-8-%E3%81%8B%E3%82%89-jessie8-0%E3%81%B8%E3%82%A2%E3%83%83%E3%83%97%E3%82%B0%E3%83%AC%E3%83%BC%E3%83%89.html
+  <2015-08-11 Tue 02:10>
+
+* DONE remove svn revision string
+  CLOSED: [2015-10-02 Fri 09:58]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2015-10-02 Fri 10:26
+  :ARCHIVE_FILE: ~/.emacs.d/doing.org
+  :ARCHIVE_CATEGORY: doing
+  :ARCHIVE_TODO: DONE
+  :END:
+  <2015-09-30 Wed 05:27>

@@ -5340,7 +5340,7 @@ If the region is active and spans multiple lines, it will behave
 as if `mc/mark-all-in-region'. With the prefix ARG, it will call
 `mc/edit-lines' instead.
 
-If the region is inactive or on a single line, it will behave like 
+If the region is inactive or on a single line, it will behave like
 `mc/mark-all-like-this-dwim'.
 
 \(fn ARG)" t nil)
@@ -5445,31 +5445,6 @@ an exceedingly quick way of adding multiple cursors to multiple lines.
 A mode for creating a rectangular region to edit
 
 \(fn &optional ARG)" t nil)
-
-;;;***
-
-;;;### (autoloads nil "org-doing/org-doing" "org-doing/org-doing.el"
-;;;;;;  (22027 29190 473635 210000))
-;;; Generated autoloads from org-doing/org-doing.el
-
-(autoload 'org-doing-log "org-doing/org-doing" "\
-Logs the `description' of what you're doing now in the file
-`org-doing-file' at the *top* of the file.
-
-When `later-p' is true, logs the item as something to be done
-later.
-
-\(fn DESCRIPTION &optional LATER-P)" t nil)
-
-(autoload 'org-doing "org-doing/org-doing" "\
-Interactive function for running any org-doing command.
-
-The first part of the `command' string is parsed as a command:
-- now: calls `org-doing-log'
-- later: calls `org-doing-log'
-- done: calls `org-doing-done'
-
-\(fn COMMAND)" t nil)
 
 ;;;***
 
@@ -7141,7 +7116,7 @@ Insert operators with surrounding spaces smartly.
 \(fn &optional ARG)" t nil)
 
 (autoload 'smart-operator-mode-on "smart-operator/smart-operator" "\
-Turn on `smart-operator-mode'.  
+Turn on `smart-operator-mode'.
 
 \(fn)" nil nil)
 
@@ -7274,7 +7249,7 @@ Similar to `resume', though using `desktop' to restore buffers.
 
 (autoload 'revive-save-desktop "tabbar/revive" "\
 Save application state with `desktop' and `revive'.
-Similar to `save-current-configuration', 
+Similar to `save-current-configuration',
 though uses `desktop' to restore buffers.
 
 \(fn &optional FILE AUTO)" t nil)

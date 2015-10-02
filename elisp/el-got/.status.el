@@ -164,9 +164,6 @@
 (:name open-junk-file :after nil :features
 ("open-junk-file")
 :description "Open a junk (memo) file to try-and-error" :type emacswiki))
-(org-doing status "installed" recipe
-(:name org-doing :website "http://omouse.github.io/org-doing/" :description "Keep track of what you're doing right now and what you've worked on before." :type github :pkgname "omouse/org-doing" :depends
-(org-mode)))
 (org-mode status "installed" recipe
 (:name org-mode :website "http://orgmode.org/" :description "Org-mode is for keeping notes, maintaining ToDo lists, doing project planning, and authoring with a fast and effective plain-text system." :type git :url "git://orgmode.org/org-mode.git" :info "doc" :build/berkeley-unix `,(mapcar
 (lambda

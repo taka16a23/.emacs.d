@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:29:02 2012 (+0900)
-;; Last-Updated: 2015/09/15 05:21:41 (+0900)
+;; Last-Updated: 2015/10/02 12:59:22 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -34,6 +34,9 @@
 ;;
 ;;; Change Log:
 ;;  ===========
+;;
+;; 2015/10/02    Atami
+;;    Added: `my-allinone-path' const variable
 ;;
 ;; 2015/09/15    Atami
 ;;    Added: `main-desktop-pc-p' for predicate main desktop pc
@@ -165,6 +168,10 @@
 (defconst my-code-dir
   (file-name-as-directory (concat my-data-dir "code"))
   "Directory \"~/.emacs.d/data_e/code\".")
+
+(defconst my-allinone-path (expand-file-name "allinone.org" my-emacs-dir)
+  "Path to allinone.org.")
+
 
 ;;;; make directory if not exist.
 (mapc (lambda (dir)

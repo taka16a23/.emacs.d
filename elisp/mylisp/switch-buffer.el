@@ -8,7 +8,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:30:34 2012 (+0900)
-;; Last-Updated: 2015/09/30 11:49:23 (+0900)
+;; Last-Updated: 2015/10/02 13:02:54 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -36,6 +36,9 @@
 ;;
 ;;; Change Log:
 ;;  ===========
+;;
+;; 2015/10/02    Atami
+;;    Modified: `t1-switch--findfile' dir argument to optional.
 ;;
 ;; 2015/07/31    Atami
 ;;    Added: `switch-hotstring' switch to "30_hotstring_plugin_start.el"
@@ -83,9 +86,10 @@
 
 
 (eval-when-compile
-  (require 'term_mode_start))
+  (require 'term_mode_start)
+  (require 'subroutines_start "subroutines_start" 'noerr))
 
-(defun t1-switch--findfile (buf-name dir)
+(defun t1-switch--findfile (buf-name &optional dir)
   "Switch or find file internal function."
   (if (get-buffer buf-name)
       (switch-to-buffer buf-name)
@@ -120,7 +124,7 @@
 (defun switch-allinone ()
   "Switch allinone.org or find file."
   (interactive)
-  (t1-switch--findfile "allinone.org" my-emacs-dir))
+  (t1-switch--findfile my-allinone-path))
 
 ;;;###autoload
 (defun switch-doing () ;[2015/09/30]
