@@ -3119,3 +3119,5 @@ elisp_compileall.py
 release-v1.1.0
 * Fri 02 Oct 2015 11:32:55 AM JST
 elisp/el-got/apache-mode
+* Fri 02 Oct 2015 11:46:29 AM JST
+updated 
