@@ -247,7 +247,7 @@ wheezy から jessie へ dist-upgrade した環境の場合、テストするに
 @on-jessie:~$ sudo apt-get install ethtool
 使ってるネットワークインターフェイスがどのタイプの WakeOnLan をサポートしているのかは、 ethtool コマンドで調べられる。
 
-wakeonlan のタイプには p(phy),u(unicast),m(multicast),b(broadcast),a(arp),g(MagickPacket&#x2122;),s(SecureOn&tm; MagickPacket&#x2122;),d がある。
+wakeonlan のタイプには p (phy),u (unicast),m (multicast),b (broadcast),a (arp),g (MagickPacket&#x2122;),s (SecureOn&tm; MagickPacket&#x2122;),d がある。
 
 @on-jessie:~$ man ethtool
 
@@ -264,7 +264,7 @@ wakaonlan パッケージや etherwake を使うと g とか s で LAN 内の特
 
 jessie を dist-upgrade ではなく、クリーンインストールした環境では上記では不十分で、以下が必要。
 
-テストするには、(eth0 は該当インターフェイス名、 wol@.service ファイルの %i に置き換えられる)
+テストするには、 (eth0 は該当インターフェイス名、 wol@.service ファイルの %i に置き換えられる)
 
 sudo systemctl start wol@eth0.service
 
@@ -11817,7 +11817,7 @@ append [program, version, 'Aready up to date.']
 # differ
 
 **** 国会議員 rss
-***** 議員候補一覧(候補含む)
+***** 議員候補一覧 (候補含む)
 ****** source
 - 党から抽出
 - wiki
@@ -12103,13 +12103,13 @@ append [program, version, 'Aready up to date.']
 #include "print.cc"
 using namespace std;
 
-int main(int argc, char **argv)
+int main (int argc, char **argv)
 {
   array<int, 10> a = {11, 22, 33, 44};
-  PRINT_ELEMENTS(a);
-  a.back() = 9999999;
-  a[a.size()-2] = 42;
-  PRINT_ELEMENTS(a);
+  PRINT_ELEMENTS (a);
+  a.back () = 9999999;
+  a[a.size ()-2] = 42;
+  PRINT_ELEMENTS (a);
   return 0;
 }
 
@@ -13053,22 +13053,22 @@ if type (etc) == types.MemberDescriptorType:
 - isinstance (object, classinfo)
 
 ***** while
-def while1():
+def while1 ():
     while 1:
         pass
 
-def while_ture():
+def while_ture ():
     while True:
         pass
 
-dis.dis(while1)
+dis.dis (while1)
   2           0 SETUP_LOOP               3 (to 6)
 
   3     >>    3 JUMP_ABSOLUTE            3
         >>    6 LOAD_CONST               0 (None)
               9 RETURN_VALUE
 
-dis.dis(while_ture)
+dis.dis (while_ture)
   2           0 SETUP_LOOP              10 (to 13)
         >>    3 LOAD_GLOBAL              0 (True)
               6 POP_JUMP_IF_FALSE       12
@@ -13110,15 +13110,15 @@ dis.dis(while_ture)
 (ref. [[http://docs.python.org/2/library/gzip.html#examples-of-usage][documment]])
 
 >>> import gzip
->>> f = gzip.open('file.txt.gz', 'rb')
->>> file_content = f.read()
->>> f.close()
+>>> f = gzip.open ('file.txt.gz', 'rb')
+>>> file_content = f.read ()
+>>> f.close ()
 =*=*=*=
 >>> import gzip
 >>> content = "Lots of content here"
->>> f = gzip.open('file.txt.gz', 'wb')
->>> f.write(content)
->>> f.close()
+>>> f = gzip.open ('file.txt.gz', 'wb')
+>>> f.write (content)
+>>> f.close ()
 =*=*=*=
 
 ******** zip
@@ -13168,8 +13168,8 @@ dis.dis(while_ture)
 ******* clipboard
 - pyperclip
 >>> import pyperclip
->>> pyperclip.copy('hello')
->>> pyperclip.paste()
+>>> pyperclip.copy ('hello')
+>>> pyperclip.paste ()
 'hello'
 
 ****** CUI
@@ -13183,17 +13183,17 @@ dis.dis(while_ture)
 [example]
 #+BEGIN_SRC python
 from colorama import init, Fore, Style
-init()
+init ()
 FUNC_FMT = (Fore.CYAN+Style.BRIGHT+'{}'+Style.RESET_ALL).format
 WHITE_FMT = (Fore.WHITE+Style.BRIGHT +'{}'+Style.RESET_ALL).format
-print(FUNC_FMT('hello cyan'))
-print(FUNC_FMT('hello white'))
+print (FUNC_FMT ('hello cyan'))
+print (FUNC_FMT ('hello white'))
 #+END_SRC
 
 - t1.coloramautil
 #+BEGIN_SRC python
 from t1.coloramautil.formatter import FORECYAN_RESET
-print(BRIGHT(FORECYAN_RESET('hello')))
+print (BRIGHT (FORECYAN_RESET ('hello')))
 #+END_SRC
 
 ***** GEO
@@ -13228,12 +13228,12 @@ print(BRIGHT(FORECYAN_RESET('hello')))
 ****** cdrom
 - pygame.cdrom
 >>> import pygame.cdrom as cdrom
->>> cdrom.init()
->>> cd = cdrom.CD(0) # 0 = first cdrom device
->>> cd.init()
->>> cd.eject()
->>> cd.quit()
->>> cdrom.quit()
+>>> cdrom.init ()
+>>> cd = cdrom.CD (0) # 0 = first cdrom device
+>>> cd.init ()
+>>> cd.eject ()
+>>> cd.quit ()
+>>> cdrom.quit ()
 
 *** Assembly
 * etc
@@ -13478,7 +13478,7 @@ python -m formatter        Generic output formatter
 *** General setup
     | Cross-compiler tool prefix                                        |                                                                                                                                                                                                                  |                                    |
     | Compile also drivers which will not load                          |                                                                                                                                                                                                                  |                                    |
-    | Local version - append to kernel release                          | バージョン番号に付加する文字列を設定(例： Project-001 等)                                                                                                                                                        |                                    |
+    | Local version - append to kernel release                          | バージョン番号に付加する文字列を設定 (例： Project-001 等)                                                                                                                                                        |                                    |
     | Automatically append version information to the version string    | バージョン管理システムで使うリビジョン番号をバージョン文字列に付加                                                                                                                                               |                                    |
     | ((none)) Default hostname                                         |                                                                                                                                                                                                                  |                                    |
     | Kernel compression mode                                           | カーネルの圧縮モード設定。 速度優先なら LZ4 。ディスクスペース節約なら xz 。                                                                                                                                     |                                    |
@@ -13497,7 +13497,7 @@ python -m formatter        Generic output formatter
     | Enable deprecated sysfs features to support old userspace tools   |                                                                                                                                                                                                                  |                                    |
     | Kernel->user space relay support (formerly relayfs)               | debugfs などのファイル・システムのリレー・インタフェースをサポートする                                                                                                                                           |                                    |
     | Initial RAM filesystem and RAM disk (initramfs/initrd) support    | 初期 RAM ディスクをサポート                                                                                                                                                                                      |                                    |
-    | Initramfs source file(s)                                          | ファイル名の指定、初期値=initrd.img                                                                                                                                                                              |                                    |
+    | Initramfs source file (s)                                          | ファイル名の指定、初期値=initrd.img                                                                                                                                                                              |                                    |
     | Support initial ramdisks compressed using gzip                    |                                                                                                                                                                                                                  |                                    |
     | Support initial ramdisks compressed using bzip2                   |                                                                                                                                                                                                                  |                                    |
     | Support initial ramdisks compressed using LZMA                    |                                                                                                                                                                                                                  |                                    |
@@ -13505,7 +13505,7 @@ python -m formatter        Generic output formatter
     | Support initial ramdisks compressed using LZO                     |                                                                                                                                                                                                                  |                                    |
     | Support initial ramdisks compressed using LZ4                     |                                                                                                                                                                                                                  |                                    |
     | Optimize for size                                                 | サイズ優先の最適化をしてカーネルをコンパイルする                                                                                                                                                                 |                                    |
-    | Enable bpf() system                                               | Burkley Packet Filter                                                                                                                                                                                            | on use Wireshark tcpdump           |
+    | Enable bpf () system                                               | Burkley Packet Filter                                                                                                                                                                                            | on use Wireshark tcpdump           |
     | Embedded system                                                   |                                                                                                                                                                                                                  |                                    |
     | Disable heap randomization                                        | heap ランダム化無効                                                                                                                                                                                              |                                    |
     | Provide system-wide ring of trusted keys                          |                                                                                                                                                                                                                  |                                    |
@@ -13570,15 +13570,15 @@ python -m formatter        Generic output formatter
      | Load all symbols for debugging/ksymoops         | /proc/kallsyms |
      | Include all symbols in kallsyms                 |                |
      | Enable support for printk                       |                |
-     | BUG() support                                   |                |
+     | BUG () support                                   |                |
      | Enable ELF core dumps                           |                |
      | Enable PC-Speaker support                       |                |
      | Enable full-sized data structures for core      |                |
      | Enable futex support                            |                |
      | Enable eventpoll support                        |                |
-     | Enable signalfd() system call                   |                |
-     | Enable timerfd() system call                    |                |
-     | Enable eventfd() system call                    |                |
+     | Enable signalfd () system call                   |                |
+     | Enable timerfd () system call                    |                |
+     | Enable eventfd () system call                    |                |
  
 
 **** Kernel Performance Events And Counters
@@ -13641,8 +13641,8 @@ python -m formatter        Generic output formatter
      | Command line partition support                      |   |
   
 **** IO Schedulers
-     | Deadline I/O scheduler       | データベースのような単一プロセスの入出力性能向上に向いた(Deadline)スケジューラをサポートする |
-     | CFQ I/O scheduler            | デスクトップ環境向き(CFQ)のスケジューラをサポートする                                        |
+     | Deadline I/O scheduler       | データベースのような単一プロセスの入出力性能向上に向いた (Deadline) スケジューラをサポートする |
+     | CFQ I/O scheduler            | デスクトップ環境向き (CFQ) のスケジューラをサポートする                                        |
      | CFQ Group Scheduling support |                                                                                              |
 
 ***** Default I/O scheduler (CFQ)
@@ -13733,10 +13733,10 @@ python -m formatter        Generic output formatter
      | Pentium-Classic                                    |   |
      | Pentium-MMX                                        |   |
      | Pentium-Pro                                        |   |
-     | Pentium-II/Celeron(pre-Coppermine                  |   |
-     | Pentium-III/Celeron(Coppermine)/Pentium-III Xeon   |   |
+     | Pentium-II/Celeron (pre-Coppermine                  |   |
+     | Pentium-III/Celeron (Coppermine)/Pentium-III Xeon   |   |
      | Pentium M                                          |   |
-     | Pentium-4/Celeron(P4-based)/Pentium-4 M/older Xeon |   |
+     | Pentium-4/Celeron (P4-based)/Pentium-4 M/older Xeon |   |
      | K6/K6-II/K6-III                                    |   |
      | Athlon/Duron/K7                                    |   |
      | Opteron/Athlon64/Hammer/K8                         |   |
@@ -14518,7 +14518,7 @@ python -m formatter        Generic output formatter
 
 **** Generic Driver Options
      | Select only drivers that don't need compile-time external firmware | 外部ファームウェアを必要としないドライバのみ選択可能とする                           |
-     | Prevent firmware from being built                                  | ファームウェアのコンパイルを避ける(ファームウェアは通常ドライバと共に提供されている) |
+     | Prevent firmware from being built                                  | ファームウェアのコンパイルを避ける (ファームウェアは通常ドライバと共に提供されている) |
      | Driver Core verbose debug messages                                 | デバッグメッセージを出力する                                                         |
      |                                                                    |                                                                                      |
 
@@ -14806,7 +14806,7 @@ python -m formatter        Generic output formatter
      | EFI Variable filesystem                                  |   |
   
 **** Miscellaneous filesystems 
-     | ADFS file system support                                   | Acorn Disc Filing System(ADFS)という RiscOS で標準的に使用されるファイルシステムをサポートします。 |
+     | ADFS file system support                                   | Acorn Disc Filing System (ADFS) という RiscOS で標準的に使用されるファイルシステムをサポートします。 |
      | Amiga FFS file system support                              |                                                                                                    |
      | eCrypt filesystem layer support                            |                                                                                                    |
      | Apple Macintosh file system support                        | Machintosh のファイルシステムをサポートします。                                                    |
@@ -14842,7 +14842,7 @@ python -m formatter        Generic output formatter
      | Include support for XZ compressed file systems             |                                                                                                    |
      | Use 4K device block size?                                  |                                                                                                    |
      | Additional option for memory-constrained systems           |                                                                                                    |
-     | FreeVxFS file system support (VERITAS VxFS(TM) compatible) |                                                                                                    |
+     | FreeVxFS file system support (VERITAS VxFS (TM) compatible) |                                                                                                    |
      | Minix file system support                                  |                                                                                                    |
      | SonicBlue Optimized MPEG File System support               |                                                                                                    |
      | OS/2 HPFS file system support                              | HPFS は OS/2 という OS 用のファイルシステムです。                                                  |
@@ -15001,7 +15001,7 @@ python -m formatter        Generic output formatter
      | Integrity subsystem                                          |   |
      | Digital signature verification using multiple keyrings       |   |
      | Enables integrity auditing support                           |   |
-     | Integrity Measurement Architecture(IMA)                      |   |
+     | Integrity Measurement Architecture (IMA)                      |   |
      | EVM support                                                  |   |
      | Default security module (Unix Discretionary Access Controls) |   |
   
@@ -15010,7 +15010,7 @@ python -m formatter        Generic output formatter
      | Cryptographic algorithm manager                             |   |
      | Userspace cryptographic algorithm configuration             |   |
      | Disable run-time self tests                                 |   |
-     | GF(2^128) multiplication functions                          |   |
+     | GF (2^128) multiplication functions                          |   |
      | Null algorithms                                             |   |
      | Parallel crypto engine                                      |   |
      | Software async crypto daemon                                |   |
@@ -15096,7 +15096,7 @@ python -m formatter        Generic output formatter
      | PadLock driver for SHA1 and SHA256 algorithms |   |
      | Support for the Geode LX AES engine           |   |
      | Support for AMD Cryptographic Coprocessor     |   |
-     | Support for Intel(R) DH895xCC                 |   |
+     | Support for Intel (R) DH895xCC                 |   |
   
 **** Asymmetric (public-key cryptographic) key type
 
@@ -15243,7 +15243,7 @@ for /L %i in (1,1,254) do ping -w 500 -n 1 192.168.1.%i > nul && arp -a 192.168.
 ** code 赤ペン先生
 **  python code
 import collections
-d = collections.defaultdict(lambda:collections.defaultdict(float))
+d = collections.defaultdict (lambda:collections.defaultdict (float))
 d['poko']['hoge'] += 1.0
 **  test
 **  test
@@ -15382,11 +15382,11 @@ like 'http://' file name cannot create unix file name.
     [[file:l:/Autohotkey/script/weekly.ahk]]
 ** TODO [#C] rook tcpdump python script
         while 1:
-            data = conn.recv(blocksize)
+            data = conn.recv (blocksize)
             if not data:
                 break
-            callback(data)
-        conn.close()
+            callback (data)
+        conn.close ()
     [[file:/etc/crontab]]
 ** TODO [#C] bus stop timetable check if changed
 ** TODO [#B] /data all exe 7z archive to normal 7z
@@ -15728,7 +15728,7 @@ use imenu or py:
 ** TODO [#C] org-remember の template
 
 1) 結果
-2) 背景(問題点)
+2) 背景 (問題点)
 事前に作成した remember の template を変数として利用できない。
 code が綺麗じゃないので利用できるようにする。
 
@@ -15743,7 +15743,7 @@ code が綺麗じゃないので利用できるようにする。
 ** TODO [#C] 関数名を反意文字に rotate する
 
 1) 結果
-2) 背景(問題点)
+2) 背景 (問題点)
    関数名によくつかわれる文字列を反意文字に rotate することに
    よって、簡易に一貫性を持たせることができる。
 3) 対応方法
@@ -15777,10 +15777,10 @@ code が綺麗じゃないので利用できるようにする。
 4) 優先順位の根拠
 5) 備考
 6) time/ref
-    / cf. [[file:l:/Office/emacs/.emacs.d/elisp/start.d/Emacs_Lisp_mode_start.el::%3B%3B%20add-to-list%20rotate-text-rotations%20("t"%20"nil")][file:l:/Office/emacs/.emacs.d/elisp/start.d/Emacs_Lisp_mode_start.el::;; add-to-list rotate-text-rotations ("t" "nil")]]
+    / cf. [[file:l:/Office/emacs/.emacs.d/elisp/start.d/Emacs_Lisp_mode_start.el::%3B%3B%20add-to-list%20rotate-text-rotations%20 ("t"%20"nil")][file:l:/Office/emacs/.emacs.d/elisp/start.d/Emacs_Lisp_mode_start.el::;; add-to-list rotate-text-rotations ("t" "nil")]]
 ** TODO [#C] change log 入力を統一
 
-1) 背景(問題点)
+1) 背景 (問題点)
    外部の change log と file 内の change log の入力を同じインター
    フェースでおこなう。
 
@@ -15798,7 +15798,7 @@ code が綺麗じゃないので利用できるようにする。
     / cf. [[file:p:/Office/emacs/.emacs.d/allinone.org::*Stack:][Stack:]]
 ** TODO [#B] stack point with link buffer & anything
 
-1) 背景(問題点)
+1) 背景 (問題点)
    簡易に元にいた関数へ移動したい
 
 2) 対応方法
@@ -15814,7 +15814,7 @@ code が綺麗じゃないので利用できるようにする。
     / cf. [[file:p:/system/PortablePython/test/Lib/site-packages/pylint/lint.py::version,%20astng_version,%20common_version,%20sys.version)][file:p:/system/PortablePython/test/Lib/site-packages/pylint/lint.py::version, astng_version, common_version, sys.version)]]
 ** TODO [#C] C mode auto semicolon
 
-1) 背景(問題点)
+1) 背景 (問題点)
    semicolon を付記し忘れを防ぐ
 
 2) 対応方法
@@ -15829,7 +15829,7 @@ code が綺麗じゃないので利用できるようにする。
     / cf. [[file:/media/Data/MYTEMP/CPRIMER/page-0038.png]]
 ** TODO [#C] elisp compress to gz ".el" => ".el.gz"
 
-1) 背景(問題点)
+1) 背景 (問題点)
 
 
 2) 対応方法
@@ -15843,7 +15843,7 @@ code が綺麗じゃないので利用できるようにする。
     / cf. [[file:~/.emacs.d/elisp/plugin/auto-async-byte-compile.el::(string-match%20"\\.el$"%20buffer-file-name)][file:~/.emacs.d/elisp/plugin/auto-async-byte-compile.el::(string-match "\\.el$" buffer-file-name)]]
 ** TODO [#C] python mode create parameter and function
 
-1) 背景(問題点)
+1) 背景 (問題点)
    like pycharm
 
 2) 対応方法
@@ -15858,7 +15858,7 @@ move parameter point or out function or class
     / cf. [[file:~/.pylib/wm/_core.py::def%20__init__(self,%20window,%20display%3DNone,%20cachetime%3D0.5):][file:~/.pylib/wm/_core.py::def __init__(self, window, display=None, cachetime=0.5):]]
 ** TODO [#C] python format yasnippet
 
-1) 背景(問題点)
+1) 背景 (問題点)
 usable yasnippet write format string
 
 2) 対応方法
@@ -15873,13 +15873,13 @@ usable yasnippet write format string
     / cf.
 ** TODO [#C] python elisp, convert append=[] for loop to list compreehension
 
-1) 背景(問題点)
+1) 背景 (問題点)
    tes = []
    for x in list:
-       if x.startswith('_'):
-          tes.append(x)
+       if x.startswith ('_'):
+          tes.append (x)
    =>
-   [x for x in list if x.startswith('_')]
+   [x for x in list if x.startswith ('_')]
 
 2) 対応方法
    write elisp
@@ -15894,7 +15894,7 @@ usable yasnippet write format string
 ** DONE [#C] e2wm C-: C-i move cursor sub ipython 
    CLOSED: [2013-12-03 Tue 16:47]
 
-1) 背景(問題点)
+1) 背景 (問題点)
 
 2) 対応方法
 
@@ -15907,7 +15907,7 @@ usable yasnippet write format string
     / cf.
 ** TODO [#C] e2wm plugin fixme, todo, bug annotation list
 
-1) 背景(問題点)
+1) 背景 (問題点)
 
 2) 対応方法
    select and move such a point
@@ -15921,7 +15921,7 @@ usable yasnippet write format string
     / cf.
 ** TODO [#C] flycheck wave annotation to backgraund overlay
 
-1) 背景(問題点)
+1) 背景 (問題点)
    misreading , & . on wave annotation
 
 2) 対応方法
@@ -15935,7 +15935,7 @@ usable yasnippet write format string
     / cf.
 ** TODO [#C] iswitchb C-: fix define
 
-1) 背景(問題点)
+1) 背景 (問題点)
 
 2) 対応方法
 
@@ -15948,7 +15948,7 @@ usable yasnippet write format string
     / cf. [[file:~/.emacs.d/elisp/start.d/iswitchb_plugin_start.el::%3B%3B%20coding:%20utf-8][file:~/.emacs.d/elisp/start.d/iswitchb_plugin_start.el::;; coding: utf-8]]
 ** TODO [#C] python module auto-insert M key as blank for big module.
 
-1) 背景(問題点)
+1) 背景 (問題点)
 
 2) 対応方法
 
@@ -15978,7 +15978,7 @@ usable yasnippet write format string
     <2013-01-19y>
 ** TODO [#C] surround command
 
-1) 背景(問題点)
+1) 背景 (問題点)
    try, while, if, 文で囲む。
 
 2) 対応方法
@@ -15989,14 +15989,14 @@ usable yasnippet write format string
 
 5) 結果
 6) time/ref
-    / cf. [[file:p:/Lib/.pylib/portable/update_usb.py::UPDATER_DIR%20%3D%20os.path.join(THIS_SCRIPT_DIR,%20SUBDIRNAME)][file:p:/Lib/.pylib/portable/update_usb.py::UPDATER_DIR = os.path.join(THIS_SCRIPT_DIR, SUBDIRNAME)]]
+    / cf. [[file:p:/Lib/.pylib/portable/update_usb.py::UPDATER_DIR%20%3D%20os.path.join (THIS_SCRIPT_DIR,%20SUBDIRNAME)][file:p:/Lib/.pylib/portable/update_usb.py::UPDATER_DIR = os.path.join (THIS_SCRIPT_DIR, SUBDIRNAME)]]
 ** TODO [#C] portable usb python script forensic
 
    [[file:~/mydoc/memo/memo.org::*create%20init%20script%20by%20python][create init script by python]]
    <2012-09-30 Sun>
 ** TODO [#C] def class の間の space を整る
 
-1) 背景(問題点)
+1) 背景 (問題点)
    style guide に沿った coding を自動でできるように
 
 2) 対応方法
@@ -16013,7 +16013,7 @@ usable yasnippet write format string
     / cf.
 ** TODO [#C] weekly rsync usb ni
 
-1) 背景(問題点)
+1) 背景 (問題点)
 
 2) 対応方法
 
@@ -16026,7 +16026,7 @@ usable yasnippet write format string
     / cf.
 ** TODO [#C] daily prompt always on top
 
-1) 背景(問題点)
+1) 背景 (問題点)
 
 2) 対応方法
 
@@ -16039,7 +16039,7 @@ usable yasnippet write format string
     / cf. [[file:~/.pylib/aquos.py::-%20`passwd`:][file:~/.pylib/aquos.py::- `passwd`:]]
 ** TODO [#C] create ifstatement-p by elisp
 
-1) 背景(問題点)
+1) 背景 (問題点)
    check in ifstatement-p
 
 2) 対応方法
@@ -16054,7 +16054,7 @@ usable yasnippet write format string
     / cf. [[file:~/work/Python_Testing_Beginners_Guide/page-0022.png]]
 ** TODO [#C] backup restore ni check connected network
 
-1) 背景(問題点)
+1) 背景 (問題点)
 
 2) 対応方法
 
@@ -16064,10 +16064,10 @@ usable yasnippet write format string
 
 5) 結果
 6) time/ref
-    / cf. [[file:~/.pylib/weekly.py::print('move%20archive%20folder')][file:~/.pylib/weekly.py::print('move archive folder')]]
+    / cf. [[file:~/.pylib/weekly.py::print ('move%20archive%20folder')][file:~/.pylib/weekly.py::print ('move archive folder')]]
 ** TODO [#C] refact all .pylib package
 
-1) 背景(問題点)
+1) 背景 (問題点)
 
 2) 対応方法
 
@@ -16080,7 +16080,7 @@ usable yasnippet write format string
     / cf. [[file:~/.pylib/ref/__init__.py]]
 ** TODO [#C] beep on sys.expecthook
 
-1) 背景(問題点)
+1) 背景 (問題点)
 
 2) 対応方法
 
@@ -16090,10 +16090,10 @@ usable yasnippet write format string
 
 5) 結果
 6) time/ref
-    / cf. [[file:~/.pylib/mytemp/beepmod.py::beeps%20%3D%20chr(amplitude)%20*%20half_period%20%2B%20chr(0)%20*%20half_period][file:~/.pylib/mytemp/beepmod.py::beeps = chr(amplitude) * half_period + chr(0) * half_period]]
+    / cf. [[file:~/.pylib/mytemp/beepmod.py::beeps%20%3D%20chr (amplitude)%20*%20half_period%20%2B%20chr (0)%20*%20half_period][file:~/.pylib/mytemp/beepmod.py::beeps = chr (amplitude) * half_period + chr (0) * half_period]]
 ** TODO [#C] ipython if get ImportError, suggetion similar package names as interctive
 
-1) 背景(問題点)
+1) 背景 (問題点)
 
 2) 対応方法
 
@@ -16106,7 +16106,7 @@ usable yasnippet write format string
     / cf. [[file:~/.pylib/ipython_config.py::try:]]
 ** TODO [#C] function usable finish command
 
-1) 背景(問題点)
+1) 背景 (問題点)
 
 2) 対応方法
    rope-organize-import, pylint, nose, profile, overview
@@ -16120,7 +16120,7 @@ usable yasnippet write format string
     / cf.
 ** TODO [#C] ipython ImportError and search similer name
 
-1) 背景(問題点)
+1) 背景 (問題点)
 
 2) 対応方法
 
@@ -16133,7 +16133,7 @@ usable yasnippet write format string
     / cf. [[http://www.google.com/search?q%3Dipython%2Bimporterror%2Bsimiller%2Bname&hl%3Den&ie%3Dutf-8&oe%3Dutf-8][ipython importerror similler name - Google Search]]
 ** TODO [#C] __exit__ need 4 argment, check with statement in test
 
-1) 背景(問題点)
+1) 背景 (問題点)
 if write this "def __exit__(self):" 
 => got error
 TypeError: __exit__() takes exactly 1 argument (4 given)
@@ -16176,32 +16176,32 @@ auto test writer
 class Test
 {
 public:
-  void operator()(){
+  void operator () (){
     ;
   }
 };
 
 
-int main(int argc, char **argv)
+int main (int argc, char **argv)
 {
   for (int i = 0; i<1000000000; ++i)
     {
-      Test();
+      Test ();
     }
   
   return 0;
 }
 
 // func.cc
-void Test(){
+void Test (){
   ;
 }
 
-int main(int argc, char **argv)
+int main (int argc, char **argv)
 {
   for (int i = 0; i<1000000000; ++i)
     {
-      Test();
+      Test ();
     }
   return 0;
 }
@@ -19476,7 +19476,7 @@ deffered.el
 ; else insert "="
 ** TODO [#C] __python__.el arhcitecture
 
-1) 背景(問題点)
+1) 背景 (問題点)
    make new my python.el
 
 2) 対応方法
@@ -19655,12 +19655,12 @@ Single = r"[^'\\]*(?:\\.[^'\\]*)*'"
 # Tail end of " string.
 Double = r'[^"\\]*(?:\\.[^"\\]*)*"'
 # Tail end of ''' string.
-Single3 = r"[^'\\]*(?:(?:\\.|'(?!''))[^'\\]*)*'''"
+Single3 = r"[^'\\]*(?:(?:\\.|'(?!'')) [^'\\]*)*'''"
 # Tail end of """ string.
-Double3 = r'[^"\\]*(?:(?:\\.|"(?!""))[^"\\]*)*"""'
-Triple = group("[uUbB]?[rR]?'''", '[uUbB]?[rR]?"""')
+Double3 = r'[^"\\]*(?:(?:\\.|"(?!"")) [^"\\]*)*"""'
+Triple = group ("[uUbB]?[rR]?'''", '[uUbB]?[rR]?"""')
 # Single-line ' or " string.
-String = group(r"[uUbB]?[rR]?'[^\n'\\]*(?:\\.[^\n'\\]*)*'",
+String = group (r"[uUbB]?[rR]?'[^\n'\\]*(?:\\.[^\n'\\]*)*'",
                r'[uUbB]?[rR]?"[^\n"\\]*(?:\\.[^\n"\\]*)*"')
 
 *** predicate
@@ -19785,7 +19785,7 @@ hello = ('world yahoo'
          'googl')
 *** TODO [#B] python mode make headers.
 
-1) 背景(問題点)
+1) 背景 (問題点)
 
 
 2) 対応方法
@@ -19802,7 +19802,7 @@ hello = ('world yahoo'
     / cf. [[file:~/.pylib/myxlib/__init__.py::import%20Xlib][file:~/.pylib/myxlib/__init__.py::import Xlib]]
 *** TODO [#C] python mode, @ key call decolater list
 
-1) 背景(問題点)
+1) 背景 (問題点)
 
 2) 対応方法
 rare use @ key, almost in decolater
@@ -19856,7 +19856,7 @@ daichih05006@yahoo.co.jp
 * Bug:
 ** TODO [#B] python mode "=" action
 
-1) 背景(問題点)
+1) 背景 (問題点)
    "=" behave is worth
 
 2) 対応方法
@@ -19872,7 +19872,7 @@ daichih05006@yahoo.co.jp
     / cf. [[file:~/work/Python_Testing_Beginners_Guide/page-0020.png]]
 ** TODO [#C] if command line through frige override same line on multi-term
 
-1) 背景(問題点)
+1) 背景 (問題点)
 
 2) 対応方法
    disable any plugin
@@ -19886,7 +19886,7 @@ daichih05006@yahoo.co.jp
     / cf. [[file:~/.emacs.d/elisp/start.d/22_savekill_plugin_start.elc]]
 ** TODO [#A] py--import-statement-end-point not included undo history
 
-1) 背景(問題点)
+1) 背景 (問題点)
    this command not add undo history
    if execute undo command, statement will corrupt
 
@@ -19900,10 +19900,10 @@ daichih05006@yahoo.co.jp
 
 5) 結果
 6) time/ref
-    / cf. [[file:~/.emacs.d/elisp/mylisp/python-extensions.el::(defun%20py--import-statement-end-point%20()][file:~/.emacs.d/elisp/mylisp/python-extensions.el::(defun py--import-statement-end-point ()]]
+    / cf. [[file:~/.emacs.d/elisp/mylisp/python-extensions.el::(defun%20py--import-statement-end-point%20 ()][file:~/.emacs.d/elisp/mylisp/python-extensions.el::(defun py--import-statement-end-point ()]]
 ** TODO [#C] sikuli could not detect on left dual display
 
-1) 背景(問題点)
+1) 背景 (問題点)
    cannot detect sikuli left display
 
 2) 対応方法
@@ -19917,10 +19917,10 @@ or force open on right display
 
 5) 結果
 6) time/ref
-    / cf. [[file:~/.pylib/daily.py::def%20create_recipe():][file:~/.pylib/daily.py::def create_recipe():]]
+    / cf. [[file:~/.pylib/daily.py::def%20create_recipe ():][file:~/.pylib/daily.py::def create_recipe ():]]
 ** TODO [#C] python-mode.el python.el 両方読み込まれている状態。
 
-1) 背景(問題点)
+1) 背景 (問題点)
 
 
 2) 対応方法
@@ -19936,7 +19936,7 @@ or force open on right display
     / cf.
 ** TODO [#C] __str__ yasnippet
 
-1) 背景(問題点)
+1) 背景 (問題点)
 
 2) 対応方法
 
@@ -19949,7 +19949,7 @@ or force open on right display
     / cf. [[file:/tmp/junk/2013-09-23-180732.junk.py]]
 ** TODO [#C] yasnippet logging.BasicConfig from auto-complete
 
-1) 背景(問題点)
+1) 背景 (問題点)
 
 2) 対応方法
 
@@ -20313,11 +20313,16 @@ or force open on right display
 ** 風変わりな解決策
    - Adapter によるインターフェースの統合
 * ----- DOING -----
+** WAIT python daily v2c Popen
+  <2015-10-02 Fri 21:21>
+** TODO fix woman
+  <2015-10-02 Fri 13:42>
 ** TODO fix dmacro
   <2015-10-02 Fri 13:15>
 ** TODO .zsh history merge
    <2015-10-02 Fri 12:35>
-** TODO doing to allinone.org
+** DONE doing to allinone.org
+   CLOSED: [2015-10-02 Fri 22:36]
    <2015-10-02 Fri 12:34>
 ** TODO systemd ssh tunnel
    <2015-10-02 Fri 12:33>

@@ -3,17 +3,13 @@
 
 (setq mc/cmds-to-run-for-all
       '(
-        t1-forward-thing
-        wdired-finish-edit
-        windmove-down-or-splitmove
+        org-metaright
         ))
 
 (setq mc/cmds-to-run-once
       '(
-        cua-scroll-up
         mc/backward-char
         mc/forward-char
         mc/next-line
         mc/previous-line
-        wdired-change-to-wdired-mode
         ))
