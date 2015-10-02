@@ -3115,3 +3115,7 @@ reboot
 06_loaddefs_start.el
 * Fri 02 Oct 2015 10:59:14 AM JST
 elisp_compileall.py
+* Fri 02 Oct 2015 11:06:48 AM JST
+release-v1.1.0
+* Fri 02 Oct 2015 11:32:55 AM JST
+elisp/el-got/apache-mode
