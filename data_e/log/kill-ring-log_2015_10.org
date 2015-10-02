@@ -3121,3 +3121,423 @@ release-v1.1.0
 elisp/el-got/apache-mode
 * Fri 02 Oct 2015 11:46:29 AM JST
 updated 
+* Fri 02 Oct 2015 11:49:08 AM JST
+mis
+* Fri 02 Oct 2015 11:49:08 AM JST
+update mis
+* Fri 02 Oct 2015 12:03:46 PM JST
+multi-term-scroll-show-maximum-output
+* Fri 02 Oct 2015 12:06:11 PM JST
+dedicated
+* Fri 02 Oct 2015 12:06:41 PM JST
+multi-term-dedicated-window-height
+* Fri 02 Oct 2015 12:08:35 PM JST
+(eval-after-load "multi-term"                                                 
+ '(progn                                                                       
+ (defun e2wm:mult-term-advices-disable ()                                      
+ (ad-disable-advice 'delete-other-windows 'around                              
+ 'multi-term-delete-other-window-advice))                                      
+ (defun e2wm:mult-term-advices-enable ()                                       
+ (ad-enable-advice 'delete-other-windows 'around                               
+ 'multi-term-delete-other-window-advice))                                      
+ (add-hook 'e2wm:pst-minor-mode-setup-hook 'e2wm:mult-term-advices-disable)    
+ (add-hook 'e2wm:pst-minor-mode-abort-hook 'e2wm:mult-term-advices-enable)     
+ ))
+* Fri 02 Oct 2015 12:09:53 PM JST
+multi-term-dedicated-window-height
+* Fri 02 Oct 2015 12:10:12 PM JST
+multi-term-dedicated-max-window-height
+* Fri 02 Oct 2015 12:25:37 PM JST
+(add-hook 'term-mode-hook
+         (lambda ()
+           (make-local-variable 'scroll-margin)
+           (setq scroll-margin 0)))
+* Fri 02 Oct 2015 12:30:06 PM JST
+multi-term-scroll-show-maximum-output t
+* Fri 02 Oct 2015 12:30:12 PM JST
+multi-term-scroll-show-maximum-output
+* Fri 02 Oct 2015 12:57:44 PM JST
+di
+* Fri 02 Oct 2015 12:57:45 PM JST
+as-di
+* Fri 02 Oct 2015 12:57:45 PM JST
+name-as-di
+* Fri 02 Oct 2015 12:57:45 PM JST
+file-name-as-di
+* Fri 02 Oct 2015 12:58:28 PM JST
+my-allinone-path
+* Fri 02 Oct 2015 12:59:10 PM JST
+my-allinone-path
+* Fri 02 Oct 2015 12:59:17 PM JST
+varia
+* Fri 02 Oct 2015 01:05:26 PM JST
+fail 
+* Fri 02 Oct 2015 01:06:00 PM JST
+"Not exists %" my-allinone-path
+* Fri 02 Oct 2015 01:08:10 PM JST
+"^\* ----- DOING -----"
+* Fri 02 Oct 2015 01:09:18 PM JST
+(re-search-forward "^\* ----- DOING -----" nil 'noerror)
+* Fri 02 Oct 2015 01:10:43 PM JST
+(re-search-forward "^\* ----- DOING -----" nil 'noerror)
+* Fri 02 Oct 2015 01:11:00 PM JST
+(re-search-backward "^\* ----- DOING -----" nil 'noerror)
+* Fri 02 Oct 2015 01:12:00 PM JST
+(format-time-string "<%Y-%m-%d %a %H:%M>\n")
+* Fri 02 Oct 2015 01:13:44 PM JST
+* TODO .zsh history merge
+  <2015-10-02 Fri 12:35>
+* TODO doing to allinone.org
+  <2015-10-02 Fri 12:34>
+* TODO systemd ssh tunnel
+  <2015-10-02 Fri 12:33>
+* TODO auto construct dotfile from king server 
+  <2015-10-02 Fri 12:32>
+* TODO emacs package make minimize
+  <2015-10-02 Fri 12:22>
+* TODO multi-term zsh 表示問題
+  bash を使うと正しく表示される。
+  <2015-10-02 Fri 12:21>
+* TODO disable view mode on magit commit buffer
+  <2015-10-02 Fri 11:48>
+* TODO magit keybind C-j move left
+  <2015-10-02 Fri 11:47>
+* TODO insert commit template
+  <2015-10-02 Fri 11:45>
+* TODO python elisp_compileall.py wait close all process
+  <2015-10-02 Fri 10:59>
+* TODO .emacs.d if not exists 06_loaddefs_start.el call constract_loaddef function
+  <2015-10-02 Fri 10:58>
+* TODO org-todo rotate sequence TODO => DONE => LATER
+  <2015-10-02 Fri 10:16>
+* TODO make function some-buffer-save-kill
+  <2015-10-02 Fri 08:30>
+* TODO pymacs package manage by el-get
+  <2015-09-30 Wed 12:59>
+* TODO lock desktop
+  <2015-09-28 Mon 02:34>
+* TODO kernel crash dump
+  <2015-09-27 Sun 02:00>
+* TODO subversion to git
+  <2015-09-27 Sun 00:47>
+* TODO upgrade python3
+  <2015-09-26 Sat 11:09>
+* TODO king kernel config
+  <2015-09-26 Sat 11:07>
+* TODO recover usb linux
+  <2015-09-26 Sat 11:07>
+* TODO text translator one search engine
+  <2015-09-13 Sun 23:50>
+* TODO king auto halt "halt" to "poweroff"
+  <2015-09-12 Sat 03:15>
+* TODO systemd bluetooth device detected to active bluetooth
+  <2015-09-11 Fri 05:04>
+* TODO remove tty63
+  <2015-09-11 Fri 03:48>
+* TODO mac addr change at network interface connected
+  <2015-09-11 Fri 03:48>
+* TODO remove "wellcom kali linux on boot"
+  <2015-09-11 Fri 03:47>
+* TODO xahk
+  <2015-08-30 Sun 17:43>
+* TODO 多重起動防止
+  <2015-08-30 Sun 11:58>
+* TODO bus timetable watch dog for monthly
+  <2015-08-19 Wed 08:30>
+* TODO exception_hook_pdb
+  <2015-08-07 Fri 09:53>
+* TODO all recipe package to one
+  <2015-08-07 Fri 00:57>
+* TODO seikyo 最安値 excel 化
+  <2015-08-06 Thu 21:26>
+* TODO autohalt.py to king/fordeamon
+  <2015-08-06 Thu 07:41>
+* TODO king server connection object
+  mirroring object
+  <2015-08-06 Thu 07:13>
+* TODO oil price calculate in japan 
+  <2015-08-06 Thu 02:50>
+* TODO yearly
+  <2015-08-06 Thu 02:27>
+* TODO 4monthly
+  <2015-08-06 Thu 02:26>
+* TODO monthly
+  <2015-08-06 Thu 02:26>
+* TODO currency exchange show daily
+  <2015-08-06 Thu 02:14>
+* TODO create chrome object
+  <2015-08-05 Wed 22:41>
+* LATER sleipnir copy url and open chrome
+  <2015-08-05 Wed 23:04>
+
+* Fri 02 Oct 2015 01:18:28 PM JST
+<f12>
+* Fri 02 Oct 2015 01:18:48 PM JST
+<f7>
+* Fri 02 Oct 2015 01:20:46 PM JST
+* DONE upgrade emacs package
+  CLOSED: [2015-10-02 Fri 10:18]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2015-10-02 Fri 10:25
+  :ARCHIVE_FILE: ~/.emacs.d/doing.org
+  :ARCHIVE_CATEGORY: doing
+  :ARCHIVE_TODO: DONE
+  :END:
+  <2015-09-26 Sat 11:09>
+
+* DONE upgrade emacs package
+  CLOSED: [2015-10-02 Fri 10:18]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2015-10-02 Fri 10:26
+  :ARCHIVE_FILE: ~/.emacs.d/doing.org
+  :ARCHIVE_CATEGORY: doing
+  :ARCHIVE_TODO: DONE
+  :END:
+  <2015-09-26 Sat 11:09>
+
+* DONE super grub2 burn to cd
+  CLOSED: [2015-10-02 Fri 09:58]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2015-10-02 Fri 10:26
+  :ARCHIVE_FILE: ~/.emacs.d/doing.org
+  :ARCHIVE_CATEGORY: doing
+  :ARCHIVE_TODO: DONE
+  :END:
+  <2015-09-26 Sat 11:08>
+
+* DONE fix yasnippet run-hook-after-load escape message
+  CLOSED: [2015-09-30 Wed 11:48]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2015-10-02 Fri 10:26
+  :ARCHIVE_FILE: ~/.emacs.d/doing.org
+  :ARCHIVE_CATEGORY: doing
+  :ARCHIVE_TODO: DONE
+  :END:
+  <2015-09-30 Wed 08:45>
+
+* DONE daily user active time check
+  CLOSED: [2015-08-14 Fri 22:36]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2015-10-02 Fri 10:26
+  :ARCHIVE_FILE: ~/.emacs.d/doing.org
+  :ARCHIVE_CATEGORY: doing
+  :ARCHIVE_TODO: DONE
+  :END:
+  <2015-08-09 Sun 20:23>
+
+* DONE holiday
+  CLOSED: [2015-08-11 Tue 02:10]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2015-10-02 Fri 10:26
+  :ARCHIVE_FILE: ~/.emacs.d/doing.org
+  :ARCHIVE_CATEGORY: doing
+  :ARCHIVE_TODO: DONE
+  :END:
+  <2015-08-07 Fri 09:47>
+
+* DONE 雑誌 show
+  CLOSED: [2015-08-06 Thu 01:55]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2015-10-02 Fri 10:26
+  :ARCHIVE_FILE: ~/.emacs.d/doing.org
+  :ARCHIVE_CATEGORY: doing
+  :ARCHIVE_TODO: DONE
+  :END:
+  <2015-08-05 Wed 22:52>
+
+* DONE create recipe show past recipe
+  CLOSED: [2015-08-17 Mon 16:37]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2015-10-02 Fri 10:26
+  :ARCHIVE_FILE: ~/.emacs.d/doing.org
+  :ARCHIVE_CATEGORY: doing
+  :ARCHIVE_TODO: DONE
+  :END:
+  <2015-08-05 Wed 21:38>
+
+* DONE coding test WindowClient
+  CLOSED: [2015-08-05 Wed 23:28]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2015-10-02 Fri 10:26
+  :ARCHIVE_FILE: ~/.emacs.d/doing.org
+  :ARCHIVE_CATEGORY: doing
+  :ARCHIVE_TODO: DONE
+  :END:
+  <2015-07-22 Wed 01:23>
+
+* DONE bug fix daily feedly
+  CLOSED: [2015-08-05 Wed 22:36]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2015-10-02 Fri 10:26
+  :ARCHIVE_FILE: ~/.emacs.d/doing.org
+  :ARCHIVE_CATEGORY: doing
+  :ARCHIVE_TODO: DONE
+  :END:
+  <2015-08-05 Wed 21:38>
+
+* DONE weather on daily
+  CLOSED: [2015-08-05 Wed 23:23]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2015-10-02 Fri 10:26
+  :ARCHIVE_FILE: ~/.emacs.d/doing.org
+  :ARCHIVE_CATEGORY: doing
+  :ARCHIVE_TODO: DONE
+  :END:
+  <2015-08-05 Wed 21:37>
+
+* DONE sleipnir bug fix dialog
+  CLOSED: [2015-08-05 Wed 23:23]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2015-10-02 Fri 10:26
+  :ARCHIVE_FILE: ~/.emacs.d/doing.org
+  :ARCHIVE_CATEGORY: doing
+  :ARCHIVE_TODO: DONE
+  :END:
+  <2015-08-05 Wed 21:37>
+
+* DONE new beep python xahk error
+  CLOSED: [2015-07-22 Wed 01:22]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2015-10-02 Fri 10:26
+  :ARCHIVE_FILE: ~/.emacs.d/doing.org
+  :ARCHIVE_CATEGORY: doing
+  :ARCHIVE_TODO: DONE
+  :END:
+  <2015-07-21 Tue 23:54>
+
+* DONE kali linux upgrade
+  CLOSED: [2015-10-02 Fri 10:17]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2015-10-02 Fri 10:26
+  :ARCHIVE_FILE: ~/.emacs.d/doing.org
+  :ARCHIVE_CATEGORY: doing
+  :ARCHIVE_TODO: DONE
+  :END:
+cat << EOF > /etc/apt/sources.list
+deb http://http.kali.org/kali sana main non-free contrib
+deb http://security.kali.org/kali-security/ sana/updates main contrib non-free
+EOF
+
+apt-get update
+apt-get dist-upgrade # get a coffee, or 10.
+reboot
+  <2015-08-20 Thu 06:37>
+
+* DONE hello
+  CLOSED: [2015-07-21 Tue 23:54]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2015-10-02 Fri 10:26
+  :ARCHIVE_FILE: ~/.emacs.d/doing.org
+  :ARCHIVE_CATEGORY: doing
+  :ARCHIVE_TODO: DONE
+  :END:
+  <2015-07-21 Tue 23:53>
+
+* DONE debian dist-upgrade
+  CLOSED: [2015-10-02 Fri 10:16]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2015-10-02 Fri 10:26
+  :ARCHIVE_FILE: ~/.emacs.d/doing.org
+  :ARCHIVE_CATEGORY: doing
+  :ARCHIVE_TODO: DONE
+  :END:
+  http://scribble.washo3.com/linux/debian-wheezy7-8-%E3%81%8B%E3%82%89-jessie8-0%E3%81%B8%E3%82%A2%E3%83%83%E3%83%97%E3%82%B0%E3%83%AC%E3%83%BC%E3%83%89.html
+  <2015-08-11 Tue 02:10>
+
+* DONE remove svn revision string
+  CLOSED: [2015-10-02 Fri 09:58]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2015-10-02 Fri 10:26
+  :ARCHIVE_FILE: ~/.emacs.d/doing.org
+  :ARCHIVE_CATEGORY: doing
+  :ARCHIVE_TODO: DONE
+  :END:
+  <2015-09-30 Wed 05:27>
+
+* Fri 02 Oct 2015 01:23:23 PM JST
+fun
+* Fri 02 Oct 2015 01:23:23 PM JST
+doing fun
+* Fri 02 Oct 2015 01:23:24 PM JST
+add doing fun
+* Fri 02 Oct 2015 01:31:44 PM JST
+
+* Fri 02 Oct 2015 01:31:44 PM JST
+
+* Fri 02 Oct 2015 01:31:44 PM JST
+  (           "D" 'switch-doing                )
+
+* Fri 02 Oct 2015 01:39:38 PM JST
+~/.emacs.d/elisp/start.d/
+* Fri 02 Oct 2015 01:40:13 PM JST
+Simple
+* Fri 02 Oct 2015 01:56:05 PM JST
+king_ssh_tunnel.service
+* Fri 02 Oct 2015 02:11:32 PM JST
+/usr/bin/ssh -N -i %h/.ssh/kagi -p 12316 -L 12316:192.168.1.123:12316 root@taka16.no-ip.info
+* Fri 02 Oct 2015 02:28:43 PM JST
+kkkkk
+* Fri 02 Oct 2015 02:28:45 PM JST
+simple
+* Fri 02 Oct 2015 02:28:47 PM JST
+forkin
+* Fri 02 Oct 2015 02:31:06 PM JST
+RemainAfterExit=yes
+* Fri 02 Oct 2015 02:31:09 PM JST
+forking
+* Fri 02 Oct 2015 07:40:19 PM JST
+~/
+* Fri 02 Oct 2015 07:41:11 PM JST
+-N 
+* Fri 02 Oct 2015 07:46:21 PM JST
+/usr/bin/ssh -f -N -i /root/.ssh/kagi -p 12316 -L 12316:192.168.1.123:12316 root@taka16.no-ip.info
+* Fri 02 Oct 2015 09:37:03 PM JST
+[Unit]
+Description=Service for SSH tunneling to king server.
+After=nertwork.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/ssh -f -N -i /root/.ssh/kagi -p 12316 -L 12316:192.168.1.123:12316 root@taka16.no-ip.info
+# Restart=always
+# RestartSec=60
+# TimeoutSec=30
+KillMode=process
+# RemainAfterExit=yes
+
+* Fri 02 Oct 2015 09:39:40 PM JST
+[Unit]
+Description=Socket listening port for SSH tunneling to king server.
+Before=king_ssh_tunnel.service
+Conflicts=king_ssh_tunnel.service
+
+[Socket]
+ListenStream=12316
+Accept=yes
+
+[Install]
+WantedBy=sockets.target
+
+* Fri 02 Oct 2015 10:28:01 PM JST
+
+* Fri 02 Oct 2015 10:28:32 PM JST
+
+* Fri 02 Oct 2015 10:51:32 PM JST
+
+* Fri 02 Oct 2015 10:51:32 PM JST
+
+* Fri 02 Oct 2015 10:51:32 PM JST
+        sleep(5) 
+
+* Fri 02 Oct 2015 10:51:35 PM JST
+Popen
+* Fri 02 Oct 2015 10:51:36 PM JST
+sbpos.
+* Fri 02 Oct 2015 10:51:40 PM JST
+os.system('/opt/v2c/v2c')
+* Sat 03 Oct 2015 05:53:24 AM JST
+UUID="a6813eee-de22-438e-9d67-296cae80cae4
+* Sat 03 Oct 2015 06:02:30 AM JST
+~/.pylib/daily2/
+* Sat 03 Oct 2015 06:13:55 AM JST
+取捨選択
