@@ -124,7 +124,7 @@
 (jedi status "installed" recipe
 (:name jedi :description "An awesome Python auto-completion for Emacs" :type github :pkgname "tkf/emacs-jedi" :submodule nil :depends
 (epc auto-complete python-environment)))
-(key-chord status "installed" recipe
+(key-chord status "required" recipe
 (:name key-chord :description "Map pairs of simultaneously pressed keys to commands." :type emacswiki :features "key-chord"))
 (let-alist status "required" recipe
 (:name let-alist :description "Easily let-bind values of an assoc-list by their names." :builtin "25.0.50" :type http :url "http://git.savannah.gnu.org/cgit/emacs/elpa.git/plain/packages/let-alist/let-alist.el"))
@@ -183,9 +183,6 @@
 ("." "contrib/lisp" "lisp")
 :load
 ("lisp/org-loaddefs.el")))
-(pkg-info status "installed" recipe
-(:name pkg-info :description "Provide information about Emacs packages." :type github :pkgname "lunaryorn/pkg-info.el" :depends
-(dash epl)))
 (popup status "installed" recipe
 (:name popup :website "https://github.com/auto-complete/popup-el" :description "Visual Popup Interface Library for Emacs" :type github :submodule nil :depends cl-lib :pkgname "auto-complete/popup-el"))
 (python-environment status "installed" recipe
@@ -228,7 +225,7 @@
 (progn
 (autoload 'smartrep-restore-original-position "smartrep" nil t)
 (autoload 'smartrep-map-internal "smartrep" nil t))))
-(space-chord status "installed" recipe
+(space-chord status "required" recipe
 (:name space-chord :description "Key chord with Space" :type emacswiki :depends
 (key-chord)
 :features space-chord))
@@ -243,8 +240,6 @@
 (:name systemd-mode :description "Major mode for editing systemd units" :type github :pkgname "holomorph/systemd-mode"))
 (tabbar status "installed" recipe
 (:name tabbar :description "Display a tab bar in the header line." :type github :pkgname "dholm/tabbar" :lazy t))
-(tail status "installed" recipe
-(:name tail :description "Tail files within Emacs" :type http :url "http://www.drieu.org/code/sources/tail.el" :features tail))
 (text-translator status "installed" recipe
 (:name text-translator :description "Translate text within GNU Emacs by online translators" :type bzr :url "lp:~khiker/+junk/text-translator" :website "http://d.hatena.ne.jp/khiker/20070503/emacs_text_translator"))
 (undo-tree status "installed" recipe

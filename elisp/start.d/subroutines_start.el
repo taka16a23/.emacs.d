@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:29:02 2012 (+0900)
-;; Last-Updated: 2015/10/02 12:59:22 (+0900)
+;; Last-Updated: 2015/10/03 08:15:22 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -331,10 +331,6 @@ MUST-SUFFIX:"
 (defvar after-require-idle-delay 45
   "Idle time in seconds after which autoload functions will be loaded.")
 
-(defvar after-require-break 1
-  "Time in seconds between automatically loaded functions.
-This keeps `idle-require-mode' from using up the CPU capacity.")
-
 (defvar after-require--librarys nil)
 
 (defvar after-require--uniqed-flag nil)
@@ -347,10 +343,8 @@ This keeps `idle-require-mode' from using up the CPU capacity.")
                                     "color-theme"
                                     "color-theme-other"
                                     "color-theme-t1"
-                                    "zenburn"
                                     "e2wm"
-                                    "auto-complete"
-                                    "minimap"))
+                                    "auto-complete"))
 
 
 (define-minor-mode after-require-mode
