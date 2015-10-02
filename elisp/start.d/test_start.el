@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:29:09 2012 (+0900)
-;; Last-Updated: 2015/09/30 12:34:57 (+0900)
+;; Last-Updated: 2015/10/02 12:25:57 (+0900)
 ;; Last-Updated: 2013/11/04 17:50:44 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -2024,6 +2024,13 @@ TEMPORARY"
         (setq matched (car lis)))
       (replace-regexp-in-string "-" "_" matched))
     ))
+
+;;; for term scroll
+;;
+(add-hook 'term-mode-hook
+          (lambda ()
+            (make-local-variable 'scroll-margin)
+            (setq scroll-margin 0)))
 
 
 

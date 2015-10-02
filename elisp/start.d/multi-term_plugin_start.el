@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Mon Dec 17 23:00:25 2012 (+0900)
-;; Last-Updated: 2015/08/29 15:15:56 (+0900)
+;; Last-Updated: 2015/10/02 12:27:28 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -53,6 +53,9 @@
   (custom-set-variables
    '(multi-term-program "/bin/zsh")
    '(multi-term-scroll-to-bottom-on-output 'all)
+   '(multi-term-scroll-show-maximum-output t) ;for zsh complete
+   '(multi-term-dedicated-window-height 30)
+   '(multi-term-dedicated-max-window-height 40)
    ))
 
 ;;;###autoload
