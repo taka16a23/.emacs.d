@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:29:09 2012 (+0900)
-;; Last-Updated: 2015/10/02 12:25:57 (+0900)
+;; Last-Updated: 2015/10/02 13:19:27 (+0900)
 ;; Last-Updated: 2013/11/04 17:50:44 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -2031,6 +2031,27 @@ TEMPORARY"
           (lambda ()
             (make-local-variable 'scroll-margin)
             (setq scroll-margin 0)))
+
+
+;;;###autoload
+(defun add-doing (description) ;[2015/10/02]
+  "DESCRIPTION"
+  (interactive "sDoing? \n")
+  (find-file my-allinone-path)
+  (unless (file-exists-p my-allinone-path)
+    (error (format "Not exists %s" my-allinone-path)))
+  (goto-char (point-max))
+  (let ((inhibit-read-only t))
+    (when (re-search-backward "^\* ----- DOING -----" nil 'noerror)
+      (forward-line 1)
+      (insert "** TODO " description "\n"
+              "  " (format-time-string "<%Y-%m-%d %a %H:%M>\n"))
+      (save-buffer)
+      (bury-buffer)
+      ))
+  )
+
+(define-key global-map (kbd "<f7>") 'add-doing)
 
 
 
