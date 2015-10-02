@@ -8,7 +8,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:30:34 2012 (+0900)
-;; Last-Updated: 2015/10/02 13:02:54 (+0900)
+;; Last-Updated: 2015/10/02 13:31:22 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -125,12 +125,6 @@
   "Switch allinone.org or find file."
   (interactive)
   (t1-switch--findfile my-allinone-path))
-
-;;;###autoload
-(defun switch-doing () ;[2015/09/30]
-  ""
-  (interactive)
-  (t1-switch--findfile "doing.org" my-emacs-dir))
 
 ;;;###autoload
 (defun switch-scratch ()
