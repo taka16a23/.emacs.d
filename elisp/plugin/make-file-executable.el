@@ -2,10 +2,6 @@
 
 ;;; make-file-executable.el --- chmod +x file
 ;;
-;; $Revision: 881 $
-;; $LastChangedRevision: 881 $
-;; $LastChangedDate: 2013-11-23 19:57:42 +0900 (Sat, 23 Nov 2013) $
-;;
 ;; MAKE FILE EXECUTABLE
 ;; ============================================================================
 ;;;###autoload

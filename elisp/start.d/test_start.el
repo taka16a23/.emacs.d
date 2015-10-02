@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:29:09 2012 (+0900)
-;; Last-Updated: 2015/10/02 13:19:27 (+0900)
+;; Last-Updated: 2015/10/03 07:46:00 (+0900)
 ;; Last-Updated: 2013/11/04 17:50:44 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -139,16 +139,6 @@
   (set-buffer (find-file (concat "/sudo::" buffer-file-name))))
 ;;
 ;;;; end
-
-;;;; multi-region
-;;
-;; (require 'multi-region)
-;; (define-key global-map (kbd "C-x C-SPC") 'multi-region-mark-region)
-;; (define-key global-map (kbd "M-@") 'multi-region-execute-command)
-;; (define-key global-map (kbd "C-x M-@") 'multi-region-unmark-regions)
-;;
-;;;;
-
 
 (define-key cua-global-keymap [C-return] 'open-line-indent)
 (defun open-line-indent (n)
