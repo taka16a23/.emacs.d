@@ -2,6 +2,10 @@
 #+TITLE: doing
 #+STARTUP: overview
 #+TODO: TODO LATER | DONE
+* TODO python elisp_compileall.py wait close all process
+  <2015-10-02 Fri 10:59>
+* TODO .emacs.d if not exists 06_loaddefs_start.el call constract_loaddef function
+  <2015-10-02 Fri 10:58>
 * TODO org-todo rotate sequence TODO => DONE => LATER
   <2015-10-02 Fri 10:16>
 * TODO make function some-buffer-save-kill
