@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2015/09/19 21:14:41 (+0900)
-;; Last-Updated: 2015/09/29 23:03:55 (+0900)
+;; Last-Updated: 2015/10/04 16:39:20 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -83,9 +83,6 @@
 (add-hook 'el-get-eval-after-load-hook 'el-get-mode-predefine 'append)
 (add-hook 'el-get-eval-after-load-hook 'el-get-mode-map-predefine 'append)
 (run-hooks-after-load "el-get" 'el-get-eval-after-load-hook)
-
-;; (autoload 'el-get-bundle "el-get")
-;; (require 'el-get "el-get" 'noerr)
 
 
 

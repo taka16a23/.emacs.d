@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Tue Dec 11 23:33:01 2012 (+0900)
-;; Last-Updated: 2015/10/01 11:10:56 (+0900)
+;; Last-Updated: 2015/10/04 16:38:48 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -44,10 +44,8 @@
 
 (eval-when-compile
   (require 't1macro "t1macro")
-  ;; (require 'el-get-bundle "el-get-bundle")
   )
 
-;; (el-get-bundle e2wm)
 
 (autoload 'e2wm:start-management "e2wm" nil t)
 (autoload 'e2wm:stop-management  "e2wm" nil t)

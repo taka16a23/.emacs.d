@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/12/05 18:28:52 (+0900)
-;; Last-Updated: 2015/09/29 22:18:13 (+0900)
+;; Last-Updated: 2015/10/04 16:39:14 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -42,11 +42,7 @@
 
 (eval-when-compile
   (require 't1macro "t1macro")
-  ;; (require 'el-get-bundle "el-get-bundle")
   )
-
-
-;; (el-get-bundle flycheck)
 
 (defvar flycheck-eval-after-load-hook nil
   "Hook for flycheck `eval-after-load'.")
