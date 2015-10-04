@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/03/01 13:31:33 (+0900)
-;; Last-Updated: 2015/10/04 09:52:07 (+0900)
+;; Last-Updated: 2015/10/04 14:48:22 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -71,7 +71,11 @@
     ("\M-n" 'helm-next-source)
     ("\M-k" 'helm-previous-source)
     ((kbd "M-SPC") 'helm-toggle-all-marks)
-    ("\C-e" 'helm-execute-persistent-action)))
+    ("\C-e" 'helm-execute-persistent-action)
+    ("\C-j" 'backward-char)
+    ("\C-l" 'forward-char)
+    )
+  )
 
 ;;;###autoload
 (defun helm-mode-face-predefine ()
