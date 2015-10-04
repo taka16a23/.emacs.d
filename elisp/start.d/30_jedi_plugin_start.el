@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/11/02 05:06:17 (+0900)
-;; Last-Updated: 2015/09/29 22:16:50 (+0900)
+;; Last-Updated: 2015/10/04 16:39:04 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -44,10 +44,8 @@
 
 (eval-when-compile
   (require 't1macro "t1macro" 'noerr)
-  ;; (require 'el-get-bundle "el-get-bundle")
   (require 'python "python" 'noerr))
 
-;; (el-get-bundle jedi)
 
 (defvar jedi-eval-after-load-hook nil
   "Hook for jedi `eval-after-load'.")
