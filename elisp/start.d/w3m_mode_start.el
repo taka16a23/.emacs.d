@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.1
 ;; Created:      Mon Dec 10 21:31:39 2012 (+0900)
-;; Last-Updated: 2013/12/07 01:05:48 (+0900)
+;; Last-Updated: 2015/10/04 10:06:01 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -97,7 +97,7 @@
   (define-many-keys w3m-mode-map
     ("S"           'w3m-search-new-session)
     ("\d"          'w3m-view-previous-page) ;backspace
-    ("\M-d"        'anything-M-x)
+    ("\M-d"        'helm-M-x)
     ("-"           'my-w3m-forward-seq)
     ([(control -)] 'my-w3m-forward-seq)
     ("o"           'rand-w3m-view-this-url-background-session)

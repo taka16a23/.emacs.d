@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/03/01 13:29:58 (+0900)
-;; Last-Updated: 2013/11/01 18:06:02 (+0900)
+;; Last-Updated: 2015/10/04 09:51:01 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -45,6 +45,7 @@
 (eval-when-compile
   (require 't1macro "t1macro"))
 
+;; helm.el
 (defvar helm-eval-after-load-hook nil
   "Hook for helm `eval-after-load'.")
 (add-hook 'helm-eval-after-load-hook 'helm-mode-custom-predefine)
@@ -52,6 +53,60 @@
 (add-hook 'helm-eval-after-load-hook 'helm-mode-map-predefine 'append)
 (add-hook 'helm-eval-after-load-hook 'helm-mode-face-predefine 'append)
 (run-hooks-after-load "helm" 'helm-eval-after-load-hook)
+
+;; helm-buffers.el
+(defvar helm-buffers-eval-after-load-hook nil
+  "Hook for helm-buffers `eval-after-load'.")
+(add-hook 'helm-buffers-eval-after-load-hook 'helm-buffers-mode-custom-predefine)
+(add-hook 'helm-buffers-eval-after-load-hook 'helm-buffers-mode-predefine 'append)
+(add-hook 'helm-buffers-eval-after-load-hook 'helm-buffers-mode-map-predefine 'append)
+(add-hook 'helm-buffers-eval-after-load-hook 'helm-buffers-mode-face-predefine 'append)
+(run-hooks-after-load "helm-buffers" 'helm-buffers-eval-after-load-hook)
+
+;; helm-files.el
+(defvar helm-files-eval-after-load-hook nil
+  "Hook for helm-files `eval-after-load'.")
+(add-hook 'helm-files-eval-after-load-hook 'helm-files-mode-custom-predefine)
+(add-hook 'helm-files-eval-after-load-hook 'helm-files-mode-predefine 'append)
+(add-hook 'helm-files-eval-after-load-hook 'helm-files-mode-map-predefine 'append)
+(add-hook 'helm-files-eval-after-load-hook 'helm-files-mode-face-predefine 'append)
+(run-hooks-after-load "helm-files" 'helm-files-eval-after-load-hook)
+
+;; helm-utils.el
+(defvar helm-utils-eval-after-load-hook nil
+  "Hook for helm-utils `eval-after-load'.")
+(add-hook 'helm-utils-eval-after-load-hook 'helm-utils-mode-custom-predefine)
+(add-hook 'helm-utils-eval-after-load-hook 'helm-utils-mode-predefine 'append)
+(add-hook 'helm-utils-eval-after-load-hook 'helm-utils-mode-map-predefine 'append)
+(add-hook 'helm-utils-eval-after-load-hook 'helm-utils-mode-face-predefine 'append)
+(run-hooks-after-load "helm-utils" 'helm-utils-eval-after-load-hook)
+
+;; helm-command.el
+(defvar helm-command-eval-after-load-hook nil
+  "Hook for helm-command `eval-after-load'.")
+(add-hook 'helm-command-eval-after-load-hook 'helm-command-mode-custom-predefine)
+(add-hook 'helm-command-eval-after-load-hook 'helm-command-mode-predefine 'append)
+(add-hook 'helm-command-eval-after-load-hook 'helm-command-mode-map-predefine 'append)
+(add-hook 'helm-command-eval-after-load-hook 'helm-command-mode-face-predefine 'append)
+(run-hooks-after-load "helm-command" 'helm-command-eval-after-load-hook)
+
+;; helm-grep.el
+(defvar helm-grep-eval-after-load-hook nil
+  "Hook for helm-grep `eval-after-load'.")
+(add-hook 'helm-grep-eval-after-load-hook 'helm-grep-mode-custom-predefine)
+(add-hook 'helm-grep-eval-after-load-hook 'helm-grep-mode-predefine 'append)
+(add-hook 'helm-grep-eval-after-load-hook 'helm-grep-mode-map-predefine 'append)
+(add-hook 'helm-grep-eval-after-load-hook 'helm-grep-mode-face-predefine 'append)
+(run-hooks-after-load "helm-grep" 'helm-grep-eval-after-load-hook)
+
+;; helm-bookmark.el
+(defvar helm-bookmark-eval-after-load-hook nil
+  "Hook for helm-bookmark `eval-after-load'.")
+(add-hook 'helm-bookmark-eval-after-load-hook 'helm-bookmark-mode-custom-predefine)
+(add-hook 'helm-bookmark-eval-after-load-hook 'helm-bookmark-mode-predefine 'append)
+(add-hook 'helm-bookmark-eval-after-load-hook 'helm-bookmark-mode-map-predefine 'append)
+(add-hook 'helm-bookmark-eval-after-load-hook 'helm-bookmark-mode-face-predefine 'append)
+(run-hooks-after-load "helm-bookmark" 'helm-bookmark-eval-after-load-hook)
 
 
 

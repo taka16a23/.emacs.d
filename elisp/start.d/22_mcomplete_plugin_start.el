@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/02/14 03:09:55 (+0900)
-;; Last-Updated: 2013/11/01 17:57:06 (+0900)
+;; Last-Updated: 2015/10/03 13:32:54 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -45,8 +45,8 @@
 (eval-when-compile
   (require 't1macro "t1macro"))
 
-(autoload 'turn-on-mcomplete-mode "mcomplete")
-(add-hook 'after-init-idle-timer-hook 'turn-on-mcomplete-mode)
+;; (autoload 'turn-on-mcomplete-mode "mcomplete")
+;; (add-hook 'after-init-idle-timer-hook 'turn-on-mcomplete-mode)
 
 ;;;###autoload
 (defun mcomplete-mode-predefine ()

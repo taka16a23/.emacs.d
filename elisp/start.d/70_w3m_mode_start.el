@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:29:12 2012 (+0900)
-;; Last-Updated: 2015/09/29 22:18:53 (+0900)
+;; Last-Updated: 2015/10/04 10:28:43 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -76,7 +76,8 @@
   ("\C-xwu"    'w3m-goto-url-new-session)
   ("\C-xwh"    'w3m-db-history)
   ("\C-xww"    'w3m)
-  ("\C-xwb"    'anything-w3m-bookmarks))
+  ;; ("\C-xwb"    'helm-w3m-bookmarks)
+  )
 
 (defvar w3m-eval-after-load-hook nil
   "Hook for w3m `eval-after-load'.")

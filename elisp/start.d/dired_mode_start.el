@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Mon Dec 10 17:30:07 2012 (+0900)
-;; Last-Updated: 2015/09/19 22:27:51 (+0900)
+;; Last-Updated: 2015/10/04 10:25:19 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -99,7 +99,6 @@
     ("\C-i"      'dired-hide-subdir)
     ("^"         'dired-my-up-directory)
     (" "         'dired-toggle-mark)
-    ("\C-\M-f"   'anything-c-moccur-dired-do-moccur-by-moccur)
     ("\C-\M-n"   'scroll-up)
     ("\C-c\C-c"  'dired-do-flagged-delete)
     ([backspace] 'dired-my-up-directory)

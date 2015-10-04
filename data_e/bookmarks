@@ -7,47 +7,6 @@
  (front-context-string . "simpy\n  drwx--x-")
  (rear-context-string . "0K Jul 17 06:39 ")
  (position . 12099))
-("0039_Object_Oriented_Thought_Process.png"
- (filename . "/data/archive/ref/book/Programming/Design/Object_Oriented_Thought_Process/0039_Object_Oriented_Thought_Process.png")
- (position . 0)
- (image-type . png)
- (handler . image-bookmark-jump))
-("0111_Python3_Object_Oriented_Programming.png"
- (filename . "/data/archive/ref/book/Programming/Python3_Object_Oriented_Programming/0111_Python3_Object_Oriented_Programming.png")
- (position . 0)
- (image-type . png)
- (handler . image-bookmark-jump))
-("*w3m*<3>"
- (front-context-string . ">>> suits = chin")
- (rear-context-string . " A list literal\n")
- (position . 66085)
- (filename . #1="http://www-inst.eecs.berkeley.edu/~cs61a/sp12/book/objects.html")
- (url . #1#)
- (handler . bookmark-w3m-bookmark-jump))
-("*w3m*<2>"
- (front-context-string . "ventional Interf")
- (rear-context-string . "   + 2.3.7   Con")
- (position . 658)
- (filename . #1="http://www-inst.eecs.berkeley.edu/~cs61a/sp12/book/objects.html")
- (url . #1#)
- (handler . bookmark-w3m-bookmark-jump))
-("*w3m*"
- (front-context-string)
- (rear-context-string . "s.berkeley.edu\n\n")
- (position . 1388)
- (filename . #1="http://www-inst.eecs.berkeley.edu/~cs61a/sp12/book/")
- (url . #1#)
- (handler . bookmark-w3m-bookmark-jump))
-("c++ standard library directory"
- (filename . "/usr/include/c++/4.7/")
- (front-context-string . "backward\n  drwxr")
- (rear-context-string . "0K Mar 26  2013 ")
- (position . 181))
-("C++"
- (filename . "/data/archive/ref/book/Programming/C_C++/C++/The_C++_standard_library_a_tutorial_and_reference/0068_The_C++_standard_library_a_tutorial_and_reference.png")
- (position . 0)
- (image-type . png)
- (handler . image-bookmark-jump))
 ("scripts"
  (filename . "~/.zsh/scripts/")
  (front-context-string . ".svn\n  lrwxrwxrw")
