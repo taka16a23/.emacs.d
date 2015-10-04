@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/11/01 17:40:04 (+0900)
-;; Last-Updated: 2014/01/17 00:43:05 (+0900)
+;; Last-Updated: 2015/10/04 10:26:48 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -43,7 +43,7 @@
 
 
 (eval-when-compile
-  (require 'anything nil 'noerror)
+  (require 'helm nil 'noerror)
   (require 't1macro "t1macro" 'noerror)
   (require 'iswitchb "iswitchb" 'noerr))
 
@@ -90,8 +90,12 @@
   (define-many-keys iswitchb-mode-map
     ("\C-l"        'iswitchb-next-match)
     ("\C-j"        'iswitchb-prev-match)
-    ([(control :)] 'iswitchb-exit-anything))
-  (define-key iswitchb-mode-map [(control :)] 'iswitchb-exit-anything))
+    ;; ([(control :)] 'iswitchb-exit-anything)
+    ([(control :)] 'iswitchb-exit-helm)
+    )
+  ;; (define-key iswitchb-mode-map [(control :)] 'iswitchb-exit-anything)
+  (define-key iswitchb-mode-map [(control :)] 'iswitchb-exit-helm)
+  )
 
 
 ;;;; iswitchb exit to anything
@@ -112,7 +116,7 @@
       (iswitchb-make-buflist iswitchb-default)
       (setq iswitchb-rescan t))))
 
-(defun iswitchb-exit-anything ()
+(defun iswitchb-exit-helm ()
   "Execute anything from iswitchb."
   (interactive)
   (if (minibufferp)
@@ -120,16 +124,16 @@
             (iswitchb-newbuffer nil)
             (iswitchb-prompt-newbuffer nil)
             (iswitchb-rescan t))
-        (run-with-timer 0.2 nil 'iswitchb-input-anything iswitchb-text)
+        (run-with-timer 0.2 nil 'iswitchb-input-helm iswitchb-text)
         (setq iswitchb-text "qqqqqqqqqq") ;dummy string for not match
         (iswitchb-set-matches)
         (exit-minibuffer))
-    (anything)))
+    (helm-mini)))
 
-(defun iswitchb-input-anything (string)
+(defun iswitchb-input-helm (string)
   "Insert target keyword to anything minibuffer after exit iswitchb.
 STRING: for insert string in minibuffer"
-  (anything :input string))
+  (helm :input string))
 
 
 

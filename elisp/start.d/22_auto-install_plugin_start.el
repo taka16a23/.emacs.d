@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:25:35 2012 (+0900)
-;; Last-Updated: 2013/11/25 14:08:12 (+0900)
+;; Last-Updated: 2015/10/04 10:26:05 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -31,7 +31,6 @@
 ;;  ===========
 ;;
 ;;  (install-elisp-from-emacswiki "auto-install.el")
-;;  (install-elisp-from-emacswiki "anything-auto-install.el")
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -58,23 +57,6 @@
 (add-hook 'auto-install-eval-after-load-hook
           'auto-install-mode-map-predefine 'append)
 (run-hooks-after-load "auto-install" 'auto-install-eval-after-load-hook)
-
-
-;;;; anything auto install
-;;
-(autoload 'anything-auto-install "anything-auto-install" nil t)
-(autoload 'anything-auto-install-batch "anything-auto-install" nil t)
-(autoload 'anything-auto-install-from-library "anything-auto-install" nil t)
-(autoload 'anything-auto-install-from-emacswiki "anything-auto-install" nil t)
-(autoload 'auto-install-update-emacswiki-package-name "auto-install")
-(autoload 'auto-install-from-url "auto-install")
-
-(defvar anything-auto-install-eval-after-load-hook nil
-  "Hook for anything-auto-install `eval-after-load'.")
-(add-hook 'anything-auto-install-eval-after-load-hook
-          'anything-auto-install-mode-predefine 'append)
-(run-hooks-after-load "anything-auto-install"
-                      'anything-auto-install-eval-after-load-hook)
 
 
 

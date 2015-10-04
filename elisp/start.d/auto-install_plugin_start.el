@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Tue Dec 11 00:41:59 2012 (+0900)
-;; Last-Updated: 2013/11/01 17:34:11 (+0900)
+;; Last-Updated: 2015/10/04 10:27:16 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -43,8 +43,7 @@
 
 
 (eval-when-compile
-  (require 'auto-install "auto-install" 'noerr)
-  (require 'anything-auto-install "anything-auto-install" 'noerr))
+  (require 'auto-install "auto-install" 'noerr))
 
 ;;;###autoload
 (defun auto-install-mode-custom-predefine ()
@@ -115,27 +114,6 @@ PROMPT-INSTALL is non-nil, will prompt package name for install."
          (auto-install-download-callback-continue
           (buffer-name (process-buffer proc))
           handle-function))))))
-
-
-;;;; anything auto install
-;;
-;;;###autoload
-(defun anything-auto-install-mode-predefine ()
-  "For `eval-after-load' anything-auto-install function."
-  (message "eval-after-load: \"anything-auto-install\" setting..")
-  (when (auto-install-update-emacswiki-package-name t)
-    (with-current-buffer "*Messages*"
-      (save-excursion
-        (goto-char (point-min))
-        (let ((sec 0))
-          (while (and
-                  (not
-                   (search-forward
-                    "Update package name from `EmacsWiki' successful." nil t))
-                  (>= 10 sec))
-            (setq sec (1+ sec))
-            (sit-for 1)
-            ))))))
 
 
 

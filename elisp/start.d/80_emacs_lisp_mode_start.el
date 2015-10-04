@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:28:19 2012 (+0900)
-;; Last-Updated: 2013/11/08 21:34:19 (+0900)
+;; Last-Updated: 2015/10/04 10:27:56 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -93,8 +93,6 @@
   ("\C-c\C-v"    'describe-variable)
 
   ;; Info
-  ("\C-c\C-\M-h" 'anything-info-at-point)
-  ("\C-cH"       'anything-info-at-point)
 
   ;; Go definitions
   ("\C-cf"       'find-function-at-point)
@@ -111,14 +109,14 @@
   ;; Other
   (")"        'right-parentheses-indent)
   ("`"        (smartchr '("\`" "\``!!'\'" "\`\`")))
-  ("\C-cj"    'anything-imenu)
-  ("\C-c\C-j" 'anything-imenu)
+  ("\C-cj"    'helm-imenu)
+  ("\C-c\C-j" 'helm-imenu)
   ("\C-c\C-s" 'se/make-summary-buffer)
-  ("\C-ec"    'anything-lisp-completion-at-point)
+  ("\C-ec"    'helm-lisp-completion-at-point)
   ("\C-m"     'default-indent-new-line)
   ([C-return] 'open-line-indent)
-  ("\C-c\C-a" 'apropos)
-  ("\C-ca"    'apropos)
+  ("\C-c\C-a" 'helm-apropos)
+  ("\C-ca"    'helm-apropos)
   )
 
 
@@ -135,8 +133,8 @@
   ([(meta return)] 'eval-print-last-sexp)
   ("\C-j"     'backward-char)
   ("\C-m"     'newline-and-indent)
-  ("\C-cj"    'anything-imenu)
-  ("\C-c\C-j" 'anything-imenu)
+  ("\C-cj"    'helm-imenu)
+  ("\C-c\C-j" 'helm-imenu)
   ("\C-c\C-s" 'se/make-summary-buffer)
   ("\C-cd"    'find-function-at-point)
   ("\C-c\C-x" 'find-function-at-point)
@@ -144,14 +142,13 @@
   ("\C-c\C-f"    'find-function-at-point)
   ("\C-cv"    'find-variable-at-point)
   ("\C-c\C-v" 'describe-variable)
-  ("\C-ec"    'anything-lisp-completion-at-point)
-  ("\C-ch"    'anything-c-apropos)
-  ("\C-c\C-h" 'anything-c-apropos)
-  ("\C-cD"    'anything-info-at-point)
+  ("\C-ec"    'helm-lisp-completion-at-point)
+  ("\C-ch"    'helm-apropos)
+  ("\C-c\C-h" 'helm-apropos)
+  ("\C-cD"    'helm-info-at-point)
   ("\C-c\C-c" 'popwin:scratch)
-  ("\C-c\C-a" 'apropos-command)
+  ("\C-c\C-a" 'helm-apropos)
   ([C-return] 'open-line-indent)
-  ;; ("\C-c\C-f" 'anything-my-elisp)
   ("`"        (smartchr '("\`" "\``!!'\'" "\`\`")))
   (")"        'right-parentheses-indent)
   )

@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Mon Dec 10 22:33:33 2012 (+0900)
-;; Last-Updated: 2015/10/01 23:19:26 (+0900)
+;; Last-Updated: 2015/10/04 10:23:20 (+0900)
 ;; Last-Updated: 2013/11/03 16:25:37 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -247,8 +247,6 @@
 
     ;;;; Info
     ;;
-    ("\C-c\C-\M-h"    'anything-info-python-at-point)
-    ("\C-cH"          'anything-info-python-at-point)
 
     ;;;; Go definitions
     ;;

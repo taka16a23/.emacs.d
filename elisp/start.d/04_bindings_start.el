@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:25:06 2012 (+0900)
-;; Last-Updated: 2015/10/02 13:31:44 (+0900)
+;; Last-Updated: 2015/10/04 10:29:03 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -194,7 +194,7 @@
   ;; rotate text
   ( "\C-r" 'rotate-word-at-point              )
   ;; anything
-  ( "\C-e" 'my-anything-edit                  )
+  ( "\C-e" 'helm-my-edit                      )
   ;; trans-regions
   ( "\M-t" 'trans-regions                     )
   ;; auto-highlight-symbol
@@ -247,6 +247,7 @@
   (    "b" 'make-backup-revision                 )
   (    "F" 'revert-buffer                        )
   ( "\C-l" 'linum-mode                           )
+  ( "\C-f" 'helm-find-files )
   )
 
 ;;;; Define key minibuffer
@@ -320,7 +321,7 @@
     ( "\C-h"          . my-backward-seq             )
     ( "\C-m"          . nil                         )
     (   [(control -)] . my-forward-seq              )
-    ( [(control ?\s)] . seq-set-mark                )
+    ;; ( [(control ?\s)] . seq-set-mark                )
     ( "E" . text-translator-all-by-auto-selection)
     ))
 
@@ -358,7 +359,7 @@
   (            "\C-\M-k" 'scroll-down                         )
   (            "\C-\M-n" 'scroll-up                           )
   (               "\M-g" 'goto-line                           )
-  (               "\M-d" 'anything-M-x                        )
+  (               "\M-d" 'helm-M-x                            )
   (               "\C-s" 'save-buffer                         )
   ( [(control meta ?\s)] 'cua-set-rectangle-mark              )
   (            "\C-\M-t" 'transpose-lines                     )
@@ -370,7 +371,7 @@
   (               "\C-v" 'x-clipboard-yank                    )
   (               "\C-m" 'default-indent-new-line             )
   (               "\C-t" 'move-text-up                        )
-  (           [67108896] 'seq-set-mark                        ) ; "C-SPC"
+  ;; (           [67108896] 'seq-set-mark                        ) ; "C-SPC"
   (            "\C-\M-t" 'transpose-chars                     )
   (            "\C-\M-x" 'dabbrev-expand                      )
   ;; (                  "f" 'ffap-other-window                   )
@@ -416,12 +417,12 @@
   (          [C-mouse-5] 'text-scale-decrease                 )
   (          [C-mouse-4] 'text-scale-enlarge                  )
   (          [C-mouse-2] 'text-scale-default                  )
-  ;; anyhting
-  (           "\C-x\C-x" 'anything                            )
-  (              "\C-xm" 'anything-man-woman                  )
-  (               "\M-y" 'anything-show-kill-ring             )
-  (            "\C-\M-f" 'anything-c-moccur-buffer-list       )
-  (               "\M-d" 'anything-M-x                        )
+  ;; helm
+  (           "\C-x\C-x" 'helm-mini                           )
+  (              "\C-xm" 'helm-man-woman                      )
+  (               "\M-y" 'helm-show-kill-ring                 )
+  ;; (            "\C-\M-f" 'anything-c-moccur-buffer-list       )
+  (               "\M-d" 'helm-M-x                            )
   ;; tabbar
   (               "\M->" 'tabbar-forward-tab                  )
   (               "\M-<" 'tabbar-backward-tab                 )

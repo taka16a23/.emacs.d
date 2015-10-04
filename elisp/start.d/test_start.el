@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:29:09 2012 (+0900)
-;; Last-Updated: 2015/10/03 07:46:00 (+0900)
+;; Last-Updated: 2015/10/04 12:35:28 (+0900)
 ;; Last-Updated: 2013/11/04 17:50:44 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -1166,74 +1166,6 @@ BUFFNAME:extention buffer name.
   )
 ;; (progn (ad-disable-advice 'move-text-up 'after 'move-text-up-previous-line) (ad-update 'move-text-up)))
 
-;;;###autoload
-(defun rainbow-delimiters-mode-custom-predefine ()
-  "For `eval-after-load' rainbow-delimiters customize."
-  (message "eval-after-load: \"rainbow-delimiters\" customizing..")
-  ;; (custom-set-variables
-   ;; '())
-  )
-
-;;;###autoload
-(defun rainbow-delimiters-mode-predefine ()
-  "For `eval-after-load' rainbow-delimiters function."
-  (message "eval-after-load: \"rainbow-delimiters\" setting..")
-  )
-
-;;;###autoload
-(defun rainbow-delimiters-mode-map-predefine ()
-  "For rainbow-delimiters key bindings."
-  (interactive)
-  (unless (called-interactively-p 'interactive)
-    (message "eval-after-load: \"rainbow-delimiters\" keymaping.."))
-  )
-
-;;;###autoload
-(defun rainbow-delimiters-mode-face-predefine ()
-  "For rainbow-delimiters face."
-  (message "eval-after-load: \"rainbow-delimiters\" Setting faces..")
-  (face-spec-set 'rainbow-delimiters-depth-1-face
-                 '((((background light)) (:foreground "#707183"))
-                   (((background dark)) (:foreground "OrangeRed2"))))
-  (face-spec-set 'rainbow-delimiters-depth-2-face
-                 '((((background light)) (:foreground "#887070"))
-                   (((background dark)) (:foreground "DeepSkyBlue1"))))
-  (face-spec-set 'rainbow-delimiters-depth-3-face
-                 '((((background light)) (:foreground "#887070"))
-                   (((background dark)) (:foreground "gold"))))
-  (face-spec-set 'rainbow-delimiters-depth-4-face
-                 '((((background light)) (:foreground "#887070"))
-                   (((background dark)) (:foreground "SpringGreen3"))))
-  (face-spec-set 'rainbow-delimiters-depth-5-face
-                 '((((background light)) (:foreground "#887070"))
-                   (((background dark)) (:foreground "HotPink"))))
-  (face-spec-set 'rainbow-delimiters-depth-6-face
-                 '((((background light)) (:foreground "#887070"))
-                   (((background dark)) (:foreground "BlueViolet"))))
-  (face-spec-set 'rainbow-delimiters-depth-7-face
-                 '((((background light)) (:foreground "#887070"))
-                   (((background dark)) (:foreground "sienna4"))))
-  (face-spec-set 'rainbow-delimiters-depth-8-face
-                 '((((background light)) (:foreground "#887070"))
-                   (((background dark)) (:foreground "seashell4"))))
-  (face-spec-set 'rainbow-delimiters-depth-9-face
-                 '((((background light)) (:foreground "#887070"))
-                   (((background dark)) (:foreground "white"))))
-  )
-
-(defvar rainbow-delimiters-eval-after-load-hook nil
-  "Hook for rainbow-delimiters `eval-after-load'.")
-(add-hook 'rainbow-delimiters-eval-after-load-hook 'rainbow-delimiters-mode-custom-predefine)
-(add-hook 'rainbow-delimiters-eval-after-load-hook 'rainbow-delimiters-mode-predefine 'append)
-(add-hook 'rainbow-delimiters-eval-after-load-hook 'rainbow-delimiters-mode-map-predefine 'append)
-(add-hook 'rainbow-delimiters-eval-after-load-hook 'rainbow-delimiters-mode-face-predefine 'append)
-(run-hooks-after-load "rainbow-delimiters" 'rainbow-delimiters-eval-after-load-hook)
-
-(add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
-;; (remove-hook 'emacs-lisp-mode-hook '(lambda () ))
-
-
-
 ;;;; snippet helper
 ;;
 (defun prev-def-name ()
@@ -1324,7 +1256,7 @@ BUFFNAME:extention buffer name.
       )))
 
 ;; for no log on anything *Anything Log*
-(setq debug-on-error nil)
+;; (setq debug-on-error nil)
 
 (defun elisp-save-buffer (ARGS) ;[2013/11/03]
   "For `before-save-hook'.
@@ -1554,30 +1486,6 @@ N: `self-insert-command' number."
 ;;       (kill-buffer buf))))
 ;; (progn (ad-disable-advice 'quickrun 'before 'kill-quickrun-buffer) (ad-update 'quickrun))
 
-
-;; (require 'anything-c-moccur)
-
-;; (defvar anything-cycle-task-count 0)
-
-;; ;; fixme-mode.el と ik:anything-cycle-pattern を参考にした
-;; (defun anything-cycle-task ()
-;;   (interactive)
-;;   (let ((los '("\\_<todo\\_>"
-;;                "\\_<kludge\\_>"
-;;                "\\_<fixme\\_>"
-;;                "\\_<bug\\_>"
-;;                "\\_<todo\\_>\\|\\_<fixme\\_>\\|\\_<bug\\_>\\|\\_<kludge\\_>")))
-;;     (if (eq this-command real-last-command)
-;;         (incf anything-cycle-task-count)
-;;       (setq anything-cycle-task-count 0))
-;;     (when (>= anything-cycle-task-count (length los))
-;;       (setq anything-cycle-task-count 0))
-;;     (delete-minibuffer-contents)
-;;     (let ((sep (nth anything-cycle-task-count los)))
-;;       (insert sep))))
-
-;; (define-key anything-c-moccur-anything-map (kbd "T") 'anything-cycle-task)
-
 ;;;; syslog-mode
 ;;
 (add-to-list
@@ -1641,9 +1549,6 @@ N: `self-insert-command' number."
     (find-file (expand-file-name "__init__.py" expanded))
     )
   )
-
-(autoload 'anything-c-moccur-buffer-list "anything-c-moccur"  t)
-
 
 (defun insert-register-disable-exchange (register) ;[2014/06/12]
   "REGISTER"
@@ -1968,8 +1873,27 @@ TEMPORARY"
 ;;     ))
 ;; ;; (progn (ad-disable-advice 'package-initialize 'around 'inhibit-read-only-package-initialize) (ad-update 'package-initialize))
 
+(defadvice package--ensure-init-file
+    (around inhibit-read-only-package--ensure-init-file activate)
+  (let ((inhibit-read-only t))
+    ad-do-it
+    ))
+;; (progn (ad-disable-advice 'package--ensure-init-file 'around 'inhibit-read-only-package--ensure-init-file) (ad-update 'package--ensure-init-file))
+
+;; (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+;; (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+;; MELPA-stableを追加
+(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+;; Marmaladeを追加
+;; (add-to-list 'package-archives  '("marmalade" . "http://marmalade-repo.org/packages/") t)
+;; Orgを追加
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
+
 ;; inhibit error "read-only init.el"
 (setq package-enable-at-startup nil)
+
+(setq package-user-dir (file-name-as-directory (concat my-elisp-dir "elpa")) )
 
 ;; inhibit slowly cursor move
 ;; http://d.hatena.ne.jp/daimatz/20120215/1329248780
@@ -2042,6 +1966,23 @@ TEMPORARY"
   )
 
 (define-key global-map (kbd "<f7>") 'add-doing)
+
+
+
+;;; temporary
+(defadvice package-install
+    (around inhibit-read-only-package-install activate)
+  (let ((inhibit-read-only t))
+    ad-do-it
+    ))
+;; (progn (ad-disable-advice 'package-install 'around 'inhibit-read-only-package-install) (ad-update 'package-install))
+
+(defadvice package-delete
+    (around inhibit-read-only-package-delete activate)
+  (let ((inhibit-read-only t))
+    ad-do-it
+    ))
+;; (progn (ad-disable-advice 'package-delete 'around 'inhibit-read-only-package-delete) (ad-update 'package-delete))
 
 
 

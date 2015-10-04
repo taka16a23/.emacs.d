@@ -8,7 +8,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:33:26 2012 (+0900)
-;; Last-Updated: 2015/09/13 19:25:17 (+0900)
+;; Last-Updated: 2015/10/04 11:59:04 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -116,6 +116,9 @@
 ;;; Code:
 
 
+(eval-when-compile
+  (require 'subroutines_start "subroutines_start" 'noerr))
+
 (defvar during-init-p t "Return t, if during startup.")
 
 ;; Debug `--debug-init'
@@ -153,12 +156,14 @@
        (setcdr command-line-args args)))
 
 ;;;; Defining & Load path
-(setq user-emacs-directory "~/.emacs.d/")
+(setq user-emacs-directory (expand-file-name "~/.emacs.d/"))
 
 ;;;; Subroutines for Start
 (load (expand-file-name "elisp/start.d/subroutines_start" user-emacs-directory))
 
 ;;;; Constraction loaddefs
+(unless (file-exists-p (expand-file-name "06_loaddefs_start.el" my-start-dir))
+  (setq make-loaddefs-flag t))
 (when make-loaddefs-flag
   (require 'constraction-loaddefs nil 'noerror)
   (call-interactively 'constraction-loaddefs))
@@ -171,6 +176,12 @@
 (if init-file-debug
     (benchmark-load "test_start" 'NOERROR)
   (load "test_start" 'NOERROR))
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
 
 (run-with-timer      15 nil 'run-after-init-timer)
 (run-with-idle-timer 30 nil 'run-after-init-idle-timer)

@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Tue Dec 11 19:38:21 2012 (+0900)
-;; Last-Updated: 2015/09/25 07:39:25 (+0900)
+;; Last-Updated: 2015/10/04 10:25:47 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -67,7 +67,6 @@
 (eval-when-compile
   (require 'yasnippet nil 'noerror)
   (require 'auto-complete-yasnippet nil 'noerror)
-  (require 'anything-c-yasnippet nil 'noerror)
   (require 'smartchr "smartchr" 'noerr))
 
 ;;;###autoload
@@ -81,7 +80,6 @@
    '(yas-triggers-in-field t)
    ;; '(yas/trigger-key "SPC")
    ;; '(yas/ignore-filenames-as-triggers t)
-   '(anything-c-yas-space-match-any-greedy t)
    ;; '(yas/next-field-key '("TAB" "<tab>"))
    ;; '(yas/prev-field-key '("<backtab>" "<S-tab>"))
    ;; '(yas/skip-and-clear-key "M-i")
@@ -99,7 +97,6 @@
   "For `eval-after-load' yasnippet function."
   (message "eval-after-load: \"yasnippet\" setting..")
   (require 'auto-complete-yasnippet "auto-complete-yasnippet" 'noerr)
-  (require 'anything-c-yasnippet "anything-c-yasnippet" 'noerr)
   (add-hook 'python-mode-hook 'yasnippet-local-condition-predefine)
   ;; (remove-hook 'python-mode-hook 'yasnippet-local-condition-predefine)
   (add-hook 'python-mode-hook 'yasnippet-mode-map-predefine)

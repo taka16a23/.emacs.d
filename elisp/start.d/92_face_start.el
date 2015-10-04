@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:28:40 2012 (+0900)
-;; Last-Updated: 2015/09/15 06:49:41 (+0900)
+;; Last-Updated: 2015/10/04 13:17:00 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -57,6 +57,27 @@
   (require 'color-theme-t1)
   (require 'view)
   (require 'viewer))
+
+(defgroup my-faces nil
+  "Customize my default faces."
+  :prefix "my-faces-")
+
+(defface my-file-name-face
+  '((((class color) (background dark)) (:foreground "White"))
+    (((class color) (background light)) (:foreground "Black")))
+  ""
+  :group 'my-faces)
+
+(defface my-directory-face
+  '((((class color) (background dark)) (:foreground "#32cd32")) ;LimeGreen
+    (((class color) (background light)) (:foreground "Green")))
+  ""
+  :group 'my-faces)
+
+(defface my-symlink-face
+  '((((class color) (background dark)) (:foreground "cyan")))
+  ""
+  :group 'my-faces)
 
 ;;;; Frame
 ;;
@@ -201,38 +222,40 @@
 
 (add-hook 'after-init-timer-hook
           '(lambda ()
-             (face-spec-set 'bold        '((t (:bold t))))
-             (face-spec-set 'bold-italic '((t (:italic t :bold t))))
-
-             (face-spec-set 'highlight '((t (:background "SteelBlue4"))))
-             (face-spec-set 'italic    '((t (:italic t))))
-
-             (face-spec-set
-              'show-paren-match-face
-              '((t (:bold t :background "LightSkyblue" :foreground "white"))))
-             (face-spec-set
-              'show-paren-mismatch-face
-              '((t (:bold t :background "Red" :foreground "White"))))
-             (face-spec-set 'underline '((t (:underline t))))
-             (face-spec-set 'region '((t (:background "DodgerBlue3"))))
-             (face-spec-set 'primary-selection '((t (:background "blue"))))
-             (face-spec-set 'isearch '((t (:background "blue"))))
-             (face-spec-set 'zmacs-region '((t (:background "blue"))))
-             (face-spec-set 'secondary-selection '((t (:background "darkslateblue"))))
-             (face-spec-set 'font-lock-builtin-face '((t (:foreground "LightSteelBlue"))))
-             (face-spec-set 'font-lock-comment-face '((t (:foreground "OrangeRed"))))
-             (face-spec-set 'font-lock-constant-face '((t (:foreground "Aquamarine"))))
-             (face-spec-set 'font-lock-doc-face '((t (:foreground "OrangeRed"))))
-             (face-spec-set 'font-lock-function-name-face '((t (:foreground "LightSkyBlue" :weight bold))))
-             (face-spec-set 'font-lock-keyword-face '((t (:foreground "Cyan"))))
-             (face-spec-set 'font-lock-preprocessor-face '((t (:foreground "Aquamarine"))))
-             (face-spec-set 'font-lock-reference-face '((t (:foreground "LightSteelBlue"))))
-             (face-spec-set 'font-lock-string-face '((t (:foreground "LightSalmon"))))
-             (face-spec-set 'font-lock-type-face '((t (:foreground "PaleGreen"))))
-             (face-spec-set 'font-lock-variable-name-face '((t (:foreground "LightGoldenrod"))))
-             (face-spec-set 'font-lock-warning-face '((t (:bold t :foreground "Pink"))))
-             (face-spec-set 'font-lock-regexp-grouping-:construct '((t (:foreground "LimeGreen" :weight bold))))
-             (face-spec-set 'font-lock-regexp-grouping-backslash '((t (:foreground "LimeGreen" :weight bold))))
+             (custom-set-faces
+              '(bold ((t (:bold t))))
+              '(bold-italic ((t (:italic t :bold t))))
+              '(highlight ((t (:background "#36648b")))) ;SteelBlue4
+              '(italic ((t (:italic t))))
+              '(show-paren-match-face
+                ((t (:bold t :background "#87cefa" ;LightSkyBlue
+                           :foreground "white"))))
+              '(show-paren-mismatch-face
+                ((t (:bold t :background "Red" :foreground "White"))))
+              '(underline ((t (:underline t))))
+              '(region ((t (:background "#1874cd")))) ;DodgerBlue3
+              '(primary-selection ((t (:background "blue"))))
+              '(isearch ((t (:background "blue"))))
+              '(zmacs-region ((t (:background "blue"))))
+              '(secondary-selection ((t (:background "#483d8b")))) ;darkslateblue
+              '(font-lock-builtin-face ((t (:foreground "#b0c4de")))) ;LightSteelBlue
+              '(font-lock-comment-face ((t (:foreground "#ff4500")))) ;OrangeRed
+              '(font-lock-constant-face ((t (:foreground "#66cdaa")))) ;Aquamarine
+              '(font-lock-doc-face ((t (:foreground "#ff4500")))) ;OrangeRed
+              '(font-lock-function-name-face
+                ((t (:foreground "#87cefa" :weight bold)))) ;LightSkyBlue
+              '(font-lock-keyword-face ((t (:foreground "Cyan"))))
+              '(font-lock-preprocessor-face ((t (:foreground "#66cdaa")))) ;Aquamarine
+              '(font-lock-reference-face ((t (:foreground "#b0c4de")))) ;LightSteelBlue
+              '(font-lock-string-face ((t (:foreground "#ffa07a")))) ;LightSalmon
+              '(font-lock-type-face ((t (:foreground "#98fb98")))) ;PaleGreen
+              '(font-lock-variable-name-face ((t (:foreground "#eedd82")))) ;LightGoldenrod
+              '(font-lock-warning-face ((t (:bold t :foreground "#ff69b4")))) ;hotpink
+              '(font-lock-regexp-grouping-:construct
+                ((t (:foreground "#32cd32" :weight bold)))) ;LimeGreen
+              '(font-lock-regexp-grouping-backslash
+                ((t (:foreground "#32cd32" :weight bold)))) ;LimeGreen
+              )
              ))
 
 (modify-frame-parameters (selected-frame)
