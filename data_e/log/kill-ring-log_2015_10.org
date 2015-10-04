@@ -5028,3 +5028,121 @@ LimeGreen
 LimeGreen
 * Sun 04 Oct 2015 01:16:52 PM JST
 #32cd32
+* Sun 04 Oct 2015 02:49:05 PM JST
+Modi
+* Sun 04 Oct 2015 02:50:31 PM JST
+;;;###autoload
+(defun ido-mode-custom-predefine ()
+  "For `eval-after-load' ido customize."
+  (message "eval-after-load: \"ido\" customizing..")
+  ;; (custom-set-variables
+   ;; '())
+  )
+
+;;;###autoload
+(defun ido-mode-predefine ()
+  "For `eval-after-load' ido function."
+  (message "eval-after-load: \"ido\" setting..")
+  )
+
+;;;###autoload
+(defun ido-mode-map-predefine ()
+  "For ido key bindings."
+  (interactive)
+  (unless (called-interactively-p 'interactive)
+    (message "eval-after-load: \"ido\" keymaping.."))
+  ;; ()
+  )
+
+;;;###autoload
+(defun ido-mode-face-predefine ()
+  "For ido face."
+  (message "eval-after-load: \"ido\" Setting faces..")
+  )
+
+
+* Sun 04 Oct 2015 02:51:13 PM JST
+buffer
+* Sun 04 Oct 2015 02:51:14 PM JST
+iswitchb-buffer
+* Sun 04 Oct 2015 02:51:50 PM JST
+isiwt
+* Sun 04 Oct 2015 03:01:28 PM JST
+mode
+* Sun 04 Oct 2015 03:09:45 PM JST
+(setq ido-enable-flex-matching t)
+* Sun 04 Oct 2015 03:21:19 PM JST
+(defun iswitchb-set-matches ()
+  "Set `iswitchb-matches' to the list of buffers matching prompt."
+  (if iswitchb-rescan
+      (setq iswitchb-matches
+	    (let ((buflist iswitchb-buflist))
+	      (iswitchb-get-matched-buffers iswitchb-text iswitchb-regexp
+					    buflist))
+	    iswitchb-virtual-buffers nil)))
+
+* Sun 04 Oct 2015 03:41:15 PM JST
+icomplete-first-match
+* Sun 04 Oct 2015 03:42:39 PM JST
+cyan
+* Sun 04 Oct 2015 03:43:01 PM JST
+bold
+* Sun 04 Oct 2015 03:43:19 PM JST
+cyan"
+* Sun 04 Oct 2015 03:43:59 PM JST
+red
+* Sun 04 Oct 2015 03:49:37 PM JST
+;;;###autoload
+(defun icomplete-mode-custom-predefine ()
+  "For `eval-after-load' icomplete customize."
+  (message "eval-after-load: \"icomplete\" customizing..")
+  ;; (custom-set-variables
+   ;; '())
+  )
+
+;;;###autoload
+(defun icomplete-mode-predefine ()
+  "For `eval-after-load' icomplete function."
+  (message "eval-after-load: \"icomplete\" setting..")
+  )
+
+;;;###autoload
+(defun icomplete-mode-map-predefine ()
+  "For icomplete key bindings."
+  (interactive)
+  (unless (called-interactively-p 'interactive)
+    (message "eval-after-load: \"icomplete\" keymaping.."))
+  (define-many-keys icomplete-minibuffer-map
+    ("\C-l" 'icomplete-forward-completions)
+    ("\C-j" 'icomplete-backward-completions)
+    ))
+
+;;;###autoload
+(defun icomplete-mode-face-predefine ()
+  "For icomplete face."
+  (message "eval-after-load: \"icomplete\" Setting faces..")
+  (custom-set-faces
+   '(icomplete-first-match ((((class color) (background dark))
+                             :whight bold :foreground "cyan"))))
+  )
+
+* Sun 04 Oct 2015 03:52:04 PM JST
+(add-hook 'after-init-idle-timer-hook
+          '(lambda()
+             (require 'midnight "midnight" 'noerr)))
+* Sun 04 Oct 2015 03:52:24 PM JST
+midnight
+* Sun 04 Oct 2015 03:52:27 PM JST
+midnight
+* Sun 04 Oct 2015 03:52:39 PM JST
+icomp
+* Sun 04 Oct 2015 03:56:21 PM JST
+(add-hook 'after-init-timer-hook 'global-auto-complete-mode-on)
+* Sun 04 Oct 2015 03:56:44 PM JST
+after-init-timer-hook
+* Sun 04 Oct 2015 03:56:47 PM JST
+
+* Sun 04 Oct 2015 03:56:47 PM JST
+
+* Sun 04 Oct 2015 03:56:47 PM JST
+(add-hook 'after-init-timer-hook 'global-auto-complete-mode-on)
