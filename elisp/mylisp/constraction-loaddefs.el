@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/11/01 01:07:34 (+0900)
-;; Last-Updated: 2015/09/24 14:03:31 (+0900)
+;; Last-Updated: 2015/10/04 17:01:31 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -86,7 +86,7 @@
 	  (init-update-directory-autoloads
 	   (let (dirs
 			 attrs
-			 (pending (list my-plugin-dir my-start-dir my-mylisp-dir)))
+			 (pending (list my-plugin-dir my-start-dir my-mylisp-dir package-user-dir)))
 		 ;; This loop does a breadth-first tree walk on DIR's subtree,
 		 ;; putting each subdir into DIRS as its contents are examined.
 		 (while pending
