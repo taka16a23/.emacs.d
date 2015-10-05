@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/10/03 00:14:44 (+0900)
-;; Last-Updated: 2015/09/27 09:46:27 (+0900)
+;; Last-Updated: 2015/10/05 10:38:10 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -4551,6 +4551,9 @@
                                  ("supercede"            . "supersede")
                                  ("superceed"            . "supersede")
                                  ("weild"                . "wield"))))
+
+
+(add-hook 'after-init-timer-hook 'hotstring-global-mode)
 
 
 
