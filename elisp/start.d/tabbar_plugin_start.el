@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/02/14 07:40:54 (+0900)
-;; Last-Updated: 2013/11/02 01:36:15 (+0900)
+;; Last-Updated: 2015/10/05 09:35:45 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -74,21 +74,30 @@
 (defun tabbar-mode-face-predefine ()
   "For tabbar face."
   (message "eval-after-load: \"tabbar\" Setting faces..")
-  (set-face-attribute 'tabbar-default nil
+  (custom-set-faces
+   '(tabbar-default ((((class color) (background dark))
                       :background "gray25"
                       :foreground nil
-                      :height 0.8)
-
-  (set-face-attribute 'tabbar-unselected nil
-                      :background nil
-                      :foreground "green"
-                      :box nil)
-
-  (set-face-attribute 'tabbar-selected nil
-                      :background nil
-                      :foreground "red"
-                      :box nil)
-
+                      :height 1.0
+                      )))
+   '(tabbar-unselected ((((class color) (background dark))
+                         :background nil
+                         :foreground "green"
+                         :box nil
+                         )))
+   '(tabbar-selected ((((class color) (background dark))
+                       :background nil
+                       :foreground "red"
+                       :box nil
+                       :bold t
+                       )))
+   '(tabbar-modified ((((class color) (background dark))
+                       :background nil
+                       :foreground "yellow"
+                       :box nil
+                       :bold t
+                       )))
+   )
   (dolist (btn '(tabbar-buffer-home-button
                  tabbar-scroll-left-button
                  tabbar-scroll-right-button))

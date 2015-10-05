@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:28:40 2012 (+0900)
-;; Last-Updated: 2015/10/04 13:17:00 (+0900)
+;; Last-Updated: 2015/10/04 17:17:34 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -250,7 +250,7 @@
               '(font-lock-string-face ((t (:foreground "#ffa07a")))) ;LightSalmon
               '(font-lock-type-face ((t (:foreground "#98fb98")))) ;PaleGreen
               '(font-lock-variable-name-face ((t (:foreground "#eedd82")))) ;LightGoldenrod
-              '(font-lock-warning-face ((t (:bold t :foreground "#ff69b4")))) ;hotpink
+              '(font-lock-warning-face ((t (:bold t :foreground "pink")))) ;hotpink
               '(font-lock-regexp-grouping-:construct
                 ((t (:foreground "#32cd32" :weight bold)))) ;LimeGreen
               '(font-lock-regexp-grouping-backslash
