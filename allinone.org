@@ -20313,6 +20313,10 @@ or force open on right display
 ** 風変わりな解決策
    - Adapter によるインターフェースの統合
 * ----- DOING -----
+** TODO remove python-mode
+  <2015-10-05 Mon 05:57>
+** TODO magit perspective
+  <2015-10-05 Mon 05:57>
 ** WAIT python daily v2c Popen
   <2015-10-02 Fri 21:21>
 ** TODO fix woman

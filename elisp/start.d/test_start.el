@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:29:09 2012 (+0900)
-;; Last-Updated: 2015/10/04 12:35:28 (+0900)
+;; Last-Updated: 2015/10/04 23:56:02 (+0900)
 ;; Last-Updated: 2013/11/04 17:50:44 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -1865,36 +1865,6 @@ TEMPORARY"
 
 (setq term-prompt-regexp "^[^#$%>\\n]*[#$%>] *")
 
-
-;; (defadvice package-initialize
-;;     (around inhibit-read-only-package-initialize activate)
-;;   (let ((inhibit-read-only t))
-;;     ad-do-it
-;;     ))
-;; ;; (progn (ad-disable-advice 'package-initialize 'around 'inhibit-read-only-package-initialize) (ad-update 'package-initialize))
-
-(defadvice package--ensure-init-file
-    (around inhibit-read-only-package--ensure-init-file activate)
-  (let ((inhibit-read-only t))
-    ad-do-it
-    ))
-;; (progn (ad-disable-advice 'package--ensure-init-file 'around 'inhibit-read-only-package--ensure-init-file) (ad-update 'package--ensure-init-file))
-
-;; (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
-;; (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
-;; MELPA-stableを追加
-(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
-;; Marmaladeを追加
-;; (add-to-list 'package-archives  '("marmalade" . "http://marmalade-repo.org/packages/") t)
-;; Orgを追加
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
-
-;; inhibit error "read-only init.el"
-(setq package-enable-at-startup nil)
-
-(setq package-user-dir (file-name-as-directory (concat my-elisp-dir "elpa")) )
-
 ;; inhibit slowly cursor move
 ;; http://d.hatena.ne.jp/daimatz/20120215/1329248780
 (defadvice linum-schedule (around delay-linum-schedule () activate)
@@ -1983,6 +1953,17 @@ TEMPORARY"
     ad-do-it
     ))
 ;; (progn (ad-disable-advice 'package-delete 'around 'inhibit-read-only-package-delete) (ad-update 'package-delete))
+
+(defun t1-mark (arg) ;[2015/10/04]
+  "ARG"
+  (interactive "p")
+  (if (region-active-p)
+      (if (eq last-command this-command)
+          (er/expand-region arg)
+        (deactivate-mark))
+    (set-mark (point))))
+
+(global-set-key (kbd "C-SPC") 't1-mark)
 
 
 

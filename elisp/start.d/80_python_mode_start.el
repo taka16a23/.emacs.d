@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:28:26 2012 (+0900)
-;; Last-Updated: 2013/11/26 08:54:46 (+0900)
+;; Last-Updated: 2015/10/05 05:53:38 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -51,6 +51,8 @@
   (defvar my-data-dir)
   (defvar my-plugin-dir)
   )
+
+(make-local-variable 'imenu-create-index-function)
 
 (defvar my-pylib-dir
   (replace-regexp-in-string "/" "\\\\" (concat my-data-dir "pylib"))
