@@ -24,10 +24,6 @@
  (moccur-edit status "installed" recipe
               (:name moccur-edit :website "https://github.com/myuhe/moccur-edit.el" :description "apply replaces to multiple files" :type github :pkgname "myuhe/moccur-edit.el" :depends
                      (color-moccur)))
- (multi-term status "installed" recipe
-             (:name multi-term :after nil :features
-                    (multi-term)
-                    :description "A mode based on term.el, for managing multiple terminal buffers in Emacs." :type emacswiki))
  (python-pep8 status "installed" recipe
               (:type github :pkgname "emacsmirror/python-pep8" :name python-pep8 :type emacsmirror :description "Minor mode for running `pep8'" :features python-pep8 :post-init
                      (require 'tramp)))

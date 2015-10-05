@@ -82,46 +82,6 @@ If there aren't that many markers in the dmacro, the first one is used.
 
 ;;;***
 
-;;;### (autoloads nil "multi-term/multi-term" "multi-term/multi-term.el"
-;;;;;;  (22032 41587 233220 317000))
-;;; Generated autoloads from multi-term/multi-term.el
-
-(autoload 'multi-term "multi-term/multi-term" "\
-Create new term buffer.
-Will prompt you shell name when you type `C-u' before this command.
-
-\(fn)" t nil)
-
-(autoload 'multi-term-next "multi-term/multi-term" "\
-Go to the next term buffer.
-If OFFSET is `non-nil', will goto next term buffer with OFFSET.
-
-\(fn &optional OFFSET)" t nil)
-
-(autoload 'multi-term-prev "multi-term/multi-term" "\
-Go to the previous term buffer.
-If OFFSET is `non-nil', will goto previous term buffer with OFFSET.
-
-\(fn &optional OFFSET)" t nil)
-
-(autoload 'multi-term-dedicated-open "multi-term/multi-term" "\
-Open dedicated `multi-term' window.
-Will prompt you shell name when you type `C-u' before this command.
-
-\(fn)" t nil)
-
-(autoload 'multi-term-dedicated-toggle "multi-term/multi-term" "\
-Toggle dedicated `multi-term' window.
-
-\(fn)" t nil)
-
-(autoload 'multi-term-dedicated-select "multi-term/multi-term" "\
-Select the `multi-term' dedicated window.
-
-\(fn)" t nil)
-
-;;;***
-
 ;;;### (autoloads nil "python-pep8/python-pep8" "python-pep8/python-pep8.el"
 ;;;;;;  (22029 58045 84043 149000))
 ;;; Generated autoloads from python-pep8/python-pep8.el
