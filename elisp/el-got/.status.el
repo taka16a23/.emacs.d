@@ -5,12 +5,6 @@
                      (:name basic-edit-toolkit :description "Basic edit toolkit." :type emacswiki :features basic-edit-toolkit))
  (cl-lib status "required" recipe
          (:name cl-lib :builtin "24.3" :type elpa :description "Properly prefixed CL functions and macros" :url "http://elpa.gnu.org/packages/cl-lib.html"))
- (dmacro status "installed" recipe
-         (:name dmacro :description "Dynamic MACRO" :type http-tar :options
-                ("xzf")
-                :localname "dmacro.tar.gz" :url "ftp://ftp.sgi.com/other/dmacro/dmacro.tar.gz" :build
-                (("make" "dmacro.info"))
-                :info "dmacro"))
  (el-get status "required")
  (jaspace status "required" recipe nil)
  (key-chord status "required" recipe
