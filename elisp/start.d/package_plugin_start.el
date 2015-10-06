@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2015/10/04 17:18:21 (+0900)
-;; Last-Updated: 2015/10/04 17:26:49 (+0900)
+;; Last-Updated: 2015/10/06 23:07:26 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -43,11 +43,14 @@
 (defun package-mode-custom-predefine ()
   "For `eval-after-load' package customize."
   (message "eval-after-load: \"package\" customizing..")
-  (custom-set-variables
-   '(package-archives '(("melpa" . "http://melpa.org/packages/")
-                       ("melpa-stable" . "http://stable.melpa.org/packages/")
-                       ("org" . "http://orgmode.org/elpa/")
-                       )))
+  (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+  (add-to-list 'package-archives
+               '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+  ;; (custom-set-variables
+  ;;  '(package-archives '(("melpa" . "http://melpa.org/packages/")
+  ;;                      ("melpa-stable" . "http://stable.melpa.org/packages/")
+  ;;                      ("org" . "http://orgmode.org/elpa/")
+  ;;                      )))
   )
 
 ;;;###autoload
