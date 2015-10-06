@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Mon Dec 10 18:00:12 2012 (+0900)
-;; Last-Updated: 2015/08/29 05:51:28 (+0900)
+;; Last-Updated: 2015/10/06 14:21:55 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -83,7 +83,7 @@
   (custom-set-variables
    '(org-directory "~/")
    '(org-default-notes-file (expand-file-name "allinone.org" my-emacs-dir))
-   '(org-todo-keywords '("TODO" "WAIT" "POSTPONES" "DONE"))
+   '(org-todo-keywords '("TODO" "DONE" "WAIT" "POSTPONES"))
    '(org-todo-interpretation 'sequence)
    '(browse-url-browser-function 'w3m-browse-url-new-tab)
    '(org-todo-keyword-faces
