@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/09/28 04:25:07 (+0900)
-;; Last-Updated: 2014/03/08 23:27:11 (+0900)
+;; Last-Updated: 2015/10/06 12:56:41 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -1425,14 +1425,17 @@ MATCH-NUM: match-beginning number, default 0."
 
 (defun py:goto-class-name (name)
   "NAME"
+  (interactive "sclass name: ")
   (py:goto--internal (py:make-class-name--re name) 0))
 
 (defun py:goto-def-name (name)
   "NAME"
+  (interactive "sfunctions name: ")
   (py:goto--internal (py:make-def-name--re name) 0))
 
 (defun py:goto-first-class|def ()
   ""
+  (interactive)
   (let ((orig (point))
         start)
     (goto-char (point-min))
@@ -1471,6 +1474,7 @@ SKIP-DOC"
 
 (defun py:goto-class-parameter (&optional names)
   "NAMES"
+  (interactive "sclass name: ")
   (save-restriction
     (when (not (eq (py:narrow-to-class names) nil))
       (goto-char (point-min))
@@ -1480,23 +1484,27 @@ SKIP-DOC"
 
 (defun py:goto-class-end-parameter ()
   ""
+  (interactive)
   (when (py:goto-class-parameter)
     (py:end-of-round)))
 
 (defun py:goto-beginning-class-doc (&optional names)
   "NAMES"
+  (interactive "sclass name: ")
   (let ((region (py:region-doc-class)))
     (when (not (eq region nil))
       (goto-char (car region)))))
 
 (defun py:goto-end-class-doc (&optional names)
   "NAMES"
+  (interactive "sclass name: ")
   (let ((region (py:region-doc-class)))
     (when (not (eq region nil))
       (goto-char (cdr region)))))
 
 (defun py:goto-def-parameter (&optional names)
   ""
+  (interactive "sfunctions name: ")
   (save-restriction
     (when (not (eq (py:narrow-to-def names) nil))
       (goto-char (point-min))
@@ -1506,17 +1514,20 @@ SKIP-DOC"
 
 (defun py:goto-def-end-parameter ()
   ""
+  (interactive)
   (when (py:goto-def-parameter)
     (py:end-of-round)))
 
 (defun py:goto-beginning-def-doc (&optional names)
   "NAMES"
+  (interactive "sfunctions name: ")
   (let ((region (py:region-doc-def)))
     (when (not (eq region nil))
       (goto-char (car region)))))
 
 (defun py:goto-end-def-doc (&optional names)
   "NAMES"
+  (interactive "sfunctions name: ")
   (let ((region (py:region-doc-def)))
     (when (not (eq region nil))
       (goto-char (cdr region)))))
@@ -3199,37 +3210,6 @@ MAXLEN: Maximum line length, default 80 by PEP8."
 (defun py:convert- (ARGS) ;[2013/11/04]
   "ARGS"
   )
-
-(defun py:-: (args)
-  "ARGS"
-  (interactive "p")
-  (cond ((py:at-string|comment-p)
-         (self-insert-command (prefix-numeric-value args)))
-        ((py:in-curly-p)
-         (save-restriction
-           (py:narrow-to-curly t)
-           (save-excursion
-             (end-of-line)
-             (skip-chars-backward " \t")
-             (when (not (looking-back ","))
-               (insert ",")))
-           (insert ": ")
-           (fixup-whitespace)
-           (skip-chars-forward " \t"))
-         )
-        (t (self-insert-command (prefix-numeric-value args))))
-  )
-
-(defun py:auto-colon ()
-  "Python auto insert ':'."
-  (interactive "*")
-  (back-to-indentation)
-  (when (and (looking-at py:block-start-re)
-             (not (py:at-string|comment-p)))
-    (esc-comment-end-of-line)
-    (skip-chars-backward " \t")
-    (unless (looking-back ":")
-      (insert ":"))))
 
 (defun py:auto-colon-return-on-line ()
   "Auto insert ':' and newline at end of lines."

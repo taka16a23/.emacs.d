@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:29:02 2012 (+0900)
-;; Last-Updated: 2015/10/03 08:15:22 (+0900)
+;; Last-Updated: 2015/10/05 11:17:23 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -171,6 +171,10 @@
 
 (defconst my-allinone-path (expand-file-name "allinone.org" my-emacs-dir)
   "Path to allinone.org.")
+
+(defconst my-pylib-dir
+  (replace-regexp-in-string "/" "\\\\" (concat my-data-dir "pylib"))
+  "Location of parsonal python library.Do not add '/'.")
 
 
 ;;;; make directory if not exist.

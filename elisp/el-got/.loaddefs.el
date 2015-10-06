@@ -99,29 +99,6 @@ or \\<python-pep8-mode-map>\\[compile-goto-error] in the grep output buffer, to 
 
 
 
-;;;### (autoloads nil "smart-operator/smart-operator" "smart-operator/smart-operator.el"
-;;;;;;  (22032 13745 113888 8000))
-;;; Generated autoloads from smart-operator/smart-operator.el
-
-(autoload 'smart-operator-mode "smart-operator/smart-operator" "\
-Insert operators with surrounding spaces smartly.
-
-\(fn &optional ARG)" t nil)
-
-(autoload 'smart-operator-mode-on "smart-operator/smart-operator" "\
-Turn on `smart-operator-mode'.
-
-\(fn)" nil nil)
-
-(autoload 'smart-operator-self-insert-command "smart-operator/smart-operator" "\
-Insert the entered operator plus surrounding spaces.
-
-\(fn ARG)" t nil)
-
-;;;***
-
-
-
 (provide '.loaddefs)
 ;; Local Variables:
 ;; version-control: never
