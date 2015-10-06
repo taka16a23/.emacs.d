@@ -1300,3 +1300,83 @@ reboot
   :ARCHIVE_TODO: DONE
   :END:
   <2015-09-30 Wed 05:27>
+
+* DONE doing to allinone.org
+  CLOSED: [2015-10-02 Fri 22:36]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2015-10-06 Tue 13:41
+  :ARCHIVE_FILE: ~/.emacs.d/allinone.org
+  :ARCHIVE_OLPATH: ----- DOING -----
+  :ARCHIVE_CATEGORY: allinone
+  :ARCHIVE_TODO: DONE
+  :END:
+  <2015-10-02 Fri 12:34>
+
+* DONE remove python-mode
+  CLOSED: [2015-10-06 Tue 13:40]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2015-10-06 Tue 13:41
+  :ARCHIVE_FILE: ~/.emacs.d/allinone.org
+  :ARCHIVE_OLPATH: ----- DOING -----
+  :ARCHIVE_CATEGORY: allinone
+  :ARCHIVE_TODO: DONE
+  :END:
+ <2015-10-05 Mon 05:57>
+
+* DONE subversion to git
+  CLOSED: [2015-10-06 Tue 14:01]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2015-10-06 Tue 14:18
+  :ARCHIVE_FILE: ~/.emacs.d/allinone.org
+  :ARCHIVE_OLPATH: ----- DOING -----
+  :ARCHIVE_CATEGORY: allinone
+  :ARCHIVE_TODO: DONE
+  :END:
+  <2015-09-27 Sun 00:47>
+
+* DONE .emacs.d if not exists 06_loaddefs_start.el call constract_loaddef function
+  CLOSED: [2015-10-06 Tue 14:01]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2015-10-06 Tue 14:18
+  :ARCHIVE_FILE: ~/.emacs.d/allinone.org
+  :ARCHIVE_OLPATH: ----- DOING -----
+  :ARCHIVE_CATEGORY: allinone
+  :ARCHIVE_TODO: DONE
+  :END:
+  <2015-10-02 Fri 10:58>
+
+* DONE magit keybind C-j move left
+  CLOSED: [2015-10-06 Tue 14:00]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2015-10-06 Tue 14:18
+  :ARCHIVE_FILE: ~/.emacs.d/allinone.org
+  :ARCHIVE_OLPATH: ----- DOING -----
+  :ARCHIVE_CATEGORY: allinone
+  :ARCHIVE_TODO: DONE
+  :END:
+  <2015-10-02 Fri 11:47>
+
+* DONE multi-term zsh 表示問題
+  zsh-highlight が原因だった。
+  無効化。
+  CLOSED: [2015-10-06 Tue 13:59]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2015-10-06 Tue 14:19
+  :ARCHIVE_FILE: ~/.emacs.d/allinone.org
+  :ARCHIVE_OLPATH: ----- DOING -----
+  :ARCHIVE_CATEGORY: allinone
+  :ARCHIVE_TODO: DONE
+  :END:
+  bash を使うと正しく表示される。
+  <2015-10-02 Fri 12:21>
+
+* DONE python daily v2c Popen
+  CLOSED: [2015-10-06 Tue 13:58]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2015-10-06 Tue 14:19
+  :ARCHIVE_FILE: ~/.emacs.d/allinone.org
+  :ARCHIVE_OLPATH: ----- DOING -----
+  :ARCHIVE_CATEGORY: allinone
+  :ARCHIVE_TODO: DONE
+  :END:
+ <2015-10-02 Fri 21:21>

@@ -5408,3 +5408,1806 @@ red
 :bold nil
 * Mon 05 Oct 2015 09:35:20 AM JST
                          :bold nil
+* Mon 05 Oct 2015 10:36:03 AM JST
+(add-hook 'after-init-idle-timer-hook 'tabbar-mode)
+* Mon 05 Oct 2015 10:36:07 AM JST
+mode
+* Mon 05 Oct 2015 10:36:07 AM JST
+tabbar-mode
+* Mon 05 Oct 2015 10:36:41 AM JST
+global-
+* Mon 05 Oct 2015 10:37:48 AM JST
+python
+* Mon 05 Oct 2015 10:40:02 AM JST
+python
+* Mon 05 Oct 2015 10:41:02 AM JST
+(eval-when-compile
+  (require 't1macro "t1macro"))
+
+;;;###autoload
+(defun python-mode-custom-predefine ()
+  "For `eval-after-load' python customize."
+  (message "eval-after-load: \"python\" customizing..")
+  ;; (custom-set-variables
+   ;; '())
+  )
+
+;;;###autoload
+(defun python-mode-predefine ()
+  "For `eval-after-load' python function."
+  (message "eval-after-load: \"python\" setting..")
+  )
+
+;;;###autoload
+(defun python-mode-map-predefine ()
+  "For python key bindings."
+  (interactive)
+  (unless (called-interactively-p 'interactive)
+    (message "eval-after-load: \"python\" keymaping.."))
+  )
+
+;;;###autoload
+(defun python-mode-face-predefine ()
+  "For python face."
+  (message "eval-after-load: \"python\" Setting faces..")
+  )
+
+* Mon 05 Oct 2015 10:41:27 AM JST
+(eval-when-compile
+  (require 't1macro "t1macro"))
+
+
+* Mon 05 Oct 2015 10:47:28 AM JST
+rope-open-current-or-parent 'append
+* Mon 05 Oct 2015 10:47:38 AM JST
+(add-hook 'python-mode-hook 'flycheck-mode 'append)
+* Mon 05 Oct 2015 10:47:55 AM JST
+(add-to-list 'ac-sources ac-source-yasnippet 'append)
+* Mon 05 Oct 2015 10:48:47 AM JST
+helloworldsldja
+* Mon 05 Oct 2015 10:48:50 AM JST
+helloworldsldja
+* Mon 05 Oct 2015 10:49:11 AM JST
+(require 'auto-complete "auto-complete" 'noerr)
+* Mon 05 Oct 2015 10:53:58 AM JST
+  (defvar ctl-c-n-map nil ;;(make-keymap)
+    "Default keymap for C-cn commands.")
+  (define-prefix-command 'ctl-c-n-map)
+
+  (defvar ctl-c-ctl-n-map nil ;;(make-keymap)
+    "Default keymap for C-c C-n commands.")
+  (define-prefix-command 'ctl-c-ctl-n-map)
+
+* Mon 05 Oct 2015 10:54:19 AM JST
+(define-many-keys python-mode-map
+    ;;;; for nose
+    ;;
+    ("\C-cn"          'ctl-c-n-map)
+    ("\C-c\C-n"       'ctl-c-ctl-n-map)
+    ;;;; Simple
+    ;;
+    ("\C-j"           'backward-char)
+    ("\C-m"           'py:newline)
+    ([(shift return)] 'py:auto-colon-return-on-line)
+    ("\#"             'self-insert-command)
+    ("\M-?"           'winner-undo)
+    ("\M-i"           'hs-toggle-hiding)
+    ("\C-u\M-i"       'hs-show-all)
+    ("\C-u\C-u\M-i"   'hs-hide-all)
+    ([C-backspace]    'backward-kill-line)
+    (","              (smartchr '(", `!!'" ",")))
+    ("'"              (smartchr '("'`!!''" "'" "'''`!!''''")))
+    ;; ("_"              (smartchr '("_" "__`!!'__" "__")))
+    ("\""             (smartchr '("\"`!!'\"" "\"" "\"\"\"`!!'\n\"\"\"" "\"")) )
+    ([(meta return)]  't1-py-view-mode-toggle)
+    ("="              'py-=)   ;must bind in smart-operator_plugin_start.el
+    ("+"              'py:+)   ; "
+    (":"              'py:-:)  ; "
+    ("*"              'py:*)   ; "
+    ("-"              'py:-)   ; "
+    (">"              'py:>)   ; "
+    ("&"              'py:&)   ; "
+    ("%"              'py:%)   ; "
+    ;; (","              'py:\,)  ; "
+    ("|"              'py:|)   ; "
+    ("?"              'py:?)   ; "
+    ("\C-y"           'py-kill-line)
+    ("\C-d"           'py-kill-line)
+
+    ;;;; Document
+    ;;
+    ("\C-ch"          'rope-show-doc)
+    ("\C-c\C-h"       'rope-show-doc)
+    ("\C-cd"          'rope-show-doc)
+    ("\C-c\C-x"       'rope-show-doc)
+    ;; ("\C-ch"          'jedi:show-doc)
+    ;; ("\C-c\C-h"       'jedi:show-doc)
+    ;; ("\C-cd"          'jedi:show-doc)
+    ;; ("\C-c\C-x"       'jedi:show-doc)
+    ("\C-c\C-a"       'py-apropos)
+    ("\C-ca"          'py-apropos)
+
+    ;;;; Info
+    ;;
+
+    ;;;; Go definitions
+    ;;
+    ("\C-cf"          'jedi:goto-definition)
+    ("\C-c\C-f"       'jedi:goto-definition)
+    ("\C-c\C-b"       'pop-stack-point)
+
+    ("." 'jedi:dot-complete)
+    ;;;; Comment
+    ;;
+    ((kbd "C-3")      'py-comment-or-uncomment-def-or-class)
+
+    ;;;; Mark
+    ;;
+    ([67108896]       'py-seq-set-mark)
+
+    ;;;; Move
+    ;;
+    ("\C-p"           'py-beginning-of-def-or-class)
+    ("\C-b"           'py-end-of-def-or-class)
+    ("\M-k"           'py:beginning-of-class|def)
+    ("\M-n"           'py:beginning-of-next-class|def)
+    ([(control .)]    'py:usable-next)
+    ([(control \,)]   'py:usable-prev)
+    ([(control e) (control \,)] 'py:insert-conma-end-brackets)
+
+    ;;;; Edit
+    ;;
+    ("\C-e\C-c"       'nil)
+    ("\C-c\C-e"       'nil)
+    ("\C-e\C-t"       'py-transpose-ope)
+    ("\C-et"          'py-transpose-ope)
+    ;; ([(meta \,)]      'py-shift-left)
+    ([(meta \,)]      'python-indent-shift-left)
+    ;; ([(meta .)]       'py-shift-right)
+    ([(meta .)]       'python-indent-shift-right)
+    ((kbd "C-7")      'py:string-cmd)
+    ("\C-c\C-a"       'py-add-to-__all__)
+    ;; ("\C-e\M-k"       'py:move-up-method)
+    ;; ("\C-e\M-n"       'py:move-down-method)
+    ;; ("\C-e\C-c\C-a"   'py:add-param)
+    ("\C-c\C-e\C-a"   'py:add-param)
+    ("\C-c\C-ea"      'py:add-param)
+    ;; auto-highlight-symbol.el
+    ("\C-eh"          'py:ahs-edit-mode-def-region)
+    ("\C-e\C-\M-h"    'py:ahs-edit-mode-class-region)
+    ("\C-e\M-h"       'py:ahs-edit-mode-class-region)
+
+    ;;;; Refact
+    ;;
+    ("\C-c\C-e\C-x"   'py:refact-doc)
+    ("\C-c\C-ed"      'py:refact-doc)
+    ("\C-c\C-l"       'py:refact-list-toggle)
+    ("\C-\M-e"        'py:extract-variable)
+    ;; ((kbd "C-c C-7")  'py:refact-split-string)
+
+    ;;;; Flymake
+    ;;
+    ;; ("\C-ce"          'flymake-goto-next-error)
+    ;; ("\C-c\C-e"       'flymake-goto-next-error)
+
+    ;;;; Indent
+    ;;
+    ("\C-i"           'py-indent-line)
+    ((kbd "TAB")      'py-indent-line)
+
+    ;;;; Align
+    ;;
+
+    ;;;; Interpreter
+    ;;
+    ("\C-c\C-c"        'nil)
+    ;; ("\C-c\C-c\C-c" 'py-execute-buffer)
+    ("\C-c\C-c\C-i"    'py-execute-buffer-ipython)
+    ("\C-c\C-q"        'quickrun)
+    ("\C-cq"           'quickrun)
+    ;; ("\C-c\C-ci"    'py-execute-import-or-reload)
+    ;; ("\C-c\C-c\C-i" 'py-execute-import-or-reload)
+    ;; ("\C-c\C-cs"    'py-execute-string)
+    ;; ("\C-c\C-c\C-s" 'py-execute-string)
+    ("\C-c\C-cs"       'py-execute-line-ipython)
+    ("\C-c\C-c\C-s"    'py-execute-line-ipython)
+    ("\C-c\C-c\C-k"    'py-execute-class-ipython)
+    ("\C-c\C-ck"       'py-execute-class-ipython)
+    ("\C-c\C-cb"       'py-execute-block-ipython)
+    ("\C-c\C-c\C-b"    'py-execute-block-ipython)
+    ;; ("\C-c\C-cd"    'py-execute-def-or-class)
+    ;; ("\C-c\C-c\C-x" 'py-execute-def-or-class)
+    ("\C-c\C-cd"       'py-execute-def-ipython)
+    ("\C-c\C-c\C-x"    'py-execute-def-ipython)
+    ("\C-c\C-c\C-r"    'py-execute-region-ipython)
+    ("\C-c\C-cr"       'py-execute-region-ipython)
+
+    ;;;; TEST ;;;;
+    ;;;; doctest
+    ;;
+    ("\C-cD"          'doctest-execute-buffer)
+    ("\C-c\C-cD"      'doctest-mode)
+    ;;;; TEST END ;;;;
+
+    ;;;; rope
+    ;;
+    ("\C-cro"         'rope-open-project)
+    ("\C-crf"         'rope-find-file)
+    ("\C-crg"         'rope-goto-definition)
+    ("\C-crr"         'rope-rename)
+    ("\C-cri"         'rope-auto-import)
+
+    ;;;; pylint pep8
+    ;;
+    ("\C-c\C-s"       'pylint)
+    ("\C-cs"          'pep8)
+
+    ;;;; helm pydoc
+    ;;
+    ;; ("\C-cI"          'helm-pydoc)
+    ;; ("\C-ci"          'helm-pydoc)
+    ;; ("\C-c\C-i"       'helm-pydoc)
+    ("\C-ci"          'py:indirect-import)
+    ("\C-c\C-i"       'py:indirect-import)
+    ;;;; pdb
+    ;;
+    ("\C-c\C-o"       'py-insert-pdb-set-trace)
+    ("\C-co"          'py-insert-pdb-set-trace)
+    ;; ("\C-cpb"         'gud-break)
+    ;;;;
+    ("\C-\M-p"        'py-send-region-ipython)
+    )
+* Mon 05 Oct 2015 10:55:15 AM JST
+  ;;;; C-c n
+  (define-many-keys ctl-c-n-map
+    ("\C-n"     'nosetests-run-all-cover-package)
+    ("n"        'nosetests-run-it-cover-package)
+    ("\C-i"     'nosetests-run-it)
+    ("\C-b"     'nosetests-run-buffer)
+    ("b"        'nosetests-run-buffer)
+    ("\C-d"     'nosetests-run-dir)
+    ("d"        'nosetests-run-dir)
+    ("\C-p\C-n" 'nosetests-run-pdb-all)
+    ("\C-pn"    'nosetests-run-pdb-it)
+    ("\C-p\C-i"    'nosetests-run-pdb-it)
+    ("\C-pi"    'nosetests-run-pdb-it)
+    ("\C-pb"    'nosetests-run-pdb-buffer)
+    ("\C-p\C-b"    'nosetests-run-pdb-buffer)
+    ("\C-p\C-d"    'nosetests-run-pdb-dir)
+    ("\C-pd"    'nosetests-run-pdb-dir)
+    ;;("a"	      'nosetests-all)
+    ;;("o"	      'nosetests-one)
+    ;;("m"	      'nosetests-module)
+    )
+
+* Mon 05 Oct 2015 10:55:26 AM JST
+  ;;;; C-c C-n
+  (define-many-keys ctl-c-ctl-n-map
+    ("\C-n"     'nosetests-run-all-cover-package+)
+    ("n"        'nosetests-run-it-cover-package+)
+    ("\C-i"     'nosetests-run-it)
+    ("\C-b"     'nosetests-run-buffer)
+    ("b"        'nosetests-run-buffer)
+    ("\C-d"     'nosetests-run-dir)
+    ("d"        'nosetests-run-dir)
+    ("N"        'nosetests-run-it)
+    ("\M-N"     'nosetests-run-all+)
+    )
+
+* Mon 05 Oct 2015 10:55:38 AM JST
+  (smartrep-define-key
+      python-mode-map "C-c C-e" '(("C-l" . py:refact-list-toggle)
+                                  ("C-k" . py:move-up-method)
+                                  ("C-n" . py:move-down-method)
+                                  ))
+
+* Mon 05 Oct 2015 10:55:43 AM JST
+  (smartrep-define-key
+      python-mode-map "C-e" '(("M-k" . py:move-up-method)
+                              ("M-n" . py:move-down-method)))
+
+* Mon 05 Oct 2015 10:55:54 AM JST
+(font-lock-add-keywords
+   'python-mode
+   '(("#\\([a-z \t]*\\(?:TODO\\|BUG\\|FIXME\\|KLUDGE\\|WARNING\\)\\)"
+      1 font-lock-warning-face prepend)))
+* Mon 05 Oct 2015 10:56:00 AM JST
+(font-lock-add-keywords
+   'python-mode
+   '(("#\\([a-z \t]*\\(?:TODO\\|BUG\\|FIXME\\|KLUDGE\\|WARNING\\)\\)"
+      1 font-lock-warning-face prepend)))
+* Mon 05 Oct 2015 10:56:32 AM JST
+(defun python-setenv ()
+  "Python set environment."
+  (interactive)
+  (let ((python-path (getenv "PYTHONPATH")))
+    (if (and python-path
+             (not (string= python-path "")))
+        (when (not (string-match
+                    (replace-regexp-in-string "\\\\" "\\\\\\\\" my-pylib-dir)
+                    python-path))
+          (setenv "PYTHONPATH" (concat python-path path-separator my-pylib-dir))
+          (message (concat "PYTHONPATH: " (getenv "PYTHONPATH"))))
+      (setenv "PYTHONPATH" my-pylib-dir)
+      (message "PYTHONPATH false"))))
+* Mon 05 Oct 2015 10:56:40 AM JST
+;;;###autoload
+(defun pymacs-predefine ()
+  "For `eval-after-load' pymacs function."
+  (message "Loading pymacs..")
+  (when (require 'pymacs "pymacs" 'noerr)
+    (setq pymacs-timeout-at-start 45
+          pymacs-timeout-at-reply 7)
+    (add-to-list 'pymacs-load-path my-pylib-dir)
+    (pymacs-load "ropemacs" "rope-" 'noerror)
+    (setq ropemacs-guess-project       t
+          ;; ropemacs-codeassist-maxfixes 3
+          ropemacs-enable-autoimport   t
+          ropemacs-autoimport-modules  '("os" "shutil" "sys" "logging"
+                                         "django.*" "re"))
+    ;; for usage memo
+    (define-usage-memo rope-show-doc "python" 0 "*rope-pydoc*"
+      (lambda (arg) (goto-char (point-min))
+        (let ((text (buffer-substring (point)
+                                      (save-excursion (end-of-line) (point)))))
+          (replace-regexp-in-string "\s" "_" text))))
+    ))
+
+* Mon 05 Oct 2015 10:57:13 AM JST
+;;;###autoload
+(defun rope-open-current-or-parent ()
+  "Rope open current or parent."
+  (cond ((file-exists-p ".ropeproject")
+    	 (rope-open-project default-directory))
+    	((file-exists-p "../.ropeproject")
+    	 (rope-open-project (concat default-directory "..")))))
+* Mon 05 Oct 2015 10:57:42 AM JST
+(defun py-kill-line (arg)
+  "If line is blank, delete all surrounding blank lines, leaving just one.
+ARG:
+On isolated blank line, delete that one.
+On nonblank line, kill whole line."
+  (interactive "P*")
+  (cond (mark-active
+         (cua-cut-region arg)
+         (just-one-blank-line))
+        ((progn (beginning-of-line) (looking-at "\\(?:def\\|class\\)"))
+         (kill-whole-line))
+        ((save-excursion
+           (re-search-backward "[^ \t\n]" nil 'noerror)
+           (forward-line 1)
+           (looking-at "^[ \t\n]+[\n\r]\\(?:def\\|class\\)"))
+         (if (eq last-command this-command)
+             (progn (delete-blank-lines) (kill-whole-line))
+           (delete-blank-lines)
+           (save-excursion (insert "\n"))))
+        ((progn (beginning-of-line) (looking-at "[ \t]*$"))
+         (delete-blank-lines))
+        (t
+         (kill-whole-line)))
+  (when (looking-at "^[ \t\n]+")
+    (save-excursion (insert "\n"))))
+* Mon 05 Oct 2015 10:57:59 AM JST
+(defun t1-py-view-mode-toggle ()
+  "Python view mode toggle."
+  (interactive)
+  (if view-mode
+      (progn
+        (view-mode -1)
+        (highlight-indentation-mode -1))
+    (view-mode 1)
+    (highlight-indentation-mode 1)))
+
+* Mon 05 Oct 2015 11:00:32 AM JST
+os.path.join(, ,)
+* Mon 05 Oct 2015 11:01:34 AM JST
+
+* Mon 05 Oct 2015 11:01:35 AM JST
+
+* Mon 05 Oct 2015 11:01:35 AM JST
+  (require 'hotstring "hotstring" 'noerr)
+
+* Mon 05 Oct 2015 11:05:17 AM JST
+
+* Mon 05 Oct 2015 11:05:17 AM JST
+
+* Mon 05 Oct 2015 11:05:17 AM JST
+  (require 'rope "rope" 'noerr)
+
+* Mon 05 Oct 2015 11:12:18 AM JST
+
+* Mon 05 Oct 2015 11:12:18 AM JST
+
+* Mon 05 Oct 2015 11:12:18 AM JST
+(add-hook 'pymacs-eval-after-load-hook 'pymacs-mode-face-predefine 'append)
+
+* Mon 05 Oct 2015 11:16:13 AM JST
+(defvar my-pylib-dir
+  (replace-regexp-in-string "/" "\\\\" (concat my-data-dir "pylib"))
+  "Location of parsonal python library.Do not add '/'.")
+* Mon 05 Oct 2015 11:18:55 AM JST
+;;;###autoload
+(defun pymacs-mode-custom-predefine ()
+  "For `eval-after-load' pymacs customize."
+  (message "eval-after-load: \"pymacs\" customizing..")
+  (setq pymacs-timeout-at-start 45
+        pymacs-timeout-at-reply 7)
+  )
+
+;;;###autoload
+(defun pymacs-mode-predefine ()
+  "For `eval-after-load' pymacs function."
+  (message "eval-after-load: \"pymacs\" setting..")
+  (add-to-list 'pymacs-load-path my-pylib-dir)
+  )
+
+;;;###autoload
+(defun pymacs-mode-map-predefine ()
+  "For pymacs key bindings."
+  (interactive)
+  (unless (called-interactively-p 'interactive)
+    (message "eval-after-load: \"pymacs\" keymaping.."))
+  )
+
+* Mon 05 Oct 2015 11:18:59 AM JST
+;;;###autoload
+(defun pymacs-mode-custom-predefine ()
+  "For `eval-after-load' pymacs customize."
+  (message "eval-after-load: \"pymacs\" customizing..")
+  (setq pymacs-timeout-at-start 45
+        pymacs-timeout-at-reply 7)
+  )
+
+;;;###autoload
+(defun pymacs-mode-predefine ()
+  "For `eval-after-load' pymacs function."
+  (message "eval-after-load: \"pymacs\" setting..")
+  (add-to-list 'pymacs-load-path my-pylib-dir)
+  )
+
+;;;###autoload
+(defun pymacs-mode-map-predefine ()
+  "For pymacs key bindings."
+  (interactive)
+  (unless (called-interactively-p 'interactive)
+    (message "eval-after-load: \"pymacs\" keymaping.."))
+  )
+
+
+* Mon 05 Oct 2015 11:20:14 AM JST
+(pymacs-load "ropemacs" "rope-" 'noerror)
+* Mon 05 Oct 2015 11:20:25 AM JST
+(setq ropemacs-guess-project       t
+          ;; ropemacs-codeassist-maxfixes 3
+          ropemacs-enable-autoimport   t
+          ropemacs-autoimport-modules  '("os" "shutil" "sys" "logging"
+                                         "django.*" "re"))
+* Mon 05 Oct 2015 11:20:31 AM JST
+(setq 
+* Mon 05 Oct 2015 11:20:50 AM JST
+(define-usage-memo rope-show-doc "python" 0 "*rope-pydoc*"
+      (lambda (arg) (goto-char (point-min))
+        (let ((text (buffer-substring (point)
+                                      (save-excursion (end-of-line) (point)))))
+          (replace-regexp-in-string "\s" "_" text))))
+* Mon 05 Oct 2015 11:21:05 AM JST
+;; for usage memo
+* Mon 05 Oct 2015 11:21:21 AM JST
+(require 'usage-memo "usage-memo" 'noerr)
+* Mon 05 Oct 2015 11:21:28 AM JST
+(define-usage-memo rope-show-doc "python" 0 "*rope-pydoc*"
+    (lambda (arg) (goto-char (point-min))
+      (let ((text (buffer-substring (point)
+                                    (save-excursion (end-of-line) (point)))))
+        (replace-regexp-in-string "\s" "_" text))))
+* Mon 05 Oct 2015 11:21:40 AM JST
+  
+* Mon 05 Oct 2015 11:26:52 AM JST
+(require 'usage-memo "usage-memo" 'noerr)
+* Mon 05 Oct 2015 11:27:40 AM JST
+bound
+* Mon 05 Oct 2015 11:28:21 AM JST
+(setq ropemacs-guess-project       t
+          ;; ropemacs-codeassist-maxfixes 3
+          ropemacs-enable-autoimport   t
+          ropemacs-autoimport-modules  '("os" "shutil" "sys" "logging"
+                                         "django.*" "re"))
+* Mon 05 Oct 2015 11:32:39 AM JST
+  
+* Mon 05 Oct 2015 11:36:20 AM JST
+(require 'usage-memo "usage-memo" 'noerr)
+* Mon 05 Oct 2015 11:36:49 AM JST
+os.
+* Mon 05 Oct 2015 11:42:40 AM JST
+python-indent-dedent-line
+* Mon 05 Oct 2015 11:44:19 AM JST
+python-indent-line-function
+* Mon 05 Oct 2015 11:44:40 AM JST
+python-indent-line-function
+* Mon 05 Oct 2015 12:29:42 PM JST
+(setq
+ ;; python-shell-interpreter "ipython"
+ python-shell-interpreter "/usr/local/bin/ipython"
+ python-shell-interpreter-args ""
+ python-shell-prompt-regexp "In \\[[0-9]+\\]: "
+ python-shell-prompt-output-Regexp "Out\\[[0-9]+\\]: "
+ python-shell-completion-setup-code
+ "from IPython.core.completerlib import module_completion"
+ python-shell-completion-module-string-code
+ "';'.join(module_completion('''%s'''))\n"
+ python-shell-completion-string-code
+ "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
+* Mon 05 Oct 2015 12:29:50 PM JST
+local
+* Mon 05 Oct 2015 12:30:40 PM JST
+(defun python-shell-send-region (start end)
+  "Send the region delimited by START and END to inferior Python process."
+  (interactive "r")
+  (python-shell-send-string
+   (buffer-substring start end)
+   ;; No need to send blank lines in ipython? 2013-12-22
+   ;; (concat
+   ;;  (let ((line-num (line-number-at-pos start)))
+   ;;    ;; When sending a region, add blank lines for non sent code so
+   ;;    ;; backtraces remain correct.
+   ;;    (make-string (1- line-num) ?\n))
+   ;;  (buffer-substring start end))
+   nil t))
+* Mon 05 Oct 2015 12:31:27 PM JST
+(defun my-python-start ()
+  (interactive)
+  (if (not (member "*Python*" (mapcar (function buffer-name) (buffer-list))))
+      (progn
+        (delete-other-windows)
+        (setq w1 (selected-window))
+        (setq w1name (buffer-name))
+        (setq w2 (split-window w1 nil t))	; Split into two windows
+	(call-interactively 'run-python)	; Activate Python if not running (runs ipython)
+        (set-window-buffer w1 "*Python*")	; Python on the left (w1)
+        (set-window-buffer w2 w1name)		; Script on the right (w2)
+	(select-window w2)			; Select script (w2) Added
+	)))
+* Mon 05 Oct 2015 12:32:01 PM JST
+(defun my-python-eval ()
+  (interactive)
+  (my-python-start)
+  (if (and transient-mark-mode mark-active)			; Check if selection is present
+      (python-shell-send-region (point) (mark))			; If selected, send region
+    ;; If not selected, do all the following
+    (beginning-of-line)						; Move to the beginning of line
+    (if (looking-at "def")					; Check if the first word is def (function def)
+	(progn							; If it is def
+	  (python-shell-send-defun ())				; Send whole def
+	  (python-nav-end-of-defun)				; Move to the end of def
+	  (python-nav-forward-statement)			; Move to the next statement
+	  )
+      ;; If it is not def, do all the following
+      (python-shell-send-region (point-at-bol) (point-at-eol))	; Send the current line
+      (python-nav-forward-statement)				; Move to the next statement
+      )
+    ;; Activate shell window, and switch back
+    (progn
+      (setq w-script (selected-window))				; Remeber the script window
+      (python-shell-switch-to-shell)				; Switch to the shell
+      (select-window w-script)					; Switch back to the script window
+      )
+    ))
+* Mon 05 Oct 2015 12:32:45 PM JST
+pass
+* Mon 05 Oct 2015 12:42:00 PM JST
+(substitute-command-keys "\\[run-python]")
+* Mon 05 Oct 2015 12:44:26 PM JST
+
+* Mon 05 Oct 2015 12:44:26 PM JST
+
+* Mon 05 Oct 2015 12:44:26 PM JST
+import re
+
+* Mon 05 Oct 2015 12:46:17 PM JST
+http://d.hatena.ne.jp/kaz_yos/20131223/1387747252
+* Mon 05 Oct 2015 12:47:34 PM JST
+python-setenv
+* Mon 05 Oct 2015 12:48:59 PM JST
+(require 'smart-operator "smart-operator" 'noerr)
+* Mon 05 Oct 2015 12:53:28 PM JST
+(require 'smart-operator "smart-operator" 'noerr)
+* Mon 05 Oct 2015 12:59:27 PM JST
+(defun py--in-condition-p ()
+  "If in condition return t.
+Else nil."
+  (let ((orig (point)))
+    (save-excursion
+      (re-search-backward
+       "^[[:blank:]]*\\_<\\(?:if\\|elif\\|while\\)\\_>[[:blank:]]+"
+       nil 'noerror)
+      (and (looking-at
+            "^[[:blank:]]*\\(?:\\_<\\(?:if\\|elif\\|while\\)\\_>[[:blank:]]+\\([^:]*.*\\):\\).*$")
+           (<= (match-beginning 1) orig)
+           (>= (match-end 1) orig))
+      )))
+
+(defun py--in-return-line-p () ;[2015/07/15]
+  ""
+  (save-excursion
+    (beginning-of-line)
+    (looking-at "^[[:blank:]]*\\_<\\(?:return\\)\\_>")))
+
+(defun py-= (n)
+  "Python operater = .
+N is prefix argument."
+  (interactive "p")
+  (cond ((py:at-string|comment-p)
+         (self-insert-command n))
+        ((progn (delete-horizontal-space)
+                (or (equal (char-before (point)) ?>)
+                    (equal (char-before (point)) ?<)
+                    (equal (char-before (point)) ?!)))
+         (smart-operator-=))
+        ((py:in-parameter-p)
+         (self-insert-command n))
+        ((py:in-brackets-p)
+         (smart-operator-=))
+        ((or (py--in-condition-p) (py--in-return-line-p))
+         (insert " == "))
+        (t (smart-operator-=))))
+
+(defun py:* (n) ;[2014/02/25]
+  "Wrap smart-operator-*.
+N"
+  (interactive "p")
+  (cond ((or (py:at-string|comment-p)
+             (looking-back "[\\[:\\(]")
+             (py:in-parameter-p))
+         (self-insert-command n))
+        (t (smart-operator-*))))
+
+(defun py:- (n) ;[2014/05/14]
+  "Wrap smart-operator--.
+N"
+  (interactive "p")
+  (cond (buffer-read-only (my-forward-seq))
+        ((or (py:at-string|comment-p)
+             (looking-back "[\\[:\\(]"))
+         (self-insert-command n))
+        (t (smart-operator--)))
+  )
+
+(defun py:+ (n) ;[2014/05/14]
+  "Wrap smart-operator-+.
+N"
+  (interactive "p")
+  (cond (buffer-read-only (my-forward-seq))
+        ((py:at-string|comment-p) (self-insert-command n))
+        (t (smart-operator-+)))
+  )
+
+(defun py:/ (n) ;[2014/05/14]
+  "Wrap smart-operator-/.
+N"
+  (interactive "p")
+  (cond (buffer-read-only (my-forward-seq))
+        ((py:at-string|comment-p) (self-insert-command n))
+        (t (smart-operator-/)))
+  )
+
+(defun py:% (n) ;[2014/05/14]
+  "Wrap smart-operator-%.
+N"
+  (interactive "p")
+  (cond (buffer-read-only (my-forward-seq))
+        ((py:at-string|comment-p) (self-insert-command n))
+        (t (smart-operator-%)))
+  )
+
+(defun py:> (n) ;[2014/05/14]
+  "Wrap smart-operator->.
+N"
+  (interactive "p")
+  (cond (buffer-read-only (my-forward-seq))
+        ((py:at-string|comment-p) (self-insert-command n))
+        (t (smart-operator->)))
+  )
+
+(defun py:< (n) ;[2014/05/14]
+  "Wrap smart-operator-<.
+N"
+  (interactive "p")
+  (cond (buffer-read-only (my-forward-seq))
+        ((py:at-string|comment-p) (self-insert-command n))
+        (t (smart-operator-<)))
+  )
+
+(defun py:& (n) ;[2014/05/14] [2015/07/11]
+  "Wrap smart-operator-&.
+N"
+  (interactive "p")
+  (cond (buffer-read-only (my-forward-seq))
+        (t (self-insert-command n))
+        ))
+
+(defun py:? (n) ;[2014/05/14]
+  "Wrap smart-operator-?.
+N"
+  (interactive "p")
+  (cond (buffer-read-only (my-forward-seq))
+        ((py:at-string|comment-p) (self-insert-command n))
+        (t (smart-operator-?)))
+  )
+
+(defun py:\, (n) ;[2014/05/14]
+  "Wrap smart-operator-,.
+N"
+  (interactive "p")
+  (cond (buffer-read-only (my-forward-seq))
+        ((py:at-string|comment-p) (self-insert-command n))
+        (t (smart-operator-\,)))
+  )
+
+(defun py:| (n) ;[2014/05/14] [2015/07/11]
+  "Wrap smart-operator-|.
+N"
+  (interactive "p")
+  (cond (buffer-read-only (my-forward-seq))
+        (t (self-insert-command n))
+        )
+  )
+
+* Mon 05 Oct 2015 01:00:37 PM JST
+re
+
+= 
+* Mon 05 Oct 2015 01:04:57 PM JST
+(defun py--in-condition-p ()
+  "If in condition return t.
+Else nil."
+  (let ((orig (point)))
+    (save-excursion
+      (re-search-backward
+       "^[[:blank:]]*\\_<\\(?:if\\|elif\\|while\\)\\_>[[:blank:]]+"
+       nil 'noerror)
+      (and (looking-at
+            "^[[:blank:]]*\\(?:\\_<\\(?:if\\|elif\\|while\\)\\_>[[:blank:]]+\\([^:]*.*\\):\\).*$")
+           (<= (match-beginning 1) orig)
+           (>= (match-end 1) orig))
+      )))
+
+(defun py--in-return-line-p () ;[2015/07/15]
+  ""
+  (save-excursion
+    (beginning-of-line)
+    (looking-at "^[[:blank:]]*\\_<\\(?:return\\)\\_>")))
+
+(defun py-= (n)
+  "Python operater = .
+N is prefix argument."
+  (interactive "p")
+  (cond ((py:at-string|comment-p)
+         (self-insert-command n))
+        ((progn (delete-horizontal-space)
+                (or (equal (char-before (point)) ?>)
+                    (equal (char-before (point)) ?<)
+                    (equal (char-before (point)) ?!)))
+         (smart-operator-=))
+        ((py:in-parameter-p)
+         (self-insert-command n))
+        ((py:in-brackets-p)
+         (smart-operator-=))
+        ((or (py--in-condition-p) (py--in-return-line-p))
+         (insert " == "))
+        (t (smart-operator-=))))
+
+(defun py:* (n) ;[2014/02/25]
+  "Wrap smart-operator-*.
+N"
+  (interactive "p")
+  (cond ((or (py:at-string|comment-p)
+             (looking-back "[\\[:\\(]")
+             (py:in-parameter-p))
+         (self-insert-command n))
+        (t (smart-operator-*))))
+
+(defun py:- (n) ;[2014/05/14]
+  "Wrap smart-operator--.
+N"
+  (interactive "p")
+  (cond (buffer-read-only (my-forward-seq))
+        ((or (py:at-string|comment-p)
+             (looking-back "[\\[:\\(]"))
+         (self-insert-command n))
+        (t (smart-operator--)))
+  )
+
+(defun py:+ (n) ;[2014/05/14]
+  "Wrap smart-operator-+.
+N"
+  (interactive "p")
+  (cond (buffer-read-only (my-forward-seq))
+        ((py:at-string|comment-p) (self-insert-command n))
+        (t (smart-operator-+)))
+  )
+
+(defun py:/ (n) ;[2014/05/14]
+  "Wrap smart-operator-/.
+N"
+  (interactive "p")
+  (cond (buffer-read-only (my-forward-seq))
+        ((py:at-string|comment-p) (self-insert-command n))
+        (t (smart-operator-/)))
+  )
+
+(defun py:% (n) ;[2014/05/14]
+  "Wrap smart-operator-%.
+N"
+  (interactive "p")
+  (cond (buffer-read-only (my-forward-seq))
+        ((py:at-string|comment-p) (self-insert-command n))
+        (t (smart-operator-%)))
+  )
+
+(defun py:> (n) ;[2014/05/14]
+  "Wrap smart-operator->.
+N"
+  (interactive "p")
+  (cond (buffer-read-only (my-forward-seq))
+        ((py:at-string|comment-p) (self-insert-command n))
+        (t (smart-operator->)))
+  )
+
+(defun py:< (n) ;[2014/05/14]
+  "Wrap smart-operator-<.
+N"
+  (interactive "p")
+  (cond (buffer-read-only (my-forward-seq))
+        ((py:at-string|comment-p) (self-insert-command n))
+        (t (smart-operator-<)))
+  )
+
+(defun py:& (n) ;[2014/05/14] [2015/07/11]
+  "Wrap smart-operator-&.
+N"
+  (interactive "p")
+  (cond (buffer-read-only (my-forward-seq))
+        (t (self-insert-command n))
+        ))
+
+(defun py:? (n) ;[2014/05/14]
+  "Wrap smart-operator-?.
+N"
+  (interactive "p")
+  (cond (buffer-read-only (my-forward-seq))
+        ((py:at-string|comment-p) (self-insert-command n))
+        (t (smart-operator-?)))
+  )
+
+(defun py:\, (n) ;[2014/05/14]
+  "Wrap smart-operator-,.
+N"
+  (interactive "p")
+  (cond (buffer-read-only (my-forward-seq))
+        ((py:at-string|comment-p) (self-insert-command n))
+        (t (smart-operator-\,)))
+  )
+
+(defun py:| (n) ;[2014/05/14] [2015/07/11]
+  "Wrap smart-operator-|.
+N"
+  (interactive "p")
+  (cond (buffer-read-only (my-forward-seq))
+        (t (self-insert-command n))
+        )
+  )
+
+* Mon 05 Oct 2015 01:05:18 PM JST
+;;;###autoload
+* Mon 05 Oct 2015 01:05:49 PM JST
+  
+* Mon 05 Oct 2015 01:30:56 PM JST
+py-smart-operator-mode
+* Mon 05 Oct 2015 01:32:02 PM JST
+(add-hook 'python-mode-hook 'py-smart-operator-mode)
+* Mon 05 Oct 2015 01:32:32 PM JST
+= 
+* Mon 05 Oct 2015 01:43:42 PM JST
+  ;; if in string or comment then insert normal
+  ;; if in argument paren then clear space and insert normal
+  ;; if in paren then 
+
+* Mon 05 Oct 2015 01:43:47 PM JST
+  
+* Mon 05 Oct 2015 01:43:49 PM JST
+;; 
+* Mon 05 Oct 2015 01:43:49 PM JST
+  ;; 
+* Mon 05 Oct 2015 01:43:51 PM JST
+;; 
+* Mon 05 Oct 2015 01:43:51 PM JST
+  ;; 
+* Mon 05 Oct 2015 01:45:00 PM JST
+if in string or comment then insert normal
+if in argument paren then clear space and insert normal
+if in paren then 
+
+* Mon 05 Oct 2015 01:45:23 PM JST
+argument
+* Mon 05 Oct 2015 01:47:01 PM JST
+inser
+* Mon 05 Oct 2015 03:27:24 PM JST
+
+* Mon 05 Oct 2015 03:27:24 PM JST
+
+* Mon 05 Oct 2015 03:27:24 PM JST
+if in return line.
+
+* Mon 05 Oct 2015 03:38:57 PM JST
+find-
+* Mon 05 Oct 2015 03:46:03 PM JST
+ropemacs-mode
+* Mon 05 Oct 2015 03:47:32 PM JST
+
+* Mon 05 Oct 2015 03:47:32 PM JST
+
+* Mon 05 Oct 2015 03:47:32 PM JST
+  ;; (add-hook 'python-mode-hook 'rope-open-current-or-parent 'append)
+
+* Mon 05 Oct 2015 03:51:42 PM JST
+jit-lock-function
+* Mon 05 Oct 2015 03:54:24 PM JST
+(setq-default font-lock-fontify-buffer-function 'jit-lock-refontify)
+* Mon 05 Oct 2015 03:57:30 PM JST
+(require 'pymacs "pymacs" 'noerr)
+* Mon 05 Oct 2015 04:03:15 PM JST
+(syntax-ppss)
+* Mon 05 Oct 2015 04:03:22 PM JST
+(nth 8 (syntax-ppss))
+* Mon 05 Oct 2015 04:04:27 PM JST
+syntax-ppss
+* Mon 05 Oct 2015 04:09:28 PM JST
+noerr
+* Mon 05 Oct 2015 04:10:11 PM JST
+(syntax-pps)
+* Mon 05 Oct 2015 04:10:30 PM JST
+syntax-ppss
+* Mon 05 Oct 2015 04:21:51 PM JST
+^[[:blank:]]*\\_<\\(?:return\\)\\_>
+* Mon 05 Oct 2015 04:34:44 PM JST
+py:in-parameter-p
+* Mon 05 Oct 2015 04:34:48 PM JST
+(py:in-parameter-p)
+* Mon 05 Oct 2015 04:38:24 PM JST
+
+* Mon 05 Oct 2015 04:38:25 PM JST
+
+* Mon 05 Oct 2015 04:38:25 PM JST
+if in condition then clear space and insert \" == \"
+
+* Mon 05 Oct 2015 04:40:14 PM JST
+
+* Mon 05 Oct 2015 04:40:14 PM JST
+
+* Mon 05 Oct 2015 04:40:14 PM JST
+if in return line.
+
+* Mon 05 Oct 2015 04:41:42 PM JST
+COND
+* Mon 05 Oct 2015 04:48:24 PM JST
+(looking-back "\>\<\!\=" 2)
+* Mon 05 Oct 2015 04:49:00 PM JST
+(looking-back "[\>\<\!=]" 2)
+* Mon 05 Oct 2015 04:49:46 PM JST
+(looking-back "[\>\<\!=]" 1)
+* Mon 05 Oct 2015 04:51:30 PM JST
+(and (looking-back "[\>\<\!=]" 1) (insert "="))
+* Mon 05 Oct 2015 04:51:54 PM JST
+(delete-horizontal-space)
+* Mon 05 Oct 2015 04:54:02 PM JST
+py:
+* Mon 05 Oct 2015 04:54:08 PM JST
+(py:in-brackets-p)
+* Mon 05 Oct 2015 04:54:23 PM JST
+condi
+* Mon 05 Oct 2015 04:54:24 PM JST
+at-condi
+* Mon 05 Oct 2015 04:54:31 PM JST
+py--in-condition-p
+* Mon 05 Oct 2015 04:56:24 PM JST
+(looking-back "[\>\<\!=]" 1)
+* Mon 05 Oct 2015 04:56:46 PM JST
+         
+* Mon 05 Oct 2015 05:01:54 PM JST
+(py:at-string|comment-p)
+* Mon 05 Oct 2015 05:01:58 PM JST
+(insert "=")
+* Mon 05 Oct 2015 05:02:01 PM JST
+ELSE
+* Mon 05 Oct 2015 05:02:08 PM JST
+(delete-horizontal-space)
+* Mon 05 Oct 2015 05:02:24 PM JST
+         
+* Mon 05 Oct 2015 05:02:27 PM JST
+        
+* Mon 05 Oct 2015 05:02:32 PM JST
+(cond ((py:in-parameter-p)
+         (if (looking-back "=" 1)
+             (insert " =")
+           (insert "=")))
+        ((or (py:in-brackets-p)
+             (py--in-condition-p)
+             (py--in-return-line-p)) 
+         (if (looking-back "[\>\<\!=]" 1)
+             (insert "= ")
+           (insert " = ")))
+        (t (insert "=")))
+* Mon 05 Oct 2015 05:05:37 PM JST
+(if (looking-back "[\>\<\!=]" 1)
+               (insert "= ")
+             (insert " = "))
+* Mon 05 Oct 2015 05:07:26 PM JST
+           
+* Mon 05 Oct 2015 05:08:29 PM JST
+(define-key python-mode-map "\C-=" 'py:=)
+* Mon 05 Oct 2015 05:08:43 PM JST
+(define-key python-mode-map "\C-=" 'py:=)
+* Mon 05 Oct 2015 05:09:11 PM JST
+(define-key python-mode-map (kbd "C-=") 'py:=)
+* Mon 05 Oct 2015 05:09:59 PM JST
+hello 
+* Mon 05 Oct 2015 05:11:03 PM JST
+if (
+ == 
+* Mon 05 Oct 2015 05:12:14 PM JST
+"^[[:blank:]]*\\_<\\(?:if\\|elif\\|while\\)\\_>[[:blank:]]+"
+* Mon 05 Oct 2015 11:28:49 PM JST
+(py--in-return-line-p)
+* Tue 06 Oct 2015 05:52:24 AM JST
+electric-operator
+* Tue 06 Oct 2015 07:06:17 AM JST
+               
+* Tue 06 Oct 2015 07:24:10 AM JST
+repeat
+* Tue 06 Oct 2015 07:27:03 AM JST
+arg
+* Tue 06 Oct 2015 07:27:19 AM JST
+(make-string args ?:)
+* Tue 06 Oct 2015 07:27:24 AM JST
+args
+* Tue 06 Oct 2015 09:15:53 AM JST
+(insert (make-string args ?:))
+* Tue 06 Oct 2015 09:17:25 AM JST
+"="
+* Tue 06 Oct 2015 09:18:22 AM JST
+(insert (make-string n ?=))
+* Tue 06 Oct 2015 09:57:25 AM JST
++
+* Tue 06 Oct 2015 09:57:32 AM JST
+-
+* Tue 06 Oct 2015 09:57:37 AM JST
+*
+* Tue 06 Oct 2015 09:57:42 AM JST
+/
+* Tue 06 Oct 2015 09:57:47 AM JST
+&
+* Tue 06 Oct 2015 09:58:01 AM JST
+|
+* Tue 06 Oct 2015 09:58:06 AM JST
+!
+* Tue 06 Oct 2015 10:06:56 AM JST
+"[=<>%+*/&|\!-]\\{2\\}"
+* Tue 06 Oct 2015 10:07:43 AM JST
+(looking-back "[=<>%+*/&|\!-]\\{2\\}" 1)
+* Tue 06 Oct 2015 10:08:41 AM JST
+(looking-back "[=<>%+*/&|\!-]\\{2\\}" 1)
+* Tue 06 Oct 2015 10:08:55 AM JST
+"[=<>%+*/&|\!-]\\{2\\}"
+* Tue 06 Oct 2015 10:08:59 AM JST
+and
+* Tue 06 Oct 2015 10:09:50 AM JST
+ELSE
+* Tue 06 Oct 2015 10:09:51 AM JST
+                 
+* Tue 06 Oct 2015 10:10:11 AM JST
+(or (looking-back "[=<>%+*/&|\!-]\\{2\\}" 1)
+                      (looking-at "[=<>%+*/&|\!-]\\{2\\}"))
+* Tue 06 Oct 2015 10:10:18 AM JST
+(insert " = ")
+* Tue 06 Oct 2015 10:13:12 AM JST
+"[=<>%+*/&|\!-]"
+* Tue 06 Oct 2015 10:18:30 AM JST
+
+* Tue 06 Oct 2015 10:18:30 AM JST
+
+* Tue 06 Oct 2015 10:18:30 AM JST
+             (goto-char pnt)
+
+* Tue 06 Oct 2015 10:19:30 AM JST
+a <= =
+* Tue 06 Oct 2015 10:19:52 AM JST
+a == = 
+* Tue 06 Oct 2015 10:20:00 AM JST
+a == == == == 
+* Tue 06 Oct 2015 10:21:19 AM JST
+a == == 
+* Tue 06 Oct 2015 10:21:30 AM JST
+= 
+* Tue 06 Oct 2015 10:21:57 AM JST
+
+* Tue 06 Oct 2015 10:21:57 AM JST
+
+* Tue 06 Oct 2015 10:21:57 AM JST
+    (let ((pnt (point)))
+
+* Tue 06 Oct 2015 10:22:51 AM JST
+insert "=" 
+* Tue 06 Oct 2015 10:24:16 AM JST
+== 
+* Tue 06 Oct 2015 10:32:20 AM JST
+py:in-parameter-p
+* Tue 06 Oct 2015 10:34:05 AM JST
+            
+* Tue 06 Oct 2015 10:34:11 AM JST
+(or 
+* Tue 06 Oct 2015 10:34:23 AM JST
+(insert (make-string n "*"))
+* Tue 06 Oct 2015 10:35:38 AM JST
+           
+* Tue 06 Oct 2015 10:35:59 AM JST
+             
+* Tue 06 Oct 2015 10:36:36 AM JST
+args, **
+* Tue 06 Oct 2015 10:36:36 AM JST
+name( **args, **
+* Tue 06 Oct 2015 10:38:25 AM JST
+def name( 
+* Tue 06 Oct 2015 10:40:24 AM JST
+kwargs
+* Tue 06 Oct 2015 10:40:24 AM JST
+name(**kwargs
+* Tue 06 Oct 2015 12:05:41 PM JST
+syntax-ppss
+* Tue 06 Oct 2015 12:05:45 PM JST
+(nth 0 (syntax-ppss))
+* Tue 06 Oct 2015 12:07:42 PM JST
+(insert "*")
+* Tue 06 Oct 2015 12:07:42 PM JST
+           (insert "*")
+* Tue 06 Oct 2015 12:07:59 PM JST
+kawrgs
+* Tue 06 Oct 2015 12:08:00 PM JST
+hello, **kawrgs
+* Tue 06 Oct 2015 12:08:13 PM JST
+kwargs
+* Tue 06 Oct 2015 12:08:13 PM JST
+args, 
+* Tue 06 Oct 2015 12:10:06 PM JST
+(or (looking-back "[=<>%+*/&|\!-]\\{2\\}" 1)
+                 (looking-at "[=<>%+*/&|\!-]\\{2\\}"))
+* Tue 06 Oct 2015 12:10:23 PM JST
+((
+* Tue 06 Oct 2015 12:12:19 PM JST
+(or (looking-back "[=<>%+*/&|\!-]\\{2\\}" 1)
+                 (looking-at "[=<>%+*/&|\!-]\\{2\\}"))
+* Tue 06 Oct 2015 12:15:25 PM JST
+(looking-back "^[[:blank:]]-" 1)
+* Tue 06 Oct 2015 12:15:30 PM JST
+          
+* Tue 06 Oct 2015 12:15:38 PM JST
+(looking-back "^[[:blank:]]*" 1)
+* Tue 06 Oct 2015 12:15:46 PM JST
+
+* Tue 06 Oct 2015 12:15:46 PM JST
+
+* Tue 06 Oct 2015 12:15:46 PM JST
+    (if 
+
+* Tue 06 Oct 2015 12:15:51 PM JST
+
+* Tue 06 Oct 2015 12:15:51 PM JST
+
+* Tue 06 Oct 2015 12:15:51 PM JST
+        (insert (make-string n ?*))
+
+* Tue 06 Oct 2015 12:16:14 PM JST
+** a**
+* Tue 06 Oct 2015 12:16:17 PM JST
+1
+* Tue 06 Oct 2015 12:16:18 PM JST
+hello()
+    ** 1
+* Tue 06 Oct 2015 12:16:36 PM JST
+(looking-back "^[[:blank:]]*" 1)
+* Tue 06 Oct 2015 12:16:45 PM JST
+
+* Tue 06 Oct 2015 12:16:45 PM JST
+
+* Tue 06 Oct 2015 12:16:45 PM JST
+    (if 
+
+* Tue 06 Oct 2015 12:16:46 PM JST
+    (if 
+
+* Tue 06 Oct 2015 12:16:46 PM JST
+    (if 
+        (insert (make-string n ?=))
+
+* Tue 06 Oct 2015 12:17:24 PM JST
+        
+* Tue 06 Oct 2015 12:17:42 PM JST
+((or (looking-back "[=<>%+*/&|\!-]\\{2\\}" 1)
+               (looking-at "[=<>%+*/&|\!-]\\{2\\}"))
+           (insert " * "))
+* Tue 06 Oct 2015 12:18:43 PM JST
+((looking-back "\*" 1)
+           (insert "* "))
+* Tue 06 Oct 2015 12:18:53 PM JST
+  
+* Tue 06 Oct 2015 12:19:03 PM JST
+1 * 1 -  - 
+* Tue 06 Oct 2015 12:19:07 PM JST
+(delete-horizontal-space)
+* Tue 06 Oct 2015 12:20:17 PM JST
+(if (or (py:at-string|comment-p)
+          (looking-back "^[[:blank:]]*" 1))
+      (insert (make-string n ?-))
+    (delete-horizontal-space)
+    (cond ((or (looking-back "[=<>%+*/&|\!-]\\{2\\}" 1)
+               (looking-at "[=<>%+*/&|\!-]\\{2\\}"))
+           (insert " - "))
+          ((looking-back "-" 1)
+           (insert "- "))
+          (t (insert " - "))))
+* Tue 06 Oct 2015 12:20:56 PM JST
+
+* Tue 06 Oct 2015 12:20:56 PM JST
+
+* Tue 06 Oct 2015 12:20:56 PM JST
+    1 ++ 1
+
+* Tue 06 Oct 2015 12:21:08 PM JST
+(if (or (py:at-string|comment-p)
+          (looking-back "^[[:blank:]]*" 1))
+      (insert (make-string n ?+))
+    (delete-horizontal-space)
+    (cond ((or (looking-back "[=<>%+*/&|\!-]\\{2\\}" 1)
+               (looking-at "[=<>%+*/&|\!-]\\{2\\}"))
+           (insert " + "))
+          ((looking-back "\+" 1)
+           (insert "+ "))
+          (t (insert " + "))))
+* Tue 06 Oct 2015 12:21:13 PM JST
+  
+* Tue 06 Oct 2015 12:21:38 PM JST
+  
+* Tue 06 Oct 2015 12:21:43 PM JST
+(if (or (py:at-string|comment-p)
+          (looking-back "^[[:blank:]]*" 1))
+      (insert (make-string n ?+))
+    (delete-horizontal-space)
+    (cond ((or (looking-back "[=<>%+*/&|\!-]\\{2\\}" 1)
+               (looking-at "[=<>%+*/&|\!-]\\{2\\}"))
+           (insert " + "))
+          ((looking-back "\+" 1)
+           (insert "+ "))
+          (t (insert " + "))))
+* Tue 06 Oct 2015 12:22:11 PM JST
+//////
+* Tue 06 Oct 2015 12:22:42 PM JST
+a // 
+* Tue 06 Oct 2015 12:22:48 PM JST
+(if (or (py:at-string|comment-p)
+          (looking-back "^[[:blank:]]*" 1))
+      (insert (make-string n ?/))
+    (delete-horizontal-space)
+    (cond ((or (looking-back "[=<>%+*/&|\!-]\\{2\\}" 1)
+               (looking-at "[=<>%+*/&|\!-]\\{2\\}"))
+           (insert " / "))
+          ((looking-back "/" 1)
+           (insert "/ "))
+          (t (insert " / "))))
+* Tue 06 Oct 2015 12:23:09 PM JST
+  
+* Tue 06 Oct 2015 12:23:26 PM JST
+(if (or (py:at-string|comment-p)
+          (looking-back "^[[:blank:]]*" 1))
+      (insert (make-string n ?%))
+    (delete-horizontal-space)
+    (cond ((or (looking-back "[=<>%+*/&|\!-]\\{2\\}" 1)
+               (looking-at "[=<>%+*/&|\!-]\\{2\\}"))
+           (insert " % "))
+          ((looking-back "%" 1)
+           (insert "% "))
+          (t (insert " % "))))
+* Tue 06 Oct 2015 12:24:17 PM JST
+string 
+* Tue 06 Oct 2015 12:24:18 PM JST
+to-string 
+* Tue 06 Oct 2015 12:24:18 PM JST
+char-to-string 
+* Tue 06 Oct 2015 12:24:30 PM JST
+(string-to-char ">")
+* Tue 06 Oct 2015 12:24:40 PM JST
+  
+* Tue 06 Oct 2015 12:25:01 PM JST
+(if (or (py:at-string|comment-p)
+          (looking-back "^[[:blank:]]*" 1))
+      (insert (make-string n ?>))
+    (delete-horizontal-space)
+    (cond ((or (looking-back "[=<>%+*/&|\!-]\\{2\\}" 1)
+               (looking-at "[=<>%+*/&|\!-]\\{2\\}"))
+           (insert " > "))
+          ((looking-back ">" 1)
+           (insert "> "))
+          (t (insert " > "))))
+* Tue 06 Oct 2015 12:25:05 PM JST
+  
+* Tue 06 Oct 2015 12:25:44 PM JST
+(looking-at "[=<>%+*/&|\!-]\\{2\\}")
+* Tue 06 Oct 2015 12:26:43 PM JST
+    
+* Tue 06 Oct 2015 12:27:23 PM JST
+(if (or (py:at-string|comment-p)
+          (looking-back "^[[:blank:]]*" 1))
+      (insert (make-string n ?<))
+    (delete-horizontal-space)
+    (cond ((or (looking-back "[=<>%+*/&|\!-]\\{2\\}" 1)
+               (looking-at "[=<>%+*/&|\!-]\\{2\\}"))
+           (insert " < "))
+          ((looking-back "<" 1)
+           (insert "< "))
+          (t (insert " < "))))
+* Tue 06 Oct 2015 12:27:27 PM JST
+  
+* Tue 06 Oct 2015 12:28:52 PM JST
+(if (or (py:at-string|comment-p)
+          (looking-back "^[[:blank:]]*" 1))
+      (insert (make-string n ?&))
+    (delete-horizontal-space)
+    (cond ((or (looking-back "[=<>%+*/&|\!-]\\{2\\}" 1)
+               (looking-at "[=<>%+*/&|\!-]\\{2\\}"))
+           (insert " & "))
+          ((looking-back "&" 1)
+           (insert "& "))
+          (t (insert " & "))))
+* Tue 06 Oct 2015 12:29:40 PM JST
+;;;###autoload
+(defun py:| (n) ;[2014/05/14] [2015/07/11]
+  "Wrap smart-operator-|.
+N"
+  (interactive "p")
+  (cond (buffer-read-only (my-forward-seq))
+        (t (self-insert-command n))
+        ))
+
+* Tue 06 Oct 2015 12:29:45 PM JST
+(if (or (py:at-string|comment-p)
+          (looking-back "^[[:blank:]]*" 1))
+      (insert (make-string n ?&))
+    (delete-horizontal-space)
+    (cond ((or (looking-back "[=<>%+*/&|\!-]\\{2\\}" 1)
+               (looking-at "[=<>%+*/&|\!-]\\{2\\}"))
+           (insert " & "))
+          ((looking-back "&" 1)
+           (insert "& "))
+          (t (insert " & "))))
+* Tue 06 Oct 2015 12:30:15 PM JST
+& | 
+* Tue 06 Oct 2015 12:30:21 PM JST
+;;;###autoload
+(defun py:\, (n) ;[2014/05/14]
+  "Wrap smart-operator-,.
+N"
+  (interactive "p")
+  (cond (buffer-read-only (my-forward-seq))
+        ((py:at-string|comment-p) (self-insert-command n))
+        (t (smart-operator-\,)))
+  )
+
+* Tue 06 Oct 2015 12:34:05 PM JST
+(delete-horizontal-space)
+* Tue 06 Oct 2015 12:36:29 PM JST
+  
+* Tue 06 Oct 2015 12:36:30 PM JST
+    
+* Tue 06 Oct 2015 12:37:00 PM JST
+
+* Tue 06 Oct 2015 12:37:00 PM JST
+
+* Tue 06 Oct 2015 12:37:00 PM JST
+    hello() 
+
+* Tue 06 Oct 2015 12:37:00 PM JST
+    hello() 
+
+* Tue 06 Oct 2015 12:37:00 PM JST
+    hello() 
+    ':::::'
+
+* Tue 06 Oct 2015 12:37:00 PM JST
+    hello() 
+    ':::::'
+
+* Tue 06 Oct 2015 12:37:00 PM JST
+    hello() 
+    ':::::'
+    a = 1
+
+* Tue 06 Oct 2015 12:37:00 PM JST
+    hello() 
+    ':::::'
+    a = 1
+
+* Tue 06 Oct 2015 12:37:01 PM JST
+    hello() 
+    ':::::'
+    a = 1
+    b <= 2
+
+* Tue 06 Oct 2015 12:37:01 PM JST
+
+* Tue 06 Oct 2015 12:37:01 PM JST
+
+* Tue 06 Oct 2015 12:37:01 PM JST
+    a=1, a==1
+
+* Tue 06 Oct 2015 12:37:01 PM JST
+    a=1, a==1
+
+* Tue 06 Oct 2015 12:37:01 PM JST
+    a=1, a==1
+    a<1, a<<1
+
+* Tue 06 Oct 2015 12:37:01 PM JST
+    a=1, a==1
+    a<1, a<<1
+
+* Tue 06 Oct 2015 12:37:01 PM JST
+    a=1, a==1
+    a<1, a<<1
+    a>1, a>>1
+
+* Tue 06 Oct 2015 12:37:01 PM JST
+    a=1, a==1
+    a<1, a<<1
+    a>1, a>>1
+
+* Tue 06 Oct 2015 12:37:02 PM JST
+    a=1, a==1
+    a<1, a<<1
+    a>1, a>>1
+    a%1, a%%1
+
+* Tue 06 Oct 2015 12:37:02 PM JST
+    a=1, a==1
+    a<1, a<<1
+    a>1, a>>1
+    a%1, a%%1
+
+* Tue 06 Oct 2015 12:37:02 PM JST
+    a=1, a==1
+    a<1, a<<1
+    a>1, a>>1
+    a%1, a%%1
+    a+1, a++1
+
+* Tue 06 Oct 2015 12:37:02 PM JST
+    a=1, a==1
+    a<1, a<<1
+    a>1, a>>1
+    a%1, a%%1
+    a+1, a++1
+
+* Tue 06 Oct 2015 12:37:02 PM JST
+    a=1, a==1
+    a<1, a<<1
+    a>1, a>>1
+    a%1, a%%1
+    a+1, a++1
+    a-1, a--1
+
+* Tue 06 Oct 2015 12:37:02 PM JST
+    a=1, a==1
+    a<1, a<<1
+    a>1, a>>1
+    a%1, a%%1
+    a+1, a++1
+    a-1, a--1
+
+* Tue 06 Oct 2015 12:37:02 PM JST
+    a=1, a==1
+    a<1, a<<1
+    a>1, a>>1
+    a%1, a%%1
+    a+1, a++1
+    a-1, a--1
+    a*1, a**1
+
+* Tue 06 Oct 2015 12:37:02 PM JST
+    a=1, a==1
+    a<1, a<<1
+    a>1, a>>1
+    a%1, a%%1
+    a+1, a++1
+    a-1, a--1
+    a*1, a**1
+
+* Tue 06 Oct 2015 12:37:02 PM JST
+    a=1, a==1
+    a<1, a<<1
+    a>1, a>>1
+    a%1, a%%1
+    a+1, a++1
+    a-1, a--1
+    a*1, a**1
+    a/1, a//1
+
+* Tue 06 Oct 2015 12:37:02 PM JST
+    a=1, a==1
+    a<1, a<<1
+    a>1, a>>1
+    a%1, a%%1
+    a+1, a++1
+    a-1, a--1
+    a*1, a**1
+    a/1, a//1
+
+* Tue 06 Oct 2015 12:37:02 PM JST
+    a=1, a==1
+    a<1, a<<1
+    a>1, a>>1
+    a%1, a%%1
+    a+1, a++1
+    a-1, a--1
+    a*1, a**1
+    a/1, a//1
+    a&1, a&&1
+
+* Tue 06 Oct 2015 12:37:02 PM JST
+    a=1, a==1
+    a<1, a<<1
+    a>1, a>>1
+    a%1, a%%1
+    a+1, a++1
+    a-1, a--1
+    a*1, a**1
+    a/1, a//1
+    a&1, a&&1
+
+* Tue 06 Oct 2015 12:37:02 PM JST
+    a=1, a==1
+    a<1, a<<1
+    a>1, a>>1
+    a%1, a%%1
+    a+1, a++1
+    a-1, a--1
+    a*1, a**1
+    a/1, a//1
+    a&1, a&&1
+    a|1, a&
+
+* Tue 06 Oct 2015 12:37:03 PM JST
+    a=1, a==1
+    a<1, a<<1
+    a>1, a>>1
+    a%1, a%%1
+    a+1, a++1
+    a-1, a--1
+    a*1, a**1
+    a/1, a//1
+    a&1, a&&1
+    a|1, a&
+
+* Tue 06 Oct 2015 12:37:03 PM JST
+    a=1, a==1
+    a<1, a<<1
+    a>1, a>>1
+    a%1, a%%1
+    a+1, a++1
+    a-1, a--1
+    a*1, a**1
+    a/1, a//1
+    a&1, a&&1
+    a|1, a&
+    a!1, a!!1
+
+* Tue 06 Oct 2015 12:37:03 PM JST
+    a=1, a==1
+    a<1, a<<1
+    a>1, a>>1
+    a%1, a%%1
+    a+1, a++1
+    a-1, a--1
+    a*1, a**1
+    a/1, a//1
+    a&1, a&&1
+    a|1, a&
+    a!1, a!!1
+
+* Tue 06 Oct 2015 12:37:03 PM JST
+    a=1, a==1
+    a<1, a<<1
+    a>1, a>>1
+    a%1, a%%1
+    a+1, a++1
+    a-1, a--1
+    a*1, a**1
+    a/1, a//1
+    a&1, a&&1
+    a|1, a&
+    a!1, a!!1
+    a<<1,
+
+* Tue 06 Oct 2015 12:37:03 PM JST
+    a=1, a==1
+    a<1, a<<1
+    a>1, a>>1
+    a%1, a%%1
+    a+1, a++1
+    a-1, a--1
+    a*1, a**1
+    a/1, a//1
+    a&1, a&&1
+    a|1, a&
+    a!1, a!!1
+    a<<1,
+
+* Tue 06 Oct 2015 12:37:03 PM JST
+    a=1, a==1
+    a<1, a<<1
+    a>1, a>>1
+    a%1, a%%1
+    a+1, a++1
+    a-1, a--1
+    a*1, a**1
+    a/1, a//1
+    a&1, a&&1
+    a|1, a&
+    a!1, a!!1
+    a<<1,
+    a>>1
+
+* Tue 06 Oct 2015 12:37:03 PM JST
+    a=1, a==1
+    a<1, a<<1
+    a>1, a>>1
+    a%1, a%%1
+    a+1, a++1
+    a-1, a--1
+    a*1, a**1
+    a/1, a//1
+    a&1, a&&1
+    a|1, a&
+    a!1, a!!1
+    a<<1,
+    a>>1
+
+* Tue 06 Oct 2015 12:37:03 PM JST
+    a=1, a==1
+    a<1, a<<1
+    a>1, a>>1
+    a%1, a%%1
+    a+1, a++1
+    a-1, a--1
+    a*1, a**1
+    a/1, a//1
+    a&1, a&&1
+    a|1, a&
+    a!1, a!!1
+    a<<1,
+    a>>1
+    a = 1
+
+* Tue 06 Oct 2015 12:38:17 PM JST
+        
+* Tue 06 Oct 2015 12:39:07 PM JST
+   ;must bind in smart-operator_plugin_start.el
+* Tue 06 Oct 2015 12:42:19 PM JST
+    
+* Tue 06 Oct 2015 12:42:27 PM JST
+    
+* Tue 06 Oct 2015 12:47:44 PM JST
+a = 1
+* Tue 06 Oct 2015 12:54:43 PM JST
+(interactive "sfunctions name: ")
+* Tue 06 Oct 2015 12:55:04 PM JST
+(interactive "sclass name: ")
+* Tue 06 Oct 2015 01:37:38 PM JST
+mo
+* Tue 06 Oct 2015 01:37:38 PM JST
+pytohn-mo
+* Tue 06 Oct 2015 01:40:50 PM JST
+** DONE doing to allinone.org
+   CLOSED: [2015-10-02 Fri 22:36]
+   <2015-10-02 Fri 12:34>
+
+* Tue 06 Oct 2015 01:41:00 PM JST
+** DONE doing to allinone.org
+   CLOSED: [2015-10-02 Fri 22:36]
+   <2015-10-02 Fri 12:34>
+
+* Tue 06 Oct 2015 01:41:01 PM JST
+** DONE doing to allinone.org
+   CLOSED: [2015-10-02 Fri 22:36]
+   <2015-10-02 Fri 12:34>
+
+* Tue 06 Oct 2015 01:41:08 PM JST
+** DONE remove python-mode
+   CLOSED: [2015-10-06 Tue 13:40]
+  <2015-10-05 Mon 05:57>
+
+* Tue 06 Oct 2015 01:41:09 PM JST
+** DONE remove python-mode
+   CLOSED: [2015-10-06 Tue 13:40]
+  <2015-10-05 Mon 05:57>
+
+* Tue 06 Oct 2015 01:48:34 PM JST
+dmacro.el
+* Tue 06 Oct 2015 02:02:23 PM JST
+
+* Tue 06 Oct 2015 02:02:23 PM JST
+
+* Tue 06 Oct 2015 02:02:23 PM JST
+** TODO text translator one search engine
+   <2015-09-13 Sun 23:50>
+
+* Tue 06 Oct 2015 02:04:34 PM JST
+https://github.com/pinard/Pymacs#user-content-pymacs--notes
+* Tue 06 Oct 2015 02:12:30 PM JST
+~/.emacs.d/elisp/plugin/
+* Tue 06 Oct 2015 02:14:19 PM JST
+~/.emacs.d/elisp/mylisp/python/
+* Tue 06 Oct 2015 02:18:53 PM JST
+** DONE subversion to git
+   CLOSED: [2015-10-06 Tue 14:01]
+   <2015-09-27 Sun 00:47>
+
+* Tue 06 Oct 2015 02:18:54 PM JST
+** DONE subversion to git
+   CLOSED: [2015-10-06 Tue 14:01]
+   <2015-09-27 Sun 00:47>
+
+* Tue 06 Oct 2015 02:18:57 PM JST
+** DONE .emacs.d if not exists 06_loaddefs_start.el call constract_loaddef function
+   CLOSED: [2015-10-06 Tue 14:01]
+   <2015-10-02 Fri 10:58>
+
+* Tue 06 Oct 2015 02:18:57 PM JST
+** DONE .emacs.d if not exists 06_loaddefs_start.el call constract_loaddef function
+   CLOSED: [2015-10-06 Tue 14:01]
+   <2015-10-02 Fri 10:58>
+
+* Tue 06 Oct 2015 02:18:59 PM JST
+** DONE magit keybind C-j move left
+   CLOSED: [2015-10-06 Tue 14:00]
+   <2015-10-02 Fri 11:47>
+
+* Tue 06 Oct 2015 02:19:00 PM JST
+** DONE magit keybind C-j move left
+   CLOSED: [2015-10-06 Tue 14:00]
+   <2015-10-02 Fri 11:47>
+
+* Tue 06 Oct 2015 02:19:02 PM JST
+** DONE multi-term zsh 表示問題
+   zsh-highlight が原因だった。
+   無効化。
+   CLOSED: [2015-10-06 Tue 13:59]
+   bash を使うと正しく表示される。
+   <2015-10-02 Fri 12:21>
+
+* Tue 06 Oct 2015 02:19:03 PM JST
+** DONE multi-term zsh 表示問題
+   zsh-highlight が原因だった。
+   無効化。
+   CLOSED: [2015-10-06 Tue 13:59]
+   bash を使うと正しく表示される。
+   <2015-10-02 Fri 12:21>
+
+* Tue 06 Oct 2015 02:19:06 PM JST
+** DONE python daily v2c Popen
+   CLOSED: [2015-10-06 Tue 13:58]
+  <2015-10-02 Fri 21:21>
+
+* Tue 06 Oct 2015 02:19:06 PM JST
+** DONE python daily v2c Popen
+   CLOSED: [2015-10-06 Tue 13:58]
+  <2015-10-02 Fri 21:21>
+
+* Tue 06 Oct 2015 02:21:45 PM JST
+"DONE"

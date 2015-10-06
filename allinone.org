@@ -20313,40 +20313,28 @@ or force open on right display
 ** 風変わりな解決策
    - Adapter によるインターフェースの統合
 * ----- DOING -----
-** TODO remove python-mode
-  <2015-10-05 Mon 05:57>
+** TODO coop mysql
+  <2015-10-06 Tue 14:02>
 ** TODO magit perspective
   <2015-10-05 Mon 05:57>
-** WAIT python daily v2c Popen
-  <2015-10-02 Fri 21:21>
 ** TODO fix woman
   <2015-10-02 Fri 13:42>
 ** TODO fix dmacro
   <2015-10-02 Fri 13:15>
 ** TODO .zsh history merge
    <2015-10-02 Fri 12:35>
-** DONE doing to allinone.org
-   CLOSED: [2015-10-02 Fri 22:36]
-   <2015-10-02 Fri 12:34>
 ** TODO systemd ssh tunnel
    <2015-10-02 Fri 12:33>
 ** TODO auto construct dotfile from king server 
    <2015-10-02 Fri 12:32>
 ** TODO emacs package make minimize
    <2015-10-02 Fri 12:22>
-** TODO multi-term zsh 表示問題
-   bash を使うと正しく表示される。
-   <2015-10-02 Fri 12:21>
 ** TODO disable view mode on magit commit buffer
    <2015-10-02 Fri 11:48>
-** TODO magit keybind C-j move left
-   <2015-10-02 Fri 11:47>
-** TODO insert commit template
+** TODO insert magit commit template
    <2015-10-02 Fri 11:45>
 ** TODO python elisp_compileall.py wait close all process
    <2015-10-02 Fri 10:59>
-** TODO .emacs.d if not exists 06_loaddefs_start.el call constract_loaddef function
-   <2015-10-02 Fri 10:58>
 ** TODO org-todo rotate sequence TODO => DONE => LATER
    <2015-10-02 Fri 10:16>
 ** TODO make function some-buffer-save-kill
@@ -20357,16 +20345,12 @@ or force open on right display
    <2015-09-28 Mon 02:34>
 ** TODO kernel crash dump
    <2015-09-27 Sun 02:00>
-** TODO subversion to git
-   <2015-09-27 Sun 00:47>
 ** TODO upgrade python3
    <2015-09-26 Sat 11:09>
 ** TODO king kernel config
    <2015-09-26 Sat 11:07>
 ** TODO recover usb linux
    <2015-09-26 Sat 11:07>
-** TODO text translator one search engine
-   <2015-09-13 Sun 23:50>
 ** TODO king auto halt "halt" to "poweroff"
    <2015-09-12 Sat 03:15>
 ** TODO systemd bluetooth device detected to active bluetooth
@@ -20375,7 +20359,7 @@ or force open on right display
    <2015-09-11 Fri 03:48>
 ** TODO mac addr change at network interface connected
    <2015-09-11 Fri 03:48>
-** TODO remove "wellcom kali linux on boot"
+** TODO remove "wellcome kali linux on boot"
    <2015-09-11 Fri 03:47>
 ** TODO xahk
    <2015-08-30 Sun 17:43>
