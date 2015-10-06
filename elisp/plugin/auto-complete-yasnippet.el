@@ -2,8 +2,8 @@
 (require 'yasnippet)
 
 (defun ac-yasnippet-candidate-1 (table)
-  (let ((hashtab (yas/snippet-table-hash table))
-        (parent (yas/snippet-table-parent table))
+  (let ((hashtab (yas-snippet-table-hash table))
+        (parent (yas-snippet-table-parent table))
         candidates)
     (maphash (lambda (key value)
                (push key candidates))
@@ -15,7 +15,7 @@
     candidates))
 
 (defun ac-yasnippet-candidate ()
-  (let ((table (yas/snippet-table major-mode)))
+  (let ((table (yas-snippet-table major-mode)))
     (if table
         (ac-yasnippet-candidate-1 table))))
 
@@ -29,7 +29,7 @@
 
 (defvar ac-source-yasnippet
   '((candidates . ac-yasnippet-candidate)
-    (action . yas/expand)
+    (action . yas-expand)
     (limit . 3)
     (candidate-face . ac-yasnippet-candidate-face)
     (selection-face . ac-yasnippet-selection-face))

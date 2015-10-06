@@ -1,12 +1,12 @@
-;;; 80_python_mode_start.el ---
+;;; 60_pymacs_plugin_start.el ---
 ;;
 ;; Copyright (C) 2015 Atami
 ;;
 ;; Author:       Atami
 ;; Maintainer:   Atami
 ;; Version:      1.0
-;; Created:      2015/10/05 10:33:36 (+0900)
-;; Last-Updated: 2015/10/05 10:41:36 (+0900)
+;; Created:      2015/10/05 11:11:51 (+0900)
+;; Last-Updated: 2015/10/05 11:19:01 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -40,16 +40,16 @@
 
 
 (eval-when-compile
-  (require 't1macro "t1macro"))
+  (require 't1macro "t1macro")
+  (require 'pymacs "pymacs" 'noerr))
 
 
-(defvar python-eval-after-load-hook nil
-  "Hook for python `eval-after-load'.")
-(add-hook 'python-eval-after-load-hook 'python-mode-custom-predefine)
-(add-hook 'python-eval-after-load-hook 'python-mode-predefine 'append)
-(add-hook 'python-eval-after-load-hook 'python-mode-map-predefine 'append)
-(add-hook 'python-eval-after-load-hook 'python-mode-face-predefine 'append)
-(run-hooks-after-load "python" 'python-eval-after-load-hook)
+(defvar pymacs-eval-after-load-hook nil
+  "Hook for pymacs `eval-after-load'.")
+(add-hook 'pymacs-eval-after-load-hook 'pymacs-mode-custom-predefine)
+(add-hook 'pymacs-eval-after-load-hook 'pymacs-mode-predefine 'append)
+(add-hook 'pymacs-eval-after-load-hook 'pymacs-mode-map-predefine 'append)
+(run-hooks-after-load "pymacs" 'pymacs-eval-after-load-hook)
 
 
 
@@ -57,4 +57,4 @@
 ;; Local Variables:
 ;; coding: utf-8
 ;; End:
-;;; 80_python_mode_start.el ends here
+;;; 60_pymacs_plugin_start.el ends here

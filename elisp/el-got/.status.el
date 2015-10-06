@@ -1,4 +1,4 @@
-((auto-complete-yasnippet status "installed" recipe
+((auto-complete-yasnippet status "required" recipe
                           (:name auto-complete-yasnippet :description "Auto-complete sources for YASnippet" :type http :url "http://www.cx4a.org/pub/auto-complete-yasnippet.el" :depends
                                  (auto-complete yasnippet)))
  (basic-edit-toolkit status "installed" recipe
@@ -27,8 +27,6 @@
  (python-pep8 status "installed" recipe
               (:type github :pkgname "emacsmirror/python-pep8" :name python-pep8 :type emacsmirror :description "Minor mode for running `pep8'" :features python-pep8 :post-init
                      (require 'tramp)))
- (smart-operator status "installed" recipe
-                 (:name smart-operator :description "Insert operators with surrounding spaces smartly." :type github :pkgname "xwl/smart-operator"))
  (smartchr status "installed" recipe
            (:name smartchr :type github :pkgname "imakado/emacs-smartchr" :features smartchr :description "Emacs version of smartchr.vim"))
  (space-chord status "required" recipe
