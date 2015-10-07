@@ -7211,3 +7211,37 @@ https://github.com/pinard/Pymacs#user-content-pymacs--notes
 
 * Tue 06 Oct 2015 02:21:45 PM JST
 "DONE"
+* Tue 06 Oct 2015 02:55:17 PM JST
+linux_3.16.7-ckt11.orig.tar.xz
+* Tue 06 Oct 2015 03:08:33 PM JST
+linux-3.16.7-ckt11
+* Tue 06 Oct 2015 05:37:28 PM JST
+woman-decode-region: WoMan can only format man pages written with the usual ‘-man’ macros
+* Tue 06 Oct 2015 05:44:31 PM JST
+;;;###autoload
+* Tue 06 Oct 2015 05:49:33 PM JST
+package-user-dir
+* Tue 06 Oct 2015 10:48:58 PM JST
+(message "%s" load-path)
+* Tue 06 Oct 2015 10:50:02 PM JST
+
+* Tue 06 Oct 2015 10:50:02 PM JST
+
+* Tue 06 Oct 2015 10:50:02 PM JST
+(message "%s" load-path)
+
+* Tue 06 Oct 2015 11:06:24 PM JST
+package-archives
+* Tue 06 Oct 2015 11:06:50 PM JST
+package-archives
+* Tue 06 Oct 2015 11:06:58 PM JST
+("melpa" . "http://melpa.org/packages/")
+* Tue 06 Oct 2015 11:07:12 PM JST
+  
+* Tue 06 Oct 2015 11:07:14 PM JST
+("melpa-stable" . "http://stable.melpa.org/packages/")
+* Tue 06 Oct 2015 11:14:57 PM JST
+git clone --recursive git://github.com/magnars/.emacs.d.git
+* Wed 07 Oct 2015 10:04:32 AM JST
+noatime
+* Wed 07 Oct 2015 10:34:10 AM JST

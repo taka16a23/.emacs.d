@@ -20313,6 +20313,8 @@ or force open on right display
 ** 風変わりな解決策
    - Adapter によるインターフェースの統合
 * ----- DOING -----
+** TODO Create king server clone on VirtualBox
+  <2015-10-07 Wed 09:04>
 ** TODO coop mysql
   <2015-10-06 Tue 14:02>
 ** TODO magit perspective
