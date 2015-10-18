@@ -112,14 +112,14 @@ def _main():
     # parser = _predef_options()
     # opts = parser.parse_args()
     curdir = os.path.dirname(os.path.abspath(__file__))
-    targetdir = os.path.join(curdir, 'elisp')
+    targetdir = os.path.join(curdir, 'site-lisp')
     candidates = []
     append = candidates.append
     for f in iter_el_files(targetdir):
         if f.is_need_compile():
             append(f)
     print(candidates)
-    loadfile = os.path.join(curdir, 'elisp/start.d/subroutines_start.el')
+    loadfile = os.path.join(curdir, 'init.el')
     commands = ['emacs', '-Q', '--batch', '-l', loadfile,
                 '--funcall', 'batch-byte-compile']
     files = []

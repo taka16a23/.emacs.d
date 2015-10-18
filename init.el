@@ -1,5 +1,3 @@
-;; -*- Mode: Emacs-Lisp -*-
-
 ;;; init.el --- Emacs init file.
 ;;
 ;; Copyright (C) 2012 Atami
@@ -8,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:33:26 2012 (+0900)
-;; Last-Updated: 2015/10/04 11:59:04 (+0900)
+;; Last-Updated:2015/10/18 10:42:17 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -31,6 +29,46 @@
 ;;
 ;;; Commentary:
 ;;  ===========
+;;
+;;  * 最低限の起動
+;;    ** key bind
+;;       - pointer の移動は最優先。
+;;       - C-d を C-x にしてprefix key とする。
+;;       - *scratch* buffer で M-RET を eval-print-last-sexp に割り当て。
+;;       - C-x C-c で確実にemacs を終了する。
+;;         process のkill で終了させることないようにする。
+;;       - C-f isearch
+;;       - C-M-k cua-scroll-down
+;;       - C-M-n cua-scroll-up
+;;    ** file のsave は確実に行えるように。
+;;    ** directory 構成の確認と再構成
+;;    ** load-path 構成
+;;    ** setting customize
+;;
+;;  ディレクトリは補完がしやすい名前に。
+;;  find grep が使いやすいディレクトリ構成にする。
+;;  確実に起動する。
+;;  起動3秒以内。
+;;  user-data
+;;  parse-command-line
+;;  package
+;;  setting
+;;  site-lisp
+;;  lib
+;;  environments.el
+;;
+;;  load-path
+;;
+;;  start-loader
+;;  byte-compile if source is newer than binary
+;;  pre-constraction-loaddef
+;;  if flaged then make loaddefs at init
+;;  if exists loaddefs then load it
+;;
+;;  ;;;; Pakage Management ;;;;
+;;  if not package then try install it.
+;;  if failed install or load package then skip and message.
+;;
 ;;
 ;; Directory Tree
 ;; "tree -d -L 2 --noreport ~/.emacs.d/"
@@ -116,78 +154,38 @@
 ;;; Code:
 
 
-(eval-when-compile
-  (require 'subroutines_start "subroutines_start" 'noerr))
-
+(defvar before-init-el-time (current-time))
 (defvar during-init-p t "Return t, if during startup.")
 
-;; Debug `--debug-init'
-(defvar before-init-el-time nil)
-(when init-file-debug
-  (setq before-init-el-time       (current-time)
-        start-loader-profile-flag t))
-
 (message "\n------ init.el ------")
-;;;; My Command line
-(defvar make-loaddefs-flag nil)
-(defvar mini-emacs nil)
-(defvar no-autorecover-init-time-flag nil)
-(let ((args (cdr command-line-args))
-      done)
-  (while (and (not done) args)
-    (let ((argi (pop args)))
-      (when (string-match "\\`\\(--[^=]*\\)=" argi)
-        (setq argi (match-string 1 argi)))
-      ;; Set heer command line strings
-      (cond
-       ;; start loader profile
-       ((member argi '("--profile"))
-        (setq start-loader-profile-flag t))
-       ((member argi '("--mini"))
-        (setq mini-emacs t))
-       ((member argi '("--loaddefs" "--loaddef"))
-        (setq make-loaddefs-flag t))
-       ((member argi '("--no-autorecover"))
-        (setq no-autorecover-init-time-flag t))
-       (t
-        (push argi args)
-        (setq done t)))))
-  (and command-line-args
-       (setcdr command-line-args args)))
-
-;;;; Defining & Load path
-(setq user-emacs-directory (expand-file-name "~/.emacs.d/"))
-
-;;;; Subroutines for Start
-(load (expand-file-name "elisp/start.d/subroutines_start" user-emacs-directory))
-
-;;;; Constraction loaddefs
-(unless (file-exists-p (expand-file-name "06_loaddefs_start.el" my-start-dir))
-  (setq make-loaddefs-flag t))
-(when make-loaddefs-flag
-  (require 'constraction-loaddefs nil 'noerror)
-  (call-interactively 'constraction-loaddefs))
-
-;;;; Load from directory
-;; If  arg option has `--debug-init' profile start-loader.
-(start-loader-load my-start-dir)
-
-;;;; TEST
-(if init-file-debug
-    (benchmark-load "test_start" 'NOERROR)
-  (load "test_start" 'NOERROR))
-
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
+(require 'package "package" 'noerr)
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+(add-to-list 'package-archives
+             '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 (package-initialize)
 
-(run-with-timer      15 nil 'run-after-init-timer)
-(run-with-idle-timer 30 nil 'run-after-init-idle-timer)
+;;;; Constraction loaddefs
+;; (unless (file-exists-p (expand-file-name "06_loaddefs_start.el" my-settings-dir))
+;;   (setq make-loaddefs-flag t))
+;; (when make-loaddefs-flag
+;;   (require 'constraction-loaddefs nil 'noerr)
+;;   (call-interactively 'constraction-loaddefs))
 
-(add-hook 'after-init-hook 'startup-times)
-(add-hook 'after-init-hook 'startup-display)
+;;;; Load from directory
+(require 'init-loader "init-loader" 'noerr)
+(unless init-file-debug ;not Debug `--debug-init'
+  (setq init-loader-show-log-after-init nil))
+(setq init-loader-byte-compile t)
+(init-loader-load)
+
+
+;; (run-with-timer      15 nil 'run-after-init-timer)
+;; (run-with-idle-timer 30 nil 'run-after-init-idle-timer)
+
+;; (add-hook 'after-init-hook 'startup-times)
+;; (add-hook 'after-init-hook 'startup-display)
+
+(setq during-init-p nil)
 
 
 

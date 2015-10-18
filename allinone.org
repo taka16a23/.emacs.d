@@ -20313,6 +20313,14 @@ or force open on right display
 ** 風変わりな解決策
    - Adapter によるインターフェースの統合
 * ----- DOING -----
+** TODO safe kill-emacs save-buffer find-file
+  <2015-10-14 Wed 22:43>
+** TODO managing keybind for emacs
+  <2015-10-14 Wed 12:22>
+** TODO database を多重化
+  <2015-10-12 Mon 20:55>
+** TODO create emacs keybind utility package
+  <2015-10-12 Mon 10:22>
 ** TODO Create king server clone on VirtualBox
   <2015-10-07 Wed 09:04>
 ** TODO coop mysql
