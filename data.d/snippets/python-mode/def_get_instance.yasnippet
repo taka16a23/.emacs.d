@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: def_get_instance
+# key: defget_instance
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
+# --
+@classmethod
+def get_instance(cls, $1):
+    if cls._instance is None:
+        cls._instance = cls($2)
+    return cls._instance$0

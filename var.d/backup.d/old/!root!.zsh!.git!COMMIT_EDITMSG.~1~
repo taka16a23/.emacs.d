@@ -1,0 +1,15 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Author:    Atami <taka16a23@gmail.com>
+# Committer: root <root@qu>
+#
+# On branch release-v1.0.0
+# Changes to be committed:
+#	modified:   .zshrc
+#
+# Changes not staged for commit:
+#	modified:   .zsh_history
+#	modified:   ipython.log.py
+#

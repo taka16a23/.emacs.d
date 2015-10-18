@@ -1,0 +1,47 @@
+# -*- mode: snippet -*-
+# name: logging_setup
+# key: logging_setup
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
+# --
+import os
+import sys
+import logging
+from path import Path
+from logging.handlers import RotatingFileHandler
+###############################################################################
+LOG = logging.getLogger(${10:\'${20:logname$(replace-regexp-in-string \"[[:blank:]]\" \"_\" yas-text)}\'})
+LOG.setLevel(logging.${30:GENERAL$(yas-choose-value \'(\"NOTSET\" \"DEBUG\" \"INFO\" \"WARN\" \"ERROR\" \"FATAL\"))})
+
+# output log file
+LOGPATH = ${40:Path(\'${50:/var/log/}${60:${70:NAME}}\')}
+_RH = RotatingFileHandler(unicode(LOGPATH), \'${80:MODE$(yas/choose-value \'(\"w\" \"a\"))}\', 1024*50, ${90:BACKUPNUM})
+_RH.setLevel(logging.${100:ROTATE$(yas/choose-value \'(\"NOTSET\" \"DEBUG\" \"INFO\" \"WARN\" \"ERROR\" \"FATAL\"))})
+_RH.setFormatter(logging.Formatter(
+    \'%(asctime)s;%(name)s;%(module)s %(funcName)s(%(lineno)d);%(levelname)s;\'
+    \'\n   %(message)s\'))
+LOG.addHandler(_RH)
+     
+# console
+if sys.stdout.isatty():
+    _CH = logging.StreamHandler()
+    _CH.setLevel(logging.${110:CONSOLE$(yas/choose-value \'(\"NOTSET\" \"DEBUG\" \"INFO\" \"WARN\" \"ERROR\" \"FATAL\"))})
+    LOG.addHandler(_CH)
+                   
+
+# exception
+def ${120:logging_handle_exceptions$(replace-regexp-in-string \"[[:blank:]]\" \"_\" yas-text)}(excls, value, trcbck):
+    r\"\"\"Handling exception hook.
+
+    sys.excepthook = $120
+    \"\"\"
+    import traceback
+    if issubclass(excls, KeyboardInterrupt):
+        sys.__excepthook__(excls, value, trcbck)
+        return
+    errortype = \'Error type: {}\'.format(excls)
+    valuetxt = \'Uncaught exception: {0}\'.format(str(value))
+    trcbcktxt = \'\'.join(traceback.format_tb(trcbck))
+    LOG.exception(\'\n\'.join([errortype, valuetxt, trcbcktxt]))
+
+sys.excepthook = $120
+###############################################################################

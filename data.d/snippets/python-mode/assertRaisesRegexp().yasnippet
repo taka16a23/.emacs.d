@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: assertRaisesRegexp()
+# key: assertRaisesRegexp
+# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])))
+# 32 = ` '
+# --
+assertRaisesRegexp self.assertRaises(${1:ExcClass}, ${2:regexp}):
+    $0

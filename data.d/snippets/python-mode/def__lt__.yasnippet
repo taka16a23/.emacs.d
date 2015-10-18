@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: __lt__(self, other):
+# key: deflt
+# condition: (not (py:at-string|comment-p))
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
+
+# Lower than
+# --
+def __lt__(self, other):
+    return self.$1 < other.$1

@@ -1,0 +1,37 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Author:    Atami <taka16a23@gmail.com>
+# Committer: root <root@qu>
+#
+# On branch feature-default-python-mode
+# Your branch is ahead of 'develop' by 2 commits.
+#   (use "git push" to publish your local commits)
+#
+# Changes to be committed:
+#	modified:   elisp/el-got/.loaddefs.el
+#	modified:   elisp/el-got/.status.el
+#	deleted:    elisp/el-got/dmacro/Makefile
+#	deleted:    elisp/el-got/dmacro/README
+#	deleted:    elisp/el-got/dmacro/demo.dm
+#	deleted:    elisp/el-got/dmacro/dir
+#	deleted:    elisp/el-got/dmacro/dm-c.el
+#	deleted:    elisp/el-got/dmacro/dm-compat.el
+#	deleted:    elisp/el-got/dmacro/dmacro-bld.el
+#	deleted:    elisp/el-got/dmacro/dmacro-sv.el
+#	deleted:    elisp/el-got/dmacro/dmacro.el
+#	deleted:    elisp/el-got/dmacro/dmacro.info
+#	deleted:    elisp/el-got/dmacro/dmacro.tar.gz
+#	deleted:    elisp/el-got/dmacro/dmacro.texinfo
+#	deleted:    elisp/el-got/dmacro/elisp.dm
+#	deleted:    elisp/el-got/dmacro/fortran.dm
+#	deleted:    elisp/el-got/dmacro/html.dm
+#
+# Changes not staged for commit:
+#	modified:   allinone.org
+#	modified:   allinone.org_archive
+#	modified:   data_e/code/python/interpreter/.pythistory
+#	modified:   data_e/log/Emacs_2015_10.log
+#	modified:   data_e/log/kill-ring-log_2015_10.org
+#

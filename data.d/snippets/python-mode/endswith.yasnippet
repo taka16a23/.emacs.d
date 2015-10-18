@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: endswith
+# key: endswith
+# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])))
+# --
+endswith((${1:\'$2\'}${3:, ${4:\'$5\'}})${6:, ${7:start}${8:, ${9:end}}})

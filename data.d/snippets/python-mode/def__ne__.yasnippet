@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: __ne__(self, other):
+# key: defne
+# condition: (not (py:at-string|comment-p))
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
+#
+# Not Equal
+# --
+def __ne__(self, other):
+    return ${1:not self == other}$0

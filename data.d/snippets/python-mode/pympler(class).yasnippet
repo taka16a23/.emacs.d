@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: pympler(class)
+# key: pympler
+# --
+from pympler.classtracker import ClassTracker
+trckr = ClassTracker()
+trckr.track_class(${1:class})
+trckr.create_snapshot()
+trckr.stats.print_summary()

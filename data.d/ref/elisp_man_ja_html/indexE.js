@@ -1,0 +1,1 @@
+document.writeln('<ul> <li> <a href="#SEC678">E. バッファローカルな変数</a></ul>');

@@ -1,0 +1,1327 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+"""JUNK"""
+
+import os
+from time import sleep
+import psutil
+import notify2
+from xcb.xproto import WindowError, BadWindow
+from subprocess import Popen
+from relaunch import relaunch
+
+from xahk import KeyboardLock
+from xahk.binder import ListenerObserver
+from xahk.binder import KeyBindServiceObserver
+from xahk.binder import KeyBindService
+from xahk.binder import MouseBindService
+from xahk.binder import Accelerator
+from xahk.binder import Candidate
+from xahk.binder import InputEventHandler
+from xahk.binder import ButtonIndex, ModifierMask
+from xahk.binder import ListenerObserver
+from xahk.binder import KeyBindServiceObserver
+from xahk.windowspec import (
+    WindowWMClassSpec, WindowAnySpec, WindowSpec, WindowTitleSpec)
+from xahk.piece import X11Key, X11Button
+from xahk.listener import CursorListener
+from xahk.listener import CursorListenerObserver
+from xahk.listener import WindowListenerFactory
+from xahk.listener import WindowListenerFactoryObserver
+from xahk.listener import RootWindowListener
+from xahk.window_manager import WindowManager
+from xahk.wm.display import Display
+
+from xahk.logger import LOG
+
+import atexit
+from excepthook._beep import BeepExceptionHook
+
+BeepExceptionHook(100, 700)
+
+@atexit.register
+def on_exit():
+    r"""SUMMARY
+
+    on_exit()
+
+    @Return:
+
+    @Error:
+    """
+    Display().disconnect()
+    LOG.info('exiting...')
+
+
+class ExcludeWindowSpec(WindowSpec):
+    r"""ExcludeWindowSpec
+
+    ExcludeWindowSpec is a WindowSpec.
+    Responsibility:
+    """
+    def is_satisfied(self, window):
+        r"""SUMMARY
+
+        is_satisfied(window)
+
+        @Arguments:
+        - `window`:
+
+        @Return:
+
+        @Error:
+        """
+        wmclasses = window.get_wmclass()
+        for wmclass in ('emacs', 'xfce4-terminal', 'dia-normal'):
+            if wmclass in wmclasses:
+                return False
+        return True
+
+
+class ExcludeWindowSpecForMouse(WindowSpec):
+    r"""ExcludeWindowSpec
+
+    ExcludeWindowSpec is a WindowSpec.
+    Responsibility:
+    """
+    def is_satisfied(self, window):
+        r"""SUMMARY
+
+        is_satisfied(window)
+
+        @Arguments:
+        - `window`:
+
+        @Return:
+
+        @Error:
+        """
+        if 'dia-normal' in window.get_wmclass():
+            return False
+        if 'libreoffice-calc' in window.get_wmclass():
+            return False
+        if 'wireshark' in window.get_wmclass():
+            return False
+        if 'V2C' in window.get_wmclass():
+            return False
+        if 'KeePass Password Safe' in window.title:
+            return False
+        return True
+
+
+class ButtonCommand(InputEventHandler):
+    r"""KeyCommand
+
+    KeyCommand is a ImputCommand.
+    Responsibility:
+    """
+
+    def __init__(self, accelerator):
+        r"""
+
+        @Arguments:
+        - `accelerator`:
+        """
+        super(ButtonCommand, self).__init__()
+        self.button = X11Button(
+            accelerator.get_code(), accelerator.get_modifiers())
+
+    def on_down(self, event):
+        r"""SUMMARY
+
+        on_down(event)
+
+        @Arguments:
+        - `event`:
+
+        @Return:
+
+        @Error:
+        """
+        pass
+
+    def on_up(self, event):
+        r"""SUMMARY
+
+        on_up(event)
+
+        @Arguments:
+        - `event`:
+
+        @Return:
+
+        @Error:
+        """
+        window = CursorListener(Display()).get_under_window()
+        rep = self.button.display.core.TranslateCoordinates(
+            window, event.get_window(), event.get_x(), event.get_y()).reply()
+        newx = -(rep.dst_x - (2 * event.get_x()))
+        newy = -(rep.dst_y - (2 * event.get_y()))
+        self.button.press(window, newx, newy)
+        self.button.release(window, newx, newy)
+        self.button.display.flush()
+
+    def __str__(self):
+        return ('{0}({1.code}, {1.modifiers})'
+                .format(super(ButtonCommand, self).__str__(), self.button))
+
+
+class TaskManagerQuit(InputEventHandler):
+    r"""TaskManagerQuit
+
+    TaskManagerQuit is a ButtonCommand.
+    Responsibility:
+    """
+    def on_up(self, event):
+        r"""SUMMARY
+
+        on_up()
+
+        @Return:
+
+        @Error:
+        """
+        windows = WindowManager(Display()).list_windows(
+            WindowTitleSpec('Task Manager'))
+        if not windows:
+            return
+        window = windows[0]
+        psutil.Process(window.get_pid()).kill()
+
+
+class VlcKill(InputEventHandler):
+    r"""VlcKill
+
+    VlcKill is a InputEventHandler.
+    Responsibility:
+    """
+    def on_up(self, event):
+        r"""SUMMARY
+
+        on_up(event)
+
+        @Arguments:
+        - `event`:
+
+        @Return:
+
+        @Error:
+        """
+        window = CursorListener(Display()).get_under_window()
+        if not 'vlc' in window.wmclass:
+            return
+        if window != RootWindowListener(Display()).get_active_window():
+            return
+        psutil.Process(window.get_pid()).kill()
+
+
+class KeyCommand(InputEventHandler):
+    r"""KeyCommand
+
+    KeyCommand is a ImputCommand.
+    Responsibility:
+    """
+
+    def __init__(self, accelerator):
+        r"""
+
+        @Arguments:
+        - `accelerator`:
+        """
+        super(KeyCommand, self).__init__()
+        self.key = X11Key(accelerator.get_code(), accelerator.get_modifiers())
+
+    def on_down(self, event):
+        r"""SUMMARY
+
+        on_down(event)
+
+        @Arguments:
+        - `event`:
+
+        @Return:
+
+        @Error:
+        """
+        self.key.press(event.get_window())
+        self.key.display.flush()
+
+    def on_up(self, event):
+        r"""SUMMARY
+
+        on_up(event)
+
+        @Arguments:
+        - `event`:
+
+        @Return:
+
+        @Error:
+        """
+        self.key.release(event.get_window())
+        self.key.display.flush()
+
+    def __str__(self):
+        return ('{0}({1.code}, {1.modifiers})'
+                .format(super(KeyCommand, self).__str__(), self.key))
+
+
+class KeyCommandForDia(InputEventHandler):
+    r"""KeyCommandForDia
+
+    KeyCommandForDia is a .
+    Responsibility:
+    """
+    def __init__(self, accelerator):
+        r"""
+
+        @Arguments:
+        - `accelerator`:
+        """
+        InputEventHandler.__init__(self)
+        self.key = X11Key(accelerator.get_code(), accelerator.get_modifiers())
+
+    def on_down(self, event):
+        r"""SUMMARY
+
+        on_down(event)
+
+        @Arguments:
+        - `event`:
+
+        @Return:
+
+        @Error:
+        """
+        pass
+
+    def on_up(self, event):
+        r"""SUMMARY
+
+        on_up(event)
+
+        @Arguments:
+        - `event`:
+
+        @Return:
+
+        @Error:
+        """
+        self.key.tap(event.get_window())
+        self.key.display.flush()
+
+
+
+
+class RestartCommand(InputEventHandler):
+    r"""KeyCommand
+
+    KeyCommand is a ImputCommand.
+    Responsibility:
+    """
+
+    def on_down(self, event):
+        r"""SUMMARY
+
+        on_down(event)
+
+        @Arguments:
+        - `event`:
+
+        @Return:
+
+        @Error:
+        """
+        print('Warning')
+        print('Restarting!!')
+        os.system('modprobe pcspkr')
+        os.system('/usr/bin/beep -f1200 -r2 -d0.01 -l300 -n -f1000 -l300')
+        os.system('rmmod pcspkr')
+        # python = sys.executable
+        # os.execl(python, python, *sys.argv)
+        relaunch()
+
+
+class LaunchThunar(InputEventHandler):
+    r"""LaunchThunar
+
+    LounchThunar is a InputEventHandler.
+    Responsibility:
+    """
+    def on_down(self, event):
+        r"""SUMMARY
+
+        on_up(event)
+
+        @Arguments:
+        - `event`:
+
+        @Return:
+
+        @Error:
+        """
+        Popen(['/usr/bin/xdg-open', os.environ['HOME']])
+
+
+class Xfrun4(InputEventHandler):
+    r"""Xfrun4
+
+    Xfrun4 is a InputEventHandler.
+    Responsibility:
+    """
+    def on_down(self, event):
+        r"""SUMMARY
+
+        on_down(event)
+
+        @Arguments:
+        - `event`:
+
+        @Return:
+
+        @Error:
+        """
+        Popen(['/usr/bin/xfrun4'])
+
+
+class ChromeOpenSecret(InputEventHandler, WindowListenerFactoryObserver):
+    r"""ChromeOpenSecret
+
+    ChromeOpenSecret is a InputCommand.
+    Responsibility:
+    """
+    def __init__(self, ):
+        r"""
+        """
+        self.ctrl_l = X11Key(46, ModifierMask.Control)
+        self.ctrl_c = X11Key(54, ModifierMask.Control)
+        self.shift_ctrl_n = X11Key(57, ModifierMask.Shift|ModifierMask.Control)
+        self.ctrl_v = X11Key(55, ModifierMask.Control)
+        self.ret = X11Key(36)
+
+    def on_up(self, event):
+        r"""SUMMARY
+
+        on_up(event)
+
+        @Arguments:
+        - `event`:
+
+        @Return:
+
+        @Error:
+        """
+        self.ctrl_l.tap(event.get_window().get_id())
+        self.ctrl_l.display.flush()
+        sleep(0.1)
+        self.ctrl_c.tap(event.get_window().get_id())
+        self.ctrl_c.display.flush()
+        WindowListenerFactory(Display()).add_observer(self)
+        sleep(0.1)
+        self.shift_ctrl_n.tap(event.get_window().get_id())
+        self.shift_ctrl_n.display.flush()
+
+    def on_created_desktop_window(self, window):
+        r"""SUMMARY
+
+        on_created_window(window)
+
+        @Arguments:
+        - `window`:
+
+        @Return:
+
+        @Error:
+        """
+        if 'Google-chrome' not in window.get_wmclass():
+            return
+        self.ctrl_v.tap(window.get_id())
+        self.ctrl_v.display.flush()
+        self.ret.tap(window.get_id())
+        self.ret.display.flush()
+        WindowListenerFactory(Display()).remove_observer(self)
+
+
+class KeyCommandForMouse(InputEventHandler):
+    r"""KeyCommand
+
+    KeyCommand is a ImputCommand.
+    Responsibility:
+    """
+
+    def __init__(self, accelerator):
+        r"""
+
+        @Arguments:
+        - `accelerator`:
+        """
+        super(KeyCommandForMouse, self).__init__()
+        self.key = X11Key(accelerator.get_code(), accelerator.get_modifiers())
+
+    def on_up(self, event):
+        r"""SUMMARY
+
+        on_up(event)
+
+        @Arguments:
+        - `event`:
+
+        @Return:
+
+        @Error:
+        """
+        window = CursorListener(Display()).get_under_window()
+        self.key.press(window)
+        self.key.display.flush()
+
+    def on_down(self, event):
+        r"""SUMMARY
+
+        on_down(event)
+
+        @Arguments:
+        - `event`:
+
+        @Return:
+
+        @Error:
+        """
+        window = CursorListener(Display()).get_under_window()
+        self.key.release(window)
+        self.key.display.flush()
+
+
+class KeyCommandForMinimize(InputEventHandler):
+    r"""KeyCommandForMinimize
+
+    KeyCommandForMinimize is a KeyCommandForMouse.
+    Responsibility:
+    """
+    def on_down(self, event):
+        r"""SUMMARY
+
+        on_down(event)
+
+        @Arguments:
+        - `event`:
+
+        @Return:
+
+        @Error:
+        """
+        pass
+
+    def on_up(self, event):
+        r"""SUMMARY
+
+        on_up(event)
+
+        @Arguments:
+        - `event`:
+
+        @Return:
+
+        @Error:
+        """
+        window = CursorListener(Display()).get_under_window()
+        if not window.is_minimized():
+            window.minimize()
+        # if not window.is_shaded():
+            # window.set_shade()
+
+
+class KeyCommandForMouseChrome(KeyCommandForMouse):
+    r"""KeyCommandForMouseChrome
+
+    KeyCommandForMouseChrome is a KeyCommandForMouse.
+    Responsibility:
+    """
+    def on_down(self, event):
+        r"""SUMMARY
+
+        on_up(event)
+
+        @Arguments:
+        - `event`:
+
+        @Return:
+
+        @Error:
+        """
+        super(KeyCommandForMouseChrome, self).on_down(event)
+        sleep(0.1)
+
+
+class KeyCommandForMouseChromeMiddleButton(KeyCommandForMouse):
+    r"""KeyCommandForMouseChromeMiddleButton
+
+    KeyCommandForMouseChromeMiddleButton is a KeyCommandForMouse.
+    Responsibility:
+    """
+    def __init__(self, ):
+        r"""
+        """
+        super(KeyCommandForMouseChromeMiddleButton, self).__init__(
+            Accelerator(25, ModifierMask.Control)) # ^w
+        self.shift_a = X11Key(38, ModifierMask.Shift)
+
+    def on_up(self, event):
+        r"""SUMMARY
+
+        on_up(event)
+
+        @Arguments:
+        - `event`:
+
+        @Return:
+
+        @Error:
+        """
+        pass
+
+    def on_down(self, event):
+        r"""SUMMARY
+
+        on_up(event)
+
+        @Arguments:
+        - `event`:
+
+        @Return:
+
+        @Error:
+        """
+        window = CursorListener(Display()).get_under_window()
+        sleep_time = 0
+        try:
+            if 'All - Google Chrome' == window.title:
+                self.shift_a.press(window)
+                self.shift_a.release(window)
+                self.shift_a.display.flush()
+                sleep_time = 1
+        except (WindowError, BadWindow) as err:
+            os.system('modprobe pcspkr')
+            os.system('/usr/bin/beep -f 100 -l 350')
+            os.system('rmmod pcspkr')
+            print(err)
+        self.key.press(window)
+        self.key.release(window)
+        sleep(sleep_time)
+        self.key.display.flush()
+
+
+class SleipnirMiddleClick(KeyCommandForMouse):
+    r"""SleipnirMiddleClick
+
+    SleipnirMiddleClick is a KeyCommandForMouse.
+    Responsibility:
+    """
+    def __init__(self, ):
+        r"""
+        """
+        super(SleipnirMiddleClick, self).__init__(
+            Accelerator(25, ModifierMask.Control)) # ^w
+
+    def on_up(self, event):
+        r"""SUMMARY
+
+        on_up(event)
+
+        @Arguments:
+        - `event`:
+
+        @Return:
+
+        @Error:
+        """
+        window = CursorListener(Display()).get_under_window()
+        print('DEBUG-2-xahk3.py')
+        if not 'Sleipnir.exe' in window.wmclass:
+            print('DEBUG-3-xahk3.py')
+            return
+        print('DEBUG-1-xahk3.py')
+        if window.title == 'Sleipnir':
+            window.close()
+            return
+        print('DEBUG-4-xahk3.py')
+        # self.key.press(window)
+        # sleep(0.1)
+        self.key.release(window)
+        self.key.display.flush()
+
+    def on_down(self, event):
+        r"""SUMMARY
+
+        on_down(event)
+
+        @Arguments:
+        - `event`:
+
+        @Return:
+
+        @Error:
+        """
+        window = CursorListener(Display()).get_under_window()
+        print('DEBUG-2-xahk3.py')
+        if not 'Sleipnir.exe' in window.wmclass:
+            print('DEBUG-3-xahk3.py')
+            return
+        print('DEBUG-1-xahk3.py')
+        if window.title == 'Sleipnir':
+            window.close()
+            return
+        print('DEBUG-4-xahk3.py')
+        self.key.press(window)
+        self.key.display.flush()
+
+
+class ToggleAlwaysTop(InputEventHandler):
+    r"""ToggleAlwaysTop
+
+    ToggleAlwaysTop is a InputCommand.
+    Responsibility:
+    """
+
+    def on_down(self, event):
+        r"""SUMMARY
+
+        on_down(event)
+
+        @Arguments:
+        - `event`:
+
+        @Return:
+
+        @Error:
+        """
+        window = CursorListener(Display()).get_under_window()
+        window.set_always_on_top(2)
+
+
+class XAHKStopRunning(Exception):
+    r"""XAHKStopRunning
+
+    XAHKStopRunning is a Exception.
+    Responsibility:
+    """
+
+
+class QuitCommand(InputEventHandler):
+    r"""QuitCommand
+
+    QuitCommand is a InputCommand.
+    Responsibility:
+    """
+    def on_down(self, event):
+        r"""SUMMARY
+
+        on_down(event)
+
+        @Arguments:
+        - `event`:
+
+        @Return:
+
+        @Error:
+        """
+        raise XAHKStopRunning()
+
+
+class Debug(InputEventHandler, CursorListenerObserver,
+            ListenerObserver, KeyBindServiceObserver):
+    r"""Debug
+
+    Debug is a InputCommand.
+    Responsibility:
+    """
+    def __init__(self, ):
+        r"""
+        """
+        self._debugging = False
+        self.start_debugging()
+        self._under_window = None
+        self._set_under_window(CursorListener(Display()).get_under_window())
+
+    def start_debugging(self, ):
+        r"""SUMMARY
+
+        start_debugging()
+
+        @Return:
+
+        @Error:
+        """
+        if self._debugging:
+            return self._debugging
+        print('Starting Debug')
+        CursorListener(Display()).add_observer(self)
+        KeyBindService(Display()).add_observer(self)
+        for listener in KeyBindService(Display()).list_listeners():
+            listener.add_observer(self)
+        MouseBindService(Display())._listener.add_observer(self)
+        self._debugging = True
+
+    def stop_debugging(self, ):
+        r"""SUMMARY
+
+        stop_debugging()
+
+        @Return:
+
+        @Error:
+        """
+        if not self._debugging:
+            return
+        print('Stopping Debug')
+        CursorListener(Display()).remove_observer(self)
+        KeyBindService(Display()).remove_observer(self)
+        MouseBindService(Display())._listener.remove_observer(self)
+        self._debugging = False
+
+    def on_down(self, event):
+        r"""SUMMARY
+
+        on_down(event)
+
+        @Arguments:
+        - `event`:
+
+        @Return:
+
+        @Error:
+        """
+        if self._debugging:
+            self.stop_debugging()
+        else:
+            self.start_debugging()
+
+    def _set_under_window(self, window):
+        r"""SUMMARY
+
+        _set_under_window(window)
+
+        @Arguments:
+        - `window`:
+
+        @Return:
+
+        @Error:
+        """
+        self._under_window = (window.id, window.wmclass[0])
+
+    def on_changed_under_window(self, desktop_cursor):
+        r"""SUMMARY
+
+        on_changed_under_window(under_window)
+
+        @Arguments:
+        - `under_window`:
+
+        @Return:
+
+        @Error:
+        """
+        old_window = self._under_window
+        self._set_under_window(desktop_cursor.get_under_window())
+        print('\n** Changed Under the Window {} to {}'
+              .format(old_window, self._under_window))
+
+    def on_registered_accelerator(self, accelerator, handler):
+        r"""SUMMARY
+
+        on_binded_key(target, cmd)
+
+        @Arguments:
+        - `target`:
+        - `cmd`:
+
+        @Return:
+
+        @Error:
+        """
+        print('registered {} => {}'.format(accelerator, handler))
+
+    def on_unregistered_accelerator(self, accelerator):
+        r"""SUMMARY
+
+        on_unregistered_accelerator(accelerator, handler)
+
+        @Arguments:
+        - `accelerator`:
+        - `handler`:
+
+        @Return:
+
+        @Error:
+        """
+        print('unregistered {}'.format(accelerator))
+
+    def on_created_listener(self, listener):
+        """function on_created_listener
+
+        listener:
+
+        returns
+        """
+        listener.add_observer(self)
+
+    def on_destroyed_listener(self, listener):
+        """function on_destroyed_listener
+
+        listener:
+
+        returns
+        """
+        listener.remove_observer(self)
+
+
+class DebugInputEventHandler(InputEventHandler):
+
+    def on_down(self, event):
+        print('DEBUG on_down')
+        # KeyboardLock(Display())
+
+    def on_up(self, event):
+        print('DEBUG on_up')
+
+
+class KeyboardLockHandler(InputEventHandler):
+    r"""KeyboardLockHandler
+
+    KeyboardLockHandler is a InputEventHandler.
+    Responsibility:
+    """
+    def on_down(self, event):
+        r"""SUMMARY
+
+        on_down(event)
+
+        @Arguments:
+        - `event`:
+
+        @Return:
+
+        @Error:
+        """
+        KeyboardLock(Display(), [Accelerator(30, ModifierMask.Super)])
+
+
+class DebugListenerObserver(ListenerObserver):
+    def on_registered_accelerator(self, accelerator, handler):
+        print('{}, {}'.format(accelerator, handler))
+
+    def on_unregistered_accelerator(self, accelerator):
+        print('{}'.format(accelerator))
+
+
+class DebugKeyBindServiceObserver(DebugListenerObserver, KeyBindServiceObserver):
+    def __init__(self, ):
+        r"""
+        """
+        for listener in KeyBindService(Display()).list_listeners():
+            listener.add_observer(self)
+        KeyBindService(Display()).add_observer(self)
+
+    def on_created_listener(self, listener):
+        listener.add_observer(self)
+
+
+class BossKey(object):
+    r"""BossKey
+
+    BossKey is a WindowListenerFactoryObserver.
+    Responsibility:
+    """
+    def __init__(self, ):
+        r"""
+        """
+        self.windows = []
+
+    def add_window(self, window):
+        r"""SUMMARY
+
+        add_window(window)
+
+        @Arguments:
+        - `window`:
+
+        @Return:
+
+        @Error:
+        """
+        self.windows.append(window)
+
+    def remove_window(self, window):
+        r"""SUMMARY
+
+        remove_window(window)
+
+        @Arguments:
+        - `window`:
+
+        @Return:
+
+        @Error:
+        """
+        self.windows.remove(window)
+
+    def has_window(self, window):
+        r"""SUMMARY
+
+        has_window(window)
+
+        @Arguments:
+        - `window`:
+
+        @Return:
+
+        @Error:
+        """
+        return window in self.windows
+
+    def boss_in(self, ):
+        r"""SUMMARY
+
+        boss_in()
+
+        @Return:
+
+        @Error:
+        """
+        for window in self.windows:
+            window.minimize()
+
+    def boss_out(self, ):
+        r"""SUMMARY
+
+        boss_out()
+
+        @Return:
+
+        @Error:
+        """
+        for window in self.windows:
+            window.show()
+
+
+class RegistryWindowBossKey(InputEventHandler):
+    r"""RegistryWindowBossKey
+
+    RegistryWindowBossKey is a InputEventHandler.
+    Responsibility:
+    """
+    def __init__(self, display, bosskey):
+        r"""
+
+        @Arguments:
+        - `bosskey`:
+        """
+        InputEventHandler.__init__(self)
+        self.display = display
+        self._bosskey = bosskey
+
+    def on_down(self, event):
+        r"""SUMMARY
+
+        on_down(event)
+
+        @Arguments:
+        - `event`:
+
+        @Return:
+
+        @Error:
+        """
+        window = WindowManager(self.display).get_active_window()
+        if not self._bosskey.has_window(window):
+            self._bosskey.add_window(window)
+            notify2.init('BossKey')
+            notif = notify2.Notification('Added\nBossKey Window {}'
+                                         .format(window.title))
+            notif.set_timeout(3000)
+            notif.show()
+        else:
+            self._bosskey.remove_window(window)
+            notify2.init('BossKey')
+            notif = notify2.Notification('Removed\nBossKey Window {}'
+                                         .format(window.title))
+            notif.set_timeout(3000)
+            notif.show()
+
+
+class ExecuteBossKeyIn(InputEventHandler):
+    r"""ExecuteBossKey
+
+    ExecuteBossKey is a InputEventHandler.
+    Responsibility:
+    """
+    def __init__(self, bosskey):
+        r"""
+
+        @Arguments:
+        - `bosskey`:
+        """
+        self._bosskey = bosskey
+
+    def on_down(self, event):
+        r"""SUMMARY
+
+        on_down(event)
+
+        @Arguments:
+        - `event`:
+
+        @Return:
+
+        @Error:
+        """
+        self._bosskey.boss_in()
+
+
+class ExecuteBossKeyOut(InputEventHandler):
+    r"""ExecuteBossKeyOut
+
+    ExecuteBossKeyOut is a InputEventHandler.
+    Responsibility:
+    """
+    def __init__(self, bosskey):
+        r"""
+
+        @Arguments:
+        - `bosskey`:
+        """
+        self._bosskey = bosskey
+
+    def on_down(self, event):
+        r"""SUMMARY
+
+        on_down(event)
+
+        @Arguments:
+        - `event`:
+
+        @Return:
+
+        @Error:
+        """
+        print('DEBUG-5-xahk3.py')
+        self._bosskey.boss_out()
+
+
+class Suspend(InputEventHandler):
+    r"""Suspend
+
+    Suspend is a InputEventHandler.
+    Responsibility:
+    """
+    _instance = None
+    acce = Accelerator(67, ModifierMask.Super) # F1 + Super
+    suspend_candidate = Candidate(WindowAnySpec())
+
+    def __init__(self, ):
+        r"""
+        """
+        InputEventHandler.__init__(self, )
+        self._is_suspending = False
+        self.suspend_candidate.register(self.acce, self)
+        self._candidates = None
+
+    @classmethod
+    def get_instance(cls, ):
+        if cls._instance is None:
+            cls._instance = cls()
+        return cls._instance
+
+    def on_up(self, event):
+        r"""SUMMARY
+
+        on_up(event)
+
+        @Arguments:
+        - `event`:
+
+        @Return:
+
+        @Error:
+        """
+        if not self._is_suspending:
+            kservice = KeyBindService(Display())
+            self._candidates = kservice.list_candidates()
+            for cand in self._candidates:
+                kservice.withdraw_candidate(cand)
+            kservice.entry_candidate(self.suspend_candidate)
+            # kservice.stop_service()
+            MouseBindService(Display()).stop_service()
+            self._is_suspending = True
+            print('suspending')
+        else:
+            kservice = KeyBindService(Display())
+            kservice.withdraw_candidate(self.suspend_candidate)
+            for cand in self._candidates:
+                kservice.entry_candidate(cand)
+            self._candidates = None
+            # KeyBindService(Display()).start_service()
+            MouseBindService(Display()).start_service()
+            self._is_suspending = False
+            print('quit suspending')
+
+
+DOWN_ACCE = Accelerator(116)
+UP_ACCE = Accelerator(111)
+LEFT_ACCE = Accelerator(113)
+RIGHT_ACCE = Accelerator(114)
+L_KEY_ACCE = Accelerator(46)
+F2_ACCE = Accelerator(68)
+F8_ACCE = Accelerator(74)
+F8_SHIFT_ACCE = Accelerator(74, ModifierMask.Shift)
+F8_SUPER_ACCE = Accelerator(74, ModifierMask.Super)
+U_CTRL_KEY_ACCE = Accelerator(30, ModifierMask.Control)
+N_CTRL_KEY_ACCE = Accelerator(57, ModifierMask.Control)
+K_CTRL_KEY_ACCE = Accelerator(45, ModifierMask.Control)
+L_CTRL_KEY_ACCE = Accelerator(46, ModifierMask.Control)
+J_CTRL_KEY_ACCE = Accelerator(44, ModifierMask.Control)
+E_CTRL_KEY_ACCE = Accelerator(26, ModifierMask.Control)
+Q_CTRL_KEY_ACCE = Accelerator(24, ModifierMask.Control)
+W_CTRL_KEY_ACCE = Accelerator(25, ModifierMask.Control)
+V_CTRL_KEY_ACCE = Accelerator(55, ModifierMask.Control)
+V_SHIFT_CTRL_KEY_ACCE = Accelerator(55, ModifierMask.Shift|ModifierMask.Control)
+T_SHIFT_CTRL_KEY_ACCE = Accelerator(28, ModifierMask.Shift|ModifierMask.Control)
+U_CTRL_SHIFT_KEY_ACCE = Accelerator(30, ModifierMask.Control|ModifierMask.Shift)
+N_SUPER_KEY_ACCE = Accelerator(57, ModifierMask.Super)
+T_SUPER_KEY_ACCE = Accelerator(28, ModifierMask.Super)
+L_SUPER_KEY_ACCE = Accelerator(46, ModifierMask.Super)
+E_SUPER_KEY_ACCE = Accelerator(26, ModifierMask.Super)
+R_SUPER_KEY_ACCE = Accelerator(27, ModifierMask.Super)
+A_SUPER_KEY_ACCE = Accelerator(38, ModifierMask.Super)
+A_SUPER_SHIFT_KEY_ACCE = Accelerator(38, ModifierMask.Super|ModifierMask.Shift)
+ESC_SHIFT_KEY_ACCE = Accelerator(9, ModifierMask.Shift)
+F1_SHIFT_KEY_ACCE = Accelerator(67, ModifierMask.Shift)
+F1_SUPER_KEY_ACCE = Accelerator(67, ModifierMask.Super)
+F1_ALT_KEY_ACCE = Accelerator(67, ModifierMask.Alt)
+F4_ALT_KEY_ACCE = Accelerator(70, ModifierMask.Alt)
+TAB_CTRL_SHIFT_ACCE = Accelerator(23, ModifierMask.Shift|ModifierMask.Control)
+TAB_CTRL_ACCE = Accelerator(23, ModifierMask.Control)
+ALT_HOME_ACCE = Accelerator(110, ModifierMask.Alt)
+
+
+global_key_candidate = Candidate(WindowAnySpec())
+global_key_candidate.register(ESC_SHIFT_KEY_ACCE, QuitCommand())
+global_key_candidate.register(F1_SHIFT_KEY_ACCE, Debug())
+global_key_candidate.register(F1_ALT_KEY_ACCE, RestartCommand())
+global_key_candidate.register(L_SUPER_KEY_ACCE, KeyboardLockHandler())
+global_key_candidate.register(E_SUPER_KEY_ACCE, LaunchThunar())
+global_key_candidate.register(R_SUPER_KEY_ACCE, Xfrun4())
+global_key_candidate.register(F1_SUPER_KEY_ACCE, Suspend())
+BOSSKEY = BossKey()
+global_key_candidate.register(
+    F8_SHIFT_ACCE, RegistryWindowBossKey(Display(), BOSSKEY))
+global_key_candidate.register(F8_ACCE, ExecuteBossKeyIn(BOSSKEY))
+global_key_candidate.register(F8_SUPER_ACCE, ExecuteBossKeyOut(BOSSKEY))
+
+exclue_emacs_key_candidate = Candidate(ExcludeWindowSpec())
+exclue_emacs_key_candidate.register(N_CTRL_KEY_ACCE, KeyCommand(DOWN_ACCE))
+exclue_emacs_key_candidate.register(K_CTRL_KEY_ACCE, KeyCommand(UP_ACCE))
+exclue_emacs_key_candidate.register(J_CTRL_KEY_ACCE, KeyCommand(LEFT_ACCE))
+exclue_emacs_key_candidate.register(L_CTRL_KEY_ACCE, KeyCommand(RIGHT_ACCE))
+
+dia_key_candidate = Candidate(WindowWMClassSpec('dia-normal'))
+dia_key_candidate.register(N_CTRL_KEY_ACCE, KeyCommandForDia(DOWN_ACCE))
+dia_key_candidate.register(K_CTRL_KEY_ACCE, KeyCommandForDia(UP_ACCE))
+dia_key_candidate.register(J_CTRL_KEY_ACCE, KeyCommandForDia(LEFT_ACCE))
+dia_key_candidate.register(L_CTRL_KEY_ACCE, KeyCommandForDia(RIGHT_ACCE))
+
+
+emacs_candidate = Candidate(WindowWMClassSpec('emacs'))
+
+chrome_candidate = Candidate(WindowWMClassSpec('Google-chrome'))
+chrome_candidate.register(E_CTRL_KEY_ACCE, KeyCommand(L_CTRL_KEY_ACCE))
+chrome_candidate.register(Q_CTRL_KEY_ACCE, KeyCommand(T_SHIFT_CTRL_KEY_ACCE))
+chrome_candidate.register(N_SUPER_KEY_ACCE, ChromeOpenSecret())
+chrome_candidate.register(T_SUPER_KEY_ACCE, ChromeOpenSecret())
+
+xfce4_terminal = Candidate(WindowWMClassSpec('xfce4-terminal'))
+xfce4_terminal.register(V_CTRL_KEY_ACCE, KeyCommand(V_SHIFT_CTRL_KEY_ACCE))
+
+libre_calc = Candidate(WindowWMClassSpec('libreoffice-calc'))
+libre_calc.register(E_CTRL_KEY_ACCE, KeyCommand(F2_ACCE))
+
+# TODO: (Atami) [2015/07/28]
+sleipnir_candidate = Candidate(WindowWMClassSpec('Sleipnir.exe'))
+# sleipnir_mouse_candidate.register(MIDDLE_BUTTON_ACCE, SleipnirMiddleClick())
+sleipnir_candidate.register(U_CTRL_KEY_ACCE, KeyCommand(U_CTRL_SHIFT_KEY_ACCE))
+
+
+DebugKeyBindServiceObserver()
+KeyBindService(Display()).entry_candidate(global_key_candidate)
+KeyBindService(Display()).entry_candidate(exclue_emacs_key_candidate)
+KeyBindService(Display()).entry_candidate(chrome_candidate)
+KeyBindService(Display()).entry_candidate(xfce4_terminal)
+KeyBindService(Display()).entry_candidate(sleipnir_candidate)
+KeyBindService(Display()).entry_candidate(dia_key_candidate)
+KeyBindService(Display()).entry_candidate(libre_calc)
+KeyBindService(Display()).start_service()
+
+
+# button
+MIDDLE_BUTTON_ACCE = Accelerator(ButtonIndex.Middle, )
+RIGHT_BUTTON_ACCE = Accelerator(ButtonIndex.Right)
+LEFT_BUTTON_ACCE = Accelerator(ButtonIndex.Left)
+SHIFT_LEFT_BUTTON_ACCE = Accelerator(ButtonIndex.Left, ModifierMask.Shift)
+LEFT_BUTTON_ACCE = Accelerator(ButtonIndex.Left, )
+WHEELUP_RIGHT_BUTTON_ACCE = Accelerator(
+    ButtonIndex.WheelUp, ModifierMask.Right)
+WHEELDOWN_RIGHT_BUTTON_ACCE = Accelerator(
+    ButtonIndex.WheelDown, ModifierMask.Right)
+RIGHT_MIDDLE_BUTTON_ACCE = Accelerator(ButtonIndex.Middle, ModifierMask.Right)
+RIGHT_LEFT_BUTTON_ACCE = Accelerator(ButtonIndex.Left, ModifierMask.Right)
+
+global_button_candidate = Candidate(WindowAnySpec())
+global_button_candidate.register(SHIFT_LEFT_BUTTON_ACCE, ToggleAlwaysTop())
+global_button_candidate.register(
+    MIDDLE_BUTTON_ACCE, KeyCommand(F4_ALT_KEY_ACCE))
+
+# global_button_candidate.register(
+#     RIGHT_MIDDLE_BUTTON_ACCE, KeyCommandForMinimize())
+# global_button_candidate.register(
+#     RIGHT_BUTTON_ACCE, ButtonCommand(RIGHT_BUTTON_ACCE))
+
+exclude_global_button_candidate = Candidate(ExcludeWindowSpecForMouse())
+exclude_global_button_candidate.register(
+    RIGHT_MIDDLE_BUTTON_ACCE, KeyCommandForMinimize())
+exclude_global_button_candidate.register(
+    RIGHT_BUTTON_ACCE, ButtonCommand(RIGHT_BUTTON_ACCE))
+
+chrome_mouse_candidate = Candidate(WindowWMClassSpec('Google-chrome'))
+chrome_mouse_candidate.register(
+    MIDDLE_BUTTON_ACCE, KeyCommandForMouseChromeMiddleButton())
+chrome_mouse_candidate.register(
+    WHEELUP_RIGHT_BUTTON_ACCE, KeyCommandForMouseChrome(TAB_CTRL_SHIFT_ACCE))
+chrome_mouse_candidate.register(
+    WHEELDOWN_RIGHT_BUTTON_ACCE, KeyCommandForMouseChrome(TAB_CTRL_ACCE))
+chrome_mouse_candidate.register(
+    RIGHT_BUTTON_ACCE, ButtonCommand(RIGHT_BUTTON_ACCE))
+chrome_mouse_candidate.register(
+    RIGHT_LEFT_BUTTON_ACCE, KeyCommandForMouseChrome(ALT_HOME_ACCE))
+
+taskmanager_mouse_candidate = Candidate(WindowTitleSpec('Task Manager'))
+taskmanager_mouse_candidate.register(MIDDLE_BUTTON_ACCE, TaskManagerQuit())
+
+vlc_mouse_candidate = Candidate(WindowWMClassSpec('vlc'))
+vlc_mouse_candidate.register(MIDDLE_BUTTON_ACCE, VlcKill())
+
+MouseBindService(Display()).entry_candidate(global_button_candidate, 4)
+MouseBindService(Display()).entry_candidate(exclude_global_button_candidate)
+MouseBindService(Display()).entry_candidate(chrome_mouse_candidate)
+MouseBindService(Display()).entry_candidate(taskmanager_mouse_candidate)
+MouseBindService(Display()).entry_candidate(vlc_mouse_candidate)
+# MouseBindService(Display()).entry_candidate(sleipnir_mouse_candidate)
+MouseBindService(Display()).start_service()
+
+
+from xahk.events.eventloop import EventLoop
+try:
+    EventLoop(Display()).start_loop()
+except XAHKStopRunning:
+    print('Stop Running')
+except KeyboardInterrupt:
+    print('Keyboard Interrrupted!!')

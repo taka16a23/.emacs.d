@@ -1,0 +1,8 @@
+1
+          (fset 'xfirst 'car)
+               => car
+          (xfirst '(1 2 3))
+               => 1
+          (symbol-function 'xfirst)
+               => car
+

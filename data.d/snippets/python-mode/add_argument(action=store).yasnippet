@@ -1,0 +1,24 @@
+# -*- mode: snippet -*-
+# name: store
+# key: argparse_add_argument
+# condition: (not (py:at-string|comment-p))
+# --
+parser.add_argument(${1:${2:\'${3:-${4:v}}\', }${10:\'${11:--${12:verbose}}\'}},
+                    dest=\'${1:$(py-snippet:argparse-add_argument-convert-dest-name yas-text)}\',
+                    action=\'store\',
+                    ${20:nargs=${25:None$(yas-choose-value \'(\"None\"
+                                        \"argparse.OPTIONAL\"
+                                        \"argparse.ZERO_OR_MORE\"
+                                        \"argparse.ONE_OR_MORE\"
+                                        \"argparse.REMAINDER\"
+                                        \"0\" \"1\" \"2\" \"3\" \"4\" \"5\"
+                                        \"6\" \"7\" \"8\" \"9\"))},
+        }${30:const=${35:None},
+        }${40:default=${45:None},
+        }${50:type=${55:None},
+        }${60:choices=${65:None},
+        }${70:required=${75:False$(yas/choose-value \'(\"False\" \"True\"))},
+        }# (yas-expand-link \"argparse_other_options\" t)
+        ${80:metavar=${85:\'${86:description usage}\'},
+        }${90:help=${95:\'${96:A lot of messages.}\'}})
+        # (yas-expand-link \"argparse_add_argument\" t)$0

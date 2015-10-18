@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: buffer()
+# key: buffer
+# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])))
+# 32 = ` '
+# --
+buffer(${1:object}${2:offset}${3:size})

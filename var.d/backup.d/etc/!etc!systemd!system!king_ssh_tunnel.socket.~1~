@@ -1,0 +1,9 @@
+[Unit]
+Description=Socket listening port for SSH tunneling to king server.
+
+[Socket]
+ListenStream=12316
+Accept=yes
+
+[Install]
+WantedBy=sockets.target

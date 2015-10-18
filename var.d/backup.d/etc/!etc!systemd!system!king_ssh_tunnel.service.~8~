@@ -1,0 +1,12 @@
+[Unit]
+Description=Service for SSH tunneling to king server.
+After=nertwork.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/ssh -i /root/.ssh/kagi -N -p 12316 -L 12316:192.168.1.123:12316 root@taka16.no-ip.info
+Restart=always
+RestartSec=60
+TimeoutSec=30
+KillMode=process
+RemainAfterExit=yes

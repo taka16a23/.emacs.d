@@ -1,0 +1,2564 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="ja">
+<!-- Created on October, 1  2005 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=euc-jp">
+<META NAME="keywords" CONTENT="meadow,mule,emacs,lisp,elisp,gnus,setting,設定,unix,cygwin">
+<META http-equiv="Content-Script-Type" content="text/javascript">
+<META NAME="description" CONTENT="Meadowの設定を紹介するページです">
+<TITLE>GNU Emacs Lispリファレンスマニュアル:  フレーム</TITLE>
+
+<META NAME="description" CONTENT="GNU Emacs Lispリファレンスマニュアル:  フレーム">
+<META NAME="keywords" CONTENT="GNU Emacs Lispリファレンスマニュアル:  フレーム">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+<LINK REL="contents" HREF="elisp_toc.html#SEC_Contents">
+<LINK REL="index" HREF="elisp_48.html#SEC681">
+<LINK REL="next" HREF="elisp_30.html#SEC462">
+<LINK REL="prev" HREF="elisp_28.html#SEC416">
+
+<META http-equiv="Content-Style-Type" content="text/css">
+<!-- 鶯と龜 ←日本語EUC誤判別対策用らしい; -->
+<link rel="StyleSheet" href="../../../../soft/css/midnight.css" type="text/css" id="css1">
+<script type="text/javascript" src="style1.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../soft/css/meadowmemo.css">
+
+</HEAD>
+<BODY LANG="ja" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+<!--Infoseek Analyzer start-->
+<script LANGUAGE="javascript">PgNo=6;</script>
+<script src="http://js1.infoseek.co.jp/bin/57/00170.js"></script>
+<noscript><a href="http://ax1.www.infoseek.co.jp/bin/go?0017057f" target="_blank">
+<img src="http://ax1.www.infoseek.co.jp/bin/logo?0017057f" border=0></a></noscript>
+<!--Infoseek Analyzer end-->
+<a name="top"> </a>
+
+<br><A NAME="SEC434"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_28.html#SEC433"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC435"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_28.html#SEC416"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_30.html#SEC462"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Frames"></A>
+<H1> 28. フレーム </H1>
+<!--docid::SEC434::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Frames">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Frames</a>"<br>
+"texi/elisp21/フレーム"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D5%A5%EC%A1%BC%A5%E0">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX1931"></A>
+<P>
+
+<EM>フレーム</EM>（frame）とは、1つかそれ以上のEmacsのウィンドウを
+収めているスクリーン上の矩形です。
+フレームには最初は1つのウィンドウ（およびミニバッファ用ウィンドウ）が
+ありますが、それを上下や左右に小さなウィンドウに分割できます。
+<P>
+
+<A NAME="IDX1932"></A>
+Emacsを文字端末で実行すると、
+1つの<EM>端末フレーム</EM>（terminal frame）を使います。
+別のフレームを作成すると、もちろん端末画面上では、
+Emacsは一度に1つのフレームしか表示しません。
+<P>
+
+<A NAME="IDX1933"></A>
+EmacsがXウィンドウのような対応しているウィンドウシステムと
+直接通信しているときには、端末フレームは使いません。
+そのかわりに、1つの<EM>ウィンドウフレーム</EM>（window frame）で始まりますが、
+いくつでもフレームを作れますし、ウィンドウシステムでは普通のことですが、
+Emacsはそのようなフレームを同時に複数表示できます。
+<P>
+
+<A NAME="IDX1934"></A>
+<DL>
+<DT><U>Function:</U> <B>framep</B> <I>object</I>
+<DD>この関数は、<VAR>object</VAR>がフレームならば<CODE>t</CODE>を返し、
+さもなければ<CODE>nil</CODE>を返す。
+</DL>
+<P>
+
+<div class="menuindex"><SCRIPT language=JavaScript src="index28.js"></SCRIPT></div><noscript><BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC435">28.1 フレームの作成</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Creating additional frames.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC436">28.2 複数ディスプレイ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Creating frames on other displays.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC437">28.3 フレームパラメータ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Controlling frame size, position, font, etc.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC442">28.4 フレームタイトル</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Automatic updating of frame titles.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC443">28.5 フレームの削除</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Frames last until explicitly deleted.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC444">28.6 すべてのフレームを探す</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How to examine all existing frames.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC445">28.7 フレームとウィンドウ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">A frame contains windows;
+				  display of text always works through windows.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC446">28.8 ミニバッファとフレーム</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How a frame finds the minibuffer to use.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC447">28.9 入力フォーカス</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Specifying the selected frame.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC448">28.10 フレームの可視性</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Frames may be visible or invisible, or icons.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC449">28.11 フレームを手前にしたり奥へ置く</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Raising a frame makes it hide other windows;
+				  lowering it makes the others hide them.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC450">28.12 フレーム構成</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Saving the state of all frames.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC451">28.13 マウスの追跡</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Getting events that say when the mouse moves.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC452">28.14 マウスの位置</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Asking where the mouse is, or moving it.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC453">28.15 ポップアップメニュー</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Displaying a menu for the user to select from.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC454">28.16 対話ボックス</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Displaying a box to ask yes or no.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC455">28.17 ポインタの形状</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Specifying the shape of the mouse pointer.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC456">28.18 ウィンドウシステムのセレクション</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Transferring text to and from other X clients.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC457">28.19 フォント名の探索</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Looking up font names.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC458">28.20 フォントセット</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">A fontset is a collection of fonts
+                                  for displaying various character sets.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC459">28.21 表示色名</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Getting the definitions of color names.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC460">28.22 Xリソース</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Getting resource values from the server.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC461">28.23 Xサーバーに関するデータ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Getting info about the X server.</TD></TR>
+</TABLE></BLOCKQUOTE></noscript>
+<P>
+
+Emacsの再表示の制御に関連する情報についてはSee 節 <A HREF="elisp_38.html#SEC599">37. Emacsの画面表示</A>。
+<P>
+
+<A NAME="Creating Frames"></A>
+<HR SIZE="6">
+<br><A NAME="SEC435"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC434"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC436"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Creating Frames"></A>
+<H2> 28.1 フレームの作成 </H2>
+<!--docid::SEC435::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Creating%20Frames">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Creating%20Frames</a>"<br>
+"texi/elisp21/フレームの作成"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D5%A5%EC%A1%BC%A5%E0%A4%CE%BA%EE%C0%AE">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+新たなフレームを作成するには、関数<CODE>make-frame</CODE>を呼び出します。
+<P>
+
+<A NAME="IDX1935"></A>
+<DL>
+<DT><U>Function:</U> <B>make-frame</B> <I>&#38;optional alist</I>
+<DD>この関数は新たなフレームを作成する。
+対応しているウィンドウシステムを使っていれば、ウィンドウフレームを作る。
+さもなければ端末フレームを作る。
+<P>
+
+引数<VAR>alist</VAR>はフレームパラメータを指定する連想リストである。
+<VAR>alist</VAR>で指定していないパラメータは、
+変数<CODE>default-frame-alist</CODE>の値に従って決まる。
+それでも決まらないパラメータは、
+標準のXリソースやそれにかわる読者のシステムの設定を使う。
+<P>
+
+指定可能なパラメータは、Emacsがフレームの表示に使う
+ウィンドウシステムの種類に原理的には依存します。
+指定可能な各パラメータの説明は、see 節 <A HREF="elisp_29.html#SEC440">28.3.3 ウィンドウフレームのパラメータ</A>。
+</DL>
+<P>
+
+<A NAME="IDX1936"></A>
+<DL>
+<DT><U>Variable:</U> <B>before-make-frame-hook</B>
+<DD><A NAME="IDX1937"></A>
+<CODE>make-frame</CODE>がフレームを実際に作成する直前に実行するノーマルフック。
+</DL>
+<P>
+
+<A NAME="IDX1938"></A>
+<DL>
+<DT><U>Variable:</U> <B>after-make-frame-hook</B>
+<DD><A NAME="IDX1939"></A>
+<CODE>make-frame</CODE>がフレームを作成後に実行するアブノーマルフック。
+<CODE>after-make-frame-hook</CODE>の各関数は、1つの引数、
+つまり、作成したばかりのフレームを受け取る。
+</DL>
+<P>
+
+<A NAME="Multiple Displays"></A>
+<HR SIZE="6">
+<br><A NAME="SEC436"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC435"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC437"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Multiple Displays"></A>
+<H2> 28.2 複数ディスプレイ </H2>
+<!--docid::SEC436::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Multiple%20Displays">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Multiple%20Displays</a>"<br>
+"texi/elisp21/複数ディスプレイ"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%CA%A3%BF%F4%A5%C7%A5%A3%A5%B9%A5%D7%A5%EC%A5%A4">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX1940"></A>
+<A NAME="IDX1941"></A>
+<P>
+
+1つのEmacsは複数のXディスプレイと通信できます。
+Emacsは始めは1つのディスプレイ、つまり、
+環境変数<CODE>DISPLAY</CODE>かオプション`<SAMP>--display</SAMP>'
+（see <a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=emacs21&node=Initial%20Options">GNU Emacs マニュアル</a>）で決まる
+ものを使います。
+別のディスプレイに接続するには、
+コマンド<CODE>make-frame-on-display</CODE>を使うか、
+フレームを作るときにフレームパラメータ<CODE>display</CODE>を指定します。
+<P>
+
+Emacsは各Xサーバーを別々の端末として扱い、
+それらのおのおのには選択されているフレームと
+ミニバッファ用ウィンドウがあります。
+<P>
+
+少数のLisp変数は<EM>端末にローカル</EM>（terminal-local）です。
+つまり、各端末ごとに別々の束縛があります。
+ある時点で有効な束縛は、選択されているフレームが属する端末のものです。
+このような変数には、<CODE>default-minibuffer-frame</CODE>、
+<CODE>defining-kbd-macro</CODE>、<CODE>last-kbd-macro</CODE>、
+<CODE>system-key-alist</CODE>があります。
+これらはつねに端末にローカルであり、
+バッファローカル（see 節 <A HREF="elisp_11.html#SEC150">10.10 バッファローカルな変数</A>）や
+フレームローカルにはけっしてなりません。
+<P>
+
+1つのXサーバーは複数のスクリーンを扱えます。
+ディスプレイ名`<SAMP><VAR>host</VAR>:<VAR>server</VAR>.<VAR>screen</VAR></SAMP>'には3つの部分があり、
+最後の部分で指定したサーバーのスクリーン番号を指定します。
+1つのサーバーに属する2つのスクリーンを使うと、
+Emacsはそれらの名前の類似性からそれらが1つのキーボードを共有していると判断し、
+それらのスクリーンを1つの端末として扱います。
+<P>
+
+<A NAME="IDX1942"></A>
+<DL>
+<DT><U>コマンド:</U> <B>make-frame-on-display</B> <I>display &#38;optional parameters</I>
+<DD>新たなフレームをディスプレイ<VAR>display</VAR>上に作成する。
+他のフレームパラメータは<VAR>parameters</VAR>から得る。
+引数<VAR>display</VAR>を除けば<CODE>make-frame</CODE>（see 節 <A HREF="elisp_29.html#SEC435">28.1 フレームの作成</A>）と
+同様である。
+</DL>
+<P>
+
+<A NAME="IDX1943"></A>
+<DL>
+<DT><U>Function:</U> <B>x-display-list</B>
+<DD>Emacsが接続しているXディスプレイを表すリストを返す。
+リストの要素は文字列であり、それぞれはディスプレイ名である。
+</DL>
+<P>
+
+<A NAME="IDX1944"></A>
+<DL>
+<DT><U>Function:</U> <B>x-open-connection</B> <I>display &#38;optional xrm-string</I>
+<DD>この関数はXディスプレイ<VAR>display</VAR>との接続を開く。
+当該ディスプレイ上にフレームは作らないが、
+これにより当該ディスプレイと通信可能かどうか検査できる。
+<P>
+
+省略可能な引数<VAR>xrm-string</VAR>が<CODE>nil</CODE>でなければ、
+ファイル`<TT>.Xresources</TT>'で使われ書式と同じ
+リソース名と値を表す文字列である。
+これに指定した値は、Xサーバー自体に記録されているリソースの値に優先し、
+Emacsが当該ディスプレイ上に作成するすべてのフレームに適用される。
+この文字列の例を以下に示す。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>"*BorderWidth: 3\n*InternalBorder: 2\n"
+</pre></td></tr></table><P>
+
+see 節 <A HREF="elisp_29.html#SEC460">28.22 Xリソース</A>。
+</DL>
+<P>
+
+<A NAME="IDX1945"></A>
+<DL>
+<DT><U>Function:</U> <B>x-close-connection</B> <I>display</I>
+<DD>この関数はディスプレイ<VAR>display</VAR>との接続を閉じる。
+これを行うまえに、
+まず当該ディスプレイ上に作ったフレームをすべて削除しておくこと。
+</DL>
+<P>
+
+<A NAME="Frame Parameters"></A>
+<HR SIZE="6">
+<br><A NAME="SEC437"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC436"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC438"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Frame Parameters"></A>
+<H2> 28.3 フレームパラメータ </H2>
+<!--docid::SEC437::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Frame%20Parameters">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Frame%20Parameters</a>"<br>
+"texi/elisp21/フレームパラメータ"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D5%A5%EC%A1%BC%A5%E0%A5%D1%A5%E9%A5%E1%A1%BC%A5%BF">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+フレームには、その見ためやふるまいを制御する多くのパラメータがあります。
+フレームのパラメータの種類は、使用する表示機構に依存します。
+<P>
+
+フレームパラメータはウィンドウシステム向けです。
+端末フレームにはごく少数のパラメータがありますが、
+そのほとんどは互換性のためであり、
+<CODE>height</CODE>、<CODE>width</CODE>、<CODE>name</CODE>、<CODE>title</CODE>、
+<CODE>buffer-list</CODE>、<CODE>buffer-predicate</CODE>のパラメータだけが意味を持ちます。
+<P>
+
+<BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC438">28.3.1 フレームパラメータの参照</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How to change a frame's parameters.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC439">28.3.2 初期フレームのパラメータ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Specifying frame parameters when you make a frame.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC440">28.3.3 ウィンドウフレームのパラメータ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">List of frame parameters for window systems.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_29.html#SEC441">28.3.4 フレームのサイズと位置</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Changing the size and position of a frame.</TD></TR>
+</TABLE></BLOCKQUOTE>
+<P>
+
+<A NAME="Parameter Access"></A>
+<HR SIZE="6">
+<br><A NAME="SEC438"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC437"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC439"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Parameter Access"></A>
+<H3> 28.3.1 フレームパラメータの参照 </H3>
+<!--docid::SEC438::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Parameter%20Access">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Parameter%20Access</a>"<br>
+"texi/elisp21/フレームパラメータの参照"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D5%A5%EC%A1%BC%A5%E0%A5%D1%A5%E9%A5%E1%A1%BC%A5%BF%A4%CE%BB%B2%BE%C8">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+これらの関数は、フレームのパラメータの値を読んだり変更するためのものです。
+<P>
+
+<A NAME="IDX1946"></A>
+<DL>
+<DT><U>Function:</U> <B>frame-parameters</B> <I>frame</I>
+<DD>関数<CODE>frame-parameters</CODE>は、
+<VAR>frame</VAR>のすべてのパラメータとそれらの値から成る連想リストを返す。
+</DL>
+<P>
+
+<A NAME="IDX1947"></A>
+<DL>
+<DT><U>Function:</U> <B>modify-frame-parameters</B> <I>frame alist</I>
+<DD>この関数は、<VAR>alist</VAR>の要素に基づいてフレーム<VAR>frame</VAR>の
+パラメータを変更する。
+<VAR>alist</VAR>の各要素は<CODE>(<VAR>parm</VAR> . <VAR>value</VAR>)</CODE>の形であり、
+<VAR>parm</VAR>はパラメータを表すシンボルである。
+<VAR>alist</VAR>に指定しないパラメータの値は変更されない。
+</DL>
+<P>
+
+<A NAME="Initial Parameters"></A>
+<HR SIZE="6">
+<br><A NAME="SEC439"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC438"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC440"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Initial Parameters"></A>
+<H3> 28.3.2 初期フレームのパラメータ </H3>
+<!--docid::SEC439::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Initial%20Parameters">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Initial%20Parameters</a>"<br>
+"texi/elisp21/初期フレームのパラメータ"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%BD%E9%B4%FC%A5%D5%A5%EC%A1%BC%A5%E0%A4%CE%A5%D1%A5%E9%A5%E1%A1%BC%A5%BF">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+読者のファイル`<TT>.emacs</TT>'で<CODE>initial-frame-alist</CODE>に設定すれば、
+起動時の初期フレームのパラメータを指定できます。
+<P>
+
+<A NAME="IDX1948"></A>
+<DL>
+<DT><U>Variable:</U> <B>initial-frame-alist</B>
+<DD>この変数の値は、初期フレームを作るときに
+使用するパラメータの値から成る連想リストである。
+この変数を指定すれば初期フレームの見ためを指定できるが、
+それ以降に作成するフレームには影響しない。
+各要素はつぎの形である。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(<VAR>parameter</VAR> . <VAR>value</VAR>)
+</pre></td></tr></table><P>
+
+Emacsは読者のファイル`<TT>~/.emacs</TT>'を読むまえに初期フレームを作る。
+このファイルを読んだあとに、Emacsは<CODE>initial-frame-alist</CODE>を検査し
+異なる値が設定されているパラメータをすでに作成した初期フレームに適用する。
+<P>
+
+これらの設定がフレームの大きさと位置や見ために関するものであると、
+指定とは違うフレームが現れてから指定したものに変わるのを目にする。
+これがわずらわしい場合には、Xリソースにも同じ大きさと位置や見ためを指定する。
+Xリソースはフレームを作成するまえに適用される。
+see <a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=emacs21&node=Resources%20X">GNU Emacs マニュアル</a>。
+<P>
+
+Xリソースの設定は、典型的にはすべてのフレームに適用される。
+初期フレームだけに特定のXリソースを指定し、
+それ以降のフレームに適用したくない場合には、つぎのようにする。
+パラメータを<CODE>default-frame-alist</CODE>で指定し、
+以降のフレーム向けのXリソースを無効にする。
+そしてそれらが初期フレームに影響しないように、
+<CODE>initial-frame-alist</CODE>のパラメータでXリソースに一致する値を指定する。
+</DL>
+<P>
+
+これらのパラメータにミニバッファ専用のフレームを作る
+<CODE>(minibuffer . nil)</CODE>を指定しているのに
+ミニバッファ専用フレームを作っていないと、Emacsがそれを作成します。
+<P>
+
+<A NAME="IDX1949"></A>
+<DL>
+<DT><U>Variable:</U> <B>minibuffer-frame-alist</B>
+<DD>この変数の値は、初期のミニバッファ専用フレームを作るときに使用する
+パラメータの連想リストである。
+初期フレームのパラメータからミニバッファ専用フレームが
+必要であると判断するとそれを作る。
+</DL>
+<P>
+
+<A NAME="IDX1950"></A>
+<DL>
+<DT><U>Variable:</U> <B>default-frame-alist</B>
+<DD>これは、Emacsのすべてのフレーム、つまり、
+初期フレームとそれ以降のフレームのフレームパラメータのデフォルト値を
+指定する連想リストである。
+Xウィンドウシステムを使っているときには、多くの場合、
+Xリソースによっても同じ結果を得られる。
+</DL>
+<P>
+
+<A HREF="elisp_28.html#SEC424">27.8 表示ウィンドウを選ぶ</A>の<CODE>special-display-frame-alist</CODE>も
+参照してください。
+<P>
+
+Emacsを起動するときにウィンドウの見ためを指定するオプションを使うと、
+それらは<CODE>default-frame-alist</CODE>に要素を追加することで効果を発揮します。
+1つの例外は`<SAMP>-geometry</SAMP>'で、指定位置は<CODE>initial-frame-alist</CODE>に
+追加されます。
+See <a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=emacs21&node=Command%20Arguments">GNU Emacs マニュアル</a>。
+<P>
+
+<A NAME="Window Frame Parameters"></A>
+<HR SIZE="6">
+<br><A NAME="SEC440"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC439"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC441"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Window Frame Parameters"></A>
+<H3> 28.3.3 ウィンドウフレームのパラメータ </H3>
+<!--docid::SEC440::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Window%20Frame%20Parameters">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Window%20Frame%20Parameters</a>"<br>
+"texi/elisp21/ウィンドウフレームのパラメータ"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%A6%A5%A3%A5%F3%A5%C9%A5%A6%A5%D5%A5%EC%A1%BC%A5%E0%A4%CE%A5%D1%A5%E9%A5%E1%A1%BC%A5%BF">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+フレームのパラメータの種類は、使用する表示機構に依存します。
+ウィンドウフレームにおいて特別な意味を持つパラメータの一覧をつぎに示します。
+これらのうち、<CODE>name</CODE>、<CODE>title</CODE>、<CODE>height</CODE>、
+<CODE>width</CODE>、<CODE>buffer-list</CODE>、<CODE>buffer-predicate</CODE>は
+端末フレームでも意味を持ちます。
+<P>
+
+<DL COMPACT>
+<DT><CODE>display</CODE>
+<DD>このフレームを開くディスプレイ。
+環境変数<CODE>DISPLAY</CODE>と同様に、
+<CODE>"<VAR>host</VAR>:<VAR>dpy</VAR>.<VAR>screen</VAR>"</CODE>の形の文字列であること。
+<P>
+
+<DT><CODE>title</CODE>
+<DD>フレームのタイトル<CODE>title</CODE>が<CODE>nil</CODE>以外であると、
+フレーム向けのウィンドウシステムの枠にタイトルが現れる。
+また、<CODE>mode-line-frame-identification</CODE>に`<SAMP>%F</SAMP>'
+（see 節 <A HREF="elisp_23.html#SEC353">22.3.3 モード行の<CODE>%</CODE>記法</A>）を使っていれば、
+当該フレームのモード行にもタイトルが現れる。
+Emacsがウィンドウシステムを使っていない場合には、
+これは普通はモード行に表示され一度に1つのフレームだけを表示できる。
+see 節 <A HREF="elisp_29.html#SEC442">28.4 フレームタイトル</A>。
+<P>
+
+<DT><CODE>name</CODE>
+<DD>フレームの名前。
+パラメータ<CODE>title</CODE>を指定しないか<CODE>nil</CODE>であると、
+フレーム名はフレームタイトルのデフォルトになる。
+<CODE>name</CODE>を指定しないと、Emacsが自動的にフレーム名を設定する
+（see 節 <A HREF="elisp_29.html#SEC442">28.4 フレームタイトル</A>）。
+<P>
+
+フレームを作るときにフレーム名を明示的に指定すると、
+その名前は（Emacsの実行形式ファイルの名前のかわりに）
+フレーム向けのXリソースを探すためにも使われる。
+<P>
+
+<DT><CODE>left</CODE>
+<DD>スクリーンの左端を基準にしたピクセル単位の左端位置。
+この値は正の数<VAR>pos</VAR>であるか、
+負の<VAR>pos</VAR>の値を指定できる<CODE>(+ <VAR>pos</VAR>)</CODE>の形のリストである。
+<P>
+
+負の数-<VAR>pos</VAR>や<CODE>(- <VAR>pos</VAR>)</CODE>の形のリストは、
+実際には、スクリーンの右端を基準にしたウィンドウの右端位置を指定する。
+<VAR>pos</VAR>の正の値は左へ向けて数える。
+<STRONG>注意：</STRONG><CODE> </CODE>パラメータが負の整数-<VAR>pos</VAR>であると、
+<VAR>pos</VAR>は正である。
+<P>
+
+プログラムが指定した位置を無視するウィンドウマネージャもある。
+指定した位置が無視されないように保証したい場合には、
+パラメータ<CODE>user-position</CODE>にも<CODE>nil</CODE>以外の値を指定する。
+<P>
+
+<DT><CODE>top</CODE>
+<DD>スクリーンの上端を基準にしたピクセル単位の上端位置。
+この値は正の数<VAR>pos</VAR>であるか、
+負の<VAR>pos</VAR>の値を指定できる<CODE>(+ <VAR>pos</VAR>)</CODE>の形のリストである。
+<P>
+
+負の数-<VAR>pos</VAR>や<CODE>(- <VAR>pos</VAR>)</CODE>の形のリストは、
+実際には、スクリーンの下端を基準にしたウィンドウの下端位置を指定する。
+<VAR>pos</VAR>の正の値は上へ向けて数える。
+<STRONG>注意：</STRONG><CODE> </CODE>パラメータが負の整数-<VAR>pos</VAR>であると、
+<VAR>pos</VAR>は正である。
+<P>
+
+プログラムが指定した位置を無視するウィンドウマネージャもある。
+指定した位置が無視されないように保証したい場合には、
+パラメータ<CODE>user-position</CODE>にも<CODE>nil</CODE>以外の値を指定する。
+<P>
+
+<DT><CODE>icon-left</CODE>
+<DD>スクリーンの左端を基準にした
+<EM>フレームのアイコン</EM>のピクセル単位の左端位置。
+フレームをアイコンにしたときに効果を発揮する。
+<P>
+
+<DT><CODE>icon-top</CODE>
+<DD>スクリーンの上端を基準にした
+<EM>フレームのアイコン</EM>のピクセル単位の上端位置。
+フレームをアイコンにしたときに効果を発揮する。
+<P>
+
+<DT><CODE>user-position</CODE>
+<DD>パラメータ<CODE>left</CODE>と<CODE>top</CODE>でスクリーン上の位置を指定して
+フレームを作るときに、このパラメータは指定位置が、
+（利用者がなんらかの方法で与えた）ユーザー指定のものなのか、
+（プログラムが選んだ）プログラム指定のものなのかを指定する。
+<CODE>nil</CODE>以外の値であるとユーザー指定の位置であることを意味する。
+<P>
+
+ウィンドウマネージャはユーザー指定の位置を一般に尊重し、
+プログラム指定の位置も尊重するものもある。
+しかしその多くはプログラム指定の位置を無視し、
+デフォルトに基づいてウィンドウを配置したり、
+マウスでユーザーに配置させる。
+<CODE>twm</CODE>を含むウィンドウマネージャには、
+プログラム指定の位置に従うかそれらを無視するかを
+ユーザーが指定できるものもある。
+<P>
+
+<CODE>make-frame</CODE>を呼び出すときには、
+パラメータ<CODE>left</CODE>と<CODE>top</CODE>の値がユーザーの希望を表す場合には
+このパラメータの値には<CODE>nil</CODE>以外を指定すること。
+さもなければ<CODE>nil</CODE>を指定する。
+<P>
+
+<DT><CODE>height</CODE>
+<DD>フレームの内側の文字単位の高さ。
+（ピクセル単位の高さを得るには<CODE>frame-pixel-height</CODE>を呼び出す。
+<A HREF="elisp_29.html#SEC441">28.3.4 フレームのサイズと位置</A>を参照。）
+<P>
+
+<DT><CODE>width</CODE>
+<DD>フレームの内側の文字単位の幅。
+（ピクセル単位の幅を得るには<CODE>frame-pixel-width</CODE>を呼び出す。
+<A HREF="elisp_29.html#SEC441">28.3.4 フレームのサイズと位置</A>を参照。）
+<P>
+
+<DT><CODE>window-id</CODE>
+<DD>フレームとして使うウィンドウシステムのウィンドウ番号。
+<P>
+
+<DT><CODE>minibuffer</CODE>
+<DD>このフレームに独自のミニバッファがあるかどうかを表す。
+値<CODE>t</CODE>はあることを表し、<CODE>nil</CODE>はないことを表す。
+<CODE>only</CODE>は、このフレームがミニバッファだけであることを表す。
+（別のフレームの）値がミニバッファだけであると、
+新たなフレームはそのミニバッファを使う。
+<P>
+
+<DT><CODE>buffer-predicate</CODE>
+<DD>このフレーム向けのバッファ述語関数。
+これが<CODE>nil</CODE>でなければ、
+関数<CODE>other-buffer</CODE>が（選択されているフレームから）この述語を使用して、
+どのバッファにするかを決定する。
+<CODE>other-buffer</CODE>は各バッファごとにバッファを引数としてこの述語を呼び出す。
+この述語が<CODE>nil</CODE>以外を返すと当該バッファを選ぶ。
+<P>
+
+<DT><CODE>buffer-list</CODE>
+<DD>このフレームで選択されたバッファを
+もっとも最近に選択されたものから順に並べたリスト。
+<P>
+
+<DT><CODE>font</CODE>
+<DD>フレーム内でテキストの表示に使うフォントの名前。
+これは、読者のシステムにおいて正しいフォントの名前であるか
+Emacsのフォントセット（see 節 <A HREF="elisp_29.html#SEC458">28.20 フォントセット</A>）の名前を表す文字列である。
+<P>
+
+<DT><CODE>auto-raise</CODE>
+<DD>フレームを選択したときにフレームを手前に移動するかどうかを表す
+（<CODE>nil</CODE>以外であるとそのようにする）。
+<P>
+
+<DT><CODE>auto-lower</CODE>
+<DD>フレームの選択を止めたときにフレームを奥へ移動するかどうかを表す
+（<CODE>nil</CODE>以外であるとそのようにする）。
+<P>
+
+<DT><CODE>vertical-scroll-bars</CODE>
+<DD>フレームに垂直スクロール用のスクロールバーを付けるかどうか、
+どちら側に付けるかを表す。
+指定できる値は、<CODE>left</CODE>、<CODE>right</CODE>、あるいは
+スクロールバーなしを意味する<CODE>nil</CODE>。
+<P>
+
+<DT><CODE>horizontal-scroll-bars</CODE>
+<DD>水平スクロール用のスクロールバーを付けるかどうかを表す
+（<CODE>nil</CODE>以外だと付ける）。
+（水平スクロールバーはいまのところ実装してない。）
+<P>
+
+<DT><CODE>scroll-bar-width</CODE>
+<DD>垂直スクロールバーのピクセル単位の幅。
+<P>
+
+<DT><CODE>icon-type</CODE>
+<DD>このフレームをアイコンにしたときに使うアイコンの種類。
+値が文字列であると、使用するビットマップを収めたファイルを指定する。
+それ以外の<CODE>nil</CODE>以外の値はデフォルトのビットマップアイコン
+（gnuの絵）を指定する。
+<CODE>nil</CODE>はテキストのアイコンを指定する。
+<P>
+
+<DT><CODE>icon-name</CODE>
+<DD>このフレーム向けのアイコンを表示するときに使用するアイコンの名前。
+これが<CODE>nil</CODE>であると、フレームのタイトルを使う。
+<P>
+
+<DT><CODE>foreground-color</CODE>
+<DD>文字の描画に使う表示色。
+これは文字列である。
+ウィンドウシステムが妥当な表示色の名称を定義する。
+<P>
+
+フレームパラメータ<CODE>foreground-color</CODE>に設定したときには、
+それに対応してフェイスを更新するために
+<CODE>frame-update-face-colors</CODE>を呼び出すこと。
+<P>
+
+<DT><CODE>background-color</CODE>
+<DD>文字の背景に使う表示色。
+<P>
+
+フレームパラメータ<CODE>background-color</CODE>に設定したときには、
+それに対応してフェイスを更新するために
+<CODE>frame-update-face-colors</CODE>を呼び出すこと。
+see 節 <A HREF="elisp_38.html#SEC615">37.10.4 フェイスを扱う関数</A>。
+<P>
+
+<DT><CODE>background-mode</CODE>
+<DD>背景色が明るいか暗いかにしたがって、
+このパラメータは<CODE>dark</CODE>か<CODE>light</CODE>である。
+<P>
+
+<DT><CODE>mouse-color</CODE>
+<DD>マウスポインタの表示色。
+<P>
+
+<DT><CODE>cursor-color</CODE>
+<DD>ポイントを表すカーソルの表示色。
+<P>
+
+<DT><CODE>border-color</CODE>
+<DD>フレームの枠の表示色。
+<P>
+
+<DT><CODE>display-type</CODE>
+<DD>このパラメータはこのフレームで使用可能な表示色の範囲を表す。
+値は、<CODE>color</CODE>、<CODE>grayscale</CODE>、<CODE>mono</CODE>のいずれかである。
+<P>
+
+<DT><CODE>cursor-type</CODE>
+<DD>カーソルの表示方法。
+正しい値は、<CODE>bar</CODE>、<CODE>box</CODE>、
+<CODE>(bar . <VAR>width</VAR>)</CODE>のいずれかである。
+シンボル<CODE>box</CODE>は、ポイント直後の文字に重なる通常の黒い箱型の
+カーソルを指定し、これがデフォルトである。
+シンボル<CODE>bar</CODE>は、カーソルとして文字のあいだに縦棒を置く指定である。
+<CODE>(bar . <VAR>width</VAR>)</CODE>は、ピクセル幅<VAR>width</VAR>の縦棒を指定する。
+<P>
+
+<DT><CODE>border-width</CODE>
+<DD>ウィンドウ枠のピクセル単位の幅。
+<P>
+
+<DT><CODE>internal-border-width</CODE>
+<DD>枠とテキストのあいだのピクセル単位の間隔。
+<P>
+
+<DT><CODE>unsplittable</CODE>
+<DD><CODE>nil</CODE>以外であると、このフレームのウィンドウをけっして自動的に分割しない。
+<P>
+
+<DT><CODE>visibility</CODE>
+<DD>フレームの可視性。
+不可視を表す<CODE>nil</CODE>、可視を表す<CODE>t</CODE>、
+アイコンになっていることを表す<CODE>icon</CODE>の3の可能性がある。
+see 節 <A HREF="elisp_29.html#SEC448">28.10 フレームの可視性</A>。
+<P>
+
+<DT><CODE>menu-bar-lines</CODE>
+<DD>フレームの上端に割り当てるメニューバー向けの行の個数。
+デフォルトは1である。
+see 節 <A HREF="elisp_22.html#SEC337">21.12.5 メニューバー</A>。
+（Xツールキットを使うEmacsでは、メニューバーは1行だけである。
+この場合、0より大きな数を指定したかどうかに意味がある。）
+<P>
+
+</DL>
+<P>
+
+<A NAME="Size and Position"></A>
+<HR SIZE="6">
+<br><A NAME="SEC441"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC440"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC442"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Size and Position"></A>
+<H3> 28.3.4 フレームのサイズと位置 </H3>
+<!--docid::SEC441::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Size%20and%20Position">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Size%20and%20Position</a>"<br>
+"texi/elisp21/フレームのサイズと位置"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D5%A5%EC%A1%BC%A5%E0%A4%CE%A5%B5%A5%A4%A5%BA%A4%C8%B0%CC%C3%D6">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX1951"></A>
+<A NAME="IDX1952"></A>
+<A NAME="IDX1953"></A>
+<A NAME="IDX1954"></A>
+<A NAME="IDX1955"></A>
+<A NAME="IDX1956"></A>
+<P>
+
+フレームパラメータ<CODE>left</CODE>、<CODE>top</CODE>、<CODE>height</CODE>、<CODE>width</CODE>を
+使って、フレームのサイズや位置を読み取ったり変更できます。
+指定しなかった大きさと位置のパラメータは、
+ウィンドウマネージャが通常どおりに選びます。
+<P>
+
+以下はサイズや位置を操作する特別な機能です。
+<P>
+
+<A NAME="IDX1957"></A>
+<DL>
+<DT><U>Function:</U> <B>set-frame-position</B> <I>frame left top</I>
+<DD>この関数は、フレーム<VAR>frame</VAR>の左上隅の位置を
+<VAR>left</VAR>（左端）と<VAR>top</VAR>（上端）にする。
+これらの引数は、スクリーンの左上隅からピクセル単位で数える。
+<P>
+
+パラメータ値が負であると、スクリーンの下端から測ってウィンドウの下端を
+位置決めしたり、スクリーンの右端から測ってウィンドウの右端を位置決めする。
+つねに左端や上端から測った値にして、負の値はフレームを
+スクリーンの上端や左端から部分的にはみ出して位置決めする
+意味にするほうがよいかもしれないが、
+現状ではそのように変えるのは不適当と思われる。
+</DL>
+<P>
+
+<A NAME="IDX1958"></A>
+<DL>
+<DT><U>Function:</U> <B>frame-height</B> <I>&#38;optional frame</I>
+<DD><A NAME="IDX1959"></A>
+<DT><U>Function:</U> <B>frame-width</B> <I>&#38;optional frame</I>
+<DD>この関数は、フレーム<VAR>frame</VAR>の高さや幅を行単位やコラム単位で返す。
+<VAR>frame</VAR>を指定しないと、選択されているフレームを使う。
+</DL>
+<P>
+
+<A NAME="IDX1960"></A>
+<DL>
+<DT><U>Function:</U> <B>screen-height</B>
+<DD><A NAME="IDX1961"></A>
+<DT><U>Function:</U> <B>screen-width</B>
+<DD>これらの関数は<CODE>frame-height</CODE>や<CODE>frame-width</CODE>の古い別名である。
+文字端末を使っている場合、通常、フレームの大きさは
+端末スクリーンの大きさと同じである。
+</DL>
+<P>
+
+<A NAME="IDX1962"></A>
+<DL>
+<DT><U>Function:</U> <B>frame-pixel-height</B> <I>&#38;optional frame</I>
+<DD><A NAME="IDX1963"></A>
+<DT><U>Function:</U> <B>frame-pixel-width</B> <I>&#38;optional frame</I>
+<DD>これらの関数は、フレーム<VAR>frame</VAR>の高さや幅をピクセル単位で返す。
+<VAR>frame</VAR>を指定しないと、選択されているフレームを使う。
+</DL>
+<P>
+
+<A NAME="IDX1964"></A>
+<DL>
+<DT><U>Function:</U> <B>frame-char-height</B> <I>&#38;optional frame</I>
+<DD><A NAME="IDX1965"></A>
+<DT><U>Function:</U> <B>frame-char-width</B> <I>&#38;optional frame</I>
+<DD>これらの関数は、フレーム内の文字の高さや幅をピクセル単位で返す。
+<VAR>frame</VAR>を指定しないと、選択されているフレームを使う。
+</DL>
+<P>
+
+<A NAME="IDX1966"></A>
+<DL>
+<DT><U>Function:</U> <B>set-frame-size</B> <I>frame cols rows</I>
+<DD>この関数は、フレーム<VAR>frame</VAR>の大きさを文字単位で指定する。
+<VAR>cols</VAR>と<VAR>rows</VAR>は、新たな幅と高さを指定する。
+<P>
+
+ピクセル単位で大きさを指定するには、
+<CODE>frame-char-height</CODE>と<CODE>frame-char-width</CODE>で
+ピクセル単位の値を文字単位に変換する。
+</DL>
+<P>
+
+<A NAME="IDX1967"></A>
+<DL>
+<DT><U>Function:</U> <B>set-frame-height</B> <I>frame lines &#38;optional pretend</I>
+<DD>この関数は、フレーム<VAR>frame</VAR>の高さを<VAR>lines</VAR>行に変える。
+それに合わせて<VAR>frame</VAR>内の既存のウィンドウの大きさは比例して変わる。
+<P>
+
+<VAR>pretend</VAR>が<CODE>nil</CODE>以外であると、
+Emacsは<VAR>frame</VAR>の<VAR>lines</VAR>だけを表示するが、
+フレームの実際の高さは変更しない。
+これは端末フレームでのみ有用である。
+実際の端末より小さな高さを使うと、小さなスクリーンでの動作を再現したり、
+スクリーン全体を使うと端末が誤動作するような場合に有用である。
+フレームの『実際』の高さを指定してもつねにそうなるとは限らない。
+端末フレーム上で正しくカーソルを位置決めするには、
+実サイズを知る必要がある場合もあるからである。
+</DL>
+<P>
+
+<A NAME="IDX1968"></A>
+<DL>
+<DT><U>Function:</U> <B>set-frame-width</B> <I>frame width &#38;optional pretend</I>
+<DD>この関数は、フレーム<VAR>frame</VAR>の幅を設定する。
+引数<VAR>pretend</VAR>は<CODE>set-frame-height</CODE>と同じ意味を持つ。
+</DL>
+<P>
+
+<A NAME="IDX1969"></A>
+<A NAME="IDX1970"></A>
+<CODE>set-screen-height</CODE>と<CODE>set-screen-width</CODE>の古い関数は、
+複数フレームを扱えないEmacsの版でスクリーンの高さや幅を
+指定するために使われていました。
+これらはほぼ廃れていますが、まだ動作します。
+これらは選択されているフレームに適用されます。
+<P>
+
+<A NAME="IDX1971"></A>
+<DL>
+<DT><U>Function:</U> <B>x-parse-geometry</B> <I>geom</I>
+<DD><A NAME="IDX1972"></A>
+関数<CODE>x-parse-geometry</CODE>は、Xウィンドウの標準のジオメトリ文字列を
+<CODE>make-frame</CODE>の引数の一部に使えるように連想リストに変換する。
+<P>
+
+この連想リストは、<VAR>geom</VAR>で指定されているパラメータとその値を記述する。
+各要素は<CODE>(<VAR>parameter</VAR> . <VAR>value</VAR>)</CODE>の形である。
+<VAR>parameter</VAR>の可能な値は、
+<CODE>left</CODE>、<CODE>top</CODE>、<CODE>width</CODE>、<CODE>height</CODE>である。
+<P>
+
+大きさを表すパラメータでは、その値は整数であること。
+位置を表すパラメータでは、右端や下端の位置を表す値もあるので、
+<CODE>left</CODE>や<CODE>top</CODE>というパラメータ名は必ずしも正確ではない。
+位置を表すパラメータの可能な<VAR>value</VAR>はつぎのとおりである。
+<P>
+
+<DL COMPACT>
+<DT>整数
+<DD>正の整数は、ウィンドウの左端や上端をスクリーンの左端や上端に関連付ける。
+負の整数は、ウィンドウの右端や下端をスクリーンの右端や下端に関連付ける。
+<P>
+
+<DT><CODE>(+ <VAR>position</VAR>)</CODE>
+<DD>スクリーンの左端や上端を基準にしたウィンドウの左端や上端の位置を指定する。
+整数<VAR>position</VAR>は正でも負でもよいが、
+負の値はスクリーンからはみ出した位置を指定する。
+<P>
+
+<DT><CODE>(- <VAR>position</VAR>)</CODE>
+<DD>スクリーンの右端や下端を基準にしたウィンドウの右端や下端の位置を指定する。
+整数<VAR>position</VAR>は正でも負でもよいが、
+負の値はスクリーンからはみ出した位置を指定する。
+</DL>
+<P>
+
+例を示す。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(x-parse-geometry "35x70+0-0")
+     => ((height . 70) (width . 35)
+         (top - 0) (left . 0))
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="Frame Titles"></A>
+<HR SIZE="6">
+<br><A NAME="SEC442"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC441"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC443"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Frame Titles"></A>
+<H2> 28.4 フレームタイトル </H2>
+<!--docid::SEC442::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Frame%20Titles">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Frame%20Titles</a>"<br>
+"texi/elisp21/フレームタイトル"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D5%A5%EC%A1%BC%A5%E0%A5%BF%A5%A4%A5%C8%A5%EB">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+各フレームにはパラメータ<CODE>name</CODE>があります。
+これは、典型的にはウィンドウシステムがフレームの先頭に表示する
+フレームタイトルのデフォルトにもなります。
+フレーム属性<CODE>name</CODE>に設定することで明示的に名前を指定できます。
+<P>
+
+通常は名前を明示的に指定しないでしょうから、
+変数<CODE>frame-title-format</CODE>に保持してある雛型から
+Emacsが自動的にフレーム名を計算します。
+Emacsは、フレームを再表示するたびに名前を再計算します。
+<P>
+
+<A NAME="IDX1973"></A>
+<DL>
+<DT><U>Variable:</U> <B>frame-title-format</B>
+<DD>この変数は、読者がフレーム名を明示的に指定しなかったときの
+フレーム向けの名前の計算方法を指定する。
+変数の値は実際には、<CODE>mode-line-format</CODE>のようなモード行構成である。
+see 節 <A HREF="elisp_23.html#SEC351">22.3.1 モード行のデータ構造</A>。
+</DL>
+<P>
+
+<A NAME="IDX1974"></A>
+<DL>
+<DT><U>Variable:</U> <B>icon-title-format</B>
+<DD>この変数は、フレームタイトルを明示的に指定しなかったときの
+アイコンにしたフレーム向けの名前の計算方法を指定する。
+これはアイコンそのものに現れる。
+</DL>
+<P>
+
+<A NAME="IDX1975"></A>
+<DL>
+<DT><U>Variable:</U> <B>multiple-frames</B>
+<DD>この変数はEmacsが自動的に設定する。
+（ミニバッファ専用のフレームや不可視フレームを数えずに）
+複数個のフレームがあるとこの値が<CODE>t</CODE>である。
+<CODE>frame-title-format</CODE>のデフォルト値では<CODE>multiple-frames</CODE>を使っており、
+複数のフレームがあるときに限りフレームタイトルにバッファ名が入るようにする。
+</DL>
+<P>
+
+<A NAME="Deleting Frames"></A>
+<HR SIZE="6">
+<br><A NAME="SEC443"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC442"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC444"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Deleting Frames"></A>
+<H2> 28.5 フレームの削除 </H2>
+<!--docid::SEC443::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Deleting%20Frames">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Deleting%20Frames</a>"<br>
+"texi/elisp21/フレームの削除"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D5%A5%EC%A1%BC%A5%E0%A4%CE%BA%EF%BD%FC">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX1976"></A>
+<A NAME="IDX1977"></A>
+<P>
+
+フレームを明示的に<EM>削除</EM>（delete）しない限り、
+フレームは見える可能性があります。
+フレームを削除するとスクリーンに表示できなくなりますが、
+それを参照するものがなくならない限りLispオブジェクトとしては存在し続けます。
+保存したフレーム構成（see 節 <A HREF="elisp_29.html#SEC450">28.12 フレーム構成</A>）を復元する以外には、
+フレームの削除を取り消すことはできません。
+これはウィンドウと同様です。
+<P>
+
+<A NAME="IDX1978"></A>
+<DL>
+<DT><U>コマンド:</U> <B>delete-frame</B> <I>&#38;optional frame</I>
+<DD>この関数はフレーム<VAR>frame</VAR>を削除する。
+デフォルトでは、<VAR>frame</VAR>は選択されているフレームである。
+</DL>
+<P>
+
+<A NAME="IDX1979"></A>
+<DL>
+<DT><U>Function:</U> <B>frame-live-p</B> <I>frame</I>
+<DD>関数<CODE>frame-live-p</CODE>は、フレーム<VAR>frame</VAR>が削除されていなければ
+<CODE>nil</CODE>以外を返す。
+</DL>
+<P>
+
+ウィンドウを削除するコマンドを与えるウィンドウマネージャもあります。
+それらは、ウィンドウを操作しているプログラムに特別なメッセージを
+送ることで動作します。
+Emacsがそのようなコマンドを受け取ると、
+イベント<CODE>delete-frame</CODE>を生成します。
+このイベントの普通の定義は、関数<CODE>delete-frame</CODE>を呼び出すコマンドです。
+See 節 <A HREF="elisp_21.html#SEC299">20.5.10 ウィンドウシステムのその他のイベント</A>。
+<P>
+
+<A NAME="Finding All Frames"></A>
+<HR SIZE="6">
+<br><A NAME="SEC444"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC443"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC445"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Finding All Frames"></A>
+<H2> 28.6 すべてのフレームを探す </H2>
+<!--docid::SEC444::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Finding%20All%20Frames">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Finding%20All%20Frames</a>"<br>
+"texi/elisp21/すべてのフレームを探す"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A4%B9%A4%D9%A4%C6%A4%CE%A5%D5%A5%EC%A1%BC%A5%E0%A4%F2%C3%B5%A4%B9">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+<A NAME="IDX1980"></A>
+<DL>
+<DT><U>Function:</U> <B>frame-list</B>
+<DD>関数<CODE>frame-list</CODE>は、削除されていないすべてのフレームから成るリストを返す。
+これは、バッファに対する<CODE>buffer-list</CODE>に相当する。
+得られるリストは新たに作成したものであり、
+このリストを変更してもEmacs内部にはなんの効果もない。
+</DL>
+<P>
+
+<A NAME="IDX1981"></A>
+<DL>
+<DT><U>Function:</U> <B>visible-frame-list</B>
+<DD>この関数は、現在可視のフレームだけのリストを返す。
+see 節 <A HREF="elisp_29.html#SEC448">28.10 フレームの可視性</A>。
+（選択されているフレームだけが実際に表示されている場合でも、
+端末フレームはすべてつねに『可視』とみなす。）
+</DL>
+<P>
+
+<A NAME="IDX1982"></A>
+<DL>
+<DT><U>Function:</U> <B>next-frame</B> <I>&#38;optional frame minibuf</I>
+<DD>関数<CODE>next-frame</CODE>により、
+任意の位置から始めてすべてのフレームを便利に巡回できる。
+巡回順の中で<VAR>frame</VAR>の『つぎ』のフレームを返す。
+<VAR>frame</VAR>を省略したり<CODE>nil</CODE>であると、
+デフォルトでは選択されているフレームを使う。
+<P>
+
+第2引数<VAR>minibuf</VAR>は、対象とするフレームを指定する。
+<P>
+
+<DL COMPACT>
+<DT><CODE>nil</CODE>
+<DD>ミニバッファ専用のフレームを除外する。
+<DT><CODE>visible</CODE>
+<DD>すべての可視なフレームを対象にする。
+<DT>0
+<DD>すべての可視なフレームやアイコンにしたフレームを対象にする。
+<DT>ウィンドウ
+<DD>ミニバッファとして特定のウィンドウを使っているフレームのみを対象にする。
+<DT>その他
+<DD>すべてのフレームを対象にする。
+</DL>
+</DL>
+<P>
+
+<A NAME="IDX1983"></A>
+<DL>
+<DT><U>Function:</U> <B>previous-frame</B> <I>&#38;optional frame minibuf</I>
+<DD><CODE>next-frame</CODE>と同様であるが、すべてのフレームを逆方向に巡回する。
+</DL>
+<P>
+
+<A HREF="elisp_28.html#SEC421">27.5 ウィンドウの巡回順序</A>の<CODE>next-window</CODE>と<CODE>previous-window</CODE>も
+参照してください。
+<P>
+
+<A NAME="Frames and Windows"></A>
+<HR SIZE="6">
+<br><A NAME="SEC445"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC444"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC446"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Frames and Windows"></A>
+<H2> 28.7 フレームとウィンドウ </H2>
+<!--docid::SEC445::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Frames%20and%20Windows">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Frames%20and%20Windows</a>"<br>
+"texi/elisp21/フレームとウィンドウ"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D5%A5%EC%A1%BC%A5%E0%A4%C8%A5%A6%A5%A3%A5%F3%A5%C9%A5%A6">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+各ウィンドウはある1つのフレームだけの一部であり、
+<CODE>window-frame</CODE>で当該フレームを得られます。
+<P>
+
+<A NAME="IDX1984"></A>
+<DL>
+<DT><U>Function:</U> <B>window-frame</B> <I>window</I>
+<DD>この関数は、<VAR>window</VAR>が属するフレームを返す。
+</DL>
+<P>
+
+フレーム内のミニバッファ用以外のすべてウィンドウには、
+巡回順序がついています。
+その順序は、フレームの左上隅の先頭のウィンドウから始まって、
+右下隅のウィンドウ（フレームにミニバッファがあれば、
+これはつねにミニバッファ用ウィンドウ）に達するまで下向き右向きに進み、
+そして先頭へ戻ります。
+<P>
+
+<A NAME="IDX1985"></A>
+<DL>
+<DT><U>Function:</U> <B>frame-top-window</B> <I>frame</I>
+<DD>この関数は、フレーム<VAR>frame</VAR>のもっとも上端のもっとも左端の
+先頭のウィンドウを返す。
+</DL>
+<P>
+
+ある時点では、各フレームではたった1つのフレームが
+<EM>当該フレームで選択されている</EM>のです。
+このような区別の意味は、
+フレームを選択するとそのようなウィンドウも選択されるということです。
+フレームで現在選択されているフレームは
+<CODE>frame-selected-window</CODE>で得られます。
+<P>
+
+<A NAME="IDX1986"></A>
+<DL>
+<DT><U>Function:</U> <B>frame-selected-window</B> <I>frame</I>
+<DD>この関数は、フレーム<VAR>frame</VAR>で選択されている
+<VAR>frame</VAR>内のウィンドウを返す。
+</DL>
+<P>
+
+逆に、<CODE>select-window</CODE>でEmacsのウィンドウを選ぶと、
+それがそのフレームで選択されているウィンドウになります。
+see 節 <A HREF="elisp_28.html#SEC420">27.4 ウィンドウの選択</A>。
+<P>
+
+指定したフレームのウィンドウの1つを返す別の関数は
+<CODE>minibuffer-window</CODE>です。
+See 節 <A HREF="elisp_20.html#SEC280">19.9 ミニバッファに関するその他</A>。
+<P>
+
+<A NAME="Minibuffers and Frames"></A>
+<HR SIZE="6">
+<br><A NAME="SEC446"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC445"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC447"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Minibuffers and Frames"></A>
+<H2> 28.8 ミニバッファとフレーム </H2>
+<!--docid::SEC446::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Minibuffers%20and%20Frames">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Minibuffers%20and%20Frames</a>"<br>
+"texi/elisp21/ミニバッファとフレーム"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%DF%A5%CB%A5%D0%A5%C3%A5%D5%A5%A1%A4%C8%A5%D5%A5%EC%A1%BC%A5%E0">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+通常、各フレームにはそれ独自のミニバッファ用ウィンドウが底にあり、
+フレームが選択されているときにはいつもそれが使われます。
+フレームにミニバッファがあれば、<CODE>minibuffer-window</CODE>
+（see 節 <A HREF="elisp_20.html#SEC280">19.9 ミニバッファに関するその他</A>）でそれを得られます。
+<P>
+
+しかし、ミニバッファのないフレームを作ることもできます。
+そのようなフレームでは、別のフレームのミニバッファ用ウィンドウを
+使う必要があります。
+そのようなフレームを作成するときには、
+使用する（他のフレームの）ミニバッファを明示的に指定できます。
+そうしないと、変数<CODE>default-minibuffer-frame</CODE>の値で指定される
+フレームのミニバッファを使います。
+その値は、ミニバッファを有したフレームである必要があります。
+<P>
+
+ミニバッファ専用のフレームを使うときは、
+ミニバッファで入力するときにそのフレームが
+自動的に手前にくるようにしたいでしょう。
+そうしたい場合には、変数<CODE>minibuffer-auto-raise</CODE>に<CODE>t</CODE>に設定します。
+See 節 <A HREF="elisp_29.html#SEC449">28.11 フレームを手前にしたり奥へ置く</A>。
+<P>
+
+<A NAME="IDX1987"></A>
+<DL>
+<DT><U>Variable:</U> <B>default-minibuffer-frame</B>
+<DD>この変数は、デフォルトで使うミニバッファ用ウィンドウのフレームを指定する。
+この変数は現在の端末につねにローカルであり、
+バッファローカルにはなりえない。
+see 節 <A HREF="elisp_29.html#SEC436">28.2 複数ディスプレイ</A>。
+</DL>
+<P>
+
+<A NAME="Input Focus"></A>
+<HR SIZE="6">
+<br><A NAME="SEC447"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC446"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC448"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Input Focus"></A>
+<H2> 28.9 入力フォーカス </H2>
+<!--docid::SEC447::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Input%20Focus">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Input%20Focus</a>"<br>
+"texi/elisp21/入力フォーカス"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%C6%FE%CE%CF%A5%D5%A5%A9%A1%BC%A5%AB%A5%B9">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX1988"></A>
+<A NAME="IDX1989"></A>
+<P>
+
+ある時点では、Emacsの1つのフレームが<EM>選択されているフレーム</EM>
+（selected frame）です。
+選択されているウィンドウは選択されているフレームの中につねにあります。
+<P>
+
+<A NAME="IDX1990"></A>
+<DL>
+<DT><U>Function:</U> <B>selected-frame</B>
+<DD>この関数は選択されているフレームを返す。
+</DL>
+<P>
+
+マウスが入っているウィンドウにキーボード入力を振り向ける
+ウィンドウシステムやウィンドウマネージャがあります。
+ウィンドウに<EM>フォーカスを置くために</EM>、
+明示的にクリックしたりコマンドを必要とするものもあります。
+いずれであっても、Emacsはどのフレームにフォーカスがあるかを
+自動的に追跡します。
+<P>
+
+Lispプログラムからは、関数<CODE>select-frame</CODE>を呼ぶことで、
+『一時的に』フレームを切り替えることもできます。
+これは、ウィンドウシステムのフォーカスは変えません。
+というよりは、プログラムで指定するまで
+ウィンドウシステムの制御を回避します。
+<P>
+
+文字端末を使っているときには、
+選択されているフレームのみが端末に実際に表示されます。
+フレームを切り替える唯一の方法は<CODE>switch-frame</CODE>であり、
+それ以降に<CODE>switch-frame</CODE>を呼び出すまで切り替えた効果は持続します。
+初期フレーム以外の各端末フレームには番号が付いていて、
+選択されているフレームの番号がモード行内のバッファ名のまえに現れます
+（see 節 <A HREF="elisp_23.html#SEC352">22.3.2 モード行に使われる変数</A>）。
+<P>
+
+<A NAME="IDX1991"></A>
+<DL>
+<DT><U>Function:</U> <B>select-frame</B> <I>frame</I>
+<DD>この関数はフレーム<VAR>frame</VAR>を選択し、
+Xサーバーのフォーカスを一時的に無視する。
+<VAR>frame</VAR>を選択している状態は、
+ユーザーが別のフレームを選択する動作を行うか
+再度この関数が呼ばれるまで持続する。
+</DL>
+<P>
+
+サーバーやウィンドウマネジャーの要請にしたがって
+フレームを選択するようにして、
+Emacsはウィンドウシステムと協調します。
+必要なときには<EM>focus</EM>イベントと呼ばれる特別な入力イベントを
+生成することでこのようにします。
+コマンドループは<CODE>handle-switch-frame</CODE>を呼び出すことで
+イベント<EM>focus</EM>を処理します。
+See 節 <A HREF="elisp_21.html#SEC298">20.5.9 フォーカスイベント</A>。
+<P>
+
+<A NAME="IDX1992"></A>
+<DL>
+<DT><U>コマンド:</U> <B>handle-switch-frame</B> <I>frame</I>
+<DD>この関数は、フレーム<VAR>frame</VAR>を選択することでフォーカスイベントを
+処理する。
+<P>
+
+フォーカスイベントは、通常、このコマンドを起動することで処理される。
+それ以外の理由ではこれを呼び出さないこと。
+</DL>
+<P>
+
+<A NAME="IDX1993"></A>
+<DL>
+<DT><U>Function:</U> <B>redirect-frame-focus</B> <I>frame focus-frame</I>
+<DD>この関数は、フォーカスを<VAR>frame</VAR>から<VAR>focus-frame</VAR>へ振り向ける。
+つまり、以降の打鍵やイベントは、<VAR>focus</VAR>ではなく、
+<VAR>focus-frame</VAR>が受け取ることになる。
+そのようなイベントのあとでは、
+<CODE>last-event-frame</CODE>の値は<VAR>focus-frame</VAR>になる。
+また、<VAR>focus</VAR>を指定したイベント<CODE>switch-frame</CODE>は、
+<VAR>focus-frame</VAR>を選ぶことになる。
+<P>
+
+<VAR>focus-frame</VAR>が<CODE>nil</CODE>であると、<VAR>frame</VAR>での振り向けを取り消す。
+つまり、<VAR>frame</VAR>はイベントをふたたび受けるようになる。
+<P>
+
+フォーカスの振り向けの用途の1つは、
+ミニバッファを持たないフレームのためである。
+これらのフレームでは、別のフレームのミニバッファを使う。
+別のフレームのミニバッファを活性にすると、
+フォーカスを当該フレームへ振り向ける。
+これにより、ミニバッファを活性にしたフレームにマウスが入っていても、
+ミニバッファのフレームにフォーカスを置ける。
+<P>
+
+フレームを選択してもフォーカスの振り向けを変更する。
+フレーム<CODE>foo</CODE>を選択しているときにフレーム<CODE>bar</CODE>を選択すると、
+<CODE>foo</CODE>への振り向けを<CODE>bar</CODE>へ振り向けるように変更する。
+これにより、<CODE>select-window</CODE>を使ってユーザーが
+別のフレームへ切り替えても、フォーカスの振り向けが正しく動作する。
+<P>
+
+これは、フォーカスを自分自身へ振り向けているフレームは、
+フォーカスを振り向けていないフレームとは異なる扱いを受けることを意味する。
+<CODE>select-frame</CODE>は前者に影響するが後者には影響しない。
+<P>
+
+<CODE>redirect-frame-focus</CODE>で変更するまで、振り向けは持続する。
+</DL>
+<P>
+
+<A NAME="IDX1994"></A>
+<DL>
+<DT><U>User Option:</U> <B>focus-follows-mouse</B>
+<DD><A NAME="IDX1995"></A>
+このオプションは、ユーザーがマウスを動かしたときに
+ウィンドウマネージャがフォーカスを移動するかどうかをEmacsに伝える。
+<CODE>nil</CODE>以外であるとフォーカスが移動することを意味する。
+その場合、コマンド<CODE>other-frame</CODE>は、
+新たに選択されたフレームに適合するような位置にマウスを移動する。
+</DL>
+<P>
+
+<A NAME="Visibility of Frames"></A>
+<HR SIZE="6">
+<br><A NAME="SEC448"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC447"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC449"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Visibility of Frames"></A>
+<H2> 28.10 フレームの可視性 </H2>
+<!--docid::SEC448::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Visibility%20of%20Frames">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Visibility%20of%20Frames</a>"<br>
+"texi/elisp21/フレームの可視性"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D5%A5%EC%A1%BC%A5%E0%A4%CE%B2%C4%BB%EB%C0%AD">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX1996"></A>
+<A NAME="IDX1997"></A>
+<A NAME="IDX1998"></A>
+<A NAME="IDX1999"></A>
+<P>
+
+ウィンドウフレームは、<EM>可視</EM>、
+<EM>不可視</EM>、<EM>アイコンになっている</EM>のいずれかです。
+フレームが可視であると、その内容を見ることができます。
+アイコンになっているとフレームの内容はスクリーンで見えませんが、
+アイコンは見えます。
+フレームが不可視であると、それはスクリーン上に見えず
+アイコンでもありません。
+<P>
+
+端末フレームは選択されているものだけが表示されるので、
+端末フレームでは可視性は意味がありません。
+<P>
+
+<A NAME="IDX2000"></A>
+<DL>
+<DT><U>コマンド:</U> <B>make-frame-visible</B> <I>&#38;optional frame</I>
+<DD>この関数は、フレーム<VAR>frame</VAR>を可視にする。
+<VAR>frame</VAR>を省略すると、選択されているフレームを可視にする。
+</DL>
+<P>
+
+<A NAME="IDX2001"></A>
+<DL>
+<DT><U>コマンド:</U> <B>make-frame-invisible</B> <I>&#38;optional frame</I>
+<DD>この関数は、フレーム<VAR>frame</VAR>を不可視にする。
+<VAR>frame</VAR>を省略すると、選択されているフレームを不可視にする。
+</DL>
+<P>
+
+<A NAME="IDX2002"></A>
+<DL>
+<DT><U>コマンド:</U> <B>iconify-frame</B> <I>&#38;optional frame</I>
+<DD>この関数は、フレーム<VAR>frame</VAR>をアイコンにする。
+<VAR>frame</VAR>を省略すると、選択されているフレームをアイコンにする。
+</DL>
+<P>
+
+<A NAME="IDX2003"></A>
+<DL>
+<DT><U>Function:</U> <B>frame-visible-p</B> <I>frame</I>
+<DD>この関数は、フレーム<VAR>frame</VAR>の可視性を返す。
+その値は、<VAR>frame</VAR>が可視ならば<CODE>t</CODE>、
+不可視ならば<CODE>nil</CODE>、アイコンになっていれば<CODE>icon</CODE>である。
+</DL>
+<P>
+
+フレームの可視性は、フレームパラメータとしても得られます。
+フレームパラメータとして読んだり変更できます。
+See 節 <A HREF="elisp_29.html#SEC440">28.3.3 ウィンドウフレームのパラメータ</A>。
+<P>
+
+ユーザーは、ウィンドウマネージャを用いて
+フレームをアイコンにしたりアイコンを開けます。
+これは、Emacsが制御できるレベルよりしたで行われますが、
+Emacsはそのような変更を追跡できるようにイベントを提供します。
+See 節 <A HREF="elisp_21.html#SEC299">20.5.10 ウィンドウシステムのその他のイベント</A>。
+<P>
+
+<A NAME="Raising and Lowering"></A>
+<HR SIZE="6">
+<br><A NAME="SEC449"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC448"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC450"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Raising and Lowering"></A>
+<H2> 28.11 フレームを手前にしたり奥へ置く </H2>
+<!--docid::SEC449::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Raising%20and%20Lowering">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Raising%20and%20Lowering</a>"<br>
+"texi/elisp21/フレームを手前にしたり奥へ置く"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D5%A5%EC%A1%BC%A5%E0%A4%F2%BC%EA%C1%B0%A4%CB%A4%B7%A4%BF%A4%EA%B1%FC%A4%D8%C3%D6%A4%AF">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+ほとんどのウィンドウシステムでは、机のたとえを使います。
+つまり、スクリーンの面に垂直な方向を概念的な3軸目と考えて、
+ウィンドウは積み重なっていて、
+もっとも手前からもっとも奥に順序がついています。
+2つのウィンドウが重なり合っているところでは、
+手前のものがそのしたのものを隠しています。
+もっとも奥にあるウィンドウであっても、
+それに重なるウィンドウがなければ見ることができます。
+<P>
+
+<A NAME="IDX2004"></A>
+<A NAME="IDX2005"></A>
+ウィンドウのこのような順序は固定されていません。
+実際、ユーザーは順序を頻繁に変更します。
+ウィンドウを<EM>手前に置く</EM>（raising）とは、
+ウィンドウを積み重ねのもっとも上に移動することです。
+ウィンドウを<EM>奥に置く</EM>（lowering）とは、
+ウィンドウを積み重ねのもっとも下に移動することです。
+この移動は概念的な3軸目に限り、
+スクリーン上でのウィンドウの位置は変えません。
+<P>
+
+Emacsのフレームを表すウィンドウは、つぎの関数で
+手前へ置いたり奥へ置けます。
+<P>
+
+<A NAME="IDX2006"></A>
+<DL>
+<DT><U>コマンド:</U> <B>raise-frame</B> <I>&#38;optional frame</I>
+<DD>この関数は、フレーム<VAR>frame</VAR>を手前に置く
+（デフォルトは選択されているフレーム）。
+</DL>
+<P>
+
+<A NAME="IDX2007"></A>
+<DL>
+<DT><U>コマンド:</U> <B>lower-frame</B> <I>&#38;optional frame</I>
+<DD>この関数は、フレーム<VAR>frame</VAR>を奥に置く
+（デフォルトは選択されているフレーム）。
+</DL>
+<P>
+
+<A NAME="IDX2008"></A>
+<DL>
+<DT><U>User Option:</U> <B>minibuffer-auto-raise</B>
+<DD>これが<CODE>nil</CODE>以外であると、ミニバッファが活性になると
+ミニバッファ用ウィンドウがあるフレームを手前に置く。
+</DL>
+<P>
+
+フレームパラメータを使うと、フレームが
+選択されると自動的に手前に置いたり（<CODE>auto-raise</CODE>）、
+選択を止めると奥へ置け（<CODE>auto-lower</CODE>）ます。
+See 節 <A HREF="elisp_29.html#SEC440">28.3.3 ウィンドウフレームのパラメータ</A>。
+<P>
+
+<A NAME="Frame Configurations"></A>
+<HR SIZE="6">
+<br><A NAME="SEC450"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC449"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC451"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Frame Configurations"></A>
+<H2> 28.12 フレーム構成 </H2>
+<!--docid::SEC450::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Frame%20Configurations">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Frame%20Configurations</a>"<br>
+"texi/elisp21/フレーム構成"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D5%A5%EC%A1%BC%A5%E0%B9%BD%C0%AE">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX2009"></A>
+<P>
+
+<EM>フレーム構成</EM>（frame configuration）は、
+現在のフレームの配置、それらのすべての属性、それぞれのウィンドウ構成を
+記録したものです。
+（see 節 <A HREF="elisp_28.html#SEC432">27.16 ウィンドウ構成</A>。）
+<P>
+
+<A NAME="IDX2010"></A>
+<DL>
+<DT><U>Function:</U> <B>current-frame-configuration</B>
+<DD>この関数は、現在のフレームの配置とそれらの内容を記述した
+フレーム構成のリストを返す。
+</DL>
+<P>
+
+<A NAME="IDX2011"></A>
+<DL>
+<DT><U>Function:</U> <B>set-frame-configuration</B> <I>configuration</I>
+<DD>この関数は、<VAR>configuration</VAR>で記述されたフレームの状態に復元する。
+</DL>
+<P>
+
+<A NAME="Mouse Tracking"></A>
+<HR SIZE="6">
+<br><A NAME="SEC451"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC450"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC452"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Mouse Tracking"></A>
+<H2> 28.13 マウスの追跡 </H2>
+<!--docid::SEC451::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Mouse%20Tracking">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Mouse%20Tracking</a>"<br>
+"texi/elisp21/マウスの追跡"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%DE%A5%A6%A5%B9%A4%CE%C4%C9%C0%D7">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX2012"></A>
+<A NAME="IDX2013"></A>
+<P>
+
+マウスを<EM>追跡</EM>（track）できると有用なことがあります。
+つまり、マウスがどこにあるかを表す指示子を表示して
+マウスの移動に従って指示子を動かすのです。
+効率よくマウスを追跡するには、マウスが実際に移動するまで待つ手段が必要です。
+<P>
+
+マウスを追跡する便利な方法は、マウスの移動を表すイベントを待つことです。
+そうすれば、そのようなイベントを待てばマウスの移動を待てます。
+さらに、発生しうるそれ以外の種類のイベントを扱うのも簡単です。
+普通はマウスを永遠に追跡し続けたいのではなく
+ボタンを離すなどの別のイベントを待ちたいのでしょうから、
+これは有用です。
+<P>
+
+<A NAME="IDX2014"></A>
+<DL>
+<DT><U>Special Form:</U> <B>track-mouse</B> <I>body<small>...</small></I>
+<DD>このスペシャルフォームは、マウスモーションイベントを生成するようにして
+<VAR>body</VAR>を実行する。
+典型的には<VAR>body</VAR>では<CODE>read-event</CODE>を使って
+モーションイベントを読み、それに従って表示を変更する。
+マウスモーションイベントの形式については、
+see 節 <A HREF="elisp_21.html#SEC297">20.5.8 モーションイベント</A>。
+<P>
+
+<CODE>track-mouse</CODE>の値は<VAR>body</VAR>の最後のフォームの値である。
+<VAR>body</VAR>は、ボタンを離したことを表すイベントや
+追跡を終えるべきイベントに出会うと戻るように設計すること。
+</DL>
+<P>
+
+マウスの移動を追跡する普通の目的は、
+現在の位置でボタンを押したり離すとなにが起こるかを
+スクリーン上に示すことです。
+<P>
+
+多くの場面では、テキスト属性<CODE>mouse-face</CODE>（see 節 <A HREF="elisp_32.html#SEC517">31.19.4 特別な意味を持つ属性</A>）
+を使えば、マウスを追跡する必要はなくなります。
+これはとても低いレベルで動作し、
+Lispレベルでマウスを追跡するより滑らかに動作します。
+<P>
+
+<A NAME="Mouse Position"></A>
+<HR SIZE="6">
+<br><A NAME="SEC452"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC451"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC453"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Mouse Position"></A>
+<H2> 28.14 マウスの位置 </H2>
+<!--docid::SEC452::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Mouse%20Position">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Mouse%20Position</a>"<br>
+"texi/elisp21/マウスの位置"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%DE%A5%A6%A5%B9%A4%CE%B0%CC%C3%D6">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX2015"></A>
+<A NAME="IDX2016"></A>
+<P>
+
+関数<CODE>mouse-position</CODE>と<CODE>set-mouse-position</CODE>で、
+マウスの現在位置を参照できます。
+<P>
+
+<A NAME="IDX2017"></A>
+<DL>
+<DT><U>Function:</U> <B>mouse-position</B>
+<DD>この関数は、マウスの位置を表すものを返す。
+その値は<CODE>(<VAR>frame</VAR> <VAR>x</VAR> . <VAR>y</VAR>)</CODE>の形であり、
+<VAR>x</VAR>と<VAR>y</VAR>はフレーム<VAR>frame</VAR>の内側の左上隅を基準にした
+文字数で数えた位置を表す整数である。
+</DL>
+<P>
+
+<A NAME="IDX2018"></A>
+<DL>
+<DT><U>Function:</U> <B>set-mouse-position</B> <I>frame x y</I>
+<DD>この関数は、フレーム<VAR>frame</VAR>内で<VAR>x</VAR>と<VAR>y</VAR>の位置にマウスを移動する。
+引数<VAR>x</VAR>と<VAR>y</VAR>は整数であり、
+フレーム<VAR>frame</VAR>の内側の左上隅を基準にした文字数で数えた位置である。
+<VAR>frame</VAR>が不可視であると、この関数はなにもしない。
+戻り値には意味はない。
+</DL>
+<P>
+
+<A NAME="IDX2019"></A>
+<DL>
+<DT><U>Function:</U> <B>mouse-pixel-position</B>
+<DD>この関数は<CODE>mouse-position</CODE>に似ているが、
+文字単位ではなくピクセル単位で座標を返す。
+</DL>
+<P>
+
+<A NAME="IDX2020"></A>
+<DL>
+<DT><U>Function:</U> <B>set-mouse-pixel-position</B> <I>frame x y</I>
+<DD>この関数は<CODE>set-mouse-position</CODE>のようにマウスを移動するが、
+<VAR>x</VAR>と<VAR>y</VAR>は文字単位でなくピクセル単位である。
+これらの座標はフレームの内側にある必要はない。
+<P>
+
+<VAR>frame</VAR>が不可視であると、この関数はなにもしない。
+戻り値には意味はない。
+</DL>
+<P>
+
+<A NAME="Pop-Up Menus"></A>
+<HR SIZE="6">
+<br><A NAME="SEC453"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC452"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC454"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Pop-Up Menus"></A>
+<H2> 28.15 ポップアップメニュー </H2>
+<!--docid::SEC453::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Pop-Up%20Menus">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Pop-Up%20Menus</a>"<br>
+"texi/elisp21/ポップアップメニュー"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%DD%A5%C3%A5%D7%A5%A2%A5%C3%A5%D7%A5%E1%A5%CB%A5%E5%A1%BC">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+ウィンドウシステムを使っているときには、
+ユーザーがマウスで選択できるように
+Lispプログラムからメニューをポップアップできます。
+<P>
+
+<A NAME="IDX2021"></A>
+<DL>
+<DT><U>Function:</U> <B>x-popup-menu</B> <I>position menu</I>
+<DD>この関数はポップアップメニューを表示し、
+ユーザーが行った選択を表す指示子を返す。
+<P>
+
+引数<VAR>position</VAR>は、スクリーンのどこにメニューを置くかを指定する。
+それはマウスのボタンイベント（ユーザーがボタンを押した場所にメニューを置く）か
+つぎの形のリストでもよい。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>((<VAR>xoffset</VAR> <VAR>yoffset</VAR>) <VAR>window</VAR>)
+</pre></td></tr></table><P>
+
+ここで、<VAR>xoffset</VAR>と<VAR>yoffset</VAR>は
+ウィンドウ<VAR>window</VAR>のフレームの左上隅から測ったピクセル単位の座標である。
+<P>
+
+<VAR>position</VAR>が<CODE>t</CODE>であるとマウスの現在位置を使うことを意味する。
+<VAR>position</VAR>が<CODE>nil</CODE>であると、
+メニューを実際には表示せずに、
+<VAR>menu</VAR>に指定してあるキーマップに等価なキーバインディングを
+あらかじめ計算することを意味する。
+<P>
+
+引数<VAR>menu</VAR>は、メニューに表示するものを指定する。
+それはキーマップかキーマップのリストである（see 節 <A HREF="elisp_22.html#SEC329">21.12 メニューキーマップ</A>）。
+あるいは、つぎの形でもよい。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(<VAR>title</VAR> <VAR>pane1</VAR> <VAR>pane2</VAR>...)
+</pre></td></tr></table><P>
+
+ここで、各ペインはつぎの形のリストである。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(<VAR>title</VAR> (<VAR>line</VAR> . <VAR>item</VAR>)...)
+</pre></td></tr></table><P>
+
+各<VAR>line</VAR>は文字列であり、
+各<VAR>item</VAR>は対応する<VAR>line</VAR>が選ばれたときに返される値であること。
+</DL>
+<P>
+
+<STRONG>使用上の注意：</STRONG><CODE> </CODE>
+メニューキーマップで定義したプレフィックスキーでできることには、
+メニューを表示するために<CODE>x-popup-menu</CODE>を使わないこと。
+メニューキーマップを使ってメニューを実装すると、
+<KBD>C-h c</KBD>や<KBD>C-h a</KBD>で当該メニューの個々の項目を見ることができ、
+それらに対するヘルプを提供できる。
+<CODE>x-popup-menu</CODE>を呼び出すコマンドを定義してメニューを実装すると、
+ヘルプ機能には当該コマンドの内側でなにがなされるかわからないので、
+メニューの項目に対するヘルプを提供できない。
+<P>
+
+マウスの移動でサブメニューを切り替えられるメニューバーの機構では、
+<CODE>x-popup-menu</CODE>を呼び出すコマンドの定義を調べられません。
+したがって、<CODE>x-popup-menu</CODE>を使ってサブメニューを実装すると、
+それらはメニューバーに適応した動作をできません。
+このために、メニューバーのすべてのサブメニューは、
+親メニュー内のメニューキーマップとして実装してあり、
+<CODE>x-popup-menu</CODE>は使っていません。
+See 節 <A HREF="elisp_22.html#SEC337">21.12.5 メニューバー</A>。
+<P>
+
+メニューバーに内容が変化するサブメニューを使いたいときでも、
+メニューキーマップを使って実装するべきです。
+内容を変えるには、必要に応じてメニューキーの内容を更新するために
+<CODE>menu-bar-update-hook</CODE>にフック関数を追加します。
+<P>
+
+<A NAME="Dialog Boxes"></A>
+<HR SIZE="6">
+<br><A NAME="SEC454"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC453"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC455"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Dialog Boxes"></A>
+<H2> 28.16 対話ボックス </H2>
+<!--docid::SEC454::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Dialog%20Boxes">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Dialog%20Boxes</a>"<br>
+"texi/elisp21/対話ボックス"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%C2%D0%CF%C3%A5%DC%A5%C3%A5%AF%A5%B9">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX2022"></A>
+<P>
+
+対話ボックスはポップアップメニューの変形です。
+少々異なって見えますが、フレームの中央につねに現れ、
+たった1つのレベルで1つのペインです。
+対話ボックスの主な用途は、
+ユーザーが『yes』、『no』、および他の少数の選択肢で答えるような
+問い合わせを行うためです。
+関数<CODE>y-or-n-p</CODE>と<CODE>yes-or-no-p</CODE>は、
+マウスクリックで起動されたコマンドから呼ばれると
+キーボードではなく対話ボックスを使います。
+<P>
+
+<A NAME="IDX2023"></A>
+<DL>
+<DT><U>Function:</U> <B>x-popup-dialog</B> <I>position contents</I>
+<DD>この関数は、対話ボックスを表示し、
+ユーザーが選んだ選択肢を表す指示子を返す。
+引数<VAR>contents</VAR>は表示する選択肢を指定し、つぎの形である。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(<VAR>title</VAR> (<VAR>string</VAR> . <VAR>value</VAR>)<small>...</small>)
+</pre></td></tr></table><P>
+
+これは、<CODE>x-popup-menu</CODE>に対して単一のペインを指定するリストに似ている。
+<P>
+
+戻り値は、選ばれた選択肢の<VAR>value</VAR>である。
+<P>
+
+リストの要素は、<CODE>(<VAR>string</VAR> . <VAR>value</VAR>)</CODE>の形の
+コンスセルのかわりに単に文字列でもよい。
+そうすると、対話ボックスでは選択できなくなる。
+<P>
+
+リストに<CODE>nil</CODE>が現れると、それは左側の項目と右側の項目を区切る。
+<CODE>nil</CODE>のまえの項目は左側に現れ、
+<CODE>nil</CODE>に続く項目は右側に現れる。
+リストに<CODE>nil</CODE>を含めなければ、項目のほぼ半分がそれぞれの側に現れる。
+<P>
+
+対話ボックスはフレームの中央につねに現れ、
+引数<VAR>position</VAR>はそのフレームを指定する。
+可能な値は<CODE>x-popup-menu</CODE>と同様であるが、
+正確な座標は関係なくフレームだけが意味を持つ。
+<P>
+
+場合によっては、Emacsは本当の対話ボックスを表示できない。
+そのときにはフレームの中央にポップアップメニューで同じ項目を表示する。
+</DL>
+<P>
+
+<A NAME="Pointer Shapes"></A>
+<HR SIZE="6">
+<br><A NAME="SEC455"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC454"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC456"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Pointer Shapes"></A>
+<H2> 28.17 ポインタの形状 </H2>
+<!--docid::SEC455::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Pointer%20Shapes">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Pointer%20Shapes</a>"<br>
+"texi/elisp21/ポインタの形状"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%DD%A5%A4%A5%F3%A5%BF%A4%CE%B7%C1%BE%F5">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX2024"></A>
+<A NAME="IDX2025"></A>
+<P>
+
+これらの変数は、Xウィンドウシステムを使っているときに
+さまざまな場面で使用するマウスポインタの形状を指定します。
+<P>
+
+<DL COMPACT>
+<DT><CODE>x-pointer-shape</CODE>
+<DD><A NAME="IDX2026"></A>
+この変数は、Emacsのフレーム内で普通に使うポインタ形状を指定する。
+<P>
+
+<DT><CODE>x-sensitive-text-pointer-shape</CODE>
+<DD><A NAME="IDX2027"></A>
+この変数は、マウスに反応するテキスト上にマウスがあるときに
+使用するポインタ形状を指定する。
+</DL>
+<P>
+
+これらの変数は、新たに作成したフレームに影響します。
+既存のフレームには通常は影響しません。
+しかし、フレームのマウスの表示色を設定すると、
+これらの変数の現在値に基づいてポインタ形状も更新します。
+See 節 <A HREF="elisp_29.html#SEC440">28.3.3 ウィンドウフレームのパラメータ</A>。
+<P>
+
+これらのポインタ形状の指定に使える値は、
+ファイル`<TT>lisp/term/x-win.el</TT>'で定義してあります。
+それらの一覧を見るには
+<KBD>M-x apropos <KBD>RET</KBD> x-pointer <KBD>RET</KBD></KBD>を使います。
+<P>
+
+<A NAME="Window System Selections"></A>
+<HR SIZE="6">
+<br><A NAME="SEC456"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC455"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC457"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Window System Selections"></A>
+<H2> 28.18 ウィンドウシステムのセレクション </H2>
+<!--docid::SEC456::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Window%20System%20Selections">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Window%20System%20Selections</a>"<br>
+"texi/elisp21/ウィンドウシステムのセレクション"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%A6%A5%A3%A5%F3%A5%C9%A5%A6%A5%B7%A5%B9%A5%C6%A5%E0%A4%CE%A5%BB%A5%EC%A5%AF%A5%B7%A5%E7%A5%F3">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX2028"></A>
+<P>
+
+Xサーバーは、アプリケーションプログラムのあいだでデータを
+転送するための<EM>セレクション</EM>（selection）の集まりを記録します。
+さまざまなセレクションは、Emacsではシンボルで表した
+<EM>セレクション型</EM>（selection type）で区別されます。
+Emacsを含むXクライアントは、任意の型のセレクションを読んだり設定できます。
+<P>
+
+<A NAME="IDX2029"></A>
+<DL>
+<DT><U>Function:</U> <B>x-set-selection</B> <I>type data</I>
+<DD>この関数は、Xサーバーに『セレクション』を設定する。
+これは2つの引数、セレクション型<VAR>type</VAR>と
+それに割り当てる値<VAR>data</VAR>を取る。
+<VAR>data</VAR>が<CODE>nil</CODE>であると、当該セレクションを削除することを意味する。
+さもなければ<VAR>data</VAR>は、文字列、
+整数（あるいは2つの数のコンスセルかリスト）、
+オーバレイ、同じバッファを指す2つのマーカのコンスセルのいずれかである。
+オーバレイやマーカの対は、
+オーバレイのテキストやマーカのあいだのテキストを表す。
+<P>
+
+引数<VAR>data</VAR>は、ベクトルではない正しいセレクション値のベクトルでもよい。
+<P>
+
+可能な各<VAR>type</VAR>には型に依存した独自のセレクション値がある。
+<VAR>type</VAR>の普通の値は<CODE>PRIMARY</CODE>か<CODE>SECONDARY</CODE>である。
+これらのシンボルは、Xウィンドウシステムの慣習に従って
+大文字の名前である。
+デフォルトは<CODE>PRIMARY</CODE>である。
+</DL>
+<P>
+
+<A NAME="IDX2030"></A>
+<DL>
+<DT><U>Function:</U> <B>x-get-selection</B> <I>&#38;optional type data-type</I>
+<DD>この関数は、Emacsや他のXクライアントが設定したセレクションを参照する。
+これは2つの引数、<VAR>type</VAR>と<VAR>data-type</VAR>を取る。
+セレクション型<VAR>type</VAR>のデフォルトは<CODE>PRIMARY</CODE>である。
+<P>
+
+引数<VAR>data-type</VAR>は、他のXクライアントから得た生データを
+Lispデータに変換するために使用するデータ変換の書式を指定する。
+意味のある値は、<CODE>TEXT</CODE>、<CODE>STRING</CODE>、
+<CODE>CHARACTER_POSITION</CODE>、<CODE>LINE_NUMBER</CODE>、<CODE>COLUMN_NUMBER</CODE>、
+<CODE>OWNER_OS</CODE>、<CODE>HOST_NAME</CODE>、<CODE>USER</CODE>、<CODE>CLASS</CODE>、
+<CODE>NAME</CODE>、<CODE>ATOM</CODE>、<CODE>INTEGER</CODE>である。
+（これらのシンボルは、Xウィンドウシステムの慣習に従って
+大文字の名前である。）
+<VAR>data-type</VAR>のデフォルトは<CODE>STRING</CODE>である。
+</DL>
+<P>
+
+<A NAME="IDX2031"></A>
+Xサーバーには、アプリケーションのあいだで移動するテキストや他のデータを
+保存できる番号付きの<EM>カットバッファ</EM>（cut buffer）の集まりもあります。
+カットバッファは廃れているとみなされますが、
+それらを使っているXクライアント向けにEmacsはカットバッファを扱えます。
+<P>
+
+<A NAME="IDX2032"></A>
+<DL>
+<DT><U>Function:</U> <B>x-get-cut-buffer</B> <I>n</I>
+<DD>この関数は、番号<VAR>n</VAR>のカットバッファの内容を返す。
+</DL>
+<P>
+
+<A NAME="IDX2033"></A>
+<DL>
+<DT><U>Function:</U> <B>x-set-cut-buffer</B> <I>string</I>
+<DD>Emacsが連続したキルをキルリングで順に下向きに移動するのと同様に、
+この関数は一連のカットバッファの値を順に下向きに移動してから
+文字列<VAR>string</VAR>を最初のカットバッファ（番号0）に保存する。
+</DL>
+<P>
+
+<A NAME="IDX2034"></A>
+<DL>
+<DT><U>Variable:</U> <B>selection-coding-system</B>
+<DD><A NAME="IDX2035"></A>
+この変数は、セレクション、クリップボード、カットバッファを
+読み書きするときに使うコーディングシステムを指定する。
+see 節 <A HREF="elisp_33.html#SEC538">32.10 コーディングシステム</A>。
+デフォルトは<CODE>compound-text</CODE>である。
+</DL>
+<P>
+
+<A NAME="Font Names"></A>
+<HR SIZE="6">
+<br><A NAME="SEC457"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC456"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC458"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Font Names"></A>
+<H2> 28.19 フォント名の探索 </H2>
+<!--docid::SEC457::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Font%20Names">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Font%20Names</a>"<br>
+"texi/elisp21/フォント名の探索"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D5%A5%A9%A5%F3%A5%C8%CC%BE%A4%CE%C3%B5%BA%F7">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+<A NAME="IDX2036"></A>
+<DL>
+<DT><U>Function:</U> <B>x-list-font</B> <I>pattern &#38;optional face frame maximum</I>
+<DD>この関数は、パターン<VAR>pattern</VAR>に一致する
+利用可能なフォント名のリストを返す。
+省略可能な引数<VAR>face</VAR>と<VAR>frame</VAR>を指定すると、
+<VAR>frame</VAR>で現在オンになっている<VAR>face</VAR>と同じサイズのフォントに
+リストを制限する。
+<P>
+
+引数<VAR>pattern</VAR>は文字列であること。
+これはワイルドカード文字を含んでいてもよい。
+`<SAMP>*</SAMP>'は任意の部分文字列に一致し、`<SAMP>?</SAMP>'は任意の1文字に一致する。
+フォント名とパターンの一致を取る際には、大文字小文字を区別しない。
+<P>
+
+<VAR>face</VAR>と<VAR>frame</VAR>を指定するときには、
+<VAR>face</VAR>はフェイス名（シンボル）であり、<VAR>frame</VAR>はフレームであること。
+<P>
+
+省略可能な引数<VAR>maximum</VAR>は、返すフォントの個数を制限する。
+これが<CODE>nil</CODE>以外であると、戻り値は最初の<VAR>maximum</VAR>個の
+一致したフォントに切り詰める。
+<VAR>maximum</VAR>に小さな値を指定すると、
+多くのフォントに一致する場合ではこの関数の動作がだいぶ速くなる。
+</DL>
+<P>
+
+<A NAME="Fontsets"></A>
+<HR SIZE="6">
+<br><A NAME="SEC458"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC457"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC459"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Fontsets"></A>
+<H2> 28.20 フォントセット </H2>
+<!--docid::SEC458::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Fontsets">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Fontsets</a>"<br>
+"texi/elisp21/フォントセット"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D5%A5%A9%A5%F3%A5%C8%A5%BB%A5%C3%A5%C8">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+<EM>フォントセット</EM>（fontset）は、フォントのリストであって、
+各フォントが文字コードのある範囲に割り付けられています。
+個々のフォントだけでは、Emacsが扱う文字集合の範囲全体を表示できませんが、
+フォントセットならば可能です。
+フォントセットにはフォントと同様に名前があり、
+フレームやフェイス向けに『フォント』を指定するときの
+フォント名のかわりにフォントセット名を使えます。
+ここでは、Lispプログラムの制御のもとにフォントセットを定義することに
+関する情報を述べます。
+<P>
+
+<A NAME="IDX2037"></A>
+<DL>
+<DT><U>Function:</U> <B>create-fontset-from-fontset-spec</B> <I>fontset-spec &#38;optional style-variant-p noerror</I>
+<DD>この関数は、指定文字列<VAR>fontset-spec</VAR>に従って
+新たなフォントセットを定義する。
+文字列はつぎの形であること。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre><VAR>fontpattern</VAR>, [<VAR>charsetname</VAR>:<VAR>fontname</VAR>]<small>...</small>
+</FONT></pre></td></tr></table><P>
+
+コンマの前後の白文字は無視する。
+<P>
+
+文字列の始めの部分<VAR>fontpattern</VAR>は、
+最後の2つのフィールドが`<SAMP>fontset-<VAR>alias</VAR></SAMP>'であることを除いて、
+Xの標準フォント名であること。
+<P>
+
+新たなフォントセットには2つの名前、つまり、長い名前と短い名前がある。
+長い名前は<VAR>fontpattern</VAR>そのものである。
+短い名前は`<SAMP>fontset-<VAR>alias</VAR></SAMP>'である。
+どちらの名前でもフォントセットを参照できる。
+同じ名前のフォントセットがすでに存在する場合、
+<VAR>noerror</VAR>が<CODE>nil</CODE>であるとエラーを通知し、
+この関数はなにもしない。
+<P>
+
+省略可能な引数<VAR>style-variant-p</VAR>が<CODE>nil</CODE>以外であると、
+フォントセットのbold（太字）、italic（斜体）、bold-italic（太字斜体）の
+各変種も作成することを指示する。
+これらの変種のフォントセットには短い名前はなく、
+var{fontpattern}のboldやitalicを変更して作った長い名前だけである。
+<P>
+
+指定文字列ではフォントセットで使うフォントも指定する。
+詳しくは下記参照。
+</DL>
+<P>
+
+`<SAMP><VAR>charset</VAR>:<VAR>font</VAR></SAMP>'という構成は、
+特定の1つの文字集合向けに（このフォントセットで）使うフォントを指定します。
+ここで、<VAR>charset</VAR>は文字集合の名前であり、
+<VAR>font</VAR>はその文字集合に使うフォントです。
+この構成は、指定文字列で何回でも使えます。
+<P>
+
+明示してない残りの文字集合向けには、
+<VAR>fontpattern</VAR>に基づいてEmacsがフォントを選びます。
+つまり、`<SAMP>fontset-<VAR>alias</VAR></SAMP>'を1つの文字集合を指名する値で置き換えます。
+ASCII文字集合向けには、
+`<SAMP>fontset-<VAR>alias</VAR></SAMP>'を`<SAMP>ISO8859-1</SAMP>'で置き換えます。
+<P>
+
+これに加えて、いくつか連続したフィールドがワイルドカードであるなら、
+Emacsはそれらを1つのワイルドカードにまとめます。
+これは、自動的に拡大縮小したフォントの使用を避けるためです。
+大きめのフォントを縮小したフォントは編集には使えません。
+また、小さめのフォントを拡大したフォントも有用ではありません。
+というのは、Emacsがそうするように、
+もともと小さなフォントを使うほうがよいからです。
+<P>
+
+したがって、<VAR>fontpattern</VAR>がつぎのようであると、
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>-*-fixed-medium-r-normal-*-24-*-*-*-*-*-fontset-24
+</pre></td></tr></table><P>
+
+ASCII文字に対するフォント指定はつぎのようになります。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>-*-fixed-medium-r-normal-*-24-*-ISO8859-1
+</pre></td></tr></table><P>
+
+また、Chinese GB2312文字に対するフォント指定はつぎのようになります。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>-*-fixed-medium-r-normal-*-24-*-gb2312*-*
+</pre></td></tr></table><P>
+
+上のフォント指定に一致する中国語フォントがないかもしれません。
+多くのXの配布には、<VAR>family</VAR>フィールドが
+`<SAMP>song ti</SAMP>'か`<SAMP>fangsong ti</SAMP>'の中国語フォントだけが含まれています。
+そういった場合、`<SAMP>Fontset-<VAR>n</VAR></SAMP>'をつぎのように指定します。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>Emacs.Fontset-0: -*-fixed-medium-r-normal-*-24-*-*-*-*-*-fontset-24,\
+        chinese-gb2312:-*-*-medium-r-normal-*-24-*-gb2312*-*
+</FONT></pre></td></tr></table><P>
+
+そうすると、Chinese GB2312の文字を除くフォント指定では
+<VAR>family</VAR>フィールドが`<SAMP>fixed</SAMP>'となり、
+Chinese GB2312の文字に対するフォント指定では
+<VAR>family</VAR>フィールドが`<SAMP>*</SAMP>'となります。
+<P>
+
+<A NAME="Color Names"></A>
+<HR SIZE="6">
+<br><A NAME="SEC459"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC458"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC460"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Color Names"></A>
+<H2> 28.21 表示色名 </H2>
+<!--docid::SEC459::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Color%20Names">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Color%20Names</a>"<br>
+"texi/elisp21/表示色名"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%C9%BD%BC%A8%BF%A7%CC%BE">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+<A NAME="IDX2038"></A>
+<DL>
+<DT><U>Function:</U> <B>x-color-defined-p</B> <I>color &#38;optional frame</I>
+<DD>この関数は、表示色名が意味のあるものかどうかを報告する。
+意味があれば<CODE>t</CODE>を返し、さもなければ<CODE>nil</CODE>を返す。
+引数<VAR>frame</VAR>は、どのフレームで調べるかを指定する。
+<VAR>frame</VAR>を省略したり<CODE>nil</CODE>であると、選択されているフレームを使う。
+<P>
+
+この関数では、読者が使用しているディスプレイで
+当該表示色を実際に表示できるかどうかはわからない。
+どんな種類のディスプレイでも定義されていればどんな表示色でも
+問い合わせることができ、なんらかの結果を得られる。
+Xサーバーはこのように動作するのである。
+読者のディスプレイで表示色<VAR>color</VAR>を使えるかどうかを
+検査する近似方法はつぎのとおりである。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(defun x-color-supported-p (color &#38;optional frame)
+  (and (x-color-defined-p color frame)
+       (or (x-display-color-p frame)
+           (member color '("black" "white"))
+           (and (&#62; (x-display-planes frame) 1)
+                (equal color "gray")))))
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX2039"></A>
+<DL>
+<DT><U>Function:</U> <B>x-color-values</B> <I>color &#38;optional frame</I>
+<DD>この関数は、表示色<VAR>color</VAR>が理想的にはどのように見えるかを記述した値を返す。
+<VAR>color</VAR>が定義されていれば、その値は、赤の分量、緑の分量、青の分量を表す
+3つの整数のリストである。
+各整数の範囲は原理的には0から65535であるが、
+実際には65280を超えることはないようである。
+<VAR>color</VAR>が定義されていなければ、値は<CODE>nil</CODE>である。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(x-color-values "black")
+     => (0 0 0)
+(x-color-values "white")
+     => (65280 65280 65280)
+(x-color-values "red")
+     => (65280 0 0)
+(x-color-values "pink")
+     => (65280 49152 51968)
+(x-color-values "hungry")
+     => nil
+</pre></td></tr></table><P>
+
+フレーム<VAR>frame</VAR>のディスプレイに対する表示色の値を返す。
+<VAR>frame</VAR>を省略したり<CODE>nil</CODE>であると、
+選択されているフレームのディスプレイに対する値を返す。
+</DL>
+<P>
+
+<A NAME="Resources"></A>
+<HR SIZE="6">
+<br><A NAME="SEC460"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC459"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC461"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Resources"></A>
+<H2> 28.22 Xリソース </H2>
+<!--docid::SEC460::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Resources">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Resources</a>"<br>
+"texi/elisp21/Xリソース"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2FX%A5%EA%A5%BD%A1%BC%A5%B9">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+<A NAME="IDX2040"></A>
+<DL>
+<DT><U>Function:</U> <B>x-get-resource</B> <I>attribute class &#38;optional component subclass</I>
+<DD>関数<CODE>x-get-resource</CODE>は、
+Xウィンドウのデフォルトのデータベースからリソースの値を取り出す。
+<P>
+
+リソースは、<EM>key</EM>と<EM>class</EM>の組み合わせで添字付けされる。
+この関数は`<SAMP><VAR>instance</VAR>.<VAR>attribute</VAR></SAMP>'の形
+（<VAR>instance</VAR>はEmacsを起動した名前）のキーと
+クラスとして`<SAMP>Emacs.<VAR>class</VAR></SAMP>'を使って探索する。
+<P>
+
+省略可能な引数<VAR>component</VAR>と<VAR>subclass</VAR>は、それぞれ、
+キーとクラスに追加される。
+2つを指定するかまったく指定しないこと。
+これらを指定すると、
+キーは`<SAMP><VAR>instance</VAR>.<VAR>component</VAR>.<VAR>attribute</VAR></SAMP>'であり、
+クラスは`<SAMP>Emacs.<VAR>class</VAR>.<VAR>subclass</VAR></SAMP>'である。
+</DL>
+<P>
+
+<A NAME="IDX2041"></A>
+<DL>
+<DT><U>Variable:</U> <B>x-resource-class</B>
+<DD>この変数は、<CODE>x-get-resource</CODE>が探すアプリケーション名を指定する。
+デフォルト値は<CODE>"Emacs"</CODE>である。
+<CODE>x-get-resource</CODE>を呼び出す周りでこの変数に別の文字列を束縛すれば、
+『Emacs』以外のアプリケーション名でXリソースを探せる。
+</DL>
+<P>
+
+  See <a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=emacs21&node=Resources%20X">GNU Emacs マニュアル</a>。
+<P>
+
+<A NAME="Server Data"></A>
+<HR SIZE="6">
+<br><A NAME="SEC461"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_29.html#SEC460"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_30.html#SEC462"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Server Data"></A>
+<H2> 28.23 Xサーバーに関するデータ </H2>
+<!--docid::SEC461::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Server%20Data">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Server%20Data</a>"<br>
+"texi/elisp21/Xサーバーに関するデータ"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2FX%A5%B5%A1%BC%A5%D0%A1%BC%A4%CB%B4%D8%A4%B9%A4%EB%A5%C7%A1%BC%A5%BF">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+本節では、Emacsが使っているXディスプレイの能力や製造元に関する情報を
+得るために使う関数について述べます。
+これらの関数のそれぞれには、どのディスプレイを対象にするか
+引数<VAR>display</VAR>で指定できます。
+引数<VAR>display</VAR>は、ディスプレイ名か
+フレーム（が表示されいるディスプレイを意味する）のいずれかです。
+引数<VAR>display</VAR>を省略したり<CODE>nil</CODE>であると、
+選択されているフレームのディスプレイを使うことを意味します。
+<P>
+
+<A NAME="IDX2042"></A>
+<DL>
+<DT><U>Function:</U> <B>x-display-screens</B> <I>&#38;optional display</I>
+<DD>この関数は、ディスプレイに対応付けられているスクリーンの個数を返す。
+</DL>
+<P>
+
+<A NAME="IDX2043"></A>
+<DL>
+<DT><U>Function:</U> <B>x-server-version</B> <I>&#38;optional display</I>
+<DD>この関数は、ディスプレイで動作中のXサーバーの版番号のリストを返す。
+</DL>
+<P>
+
+<A NAME="IDX2044"></A>
+<DL>
+<DT><U>Function:</U> <B>x-server-vendor</B> <I>&#38;optional display</I>
+<DD>この関数は、Xサーバーソフトウェアの提供業者を返す。
+</DL>
+<P>
+
+<A NAME="IDX2045"></A>
+<DL>
+<DT><U>Function:</U> <B>x-display-pixel-height</B> <I>&#38;optional display</I>
+<DD>この関数はスクリーンのピクセル単位の高さを返す。
+</DL>
+<P>
+
+<A NAME="IDX2046"></A>
+<DL>
+<DT><U>Function:</U> <B>x-display-mm-height</B> <I>&#38;optional display</I>
+<DD>この関数はスクリーンのミリメートル単位の高さを返す。
+</DL>
+<P>
+
+<A NAME="IDX2047"></A>
+<DL>
+<DT><U>Function:</U> <B>x-display-pixel-width</B> <I>&#38;optional display</I>
+<DD>この関数はスクリーンのピクセル単位の幅を返す。
+</DL>
+<P>
+
+<A NAME="IDX2048"></A>
+<DL>
+<DT><U>Function:</U> <B>x-display-mm-width</B> <I>&#38;optional display</I>
+<DD>この関数はスクリーンのミリメートル単位の幅を返す。
+</DL>
+<P>
+
+<A NAME="IDX2049"></A>
+<DL>
+<DT><U>Function:</U> <B>x-display-backing-store</B> <I>&#38;optional display</I>
+<DD>この関数は、スクリーンのバッキングストア機能を返す。
+その値は、<CODE>always</CODE>、<CODE>when-mapped</CODE>、<CODE>not-useful</CODE>のシンボルの
+いずれかである。
+</DL>
+<P>
+
+<A NAME="IDX2050"></A>
+<DL>
+<DT><U>Function:</U> <B>x-display-save-under</B> <I>&#38;optional display</I>
+<DD>この関数は、ディスプレイにセーブアンダー機能があれば<CODE>nil</CODE>以外を返す。
+</DL>
+<P>
+
+<A NAME="IDX2051"></A>
+<DL>
+<DT><U>Function:</U> <B>x-display-planes</B> <I>&#38;optional display</I>
+<DD>この関数は、ディスプレイのプレイン数を返す。
+</DL>
+<P>
+
+<A NAME="IDX2052"></A>
+<DL>
+<DT><U>Function:</U> <B>x-display-visual-class</B> <I>&#38;optional display</I>
+<DD>この関数は、スクリーンのビジュアルクラスを返す。
+その値は、<CODE>static-gray</CODE>、<CODE>gray-scale</CODE>、
+<CODE>static-color</CODE>、<CODE>pseudo-color</CODE>、<CODE>true-color</CODE>、
+<CODE>direct-color</CODE>のシンボルのいずれかである。
+</DL>
+<P>
+
+<A NAME="IDX2053"></A>
+<DL>
+<DT><U>Function:</U> <B>x-display-grayscale-p</B> <I>&#38;optional display</I>
+<DD>この関数は、スクリーンで白黒の濃淡を表示できると<CODE>t</CODE>を返す。
+</DL>
+<P>
+
+<A NAME="IDX2054"></A>
+<DL>
+<DT><U>Function:</U> <B>x-display-color-p</B> <I>&#38;optional display</I>
+<DD>この関数は、スクリーンがカラースクリーンならば<CODE>t</CODE>を返す。
+</DL>
+<P>
+
+<A NAME="IDX2055"></A>
+<DL>
+<DT><U>Function:</U> <B>x-display-color-cells</B> <I>&#38;optional display</I>
+<DD>この関数はスクリーンで使えるカラーセルの個数を返す。
+</DL>
+<P>
+
+<A NAME="Positions"></A>
+<HR SIZE="6">
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<a name="bottom"> </a>
+<script type="text/javascript" src="style2.js"></script>
+<div class="footer">
+    <br>
+    このページはMeadow (Emacs) の紹介ページです <br>
+このWebページの各文書は自由にリンク・複製・再配布・改変していただいて構いません．
+<br>ただし，複製・再配布・改変の場合は Meadow Memo のURLを記載しておいて下さい．<br>
+<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=about%20link">Medow memoへのリンクについて</a>．<br>
+
+間違い，要望等があれば<a href="mailto:akihisa@mail.ne.jp">akihisa@mail.ne.jp</a> か下記でどうぞ<br>
+
+<br>
+
+<FORM METHOD="post" ACTION="http://www.bookshelf.jp/cgi-bin/wwwmail.cgi" >
+お名前：<INPUT TYPE="text" NAME="name" SIZE="30" MAXLENGTH="40" VALUE="ななしさん"><br>
+メールアドレス：<INPUT TYPE="text" NAME="EMAIL" SIZE="25" MAXLENGTH="60" VALUE="secret@mail.adr"><br>
+<input type="hidden" name="HPAGE" value="">
+つっこみ：<br><TEXTAREA NAME="MESSAGE" ROWS="5" COLS="50">
+</TEXTAREA><br><br>
+<INPUT TYPE="submit" VALUE="送信">
+<INPUT TYPE="reset" VALUE="クリア">
+</FORM>
+
+<br><A HREF="http://www.bookshelf.jp/cgi-bin/xct.cgi">ページ別カウンタ</a>
+<br> Since 2002/12/13 <br>
+</div>
+
+</BODY>
+
+</HTML>

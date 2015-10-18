@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: adef
+# key: adef
+# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])))
+# 32 = ` '
+# --
+@abstractmethod
+def ${1:name$(replace-regexp-in-string \"[[:punct:][:blank:]]\" \"_\" yas-text)}(self, $20):
+    pass

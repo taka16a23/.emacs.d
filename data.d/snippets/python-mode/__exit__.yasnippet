@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: __exit__
+# key: __exit__
+# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])))
+# 32 = ` '
+# --
+__exit__(${1:type}, ${2:value}, ${3:traceback})

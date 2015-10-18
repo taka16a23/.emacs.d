@@ -1,0 +1,35 @@
+* example
+** autoload-theme
+(defmacro autoload-theme (theme-file &rest theme-name)
+  `(progn
+     ,@(mapcar #'(lambda (name)
+                   `(autoload ,@name ,theme-file nil t)) theme-name)))
+(autoload-theme "color-theme-other"
+		   ('color-theme-black)
+		   ('color-theme-black-calm-forest)
+		   ('color-theme-black-hober)
+		   ('color-theme-white-katester)
+		   ('color-theme-black-lawrence-hackers-like)
+		   ('color-theme-black-matrix-hackers-like)
+		   ('color-theme-black-lethe)
+		   ('color-theme-black-ld-dark)
+		   ('color-theme-black-renegade)
+		   ('color-theme-black-retro-green-hackers-like)
+		   ('color-theme-white-sitaramv-nt)
+		   ('color-theme-white-standard)
+		   ('color-theme-white-emacs-21)
+		   ('color-theme-white-emacs-nw)
+		   ('color-theme-white-subtle-hacker)
+		   ('color-theme-white-vim-colors)
+		   ('color-theme-gnome2))
+
+
+
+
+
+
+** many-global-set-keys
+(defmacro many-global-set-keys (&rest body)
+  `(progn
+     ,@(mapcar #'(lambda (arg)
+                   `(global-set-key ,@arg)) body)))

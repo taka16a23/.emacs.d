@@ -1,0 +1,184 @@
+((("setq" .
+   [1 0 0 0])
+  (";;;;" .
+   [0 0 1 0])
+  ("emacs-lisp-mode-hook" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("message" .
+   [1 0 0 0 0 0 0])
+  ("d" .
+   [1])
+  ("use-package" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("'use-package" .
+   [1 0 0 0 0 0 0 0 0 0 0 0])
+  ("eval-when-compile" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0])
+  ("t1-edit-bind-keys" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("declare-function" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0])
+  ("yasnippet" .
+   [2 0 0 0 0 0 0 0 0])
+  ("bind-key" .
+   [3 0 0 0 0 0 0 0])
+  ("isearch-mode-map" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  (":map" .
+   [1 0 0 0])
+  ("bind-keys" .
+   [1 0 0 0 0 0 0 0 0])
+  ("t1-simple" .
+   [3 0 0 0 0 0 0 0 0])
+  ("noerr" .
+   [2 0 0 0 0])
+  ("term-mode-setup" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  (":init" .
+   [1 0 0 0 0])
+  ("*auto-async-byte-compile" .
+   [0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  (".loaddefs.el" .
+   [0 0 0 0 0 1 0 0 0 0 0 0])
+  ("my-var-dir" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("definit" .
+   [1 0 0 0 0 0 0])
+  ("py-=" .
+   [1 0 0 0])
+  ("imenu-create-index-function" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("inhibit-read-only" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("let" .
+   [5 0 0])
+  ("defadvice" .
+   [1 0 0 0 0 0 0 0 0])
+  ("helm" .
+   [4 0 0 0])
+  ("WantedBy" .
+   [1 0 0 0 0 0 0 0])
+  ("Install" .
+   [1 0 0 0 0 0 0])
+  ("After" .
+   [1 0 0 0 0])
+  ("Conflicts" .
+   [0 0 0 0 1 0 0 0 0])
+  ("helm-buffer-max-length" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("helm-buffer-details-flag" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("nil" .
+   [6 0 0])
+  ("helm-buffers" .
+   [1 0 0 0 0 0 0 0 0 0 0 0])
+  ("helm-buffers-fuzzy-matching" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0])
+  ("helm-buffers-truncate-lines" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("helm-buffer-skip-remote-checking" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("helm-buffers.el" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("helm-mini-default-sources" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("require" .
+   [6 0 0 0 0 0 0])
+  ("define-many-keys__major_mode_map.yasnippet" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("iswitchb-exit-helm" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("helm-" .
+   [1 0 0 0 0])
+  ("helm-buffer" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("helm-mini" .
+   [1 0 0 0 0 0 0 0 0])
+  ("set-face-attribute" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0])
+  ("ta" .
+   [1 0])
+  ("tabbar-modified" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  (":background" .
+   [3 0 0 0 0 0 0 0 0 0 0])
+  (":box" .
+   [2 0 0 0])
+  (":bold" .
+   [3 0 0 0 0])
+  ("gray25" .
+   [1 0 0 0 0 0])
+  (":foreground" .
+   [2 0 0 0 0 0 0 0 0 0 0])
+  (":height" .
+   [1 0 0 0 0 0 0])
+  ("0.8" .
+   [1 0 0])
+  ("1.0" .
+   [1 0 0])
+  ("python" .
+   [2 0 0 0 0 0])
+  ("path" .
+   [0 0 1 0])
+  ("join" .
+   [1 0 0 0])
+  ("hello" .
+   [6 0 0 0 0])
+  ("grep" .
+   [1 0 0 0])
+  ("load-path" .
+   [1 0 0 0 0 0 0 0 0])
+  ("auto-save-list-file-prefix" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("settings" .
+   [1 0 0 0 0 0 0 0])
+  ("eamcs" .
+   [1 0 0 0 0])
+  ("global-set-key" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("kbd" .
+   [1 0 0])
+  ("M-+" .
+   [1 0 0])
+  ("e2wm:toggle-start-stop" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("M-P" .
+   [1 0 0])
+  ("world" .
+   [1 0 0 0 1])
+  ("my-view-map" .
+   [0 0 0 1 0 0 0 0 0 0 0])
+  ("common-view-map-list" .
+   [0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0])
+  ("add-to-list" .
+   [2 0 0 0 1 0 0 0 0 0 0])
+  ("end-of-line" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("defvar" .
+   [2 0 0 0 0 0])
+  ("View" .
+   [1 0 0 0])
+  ("My" .
+   [2 0])
+  ("defun" .
+   [2 0 0 0 0])
+  ("maps" .
+   [2 0 0 0])
+  ("when" .
+   [1 0 0 0])
+  ("eq" .
+   [1 0])
+  ("t1-view-map" .
+   [2 0 0 0 0 0 0 0 0 0 0])
+  ("define-prefix-command" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("C-:" .
+   [1 0 0])
+  ("view" .
+   [1 0 0 0])
+  ("append" .
+   [1 0 0 0 0 0])
+  ("listp" .
+   [1 0 0 0 0])
+  ("beginning-of-line" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])))

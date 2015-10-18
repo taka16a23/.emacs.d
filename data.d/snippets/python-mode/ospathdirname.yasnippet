@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: os.path.dirname
+# key: os.path.dirname
+# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])))
+# --
+os.path.dirname(${1:PATH})$0`(py--insert-imports "os" "import os")`

@@ -1,0 +1,669 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="ja">
+<!-- Created on October, 1  2005 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=euc-jp">
+<META NAME="keywords" CONTENT="meadow,mule,emacs,lisp,elisp,gnus,setting,設定,unix,cygwin">
+<META http-equiv="Content-Script-Type" content="text/javascript">
+<META NAME="description" CONTENT="Meadowの設定を紹介するページです">
+<TITLE>GNU Emacs Lispリファレンスマニュアル:  略語と略語の展開</TITLE>
+
+<META NAME="description" CONTENT="GNU Emacs Lispリファレンスマニュアル:  略語と略語の展開">
+<META NAME="keywords" CONTENT="GNU Emacs Lispリファレンスマニュアル:  略語と略語の展開">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+<LINK REL="contents" HREF="elisp_toc.html#SEC_Contents">
+<LINK REL="index" HREF="elisp_48.html#SEC681">
+<LINK REL="next" HREF="elisp_37.html#SEC583">
+<LINK REL="prev" HREF="elisp_35.html#SEC564">
+
+<META http-equiv="Content-Style-Type" content="text/css">
+<!-- 鶯と龜 ←日本語EUC誤判別対策用らしい; -->
+<link rel="StyleSheet" href="../../../../soft/css/midnight.css" type="text/css" id="css1">
+<script type="text/javascript" src="style1.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../soft/css/meadowmemo.css">
+
+</HEAD>
+<BODY LANG="ja" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+<!--Infoseek Analyzer start-->
+<script LANGUAGE="javascript">PgNo=6;</script>
+<script src="http://js1.infoseek.co.jp/bin/57/00170.js"></script>
+<noscript><a href="http://ax1.www.infoseek.co.jp/bin/go?0017057f" target="_blank">
+<img src="http://ax1.www.infoseek.co.jp/bin/logo?0017057f" border=0></a></noscript>
+<!--Infoseek Analyzer end-->
+<a name="top"> </a>
+
+<br><A NAME="SEC576"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_35.html#SEC575"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_36.html#SEC577"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_35.html#SEC564"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_37.html#SEC583"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Abbrevs"></A>
+<H1> 35. 略語と略語の展開 <EM>(2003/10/30)</EM> </H1>
+<!--docid::SEC576::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Abbrevs">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Abbrevs</a>"<br>
+"texi/elisp21/略語と略語の展開"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%CE%AC%B8%EC%A4%C8%CE%AC%B8%EC%A4%CE%C5%B8%B3%AB">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX2719"></A>
+<A NAME="IDX2720"></A>
+<P>
+
+<EM>略語</EM>(abbrev) とは、より長い文字列へ展開される文字の列のことです。
+ユーザーが略語の文字列を挿入すると、その展開形に自動的に置換されます。
+これにより打鍵量を省けます。
+<P>
+
+現在有効な略語の集まりは、<EM>略語表</EM>(abbrev table) に記録されています。
+各バッファにはローカルな略語表がありますが、
+通常、同じメジャーモードのすべてのバッファは 1 つの略語表を共有します。
+グローバルな略語表もあります。
+通常、両方を使います。
+<P>
+
+略語表は、各略語に対するシンボルを収めたオブジェクト配列として表現されます。
+シンボルの名前が略語です。
+その値は展開形であり、その関数定義は展開を行うフック関数です。
+その属性リストのセルには略語を展開した回数である利用回数が入ります。
+それらのシンボルは、通常のオブジェクト配列にはインターンされませんから、
+Lisp 式を読み取った結果には、それらはけっして現れません。
+実際、略語を扱うコード以外では、それらはけっして使われません。
+したがって、それらをかなり非標準的に使っても安全です。
+See 節 <A HREF="elisp_8.html#SEC104">7.3 シンボルの作成とインターン</A>。
+<P>
+
+ユーザーレベルの略語コマンドについては、
+<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=emacs21&node=Abbrevs">GNU Emacs マニュアル</a>を参照してください。
+<P>
+
+<div class="menuindex"><SCRIPT language=JavaScript src="index35.js"></SCRIPT></div><noscript><BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_36.html#SEC577">35.1 略語 (abbrev) モードの設定 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Setting up Emacs for abbreviation.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_36.html#SEC578">35.2 略語表 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Creating and working with abbrev tables.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_36.html#SEC579">35.3 略語を定義する <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Specifying abbreviations and their expansions.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_36.html#SEC580">35.4 略語をファイルに保存する <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Saving abbrevs in files.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_36.html#SEC581">35.5 略語の探索と展開 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Controlling expansion; expansion subroutines.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_36.html#SEC582">35.6 標準の略語表 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Abbrev tables used by various major modes.</TD></TR>
+</TABLE></BLOCKQUOTE></noscript>
+<P>
+
+<A NAME="Abbrev Mode"></A>
+<HR SIZE="6">
+<br><A NAME="SEC577"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_36.html#SEC576"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_36.html#SEC578"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_36.html#SEC576"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_36.html#SEC576"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_37.html#SEC583"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Abbrev Mode"></A>
+<H2> 35.1 略語 (abbrev) モードの設定 <EM>(2003/10/30)</EM> </H2>
+<!--docid::SEC577::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Abbrev%20Mode">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Abbrev%20Mode</a>"<br>
+"texi/elisp21/略語(abbrev)モードの設定"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%CE%AC%B8%EC%28abbrev%29%A5%E2%A1%BC%A5%C9%A4%CE%C0%DF%C4%EA">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+略語 (abbrev) モードは、変数<CODE>abbrev-mode</CODE>の値で制御される
+マイナモードです。
+<P>
+
+<A NAME="IDX2721"></A>
+<DL>
+<DT><U>Variable:</U> <B>abbrev-mode</B>
+<DD>この変数の値が<CODE>nil</CODE>以外であると、
+バッファに略語が挿入されると自動的に展開するようになる。
+値が<CODE>nil</CODE>であると、略語を定義することはできるが、
+自動的には展開されない。
+<P>
+
+この変数は設定されると自動的にバッファローカルになる。
+</DL>
+<P>
+
+<A NAME="IDX2722"></A>
+<DL>
+<DT><U>Variable:</U> <B>default-abbrev-mode</B>
+<DD>これは、<CODE>abbrev-mode</CODE>を上書きしていないバッファ向けの
+<CODE>abbrev-mode</CODE>の値である。
+これは<CODE>(default-value 'abbrev-mode)</CODE>と同じである。
+</DL>
+<P>
+
+<A NAME="Abbrev Tables"></A>
+<HR SIZE="6">
+<br><A NAME="SEC578"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_36.html#SEC577"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_36.html#SEC579"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_36.html#SEC576"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_36.html#SEC576"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_37.html#SEC583"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Abbrev Tables"></A>
+<H2> 35.2 略語表 <EM>(2003/10/30)</EM> </H2>
+<!--docid::SEC578::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Abbrev%20Tables">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Abbrev%20Tables</a>"<br>
+"texi/elisp21/略語表"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%CE%AC%B8%EC%C9%BD">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+本節では、略語表の作成方法と扱い方について述べます。
+<P>
+
+<A NAME="IDX2723"></A>
+<DL>
+<DT><U>Function:</U> <B>make-abbrev-table</B>
+<DD>この関数は、新たな空の略語表、つまり、
+シンボルを含まないオブジェクト配列を作成して返す。
+この値はゼロで埋められたベクトルである。
+</DL>
+<P>
+
+<A NAME="IDX2724"></A>
+<DL>
+<DT><U>Function:</U> <B>clear-abbrev-table</B> <I>table</I>
+<DD>この関数は、略語表<VAR>table</VAR>内のすべての略語を未定義にして略語表を空にする。
+関数はいつも<CODE>nil</CODE>を返す。
+</DL>
+<P>
+
+<A NAME="IDX2725"></A>
+<DL>
+<DT><U>Function:</U> <B>define-abbrev-table</B> <I>tabname definitions</I>
+<DD>この関数は、<VAR>tabname</VAR>(シンボル) を略語表の名前として定義する。
+つまり、この変数としての値は略語表になる。
+<VAR>definitions</VAR>に従って略語表に略語を定義する。
+ここで、<VAR>definitions</VAR>は
+<CODE>(<VAR>abbrevname</VAR> <VAR>expansion</VAR> <VAR>hook</VAR> <VAR>usecount</VAR>)</CODE>の形の
+要素から成るリストである。
+戻り値はつねに<CODE>nil</CODE>である。
+</DL>
+<P>
+
+<A NAME="IDX2726"></A>
+<DL>
+<DT><U>Variable:</U> <B>abbrev-table-name-list</B>
+<DD>その値が略語表であるシンボルのリストである。
+<CODE>define-abbrev-table</CODE>は、新たな略語表の名前をこのリストに追加する。
+</DL>
+<P>
+
+<A NAME="IDX2727"></A>
+<DL>
+<DT><U>Function:</U> <B>insert-abbrev-table-description</B> <I>name &#38;optional human</I>
+<DD>この関数は、<VAR>name</VAR>で指名される略語表の記述をポイントのまえに挿入する。
+引数<VAR>name</VAR>は、その値が略語表であるシンボルである。
+戻り値はつねに<CODE>nil</CODE>である。
+<P>
+
+<VAR>human</VAR>が<CODE>nil</CODE>以外であると、この記述は人間向けである。
+さもなければ、この記述は Lisp 式、つまり、
+<VAR>name</VAR>の現在の定義どおりに<VAR>name</VAR>を定義するような
+<CODE>define-abbrev-table</CODE>の呼び出しである。
+</DL>
+<P>
+
+<A NAME="Defining Abbrevs"></A>
+<HR SIZE="6">
+<br><A NAME="SEC579"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_36.html#SEC578"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_36.html#SEC580"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_36.html#SEC576"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_36.html#SEC576"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_37.html#SEC583"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Defining Abbrevs"></A>
+<H2> 35.3 略語を定義する <EM>(2003/10/30)</EM> </H2>
+<!--docid::SEC579::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Defining%20Abbrevs">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Defining%20Abbrevs</a>"<br>
+"texi/elisp21/略語を定義する"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%CE%AC%B8%EC%A4%F2%C4%EA%B5%C1%A4%B9%A4%EB">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+これらの関数は、指定した略語表に略語を定義します。
+<CODE>define-abbrev</CODE>は下位レベルの基本的な関数ですが、
+<CODE>add-abbrev</CODE>はユーザーに情報を問い合わせるコマンドが使います。
+<P>
+
+<A NAME="IDX2728"></A>
+<DL>
+<DT><U>Function:</U> <B>add-abbrev</B> <I>table type arg</I>
+<DD>この関数は、ユーザーからの情報に基づいて
+略語表<VAR>table</VAR>に略語を追加する。
+引数<VAR>type</VAR>は、この略語の種類を英語で表した文字列である
+(典型的には、<CODE>"global"</CODE>や<CODE>"mode-specific"</CODE>。)
+この文字列はユーザーへのプロンプトに使われる。
+引数<VAR>arg</VAR>は、展開形の単語数である。
+<P>
+
+戻り値は、新たな略語を内部的に表現するシンボルであるか、
+既存の略語を再定義することをユーザーが拒否したときには<CODE>nil</CODE>である。
+</DL>
+<P>
+
+<A NAME="IDX2729"></A>
+<DL>
+<DT><U>Function:</U> <B>define-abbrev</B> <I>table name expansion &#38;optional hook count</I>
+<DD>略語 (<VAR>name</VAR>) を<VAR>expansion</VAR>に展開し，<VAR>hook</VAR>を呼び出すように定義する。
+また，オプションである<VAR>count</VAR>の値は abbrev での展開回数の初期値となる．指定
+されなければ 0 となる．
+<P>
+
+戻り値は、 Emacs 内部で略語を表現するシンボルを返すが、
+その名前は<VAR>name</VAR>である。
+<P>
+
+引数<VAR>name</VAR>は文字列であること。
+引数<VAR>expansion</VAR>は、普通は、目的の展開形 (文字列) であるが、
+略語を未定義にするには<CODE>nil</CODE>である。
+これが文字列でも<CODE>nil</CODE>でもなければ、
+略語を『展開する』ときには<VAR>hook</VAR>だけを実行する。
+<P>
+
+引数<VAR>hook</VAR>は、関数か<CODE>nil</CODE>である。
+<VAR>hook</VAR>が<CODE>nil</CODE>以外であると、
+略語を<VAR>expansion</VAR>に置換し終えてから引数なしで呼ばれる。
+<VAR>hook</VAR>が呼ばれるときには、
+ポイントは<VAR>expansion</VAR>の直後に置かれる。
+<P>
+
+略語の利用回数は 0 に初期化される。
+</DL>
+<P>
+
+<A NAME="IDX2730"></A>
+<DL>
+<DT><U>User Option:</U> <B>only-global-abbrevs</B>
+<DD>この変数が<CODE>nil</CODE>以外であると、
+ユーザーはグローバルな略語だけを使う意図があることを表す。
+モード固有の略語を定義するコマンドに対して、
+グローバルな略語を定義するように指示する。
+この変数は本節の関数のふるまいを変えることはないが、
+それらを呼び出す側でこの変数を検査している。
+</DL>
+<P>
+
+<A NAME="Abbrev Files"></A>
+<HR SIZE="6">
+<br><A NAME="SEC580"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_36.html#SEC579"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_36.html#SEC581"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_36.html#SEC576"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_36.html#SEC576"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_37.html#SEC583"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Abbrev Files"></A>
+<H2> 35.4 略語をファイルに保存する <EM>(2003/10/30)</EM> </H2>
+<!--docid::SEC580::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Abbrev%20Files">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Abbrev%20Files</a>"<br>
+"texi/elisp21/略語をファイルに保存する"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%CE%AC%B8%EC%A4%F2%A5%D5%A5%A1%A5%A4%A5%EB%A4%CB%CA%DD%C2%B8%A4%B9%A4%EB">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+略語定義を保存したファイルは、実際には、 Lisp コードのファイルです。
+略語は、同じ内容の同じ略語表を定義する Lisp プログラムの形で保存されます。
+したがって、ファイルは<CODE>load</CODE>(see 節 <A HREF="elisp_15.html#SEC192">14.1 プログラムからのロード方法</A>) で
+ロードできます。
+しかし、関数<CODE>quietly-read-abbrev-file</CODE>がより便利なインターフェイスを
+提供します。
+<P>
+
+<CODE>save-some-buffers</CODE>などのユーザーレベルの機能では、
+ここに述べた変数の制御のもとで、略語をファイルに自動的に保存できます。
+<P>
+
+<A NAME="IDX2731"></A>
+<DL>
+<DT><U>User Option:</U> <B>abbrev-file-name</B>
+<DD>これは、略語を読み込んだり保存するデフォルトのファイル名である。
+</DL>
+<P>
+
+<A NAME="IDX2732"></A>
+<DL>
+<DT><U>Function:</U> <B>quietly-read-abbrev-file</B> <I>&#38;optional filename</I>
+<DD>この関数は、<CODE>write-abbrev-file</CODE>で書いておいた
+ファイル<VAR>filename</VAR>から、略語定義を読み取る。
+<VAR>filename</VAR>が省略されるか，<CODE>nil</CODE>であると、
+<CODE>abbrev-file-name</CODE>で指定されるファイルを使う。
+<CODE>save-abbrevs</CODE>に<CODE>t</CODE>を設定して、変更は保存されるようにする。
+<P>
+
+この関数はいっさいメッセージを表示しない。
+<CODE>nil</CODE>を返す。
+</DL>
+<P>
+
+<A NAME="IDX2733"></A>
+<DL>
+<DT><U>User Option:</U> <B>save-abbrevs</B>
+<DD><CODE>save-abbrev</CODE>が<CODE>nil</CODE>以外の値であると、
+Emacs はファイルを保存するときに略語も保存する。
+<CODE>abbrev-file-name</CODE>が略語を保存するファイルを指定する。
+</DL>
+<P>
+
+<A NAME="IDX2734"></A>
+<DL>
+<DT><U>Variable:</U> <B>abbrevs-changed</B>
+<DD>略語を定義したり変更すると、この変数は<CODE>nil</CODE>以外に設定される。
+これは、読者の略語を保存する機会を与えるために、
+Emacs のさまざまなコマンドに対するフラグとして働く。
+</DL>
+<P>
+
+<A NAME="IDX2735"></A>
+<DL>
+<DT><U>コマンド:</U> <B>write-abbrev-file</B> <I>&#38;optional filename</I>
+<DD>ロードすると同じ略語を定義するような Lisp プログラムの形で、
+ファイル<VAR>filename</VAR>にすべての略語表のすべての略語定義を保存する。
+もしファイル名 (<VAR>filename</VAR>) が省略されるか nil であると，
+<CODE>abbrev-file-name</CODE>で設定したファイルに保存される．
+また，この関数は<CODE>nil</CODE>を返す。
+</DL>
+<P>
+
+<A NAME="Abbrev Expansion"></A>
+<HR SIZE="6">
+<br><A NAME="SEC581"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_36.html#SEC580"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_36.html#SEC582"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_36.html#SEC576"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_36.html#SEC576"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_37.html#SEC583"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Abbrev Expansion"></A>
+<H2> 35.5 略語の探索と展開 <EM>(2003/10/30)</EM> </H2>
+<!--docid::SEC581::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Abbrev%20Expansion">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Abbrev%20Expansion</a>"<br>
+"texi/elisp21/略語の探索と展開"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%CE%AC%B8%EC%A4%CE%C3%B5%BA%F7%A4%C8%C5%B8%B3%AB">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+通常、略語は、<CODE>self-insert-command</CODE>を含む特定の対話的なコマンドに
+よって展開されます。
+本節では、データのやりとりに使う変数に加えて、そのようなコマンドを書くために
+使用するサブルーティンについて述べます。
+<P>
+
+<A NAME="IDX2736"></A>
+<DL>
+<DT><U>Function:</U> <B>abbrev-symbol</B> <I>abbrev &#38;optional table</I>
+<DD>この関数は、名前<VAR>abbrev</VAR>の略語を表すシンボルを返す。
+そのような略語が定義されていなければ、戻り値は<CODE>nil</CODE>である。
+省略可能な第 2 引数<VAR>table</VAR>は、探索対象の略語表である。
+<VAR>table</VAR>が<CODE>nil</CODE>であると、
+この関数は、まずカレントバッファのローカルな略語表を試し、
+つぎにグローバルな略語表を試す。
+</DL>
+<P>
+
+<A NAME="IDX2737"></A>
+<DL>
+<DT><U>Function:</U> <B>abbrev-expansion</B> <I>abbrev &#38;optional table</I>
+<DD>この関数は、<VAR>abbrev</VAR>が
+(カレントバッファで使用される略語表での定義どおりに)
+展開されるであろう文字列を返す。
+省略可能な引数<VAR>table</VAR>は、<CODE>abbrev-symbol</CODE>と同様に、
+使用する略語表を指定する。
+</DL>
+<P>
+
+<A NAME="IDX2738"></A>
+<DL>
+<DT><U>コマンド:</U> <B>expand-abbrev</B>
+<DD>このコマンドは、ポイントのまえの略語をあれば展開する。
+略語の直後にポイントがない場合、このコマンドはなにもしない。
+このコマンドは、展開を行えば展開前の文字を返し、
+さもなければ<CODE>nil</CODE>を返す。
+<P>
+
+</DL>
+<P>
+
+<A NAME="IDX2739"></A>
+<DL>
+<DT><U>コマンド:</U> <B>abbrev-prefix-mark</B> <I>&#38;optional arg</I>
+<DD>現在のポイント位置を略語の開始位置としてマークする。
+つぎに<CODE>expand-abbrev</CODE>を呼び出すと、
+通常どおりにポイントのまえの単語を使うかわりに、
+ここから (その時点での) ポイントまでのテキストを略語として展開する。
+</DL>
+<P>
+
+<A NAME="IDX2740"></A>
+<DL>
+<DT><U>User Option:</U> <B>abbrev-all-caps</B>
+<DD>これが<CODE>nil</CODE>以外であると、
+大文字だけで入力された略語を大文字だけで展開する。
+さもなければ、大文字だけで入力された略語は、
+展開形の各単語を大文字で始めるように展開される。
+</DL>
+<P>
+
+<A NAME="IDX2741"></A>
+<DL>
+<DT><U>Variable:</U> <B>abbrev-start-location</B>
+<DD>これは、<CODE>expand-abbrev</CODE>がつぎに展開する略語の開始位置として使う
+バッファ内位置である。
+(<CODE>nil</CODE>であると、そのかわりにポイントのまえの単語を使う意味である。)
+<CODE>expand-abbrev</CODE>が呼び出されるたびに、
+<CODE>abbrev-start-location</CODE>は<CODE>nil</CODE>に設定される。
+この変数は、<CODE>abbrev-prefix-mark</CODE>でも設定される。
+</DL>
+<P>
+
+<A NAME="IDX2742"></A>
+<DL>
+<DT><U>Variable:</U> <B>abbrev-start-location-buffer</B>
+<DD>この変数の値は、<CODE>abbrev-start-location</CODE>が設定されたバッファである。
+別のバッファで略語を展開しようとすると<CODE>abbrev-start-location</CODE>は
+クリアされる。
+この変数は<CODE>abbrev-prefix-mark</CODE>が設定する。
+</DL>
+<P>
+
+<A NAME="IDX2743"></A>
+<DL>
+<DT><U>Variable:</U> <B>last-abbrev</B>
+<DD>これは、もっとも最近に略語展開された<CODE>abbrev-symbol</CODE>
+(略語を表すシンボル) である。
+この情報は、コマンド<CODE>unexpand-abbrev</CODE>向けに
+<CODE>expand-abbrev</CODE>が残す
+(see <a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=emacs21&node=Expanding%20Abbrevs">GNU Emacs マニュアル</a>)
+。
+</DL>
+<P>
+
+<A NAME="IDX2744"></A>
+<DL>
+<DT><U>Variable:</U> <B>last-abbrev-location</B>
+<DD>これは、もっとも最近に略語展開した箇所である。
+これは、コマンド<CODE>unexpand-abbrev</CODE>向けに
+<CODE>expand-abbrev</CODE>が残した情報を保持する。
+</DL>
+<P>
+
+<A NAME="IDX2745"></A>
+<DL>
+<DT><U>Variable:</U> <B>last-abbrev-text</B>
+<DD>これは、もっとも最近に略語展開したときの (あれば) 大文字小文字変換後の
+展開形のテキストである。
+略語展開を取り消すと、この値は<CODE>nil</CODE>である。
+これは、コマンド<CODE>unexpand-abbrev</CODE>向けに
+<CODE>expand-abbrev</CODE>が残した情報を保持する。
+</DL>
+<P>
+
+<A NAME="IDX2746"></A>
+<DL>
+<DT><U>Variable:</U> <B>pre-abbrev-expand-hook</B>
+<DD>これは、任意の略語を展開する直前に順に実行される関数を
+収めたノーマルフックである。
+see 節 <A HREF="elisp_23.html#SEC362">22.6 フック</A>。
+ノーマルフックなので、フック関数は引数を受け取らない。
+しかし、バッファでポイントのまえを調べることで
+展開すべき略語をみつけることができる。
+また，このフックは<CODE>expand-abbrev</CODE>が実行する最初の処理であるため，展開される
+語を探す前に現在の展開表を変更することもできる．
+</DL>
+<P>
+
+以下のコード例は、<CODE>pre-abbrev-expand-hook</CODE>の使い方を示します。
+ユーザーが略語を句読点文字で終えると、フック関数が確認を求めます。
+したがって、このフックにより、ユーザーは展開の可否を決定でき、
+了承しなかったときには展開を止められます。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(add-hook 'pre-abbrev-expand-hook 'query-if-not-space)
+
+;; この関数は、<CODE>pre-abbrev-expand-hook</CODE>が起動する
+
+;; ユーザーが略語を空白で終えると、この関数はなにもしない
+;; (つまり、略語を展開できるように戻る)
+;; ユーザーがその他の文字を入力したら、
+;; この関数は展開するかどうかを問い合わせる
+
+;; ユーザーがプロンプトに<KBD>y</KBD>で答えたら、
+;; (関数<CODE>not</CODE>を使っているので) この関数は<CODE>nil</CODE>を返すが
+;; 問題ない。戻り値は展開には影響しない
+
+(defun query-if-not-space ()
+  (if (/= ?\  (preceding-char))
+      (if (not (y-or-n-p "Do you want to expand this abbrev? "))
+          (error "Not expanding this abbrev"))))
+</FONT></pre></td></tr></table><P>
+
+<A NAME="Standard Abbrev Tables"></A>
+<HR SIZE="6">
+<br><A NAME="SEC582"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_36.html#SEC581"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_37.html#SEC583"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_36.html#SEC576"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_36.html#SEC576"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_37.html#SEC583"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Standard Abbrev Tables"></A>
+<H2> 35.6 標準の略語表 <EM>(2003/10/30)</EM> </H2>
+<!--docid::SEC582::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Standard%20Abbrev%20Tables">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Standard%20Abbrev%20Tables</a>"<br>
+"texi/elisp21/標準の略語表"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%C9%B8%BD%E0%A4%CE%CE%AC%B8%EC%C9%BD">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+Emacs にあらかじめロードされるメジャーモード向けの
+略語表を保持する変数一覧を示します。
+<P>
+
+<A NAME="IDX2747"></A>
+<DL>
+<DT><U>Variable:</U> <B>global-abbrev-table</B>
+<DD>これは、モードに依存しない略語向けの略語表である。
+これに定義された略語は、すべてのバッファに適用される。
+各バッファにはローカルな略語表もあり、
+それらの略語定義はグローバルな略語表の略語定義に優先する。
+</DL>
+<P>
+
+<A NAME="IDX2748"></A>
+<DL>
+<DT><U>Variable:</U> <B>local-abbrev-table</B>
+<DD>このバッファローカルな変数の値は
+カレントバッファの (モード固有の) 略語表である。
+</DL>
+<P>
+
+<A NAME="IDX2749"></A>
+<DL>
+<DT><U>Variable:</U> <B>fundamental-mode-abbrev-table</B>
+<DD>これは、基本 (fundamental) モードで使われるローカルな略語表である。
+いいかえれば、基本 (fundamental) モードであるすべてのバッファの
+ローカルな略語表である。
+</DL>
+<P>
+
+<A NAME="IDX2750"></A>
+<DL>
+<DT><U>Variable:</U> <B>text-mode-abbrev-table</B>
+<DD>これは、テキスト (text) モードで使われるローカルな略語表である。
+</DL>
+<P>
+
+<A NAME="IDX2751"></A>
+<DL>
+<DT><U>Variable:</U> <B>lisp-mode-abbrev-table</B>
+<DD>これは、 lisp モードと emacs-lisp モードで使われるローカルな略語表である。
+</DL>
+<P>
+
+<A NAME="Processes"></A>
+<HR SIZE="6">
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_36.html#SEC576"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_37.html#SEC583"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<a name="bottom"> </a>
+<script type="text/javascript" src="style2.js"></script>
+<div class="footer">
+    <br>
+    このページはMeadow (Emacs) の紹介ページです <br>
+このWebページの各文書は自由にリンク・複製・再配布・改変していただいて構いません．
+<br>ただし，複製・再配布・改変の場合は Meadow Memo のURLを記載しておいて下さい．<br>
+<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=about%20link">Medow memoへのリンクについて</a>．<br>
+
+間違い，要望等があれば<a href="mailto:akihisa@mail.ne.jp">akihisa@mail.ne.jp</a> か下記でどうぞ<br>
+
+<br>
+
+<FORM METHOD="post" ACTION="http://www.bookshelf.jp/cgi-bin/wwwmail.cgi" >
+お名前：<INPUT TYPE="text" NAME="name" SIZE="30" MAXLENGTH="40" VALUE="ななしさん"><br>
+メールアドレス：<INPUT TYPE="text" NAME="EMAIL" SIZE="25" MAXLENGTH="60" VALUE="secret@mail.adr"><br>
+<input type="hidden" name="HPAGE" value="">
+つっこみ：<br><TEXTAREA NAME="MESSAGE" ROWS="5" COLS="50">
+</TEXTAREA><br><br>
+<INPUT TYPE="submit" VALUE="送信">
+<INPUT TYPE="reset" VALUE="クリア">
+</FORM>
+
+<br><A HREF="http://www.bookshelf.jp/cgi-bin/xct.cgi">ページ別カウンタ</a>
+<br> Since 2002/12/13 <br>
+</div>
+
+</BODY>
+
+</HTML>

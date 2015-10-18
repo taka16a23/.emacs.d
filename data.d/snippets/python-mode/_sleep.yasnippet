@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: _sleep
+# key: _sleep
+# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])))
+# --
+_sleep(${1:SEC})$0`(py--insert-imports "time[ \t]+import[ \t]+sleep[ \t]as[ \t]_sleep" "from time import sleep as _sleep")`

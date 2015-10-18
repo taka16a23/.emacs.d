@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: socket()
+# key: socket_
+# condition: (not (py:at-string|comment-p))
+# --
+with closing(socket.socket(socket.${1:family$(yas-choose-value \'(\"AF_INET\" \"AF_INET6\" \"AF_UNIX\"))}, socket.${2:type$(yas-choose-value \'(\"SOCK_STREAM\" \"SOCK_DGRAM\"))})) as sock:
+    $0`(py--insert-imports "socket" "import socket")` `(py--insert-imports
+                                    "contextlib[ \t]+import[ \t]+closing"
+                                    "from contextlib import closing")`

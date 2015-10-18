@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: setattr()
+# key: setattr
+# condition: (and (not (py:at-string|comment-p)) (not (not (equal (this-command-keys-vector) [32]))))
+# 32 = ` '
+# --
+setattr(${1:OBJECT}, ${2:\'${3:NAME}\'}, ${4:VALUE})

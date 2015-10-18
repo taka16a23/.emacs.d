@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: __del__(self):
+# key: defdel
+# condition: (not (py:at-string|comment-p))
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
+# --
+def __del__(self):
+    # Do not imprement \"raise\"!!
+    ${1:pass}

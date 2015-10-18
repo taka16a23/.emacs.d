@@ -1,0 +1,1406 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="ja">
+<!-- Created on October, 1  2005 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=euc-jp">
+<META NAME="keywords" CONTENT="meadow,mule,emacs,lisp,elisp,gnus,setting,設定,unix,cygwin">
+<META http-equiv="Content-Script-Type" content="text/javascript">
+<META NAME="description" CONTENT="Meadowの設定を紹介するページです">
+<TITLE>GNU Emacs Lispリファレンスマニュアル:  数</TITLE>
+
+<META NAME="description" CONTENT="GNU Emacs Lispリファレンスマニュアル:  数">
+<META NAME="keywords" CONTENT="GNU Emacs Lispリファレンスマニュアル:  数">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+<LINK REL="contents" HREF="elisp_toc.html#SEC_Contents">
+<LINK REL="index" HREF="elisp_48.html#SEC681">
+<LINK REL="next" HREF="elisp_5.html#SEC71">
+<LINK REL="prev" HREF="elisp_3.html#SEC21">
+
+<META http-equiv="Content-Style-Type" content="text/css">
+<!-- 鶯と龜 ←日本語EUC誤判別対策用らしい; -->
+<link rel="StyleSheet" href="../../../../soft/css/midnight.css" type="text/css" id="css1">
+<script type="text/javascript" src="style1.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../soft/css/meadowmemo.css">
+
+</HEAD>
+<BODY LANG="ja" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+<!--Infoseek Analyzer start-->
+<script LANGUAGE="javascript">PgNo=6;</script>
+<script src="http://js1.infoseek.co.jp/bin/57/00170.js"></script>
+<noscript><a href="http://ax1.www.infoseek.co.jp/bin/go?0017057f" target="_blank">
+<img src="http://ax1.www.infoseek.co.jp/bin/logo?0017057f" border=0></a></noscript>
+<!--Infoseek Analyzer end-->
+<a name="top"> </a>
+
+<br><A NAME="SEC60"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_3.html#SEC59"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_4.html#SEC61"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_3.html#SEC21"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_5.html#SEC71"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Numbers"></A>
+<H1> 3. 数 </H1>
+<!--docid::SEC60::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Numbers">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Numbers</a>"<br>
+"texi/elisp21/数"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%BF%F4">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX143"></A>
+<A NAME="IDX144"></A>
+<P>
+
+GNU Emacsでは2種類の数値データを扱えます。
+<EM>整数</EM>（integers）と<EM>浮動小数点数</EM>（floating point numbers）です。
+整数は、-3、0、7、13、511のようなちょうどの数です。
+これらの値は正確です。
+浮動小数点数は、-4.5、0.0、2.71828のように小数部がある数です。
+これらは指数表記で表します。
+たとえば、1.5e2は150に等しいのです。
+この例の`<SAMP>e2</SAMP>'は10の2乗を表し、それを1.5倍します。
+浮動小数点数の値は厳密ではありません。
+これらの精度には定まった限界があります。
+<P>
+
+<div class="menuindex"><SCRIPT language=JavaScript src="index3.js"></SCRIPT></div><noscript><BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_4.html#SEC61">3.1 整数の基本</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Representation and range of integers.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_4.html#SEC62">3.2 浮動小数点数の基本</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Representation and range of floating point.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_4.html#SEC63">3.3 数向けの型述語</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Testing for numbers.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_4.html#SEC64">3.4 数の比較</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Equality and inequality predicates.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_4.html#SEC65">3.5 数の変換</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Converting float to integer and vice versa.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_4.html#SEC66">3.6 算術演算</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How to add, subtract, multiply and divide.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_4.html#SEC67">3.7 丸め演算</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Explicitly rounding floating point numbers.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_4.html#SEC68">3.8 整数のビット演算</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Logical and, or, not, shifting.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_4.html#SEC69">3.9 標準数学関数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Trig, exponential and logarithmic functions.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_4.html#SEC70">3.10 乱数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Obtaining random integers, predictable or not.</TD></TR>
+</TABLE></BLOCKQUOTE></noscript>
+<P>
+
+<A NAME="Integer Basics"></A>
+<HR SIZE="6">
+<br><A NAME="SEC61"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_4.html#SEC60"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_4.html#SEC62"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Integer Basics"></A>
+<H2> 3.1 整数の基本 </H2>
+<!--docid::SEC61::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Integer%20Basics">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Integer%20Basics</a>"<br>
+"texi/elisp21/整数の基本"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%C0%B0%BF%F4%A4%CE%B4%F0%CB%DC">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+整数の値の範囲は計算機に依存します。
+最小の範囲は、-134217728から134217727まで（28ビット長、つまり
+-2**27
+から
+2**27 - 1）ですが、
+これより広い範囲を扱える計算機もあります。
+本章の多くの例題では、整数は28長ビットであると仮定します。
+<A NAME="IDX145"></A>
+<A NAME="IDX146"></A>
+<P>
+
+Lispリーダは、
+先頭に符号があってもよく、最後にピリオドがあってもよい、
+数字の列として整数を読み取ります。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre> 1               ; 整数1
+ 1.              ; 整数1
++1               ; これも整数1
+-1               ; 整数-1
+ 268435457       ; 桁溢れのため、これも整数1
+ 0               ; 整数0
+-0               ; 整数0
+</pre></td></tr></table><P>
+
+整数を扱うさまざまな関数を理解するには、
+特にビット演算（see 節 <A HREF="elisp_4.html#SEC68">3.8 整数のビット演算</A>）を理解するには、
+数を2進表現で考えるとよいです。
+<P>
+
+28ビット長の2進表現では、10進整数5はつぎのようになります。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>0000  0000 0000  0000 0000  0000 0101
+</pre></td></tr></table><P>
+
+（4ビットのまとまりごとに空白を1個、
+8ビットのまとまりごとに空白を2個挿入して、読みやすくする。）
+<P>
+
+整数-1はつぎのようになります。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>1111  1111 1111  1111 1111  1111 1111
+</pre></td></tr></table><P>
+
+<A NAME="IDX147"></A>
+-1は、28個の1で表現されます。
+（これを<EM>2の補数</EM>（two's complement）表記と呼ぶ。）
+<P>
+
+負の数-5は、-1から4を引いて作れます。
+10進数4は、2進表記では100です。
+したがって、-5は、つぎのようになります。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>1111  1111 1111  1111 1111  1111 1011
+</pre></td></tr></table><P>
+
+この実装では、28ビット長の2進整数の最大値は、
+10進で134,217,727になります。
+2進表記では、つぎのようになります。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>0111  1111 1111  1111 1111  1111 1111
+</pre></td></tr></table><P>
+
+算術関数は、整数がその範囲外に出たかどうか検査しないので、
+134,217,727に1を足すと、値は負の数-134,217,728になります。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(+ 1 134217727)
+     => -134217728
+     => 1000  0000 0000  0000 0000  0000 0000
+</pre></td></tr></table><P>
+
+本章で述べる多くの関数は、数の引数としてマーカを受け付けます。
+（see 節 <A HREF="elisp_31.html#SEC474">30. マーカ</A>）。
+そのような関数の実際の引数は数かマーカであるので、
+それらの引数をしばしば<VAR>number-or-marker</VAR>という名前で書きます。
+引数の値がマーカであるときには、その位置の値を使いバッファは無視します。
+<P>
+
+<A NAME="Float Basics"></A>
+<HR SIZE="6">
+<br><A NAME="SEC62"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_4.html#SEC61"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_4.html#SEC63"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Float Basics"></A>
+<H2> 3.2 浮動小数点数の基本 </H2>
+<!--docid::SEC62::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Float%20Basics">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Float%20Basics</a>"<br>
+"texi/elisp21/浮動小数点数の基本"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%C9%E2%C6%B0%BE%AE%BF%F4%C5%C0%BF%F4%A4%CE%B4%F0%CB%DC">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+浮動小数点数は、整数ではない数を表現するのに便利です。
+浮動小数点数の正確な範囲は計算機に依存します。
+使用している計算機のC言語のデータ型<CODE>double</CODE>の範囲と同じです。
+<P>
+
+浮動小数点数の入力構文は、小数点（に続けて1桁以上の小数部）または指数、
+あるいは、その両方が必要です。
+たとえば、`<SAMP>1500.0</SAMP>'、`<SAMP>15e2</SAMP>'、`<SAMP>15.0e2</SAMP>'、
+`<SAMP>1.5e3</SAMP>'、`<SAMP>.15e4</SAMP>'は、同じ1500という値の
+浮動小数点数を書き表す5つの方法です。
+どれも、まったく等価です。
+負の浮動小数点数を書くには、`<SAMP>-1.0</SAMP>'のようにマイナス符号を使います。
+<P>
+
+<A NAME="IDX148"></A>
+<A NAME="IDX149"></A>
+<A NAME="IDX150"></A>
+<A NAME="IDX151"></A>
+<A NAME="IDX152"></A>
+<A NAME="IDX153"></A>
+現代の計算機はIEEEの浮動小数点数規格に基づいています。
+この規格では、浮動小数点数の値には正の無限大と負の無限大があります。
+また、NaNすなわち『非数値』（not-a-number）と呼ばれる値の種類もあります。
+算術関数は、正しい答えがないときには、このような値を返します。
+たとえば、<CODE>(sqrt -1.0)</CODE>はNaNを返します。
+実用的には、Emacs Lispでは異なるNaNの値に重要な違いはなく、
+特定の場面で正確にはどのNaNの値を使うかの規則もないので、
+Emacs Lispではそれらを区別しようとはしません。
+浮動小数点数の入力構文はつぎのとおりです。
+<P>
+
+<DL COMPACT>
+<DT>正の無限大
+<DD>`<SAMP>1.0e+INF</SAMP>'
+<DT>負の無限大
+<DD>`<SAMP>-1.0e+INF</SAMP>'
+<DT>非数値
+<DD>`<SAMP>0.0e+NaN</SAMP>'。
+</DL>
+<P>
+
+さらに、IEEEの浮動小数点数では値<CODE>-0.0</CODE>を普通のゼロと区別します
+（しかし、<CODE>equal</CODE>と<CODE>=</CODE>は、これらを等しい値と扱う）。
+<P>
+
+浮動小数点数の2進指数を取り出すには（あるいは、整数の対数を予測するには）、
+<CODE>logb</CODE>を使います。
+<P>
+
+<A NAME="IDX154"></A>
+<DL>
+<DT><U>Function:</U> <B>logb</B> <I>number</I>
+<DD>この関数は<VAR>number</VAR>の2進指数を返す。
+より正確には、その値は<VAR>number</VAR>の2を底とする対数を整数に切り下げたもの。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(logb 10)
+     => 3
+(logb 10.0e20)
+     => 69
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="Predicates on Numbers"></A>
+<HR SIZE="6">
+<br><A NAME="SEC63"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_4.html#SEC62"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_4.html#SEC64"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Predicates on Numbers"></A>
+<H2> 3.3 数向けの型述語 </H2>
+<!--docid::SEC63::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Predicates%20on%20Numbers">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Predicates%20on%20Numbers</a>"<br>
+"texi/elisp21/数向けの型述語"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%BF%F4%B8%FE%A4%B1%A4%CE%B7%BF%BD%D2%B8%EC">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+本節の関数は、引数が数であるか、とか、特定の種類の数であるか検査します。
+関数<CODE>integerp</CODE>と<CODE>floatp</CODE>は
+引数として任意の型のLispオブジェクトを取ります
+（さもないと、述語の利用価値がない）。
+しかし、述語<CODE>zerop</CODE>の引数には数が必要です。
+<A HREF="elisp_31.html#SEC476">30.2 マーカ向けの述語</A>の
+<CODE>integer-or-marker-p</CODE>と<CODE>number-or-marker-p</CODE>も
+参照してください。
+<P>
+
+<A NAME="IDX155"></A>
+<DL>
+<DT><U>Function:</U> <B>floatp</B> <I>object</I>
+<DD>この述語は、引数が浮動小数点数かどうか調べ、
+そうならば<CODE>t</CODE>を返し、さもなければ<CODE>nil</CODE>を返す。
+<P>
+
+Emacs 18以前の版には<CODE>floatp</CODE>はない。
+</DL>
+<P>
+
+<A NAME="IDX156"></A>
+<DL>
+<DT><U>Function:</U> <B>integerp</B> <I>object</I>
+<DD>この述語は、引数が整数かどうか調べ、
+そうならば<CODE>t</CODE>を返し、さもなければ<CODE>nil</CODE>を返す。
+</DL>
+<P>
+
+<A NAME="IDX157"></A>
+<DL>
+<DT><U>Function:</U> <B>numberp</B> <I>object</I>
+<DD>この述語は、引数が数（整数か浮動小数点数）かどうか調べ、
+そうならば<CODE>t</CODE>を返し、さもなければ<CODE>nil</CODE>を返す。
+</DL>
+<P>
+
+<A NAME="IDX158"></A>
+<DL>
+<DT><U>Function:</U> <B>wholenump</B> <I>object</I>
+<DD><A NAME="IDX159"></A>
+（『whole-number-p』からきている名前の）述語<CODE>wholenump</CODE>は、
+引数が非負整数かどうか調べ、
+そうならば<CODE>t</CODE>を返し、さもなければ<CODE>nil</CODE>を返す。
+0は非負整数として扱う。
+<P>
+
+<A NAME="IDX160"></A>
+<CODE>natnump</CODE>は、<CODE>wholenump</CODE>の廃れた同義語。
+</DL>
+<P>
+
+<A NAME="IDX161"></A>
+<DL>
+<DT><U>Function:</U> <B>zerop</B> <I>number</I>
+<DD>この述語は、引数が0かどうか調べ、
+そうならば<CODE>t</CODE>を返し、さもなければ<CODE>nil</CODE>を返す。
+引数は数であること。
+<P>
+
+つぎの2つのフォームは等価。
+<CODE>(zerop x)</CODE> == <CODE>(= x 0)</CODE>。
+</DL>
+<P>
+
+<A NAME="Comparison of Numbers"></A>
+<HR SIZE="6">
+<br><A NAME="SEC64"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_4.html#SEC63"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_4.html#SEC65"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Comparison of Numbers"></A>
+<H2> 3.4 数の比較 </H2>
+<!--docid::SEC64::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Comparison%20of%20Numbers">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Comparison%20of%20Numbers</a>"<br>
+"texi/elisp21/数の比較"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%BF%F4%A4%CE%C8%E6%B3%D3">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX162"></A>
+<A NAME="IDX163"></A>
+<P>
+
+2つの数が数値的に等しいかどうか調べるには、普通、
+<CODE>eq</CODE>ではなく<CODE>=</CODE>を使うべきです。
+数値的には等しい多くの異なる浮動小数点数が存在しえます。
+それらの比較に<CODE>eq</CODE>を使うと、
+2つの値が同一<EM>オブジェクト</EM>かどうか調べることになります。
+対照的に、<CODE>=</CODE>はオブジェクトの数値だけを比較します。
+<P>
+
+現時点では、Emacs Lispにおいて、各整数値は一意なLispオブジェクトです。
+したがって、整数に限れば<CODE>eq</CODE>は<CODE>=</CODE>と等価です。
+未知の値と整数を比較するために<CODE>eq</CODE>を使うと便利な場面があります。
+というのは、<CODE>eq</CODE>は任意の型の引数を受け付けるので、
+<CODE>eq</CODE>は未知の値が数でなくてもエラーを報告しないからです。
+対照的に、<CODE>=</CODE>は、引数が数やマーカでないと、エラーを通知します。
+しかしながら、Emacsの将来の版で整数の表現方法を変更する場合に備えて、
+整数を比較するときであっても、可能ならば、<CODE>=</CODE>を使うほうがよいでしょう。
+<P>
+
+<CODE>equal</CODE>で数を比較したほうが便利なこともあります。
+<CODE>equal</CODE>は、2つの数が同じデータ型
+（どちらも整数であるか、どちらも浮動小数点数である）で、
+同じ値であれば、2つの数を等しいと扱います。
+一方、<CODE>=</CODE>は、整数と浮動小数点数が等しいことを扱えます。
+<P>
+
+別のことがらもあります。
+浮動小数点数演算は厳密ではないので、
+2つの浮動小数点数が等しいかどうか調べるのは正しくありません。
+普通、近似的に等しいことを調べるほうがよいのです。
+つぎの関数はそのようにします。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(defvar fuzz-factor 1.0e-6)
+(defun approx-equal (x y)
+  (or (and (= x 0) (= y 0))
+      (&#60; (/ (abs (- x y))
+            (max (abs x) (abs y)))
+         fuzz-factor)))
+</pre></td></tr></table><P>
+
+<A NAME="IDX164"></A>
+<BLOCKQUOTE>
+<B>Common Lispに関した注意：</B><CODE> </CODE>
+Common Lispでは、数の比較にはつねに<CODE>=</CODE>を使う必要がある。
+というのは、Common Lispでは複数ワードの整数を実装しているため、
+2つの異なる整数オブジェクトが同じ数値を表すことがありえる。
+Emacs Lispでは、整数値の範囲が制限されているため、
+任意の値の整数オブジェクトはそれぞれ1つしかない。
+</BLOCKQUOTE>
+<P>
+
+<A NAME="IDX165"></A>
+<DL>
+<DT><U>Function:</U> <B>=</B> <I>number-or-marker1 number-or-marker2</I>
+<DD>この関数は、引数が数値的に等しいか調べ、
+そうならば<CODE>t</CODE>を返し、さもなければ<CODE>nil</CODE>を返す。
+</DL>
+<P>
+
+<A NAME="IDX166"></A>
+<DL>
+<DT><U>Function:</U> <B>/=</B> <I>number-or-marker1 number-or-marker2</I>
+<DD>この関数は、引数が数値的に等しいか調べ、
+等しくなければ<CODE>t</CODE>を返し、等しければ<CODE>nil</CODE>を返す。
+</DL>
+<P>
+
+<A NAME="IDX167"></A>
+<DL>
+<DT><U>Function:</U> <B>&#60;</B> <I>number-or-marker1 number-or-marker2</I>
+<DD>この関数は、第1引数が第2引数より小さいか調べ、
+そうならば<CODE>t</CODE>を返し、さもなければ<CODE>nil</CODE>を返す。
+</DL>
+<P>
+
+<A NAME="IDX168"></A>
+<DL>
+<DT><U>Function:</U> <B>&#60;=</B> <I>number-or-marker1 number-or-marker2</I>
+<DD>この関数は、第1引数が第2引数より小さいか、あるいは、等しいか調べ、
+そうならば<CODE>t</CODE>を返し、さもなければ<CODE>nil</CODE>を返す。
+</DL>
+<P>
+
+<A NAME="IDX169"></A>
+<DL>
+<DT><U>Function:</U> <B>&#62;</B> <I>number-or-marker1 number-or-marker2</I>
+<DD>この関数は、第1引数が第2引数より大きいか調べ、
+そうならば<CODE>t</CODE>を返し、さもなければ<CODE>nil</CODE>を返す。
+</DL>
+<P>
+
+<A NAME="IDX170"></A>
+<DL>
+<DT><U>Function:</U> <B>&#62;=</B> <I>number-or-marker1 number-or-marker2</I>
+<DD>この関数は、第1引数が第2引数より大きいか、あるいは、等しいか調べ、
+そうならば<CODE>t</CODE>を返し、さもなければ<CODE>nil</CODE>を返す。
+</DL>
+<P>
+
+<A NAME="IDX171"></A>
+<DL>
+<DT><U>Function:</U> <B>max</B> <I>number-or-marker &#38;rest numbers-or-markers</I>
+<DD>この関数は、引数の中で最大のものを返す。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(max 20)
+     => 20
+(max 1 2.5)
+     => 2.5
+(max 1 3 2.5)
+     => 3
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX172"></A>
+<DL>
+<DT><U>Function:</U> <B>min</B> <I>number-or-marker &#38;rest numbers-or-markers</I>
+<DD>この関数は、引数の中で最小のものを返す。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(min -4 1)
+     => -4
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX173"></A>
+<DL>
+<DT><U>Function:</U> <B>abs</B> <I>number</I>
+<DD>この関数は、<VAR>number</VAR>の絶対値を返す。
+</DL>
+<P>
+
+<A NAME="Numeric Conversions"></A>
+<HR SIZE="6">
+<br><A NAME="SEC65"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_4.html#SEC64"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_4.html#SEC66"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Numeric Conversions"></A>
+<H2> 3.5 数の変換 </H2>
+<!--docid::SEC65::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Numeric%20Conversions">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Numeric%20Conversions</a>"<br>
+"texi/elisp21/数の変換"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%BF%F4%A4%CE%CA%D1%B4%B9">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX174"></A>
+<P>
+
+整数を浮動小数点数に変換するには、
+関数<CODE>float</CODE>を使います。
+<P>
+
+<A NAME="IDX175"></A>
+<DL>
+<DT><U>Function:</U> <B>float</B> <I>number</I>
+<DD>この関数は、浮動小数点数に変換した<VAR>number</VAR>を返す。
+<VAR>number</VAR>がすでに浮動小数点数ならば、
+<CODE>float</CODE>は<VAR>number</VAR>を変更せずに返す。
+</DL>
+<P>
+
+浮動小数点数を整数に変換する関数は4つあります。
+これらの関数は、整数も引数に取りますが、整数引数は変更せずに返します。
+<P>
+
+<A NAME="IDX176"></A>
+<DL>
+<DT><U>Function:</U> <B>truncate</B> <I>number</I>
+<DD>これは、0に向けて切り捨てて整数に変換した<VAR>number</VAR>を返す。
+</DL>
+<P>
+
+<A NAME="IDX177"></A>
+<DL>
+<DT><U>Function:</U> <B>floor</B> <I>number &#38;optional divisor</I>
+<DD>これは、（負の無限大に向けて）切り下げて整数に変換した<VAR>number</VAR>を返す。
+<P>
+
+<VAR>divisor</VAR>を指定すると、切り下げるまえに
+<VAR>number</VAR>を<VAR>divisor</VAR>で除算する。
+これには、<CODE>mod</CODE>に対応した除算を使い切り下げる。
+<VAR>divisor</VAR>が0であると、結果は<CODE>arith-error</CODE>になる。
+</DL>
+<P>
+
+<A NAME="IDX178"></A>
+<DL>
+<DT><U>Function:</U> <B>ceiling</B> <I>number</I>
+<DD>これは、（正の無限大に向けて）切り上げて整数に変換した<VAR>number</VAR>を返す。
+</DL>
+<P>
+
+<A NAME="IDX179"></A>
+<DL>
+<DT><U>Function:</U> <B>round</B> <I>number</I>
+<DD>これは、もっとも近い整数に丸めて整数に変換した<VAR>number</VAR>を返す。
+2つの整数に等距離にある値を丸める場合には、
+使用している計算機に依存して、ゼロに近いほうの整数を選ぶか偶数を選ぶ。
+</DL>
+<P>
+
+<A NAME="Arithmetic Operations"></A>
+<HR SIZE="6">
+<br><A NAME="SEC66"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_4.html#SEC65"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_4.html#SEC67"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Arithmetic Operations"></A>
+<H2> 3.6 算術演算 </H2>
+<!--docid::SEC66::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Arithmetic%20Operations">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Arithmetic%20Operations</a>"<br>
+"texi/elisp21/算術演算"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%BB%BB%BD%D1%B1%E9%BB%BB">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+Emacs Lispには、伝統的な四則演算、加算、減算、乗算、除算があります。
+除算関数を補う、余りと剰余の関数もあります。
+Lispの伝統でもあり、また、多用するので、1を加算したり減算する関数もあります。
+<P>
+
+これらの関数は、<CODE>%</CODE>を除いて、引数が1つでも浮動小数点数であると、
+浮動小数点数を返します。
+<P>
+
+Emacs Lispでは、算術関数は桁溢れ（オーバフロー）を検査しないことに
+注意してください。
+つまり、読者の計算機に依存しますが、
+<CODE>(1+ 134217727)</CODE>を評価すると-134217728になる場合もあります。
+<P>
+
+<A NAME="IDX180"></A>
+<DL>
+<DT><U>Function:</U> <B>1+</B> <I>number-or-marker</I>
+<DD>この関数は、<VAR>number-or-marker</VAR>足す1を返す。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(setq foo 4)
+     => 4
+(1+ foo)
+     => 5
+</pre></td></tr></table><P>
+
+この関数はC言語の演算子<CODE>++</CODE>の類似ではない。
+つまり、変数を増加しない。
+したがって、つぎのようになる。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>foo
+     => 4
+</pre></td></tr></table><P>
+
+変数を増加するには、つぎのように<CODE>setq</CODE>を使う必要がある。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(setq foo (1+ foo))
+     => 5
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX181"></A>
+<DL>
+<DT><U>Function:</U> <B>1-</B> <I>number-or-marker</I>
+<DD>この関数は、<VAR>number-or-marker</VAR>引く1を返す。
+</DL>
+<P>
+
+<A NAME="IDX182"></A>
+<DL>
+<DT><U>Function:</U> <B>+</B> <I>&#38;rest numbers-or-markers</I>
+<DD>この関数は、引数をすべて加算する。
+引数を指定しないと<CODE>+</CODE>は0を返す。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(+)
+     => 0
+(+ 1)
+     => 1
+(+ 1 2 3 4)
+     => 10
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX183"></A>
+<DL>
+<DT><U>Function:</U> <B>-</B> <I>&#38;optional number-or-marker &#38;rest more-numbers-or-markers</I>
+<DD>関数<CODE>-</CODE>は、2つの役割、つまり、符号反転と減算を果たす。
+<CODE>-</CODE>に1つの引数を指定すると、
+その値は、引数の符号を反転したものである。
+複数個の引数を指定すると、<CODE>-</CODE>は、
+<VAR>number-or-marker</VAR>から<VAR>more-numbers-or-markers</VAR>の1つ1つを減算する。
+引数を指定しないと結果は0である。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(- 10 1 2 3 4)
+     => 0
+(- 10)
+     => -10
+(-)
+     => 0
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX184"></A>
+<DL>
+<DT><U>Function:</U> <B>*</B> <I>&#38;rest numbers-or-markers</I>
+<DD>この関数は、引数をすべて掛け合わせた乗算結果を返す。
+引数を指定しないと<CODE>*</CODE>は1を返す。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(*)
+     => 1
+(* 1)
+     => 1
+(* 1 2 3 4)
+     => 24
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX185"></A>
+<DL>
+<DT><U>Function:</U> <B>/</B> <I>dividend divisor &#38;rest divisors</I>
+<DD>この関数は、<VAR>dividend</VAR>を<VAR>divisor</VAR>で除し商を返す。
+追加の引数<VAR>divisors</VAR>を指定してあると、
+<VAR>dividend</VAR>を<VAR>divisors</VAR>の1つ1つで除す。
+各引数は数かマーカである。
+<P>
+
+すべての引数が整数である場合、結果も整数となる。
+つまり、結果は切り捨てになる。
+ほとんどの計算機では各除算の結果は0に向けて切り捨てになるが、
+負の引数を別の方法で丸める計算機もある。
+これは、Lisp関数<CODE>/</CODE>をC言語の除算演算子で実装しているからであり、
+C言語の除算演算子では計算機依存に丸めることを許しているからである。
+実用上、すべての既知の計算機は標準的な方法で丸める。
+<P>
+
+<A NAME="IDX186"></A>
+<A NAME="IDX187"></A>
+整数を0で除算すると、エラー<CODE>arith-error</CODE>を通知する。
+（see 節 <A HREF="elisp_10.html#SEC130">9.5.3 エラー</A>。）
+浮動小数点数を0で除算すると、IEEE浮動小数点数を使う計算機では、
+無限大かNaNを返す。
+さもなければエラー<CODE>arith-error</CODE>を通知する。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(/ 6 2)
+     => 3
+(/ 5 2)
+     => 2
+(/ 5.0 2)
+     => 2.5
+(/ 5 2.0)
+     => 2.5
+(/ 5.0 2.0)
+     => 2.5
+(/ 25 3 2)
+     => 4
+(/ -17 6)
+     => -2
+</pre></td></tr></table><P>
+
+原理的には、<CODE>(/ -17 6)</CODE>が-3になる計算機もある。
+</DL>
+<P>
+
+<A NAME="IDX188"></A>
+<DL>
+<DT><U>Function:</U> <B>%</B> <I>dividend divisor</I>
+<DD><A NAME="IDX189"></A>
+この関数は、<VAR>dividend</VAR>を<VAR>divisor</VAR>で除したあとの整数の余りを返す。
+引数は整数かマーカである必要がある。
+<P>
+
+負の引数では、余りは原理的に計算機依存である。
+実用上、すべての既知の計算機は同じようにふるまう。
+<P>
+
+<VAR>divisor</VAR>が0であると<CODE>arith-error</CODE>になる。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(% 9 4)
+     => 1
+(% -9 4)
+     => -1
+(% 9 -4)
+     => 1
+(% -9 -4)
+     => -1
+</pre></td></tr></table><P>
+
+2つの任意の整数<VAR>dividend</VAR>と<VAR>divisor</VAR>において、
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(+ (% <VAR>dividend</VAR> <VAR>divisor</VAR>)
+   (* (/ <VAR>dividend</VAR> <VAR>divisor</VAR>) <VAR>divisor</VAR>))
+</pre></td></tr></table><P>
+
+は、つねに<VAR>dividend</VAR>に等しい。
+</DL>
+<P>
+
+<A NAME="IDX190"></A>
+<DL>
+<DT><U>Function:</U> <B>mod</B> <I>dividend divisor</I>
+<DD><A NAME="IDX191"></A>
+この関数は、<VAR>dividend</VAR>の<VAR>divisor</VAR>による剰余を返す。
+いいかえれば、<VAR>dividend</VAR>を<VAR>divisor</VAR>で除した余りを返す。
+ただし、その符号は<VAR>divisor</VAR>と同じ。
+引数は数かマーカである必要がある。
+<P>
+
+<CODE>%</CODE>と違い、
+<CODE>mod</CODE>は負の引数に対しても厳密に定義された結果を返す。
+浮動小数点の引数も許す。
+商を（負の無限大に向けて）切り下げて整数にし、
+その商を用いて余りを計算する。
+<P>
+
+<VAR>divisor</VAR>が0であると<CODE>arith-error</CODE>になる。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(mod 9 4)
+     => 1
+(mod -9 4)
+     => 3
+(mod 9 -4)
+     => -3
+(mod -9 -4)
+     => -1
+(mod 5.5 2.5)
+     => .5
+</pre></td></tr></table><P>
+
+2つの任意の整数<VAR>dividend</VAR>と<VAR>divisor</VAR>において、
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(+ (mod <VAR>dividend</VAR> <VAR>divisor</VAR>)
+   (* (floor <VAR>dividend</VAR> <VAR>divisor</VAR>) <VAR>divisor</VAR>))
+</pre></td></tr></table><P>
+
+は、つねに<VAR>dividend</VAR>に等しい。
+ただし、どちらかの引数が浮動小数点数の場合には、
+丸め誤差の範囲内で等しい。
+<CODE>floor</CODE>については、<A HREF="elisp_4.html#SEC65">3.5 数の変換</A>を参照。
+</DL>
+<P>
+
+<A NAME="Rounding Operations"></A>
+<HR SIZE="6">
+<br><A NAME="SEC67"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_4.html#SEC66"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_4.html#SEC68"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Rounding Operations"></A>
+<H2> 3.7 丸め演算 </H2>
+<!--docid::SEC67::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Rounding%20Operations">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Rounding%20Operations</a>"<br>
+"texi/elisp21/丸め演算"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%B4%DD%A4%E1%B1%E9%BB%BB">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX192"></A>
+<A NAME="IDX193"></A>
+<P>
+
+関数、<CODE>ffloor</CODE>、<CODE>fceiling</CODE>、<CODE>fround</CODE>、<CODE>ftruncate</CODE>は、
+浮動小数点数引数を受け取り、その値に近い整数を値とする浮動小数点数を返します。
+<CODE>ffloor</CODE>は、もっとも近いより小さな整数を返します。
+<CODE>fceiling</CODE>は、もっとも近いより大きな整数を返します。
+<CODE>ftruncate</CODE>は、0に向けて切り捨てたもっとも近い整数を返します。
+<CODE>fround</CODE>は、もっとも近い整数を返します。
+<P>
+
+<A NAME="IDX194"></A>
+<DL>
+<DT><U>Function:</U> <B>ffloor</B> <I>float</I>
+<DD>この関数は、<VAR>float</VAR>をこれより小さな整数値に切り下げ、
+その値を浮動小数点数として返す。
+</DL>
+<P>
+
+<A NAME="IDX195"></A>
+<DL>
+<DT><U>Function:</U> <B>fceiling</B> <I>float</I>
+<DD>この関数は、<VAR>float</VAR>をこれより大きな整数値に切り上げ、
+その値を浮動小数点数として返す。
+</DL>
+<P>
+
+<A NAME="IDX196"></A>
+<DL>
+<DT><U>Function:</U> <B>ftruncate</B> <I>float</I>
+<DD>この関数は、<VAR>float</VAR>を0に向けて整数値に切り捨て、
+その値を浮動小数点数として返す。
+</DL>
+<P>
+
+<A NAME="IDX197"></A>
+<DL>
+<DT><U>Function:</U> <B>fround</B> <I>float</I>
+<DD>この関数は、<VAR>float</VAR>をもっとも近い整数値に丸め、
+その値を浮動小数点数として返す。
+</DL>
+<P>
+
+<A NAME="Bitwise Operations"></A>
+<HR SIZE="6">
+<br><A NAME="SEC68"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_4.html#SEC67"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_4.html#SEC69"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Bitwise Operations"></A>
+<H2> 3.8 整数のビット演算 </H2>
+<!--docid::SEC68::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Bitwise%20Operations">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Bitwise%20Operations</a>"<br>
+"texi/elisp21/整数のビット演算"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%C0%B0%BF%F4%A4%CE%A5%D3%A5%C3%A5%C8%B1%E9%BB%BB">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+計算機内部では、整数は2進数、つまり、
+<EM>ビット</EM>（bit、各桁は0か1）列で表現されます。
+ビット演算は、そのようなビット列の各ビットごとに作用します。
+たとえば、<EM>シフト</EM>（shifting）は、ビット列を全体として左や右に
+1桁以上移動して、その『移動後の』パターンを結果とします。
+<P>
+
+Emacs Lispにおけるビット演算は整数に限ります。
+<P>
+
+<A NAME="IDX198"></A>
+<DL>
+<DT><U>Function:</U> <B>lsh</B> <I>integer1 count</I>
+<DD><A NAME="IDX199"></A>
+<EM>論理シフト</EM>（logical shift）の略からきている<CODE>lsh</CODE>は、
+<VAR>integer1</VAR>のビット列を<VAR>count</VAR>桁左へ、
+あるいは、<VAR>count</VAR>が負ならば右へずらし、空いたビットには0を詰める。
+<VAR>count</VAR>が負であれば、<CODE>lsh</CODE>は最左（最上位）ビットに0を詰め、
+<VAR>integer1</VAR>が負であっても結果は正になる。
+これと対照的なのが下の<CODE>ash</CODE>。
+<P>
+
+<CODE>lsh</CODE>の例を2つ示す。
+ビットパターンを1桁左へずらす。
+ビットパターンの上位ビットはすべて0なので下位8ビットだけを示す。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(lsh 5 1)
+     => 10
+;; 10進数5は、 10進数10になる
+00000101 => 00001010
+
+(lsh 7 1)
+     => 14
+;; 10進数7は、10進数14になる
+00000111 => 00001110
+</pre></td></tr></table><P>
+
+例からわかるように、ビットパターンを1桁左へずらすと、
+もとの数値の2倍の数になる。
+<P>
+
+ビットパターンを2桁左へずらすと、（8ビット長の2進数では）つぎのようになる。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(lsh 3 2)
+     => 12
+;; 10進数3は、10進数12になる
+00000011 => 00001100       
+</pre></td></tr></table><P>
+
+一方、右へずらすとつぎのようになる。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(lsh 6 -1)
+     => 3
+;; 10進数6は、10進数3になる
+00000110 => 00000011       
+
+(lsh 5 -1)
+     => 2
+;; 10進数5は、10進数2になる
+00000101 => 00000010       
+</pre></td></tr></table><P>
+
+例からわかるように、ビットパターンを1桁右へずらすと、
+正の整数の数を2で除して切り下げる。
+<P>
+
+Emacs Lispのすべての算術関数と同様に、
+関数<CODE>lsh</CODE>は桁溢れ（オーバフロー）を検査しないので、
+左へずらすと上位ビットを捨てさり数の符号を変えてしまうことがある。
+たとえば、28ビット長の計算機では、
+134,217,727を左へずらすと-2になる。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(lsh 134217727 1)          ; 左シフト
+     => -2
+</pre></td></tr></table><P>
+
+28ビット長の実装の2進数では、引数はつぎのようになっている。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>;; 10進数134,217,727
+0111  1111 1111  1111 1111  1111 1111         
+</pre></td></tr></table><P>
+
+これを左へずらすと、つぎのようになる
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>;; 10進数-2
+1111  1111 1111  1111 1111  1111 1110         
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX200"></A>
+<DL>
+<DT><U>Function:</U> <B>ash</B> <I>integer1 count</I>
+<DD><A NAME="IDX201"></A>
+<CODE>ash</CODE>（<EM>算術シフト</EM>（arithmetic shift））は、
+<VAR>integer1</VAR>のビットを<VAR>count</VAR>桁左へ、あるいは、
+<VAR>count</VAR>が負ならば右へずらす。
+<P>
+
+<CODE>ash</CODE>は<CODE>lsh</CODE>と同じ結果になるが、
+<VAR>integer1</VAR>と<VAR>count</VAR>の両者が負の場合を除く。
+この場合、<CODE>ash</CODE>は左の空いたビットには1を入れるが、
+<CODE>lsh</CODE>はそのようなビットには0を入れる。
+<P>
+
+したがって、<CODE>ash</CODE>でビットパターンを1桁右へずらすとつぎのようになる。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(ash -6 -1) => -3            
+;; 10進数-6は、10進数-3になる
+1111  1111 1111  1111 1111  1111 1010
+     => 
+1111  1111 1111  1111 1111  1111 1101
+</pre></td></tr></table><P>
+
+対照的に、<CODE>lsh</CODE>でビットパターンを1桁右へずらすとつぎのようになる。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(lsh -6 -1) => 134217725
+;; 10進数-6は、10進数134,217,725になる
+1111  1111 1111  1111 1111  1111 1010
+     => 
+0111  1111 1111  1111 1111  1111 1101
+</pre></td></tr></table><P>
+
+他の例を以下にしめす。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>                   ;               28ビット2進値
+
+(lsh 5 2)          ;   5  =  0000  0000 0000  0000 0000  0000 0101
+     => 20         ;      =  0000  0000 0000  0000 0000  0001 0100
+(ash 5 2)
+     => 20
+(lsh -5 2)         ;  -5  =  1111  1111 1111  1111 1111  1111 1011
+     => -20        ;      =  1111  1111 1111  1111 1111  1110 1100
+(ash -5 2)
+     => -20
+(lsh 5 -2)         ;   5  =  0000  0000 0000  0000 0000  0000 0101
+     => 1          ;      =  0000  0000 0000  0000 0000  0000 0001
+(ash 5 -2)
+     => 1
+(lsh -5 -2)        ;  -5  =  1111  1111 1111  1111 1111  1111 1011
+     => 4194302    ;      =  0011  1111 1111  1111 1111  1111 1110
+(ash -5 -2)        ;  -5  =  1111  1111 1111  1111 1111  1111 1011
+     => -2         ;      =  1111  1111 1111  1111 1111  1111 1110
+</FONT></pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX202"></A>
+<DL>
+<DT><U>Function:</U> <B>logand</B> <I>&#38;rest ints-or-markers</I>
+<DD><A NAME="IDX203"></A>
+<A NAME="IDX204"></A>
+この関数は引数の『論理積』を返す。
+つまり、すべての引数の<VAR>n</VAR>番目のビットが1である場合に限り、
+結果の<VAR>n</VAR>番目のビットも1になる。
+<P>
+
+たとえば、4ビットの2進数で考えると、
+13と12の『論理積』は12になる。
+つまり、1101に1100を組み合わせると1100になる。
+どちらの2進数も最左の2ビットは1なので、戻り値の最左の2ビットも1になる。
+しかし、最右の2ビットは、一方の引数ではそれぞれが0なので、
+戻り値の最右の2ビットも0になる。
+<P>
+
+したがって、つぎのとおり。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(logand 13 12)
+     => 12
+</pre></td></tr></table><P>
+
+<CODE>logand</CODE>にまったく引数を指定しないと値-1を返す。
+この数は2進表現ではすべて1だけなので、
+<CODE>logand</CODE>の恒等元である。
+<CODE>logand</CODE>に引数を1つだけ指定するとその引数を返す。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>                   ;                28ビット2進値
+
+(logand 14 13)     ; 14  =  0000  0000 0000  0000 0000  0000 1110
+                   ; 13  =  0000  0000 0000  0000 0000  0000 1101
+     => 12         ; 12  =  0000  0000 0000  0000 0000  0000 1100
+
+(logand 14 13 4)   ; 14  =  0000  0000 0000  0000 0000  0000 1110
+                   ; 13  =  0000  0000 0000  0000 0000  0000 1101
+                   ;  4  =  0000  0000 0000  0000 0000  0000 0100
+     => 4          ;  4  =  0000  0000 0000  0000 0000  0000 0100
+
+(logand)
+     => -1         ; -1  =  1111  1111 1111  1111 1111  1111 1111
+</FONT></pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX205"></A>
+<DL>
+<DT><U>Function:</U> <B>logior</B> <I>&#38;rest ints-or-markers</I>
+<DD><A NAME="IDX206"></A>
+<A NAME="IDX207"></A>
+この関数は引数の『論理和』を返す。
+つまり、少なくともどれか1つの引数の<VAR>n</VAR>番目のビットが1である場合に限り、
+結果の<VAR>n</VAR>番目のビットも1になる。
+引数を指定しないと0を返すが、これはこの演算の恒等元である。
+<CODE>logior</CODE>に引数を1つだけ指定するとその引数を返す。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>                   ;                28ビット2進値
+
+(logior 12 5)      ; 12  =  0000  0000 0000  0000 0000  0000 1100
+                   ;  5  =  0000  0000 0000  0000 0000  0000 0101
+     => 13         ; 13  =  0000  0000 0000  0000 0000  0000 1101
+
+(logior 12 5 7)    ; 12  =  0000  0000 0000  0000 0000  0000 1100
+                   ;  5  =  0000  0000 0000  0000 0000  0000 0101
+                   ;  7  =  0000  0000 0000  0000 0000  0000 0111
+     => 15         ; 15  =  0000  0000 0000  0000 0000  0000 1111
+</FONT></pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX208"></A>
+<DL>
+<DT><U>Function:</U> <B>logxor</B> <I>&#38;rest ints-or-markers</I>
+<DD><A NAME="IDX209"></A>
+<A NAME="IDX210"></A>
+この関数は引数の『排他的論理和』を返す。
+つまり、引数の<VAR>n</VAR>番目のビットが1であるものが奇数個の場合に限り、
+結果の<VAR>n</VAR>番目のビットも1になる。
+引数を指定しないと0を返すが、これはこの演算の恒等元である。
+<CODE>logxor</CODE>に引数を1つだけ指定するとその引数を返す。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>                   ;               28ビット2進値
+
+(logxor 12 5)      ; 12  =  0000  0000 0000  0000 0000  0000 1100
+                   ;  5  =  0000  0000 0000  0000 0000  0000 0101
+     => 9          ;  9  =  0000  0000 0000  0000 0000  0000 1001
+
+(logxor 12 5 7)    ; 12  =  0000  0000 0000  0000 0000  0000 1100
+                   ;  5  =  0000  0000 0000  0000 0000  0000 0101
+                   ;  7  =  0000  0000 0000  0000 0000  0000 0111
+     => 14         ; 14  =  0000  0000 0000  0000 0000  0000 1110
+</FONT></pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX211"></A>
+<DL>
+<DT><U>Function:</U> <B>lognot</B> <I>integer</I>
+<DD><A NAME="IDX212"></A>
+<A NAME="IDX213"></A>
+この関数は引数の論理的な補数を返す。
+つまり、<VAR>integer</VAR>の<VAR>n</VAR>番目のビットが0である場合に限り、
+結果の<VAR>n</VAR>番目のビットは1になる。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(lognot 5)             
+     => -6
+;;  5  =  0000  0000 0000  0000 0000  0000 0101
+;; becomes
+;; -6  =  1111  1111 1111  1111 1111  1111 1010
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="Math Functions"></A>
+<HR SIZE="6">
+<br><A NAME="SEC69"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_4.html#SEC68"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_4.html#SEC70"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Math Functions"></A>
+<H2> 3.9 標準数学関数 </H2>
+<!--docid::SEC69::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Math%20Functions">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Math%20Functions</a>"<br>
+"texi/elisp21/標準数学関数"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%C9%B8%BD%E0%BF%F4%B3%D8%B4%D8%BF%F4">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX214"></A>
+<A NAME="IDX215"></A>
+<P>
+
+これらの数学関数は浮動小数点数に加えて整数も引数として受け付けます。
+<P>
+
+<A NAME="IDX216"></A>
+<DL>
+<DT><U>Function:</U> <B>sin</B> <I>arg</I>
+<DD><A NAME="IDX217"></A>
+<DT><U>Function:</U> <B>cos</B> <I>arg</I>
+<DD><A NAME="IDX218"></A>
+<DT><U>Function:</U> <B>tan</B> <I>arg</I>
+<DD>これらは普通の三角関数であり、引数は弧度法で表す。
+</DL>
+<P>
+
+<A NAME="IDX219"></A>
+<DL>
+<DT><U>Function:</U> <B>asin</B> <I>arg</I>
+<DD><CODE>(asin <VAR>arg</VAR>)</CODE>の値は-pi/2からpi/2までの数であり、
+その正弦（sin）は<VAR>arg</VAR>に等しい。
+しかし、<VAR>arg</VAR>が（[-1, 1]の）範囲を越えていると結果はNaN。
+</DL>
+<P>
+
+<A NAME="IDX220"></A>
+<DL>
+<DT><U>Function:</U> <B>acos</B> <I>arg</I>
+<DD><CODE>(acos <VAR>arg</VAR>)</CODE>の値は0からpiまでの数であり、
+その余弦（cos）は<VAR>arg</VAR>に等しい。
+しかし、<VAR>arg</VAR>が（[-1, 1]の）範囲を越えていると結果はNaN。
+</DL>
+<P>
+
+<A NAME="IDX221"></A>
+<DL>
+<DT><U>Function:</U> <B>atan</B> <I>arg</I>
+<DD><CODE>(atan <VAR>arg</VAR>)</CODE>の値は-pi/2からpi/2までの数であり、
+その正接（tan）は<VAR>arg</VAR>に等しい。
+</DL>
+<P>
+
+<A NAME="IDX222"></A>
+<DL>
+<DT><U>Function:</U> <B>exp</B> <I>arg</I>
+<DD>これは指数関数であり、
+<I>e</I>
+の<VAR>arg</VAR>乗を返す。
+<I>e</I>
+は数学の基本定数であり、自然対数の底とも呼ぶ。
+</DL>
+<P>
+
+<A NAME="IDX223"></A>
+<DL>
+<DT><U>Function:</U> <B>log</B> <I>arg &#38;optional base</I>
+<DD>この関数は<VAR>arg</VAR>の<VAR>base</VAR>を底とする対数を返す。
+<VAR>base</VAR>を指定しなければ、底として
+<I>e</I>
+を使う。
+<VAR>arg</VAR>が負であると結果はNaN。
+</DL>
+<P>
+
+<A NAME="IDX224"></A>
+<DL>
+<DT><U>Function:</U> <B>log10</B> <I>arg</I>
+<DD>この関数は<VAR>arg</VAR>の10を底とする対数を返す。
+<VAR>arg</VAR>が負であると結果はNaN。
+少なくとも誤差を考慮すれば、
+<CODE>(log10 <VAR>x</VAR>)</CODE> == <CODE>(log <VAR>x</VAR> 10)</CODE>。
+</DL>
+<P>
+
+<A NAME="IDX225"></A>
+<DL>
+<DT><U>Function:</U> <B>expt</B> <I>x y</I>
+<DD>この関数は<VAR>x</VAR>の<VAR>y</VAR>乗を返す。
+どちらの引数も整数であり<VAR>y</VAR>が正ならば、結果は整数。
+この場合、結果は整数値の可能な範囲に切り詰められる。
+</DL>
+<P>
+
+<A NAME="IDX226"></A>
+<DL>
+<DT><U>Function:</U> <B>sqrt</B> <I>arg</I>
+<DD>この関数は<VAR>arg</VAR>の平方根を返す。
+<VAR>arg</VAR>が負であると値はNaN。
+</DL>
+<P>
+
+<A NAME="Random Numbers"></A>
+<HR SIZE="6">
+<br><A NAME="SEC70"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_4.html#SEC69"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_5.html#SEC71"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Random Numbers"></A>
+<H2> 3.10 乱数 </H2>
+<!--docid::SEC70::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Random%20Numbers">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Random%20Numbers</a>"<br>
+"texi/elisp21/乱数"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%CD%F0%BF%F4">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX227"></A>
+<P>
+
+決定論的な計算機プログラムは真の乱数を発生できません。
+しかし、ほとんどの目的には<EM>疑似乱数</EM>（pseudo-random numbers）で十分です。
+一連の疑似乱数を決定論的な方法で生成します。
+それらの数は真の乱数ではありませんが、
+乱数列のある種の性質に似た性質があります。
+たとえば、疑似乱数列でもすべての可能な数がしばしば等しく生起します。
+<P>
+
+Emacsでは、疑似乱数は『種』となる数から生成します。
+指定した任意の種から始めても、関数<CODE>random</CODE>は同じ数の列を生成します。
+Emacsはつねに同じ種の値で計算し始めるため、
+それぞれのEmacsの実行でも<CODE>random</CODE>は実際には同じ数の列を生成します。
+たとえば、あるオペレーティングシステムで、
+Emacs開始直後に<CODE>random</CODE>を呼ぶとつねに-1457731を返し、
+つぎに呼ぶとつねに-7692030を返します。
+このような再現性はデバッグには有利です。
+<P>
+
+予測不可能な乱数が必要ならば<CODE>(random t)</CODE>を実行します。
+これは、現在時刻とEmacsプロセスのID番号に基づいて、
+新たな種の値を選びます。
+<P>
+
+<A NAME="IDX228"></A>
+<DL>
+<DT><U>Function:</U> <B>random</B> <I>&#38;optional limit</I>
+<DD>この関数は疑似乱数の整数を返す。
+繰り返し呼び出すと一連の疑似乱数の整数を返す。
+<P>
+
+<VAR>limit</VAR>が正整数ならば、非負で<VAR>limit</VAR>未満になるように値を選ぶ。
+<P>
+
+<VAR>limit</VAR>が<CODE>t</CODE>ならば、
+現在時刻とEmacsプロセスのID番号に基づいて、
+新たな種の値を選ぶことを意味する。
+<P>
+
+<CODE>random</CODE>の結果は、Lispにおいて表現可能な任意の整数になる計算機もある。
+他の計算機では、結果はある最大値と（負数）最小値のあいだにある。
+</DL>
+<A NAME="Strings and Characters"></A>
+<HR SIZE="6">
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<a name="bottom"> </a>
+<script type="text/javascript" src="style2.js"></script>
+<div class="footer">
+    <br>
+    このページはMeadow (Emacs) の紹介ページです <br>
+このWebページの各文書は自由にリンク・複製・再配布・改変していただいて構いません．
+<br>ただし，複製・再配布・改変の場合は Meadow Memo のURLを記載しておいて下さい．<br>
+<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=about%20link">Medow memoへのリンクについて</a>．<br>
+
+間違い，要望等があれば<a href="mailto:akihisa@mail.ne.jp">akihisa@mail.ne.jp</a> か下記でどうぞ<br>
+
+<br>
+
+<FORM METHOD="post" ACTION="http://www.bookshelf.jp/cgi-bin/wwwmail.cgi" >
+お名前：<INPUT TYPE="text" NAME="name" SIZE="30" MAXLENGTH="40" VALUE="ななしさん"><br>
+メールアドレス：<INPUT TYPE="text" NAME="EMAIL" SIZE="25" MAXLENGTH="60" VALUE="secret@mail.adr"><br>
+<input type="hidden" name="HPAGE" value="">
+つっこみ：<br><TEXTAREA NAME="MESSAGE" ROWS="5" COLS="50">
+</TEXTAREA><br><br>
+<INPUT TYPE="submit" VALUE="送信">
+<INPUT TYPE="reset" VALUE="クリア">
+</FORM>
+
+<br><A HREF="http://www.bookshelf.jp/cgi-bin/xct.cgi">ページ別カウンタ</a>
+<br> Since 2002/12/13 <br>
+</div>
+
+</BODY>
+
+</HTML>

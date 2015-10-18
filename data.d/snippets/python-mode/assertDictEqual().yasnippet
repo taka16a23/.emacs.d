@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: assertDictEqual()
+# key: assertDictEqual
+# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])))
+# 32 = ` '
+# --
+assertDictEqual(${1:d1}, ${2:d2}${3:, msg=${4:\'${5:Failed: $6}\'}})

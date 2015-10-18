@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name : for ... in ... : ...
+# key: for
+# condition: (and (not (py:at-string|comment-p)) (not (py:in-brackets-p)))
+# --
+for ${1:_} in ${2:xrange(${3:0${4:, ${5:1}}})}`(progn (end-of-line) (skip-chars-backward " \t") (unless (eq (char-before) 58) (insert ":")))` 

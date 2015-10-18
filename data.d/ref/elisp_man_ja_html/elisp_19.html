@@ -1,0 +1,982 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="ja">
+<!-- Created on October, 1  2005 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=euc-jp">
+<META NAME="keywords" CONTENT="meadow,mule,emacs,lisp,elisp,gnus,setting,設定,unix,cygwin">
+<META http-equiv="Content-Script-Type" content="text/javascript">
+<META NAME="description" CONTENT="Meadowの設定を紹介するページです">
+<TITLE>GNU Emacs Lispリファレンスマニュアル:  Lispオブジェクトの読み取りと表示</TITLE>
+
+<META NAME="description" CONTENT="GNU Emacs Lispリファレンスマニュアル:  Lispオブジェクトの読み取りと表示">
+<META NAME="keywords" CONTENT="GNU Emacs Lispリファレンスマニュアル:  Lispオブジェクトの読み取りと表示">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+<LINK REL="contents" HREF="elisp_toc.html#SEC_Contents">
+<LINK REL="index" HREF="elisp_48.html#SEC681">
+<LINK REL="next" HREF="elisp_20.html#SEC265">
+<LINK REL="prev" HREF="elisp_18.html#SEC219">
+
+<META http-equiv="Content-Style-Type" content="text/css">
+<!-- 鶯と龜 ←日本語EUC誤判別対策用らしい; -->
+<link rel="StyleSheet" href="../../../../soft/css/midnight.css" type="text/css" id="css1">
+<script type="text/javascript" src="style1.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../soft/css/meadowmemo.css">
+
+</HEAD>
+<BODY LANG="ja" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+<!--Infoseek Analyzer start-->
+<script LANGUAGE="javascript">PgNo=6;</script>
+<script src="http://js1.infoseek.co.jp/bin/57/00170.js"></script>
+<noscript><a href="http://ax1.www.infoseek.co.jp/bin/go?0017057f" target="_blank">
+<img src="http://ax1.www.infoseek.co.jp/bin/logo?0017057f" border=0></a></noscript>
+<!--Infoseek Analyzer end-->
+<a name="top"> </a>
+
+<br><A NAME="SEC258"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_18.html#SEC257"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_19.html#SEC259"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_18.html#SEC219"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_20.html#SEC265"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Read and Print"></A>
+<H1> 18. Lispオブジェクトの読み取りと表示 </H1>
+<!--docid::SEC258::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Read%20and%20Print">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Read%20and%20Print</a>"<br>
+"texi/elisp21/Lispオブジェクトの読み取りと表示"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2FLisp%A5%AA%A5%D6%A5%B8%A5%A7%A5%AF%A5%C8%A4%CE%C6%C9%A4%DF%BC%E8%A4%EA%A4%C8%C9%BD%BC%A8">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+<EM>表示</EM>（printing）とは
+Lispオブジェクトをテキスト表現へ変換する操作であり、
+<EM>読み取り</EM>（reading）は逆の変換操作です。
+これには、<A HREF="elisp_3.html#SEC21">2. Lispのデータ型</A>で述べた表示表現と入力構文を用います。
+<P>
+
+本章では、読み取りや表示を行うLisp関数について述べます。
+また、（読み取るときに）テキストをどこから得たり、
+（表示するときに）どこへ出すかを指定する
+<EM>ストリーム</EM>（stream）についても述べます。
+<P>
+
+<div class="menuindex"><SCRIPT language=JavaScript src="index18.js"></SCRIPT></div><noscript><BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_19.html#SEC259">18.1 読み取りと表示の概要</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Overview of streams, reading and printing.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_19.html#SEC260">18.2 入力ストリーム</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Various data types that can be used as input streams.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_19.html#SEC261">18.3 入力関数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Functions to read Lisp objects from text.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_19.html#SEC262">18.4 出力ストリーム</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Various data types that can be used as output streams.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_19.html#SEC263">18.5 出力関数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Functions to print Lisp objects as text.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_19.html#SEC264">18.6 出力に影響する変数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Variables that control what the printing functions do.</TD></TR>
+</TABLE></BLOCKQUOTE></noscript>
+<P>
+
+<A NAME="Streams Intro"></A>
+<HR SIZE="6">
+<br><A NAME="SEC259"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_19.html#SEC258"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_19.html#SEC260"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Streams Intro"></A>
+<H2> 18.1 読み取りと表示の概要 </H2>
+<!--docid::SEC259::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Streams%20Intro">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Streams%20Intro</a>"<br>
+"texi/elisp21/読み取りと表示の概要"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%C6%C9%A4%DF%BC%E8%A4%EA%A4%C8%C9%BD%BC%A8%A4%CE%B3%B5%CD%D7">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX942"></A>
+<A NAME="IDX943"></A>
+<A NAME="IDX944"></A>
+<P>
+
+Lispオブジェクトの<EM>読み取り</EM>とは、
+テキスト表現のLisp式を解析して対応するLispオブジェクトを生成することを
+意味します。
+これにより、プログラムはLispコードのファイルからLispへ取り込まれます。
+テキストをオブジェクトの<EM>入力構文</EM>（read syntax）と呼びます。
+たとえば、テキスト`<SAMP>(a . 5)</SAMP>'は、
+CARが<CODE>a</CODE>でありCDRが数5であるコンスセルの入力構文です。
+<P>
+
+Lispオブジェクトの<EM>表示</EM>とは、
+オブジェクトを表現するテキストを生成することを意味します。
+つまり、オブジェクトをその<EM>表示表現</EM>
+（see 節 <A HREF="elisp_3.html#SEC22">2.1 表示表現と入力構文</A>）に変換します。
+上に述べたコンスセルを表示するとテキスト`<SAMP>(a . 5)</SAMP>'を生成します。
+<P>
+
+読み取りと表示は、多かれ少なかれ、逆操作です。
+与えられたテキスト断片を読み取ることで得られたオブジェクトを表示すると、
+しばしば、同じテキストを生成します。
+オブジェクトを表示することによって得られたテキストを読み取ると、
+通常、似たようなオブジェクトを生成します。
+たとえば、シンボル<CODE>foo</CODE>を表示するとテキスト`<SAMP>foo</SAMP>'を生成し、
+そのテキストを読み取るとシンボル<CODE>foo</CODE>が返されます。
+要素が<CODE>a</CODE>と<CODE>b</CODE>であるリストを表示すると
+テキスト`<SAMP>(a b)</SAMP>'を生成し、
+そのテキストを読み取ると
+要素が<CODE>a</CODE>と<CODE>b</CODE>である（もとと同じではないが）リストを生成します。
+<P>
+
+しかし、これら2つの操作は厳密には逆操作ではありません。
+3種類の例外があります。
+<P>
+
+<UL>
+<LI>
+表示では、読み取れないテキストを生成することがある。
+たとえば、バッファ、ウィンドウ、フレーム、サブプロセス、マーカは、
+`<SAMP>#</SAMP>'で始まるテキストとして表示されるが、
+これを読み取ろうとするとエラーになる。
+これらのデータ型を読み取る方法は存在しない。
+<P>
+
+<LI>
+1つのオブジェクトには複数のテキスト表現がありえる。
+たとえば、`<SAMP>1</SAMP>'と`<SAMP>01</SAMP>'は同じ整数を表し、
+`<SAMP>(a b)</SAMP>'と`<SAMP>(a . (b))</SAMP>'は同じリストを表す。
+読み取りではいずれの表現も受け付けるが、
+表示では1つの表現を選ぶ。
+<P>
+
+<LI>
+オブジェクトを読み取る途中にコメントが現れてもよく、
+しかも読み取り結果にはまったく影響しない。
+</UL>
+<P>
+
+<A NAME="Input Streams"></A>
+<HR SIZE="6">
+<br><A NAME="SEC260"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_19.html#SEC259"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_19.html#SEC261"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Input Streams"></A>
+<H2> 18.2 入力ストリーム </H2>
+<!--docid::SEC260::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Input%20Streams">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Input%20Streams</a>"<br>
+"texi/elisp21/入力ストリーム"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%C6%FE%CE%CF%A5%B9%A5%C8%A5%EA%A1%BC%A5%E0">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX945"></A>
+<A NAME="IDX946"></A>
+<P>
+
+テキストを読み取るほとんどのLisp関数は、
+<EM>ストリーム</EM>（stream）を引数として受け付けます。
+入力ストリームは、読み取るべきテキストの文字をどこからどのように得るのかを
+指定します。
+入力ストリームとして使える型は以下のとおりです。
+<P>
+
+<DL COMPACT>
+<DT><VAR>buffer</VAR>
+<DD><A NAME="IDX947"></A>
+入力文字はバッファ<VAR>buffer</VAR>のポイント直後の文字から読み取られる。
+1文字読むごとにポイントを進める。
+<P>
+
+<DT><VAR>marker</VAR>
+<DD><A NAME="IDX948"></A>
+入力文字は、マーカ<VAR>marker</VAR>があるバッファの
+マーカ直後の文字から読み取られる。
+1文字読むごとにマーカ位置を進める。
+ストリームがマーカであるときには、バッファのポイント位置は影響しない。
+<P>
+
+<DT><VAR>string</VAR>
+<DD><A NAME="IDX949"></A>
+入力文字は文字列<VAR>string</VAR>の先頭文字から必要な文字数だけ読み取られる。
+<P>
+
+<DT><VAR>function</VAR>
+<DD><A NAME="IDX950"></A>
+入力文字は関数<VAR>function</VAR>が生成する。
+この関数は2種類の呼び出し方を扱える必要がある。
+<P>
+
+<UL>
+<LI>
+引数なしで呼ばれると、つぎの文字を返す。
+<P>
+
+<LI>
+1つの（つねに文字である）引数で呼ばれると、
+<VAR>function</VAR>は引数を保存し、
+つぎに呼ばれたときにそれを返すように準備する。
+これを文字の<EM>読み戻し</EM>（unreading）と呼ぶ。
+これは、Lispリーダが1文字多く読みすぎたので『読み取った場所へ戻し』たいときに
+発生する。
+このとき、<VAR>function</VAR>が返す値はなんでもよい。
+</UL>
+<P>
+
+<DT><CODE>t</CODE>
+<DD><A NAME="IDX951"></A>
+ストリームとして<CODE>t</CODE>を使うと、ミニバッファから読み取ることを意味する。
+実際には、ミニバッファを表示しユーザーが指定したテキストから成る文字列を作り、
+それを入力ストリームとして使う。
+<P>
+
+<DT><CODE>nil</CODE>
+<DD><A NAME="IDX952"></A>
+入力ストリームとして<CODE>nil</CODE>を指定すると、
+<CODE>standard-input</CODE>の値をかわりに使うことを意味する。
+その値は<EM>デフォルト入力ストリーム</EM>であり、
+<CODE>nil</CODE>以外の入力ストリームであること。
+<P>
+
+<DT><VAR>symbol</VAR>
+<DD>入力ストリームとしてのシンボルは、
+そのシンボルの（あれば）関数定義と等価である。
+</DL>
+<P>
+
+バッファであるストリームからの読み取りの例を
+読み取り前後のポイント位置を含めて示します。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>---------- Buffer: foo ----------
+This-!- is the contents of foo.
+---------- Buffer: foo ----------
+
+(read (get-buffer "foo"))
+     => is
+(read (get-buffer "foo"))
+     => the
+
+---------- Buffer: foo ----------
+This is the-!- contents of foo.
+---------- Buffer: foo ----------
+</pre></td></tr></table><P>
+
+最初の読み取りでは空白を読み飛ばしていることに注意してください。
+読み取りでは、意味あるテキストのまえにある白文字はいくつでも読み飛ばします。
+<P>
+
+つぎは、マーカをストリームとして読み取る例です。
+マーカの初期位置は下に示したバッファの先頭にあります。
+読み取った値はシンボル<CODE>This</CODE>です。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>
+---------- Buffer: foo ----------
+This is the contents of foo.
+---------- Buffer: foo ----------
+
+(setq m (set-marker (make-marker) 1 (get-buffer "foo")))
+     => #&#60;marker at 1 in foo&#62;
+(read m)
+     => This
+m
+     => #&#60;marker at 5 in foo&#62;   ;; 最初の空白の直前
+</pre></td></tr></table><P>
+
+つぎは文字列の内容から読み取ります。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(read "(When in) the course")
+     => (When in)
+</pre></td></tr></table><P>
+
+以下の例は、ミニバッファから読み取ります。
+プロンプトは`<SAMP>Lisp expression: </SAMP>'です。
+（ストリーム<CODE>t</CODE>から読むとつねにこのプロンプトが使われる。）
+ユーザーの入力はプロンプトに続けて示してあります。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(read t)
+     => 23
+---------- Buffer: Minibuffer ----------
+Lisp expression: <KBD>23 <KBD>RET</KBD></KBD>
+---------- Buffer: Minibuffer ----------
+</pre></td></tr></table><P>
+
+最後は、<CODE>useless-stream</CODE>という名前の関数をストリームにした例です。
+このストリームを使うまえに、
+変数<CODE>useless-list</CODE>を文字のリストで初期化します。
+そうすると、関数<CODE>useless-stream</CODE>を呼び出すたびに
+リスト内のつぎの文字を返すか、
+リストの先頭に追加して文字を読み戻します。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(setq useless-list (append "XY()" nil))
+     => (88 89 40 41)
+
+(defun useless-stream (&#38;optional unread)
+  (if unread
+      (setq useless-list (cons unread useless-list))
+    (prog1 (car useless-list)
+           (setq useless-list (cdr useless-list)))))
+     => useless-stream
+</pre></td></tr></table><P>
+
+つぎのようにしてストリームを使って読み取ります。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(read 'useless-stream)
+     => XY
+
+useless-list
+     => (40 41)
+</pre></td></tr></table><P>
+
+リストには開き括弧と閉じ括弧が残っていることに注意してください。
+Lispリーダが開き括弧に出会うとこれで入力を終えると決定し、
+それを読み戻すのです。
+この時点で読み取りを試みると、
+`<SAMP>()</SAMP>'を読み取って<CODE>nil</CODE>を返します。
+<P>
+
+<A NAME="IDX953"></A>
+<DL>
+<DT><U>Function:</U> <B>get-file-char</B>
+<DD>この関数は、関数<CODE>load</CODE>で開いた入力ファイルから読み取るための
+入力ストリームとして内部的に使われる。
+読者はこの関数を使ってはならない。
+</DL>
+<P>
+
+<A NAME="Input Functions"></A>
+<HR SIZE="6">
+<br><A NAME="SEC261"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_19.html#SEC260"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_19.html#SEC262"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Input Functions"></A>
+<H2> 18.3 入力関数 </H2>
+<!--docid::SEC261::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Input%20Functions">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Input%20Functions</a>"<br>
+"texi/elisp21/入力関数"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%C6%FE%CE%CF%B4%D8%BF%F4">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+本節では読み取りに関係するLisp関数や変数について述べます。
+<P>
+
+以下の関数では、<VAR>stream</VAR>は入力ストリーム（前節参照）を表します。
+<VAR>stream</VAR>が<CODE>nil</CODE>であったり省略すると、
+<CODE>standard-input</CODE>の値をデフォルトにします。
+<P>
+
+<A NAME="IDX954"></A>
+読み取り中に閉じていないリストやベクトル、文字列に出会うと、
+エラー<CODE>end-of-file</CODE>を通知します。
+<P>
+
+<A NAME="IDX955"></A>
+<DL>
+<DT><U>Function:</U> <B>read</B> <I>&#38;optional stream</I>
+<DD>この関数は<VAR>stream</VAR>から1つのLisp式のテキスト表現を読み取り、
+それをLispオブジェクトとして返す。
+これは基本的なLisp入力関数である。
+</DL>
+<P>
+
+<A NAME="IDX956"></A>
+<DL>
+<DT><U>Function:</U> <B>read-from-string</B> <I>string &#38;optional start end</I>
+<DD><A NAME="IDX957"></A>
+この関数は<VAR>string</VAR>のテキストから先頭のLisp式のテキスト表現を読み取る。
+読み取った式をCAR、文字列に残っているつぎの文字
+（つまり読み取っていない最初の文字）の位置を表す整数をCDR
+とするコンスセルを返す。
+<P>
+
+<VAR>start</VAR>が指定してあると、文字列の<VAR>start</VAR>で添字付け
+（先頭文字の添字は0）されるところから読み始める。
+<VAR>end</VAR>を指定すると、その添字位置の直前で読み取りを終らせ、
+文字列には残りの文字がないかのように扱う。
+<P>
+
+例：
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(read-from-string "(setq x 55) (setq y 5)")
+     => ((setq x 55) . 11)
+(read-from-string "\"A short string\"")
+     => ("A short string" . 16)
+
+;; 最初の文字から読み始める
+(read-from-string "(list 112)" 0)
+     => ((list 112) . 10)
+;; 2番目の文字から読み始める
+(read-from-string "(list 112)" 1)
+     => (list . 5)
+;; 7番目の文字から読み始め、9番目の文字で読み終える
+(read-from-string "(list 112)" 6 8)
+     => (11 . 8)
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX958"></A>
+<DL>
+<DT><U>Variable:</U> <B>standard-input</B>
+<DD>この変数はデフォルトの入力ストリーム、
+つまり、引数<VAR>stream</VAR>が<CODE>nil</CODE>である場合に<CODE>read</CODE>が使う
+ストリームを保持する。
+</DL>
+<P>
+
+<A NAME="Output Streams"></A>
+<HR SIZE="6">
+<br><A NAME="SEC262"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_19.html#SEC261"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_19.html#SEC263"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Output Streams"></A>
+<H2> 18.4 出力ストリーム </H2>
+<!--docid::SEC262::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Output%20Streams">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Output%20Streams</a>"<br>
+"texi/elisp21/出力ストリーム"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%BD%D0%CE%CF%A5%B9%A5%C8%A5%EA%A1%BC%A5%E0">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX959"></A>
+<A NAME="IDX960"></A>
+<P>
+
+出力ストリームは表示で生成した文字群をどのように扱うかを指定します。
+ほとんどの表示関数は省略可能な引数として出力ストリームを受け付けます。
+出力ストリームとして使える型は以下のとおりです。
+<P>
+
+<DL COMPACT>
+<DT><VAR>buffer</VAR>
+<DD><A NAME="IDX961"></A>
+出力文字はバッファ<VAR>buffer</VAR>のポイント位置に挿入される。
+文字が挿入されるたびにポイント位置は進められる。
+<P>
+
+<DT><VAR>marker</VAR>
+<DD><A NAME="IDX962"></A>
+出力文字はマーカ<VAR>marker</VAR>があるバッファのマーカ位置に挿入される。
+文字を挿入するたびにマーカ位置は進められる。
+ストリームがマーカであるときには、バッファのポイント位置は影響せず、
+この種の表示ではポイントを移動しない。
+<P>
+
+<DT><VAR>function</VAR>
+<DD><A NAME="IDX963"></A>
+出力文字は関数<VAR>function</VAR>に渡され、この関数が文字の保存に責任を持つ。
+1つの文字を引数として出力する文字数の回数だけ呼び出され、
+読者の望む場所に文字を保存する責任を持つ。
+<P>
+
+<DT><CODE>t</CODE>
+<DD><A NAME="IDX964"></A>
+出力文字はエコー領域に表示される。
+<P>
+
+<DT><CODE>nil</CODE>
+<DD><A NAME="IDX965"></A>
+出力ストリームとして<CODE>nil</CODE>を指定すると、
+<CODE>standard-output</CODE>の値をかわりに使うことを意味する。
+その値は<EM>デフォルト出力ストリーム</EM>であり、
+<CODE>nil</CODE>以外であること。
+<P>
+
+<DT><VAR>symbol</VAR>
+<DD>出力ストリームとしてのシンボルは、
+そのシンボルの（あれば）関数定義と等価である。
+</DL>
+<P>
+
+正当な出力ストリームの多くは、入力ストリームとしても正当です。
+入力ストリームと出力ストリームの違いは、
+オブジェクト型の違いというよりは、
+読者がLispオブジェクトをどのように使うかです。
+<P>
+
+バッファを出力ストリームとして使った例を示します。
+ポイントの初期位置は以下に示すように`<SAMP>the</SAMP>'の`<SAMP>h</SAMP>'の直前にあります。
+終了後でも、ポイントは同じ`<SAMP>h</SAMP>'の直前に位置しています。
+<P>
+
+<A NAME="IDX966"></A>
+<A NAME="IDX967"></A>
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>---------- Buffer: foo ----------
+This is t-!-he contents of foo.
+---------- Buffer: foo ----------
+
+(print "This is the output" (get-buffer "foo"))
+     => "This is the output"
+
+---------- Buffer: foo ----------
+This is t
+"This is the output"
+-!-he contents of foo.
+---------- Buffer: foo ----------
+</pre></td></tr></table><P>
+
+つぎは、マーカを出力ストリームとして用いた例です。
+バッファ<CODE>foo</CODE>のマーカの初期位置は、
+単語`<SAMP>the</SAMP>'の`<SAMP>t</SAMP>'と`<SAMP>h</SAMP>'のあいだにあります。
+終了後には、マーカは挿入したテキストを越えて同じ`<SAMP>h</SAMP>'の直前に位置します。
+ポイント位置はなんの影響もないことに注意してください。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>---------- Buffer: foo ----------
+This is the -!-output
+---------- Buffer: foo ----------
+
+(setq m (copy-marker 10))
+     => #&#60;marker at 10 in foo&#62;
+
+(print "More output for foo." m)
+     => "More output for foo."
+
+---------- Buffer: foo ----------
+This is t
+"More output for foo."
+he -!-output
+---------- Buffer: foo ----------
+
+m
+     => #&#60;marker at 34 in foo&#62;
+</pre></td></tr></table><P>
+
+つぎは、エコー領域への出力の例です。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(print "Echo Area output" t)
+     => "Echo Area output"
+---------- Echo Area ----------
+"Echo Area output"
+---------- Echo Area ----------
+</pre></td></tr></table><P>
+
+最後は、関数を出力ストリームとして使った例を示します。
+関数<CODE>eat-output</CODE>は与えられた文字を受け取り、
+それをリスト<CODE>last-output</CODE>の先頭にコンスします
+（see 節 <A HREF="elisp_6.html#SEC86">5.5 コンスセルとリストの構築</A>）。
+終了後には、リストがすべての出力文字を保持していますが逆順です。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(setq last-output nil)
+     => nil
+
+(defun eat-output (c)
+  (setq last-output (cons c last-output)))
+     => eat-output
+
+(print "This is the output" 'eat-output)
+     => "This is the output"
+
+last-output
+     => (10 34 116 117 112 116 117 111 32 101 104 
+    116 32 115 105 32 115 105 104 84 34 10)
+</pre></td></tr></table><P>
+
+リストの順番を逆にすれば正しい順序の出力になります。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(concat (nreverse last-output))
+     => "
+\"This is the output\"
+"
+</pre></td></tr></table><P>
+
+<CODE>concat</CODE>を呼び出してリストを文字列に変換し、
+内容を読みやすいようにしました。
+<P>
+
+<A NAME="Output Functions"></A>
+<HR SIZE="6">
+<br><A NAME="SEC263"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_19.html#SEC262"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_19.html#SEC264"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Output Functions"></A>
+<H2> 18.5 出力関数 </H2>
+<!--docid::SEC263::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Output%20Functions">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Output%20Functions</a>"<br>
+"texi/elisp21/出力関数"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%BD%D0%CE%CF%B4%D8%BF%F4">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+本節ではLispオブジェクトを表示する、
+つまり、オブジェクトを表示表現に変換するLisp関数について述べます。
+<P>
+
+<A NAME="IDX968"></A>
+<A NAME="IDX969"></A>
+<A NAME="IDX970"></A>
+<A NAME="IDX971"></A>
+Emacsの表示関数のなかには、正しく読み取れるように
+クォート文字を出力に追加するものがあります。
+使用されるクォート文字は`<SAMP>"</SAMP>'と`<SAMP>\</SAMP>'です。
+これらは、文字列とシンボルを区別したり、
+文字列やシンボル内の句読点文字を読み取るときに区切り文字として扱うこと
+を防ぎます。
+詳しくはSee 節 <A HREF="elisp_3.html#SEC22">2.1 表示表現と入力構文</A>。
+出力関数を選べば、クォートのありなしを指定できます。
+<P>
+
+テキストをLispシステムへ読み取る意図がある場合には、
+曖昧さを避けるためにクォート文字付きで表示するべきです。
+Lispプログラマに対してLispオブジェクトを明確に記述する場合も同様です。
+しかし、人間向けの見やすい出力が目的であれば、
+クォートせずに表示するのが普通はよいでしょう。
+<P>
+
+Lispオブジェクトはそれ自身を参照できます。
+自己参照しているオブジェクトを普通の方法で表示するには
+無限のテキストが必要であり、
+そのような試みは無限再帰をもたらします。
+Emacsはそのような再帰を検出し、
+すでに表示したオブジェクトを再帰的に表示するかわりに
+`<SAMP>#<VAR>level</VAR></SAMP>'を表示します。
+たとえば、`<SAMP>#0</SAMP>'は、現在の表示操作においてレベル0のオブジェクトを
+再帰的に参照することを示します。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(setq foo (list nil))
+     => (nil)
+(setcar foo foo)
+     => (#0)
+</pre></td></tr></table><P>
+
+以下の関数では、<VAR>stream</VAR>は出力ストリームを表します。
+（出力ストリームについては前節を参照。）
+<VAR>stream</VAR>が<CODE>nil</CODE>であったり省略すると、
+<CODE>standard-output</CODE>の値をデフォルトにします。
+<P>
+
+<A NAME="IDX972"></A>
+<DL>
+<DT><U>Function:</U> <B>print</B> <I>object &#38;optional stream</I>
+<DD><A NAME="IDX973"></A>
+関数<CODE>print</CODE>は便利な表示方法である。
+オブジェクト<VAR>object</VAR>の表示表現を
+ストリーム<VAR>stream</VAR>に出力し、
+<VAR>object</VAR>の前後に改行を1つずつ表示する。
+クォート文字を使う。
+<CODE>print</CODE>は<VAR>object</VAR>を返す。
+たとえばつぎのとおり。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(progn (print 'The\ cat\ in)
+       (print "the hat")
+       (print " came back"))
+     -| 
+     -| The\ cat\ in
+     -| 
+     -| "the hat"
+     -| 
+     -| " came back"
+     -| 
+     => " came back"
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX974"></A>
+<DL>
+<DT><U>Function:</U> <B>prin1</B> <I>object &#38;optional stream</I>
+<DD>この関数はオブジェクト<VAR>object</VAR>の表示表現を
+ストリーム<VAR>stream</VAR>に出力する。
+<CODE>print</CODE>のようには出力を区切る改行を表示しないが、
+<CODE>print</CODE>と同様にクォート文字を用いる。
+<VAR>object</VAR>を返す。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(progn (prin1 'The\ cat\ in) 
+       (prin1 "the hat") 
+       (prin1 " came back"))
+     -| The\ cat\ in"the hat"" came back"
+     => " came back"
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX975"></A>
+<DL>
+<DT><U>Function:</U> <B>princ</B> <I>object &#38;optional stream</I>
+<DD>この関数はオブジェクト<VAR>object</VAR>の表示表現を
+ストリーム<VAR>stream</VAR>に出力する。
+<VAR>object</VAR>を返す。
+<P>
+
+この関数は、<CODE>read</CODE>ではなく人が読みやすい出力を意図しており、
+クォート文字を挿入せず、文字列を囲むダブルクォートも出力しない。
+空白も追加しない。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(progn
+  (princ 'The\ cat)
+  (princ " in the \"hat\""))
+     -| The cat in the "hat"
+     => " in the \"hat\""
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX976"></A>
+<DL>
+<DT><U>Function:</U> <B>terpri</B> <I>&#38;optional stream</I>
+<DD><A NAME="IDX977"></A>
+この関数はストリーム<VAR>stream</VAR>に改行を出力する。
+関数名は『terminate print』の略。
+</DL>
+<P>
+
+<A NAME="IDX978"></A>
+<DL>
+<DT><U>Function:</U> <B>write-char</B> <I>character &#38;optional stream</I>
+<DD>この関数は文字<VAR>character</VAR>をストリーム<VAR>stream</VAR>へ出力する。
+<VAR>character</VAR>を返す。
+</DL>
+<P>
+
+<A NAME="IDX979"></A>
+<DL>
+<DT><U>Function:</U> <B>prin1-to-string</B> <I>object &#38;optional noescape</I>
+<DD><A NAME="IDX980"></A>
+この関数は同じ引数に対して<CODE>prin1</CODE>が表示するであろう
+テキストから成る文字列を返す。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(prin1-to-string 'foo)
+     => "foo"
+(prin1-to-string (mark-marker))
+     => "#<marker at 2773 in strings.texi>"
+</pre></td></tr></table><P>
+
+<VAR>noescape</VAR>が<CODE>nil</CODE>以外であると、
+出力にはクォート文字を使わない。
+（この引数は、Emacs 19版以降で使える。）
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(prin1-to-string "foo")
+     => "\"foo\""
+(prin1-to-string "foo" t)
+     => "foo"
+</pre></td></tr></table><P>
+
+文字列としてのLispオブジェクトの表示表現を得るための別の方法については、
+<A HREF="elisp_5.html#SEC77">4.6 文字と文字列の変換</A>の<CODE>format</CODE>を参照。
+</DL>
+<P>
+
+<A NAME="IDX981"></A>
+<DL>
+<DT><U>Macro:</U> <B>with-output-to-string</B> <I>body...</I>
+<DD><A NAME="IDX982"></A>
+このマクロは、<CODE>standard-output</CODE>を文字列への出力と設定して
+フォーム<VAR>body</VAR>を実行する。
+そして、その文字列を返す。
+<P>
+
+たとえば、カレントバッファの名前が`<SAMP>foo</SAMP>'であると
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(with-output-to-string
+  (princ "The buffer is ")
+  (princ (buffer-name)))
+</pre></td></tr></table><P>
+
+は<CODE>"The buffer is foo"</CODE>を返す。
+</DL>
+<P>
+
+<A NAME="Output Variables"></A>
+<HR SIZE="6">
+<br><A NAME="SEC264"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_19.html#SEC263"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_20.html#SEC265"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Output Variables"></A>
+<H2> 18.6 出力に影響する変数 </H2>
+<!--docid::SEC264::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Output%20Variables">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Output%20Variables</a>"<br>
+"texi/elisp21/出力に影響する変数"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%BD%D0%CE%CF%A4%CB%B1%C6%B6%C1%A4%B9%A4%EB%CA%D1%BF%F4">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+<A NAME="IDX983"></A>
+<DL>
+<DT><U>Variable:</U> <B>standard-output</B>
+<DD>この変数の値はデフォルトの出力ストリーム、つまり、
+引数<VAR>stream</VAR>が<CODE>nil</CODE>の場合に表示関数が用いるストリーム。
+</DL>
+<P>
+
+<A NAME="IDX984"></A>
+<DL>
+<DT><U>Variable:</U> <B>print-escape-newlines</B>
+<DD><A NAME="IDX985"></A>
+<A NAME="IDX986"></A>
+この変数が<CODE>nil</CODE>以外であると、
+文字列内の改行文字を`<SAMP>\n</SAMP>'、ページ送り文字を`<SAMP>\f</SAMP>'と表示する。
+通常、これらの文字は実際の改行やページ送りとして表示される。
+<P>
+
+この変数は、クォート付きで表示する表示関数<CODE>prin1</CODE>や
+<CODE>print</CODE>に影響を与える。
+<CODE>princ</CODE>には影響しない。
+<CODE>prin1</CODE>を用いた例を示す。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(prin1 "a\nb")
+     -| "a
+     -| b"
+     => "a
+b"
+
+(let ((print-escape-newlines t))
+  (prin1 "a\nb"))
+     -| "a\nb"
+     => "a
+b"
+</pre></td></tr></table><P>
+
+2番目の式では、<CODE>prin1</CODE>の呼び出し中には
+<CODE>print-escape-newlines</CODE>のローカル束縛が有効であるが、
+結果を表示するときには有効ではない。
+</DL>
+<P>
+
+<A NAME="IDX987"></A>
+<A NAME="IDX988"></A>
+<DL>
+<DT><U>Variable:</U> <B>print-escape-nonascii</B>
+<DD>この変数が<CODE>nil</CODE>以外であると、
+クォート付きで表示する出力関数<CODE>prin1</CODE>や<CODE>print</CODE>は、
+文字列内のユニバイト非ASCII文字を無条件で
+バックスラッシュ列として表示する。
+<P>
+
+これらの関数は、出力ストリームがマルチバイトバッファや
+マルチバイトバッファのマーク位置であると、
+この変数の値に関係なくユニバイト非ASCII文字に対して
+バックスラッシュ列を用いる。
+</DL>
+<P>
+
+<A NAME="IDX989"></A>
+<A NAME="IDX990"></A>
+<DL>
+<DT><U>Variable:</U> <B>print-escape-multibyte</B>
+<DD>この変数が<CODE>nil</CODE>以外であると、
+クォート付きで表示する表示関数<CODE>prin1</CODE>や<CODE>print</CODE>は、
+文字列内のマルチバイト非ASCII文字を無条件で
+バックスラッシュ列として表示する。
+<P>
+
+これらの関数は、出力ストリームがユニバイトバッファや
+ユニバイトバッファのマーク位置であると、
+この変数の値に関係なくマルチバイト非ASCII文字に対して
+バックスラッシュ列を用いる。
+</DL>
+<P>
+
+<A NAME="IDX991"></A>
+<DL>
+<DT><U>Variable:</U> <B>print-length</B>
+<DD><A NAME="IDX992"></A>
+この変数の値は、任意のリスト、ベクトル、ブールベクトルを表示するときの
+最大要素数である。
+表示するオブジェクトがこれより多くの要素を持つと、
+「…」で省略する。
+<P>
+
+値が<CODE>nil</CODE>（デフォルト）であると無制限。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(setq print-length 2)
+     => 2
+(print '(1 2 3 4 5))
+     -| (1 2 ...)
+     => (1 2 ...)
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX993"></A>
+<DL>
+<DT><U>Variable:</U> <B>print-level</B>
+<DD>この変数の値は、表示するときの括弧や角括弧の入れ子の最大の深さ。
+この制限を越える任意のリストやベクトルは「…」で省略する。
+値が<CODE>nil</CODE>（デフォルト）であると無制限。
+</DL>
+<A NAME="Minibuffers"></A>
+<HR SIZE="6">
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<a name="bottom"> </a>
+<script type="text/javascript" src="style2.js"></script>
+<div class="footer">
+    <br>
+    このページはMeadow (Emacs) の紹介ページです <br>
+このWebページの各文書は自由にリンク・複製・再配布・改変していただいて構いません．
+<br>ただし，複製・再配布・改変の場合は Meadow Memo のURLを記載しておいて下さい．<br>
+<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=about%20link">Medow memoへのリンクについて</a>．<br>
+
+間違い，要望等があれば<a href="mailto:akihisa@mail.ne.jp">akihisa@mail.ne.jp</a> か下記でどうぞ<br>
+
+<br>
+
+<FORM METHOD="post" ACTION="http://www.bookshelf.jp/cgi-bin/wwwmail.cgi" >
+お名前：<INPUT TYPE="text" NAME="name" SIZE="30" MAXLENGTH="40" VALUE="ななしさん"><br>
+メールアドレス：<INPUT TYPE="text" NAME="EMAIL" SIZE="25" MAXLENGTH="60" VALUE="secret@mail.adr"><br>
+<input type="hidden" name="HPAGE" value="">
+つっこみ：<br><TEXTAREA NAME="MESSAGE" ROWS="5" COLS="50">
+</TEXTAREA><br><br>
+<INPUT TYPE="submit" VALUE="送信">
+<INPUT TYPE="reset" VALUE="クリア">
+</FORM>
+
+<br><A HREF="http://www.bookshelf.jp/cgi-bin/xct.cgi">ページ別カウンタ</a>
+<br> Since 2002/12/13 <br>
+</div>
+
+</BODY>
+
+</HTML>

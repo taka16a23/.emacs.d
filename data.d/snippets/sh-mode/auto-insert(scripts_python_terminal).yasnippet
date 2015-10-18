@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: auto-insert(scripts)
+# key: scripts_terminalspawn_python_auto-insert
+# --
+#!/bin/sh
+
+python_path="/usr/bin/python"
+script_path="\${HOME}/.zsh/scripts/${1:name}"
+
+[ -x $python_path ] || exit 1
+[ -x $script_path ] || exit 1
+
+xfce4-terminal --command="$python_path $script_path $@"
+

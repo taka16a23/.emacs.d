@@ -1,0 +1,196 @@
+;;; elisp-mode-setup.el ---    Setting for Emacs Lisp mode
+;;
+;; Copyright (C) 2012 Atami
+;;
+;; Author:       Atami
+;; Maintainer:   Atami
+;; Version:      1.0
+;; Created:      Sun Dec  9 18:28:19 2012 (+0900)
+;; Last-Updated:2015/10/18 17:07:44 (+0900)
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; This file is part of Emacs.
+;;
+;; This file is free software: you can redistribute it and/or modify it under
+;; the terms of the GNU General Public License as published by the Free
+;; Software Foundation, either version 3 of the License, or (at your option)
+;; any later version.
+;;
+;; This program is distributed in the hope that it will be useful, but WITHOUT
+;; ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+;; FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+;; more details.
+;;
+;; You should have received a copy of the GNU General Public License along
+;; with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Commentary:
+;;  ===========
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Change Log:
+;;  ===========
+;;
+;; 2013/09/15    Atami
+;;    Remove: `minimap-sync-overlays' in `my-make-scratch'
+;;
+;; 2013/02/27    Atami
+;;    Fixed: `my-make-scratch'
+;;    error raise (error "No buffer named *MINIMAP*  *Compiler Input*")
+;;    by eval minimap-sync-overlays on `hs-show-hook'
+;;    escape `minimap-sync-overlays' from hs-show-hook by `let'
+;;
+;; 2013/01/27    Atami
+;;    Add: defined key "`" char.
+;;    "`" => "`'" => "``"
+;;
+;; 2013/01/24    Atami
+;;    Modified: Keybinding
+;;    `find-function-at-point' "\C-cf" => "\C-cg"
+;;    `anything-imenu' "\C-i" => "\C-cj" : Added "\C-c\C-j"
+;;
+;; 2012/12/10    Atami
+;;    Moved: Moved functions to Emacs_Lisp_mode_start.el
+;;    `my-find-tag', `right-parentheses-indent'
+;;    `emacs-lisp-mode-hook-predefine', `my-make-scratch'
+;;    `lisp-interaction-mode-hook-predefine'
+;;
+;; 2012/12/09    Atami
+;;    Created this header.
+;;
+;;
+;;; Code:
+
+
+(eval-when-compile
+  (require 't1macro "t1macro" 'noerror))
+
+(require 'init-loader "init-loader" 'noerr)
+(require 'environment-setup "environment-setup" 'noerr)
+(init-loader-load (my-inits-dir-join "elisp"))
+
+
+(require 'bind-key "bind-key" 'noerr)
+
+;; EDEBUG EVAL MODE
+;; ============================================================================
+(add-hook 'edebug-eval-mode-hook
+          '(lambda ()
+             (define-key edebug-mode-map "\C-c\C-c" 'edebug-update-eval-list)
+             (define-key edebug-mode-map "\C-c" 'cua--prefix-override-handler)
+             ))
+
+;;;###autoload
+(defun my-find-tag ()
+  "In Emacs Lisp mode, one of these functions is called:
+`find-library', `find-variable', `find-face-definition',
+`find-function' and `find-tag'."
+  (interactive)
+  (call-interactively
+   (let ((symbol (variable-at-point t))
+         (variable (variable-at-point))
+         (function (function-called-at-point)))
+     (cond
+      ((or (eq function 'require)
+           (eq function 'featurep))
+       'find-library)
+      ((and (symbolp variable)
+            (boundp variable))
+       'find-variable)
+      ((and (symbolp symbol)
+            (facep symbol))
+       'find-face-definition)
+      ((and (fboundp function)
+            (eq symbol function))
+       'find-function)
+      (t
+       'find-tag)))))
+
+;;;; right parentheses and indent
+;;;###autoload
+(defun right-parentheses-indent (n)
+  "Insert right-parentheses then indent.
+N"
+  (interactive "*p")
+  (if mark-active
+      (save-excursion
+        (let ((start (region-beginning))
+              (end (region-end)))
+          (deactivate-mark)
+          (goto-char end)
+          (insert ")")
+          (goto-char start)
+          (insert "(")))
+    (self-insert-command n)
+    (indent-for-tab-command)
+    ))
+
+;;;; toggle let <=> let*
+;; http://d.hatena.ne.jp/kiwanami/20110224/1298526678
+;;;###autoload
+(defun toggle-let-astah-search-let ()
+  (save-excursion
+    (let ((point-min (point-min))
+          (re        "(\\(lexical-\\)?let\\(\\*\\)?")
+          (continue  t) pos ast ret)
+      (while (and continue (/= (point-min) (point)))
+        (goto-char (or (ignore-errors (scan-lists (point) -1 1))
+                       (point-min)))
+        (save-excursion
+          (when (and (looking-at re) (re-search-forward re nil t))
+            (setq pos (match-end 0)
+                  ast (match-string 2))
+            (unless (ignore-errors (scan-lists (point) 1 0))
+              (setq ret (cons pos ast)
+                    continue nil)))))
+      ret)))
+
+;;;###autoload
+(defun toggle-let-astah ()
+  (interactive)
+  (let (replaced (org-pos (point)))
+    (save-excursion
+      (let ((limit (or (save-excursion
+                         (re-search-backward "\\bdef" nil t))
+                       (point-min)))
+            pair pos ast)
+        (save-restriction
+          (narrow-to-region limit org-pos)
+          (setq pair (toggle-let-astah-search-let)
+                pos (car pair) ast (cdr pair))
+          (when pos
+            (goto-char pos)
+            (cond
+             (ast (delete-char -1))
+             (t (insert "*")))
+            (setq replaced t)))))
+    (cond
+     (replaced (message "toggle let-aster !"))
+     (t (message "let not found.")))))
+
+
+;; advice eval-last-sexp
+(defadvice eval-last-sexp
+    (before align-eval-last-sexp activate)
+  "Align indent before `eval-last-sexp'."
+  (unless buffer-read-only
+    (save-excursion
+      (let ((orig-line (1+ (count-lines 1 (point))))
+            start-line)
+        (backward-list 1)
+        (indent-and-next (- orig-line (1+ (count-lines 1 (point)))))
+        ))))
+;; (progn (ad-disable-advice 'eval-last-sexp 'before 'align-eval-last-sexp) (ad-update 'eval-last-sexp))
+
+
+
+(provide 'elisp-mode-setup)
+;; For Emacs
+;; Local Variables:
+;; coding: utf-8
+;; End:
+;;; elisp-mode-setup.el ends here

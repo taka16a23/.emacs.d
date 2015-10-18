@@ -1,0 +1,140 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("backup.d"
+ (filename . "~/.emacs.d/var.d/backup.d/")
+ (front-context-string . "auto-save\n  drwx")
+ (rear-context-string . "0K Oct 10 23:41 ")
+ (position . 187))
+("junk"
+ (filename . "~/.emacs.d/var.d/junk/")
+ (front-context-string . ".ropeproject\n  -")
+ (rear-context-string . "0K Oct  5 11:39 ")
+ (position . 184))
+("site-lisp"
+ (filename . "~/.emacs.d/site-lisp/")
+ (front-context-string . "mylisps\n  drwx--")
+ (rear-context-string . "0K Oct 15 03:01 ")
+ (position . 277))
+("mylisps"
+ (filename . "~/.emacs.d/site-lisp/mylisps/")
+ (front-context-string . "settings\n  -rw--")
+ (rear-context-string . "2K Oct 15 14:05 ")
+ (position . 269))
+("opt/lisp"
+ (filename . "/opt/emacs25/share/emacs/25.0.50/lisp/")
+ (front-context-string . "gnus\n  drwxr-xr-")
+ (rear-context-string . "2K Sep 13 21:25 ")
+ (position . 488))
+("inits"
+ (filename . "~/.emacs.d/inits/")
+ (front-context-string)
+ (rear-context-string . "ndows-setup.elc\n")
+ (position . 18945))
+("elpa"
+ (filename . "~/.emacs.d/elpa/")
+ (front-context-string . "ahk-mode-1.5.5\n ")
+ (rear-context-string . "0K Oct 10 13:31 ")
+ (position . 184))
+("settings"
+ (filename . "~/.emacs.d/site-lisp/mylisps/settings/")
+ (front-context-string . "mysimple-setup.e")
+ (rear-context-string . "7K Oct 15 14:05 ")
+ (position . 6307))
+("dist-packages"
+ (filename . "/usr/local/lib/python2.7/dist-packages/")
+ (front-context-string . "simpy\n  drwx--x-")
+ (rear-context-string . "0K Jul 17 06:39 ")
+ (position . 12099))
+("scripts"
+ (filename . "~/.zsh/scripts/")
+ (front-context-string . ".svn\n  lrwxrwxrw")
+ (rear-context-string . "0K Sep 28 21:24 ")
+ (position . 176))
+(".zsh"
+ (filename . "~/.zsh/")
+ (front-context-string . "functions\n  drwx")
+ (rear-context-string . "0K Aug 26 08:01 ")
+ (position . 170))
+("python-library"
+ (filename . "/usr/lib/python2.7/")
+ (front-context-string . "bsddb\n  drwxr-xr")
+ (rear-context-string . "0K Mar 26  2013 ")
+ (position . 182))
+("Downloads"
+ (filename . "~/Downloads/")
+ (front-context-string . "autopy-0.51\n  dr")
+ (rear-context-string . "0K Jun 27  2011 ")
+ (position . 175))
+("pyshared"
+ (filename . "/usr/share/pyshared/")
+ (front-context-string . "apt\n  drwxr-xr-x")
+ (rear-context-string . "0K Apr  6  2013 ")
+ (position . 183))
+(".pylib"
+ (filename . "~/.pylib/")
+ (front-context-string . "agent\n  drwx--x-")
+ (rear-context-string . "0K Oct  8 07:50 ")
+ (position . 173))
+("snippets"
+ (filename . "p:/Office/emacs/.emacs.d/data_e/snippets/")
+ (front-context-string . "django\n  drwxrwx")
+ (rear-context-string . "  0 12-15 22:45 ")
+ (position . 291))
+("org-remember-last-stored"
+ (filename . "~/.emacs.d/allinone.org")
+ (front-context-string . "** TODO [#C] gen")
+ (rear-context-string . "ukocyte program\n")
+ (position . 335233))
+("var_e"
+ (filename . "~/.emacs.d/var_e/")
+ (front-context-string . "auto-save-list\n ")
+ (rear-context-string . "012-11-29 17:58 ")
+ (position . 190))
+("code"
+ (filename . "p:/Office/emacs/.emacs.d/data_e/code/")
+ (front-context-string . "python\n  drwxrwx")
+ (rear-context-string . "x 0 02-07 01:19 ")
+ (position . 302))
+("work"
+ (filename . "~/work/")
+ (front-context-string . "09_python_mode_i")
+ (rear-context-string . "012-09-26 19:53 ")
+ (position . 251))
+("init.el"
+ (filename . "~/.emacs.d/init.el")
+ (front-context-string . "; -*- coding: ut")
+ (rear-context-string)
+ (position . 1))
+("memo.org"
+ (filename . "~/mydoc/memo/memo.org")
+ (front-context-string)
+ (rear-context-string . "on.pdf\n\n\n\n\n\n\n\n\n\n")
+ (position . 17880))
+("~"
+ (filename . "~/")
+ (front-context-string . ".emacs.d\n  -rw--")
+ (rear-context-string . "96 Sep 23 16:49 ")
+ (position . 474))
+("mydoc"
+ (filename . "/data/mydoc/")
+ (front-context-string . "etc\n  drwx--x--x")
+ (rear-context-string . "96 Sep 17 12:36 ")
+ (position . 296))
+(".emacs.d"
+ (filename . "~/.emacs.d/")
+ (front-context-string . "init\n  -rwx-----")
+ (rear-context-string . "96 Sep 20 15:20 ")
+ (position . 388))
+("ni"
+ (filename . "/data/mydoc/architecture/ni/ni")
+ (front-context-string . "-*- mode: org; c")
+ (rear-context-string)
+ (position . 1))
+("ki"
+ (filename . "/data/mydoc/architecture/ki/ki")
+ (front-context-string . "-*- mode: org; c")
+ (rear-context-string)
+ (position . 1))
+)

@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: __eq__(self, other):
+# key: defeq
+# condition: (not (py:at-string|comment-p))
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
+# Equal
+# --
+def __eq__(self, other):
+    return ${1:self.$2 == other.$2}
+
+def __ne__(self, other):
+    return not self == other

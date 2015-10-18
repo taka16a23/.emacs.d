@@ -1,0 +1,86 @@
+;;; auto-install-setup.el ---   auto install elisp
+;;
+;; Copyright (C) 2012 Atami
+;;
+;; Author:       Atami
+;; Maintainer:   Atami
+;; Version:      1.0
+;; Created:      Sun Dec  9 18:25:35 2012 (+0900)
+;; Last-Updated:2015/10/14 03:32:58 (+0900)
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; This file is part of Emacs.
+;;
+;; This file is free software: you can redistribute it and/or modify it under
+;; the terms of the GNU General Public License as published by the Free
+;; Software Foundation, either version 3 of the License, or (at your option)
+;; any later version.
+;;
+;; This program is distributed in the hope that it will be useful, but WITHOUT
+;; ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+;; FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+;; more details.
+;;
+;; You should have received a copy of the GNU General Public License along
+;; with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Commentary:
+;;  ===========
+;;
+;;  (install-elisp-from-emacswiki "auto-install.el")
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Change Log:
+;;  ===========
+;;
+;; 2012/12/09    Atami
+;;    Created this header.
+;;
+;;
+;;; Code:
+
+
+(eval-when-compile
+  (require 'use-package "use-package" 'noerror)
+  (declare-function package-bundle "package-setup.el")
+  )
+
+;; (require 'package-setup "package-setup" 'noerr)
+;; (declare-function package-bundle "package-setup.el")
+(ignore-errors (package-bundle 'auto-install))
+;; (declare-function package-installed-p "package")
+;; (when (require 'package-setup "package-setup" 'noerr)
+  ;; (ignore-errors (package-bundle 'auto-install)))
+
+(use-package auto-install
+  ;; :disabled
+  :defer
+  :commands (auto-install-compatibility-setup)
+  :init
+  :config
+  (message "Loading \"auto-install\"")
+  (require 'auto-install-ext "auto-install-ext" 'noerr)
+  (custom-set-variables
+   '(auto-install-directory
+     (or (and (require 'environment-setup "environment-setup" 'noerr)
+              (my-inits-dir-get))
+         auto-install-variables))
+   '(auto-install-replace-confirm t))
+  (auto-install-compatibility-setup)
+  (require 'bind-key "bind-key" 'noerr)
+  (bind-keys :map auto-install-minor-mode-map
+             ("C-c C-c" . auto-install-save&erase))
+  )
+
+
+
+(provide 'auto-install-setup)
+;; For Emacs
+;; Local Variables:
+;; coding: utf-8
+;; End:
+;;; auto-install-setup.el ends here

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: provide
+# key: (provide
+# condition: (not (at-string|comment-p))
+# --
+(provide '`(file-name-nondirectory (file-name-sans-extension buffer-file-name))`

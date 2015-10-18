@@ -1,0 +1,1375 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="ja">
+<!-- Created on October, 1  2005 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=euc-jp">
+<META NAME="keywords" CONTENT="meadow,mule,emacs,lisp,elisp,gnus,setting,設定,unix,cygwin">
+<META http-equiv="Content-Script-Type" content="text/javascript">
+<META NAME="description" CONTENT="Meadowの設定を紹介するページです">
+<TITLE>GNU Emacs Lispリファレンスマニュアル:  文字列と文字</TITLE>
+
+<META NAME="description" CONTENT="GNU Emacs Lispリファレンスマニュアル:  文字列と文字">
+<META NAME="keywords" CONTENT="GNU Emacs Lispリファレンスマニュアル:  文字列と文字">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+<LINK REL="contents" HREF="elisp_toc.html#SEC_Contents">
+<LINK REL="index" HREF="elisp_48.html#SEC681">
+<LINK REL="next" HREF="elisp_6.html#SEC81">
+<LINK REL="prev" HREF="elisp_4.html#SEC60">
+
+<META http-equiv="Content-Style-Type" content="text/css">
+<!-- 鶯と龜 ←日本語EUC誤判別対策用らしい; -->
+<link rel="StyleSheet" href="../../../../soft/css/midnight.css" type="text/css" id="css1">
+<script type="text/javascript" src="style1.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../soft/css/meadowmemo.css">
+
+</HEAD>
+<BODY LANG="ja" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+<!--Infoseek Analyzer start-->
+<script LANGUAGE="javascript">PgNo=6;</script>
+<script src="http://js1.infoseek.co.jp/bin/57/00170.js"></script>
+<noscript><a href="http://ax1.www.infoseek.co.jp/bin/go?0017057f" target="_blank">
+<img src="http://ax1.www.infoseek.co.jp/bin/logo?0017057f" border=0></a></noscript>
+<!--Infoseek Analyzer end-->
+<a name="top"> </a>
+
+<br><A NAME="SEC71"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_4.html#SEC70"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_5.html#SEC72"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_4.html#SEC60"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_6.html#SEC81"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Strings and Characters"></A>
+<H1> 4. 文字列と文字 </H1>
+<!--docid::SEC71::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Strings%20and%20Characters">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Strings%20and%20Characters</a>"<br>
+"texi/elisp21/文字列と文字"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%CA%B8%BB%FA%CE%F3%A4%C8%CA%B8%BB%FA">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX229"></A>
+<A NAME="IDX230"></A>
+<A NAME="IDX231"></A>
+<A NAME="IDX232"></A>
+<P>
+
+Emacs Lispの文字列は文字の順序列を保持している配列です。
+文字列は、シンボル、バッファ、ファイルのそれぞれの名前として、
+ユーザーへメッセージを送るため、
+バッファ間でコピーするテキストを保持するため、
+その他さまざまな目的に使われます。
+文字列はとても重要なので、
+Emacs Lispには文字列を操作する関数が数多くあります。
+Emacs Lispのプログラムでは、個々の文字よりも文字列を多用します。
+<P>
+
+キーボード文字イベントを表す文字列に関する特別な配慮については、
+See 節 <A HREF="elisp_21.html#SEC303">20.5.14 キーボードイベントを文字列で保持する</A>。
+<P>
+
+<div class="menuindex"><SCRIPT language=JavaScript src="index4.js"></SCRIPT></div><noscript><BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_5.html#SEC72">4.1 文字列と文字の基本</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Basic properties of strings and characters.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_5.html#SEC73">4.2 文字列向けの述語</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Testing whether an object is a string or char.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_5.html#SEC74">4.3 文字列の作成</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Functions to allocate new strings.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_5.html#SEC75">4.4 文字列の変更</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Altering the contents of an existing string.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_5.html#SEC76">4.5 文字と文字列の比較</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Comparing characters or strings.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_5.html#SEC77">4.6 文字と文字列の変換</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Converting characters or strings and vice versa.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_5.html#SEC78">4.7 文字列の書式付け</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP"><CODE>format</CODE>: Emacs's analogue of <CODE>printf</CODE>.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_5.html#SEC79">4.8 Lispの大文字小文字変換</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Case conversion functions.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_5.html#SEC80">4.9 大文字小文字テーブル</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Customizing case conversion.</TD></TR>
+</TABLE></BLOCKQUOTE></noscript>
+<P>
+
+<A NAME="String Basics"></A>
+<HR SIZE="6">
+<br><A NAME="SEC72"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_5.html#SEC71"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_5.html#SEC73"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="String Basics"></A>
+<H2> 4.1 文字列と文字の基本 </H2>
+<!--docid::SEC72::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=String%20Basics">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=String%20Basics</a>"<br>
+"texi/elisp21/文字列と文字の基本"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%CA%B8%BB%FA%CE%F3%A4%C8%CA%B8%BB%FA%A4%CE%B4%F0%CB%DC">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+Emacs Lispの文字列は文字の順序列を保持している配列です。
+Emacs Lispでは文字を整数で表現します。
+整数が文字であるかどうかは、その使われ方からしか判断できません。
+したがって、文字列は、実際には、整数群を保持しているのです。
+<P>
+
+（任意の配列と同様に）文字列の長さは固定されていて、
+文字列をいったん作成すると変更できません。
+Lispの文字列は特別な文字コードで終端されるのでは<EM>ありません</EM>。
+（対照的に、C言語の文字列はASCIIコード0で終端される。）
+<P>
+
+文字列は配列ですからシーケンスでもあり、
+一般の配列関数やシーケンス関数で文字列を操作できます。
+（see 節 <A HREF="elisp_7.html#SEC93">6. シーケンス、配列、ベクトル</A>。）
+たとえば、関数<CODE>aref</CODE>と<CODE>aset</CODE>（see 節 <A HREF="elisp_7.html#SEC96">6.3 配列操作関数</A>）を
+用いて、文字列内の個々の文字を参照したり変更できます。
+<P>
+
+Emacs文字列（およびバッファ）内の非ASCII文字のテキスト表現は
+2種類あります。
+ユニバイトとマルチバイトです（see 節 <A HREF="elisp_33.html#SEC529">32.1 テキスト表現</A>）。
+ASCII文字は、文字列内ではつねに1バイトを占めます。
+実際、すべてがASCII文字である文字列では、2つの表現に違いはありません。
+ほとんどのLispプログラムでは、
+読者はこれらの2つの表現を考慮する必要はないでしょう。
+<P>
+
+キー列を文字列として表現することがあります。
+文字列がキー列を表す場合、128から255の範囲にある文字列の要素は、
+その範囲の文字コードとしてではなく、
+（非常に大きな整数になる）メタ文字を表現します。
+<P>
+
+文字列は、ハイパー、スーパー、アルトの修飾子を持つ文字を保持できません。
+文字列はASCIIコントロール文字を保持できますが、
+それ以外のコントロール文字を保持できません。
+文字列では、ASCIIコントロール文字の大文字小文字を区別できません。
+キー列などのそのような文字をシーケンスに収めるには、
+文字列のかわりにベクトルを使う必要があります。
+キーボード入力文字に対するメタなどの修飾子の表現については、
+See 節 <A HREF="elisp_3.html#SEC27">2.3.3 文字型</A>。
+<P>
+
+文字列は正規表現を保持するのにも便利です。
+文字列に対して正規表現の一致を取ることもできます（see 節 <A HREF="elisp_34.html#SEC554">33.3 正規表現の探索</A>）。
+関数<CODE>match-string</CODE>（see 節 <A HREF="elisp_34.html#SEC559">33.6.2 マッチデータの簡単な参照</A>）と
+<CODE>replace-match</CODE>（see 節 <A HREF="elisp_34.html#SEC558">33.6.1 一致したテキストの置換</A>）は、
+正規表現の一致に基づいて文字列を分解したり変更するのに便利です。
+<P>
+
+バッファと同様に、文字列は、
+文字そのものに加えて文字列内の文字に対するテキスト属性を保持できます。
+See 節 <A HREF="elisp_32.html#SEC513">31.19 テキスト属性</A>。
+文字列からバッファや他の文字列へテキストをコピーするすべてのLisp基本関数は、
+コピーする文字の属性もコピーします。
+<P>
+
+文字列を表示したりバッファへコピーする関数については、See 節 <A HREF="elisp_32.html#SEC483">31. テキスト</A>。
+文字と文字列の構文については、<A HREF="elisp_3.html#SEC27">2.3.3 文字型</A>とSee 節 <A HREF="elisp_3.html#SEC34">2.3.8 文字列型</A>。
+テキスト表現を変換したり、文字コードを符号化／復号化する関数については、
+See 節 <A HREF="elisp_33.html#SEC528">32. 非ASCII文字</A>。
+<P>
+
+<A NAME="Predicates for Strings"></A>
+<HR SIZE="6">
+<br><A NAME="SEC73"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_5.html#SEC72"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_5.html#SEC74"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Predicates for Strings"></A>
+<H2> 4.2 文字列向けの述語 </H2>
+<!--docid::SEC73::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Predicates%20for%20Strings">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Predicates%20for%20Strings</a>"<br>
+"texi/elisp21/文字列向けの述語"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%CA%B8%BB%FA%CE%F3%B8%FE%A4%B1%A4%CE%BD%D2%B8%EC">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+一般のシーケンスや配列に対する述語について詳しくは、
+<A HREF="elisp_7.html#SEC93">6. シーケンス、配列、ベクトル</A>とSee 節 <A HREF="elisp_7.html#SEC95">6.2 配列</A>。
+<P>
+
+<A NAME="IDX233"></A>
+<DL>
+<DT><U>Function:</U> <B>stringp</B> <I>object</I>
+<DD>この関数は、<VAR>object</VAR>が文字列ならば<CODE>t</CODE>を返し、
+さもなければ<CODE>nil</CODE>を返す。
+</DL>
+<P>
+
+<A NAME="IDX234"></A>
+<DL>
+<DT><U>Function:</U> <B>char-or-string-p</B> <I>object</I>
+<DD>この関数は、<VAR>object</VAR>が文字列か文字（つまり、整数）ならば
+<CODE>t</CODE>を返し、さもなければ<CODE>nil</CODE>を返す。
+</DL>
+<P>
+
+<A NAME="Creating Strings"></A>
+<HR SIZE="6">
+<br><A NAME="SEC74"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_5.html#SEC73"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_5.html#SEC75"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Creating Strings"></A>
+<H2> 4.3 文字列の作成 </H2>
+<!--docid::SEC74::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Creating%20Strings">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Creating%20Strings</a>"<br>
+"texi/elisp21/文字列の作成"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%CA%B8%BB%FA%CE%F3%A4%CE%BA%EE%C0%AE">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+以下の関数は、新たに文字列を作成したり、
+文字列を連結したり分解して文字列を作成します。
+<P>
+
+<A NAME="IDX235"></A>
+<DL>
+<DT><U>Function:</U> <B>make-string</B> <I>count character</I>
+<DD>この関数は、文字<VAR>character</VAR>を<VAR>count</VAR>回繰り返して作成した文字列を返す。
+<VAR>count</VAR>が負であるとエラーを通知する。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(make-string 5 ?x)
+     => "xxxxx"
+(make-string 0 ?x)
+     => ""
+</pre></td></tr></table><P>
+
+この関数に対比するものに、
+<CODE>char-to-string</CODE>（see 節 <A HREF="elisp_5.html#SEC77">4.6 文字と文字列の変換</A>）、
+<CODE>make-vector</CODE>（see 節 <A HREF="elisp_7.html#SEC97">6.4 ベクトル</A>）、
+<CODE>make-list</CODE>（see 節 <A HREF="elisp_6.html#SEC86">5.5 コンスセルとリストの構築</A>）などがある。
+</DL>
+<P>
+
+<A NAME="IDX236"></A>
+<DL>
+<DT><U>Function:</U> <B>string</B> <I>&#38;rest characters</I>
+<DD><A NAME="IDX237"></A>
+これは、複数個の文字群<VAR>characters</VAR>が入った文字列を返す。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(string ?a ?b ?c)
+     => "abc"
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX238"></A>
+<DL>
+<DT><U>Function:</U> <B>substring</B> <I>string start &#38;optional end</I>
+<DD>この関数は、<VAR>string</VAR>の<VAR>start</VAR>から
+<VAR>end</VAR>（の直前）までの範囲にある文字から成る新たな文字列を返す。
+先頭の文字を0で添字付けする。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(substring "abcdefg" 0 3)
+     => "abc"
+</pre></td></tr></table><P>
+
+ここで、`<SAMP>a</SAMP>'の添字は0、`<SAMP>b</SAMP>'の添字は1、`<SAMP>c</SAMP>'の添字は2である。
+したがって、文字列<CODE>"abcdefg"</CODE>から3文字`<SAMP>abc</SAMP>'をコピーする。
+添字3はコピーする部分文字列の境界の文字位置を表す。
+添字が3である文字は、実際には文字列内の4番目の文字である。
+<P>
+
+負の数は文字列の末尾から数える。
+したがって、-1は文字列の最後の文字の添字である。
+たとえば、
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(substring "abcdefg" -3 -1)
+     => "ef"
+</pre></td></tr></table><P>
+
+この例では、`<SAMP>e</SAMP>'の添字は-3、`<SAMP>f</SAMP>'の添字は-2、
+`<SAMP>g</SAMP>'の添字は-1である。
+したがって、`<SAMP>e</SAMP>'と`<SAMP>f</SAMP>'を含むが`<SAMP>g</SAMP>'は含まない。
+<P>
+
+添字に<CODE>nil</CODE>を使うと、文字列の長さを意味する。
+したがって、つぎのようになる。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(substring "abcdefg" -3 nil)
+     => "efg"
+</pre></td></tr></table><P>
+
+引数<VAR>end</VAR>を省略することは、<CODE>nil</CODE>を指定することと等価である。
+そのため、<CODE>(substring <VAR>string</VAR> 0)</CODE>は、
+<VAR>string</VAR>全体をコピーしたものを返す。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(substring "abcdefg" 0)
+     => "abcdefg"
+</pre></td></tr></table><P>
+
+しかし、このような目的には<CODE>copy-sequence</CODE>を勧める
+（see 節 <A HREF="elisp_7.html#SEC94">6.1 シーケンス</A>）。
+<P>
+
+<VAR>string</VAR>からコピーした文字にテキスト属性があれば、
+新たな文字列にもそのテキスト属性をコピーする。
+see 節 <A HREF="elisp_32.html#SEC513">31.19 テキスト属性</A>。
+<P>
+
+<CODE>substring</CODE>は第1引数としてベクトルも受け付ける。
+たとえば、つぎのとおり。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(substring [a b (c) "d"] 1 3)
+     => [b (c)]
+</pre></td></tr></table><P>
+
+<VAR>start</VAR>や<VAR>end</VAR>が整数でも<CODE>nil</CODE>でもないと、
+エラー<CODE>wrong-type-argument</CODE>を通知する。
+<VAR>start</VAR>が<VAR>end</VAR>よりうしろの文字を指していたり、
+いずれかの整数が<VAR>string</VAR>の範囲外であると
+エラー<CODE>args-out-of-range</CODE>を通知する。
+<P>
+
+この関数と対照的なのが<CODE>buffer-substring</CODE>
+（see 節 <A HREF="elisp_32.html#SEC485">31.2 バッファの内容を調べる</A>）であり、
+カレントバッファ内のテキストの一部を収めた文字列を返す。
+文字列の先頭は0で添字付けするが、バッファの先頭は1で添字付けする。
+</DL>
+<P>
+
+<A NAME="IDX239"></A>
+<DL>
+<DT><U>Function:</U> <B>concat</B> <I>&#38;rest sequences</I>
+<DD><A NAME="IDX240"></A>
+<A NAME="IDX241"></A>
+<A NAME="IDX242"></A>
+<A NAME="IDX243"></A>
+この関数は、渡した引数の文字から成る
+（テキスト属性があればそれも含めて）新たな文字列を返す。
+引数は、文字列、数のリスト、数のベクトルである。
+引数自身は変更しない。
+<CODE>concat</CODE>に引数を指定しないと空文字列を返す。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(concat "abc" "-def")
+     => "abc-def"
+(concat "abc" (list 120 121) [122])
+     => "abcxyz"
+;; <CODE>nil</CODE>は空シーケンス
+(concat "abc" nil "-def")
+     => "abc-def"
+(concat "The " "quick brown " "fox.")
+     => "The quick brown fox."
+(concat)
+     => ""
+</pre></td></tr></table><P>
+
+関数<CODE>concat</CODE>は、
+既存の文字列と<CODE>eq</CODE>ではない新たな文字列をつねに作り出す。
+<P>
+
+引数が（整数のシーケンスではなく）整数であると、
+その整数の表示表現を構成する文字列に変換する。
+<STRONG>この機能を使わないでほしい。
+削除する予定である。
+読者がこの機能を使っていたら、今すぐプログラムを直すこと！</STRONG><CODE> </CODE>
+整数をこのような10進数に変換する正しい方法は、
+<CODE>format</CODE>（see 節 <A HREF="elisp_5.html#SEC78">4.7 文字列の書式付け</A>）や
+<CODE>number-to-string</CODE>（see 節 <A HREF="elisp_5.html#SEC77">4.6 文字と文字列の変換</A>）を使うことである。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(concat 137)
+     => "137"
+(concat 54 321)
+     => "54321"
+</pre></td></tr></table><P>
+
+他の連結関数については、
+<A HREF="elisp_12.html#SEC166">11.6 マップ関数</A>の<CODE>mapconcat</CODE>、
+<A HREF="elisp_7.html#SEC97">6.4 ベクトル</A>の<CODE>vconcat</CODE>、
+<A HREF="elisp_6.html#SEC86">5.5 コンスセルとリストの構築</A>の<CODE>append</CODE>を参照。
+</DL>
+<P>
+
+<A NAME="IDX244"></A>
+<DL>
+<DT><U>Function:</U> <B>split-string</B> <I>string separators</I>
+<DD><A NAME="IDX245"></A>
+<VAR>string</VAR>を正規表現<VAR>separators</VAR>の一致箇所で区切って
+部分文字列に分解する。
+<VAR>separators</VAR>に一致するそれぞれの部分が分割箇所を定義する。
+分割箇所のあいだにある部分文字列をリストにまとめ、これを値とする。
+<VAR>separators</VAR>が<CODE>nil</CODE>である（つまり、省略する）と、
+デフォルトは<CODE>"[ \f\t\n\r\v]+"</CODE>である。
+<P>
+
+たとえば、つぎのようになる。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(split-string "Soup is good food" "o")
+=> ("S" "up is g" "" "d f" "" "d")
+(split-string "Soup is good food" "o+")
+=> ("S" "up is g" "d f" "d")
+</pre></td></tr></table><P>
+
+文字列の先頭や末尾で一致した場合には、
+リストの先頭や末尾に空文字列は現れない。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(split-string "out to moo" "o+")
+=> ("ut t" " m")
+</pre></td></tr></table><P>
+
+空の一致箇所は、それらが連続していない限り分割点になる。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(split-string "Soup is good food" "o*")
+=>("S" "u" "p" " " "i" "s" " " "g" "d" " " "f" "d")
+(split-string "Nice doggy!" "")
+=>("N" "i" "c" "e" " " "d" "o" "g" "g" "y" "!")
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="Modifying Strings"></A>
+<HR SIZE="6">
+<br><A NAME="SEC75"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_5.html#SEC74"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_5.html#SEC76"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Modifying Strings"></A>
+<H2> 4.4 文字列の変更 </H2>
+<!--docid::SEC75::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Modifying%20Strings">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Modifying%20Strings</a>"<br>
+"texi/elisp21/文字列の変更"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%CA%B8%BB%FA%CE%F3%A4%CE%CA%D1%B9%B9">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+既存の文字列の内容を変更するもっとも基本的な方法は、
+<CODE>aset</CODE>（see 節 <A HREF="elisp_7.html#SEC96">6.3 配列操作関数</A>）を使うことです。
+<CODE>(aset <VAR>string</VAR> <VAR>idx</VAR> <VAR>char</VAR>)</CODE>は、
+<VAR>string</VAR>の添字<VAR>idx</VAR>位置に<VAR>char</VAR>を格納します。
+各文字は1バイト以上を占めます。
+<VAR>char</VAR>が必要とするバイト数が指定した添字位置の文字が占めるバイト数と
+異なる場合には、<CODE>aset</CODE>はエラーを通知します。
+<P>
+
+より強力な関数は<CODE>store-substring</CODE>です。
+<P>
+
+<A NAME="IDX246"></A>
+<DL>
+<DT><U>Function:</U> <B>store-substring</B> <I>string idx obj</I>
+<DD><A NAME="IDX247"></A>
+この関数は、文字列<VAR>string</VAR>の添字<VAR>idx</VAR>位置から始まる部分に<VAR>obj</VAR>を
+格納することで、文字列<VAR>string</VAR>の内容の一部分を変更する。
+引数<VAR>obj</VAR>は文字であるか（より小さな）文字列。
+<P>
+
+既存の文字列の長さを変更することは不可能なので、
+新たな文字に必要なバイト数が<VAR>string</VAR>の当該箇所の文字のバイト数と
+異なるなどして、
+<VAR>obj</VAR>が<VAR>string</VAR>の実際の長さに収まらないときにはエラーである。
+</DL>
+<P>
+
+<A NAME="Text Comparison"></A>
+<HR SIZE="6">
+<br><A NAME="SEC76"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_5.html#SEC75"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_5.html#SEC77"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Text Comparison"></A>
+<H2> 4.5 文字と文字列の比較 </H2>
+<!--docid::SEC76::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Text%20Comparison">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Text%20Comparison</a>"<br>
+"texi/elisp21/文字と文字列の比較"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%CA%B8%BB%FA%A4%C8%CA%B8%BB%FA%CE%F3%A4%CE%C8%E6%B3%D3">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX248"></A>
+<A NAME="IDX249"></A>
+<P>
+
+<A NAME="IDX250"></A>
+<DL>
+<DT><U>Function:</U> <B>char-equal</B> <I>character1 character2</I>
+<DD>この関数は、引数が同じ文字を表していれば<CODE>t</CODE>を返し、
+さもなければ<CODE>nil</CODE>を返す。
+<CODE>case-fold-search</CODE>が<CODE>nil</CODE>以外であると、
+この関数は大文字小文字の違いを区別しない。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(char-equal ?x ?x)
+     => t
+(let ((case-fold-search nil))
+  (char-equal ?x ?X))
+     => nil
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX251"></A>
+<DL>
+<DT><U>Function:</U> <B>string=</B> <I>string1 string2</I>
+<DD>この関数は、2つの文字列の各文字が正確に一致すれば<CODE>t</CODE>を返す。
+大文字小文字を区別する。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(string= "abc" "abc")
+     => t
+(string= "abc" "ABC")
+     => nil
+(string= "ab" "ABC")
+     => nil
+</pre></td></tr></table><P>
+
+関数<CODE>string=</CODE>は2つの文字列のテキスト属性を無視する。
+<CODE>equal</CODE>（see 節 <A HREF="elisp_3.html#SEC59">2.6 同値述語</A>）が2つの文字列を比較する際には、
+<CODE>string=</CODE>を使う。
+<P>
+
+文字列に非ASCII文字が含まれ、
+一方がユニバイトであり他方がマルチバイトである場合、
+それらが等しいことはない。
+see 節 <A HREF="elisp_33.html#SEC529">32.1 テキスト表現</A>。
+</DL>
+<P>
+
+<A NAME="IDX252"></A>
+<DL>
+<DT><U>Function:</U> <B>string-equal</B> <I>string1 string2</I>
+<DD><CODE>string-equal</CODE>は<CODE>string=</CODE>の別名。
+</DL>
+<P>
+
+<A NAME="IDX253"></A>
+<A NAME="IDX254"></A>
+<A NAME="IDX255"></A>
+<DL>
+<DT><U>Function:</U> <B>string&#60;</B> <I>string1 string2</I>
+<DD>この関数は2つの文字列を1文字ずつ比較する。
+まず、文字列を走査し、対応する文字同士の対で一致しないものを探す。
+そのような対の文字の小さいほうが<VAR>string1</VAR>の文字であるならば、
+<VAR>string1</VAR>が小さく、この関数は<CODE>t</CODE>を返す。
+文字の小さいほうが<VAR>string2</VAR>の文字であるならば、
+<VAR>string1</VAR>が大きく、この関数は<CODE>nil</CODE>を返す。
+2つの文字列が完全に一致する場合、値は<CODE>nil</CODE>である。
+<P>
+
+文字の対は、それらの文字コードで比較する。
+ASCII文字集合では、小文字は大文字より大きな数値であり、
+数字文字や多くの句読点文字は大文字より小さな数値であることに注意。
+ASCII文字はどんな非ASCII文字よりも小さい。
+ユニバイト非ASCII文字はマルチバイト非ASCII文字よりもつねに小さい。
+（see 節 <A HREF="elisp_33.html#SEC529">32.1 テキスト表現</A>）。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(string&#60; "abc" "abd")
+     => t
+(string&#60; "abd" "abc")
+     => nil
+(string&#60; "123" "abc")
+     => t
+</pre></td></tr></table><P>
+
+文字列の長さが異なり<VAR>string1</VAR>の長さまで一致する場合、
+結果は<CODE>t</CODE>である。
+<VAR>string2</VAR>の長さまで一致する場合、結果は<CODE>nil</CODE>である。
+空文字列は他のどんな文字列よりも小さい。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(string&#60; "" "abc")
+     => t
+(string&#60; "ab" "abc")
+     => t
+(string&#60; "abc" "")
+     => nil
+(string&#60; "abc" "ab")
+     => nil
+(string&#60; "" "")
+     => nil 
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX256"></A>
+<DL>
+<DT><U>Function:</U> <B>string-lessp</B> <I>string1 string2</I>
+<DD><CODE>string-lessp</CODE>は<CODE>string&#60;</CODE>の別名。
+</DL>
+<P>
+
+<A NAME="IDX257"></A>
+<DL>
+<DT><U>Function:</U> <B>compare-strings</B> <I>string1 start1 end1 string2 start2 end2 &#38;optional ignore-case</I>
+<DD><A NAME="IDX258"></A>
+この関数は、<VAR>string1</VAR>の指定部分と<VAR>string2</VAR>の指定部分を比較する。
+<VAR>string1</VAR>の指定部分は、
+添字<VAR>start1</VAR>位置から始まり添字<VAR>end1</VAR>位置までである
+（デフォルトは文字列の末尾）。
+<VAR>string2</VAR>の指定部分は、
+添字<VAR>start2</VAR>位置から始まり添字<VAR>end2</VAR>位置までである
+（デフォルトは文字列の末尾）。
+<P>
+
+どちらの文字列も比較のためにマルチバイトに変換するので
+（see 節 <A HREF="elisp_33.html#SEC529">32.1 テキスト表現</A>）、
+ユニバイト文字列とマルチバイトが等しくなる場合もある。
+<VAR>ignore-case</VAR>が<CODE>nil</CODE>でなければ、大文字小文字を区別しないので、
+大文字は小文字に等しくなる
+<P>
+
+2つの文字列の指定部分が一致すれば、値は<CODE>t</CODE>。
+さもなければ、値は何文字目までが一致してどちらの文字列が小さいかを示す。
+その絶対値は、2つの文字列の始めから一致した文字の個数に1を加えたもの。
+<VAR>string1</VAR>（の指定部分）が小さいならば符号は負になる。
+</DL>
+<P>
+
+<A NAME="IDX259"></A>
+<DL>
+<DT><U>Function:</U> <B>assoc-ignore-case</B> <I>key alist</I>
+<DD><A NAME="IDX260"></A>
+この関数は、<CODE>assoc</CODE>と同様に動作するが、
+<VAR>key</VAR>は文字列である必要があり、
+<CODE>compare-strings</CODE>を用いて比較する点が異なる。
+大文字小文字を区別しないで比較する。
+</DL>
+<P>
+
+<A NAME="IDX261"></A>
+<DL>
+<DT><U>Function:</U> <B>assoc-ignore-representation</B> <I>key alist</I>
+<DD><A NAME="IDX262"></A>
+この関数は、<CODE>assoc</CODE>と同様に動作するが、
+<VAR>key</VAR>は文字列である必要があり、
+<CODE>compare-strings</CODE>を用いて比較する点が異なる。
+大文字小文字を区別して比較する。
+</DL>
+<P>
+
+バッファ内のテキストを比較する
+<A HREF="elisp_32.html#SEC486">31.3 テキストの比較</A>の<CODE>compare-buffer-substrings</CODE>も参照してください。
+文字列に対して正規表現の一致を取る関数<CODE>string-match</CODE>は、
+ある種の文字列比較に使えます。
+See 節 <A HREF="elisp_34.html#SEC554">33.3 正規表現の探索</A>。
+<P>
+
+<A NAME="String Conversion"></A>
+<HR SIZE="6">
+<br><A NAME="SEC77"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_5.html#SEC76"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_5.html#SEC78"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="String Conversion"></A>
+<H2> 4.6 文字と文字列の変換 </H2>
+<!--docid::SEC77::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=String%20Conversion">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=String%20Conversion</a>"<br>
+"texi/elisp21/文字と文字列の変換"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%CA%B8%BB%FA%A4%C8%CA%B8%BB%FA%CE%F3%A4%CE%CA%D1%B4%B9">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX263"></A>
+<A NAME="IDX264"></A>
+<P>
+
+本節では、文字や文字列と整数のあいだの変換関数について説明します。
+<CODE>format</CODE>と<CODE>prin1-to-string</CODE>（see 節 <A HREF="elisp_19.html#SEC263">18.5 出力関数</A>）は、
+Lispオブジェクトを文字列に変換するために使えます。
+<CODE>read-from-string</CODE>（see 節 <A HREF="elisp_19.html#SEC261">18.3 入力関数</A>）は、
+Lispオブジェクトの文字列表現をオブジェクトに『変換』できます。
+関数<CODE>string-make-multibyte</CODE>と<CODE>string-make-unibyte</CODE>は、
+文字列のテキスト表現を変換します（see 節 <A HREF="elisp_33.html#SEC530">32.2 テキスト表現の変換</A>）。
+<P>
+
+テキスト文字と一般の入力イベントのテキスト表現を生成する関数
+（<CODE>single-key-description</CODE>と<CODE>text-char-description</CODE>）については、
+See 節 <A HREF="elisp_24.html#SEC363">23. 説明文</A>。
+これらの関数は、主に、ヘルプメッセージの作成に使います。
+<P>
+
+<A NAME="IDX265"></A>
+<DL>
+<DT><U>Function:</U> <B>char-to-string</B> <I>character</I>
+<DD><A NAME="IDX266"></A>
+この関数は、1つの文字<VAR>character</VAR>だけを含む新たな文字列を返す。
+関数<CODE>string</CODE>のほうがより汎用であるので、
+この関数はほぼ廃れている。
+see 節 <A HREF="elisp_5.html#SEC74">4.3 文字列の作成</A>。
+</DL>
+<P>
+
+<A NAME="IDX267"></A>
+<DL>
+<DT><U>Function:</U> <B>string-to-char</B> <I>string</I>
+<DD><A NAME="IDX268"></A>
+この関数は、<VAR>string</VAR>の先頭文字を返す。
+文字列が空であると関数は0を返す。
+文字列<VAR>string</VAR>の先頭文字が、ASCIIコードが0のナル文字であるときも、
+値は0である。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(string-to-char "ABC")
+     => 65
+(string-to-char "xyz")
+     => 120
+(string-to-char "")
+     => 0
+(string-to-char "\000")
+     => 0
+</pre></td></tr></table><P>
+
+この関数は、存続させるほど有用でなければ、将来、取り除くかもしれない。
+</DL>
+<P>
+
+<A NAME="IDX269"></A>
+<DL>
+<DT><U>Function:</U> <B>number-to-string</B> <I>number</I>
+<DD><A NAME="IDX270"></A>
+<A NAME="IDX271"></A>
+この関数は、<VAR>number</VAR>の表示表現である文字列を返す。
+<VAR>number</VAR>は整数か浮動小数点数。
+引数が負であれば値の文字列は符号で始まる。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(number-to-string 256)
+     => "256"
+(number-to-string -23)
+     => "-23"
+(number-to-string -23.5)
+     => "-23.5"
+</pre></td></tr></table><P>
+
+<A NAME="IDX272"></A>
+<CODE>int-to-string</CODE>は、この関数のほぼ廃れている別名。
+<P>
+
+<A HREF="elisp_5.html#SEC78">4.7 文字列の書式付け</A>の<CODE>format</CODE>も参照。
+</DL>
+<P>
+
+<A NAME="IDX273"></A>
+<DL>
+<DT><U>Function:</U> <B>string-to-number</B> <I>string &#38;optional base</I>
+<DD><A NAME="IDX274"></A>
+この関数は、<VAR>string</VAR>内の文字群が表す数値を返す。
+<VAR>base</VAR>が<CODE>nil</CODE>以外ならば、これを基数として整数に変換する。
+<VAR>base</VAR>が<CODE>nil</CODE>ならば10を基数とする。
+浮動小数点数の変換はつねに10を基数とする。
+浮動小数点数に対しては別の基数を実装していない。
+作業量も多くそのわりには有用とも思えないからである。
+<P>
+
+解析するとき、<VAR>string</VAR>の先頭にある空白やタブは無視し、
+数と解釈できる限りを<VAR>string</VAR>から読み取る。
+（先頭の空白やタブ以外の他の白文字を無視するシステムもある。）
+無視した白文字のあとの最初の文字が、数字文字、プラス記号、
+マイナス記号でなければ、この関数は0を返す。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(string-to-number "256")
+     => 256
+(string-to-number "25 is a perfect square.")
+     => 25
+(string-to-number "X256")
+     => 0
+(string-to-number "-4.5")
+     => -4.5
+</pre></td></tr></table><P>
+
+<A NAME="IDX275"></A>
+<CODE>string-to-int</CODE>はこの関数の廃れた別名。
+</DL>
+<P>
+
+文字列へ／から変換するその他の関数を以下にあげておきます。
+<P>
+
+<DL COMPACT>
+<DT><CODE>concat</CODE>
+<DD><CODE>concat</CODE>は、ベクトルやリストを文字列へ変換する。
+see 節 <A HREF="elisp_5.html#SEC74">4.3 文字列の作成</A>。
+<P>
+
+<DT><CODE>vconcat</CODE>
+<DD><CODE>vconcat</CODE>は、文字列をベクトルへ変換する。
+see 節 <A HREF="elisp_7.html#SEC98">6.5 ベクトル向け関数</A>。
+<P>
+
+<DT><CODE>append</CODE>
+<DD><CODE>append</CODE>は、文字列をリストへ変換する。
+see 節 <A HREF="elisp_6.html#SEC86">5.5 コンスセルとリストの構築</A>。
+</DL>
+<P>
+
+<A NAME="Formatting Strings"></A>
+<HR SIZE="6">
+<br><A NAME="SEC78"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_5.html#SEC77"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_5.html#SEC79"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Formatting Strings"></A>
+<H2> 4.7 文字列の書式付け </H2>
+<!--docid::SEC78::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Formatting%20Strings">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Formatting%20Strings</a>"<br>
+"texi/elisp21/文字列の書式付け"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%CA%B8%BB%FA%CE%F3%A4%CE%BD%F1%BC%B0%C9%D5%A4%B1">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX276"></A>
+<A NAME="IDX277"></A>
+<P>
+
+<EM>書式付け</EM>（formatting）とは、
+定数文字列内のさまざま部分を計算値で置き換えた文字列を作ることです。
+この文字列は、文字列自体に加えて、
+他の値をどのように表示するかも制御します。
+この文字列を<EM>書式付け文字列</EM>（format string）と呼びます。
+<P>
+
+書式付けは、表示するメッセージを計算する場合に便利です。
+実際、関数<CODE>message</CODE>と関数<CODE>error</CODE>には、
+ここで説明するのと同じ書式付け機能があります。
+それらと<CODE>format</CODE>との違いは、
+書式付けした結果をどのように利用するかです。
+<P>
+
+<A NAME="IDX278"></A>
+<DL>
+<DT><U>Function:</U> <B>format</B> <I>string &#38;rest objects</I>
+<DD>この関数は、<VAR>string</VAR>をコピーし、
+コピー内の書式付け指定を対応する<VAR>objects</VAR>の表現で置き換えた
+新たな文字列を返す。
+引数<VAR>objects</VAR>は書式付けすべき計算値である。
+</DL>
+<P>
+
+<A NAME="IDX279"></A>
+<A NAME="IDX280"></A>
+書式付け指定は`<SAMP>%</SAMP>'で始まる文字の列です。
+したがって、<VAR>string</VAR>内に`<SAMP>%d</SAMP>'があると、
+関数<CODE>format</CODE>はそれを書式付けすべき値の1つ
+（引数<VAR>objects</VAR>の1つ）の表示表現で置き換えます。
+たとえば、つぎのとおりです。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(format "The value of fill-column is %d." fill-column)
+     => "The value of fill-column is 72."
+</pre></td></tr></table><P>
+
+<VAR>string</VAR>に2個以上の書式付け指定がある場合、
+書式付け指定は<VAR>objects</VAR>の後続の値に対応します。
+つまり、<VAR>string</VAR>の最初の書式付け指定は最初の値を使い、
+2番目の書式付け指定は2番目の値を使い、といった具合です。
+（値が対応しない）余計な書式付け指定は、
+予測不可能なふるまいを引き起こします。
+余計な値は無視します。
+<P>
+
+特定の書式付け指定は、特定の型の値を必要とします。
+要求に適合しない値を読者が指定するとエラーを通知します。
+<P>
+
+有効な書式付け指定をつぎに示します。
+<P>
+
+<DL COMPACT>
+<DT>`<SAMP>%s</SAMP>'
+<DD>書式付け指定をオブジェクトのクォートしない
+（つまり、<CODE>prin1</CODE>ではなく<CODE>princ</CODE>を用いる。see 節 <A HREF="elisp_19.html#SEC263">18.5 出力関数</A>）
+表示表現で置き換える。
+したがって、文字列は`<SAMP>"</SAMP>'文字なしでその内容を表示し、
+シンボルは`<SAMP>\</SAMP>'文字なしで表示する。
+<P>
+
+対応するオブジェクトがなければ空文字列を使う。
+<P>
+
+<DT>`<SAMP>%S</SAMP>'
+<DD>書式付け指定をオブジェクトのクォートした
+（つまり、<CODE>prin1</CODE>を用いる。see 節 <A HREF="elisp_19.html#SEC263">18.5 出力関数</A>）
+表示表現で置き換える。
+したがって、文字列は`<SAMP>"</SAMP>'文字で囲んで表示し、
+シンボルは特別な文字のまえには`<SAMP>\</SAMP>'文字を付けて表示する。
+<P>
+
+対応するオブジェクトがなければ空文字列を使う。
+<P>
+
+<DT>`<SAMP>%o</SAMP>'
+<DD><A NAME="IDX281"></A>
+書式付け指定を整数の基数8の表示表現で置き換える。
+<P>
+
+<DT>`<SAMP>%d</SAMP>'
+<DD>書式付け指定を整数の基数10の表示表現で置き換える。
+<P>
+
+<DT>`<SAMP>%x</SAMP>'
+<DD><A NAME="IDX282"></A>
+書式付け指定を整数の基数16の表示表現で置き換える。
+<P>
+
+<DT>`<SAMP>%c</SAMP>'
+<DD>書式付け指定を指定値の文字で置き換える。
+<P>
+
+<DT>`<SAMP>%e</SAMP>'
+<DD>書式付け指定を浮動小数点数の指数表記で置き換える。
+<P>
+
+<DT>`<SAMP>%f</SAMP>'
+<DD>書式付け指定を浮動小数点数の小数点表記で置き換える。
+<P>
+
+<DT>`<SAMP>%g</SAMP>'
+<DD>書式付け指定を浮動小数点数の指数表記か小数点表記のどちらか短いほうで
+置き換える。
+<P>
+
+<DT>`<SAMP>%%</SAMP>'
+<DD>文字列に1個の`<SAMP>%</SAMP>'を入れる。
+この書式付け指定は、値を使わない点で特別である。
+たとえば、<CODE>(format "%% %d" 30)</CODE>は<CODE>"% 30"</CODE>を返す。
+</DL>
+<P>
+
+上記以外の書式付け文字は、エラー`<SAMP>Invalid format operation</SAMP>'になります。
+<P>
+
+例をいくつか示します。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(format "The name of this buffer is %s." (buffer-name))
+     => "The name of this buffer is strings.texi."
+
+(format "The buffer object prints as %s." (current-buffer))
+     => "The buffer object prints as strings.texi."
+
+(format "The octal value of %d is %o, 
+         and the hex value is %x." 18 18 18)
+     => "The octal value of 18 is 22, 
+         and the hex value is 12."
+</pre></td></tr></table><P>
+
+<A NAME="IDX283"></A>
+<A NAME="IDX284"></A>
+<A NAME="IDX285"></A>
+すべての書式付け文字には、`<SAMP>%</SAMP>'とその文字のあいだに、
+数前置子を指定できます。
+省略可能な数前置子はオブジェクトの最小幅を指定します。
+オブジェクトの表示表現がこの幅より小さい場合、パディングします。
+数前置子が正ならば（あるいはゼロで始まれば）左側にパディングし、
+数前置子が負ならば右側にパディングします。
+パディング文字は、通常、空白ですが、
+数前置子がゼロで始まれば、ゼロでパディングします。
+パディングの例を示します。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(format "%06d is padded on the left with zeros" 123)
+     => "000123 is padded on the left with zeros"
+
+(format "%-6d is padded on the right" 123)
+     => "123    is padded on the right"
+</pre></td></tr></table><P>
+
+<CODE>format</CODE>は、どんな幅を指定しても、
+オブジェクトの表示表現を切り詰めることはありません。
+つまり、情報を失うことなく、数前置子を使って最小の桁幅を指定できます。
+<P>
+
+つぎの3つの例において、`<SAMP>%7s</SAMP>'は最小幅7を指定します。
+最初の例では、`<SAMP>%7s</SAMP>'に置き換わる文字列は3文字ですから、
+パディングとして空白4個を挿入します。
+2番目の例では、文字列<CODE>"specification"</CODE>は13文字幅ですが切り詰めません。
+3番目の例では、右側にパディングします。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(format "The word `%7s' actually has %d letters in it."
+        "foo" (length "foo"))
+     => "The word `    foo' actually has 3 letters in it."  
+
+(format "The word `%7s' actually has %d letters in it."
+        "specification" (length "specification")) 
+     => "The word `specification' actually has 13 letters in it."  
+
+(format "The word `%-7s' actually has %d letters in it."
+        "foo" (length "foo"))
+     => "The word `foo    ' actually has 3 letters in it."  
+</FONT></pre></td></tr></table><P>
+
+<A NAME="Case Conversion"></A>
+<HR SIZE="6">
+<br><A NAME="SEC79"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_5.html#SEC78"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_5.html#SEC80"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Case Conversion"></A>
+<H2> 4.8 Lispの大文字小文字変換 </H2>
+<!--docid::SEC79::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Case%20Conversion">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Case%20Conversion</a>"<br>
+"texi/elisp21/Lispの大文字小文字変換"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2FLisp%A4%CE%C2%E7%CA%B8%BB%FA%BE%AE%CA%B8%BB%FA%CA%D1%B4%B9">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX286"></A>
+<A NAME="IDX287"></A>
+<A NAME="IDX288"></A>
+<A NAME="IDX289"></A>
+<P>
+
+大文字小文字変換関数は、1文字や文字列内の大文字小文字を変更します。
+関数は、通常、アルファベット文字
+（非ASCII文字のアルファベットに加えて、
+`<SAMP>A</SAMP>'から`<SAMP>Z</SAMP>'と`<SAMP>a</SAMP>'から`<SAMP>z</SAMP>'）だけを変換します。
+それ以外の文字は変わりません。
+（大文字小文字テーブルを指定して異なる大文字小文字変換を指定できる。
+see 節 <A HREF="elisp_5.html#SEC80">4.9 大文字小文字テーブル</A>）
+<P>
+
+これらの関数は、引数として渡した文字列は変更しません。
+<P>
+
+以下の例では、文字`<SAMP>X</SAMP>'と`<SAMP>x</SAMP>'を使います。
+ASCIIコードは、それぞれ、88と120です。
+<P>
+
+<A NAME="IDX290"></A>
+<DL>
+<DT><U>Function:</U> <B>downcase</B> <I>string-or-char</I>
+<DD>この関数は、文字や文字列を小文字に変換する。
+<P>
+
+<CODE>downcase</CODE>の引数が文字列であると、
+この関数は、引数の各文字の大文字を小文字に変換した新たな文字列を作成する。
+<CODE>downcase</CODE>の引数が文字であると、
+<CODE>downcase</CODE>は対応する小文字を返す。
+この値は整数である。
+もとの文字が小文字であったりアルファベット文字でなければ、
+値はもとの文字に等しい。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(downcase "The cat in the hat")
+     => "the cat in the hat"
+
+(downcase ?X)
+     => 120
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX291"></A>
+<DL>
+<DT><U>Function:</U> <B>upcase</B> <I>string-or-char</I>
+<DD>この関数は、文字や文字列を大文字に変換する。
+<P>
+
+<CODE>upcase</CODE>の引数が文字列であると、
+この関数は、引数の各文字の小文字を大文字に変換した新たな文字列を作成する。
+<P>
+
+<CODE>upcase</CODE>の引数が文字であると、
+<CODE>upcase</CODE>は対応する大文字を返す。
+この値は整数である。
+もとの文字が大文字であったりアルファベット文字でなければ、
+値はもとの文字に等しい。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(upcase "The cat in the hat")
+     => "THE CAT IN THE HAT"
+
+(upcase ?x)
+     => 88
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX292"></A>
+<DL>
+<DT><U>Function:</U> <B>capitalize</B> <I>string-or-char</I>
+<DD><A NAME="IDX293"></A>
+この関数は、文字列や文字をキャピタライズ（先頭文字だけを大文字に）する。
+<VAR>string-or-char</VAR>が文字列ならば、
+この関数は、<VAR>string-or-char</VAR>のコピーの各単語をキャピタライズしたものを
+内容とする新たな文字列を作成して返す。
+つまり、各単語の先頭文字だけを大文字にして残りを小文字にする。
+<P>
+
+単語の定義は、現在の構文テーブル（See 節 <A HREF="elisp_35.html#SEC567">34.2.1 構文クラス一覧</A>）において
+単語構成文字に分類された文字が連続した列である。
+<P>
+
+<CODE>capitalize</CODE>の引数が文字の場合には、
+<CODE>capitalize</CODE>は<CODE>upcase</CODE>の結果と同じである。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(capitalize "The cat in the hat")
+     => "The Cat In The Hat"
+
+(capitalize "THE 77TH-HATTED CAT")
+     => "The 77th-Hatted Cat"
+
+(capitalize ?x)
+     => 88
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX294"></A>
+<DL>
+<DT><U>Function:</U> <B>upcase-initials</B> <I>string</I>
+<DD>この関数は、<VAR>string</VAR>内の単語の先頭文字だけを大文字にし、
+先頭文字以外の文字は変更しない。
+この関数は、<VAR>string</VAR>のコピーの各単語の先頭文字を大文字に変換したものを
+内容とする新たな文字列を返す。
+<P>
+
+単語の定義は、現在の構文テーブル（See 節 <A HREF="elisp_35.html#SEC567">34.2.1 構文クラス一覧</A>）において
+単語構成文字に分類された文字が連続した列である。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(upcase-initials "The CAT in the hAt")
+     => "The CAT In The HAt"
+</pre></td></tr></table></DL>
+<P>
+
+文字列を比較する関数については、See 節 <A HREF="elisp_5.html#SEC76">4.5 文字と文字列の比較</A>。
+これらは、大文字小文字を区別しないものもあれば、
+場合によって大文字小文字を区別しないものもある。
+<P>
+
+<A NAME="Case Tables"></A>
+<HR SIZE="6">
+<br><A NAME="SEC80"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_5.html#SEC79"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_6.html#SEC81"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Case Tables"></A>
+<H2> 4.9 大文字小文字テーブル </H2>
+<!--docid::SEC80::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Case%20Tables">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Case%20Tables</a>"<br>
+"texi/elisp21/大文字小文字テーブル"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%C2%E7%CA%B8%BB%FA%BE%AE%CA%B8%BB%FA%A5%C6%A1%BC%A5%D6%A5%EB">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+特別な<EM>大文字小文字テーブル</EM>（case table）をインストールすれば、
+大文字小文字変換をカスタマイズできます。
+大文字小文字テーブルは、大文字と小文字の対応関係を指定します。
+このテーブルは、Lispオブジェクトの大文字小文字変換関数（前節参照）と
+バッファ内のテキストに作用する大文字小文字変換関数（see 節 <A HREF="elisp_32.html#SEC512">31.18 大文字小文字の変更</A>）の
+両方に影響します。
+各バッファごとに大文字小文字テーブルがあります。
+新たなバッファの大文字小文字テーブルを初期化するために使う
+標準の大文字小文字テーブルもあります。
+<P>
+
+大文字小文字テーブルは、サブタイプが<CODE>case-table</CODE>である
+文字テーブル（see 節 <A HREF="elisp_7.html#SEC99">6.6 文字テーブル</A>）です。
+この文字テーブルは、各文字を対応する小文字に対応付けます。
+これには3つの追加スロットがあり、関連するテーブルを保持します。
+<P>
+
+<DL COMPACT>
+<DT><VAR>upcase</VAR>
+<DD>upcase（大文字）テーブルは、各文字を対応する大文字に対応付ける。
+<DT><VAR>canonicalize</VAR>
+<DD>canonicalize（正則）テーブルは大文字小文字に関連する1組の文字群を
+その文字群の特定のメンバに対応付ける。
+<DT><VAR>equivalences</VAR>
+<DD>equivalences（同値）テーブルは、大文字小文字に関連する1組の文字群の各要素を
+その文字群内のつぎの文字に対応付ける。
+</DL>
+<P>
+
+単純な場合、必要なことは、小文字への対応付けを指定するだけです。
+関連する3つのテーブルはこの対応付けから自動的に計算されます。
+<P>
+
+言語によっては、大文字と小文字の対応関係が1対1でないことがあります。
+2つの異なる小文字が同じ大文字に対応することがあります。
+このような場合、大文字から小文字への対応付けと、
+小文字から大文字への対応付けの両方を指定する必要があります。
+<P>
+
+追加のテーブル<VAR>canonicalize</VAR>（正則）は、各文字を正則文字に対応付けます。
+2つの任意の文字が大文字小文字変換で関連付けられている場合、
+その2つの文字は同一の正則文字を持ちます。
+たとえば、`<SAMP>a</SAMP>'と`<SAMP>A</SAMP>'は、大文字小文字変換で関連付けられているので、
+これらは同一の正則文字を持つはずです
+（両方の文字に対して`<SAMP>a</SAMP>'であるか、両方の文字に対して`<SAMP>A</SAMP>'である）。
+<P>
+
+追加のテーブル<VAR>equivalences</VAR>（同値）は、
+同じ正則クラス（同一の正則文字を持つ文字群）の文字を巡回して対応付けます。
+（普通のASCIIでは、`<SAMP>a</SAMP>'を`<SAMP>A</SAMP>'に対応付け、
+`<SAMP>A</SAMP>'を`<SAMP>a</SAMP>'に対応付ける。
+各正則クラスについても同様。）
+<P>
+
+大文字小文字テーブルを作成するときには、
+<VAR>canonicalize</VAR>（正則）には<CODE>nil</CODE>を指定できます。
+そうすると、Emacsはこのスロットを小文字と大文字の対応付けから埋めます。
+<VAR>equivalences</VAR>（同値）にも<CODE>nil</CODE>を指定できます。
+そうすると、Emacsはこのスロットを<VAR>canonicalize</VAR>（正則）から埋めます。
+実際に使用している大文字小文字テーブルでは、
+これらの要素は<CODE>nil</CODE>以外です。
+<VAR>canonicalize</VAR>（正則）を指定せずに
+<VAR>equivalences</VAR>（同値）を指定しないでください、
+<P>
+
+つぎに、大文字小文字テーブルを操作する関数を示します。
+<P>
+
+<A NAME="IDX295"></A>
+<DL>
+<DT><U>Function:</U> <B>case-table-p</B> <I>object</I>
+<DD>この述語は、<VAR>object</VAR>が正しい
+大文字小文字テーブルならば<CODE>nil</CODE>以外を返す。
+</DL>
+<P>
+
+<A NAME="IDX296"></A>
+<DL>
+<DT><U>Function:</U> <B>set-standard-case-table</B> <I>table</I>
+<DD>この関数は、<VAR>table</VAR>を標準の大文字小文字テーブルとし、
+これ以降に作成する任意のバッファに使用できるようにする。
+</DL>
+<P>
+
+<A NAME="IDX297"></A>
+<DL>
+<DT><U>Function:</U> <B>standard-case-table</B>
+<DD>これは、標準の大文字小文字テーブルを返す。
+</DL>
+<P>
+
+<A NAME="IDX298"></A>
+<DL>
+<DT><U>Function:</U> <B>current-case-table</B>
+<DD>この関数は、カレントバッファの大文字小文字テーブルを返す。
+</DL>
+<P>
+
+<A NAME="IDX299"></A>
+<DL>
+<DT><U>Function:</U> <B>set-case-table</B> <I>table</I>
+<DD>これは、カレントバッファの大文字小文字テーブルを<VAR>table</VAR>とする。
+</DL>
+<P>
+
+以下の3つ関数は、非ASCII文字集合を定義するパッケージ向けの
+便利なサブルーティンです。
+これらは、指定した大文字小文字テーブル<VAR>case-table</VAR>を変更します。
+さらに、標準の構文テーブルも変更します。
+See 節 <A HREF="elisp_35.html#SEC564">34. 構文テーブル</A>。
+普通、標準の大文字小文字テーブルを変更するためにこれらの関数を使います。
+<P>
+
+<A NAME="IDX300"></A>
+<DL>
+<DT><U>Function:</U> <B>set-case-syntax-pair</B> <I>uc lc case-table</I>
+<DD>この関数は対応する大文字と小文字を指定する。
+</DL>
+<P>
+
+<A NAME="IDX301"></A>
+<DL>
+<DT><U>Function:</U> <B>set-case-syntax-delims</B> <I>l r case-table</I>
+<DD>この関数は、文字<VAR>l</VAR>と<VAR>r</VAR>を
+大文字小文字不変区切りの対応する対にする。
+</DL>
+<P>
+
+<A NAME="IDX302"></A>
+<DL>
+<DT><U>Function:</U> <B>set-case-syntax</B> <I>char syntax case-table</I>
+<DD>この関数は、<VAR>char</VAR>を構文<VAR>syntax</VAR>の大文字小文字不変にする。
+</DL>
+<P>
+
+<A NAME="IDX303"></A>
+<DL>
+<DT><U>コマンド:</U> <B>describe-buffer-case-table</B>
+<DD>このコマンドは、カレントバッファの大文字小文字テーブルの内容を記述する。
+</DL>
+<P>
+
+<A NAME="Lists"></A>
+<HR SIZE="6">
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<a name="bottom"> </a>
+<script type="text/javascript" src="style2.js"></script>
+<div class="footer">
+    <br>
+    このページはMeadow (Emacs) の紹介ページです <br>
+このWebページの各文書は自由にリンク・複製・再配布・改変していただいて構いません．
+<br>ただし，複製・再配布・改変の場合は Meadow Memo のURLを記載しておいて下さい．<br>
+<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=about%20link">Medow memoへのリンクについて</a>．<br>
+
+間違い，要望等があれば<a href="mailto:akihisa@mail.ne.jp">akihisa@mail.ne.jp</a> か下記でどうぞ<br>
+
+<br>
+
+<FORM METHOD="post" ACTION="http://www.bookshelf.jp/cgi-bin/wwwmail.cgi" >
+お名前：<INPUT TYPE="text" NAME="name" SIZE="30" MAXLENGTH="40" VALUE="ななしさん"><br>
+メールアドレス：<INPUT TYPE="text" NAME="EMAIL" SIZE="25" MAXLENGTH="60" VALUE="secret@mail.adr"><br>
+<input type="hidden" name="HPAGE" value="">
+つっこみ：<br><TEXTAREA NAME="MESSAGE" ROWS="5" COLS="50">
+</TEXTAREA><br><br>
+<INPUT TYPE="submit" VALUE="送信">
+<INPUT TYPE="reset" VALUE="クリア">
+</FORM>
+
+<br><A HREF="http://www.bookshelf.jp/cgi-bin/xct.cgi">ページ別カウンタ</a>
+<br> Since 2002/12/13 <br>
+</div>
+
+</BODY>
+
+</HTML>

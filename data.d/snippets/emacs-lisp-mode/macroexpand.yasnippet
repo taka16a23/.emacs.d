@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: macroexpand
+# key: (macroexpand
+# condition: (not (at-string|comment-p))
+# --
+(macroexpand '(${FORM})

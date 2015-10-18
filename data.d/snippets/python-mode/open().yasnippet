@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: open()
+# key: open
+# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])) (or (equal (char-before) 32) (equal (char-before) 10)))
+# 32 = ` '
+# --
+open(${1:FILE}, \'${2:$$(yas-choose-value \'(\"r\" \"w\" \"a\" \"r+\" \"rb\" \"wb\" \"r+b\"))}\')$0

@@ -1,0 +1,19 @@
+# -*- mode: snippet -*-
+# name: use-package
+# key: (use-package
+# condition: (not (at-string|comment-p))
+# --
+(use-package ${1:package}
+  ;; :disabled
+  ${10::defer$(yas/choose-value '(":defer" ";; :defer" ))}
+  ${20::commands
+  ${21:(${22:autoload})}
+  }${30::if
+  (${34:})
+  }:init
+  ${40:before load}
+  :config
+  (message "Loading \\"$1\\"")
+  ${60::bind
+  ((${62:${64:"$65"} . $66})
+   )}

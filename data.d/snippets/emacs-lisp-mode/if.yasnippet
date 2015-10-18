@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: if
+# key: (if
+# condition: (not (at-string|comment-p))
+# --
+(if ${1:COND}
+  $2
+  ${3:ELSE}

@@ -1,0 +1,17 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Author:    Atami <taka16a23@gmail.com>
+# Committer: root <root@qu>
+#
+# On branch develop
+# Your branch is ahead of 'origin/develop' by 3 commits.
+#   (use "git push" to publish your local commits)
+#
+# Changes to be committed:
+#	modified:   data_e/log/Emacs_2015_10.log
+#	modified:   data_e/log/kill-ring-log_2015_10.org
+#	renamed:    elisp/start.d/22_mcomplete_plugin_start.el -> elisp/start.d/22_icomplete_plugin_start.el
+#	new file:   elisp/start.d/icomplete_plugin_start.el
+#
