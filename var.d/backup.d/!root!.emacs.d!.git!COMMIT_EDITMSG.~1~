@@ -1,0 +1,40 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Author:    Atami <taka16a23@gmail.com>
+# Committer: root <root@qu>
+#
+# On branch develop
+# Your branch is up-to-date with 'origin/develop'.
+#
+# Changes to be committed:
+#	modified:   elisp_compileall.py
+#
+# Changes not staged for commit:
+#	modified:   data_e/log/Emacs_2015_10.log
+#	modified:   data_e/log/kill-ring-log_2015_10.org
+#	modified:   doing.org
+#	modified:   elisp/el-got/apache-mode (untracked content)
+#	modified:   elisp/el-got/auto-highlight-symbol (untracked content)
+#	modified:   elisp/el-got/c-eldoc (untracked content)
+#	modified:   elisp/el-got/col-highlight (untracked content)
+#	modified:   elisp/el-got/color-moccur (untracked content)
+#	modified:   elisp/el-got/dash (untracked content)
+#	modified:   elisp/el-got/e2wm (untracked content)
+#	modified:   elisp/el-got/f (untracked content)
+#	modified:   elisp/el-got/fold-dwim (untracked content)
+#	modified:   elisp/el-got/fuzzy (untracked content)
+#	modified:   elisp/el-got/hide-lines (untracked content)
+#	modified:   elisp/el-got/highlight-indentation (untracked content)
+#	modified:   elisp/el-got/moccur-edit (untracked content)
+#	modified:   elisp/el-got/python-pep8 (untracked content)
+#	modified:   elisp/el-got/s (untracked content)
+#	modified:   elisp/el-got/smart-operator (untracked content)
+#	modified:   elisp/el-got/smartchr (untracked content)
+#	modified:   elisp/el-got/smartrep (untracked content)
+#	modified:   elisp/el-got/syslog-mode (untracked content)
+#	modified:   elisp/el-got/systemd-mode (untracked content)
+#	modified:   elisp/el-got/tabbar (untracked content)
+#	modified:   elisp/el-got/window-layout (untracked content)
+#

@@ -1,0 +1,1 @@
+document.writeln('<ul> <li> <a href="#SEC93">6. シーケンス、配列、ベクトル</a><ul><li> <a href="#SEC94">6.1 シーケンス</a><li> <a href="#SEC95">6.2 配列</a><li> <a href="#SEC96">6.3 配列操作関数</a><li> <a href="#SEC97">6.4 ベクトル</a><li> <a href="#SEC98">6.5 ベクトル向け関数</a><li> <a href="#SEC99">6.6 文字テーブル</a><li> <a href="#SEC100">6.7 ブールベクトル</a></ul></ul>');

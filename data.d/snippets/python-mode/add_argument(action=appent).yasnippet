@@ -1,0 +1,25 @@
+# -*- mode: snippet -*-
+# name: append
+# key: argparse_add_argument
+# condition: (not (py:at-string|comment-p))
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
+# --
+parser.add_argument(${1:${2:\'${3:-${4:v}}\', }${10:\'${11:--${12:verbose}}\'}},
+        dest=\'${1:$(py-snippet:argparse-add_argument-convert-dest-name yas-text)}\',
+        action=\'append\',
+        nargs=${20:$$(yas-choose-value \'(\"None\"
+                                        \"argparse.OPTIONAL\"
+                                        \"argparse.ZERO_OR_MORE\"
+                                        \"argparse.ONE_OR_MORE\"
+                                        \"argparse.REMAINDER\"
+                                        \"0\" \"1\" \"2\" \"3\" \"4\" \"5\"
+                                        \"6\" \"7\" \"8\" \"9\"))},
+        const=${30:None},
+        default=${40:None},
+        type=${50:None},
+        choises=${60:None},
+        required=False,
+        # (yas-expand-link \"argparse_other_options\" t)
+        help=\'${70:A lot of messages.}\',
+        metavar=None)
+        # (yas-expand-link \"argparse_add_argument\" t)$0

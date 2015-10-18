@@ -1,0 +1,2680 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Author:    Atami <taka16a23@gmail.com>
+# Committer: root <root@qu>
+#
+# On branch feature-helm
+# Your branch is up-to-date with 'develop'.
+#
+# Changes to be committed:
+#	modified:   data_e/bookmarks
+#	modified:   data_e/log/Emacs_2015_10.log
+#	modified:   data_e/log/kill-ring-log_2015_10.org
+#	modified:   elisp/el-got/.loaddefs.el
+#	modified:   elisp/el-got/.status.el
+#	deleted:    elisp/el-got/apache-mode
+#	deleted:    elisp/el-got/auto-async-byte-compile/auto-async-byte-compile.el
+#	deleted:    elisp/el-got/auto-complete
+#	deleted:    elisp/el-got/auto-highlight-symbol
+#	deleted:    elisp/el-got/bm
+#	deleted:    elisp/el-got/c-eldoc
+#	deleted:    elisp/el-got/col-highlight
+#	deleted:    elisp/el-got/color-moccur
+#	deleted:    elisp/el-got/column-marker/column-marker.el
+#	deleted:    elisp/el-got/crontab-mode/crontab-mode.el
+#	deleted:    elisp/el-got/csv/csv.el
+#	deleted:    elisp/el-got/ctable
+#	deleted:    elisp/el-got/cython-mode/cython-mode.el
+#	deleted:    elisp/el-got/dash
+#	deleted:    elisp/el-got/deferred
+#	deleted:    elisp/el-got/dired+/dired+.el
+#	deleted:    elisp/el-got/dsvn/dsvn.el
+#	deleted:    elisp/el-got/e2wm
+#	deleted:    elisp/el-got/edit-server/edit-server.el
+#	deleted:    elisp/el-got/emacs-w3m/.cvsignore
+#	deleted:    elisp/el-got/emacs-w3m/BUGS.ja
+#	deleted:    elisp/el-got/emacs-w3m/COPYING
+#	deleted:    elisp/el-got/emacs-w3m/CVS/Entries
+#	deleted:    elisp/el-got/emacs-w3m/CVS/Entries.Log
+#	deleted:    elisp/el-got/emacs-w3m/CVS/Repository
+#	deleted:    elisp/el-got/emacs-w3m/CVS/Root
+#	deleted:    elisp/el-got/emacs-w3m/ChangeLog
+#	deleted:    elisp/el-got/emacs-w3m/ChangeLog.1
+#	deleted:    elisp/el-got/emacs-w3m/Makefile
+#	deleted:    elisp/el-got/emacs-w3m/Makefile.in
+#	deleted:    elisp/el-got/emacs-w3m/NEWS
+#	deleted:    elisp/el-got/emacs-w3m/NEWS.ja
+#	deleted:    elisp/el-got/emacs-w3m/README
+#	deleted:    elisp/el-got/emacs-w3m/README.ja
+#	deleted:    elisp/el-got/emacs-w3m/aclocal.m4
+#	deleted:    elisp/el-got/emacs-w3m/attic/CVS/Entries
+#	deleted:    elisp/el-got/emacs-w3m/attic/CVS/Repository
+#	deleted:    elisp/el-got/emacs-w3m/attic/CVS/Root
+#	deleted:    elisp/el-got/emacs-w3m/attic/addpath.el
+#	deleted:    elisp/el-got/emacs-w3m/attic/rfc2368.el
+#	deleted:    elisp/el-got/emacs-w3m/autom4te.cache/output.0
+#	deleted:    elisp/el-got/emacs-w3m/autom4te.cache/requests
+#	deleted:    elisp/el-got/emacs-w3m/autom4te.cache/traces.0
+#	deleted:    elisp/el-got/emacs-w3m/config.log
+#	deleted:    elisp/el-got/emacs-w3m/config.status
+#	deleted:    elisp/el-got/emacs-w3m/configure
+#	deleted:    elisp/el-got/emacs-w3m/configure.in
+#	deleted:    elisp/el-got/emacs-w3m/doc/.cvsignore
+#	deleted:    elisp/el-got/emacs-w3m/doc/CVS/Entries
+#	deleted:    elisp/el-got/emacs-w3m/doc/CVS/Repository
+#	deleted:    elisp/el-got/emacs-w3m/doc/CVS/Root
+#	deleted:    elisp/el-got/emacs-w3m/doc/Makefile
+#	deleted:    elisp/el-got/emacs-w3m/doc/Makefile.in
+#	deleted:    elisp/el-got/emacs-w3m/doc/dir
+#	deleted:    elisp/el-got/emacs-w3m/doc/emacs-w3m-ja.info
+#	deleted:    elisp/el-got/emacs-w3m/doc/emacs-w3m-ja.texi
+#	deleted:    elisp/el-got/emacs-w3m/doc/emacs-w3m.info
+#	deleted:    elisp/el-got/emacs-w3m/doc/emacs-w3m.texi
+#	deleted:    elisp/el-got/emacs-w3m/doc/ptexinfmt.el
+#	deleted:    elisp/el-got/emacs-w3m/doc/texinfo.tex
+#	deleted:    elisp/el-got/emacs-w3m/doc/txi-en.tex
+#	deleted:    elisp/el-got/emacs-w3m/doc/txi-ja.tex
+#	deleted:    elisp/el-got/emacs-w3m/doc/version.texi
+#	deleted:    elisp/el-got/emacs-w3m/icons/CVS/Entries
+#	deleted:    elisp/el-got/emacs-w3m/icons/CVS/Repository
+#	deleted:    elisp/el-got/emacs-w3m/icons/CVS/Root
+#	deleted:    elisp/el-got/emacs-w3m/icons/spinner.gif
+#	deleted:    elisp/el-got/emacs-w3m/icons/state-00.png
+#	deleted:    elisp/el-got/emacs-w3m/icons/state-00.xpm
+#	deleted:    elisp/el-got/emacs-w3m/icons/state-01.png
+#	deleted:    elisp/el-got/emacs-w3m/icons/state-01.xpm
+#	deleted:    elisp/el-got/emacs-w3m/icons/state-10.png
+#	deleted:    elisp/el-got/emacs-w3m/icons/state-10.xpm
+#	deleted:    elisp/el-got/emacs-w3m/icons/state-11.png
+#	deleted:    elisp/el-got/emacs-w3m/icons/state-11.xpm
+#	deleted:    elisp/el-got/emacs-w3m/icons30/CVS/Entries
+#	deleted:    elisp/el-got/emacs-w3m/icons30/CVS/Repository
+#	deleted:    elisp/el-got/emacs-w3m/icons30/CVS/Root
+#	deleted:    elisp/el-got/emacs-w3m/icons30/antenna-up.png
+#	deleted:    elisp/el-got/emacs-w3m/icons30/antenna-up.xpm
+#	deleted:    elisp/el-got/emacs-w3m/icons30/back-disabled.png
+#	deleted:    elisp/el-got/emacs-w3m/icons30/back-disabled.xpm
+#	deleted:    elisp/el-got/emacs-w3m/icons30/back-up.png
+#	deleted:    elisp/el-got/emacs-w3m/icons30/back-up.xpm
+#	deleted:    elisp/el-got/emacs-w3m/icons30/copy-up.png
+#	deleted:    elisp/el-got/emacs-w3m/icons30/copy-up.xpm
+#	deleted:    elisp/el-got/emacs-w3m/icons30/db-history-up.png
+#	deleted:    elisp/el-got/emacs-w3m/icons30/db-history-up.xpm
+#	deleted:    elisp/el-got/emacs-w3m/icons30/forward-disabled.png
+#	deleted:    elisp/el-got/emacs-w3m/icons30/forward-disabled.xpm
+#	deleted:    elisp/el-got/emacs-w3m/icons30/forward-up.png
+#	deleted:    elisp/el-got/emacs-w3m/icons30/forward-up.xpm
+#	deleted:    elisp/el-got/emacs-w3m/icons30/history-up.png
+#	deleted:    elisp/el-got/emacs-w3m/icons30/history-up.xpm
+#	deleted:    elisp/el-got/emacs-w3m/icons30/home-up.png
+#	deleted:    elisp/el-got/emacs-w3m/icons30/home-up.xpm
+#	deleted:    elisp/el-got/emacs-w3m/icons30/image-up.png
+#	deleted:    elisp/el-got/emacs-w3m/icons30/image-up.xpm
+#	deleted:    elisp/el-got/emacs-w3m/icons30/open-up.png
+#	deleted:    elisp/el-got/emacs-w3m/icons30/open-up.xpm
+#	deleted:    elisp/el-got/emacs-w3m/icons30/parent-disabled.png
+#	deleted:    elisp/el-got/emacs-w3m/icons30/parent-disabled.xpm
+#	deleted:    elisp/el-got/emacs-w3m/icons30/parent-up.png
+#	deleted:    elisp/el-got/emacs-w3m/icons30/parent-up.xpm
+#	deleted:    elisp/el-got/emacs-w3m/icons30/reload-up.png
+#	deleted:    elisp/el-got/emacs-w3m/icons30/reload-up.xpm
+#	deleted:    elisp/el-got/emacs-w3m/icons30/save-up.png
+#	deleted:    elisp/el-got/emacs-w3m/icons30/save-up.xpm
+#	deleted:    elisp/el-got/emacs-w3m/icons30/search-up.png
+#	deleted:    elisp/el-got/emacs-w3m/icons30/search-up.xpm
+#	deleted:    elisp/el-got/emacs-w3m/icons30/weather-up.png
+#	deleted:    elisp/el-got/emacs-w3m/icons30/weather-up.xpm
+#	deleted:    elisp/el-got/emacs-w3m/install-sh
+#	deleted:    elisp/el-got/emacs-w3m/mew-w3m.el
+#	deleted:    elisp/el-got/emacs-w3m/mkinstalldirs
+#	deleted:    elisp/el-got/emacs-w3m/octet.el
+#	deleted:    elisp/el-got/emacs-w3m/patches/CVS/Entries
+#	deleted:    elisp/el-got/emacs-w3m/patches/CVS/Repository
+#	deleted:    elisp/el-got/emacs-w3m/patches/CVS/Root
+#	deleted:    elisp/el-got/emacs-w3m/patches/README
+#	deleted:    elisp/el-got/emacs-w3m/patches/dot-domain.patch
+#	deleted:    elisp/el-got/emacs-w3m/patches/file-progress.patch
+#	deleted:    elisp/el-got/emacs-w3m/patches/italic-text.patch
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/.cvsignore
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/CVS/Entries
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/CVS/Repository
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/CVS/Root
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/ChangeLog
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/mew-shimbun.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/nnshimbun.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-2ch.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-airs.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-aljazeera.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-arch-bluegate.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-asahi-html.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-asahi-mytown.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-asahi.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-atmarkit.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-atom-hash.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-atom.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-bbc.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-bbdb-ml.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-cgi-board.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-chise.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-cnet-jp.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-cnet.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-cnn-jp.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-coldsync.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-debian-jp.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-debian.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-debugmagazin-de.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-dennou.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-digiko.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-elips.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-emacs-w3m.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-emacswiki.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-engadget-ja.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-excite.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-exconn.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-f1fan.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-fau.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-ffii.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-fml.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-gendai-net.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-geocrawler.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-glimpse.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-gnome.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-haiku-os.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-hash.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-heise.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-hns.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-ibm-dev.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-impress.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-infoshop.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-itmedia.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-japantimes.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-javaconf.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-jpilot.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-jpo.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-kantei.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-kde.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-laut-de.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-linuxce-jp.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-lotusex.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-lump.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-m17n.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-macosx-jp.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-mailarc.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-mailman.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-mainichi.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-makanai.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-marc-aims.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-meadow.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-mew.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-mhonarc.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-mozilla-jp.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-msdn.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-msports-nifty.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-multi.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-n24-de.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-namazu.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-netbsd.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-nikkansports.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-nikkei.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-nytimes.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-opentechpress-jp.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-orca.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-palmfan.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-pcweb-column.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-perlentaucher-de.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-pilot-link.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-pilot-mailsync.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-plucker.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-pocketgames.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-rakuten.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-redhat.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-rediff.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-rss-blogs.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-rss-hash.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-rss.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-ruby.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-sankei.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-savannah.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-scipy.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-security-memo.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-slashdot-jp.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-slashdot.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-sml.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-sourceforge-jp.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-spiegel.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-sponichi.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-squeak-dev.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-squeak-ja.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-sueddeutsche-de.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-tcup.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-tdiary-ml.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-tdiary.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-tech-on.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-texfaq.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-text.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-the-onion.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-the-register.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-tigris.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-toshiba.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-vinelinux.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-w3m-dev.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-welt-de.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-wiki.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-wikimedia.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-wincefan.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-wired-jp.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-x51.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-xemacs.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-yahoo-auctions.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-yahoo-sports.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-yahoo.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-yomiuri-html.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-yomiuri.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-yoshirin.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-zdnet-jp.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/sb-zeit-de.el
+#	deleted:    elisp/el-got/emacs-w3m/shimbun/shimbun.el
+#	deleted:    elisp/el-got/emacs-w3m/w3m-fb.el
+#	deleted:    elisp/el-got/emacs-w3m/w3m-load.el
+#	deleted:    elisp/el-got/emacs-w3m/w3m-xmas.el
+#	deleted:    elisp/el-got/emacs-w3m/w3m.el
+#	deleted:    elisp/el-got/epc
+#	deleted:    elisp/el-got/epl
+#	deleted:    elisp/el-got/expand-region
+#	deleted:    elisp/el-got/f
+#	deleted:    elisp/el-got/flycheck
+#	deleted:    elisp/el-got/fold-dwim
+#	deleted:    elisp/el-got/frame-fns/frame-fns.el
+#	deleted:    elisp/el-got/fuzzy
+#	deleted:    elisp/el-got/google-this
+#	deleted:    elisp/el-got/gtags/gtags.el
+#	deleted:    elisp/el-got/header2/header2.el
+#	deleted:    elisp/el-got/helm
+#	deleted:    elisp/el-got/hide-lines
+#	deleted:    elisp/el-got/highlight-indentation
+#	deleted:    elisp/el-got/init-loader
+#	deleted:    elisp/el-got/jedi
+#	deleted:    elisp/el-got/linum-off/linum-off.el
+#	deleted:    elisp/el-got/magit
+#	deleted:    elisp/el-got/mark-multiple
+#	deleted:    elisp/el-got/multiple-cursors
+#	deleted:    elisp/el-got/open-junk-file/open-junk-file.el
+#	deleted:    elisp/el-got/org-mode
+#	deleted:    elisp/el-got/popup
+#	deleted:    elisp/el-got/python-environment
+#	deleted:    elisp/el-got/python-mode/.bzr/README
+#	deleted:    elisp/el-got/python-mode/.bzr/branch-format
+#	deleted:    elisp/el-got/python-mode/.bzr/branch/branch.conf
+#	deleted:    elisp/el-got/python-mode/.bzr/branch/format
+#	deleted:    elisp/el-got/python-mode/.bzr/branch/last-revision
+#	deleted:    elisp/el-got/python-mode/.bzr/branch/tags
+#	deleted:    elisp/el-got/python-mode/.bzr/checkout/conflicts
+#	deleted:    elisp/el-got/python-mode/.bzr/checkout/dirstate
+#	deleted:    elisp/el-got/python-mode/.bzr/checkout/format
+#	deleted:    elisp/el-got/python-mode/.bzr/repository/format
+#	deleted:    elisp/el-got/python-mode/.bzr/repository/indices/67d94383c0a85f70daa16bb768a12110.cix
+#	deleted:    elisp/el-got/python-mode/.bzr/repository/indices/67d94383c0a85f70daa16bb768a12110.iix
+#	deleted:    elisp/el-got/python-mode/.bzr/repository/indices/67d94383c0a85f70daa16bb768a12110.rix
+#	deleted:    elisp/el-got/python-mode/.bzr/repository/indices/67d94383c0a85f70daa16bb768a12110.six
+#	deleted:    elisp/el-got/python-mode/.bzr/repository/indices/67d94383c0a85f70daa16bb768a12110.tix
+#	deleted:    elisp/el-got/python-mode/.bzr/repository/pack-names
+#	deleted:    elisp/el-got/python-mode/.bzr/repository/packs/67d94383c0a85f70daa16bb768a12110.pack
+#	deleted:    elisp/el-got/python-mode/.bzrignore
+#	deleted:    elisp/el-got/python-mode/.travis.yml
+#	deleted:    elisp/el-got/python-mode/CREDITS
+#	deleted:    elisp/el-got/python-mode/EXTENSIONS
+#	deleted:    elisp/el-got/python-mode/INSTALL
+#	deleted:    elisp/el-got/python-mode/INSTALL-INFO-FILES
+#	deleted:    elisp/el-got/python-mode/IPYTHON
+#	deleted:    elisp/el-got/python-mode/LICENSE
+#	deleted:    elisp/el-got/python-mode/NEWS
+#	deleted:    elisp/el-got/python-mode/PROBLEMS.org
+#	deleted:    elisp/el-got/python-mode/README-PYMACS.org
+#	deleted:    elisp/el-got/python-mode/README.org
+#	deleted:    elisp/el-got/python-mode/README_AUTOPAIR.org
+#	deleted:    elisp/el-got/python-mode/README_DEVEL.org
+#	deleted:    elisp/el-got/python-mode/all-travis-ci.sh
+#	deleted:    elisp/el-got/python-mode/byte-compile-directory.sh
+#	deleted:    elisp/el-got/python-mode/completion/auto-complete-pycomplete.el
+#	deleted:    elisp/el-got/python-mode/completion/company-pycomplete.el
+#	deleted:    elisp/el-got/python-mode/completion/test_pycomplete.py
+#	deleted:    elisp/el-got/python-mode/devel/README
+#	deleted:    elisp/el-got/python-mode/devel/fundocu2infoformats.el
+#	deleted:    elisp/el-got/python-mode/devel/fundocu2infoformats.sh
+#	deleted:    elisp/el-got/python-mode/devel/py-report-comint-variable-setting.el
+#	deleted:    elisp/el-got/python-mode/devel/python-components-create-menu.el
+#	deleted:    elisp/el-got/python-mode/devel/python-mode-utils.el
+#	deleted:    elisp/el-got/python-mode/devel/python-mode-vars.el
+#	deleted:    elisp/el-got/python-mode/devel/python-mode-write-menu.el
+#	deleted:    elisp/el-got/python-mode/devel/python-mode-write-tests.el
+#	deleted:    elisp/el-got/python-mode/devel/python-shell-install-example-buffer.el
+#	deleted:    elisp/el-got/python-mode/doc/commands-auto-complete-pycomplete.org
+#	deleted:    elisp/el-got/python-mode/doc/commands-auto-complete-pycomplete.rst
+#	deleted:    elisp/el-got/python-mode/doc/commands-autopair.org
+#	deleted:    elisp/el-got/python-mode/doc/commands-autopair.rst
+#	deleted:    elisp/el-got/python-mode/doc/commands-company-pycomplete.org
+#	deleted:    elisp/el-got/python-mode/doc/commands-company-pycomplete.rst
+#	deleted:    elisp/el-got/python-mode/doc/commands-py-smart-operator.org
+#	deleted:    elisp/el-got/python-mode/doc/commands-py-smart-operator.rst
+#	deleted:    elisp/el-got/python-mode/doc/commands-pycomplete.org
+#	deleted:    elisp/el-got/python-mode/doc/commands-pycomplete.rst
+#	deleted:    elisp/el-got/python-mode/doc/commands-python-mode.org
+#	deleted:    elisp/el-got/python-mode/doc/commands-python-mode.rst
+#	deleted:    elisp/el-got/python-mode/doc/commands-smart-operator.org
+#	deleted:    elisp/el-got/python-mode/doc/commands-smart-operator.rst
+#	deleted:    elisp/el-got/python-mode/doc/variables-python-mode.org
+#	deleted:    elisp/el-got/python-mode/doc/variables-python-mode.rst
+#	deleted:    elisp/el-got/python-mode/extensions/column-marker.el
+#	deleted:    elisp/el-got/python-mode/extensions/highlight-indentation.el
+#	deleted:    elisp/el-got/python-mode/extensions/python-components-skeletons.el
+#	deleted:    elisp/el-got/python-mode/pyflakespep8.py
+#	deleted:    elisp/el-got/python-mode/python-mode-pkg.el
+#	deleted:    elisp/el-got/python-mode/python-mode.el
+#	deleted:    elisp/el-got/python-mode/run-travis-ci.sh
+#	deleted:    elisp/el-got/python-mode/test/UnicodeEncodeError-lp-550661-test.py
+#	deleted:    elisp/el-got/python-mode/test/UnicodeEncodeError-python2-lp-550661-test.py
+#	deleted:    elisp/el-got/python-mode/test/UnicodeEncodeError-python3-lp-550661-test.py
+#	deleted:    elisp/el-got/python-mode/test/doctest-mode.el
+#	deleted:    elisp/el-got/python-mode/test/pars-part-output.el
+#	deleted:    elisp/el-got/python-mode/test/py-bug-numbered-tests.el
+#	deleted:    elisp/el-got/python-mode/test/py-completion-tests.el
+#	deleted:    elisp/el-got/python-mode/test/py-ert-always-split-lp-1361531-tests.el
+#	deleted:    elisp/el-got/python-mode/test/py-ert-beginning-tests.el
+#	deleted:    elisp/el-got/python-mode/test/py-ert-end-tests.el
+#	deleted:    elisp/el-got/python-mode/test/py-ert-execute-block-test.el
+#	deleted:    elisp/el-got/python-mode/test/py-ert-execute-region-test.el
+#	deleted:    elisp/el-got/python-mode/test/py-ert-forward-tests.el
+#	deleted:    elisp/el-got/python-mode/test/py-ert-function-tests.el
+#	deleted:    elisp/el-got/python-mode/test/py-ert-interactive-tests.el
+#	deleted:    elisp/el-got/python-mode/test/py-ert-just-two-split-lp-1361531-tests.el
+#	deleted:    elisp/el-got/python-mode/test/py-ert-tests-1.el
+#	deleted:    elisp/el-got/python-mode/test/py-ert-tests-2.el
+#	deleted:    elisp/el-got/python-mode/test/py-ert-tests-3.el
+#	deleted:    elisp/el-got/python-mode/test/py-ert-variablen-tests.el
+#	deleted:    elisp/el-got/python-mode/test/py-execute-region-commandp-test.el
+#	deleted:    elisp/el-got/python-mode/test/py-interactive-tests.el
+#	deleted:    elisp/el-got/python-mode/test/py-non-travis-tests.el
+#	deleted:    elisp/el-got/python-mode/test/py-shell-arg-ert-tests.el
+#	deleted:    elisp/el-got/python-mode/test/py-shell-completion-tests.el
+#	deleted:    elisp/el-got/python-mode/test/py-shell-ert-tests.el
+#	deleted:    elisp/el-got/python-mode/test/py-split-window-on-execute-lp-1361531-test.el
+#	deleted:    elisp/el-got/python-mode/test/python-extended-executes-test.el
+#	deleted:    elisp/el-got/python-mode/test/python-mode-ert-tests-1.sh
+#	deleted:    elisp/el-got/python-mode/test/python-mode-ert-tests-2.sh
+#	deleted:    elisp/el-got/python-mode/test/python-mode-ert-tests.sh
+#	deleted:    elisp/el-got/python-mode/test/python-mode-shell-complete-test.sh
+#	deleted:    elisp/el-got/python-mode/test/python-mode-syntax-test.el
+#	deleted:    elisp/el-got/python-mode/test/python-mode-test.el
+#	deleted:    elisp/el-got/python-mode/test/python-mode-tests-2.sh
+#	deleted:    elisp/el-got/python-mode/test/python-mode-tests.sh
+#	deleted:    elisp/el-got/python-mode/test/setup-ert-tests.el
+#	deleted:    elisp/el-got/python-mode/test/syntax-test.sh
+#	deleted:    elisp/el-got/python-mode/test/test-triple-strings.py
+#	deleted:    elisp/el-got/python-mode/test/tn_clippy.txt
+#	deleted:    elisp/el-got/python-mode/website/.cvsignore
+#	deleted:    elisp/el-got/python-mode/website/.rsync-excludes
+#	deleted:    elisp/el-got/python-mode/website/Makefile
+#	deleted:    elisp/el-got/python-mode/website/PMGenerator.py
+#	deleted:    elisp/el-got/python-mode/website/calcroot.py
+#	deleted:    elisp/el-got/python-mode/website/docs/.cvsignore
+#	deleted:    elisp/el-got/python-mode/website/docs/Makefile
+#	deleted:    elisp/el-got/python-mode/website/docs/basics.ht
+#	deleted:    elisp/el-got/python-mode/website/docs/customize.ht
+#	deleted:    elisp/el-got/python-mode/website/docs/index.ht
+#	deleted:    elisp/el-got/python-mode/website/docs/links.h
+#	deleted:    elisp/el-got/python-mode/website/docs/related.ht
+#	deleted:    elisp/el-got/python-mode/website/index.ht
+#	deleted:    elisp/el-got/python-mode/website/links.h
+#	deleted:    elisp/el-got/python-mode/website/make.rules
+#	deleted:    elisp/el-got/quickrun
+#	deleted:    elisp/el-got/rainbow-delimiters
+#	deleted:    elisp/el-got/recentf-ext/recentf-ext.el
+#	deleted:    elisp/el-got/revive/revive.el
+#	deleted:    elisp/el-got/s
+#	deleted:    elisp/el-got/savekill/savekill.el
+#	deleted:    elisp/el-got/smartrep
+#	deleted:    elisp/el-got/syslog-mode
+#	deleted:    elisp/el-got/systemd-mode
+#	deleted:    elisp/el-got/tabbar
+#	deleted:    elisp/el-got/text-translator/.bzr/README
+#	deleted:    elisp/el-got/text-translator/.bzr/branch-format
+#	deleted:    elisp/el-got/text-translator/.bzr/branch/branch.conf
+#	deleted:    elisp/el-got/text-translator/.bzr/branch/format
+#	deleted:    elisp/el-got/text-translator/.bzr/branch/last-revision
+#	deleted:    elisp/el-got/text-translator/.bzr/branch/tags
+#	deleted:    elisp/el-got/text-translator/.bzr/checkout/conflicts
+#	deleted:    elisp/el-got/text-translator/.bzr/checkout/dirstate
+#	deleted:    elisp/el-got/text-translator/.bzr/checkout/format
+#	deleted:    elisp/el-got/text-translator/.bzr/repository/format
+#	deleted:    elisp/el-got/text-translator/.bzr/repository/indices/bf817730d3a82b5a2ab598484ff8a284.cix
+#	deleted:    elisp/el-got/text-translator/.bzr/repository/indices/bf817730d3a82b5a2ab598484ff8a284.iix
+#	deleted:    elisp/el-got/text-translator/.bzr/repository/indices/bf817730d3a82b5a2ab598484ff8a284.rix
+#	deleted:    elisp/el-got/text-translator/.bzr/repository/indices/bf817730d3a82b5a2ab598484ff8a284.six
+#	deleted:    elisp/el-got/text-translator/.bzr/repository/indices/bf817730d3a82b5a2ab598484ff8a284.tix
+#	deleted:    elisp/el-got/text-translator/.bzr/repository/pack-names
+#	deleted:    elisp/el-got/text-translator/.bzr/repository/packs/bf817730d3a82b5a2ab598484ff8a284.pack
+#	deleted:    elisp/el-got/text-translator/Makefile
+#	deleted:    elisp/el-got/text-translator/README.en
+#	deleted:    elisp/el-got/text-translator/README.ja
+#	deleted:    elisp/el-got/text-translator/text-translator-load.el
+#	deleted:    elisp/el-got/text-translator/text-translator-popup.el
+#	deleted:    elisp/el-got/text-translator/text-translator-pos-tip.el
+#	deleted:    elisp/el-got/text-translator/text-translator-site-excite-cojp.el
+#	deleted:    elisp/el-got/text-translator/text-translator-site-freetranslation-com.el
+#	deleted:    elisp/el-got/text-translator/text-translator-site-fresheye-com.el
+#	deleted:    elisp/el-got/text-translator/text-translator-site-google-com.el
+#	deleted:    elisp/el-got/text-translator/text-translator-site-livedoor-com.el
+#	deleted:    elisp/el-got/text-translator/text-translator-site-lou5-jp.el
+#	deleted:    elisp/el-got/text-translator/text-translator-site-tatoeba-org.el
+#	deleted:    elisp/el-got/text-translator/text-translator-site-traduku-net.el
+#	deleted:    elisp/el-got/text-translator/text-translator-site-yahoo-cojp.el
+#	deleted:    elisp/el-got/text-translator/text-translator-site-yahoo-com.el
+#	deleted:    elisp/el-got/text-translator/text-translator-sites.el
+#	deleted:    elisp/el-got/text-translator/text-translator-test.el
+#	deleted:    elisp/el-got/text-translator/text-translator-vars.el
+#	deleted:    elisp/el-got/text-translator/text-translator-window.el
+#	deleted:    elisp/el-got/text-translator/text-translator.el
+#	deleted:    elisp/el-got/undo-tree
+#	deleted:    elisp/el-got/vline/vline.el
+#	deleted:    elisp/el-got/w3m-extension/w3m-extension.el
+#	deleted:    elisp/el-got/window-layout
+#	deleted:    elisp/el-got/yasnippet
+#	new file:   elisp/elpa/ahk-mode-1.5.5/ahk-mode-autoloads.el
+#	new file:   elisp/elpa/ahk-mode-1.5.5/ahk-mode-pkg.el
+#	new file:   elisp/elpa/ahk-mode-1.5.5/ahk-mode.el
+#	new file:   elisp/elpa/apache-mode-20150828.714/apache-mode-autoloads.el
+#	new file:   elisp/elpa/apache-mode-20150828.714/apache-mode-pkg.el
+#	new file:   elisp/elpa/apache-mode-20150828.714/apache-mode.el
+#	new file:   elisp/elpa/archives/gnu/archive-contents
+#	new file:   elisp/elpa/archives/gnu/archive-contents.signed
+#	new file:   elisp/elpa/archives/melpa-stable/archive-contents
+#	new file:   elisp/elpa/archives/melpa/archive-contents
+#	new file:   elisp/elpa/archives/org/archive-contents
+#	new file:   elisp/elpa/ascii-20130824.500/ascii-autoloads.el
+#	new file:   elisp/elpa/ascii-20130824.500/ascii-pkg.el
+#	new file:   elisp/elpa/ascii-20130824.500/ascii.el
+#	new file:   elisp/elpa/async-20150909.2257/async-autoloads.el
+#	new file:   elisp/elpa/async-20150909.2257/async-bytecomp.el
+#	new file:   elisp/elpa/async-20150909.2257/async-pkg.el
+#	new file:   elisp/elpa/async-20150909.2257/async.el
+#	new file:   elisp/elpa/async-20150909.2257/dired-async.el
+#	new file:   elisp/elpa/async-20150909.2257/smtpmail-async.el
+#	new file:   elisp/elpa/auto-async-byte-compile-20140212.1412/auto-async-byte-compile-autoloads.el
+#	new file:   elisp/elpa/auto-async-byte-compile-20140212.1412/auto-async-byte-compile-pkg.el
+#	new file:   elisp/elpa/auto-async-byte-compile-20140212.1412/auto-async-byte-compile.el
+#	new file:   elisp/elpa/auto-complete-1.5.0/auto-complete-autoloads.el
+#	new file:   elisp/elpa/auto-complete-1.5.0/auto-complete-config.el
+#	new file:   elisp/elpa/auto-complete-1.5.0/auto-complete-pkg.el
+#	new file:   elisp/elpa/auto-complete-1.5.0/auto-complete.el
+#	new file:   elisp/elpa/auto-complete-1.5.0/dict/ada-mode
+#	new file:   elisp/elpa/auto-complete-1.5.0/dict/c++-mode
+#	new file:   elisp/elpa/auto-complete-1.5.0/dict/c-mode
+#	new file:   elisp/elpa/auto-complete-1.5.0/dict/caml-mode
+#	new file:   elisp/elpa/auto-complete-1.5.0/dict/clojure-mode
+#	new file:   elisp/elpa/auto-complete-1.5.0/dict/clojurescript-mode
+#	new file:   elisp/elpa/auto-complete-1.5.0/dict/coq-mode
+#	new file:   elisp/elpa/auto-complete-1.5.0/dict/css-mode
+#	new file:   elisp/elpa/auto-complete-1.5.0/dict/erlang-mode
+#	new file:   elisp/elpa/auto-complete-1.5.0/dict/go-mode
+#	new file:   elisp/elpa/auto-complete-1.5.0/dict/haskell-mode
+#	new file:   elisp/elpa/auto-complete-1.5.0/dict/java-mode
+#	new file:   elisp/elpa/auto-complete-1.5.0/dict/js-mode
+#	new file:   elisp/elpa/auto-complete-1.5.0/dict/lua-mode
+#	new file:   elisp/elpa/auto-complete-1.5.0/dict/octave-mode
+#	new file:   elisp/elpa/auto-complete-1.5.0/dict/php-mode
+#	new file:   elisp/elpa/auto-complete-1.5.0/dict/python-mode
+#	new file:   elisp/elpa/auto-complete-1.5.0/dict/qml-mode
+#	new file:   elisp/elpa/auto-complete-1.5.0/dict/ruby-mode
+#	new file:   elisp/elpa/auto-complete-1.5.0/dict/scheme-mode
+#	new file:   elisp/elpa/auto-complete-1.5.0/dict/sclang-mode
+#	new file:   elisp/elpa/auto-complete-1.5.0/dict/sh-mode
+#	new file:   elisp/elpa/auto-complete-1.5.0/dict/tcl-mode
+#	new file:   elisp/elpa/auto-complete-1.5.0/dict/ts-mode
+#	new file:   elisp/elpa/auto-complete-1.5.0/dict/tuareg-mode
+#	new file:   elisp/elpa/auto-complete-1.5.0/dict/verilog-mode
+#	new file:   elisp/elpa/auto-complete-c-headers-20150911.2023/auto-complete-c-headers-autoloads.el
+#	new file:   elisp/elpa/auto-complete-c-headers-20150911.2023/auto-complete-c-headers-pkg.el
+#	new file:   elisp/elpa/auto-complete-c-headers-20150911.2023/auto-complete-c-headers.el
+#	new file:   elisp/elpa/auto-complete-clang-20140409.52/auto-complete-clang-autoloads.el
+#	new file:   elisp/elpa/auto-complete-clang-20140409.52/auto-complete-clang-pkg.el
+#	new file:   elisp/elpa/auto-complete-clang-20140409.52/auto-complete-clang.el
+#	new file:   elisp/elpa/auto-highlight-symbol-20130313.243/auto-highlight-symbol-autoloads.el
+#	new file:   elisp/elpa/auto-highlight-symbol-20130313.243/auto-highlight-symbol-pkg.el
+#	new file:   elisp/elpa/auto-highlight-symbol-20130313.243/auto-highlight-symbol.el
+#	new file:   elisp/elpa/auto-install-20150418.1702/auto-install-autoloads.el
+#	new file:   elisp/elpa/auto-install-20150418.1702/auto-install-pkg.el
+#	new file:   elisp/elpa/auto-install-20150418.1702/auto-install.el
+#	new file:   elisp/elpa/auto-yasnippet-0.3.0/auto-yasnippet-autoloads.el
+#	new file:   elisp/elpa/auto-yasnippet-0.3.0/auto-yasnippet-pkg.el
+#	new file:   elisp/elpa/auto-yasnippet-0.3.0/auto-yasnippet.el
+#	new file:   elisp/elpa/auto-yasnippet-20150925.1557/auto-yasnippet-autoloads.el
+#	new file:   elisp/elpa/auto-yasnippet-20150925.1557/auto-yasnippet-pkg.el
+#	new file:   elisp/elpa/auto-yasnippet-20150925.1557/auto-yasnippet.el
+#	new file:   elisp/elpa/bm-20141212.1535/bm-autoloads.el
+#	new file:   elisp/elpa/bm-20141212.1535/bm-pkg.el
+#	new file:   elisp/elpa/bm-20141212.1535/bm.el
+#	new file:   elisp/elpa/c-eldoc-20150904.132/c-eldoc-autoloads.el
+#	new file:   elisp/elpa/c-eldoc-20150904.132/c-eldoc-pkg.el
+#	new file:   elisp/elpa/c-eldoc-20150904.132/c-eldoc.el
+#	new file:   elisp/elpa/col-highlight-20150104.1334/col-highlight-autoloads.el
+#	new file:   elisp/elpa/col-highlight-20150104.1334/col-highlight-pkg.el
+#	new file:   elisp/elpa/col-highlight-20150104.1334/col-highlight.el
+#	new file:   elisp/elpa/color-moccur-20141222.1635/color-moccur-autoloads.el
+#	new file:   elisp/elpa/color-moccur-20141222.1635/color-moccur-pkg.el
+#	new file:   elisp/elpa/color-moccur-20141222.1635/color-moccur.el
+#	new file:   elisp/elpa/column-marker-20121128.43/column-marker-autoloads.el
+#	new file:   elisp/elpa/column-marker-20121128.43/column-marker-pkg.el
+#	new file:   elisp/elpa/column-marker-20121128.43/column-marker.el
+#	new file:   elisp/elpa/concurrent-20150309.2052/concurrent-autoloads.el
+#	new file:   elisp/elpa/concurrent-20150309.2052/concurrent-pkg.el
+#	new file:   elisp/elpa/concurrent-20150309.2052/concurrent.el
+#	new file:   elisp/elpa/crontab-mode-20090510.1355/crontab-mode-autoloads.el
+#	new file:   elisp/elpa/crontab-mode-20090510.1355/crontab-mode-pkg.el
+#	new file:   elisp/elpa/crontab-mode-20090510.1355/crontab-mode.el
+#	new file:   elisp/elpa/crosshairs-20150104.1339/crosshairs-autoloads.el
+#	new file:   elisp/elpa/crosshairs-20150104.1339/crosshairs-pkg.el
+#	new file:   elisp/elpa/crosshairs-20150104.1339/crosshairs.el
+#	new file:   elisp/elpa/csv-mode-1.5.signed
+#	new file:   elisp/elpa/csv-mode-1.5/csv-mode-autoloads.el
+#	new file:   elisp/elpa/csv-mode-1.5/csv-mode-pkg.el
+#	new file:   elisp/elpa/csv-mode-1.5/csv-mode.el
+#	new file:   elisp/elpa/ctable-20140304.1659/ctable-autoloads.el
+#	new file:   elisp/elpa/ctable-20140304.1659/ctable-pkg.el
+#	new file:   elisp/elpa/ctable-20140304.1659/ctable.el
+#	new file:   elisp/elpa/cython-mode-0.23.3/cython-mode-autoloads.el
+#	new file:   elisp/elpa/cython-mode-0.23.3/cython-mode-pkg.el
+#	new file:   elisp/elpa/cython-mode-0.23.3/cython-mode.el
+#	new file:   elisp/elpa/dash-2.11.0/dash-autoloads.el
+#	new file:   elisp/elpa/dash-2.11.0/dash-pkg.el
+#	new file:   elisp/elpa/dash-2.11.0/dash.el
+#	new file:   elisp/elpa/deferred-0.3.2/deferred-autoloads.el
+#	new file:   elisp/elpa/deferred-0.3.2/deferred-pkg.el
+#	new file:   elisp/elpa/deferred-0.3.2/deferred.el
+#	new file:   elisp/elpa/dired+-20150929.1410/dired+-autoloads.el
+#	new file:   elisp/elpa/dired+-20150929.1410/dired+-pkg.el
+#	new file:   elisp/elpa/dired+-20150929.1410/dired+.el
+#	new file:   elisp/elpa/dsvn-20130120.1257/dsvn-autoloads.el
+#	new file:   elisp/elpa/dsvn-20130120.1257/dsvn-pkg.el
+#	new file:   elisp/elpa/dsvn-20130120.1257/dsvn.el
+#	new file:   elisp/elpa/e2wm-1.3/e2wm-autoloads.el
+#	new file:   elisp/elpa/e2wm-1.3/e2wm-pkg.el
+#	new file:   elisp/elpa/e2wm-1.3/e2wm-vcs.el
+#	new file:   elisp/elpa/e2wm-1.3/e2wm.el
+#	new file:   elisp/elpa/e2wm-20150608.1723/e2wm-autoloads.el
+#	new file:   elisp/elpa/e2wm-20150608.1723/e2wm-pkg.el
+#	new file:   elisp/elpa/e2wm-20150608.1723/e2wm-vcs.el
+#	new file:   elisp/elpa/e2wm-20150608.1723/e2wm.el
+#	new file:   elisp/elpa/e2wm-term-0.0.5/e2wm-term-autoloads.el
+#	new file:   elisp/elpa/e2wm-term-0.0.5/e2wm-term-pkg.el
+#	new file:   elisp/elpa/e2wm-term-0.0.5/e2wm-term.el
+#	new file:   elisp/elpa/edit-list-0.3/edit-list-autoloads.el
+#	new file:   elisp/elpa/edit-list-0.3/edit-list-pkg.el
+#	new file:   elisp/elpa/edit-list-0.3/edit-list.el
+#	new file:   elisp/elpa/edit-server-1.13/edit-server-autoloads.el
+#	new file:   elisp/elpa/edit-server-1.13/edit-server-pkg.el
+#	new file:   elisp/elpa/edit-server-1.13/edit-server.el
+#	new file:   elisp/elpa/eldoc-extension-20140306.645/eldoc-extension-autoloads.el
+#	new file:   elisp/elpa/eldoc-extension-20140306.645/eldoc-extension-pkg.el
+#	new file:   elisp/elpa/eldoc-extension-20140306.645/eldoc-extension.el
+#	new file:   elisp/elpa/epc-0.1.0/epc-autoloads.el
+#	new file:   elisp/elpa/epc-0.1.0/epc-pkg.el
+#	new file:   elisp/elpa/epc-0.1.0/epc.el
+#	new file:   elisp/elpa/epc-0.1.0/epcs.el
+#	new file:   elisp/elpa/epc-20140609.2234/epc-autoloads.el
+#	new file:   elisp/elpa/epc-20140609.2234/epc-pkg.el
+#	new file:   elisp/elpa/epc-20140609.2234/epc.el
+#	new file:   elisp/elpa/epc-20140609.2234/epcs.el
+#	new file:   elisp/elpa/epl-20150517.433/epl-autoloads.el
+#	new file:   elisp/elpa/epl-20150517.433/epl-pkg.el
+#	new file:   elisp/elpa/epl-20150517.433/epl.el
+#	new file:   elisp/elpa/epl-71.4.8098/epl-autoloads.el
+#	new file:   elisp/elpa/epl-71.4.8098/epl-pkg.el
+#	new file:   elisp/elpa/epl-71.4.8098/epl.el
+#	new file:   elisp/elpa/expand-region-0.10.0/cc-mode-expansions.el
+#	new file:   elisp/elpa/expand-region-0.10.0/clojure-mode-expansions.el
+#	new file:   elisp/elpa/expand-region-0.10.0/cperl-mode-expansions.el
+#	new file:   elisp/elpa/expand-region-0.10.0/css-mode-expansions.el
+#	new file:   elisp/elpa/expand-region-0.10.0/enh-ruby-mode-expansions.el
+#	new file:   elisp/elpa/expand-region-0.10.0/er-basic-expansions.el
+#	new file:   elisp/elpa/expand-region-0.10.0/erlang-mode-expansions.el
+#	new file:   elisp/elpa/expand-region-0.10.0/expand-region-autoloads.el
+#	new file:   elisp/elpa/expand-region-0.10.0/expand-region-core.el
+#	new file:   elisp/elpa/expand-region-0.10.0/expand-region-custom.el
+#	new file:   elisp/elpa/expand-region-0.10.0/expand-region-pkg.el
+#	new file:   elisp/elpa/expand-region-0.10.0/expand-region.el
+#	new file:   elisp/elpa/expand-region-0.10.0/feature-mode-expansions.el
+#	new file:   elisp/elpa/expand-region-0.10.0/html-mode-expansions.el
+#	new file:   elisp/elpa/expand-region-0.10.0/js-mode-expansions.el
+#	new file:   elisp/elpa/expand-region-0.10.0/js2-mode-expansions.el
+#	new file:   elisp/elpa/expand-region-0.10.0/jsp-expansions.el
+#	new file:   elisp/elpa/expand-region-0.10.0/latex-mode-expansions.el
+#	new file:   elisp/elpa/expand-region-0.10.0/nxml-mode-expansions.el
+#	new file:   elisp/elpa/expand-region-0.10.0/octave-expansions.el
+#	new file:   elisp/elpa/expand-region-0.10.0/python-el-expansions.el
+#	new file:   elisp/elpa/expand-region-0.10.0/python-el-fgallina-expansions.el
+#	new file:   elisp/elpa/expand-region-0.10.0/python-mode-expansions.el
+#	new file:   elisp/elpa/expand-region-0.10.0/ruby-mode-expansions.el
+#	new file:   elisp/elpa/expand-region-0.10.0/sml-mode-expansions.el
+#	new file:   elisp/elpa/expand-region-0.10.0/text-mode-expansions.el
+#	new file:   elisp/elpa/expand-region-0.10.0/the-org-mode-expansions.el
+#	new file:   elisp/elpa/expand-region-0.10.0/web-mode-expansions.el
+#	new file:   elisp/elpa/f-0.18.0/f-autoloads.el
+#	new file:   elisp/elpa/f-0.18.0/f-pkg.el
+#	new file:   elisp/elpa/f-0.18.0/f.el
+#	new file:   elisp/elpa/flycheck-0.24/dir
+#	new file:   elisp/elpa/flycheck-0.24/fdl-1.3.info
+#	new file:   elisp/elpa/flycheck-0.24/flycheck-autoloads.el
+#	new file:   elisp/elpa/flycheck-0.24/flycheck-ert.el
+#	new file:   elisp/elpa/flycheck-0.24/flycheck-pkg.el
+#	new file:   elisp/elpa/flycheck-0.24/flycheck.el
+#	new file:   elisp/elpa/flycheck-0.24/flycheck.info
+#	new file:   elisp/elpa/flymake-cursor-20130822.332/flymake-cursor-autoloads.el
+#	new file:   elisp/elpa/flymake-cursor-20130822.332/flymake-cursor-pkg.el
+#	new file:   elisp/elpa/flymake-cursor-20130822.332/flymake-cursor.el
+#	new file:   elisp/elpa/fold-dwim-1.2/fold-dwim-autoloads.el
+#	new file:   elisp/elpa/fold-dwim-1.2/fold-dwim-pkg.el
+#	new file:   elisp/elpa/fold-dwim-1.2/fold-dwim.el
+#	new file:   elisp/elpa/fold-dwim-org-0.6/fold-dwim-org-autoloads.el
+#	new file:   elisp/elpa/fold-dwim-org-0.6/fold-dwim-org-pkg.el
+#	new file:   elisp/elpa/fold-dwim-org-0.6/fold-dwim-org.el
+#	new file:   elisp/elpa/frame-cmds-20150814.752/frame-cmds-autoloads.el
+#	new file:   elisp/elpa/frame-cmds-20150814.752/frame-cmds-pkg.el
+#	new file:   elisp/elpa/frame-cmds-20150814.752/frame-cmds.el
+#	new file:   elisp/elpa/frame-fns-20150104.1408/frame-fns-autoloads.el
+#	new file:   elisp/elpa/frame-fns-20150104.1408/frame-fns-pkg.el
+#	new file:   elisp/elpa/frame-fns-20150104.1408/frame-fns.el
+#	new file:   elisp/elpa/fuzzy-0.1/fuzzy-autoloads.el
+#	new file:   elisp/elpa/fuzzy-0.1/fuzzy-pkg.el
+#	new file:   elisp/elpa/fuzzy-0.1/fuzzy.el
+#	new file:   elisp/elpa/git-commit-20151002.1417/git-commit-autoloads.el
+#	new file:   elisp/elpa/git-commit-20151002.1417/git-commit-pkg.el
+#	new file:   elisp/elpa/git-commit-20151002.1417/git-commit.el
+#	new file:   elisp/elpa/gnupg/pubring.gpg
+#	renamed:    elisp/el-got/text-translator/.bzr/checkout/views -> elisp/elpa/gnupg/pubring.gpg~
+#	renamed:    elisp/el-got/python-mode/.bzr/checkout/views -> elisp/elpa/gnupg/secring.gpg
+#	new file:   elisp/elpa/gnupg/trustdb.gpg
+#	new file:   elisp/elpa/google-this-1.10/google-this-autoloads.el
+#	new file:   elisp/elpa/google-this-1.10/google-this-pkg.el
+#	new file:   elisp/elpa/google-this-1.10/google-this.el
+#	new file:   elisp/elpa/grep-a-lot-20131006.647/grep-a-lot-autoloads.el
+#	new file:   elisp/elpa/grep-a-lot-20131006.647/grep-a-lot-pkg.el
+#	new file:   elisp/elpa/grep-a-lot-20131006.647/grep-a-lot.el
+#	new file:   elisp/elpa/header2-20150104.1410/header2-autoloads.el
+#	new file:   elisp/elpa/header2-20150104.1410/header2-pkg.el
+#	new file:   elisp/elpa/header2-20150104.1410/header2.el
+#	new file:   elisp/elpa/helm-1.7.9/emacs-helm.sh
+#	new file:   elisp/elpa/helm-1.7.9/helm-adaptive.el
+#	new file:   elisp/elpa/helm-1.7.9/helm-aliases.el
+#	new file:   elisp/elpa/helm-1.7.9/helm-apt.el
+#	new file:   elisp/elpa/helm-1.7.9/helm-autoloads.el
+#	new file:   elisp/elpa/helm-1.7.9/helm-bookmark.el
+#	new file:   elisp/elpa/helm-1.7.9/helm-buffers.el
+#	new file:   elisp/elpa/helm-1.7.9/helm-color.el
+#	new file:   elisp/elpa/helm-1.7.9/helm-command.el
+#	new file:   elisp/elpa/helm-1.7.9/helm-config.el
+#	new file:   elisp/elpa/helm-1.7.9/helm-dabbrev.el
+#	new file:   elisp/elpa/helm-1.7.9/helm-easymenu.el
+#	new file:   elisp/elpa/helm-1.7.9/helm-elisp-package.el
+#	new file:   elisp/elpa/helm-1.7.9/helm-elisp.el
+#	new file:   elisp/elpa/helm-1.7.9/helm-elscreen.el
+#	new file:   elisp/elpa/helm-1.7.9/helm-eshell.el
+#	new file:   elisp/elpa/helm-1.7.9/helm-eval.el
+#	new file:   elisp/elpa/helm-1.7.9/helm-external.el
+#	new file:   elisp/elpa/helm-1.7.9/helm-files.el
+#	new file:   elisp/elpa/helm-1.7.9/helm-font.el
+#	new file:   elisp/elpa/helm-1.7.9/helm-grep.el
+#	new file:   elisp/elpa/helm-1.7.9/helm-help.el
+#	new file:   elisp/elpa/helm-1.7.9/helm-id-utils.el
+#	new file:   elisp/elpa/helm-1.7.9/helm-imenu.el
+#	new file:   elisp/elpa/helm-1.7.9/helm-info.el
+#	new file:   elisp/elpa/helm-1.7.9/helm-locate.el
+#	new file:   elisp/elpa/helm-1.7.9/helm-man.el
+#	new file:   elisp/elpa/helm-1.7.9/helm-misc.el
+#	new file:   elisp/elpa/helm-1.7.9/helm-mode.el
+#	new file:   elisp/elpa/helm-1.7.9/helm-multi-match.el
+#	new file:   elisp/elpa/helm-1.7.9/helm-net.el
+#	new file:   elisp/elpa/helm-1.7.9/helm-org.el
+#	new file:   elisp/elpa/helm-1.7.9/helm-pkg.el
+#	new file:   elisp/elpa/helm-1.7.9/helm-plugin.el
+#	new file:   elisp/elpa/helm-1.7.9/helm-regexp.el
+#	new file:   elisp/elpa/helm-1.7.9/helm-ring.el
+#	new file:   elisp/elpa/helm-1.7.9/helm-semantic.el
+#	new file:   elisp/elpa/helm-1.7.9/helm-sys.el
+#	new file:   elisp/elpa/helm-1.7.9/helm-tags.el
+#	new file:   elisp/elpa/helm-1.7.9/helm-types.el
+#	new file:   elisp/elpa/helm-1.7.9/helm-utils.el
+#	new file:   elisp/elpa/helm-20151001.2254/emacs-helm.sh
+#	new file:   elisp/elpa/helm-20151001.2254/helm-adaptive.el
+#	new file:   elisp/elpa/helm-20151001.2254/helm-aliases.el
+#	new file:   elisp/elpa/helm-20151001.2254/helm-apt.el
+#	new file:   elisp/elpa/helm-20151001.2254/helm-autoloads.el
+#	new file:   elisp/elpa/helm-20151001.2254/helm-bookmark.el
+#	new file:   elisp/elpa/helm-20151001.2254/helm-buffers.el
+#	new file:   elisp/elpa/helm-20151001.2254/helm-color.el
+#	new file:   elisp/elpa/helm-20151001.2254/helm-command.el
+#	new file:   elisp/elpa/helm-20151001.2254/helm-config.el
+#	new file:   elisp/elpa/helm-20151001.2254/helm-dabbrev.el
+#	new file:   elisp/elpa/helm-20151001.2254/helm-easymenu.el
+#	new file:   elisp/elpa/helm-20151001.2254/helm-elisp-package.el
+#	new file:   elisp/elpa/helm-20151001.2254/helm-elisp.el
+#	new file:   elisp/elpa/helm-20151001.2254/helm-elscreen.el
+#	new file:   elisp/elpa/helm-20151001.2254/helm-eshell.el
+#	new file:   elisp/elpa/helm-20151001.2254/helm-eval.el
+#	new file:   elisp/elpa/helm-20151001.2254/helm-external.el
+#	new file:   elisp/elpa/helm-20151001.2254/helm-files.el
+#	new file:   elisp/elpa/helm-20151001.2254/helm-font.el
+#	new file:   elisp/elpa/helm-20151001.2254/helm-grep.el
+#	new file:   elisp/elpa/helm-20151001.2254/helm-help.el
+#	new file:   elisp/elpa/helm-20151001.2254/helm-id-utils.el
+#	new file:   elisp/elpa/helm-20151001.2254/helm-imenu.el
+#	new file:   elisp/elpa/helm-20151001.2254/helm-info.el
+#	new file:   elisp/elpa/helm-20151001.2254/helm-locate.el
+#	new file:   elisp/elpa/helm-20151001.2254/helm-man.el
+#	new file:   elisp/elpa/helm-20151001.2254/helm-misc.el
+#	new file:   elisp/elpa/helm-20151001.2254/helm-mode.el
+#	new file:   elisp/elpa/helm-20151001.2254/helm-multi-match.el
+#	new file:   elisp/elpa/helm-20151001.2254/helm-net.el
+#	new file:   elisp/elpa/helm-20151001.2254/helm-org.el
+#	new file:   elisp/elpa/helm-20151001.2254/helm-pkg.el
+#	new file:   elisp/elpa/helm-20151001.2254/helm-plugin.el
+#	new file:   elisp/elpa/helm-20151001.2254/helm-regexp.el
+#	new file:   elisp/elpa/helm-20151001.2254/helm-ring.el
+#	new file:   elisp/elpa/helm-20151001.2254/helm-semantic.el
+#	new file:   elisp/elpa/helm-20151001.2254/helm-sys.el
+#	new file:   elisp/elpa/helm-20151001.2254/helm-tags.el
+#	new file:   elisp/elpa/helm-20151001.2254/helm-types.el
+#	new file:   elisp/elpa/helm-20151001.2254/helm-utils.el
+#	new file:   elisp/elpa/helm-c-moccur-20150213.1942/helm-c-moccur-autoloads.el
+#	new file:   elisp/elpa/helm-c-moccur-20150213.1942/helm-c-moccur.el
+#	new file:   elisp/elpa/helm-c-moccur-readme.txt
+#	new file:   elisp/elpa/helm-c-yasnippet-20151001.802/helm-c-yasnippet-autoloads.el
+#	new file:   elisp/elpa/helm-c-yasnippet-20151001.802/helm-c-yasnippet-pkg.el
+#	new file:   elisp/elpa/helm-c-yasnippet-20151001.802/helm-c-yasnippet.el
+#	new file:   elisp/elpa/helm-c-yasnippet-readme.txt
+#	new file:   elisp/elpa/helm-core-20151002.38/helm-core-autoloads.el
+#	new file:   elisp/elpa/helm-core-20151002.38/helm-core-pkg.el
+#	new file:   elisp/elpa/helm-core-20151002.38/helm-lib.el
+#	new file:   elisp/elpa/helm-core-20151002.38/helm-multi-match.el
+#	new file:   elisp/elpa/helm-core-20151002.38/helm-source.el
+#	new file:   elisp/elpa/helm-core-20151002.38/helm.el
+#	new file:   elisp/elpa/helm-ls-git-20150909.818/helm-ls-git-autoloads.el
+#	new file:   elisp/elpa/helm-ls-git-20150909.818/helm-ls-git-pkg.el
+#	new file:   elisp/elpa/helm-ls-git-20150909.818/helm-ls-git.el
+#	new file:   elisp/elpa/helm-pydoc-0.7/helm-pydoc-autoloads.el
+#	new file:   elisp/elpa/helm-pydoc-0.7/helm-pydoc-pkg.el
+#	new file:   elisp/elpa/helm-pydoc-0.7/helm-pydoc.el
+#	new file:   elisp/elpa/helm-pydoc-0.7/helm-pydoc.py
+#	new file:   elisp/elpa/hide-lines-20130824.507/hide-lines-autoloads.el
+#	new file:   elisp/elpa/hide-lines-20130824.507/hide-lines-pkg.el
+#	new file:   elisp/elpa/hide-lines-20130824.507/hide-lines.el
+#	new file:   elisp/elpa/highlight-indentation-0.7.0/highlight-indentation-autoloads.el
+#	new file:   elisp/elpa/highlight-indentation-0.7.0/highlight-indentation-pkg.el
+#	new file:   elisp/elpa/highlight-indentation-0.7.0/highlight-indentation.el
+#	new file:   elisp/elpa/hl-line+-20150104.1422/hl-line+-autoloads.el
+#	new file:   elisp/elpa/hl-line+-20150104.1422/hl-line+-pkg.el
+#	new file:   elisp/elpa/hl-line+-20150104.1422/hl-line+.el
+#	new file:   elisp/elpa/info+-20150914.1436/info+-autoloads.el
+#	new file:   elisp/elpa/info+-20150914.1436/info+-pkg.el
+#	new file:   elisp/elpa/info+-20150914.1436/info+.el
+#	new file:   elisp/elpa/init-loader-0.2/init-loader-autoloads.el
+#	new file:   elisp/elpa/init-loader-0.2/init-loader-pkg.el
+#	new file:   elisp/elpa/init-loader-0.2/init-loader.el
+#	new file:   elisp/elpa/jedi-0.2.5/jedi-autoloads.el
+#	new file:   elisp/elpa/jedi-0.2.5/jedi-pkg.el
+#	new file:   elisp/elpa/jedi-0.2.5/jedi.el
+#	new file:   elisp/elpa/jedi-core-0.2.5/Makefile
+#	new file:   elisp/elpa/jedi-core-0.2.5/jedi-core-autoloads.el
+#	new file:   elisp/elpa/jedi-core-0.2.5/jedi-core-pkg.el
+#	new file:   elisp/elpa/jedi-core-0.2.5/jedi-core.el
+#	new file:   elisp/elpa/jedi-core-0.2.5/jediepcserver.py
+#	new file:   elisp/elpa/jedi-core-0.2.5/setup.py
+#	new file:   elisp/elpa/linum-off-20130419.2054/linum-off-autoloads.el
+#	new file:   elisp/elpa/linum-off-20130419.2054/linum-off-pkg.el
+#	new file:   elisp/elpa/linum-off-20130419.2054/linum-off.el
+#	new file:   elisp/elpa/log4e-20150105.505/log4e-autoloads.el
+#	new file:   elisp/elpa/log4e-20150105.505/log4e-pkg.el
+#	new file:   elisp/elpa/log4e-20150105.505/log4e.el
+#	new file:   elisp/elpa/log4j-mode-1.3/log4j-mode-autoloads.el
+#	new file:   elisp/elpa/log4j-mode-1.3/log4j-mode-pkg.el
+#	new file:   elisp/elpa/log4j-mode-1.3/log4j-mode.el
+#	new file:   elisp/elpa/magit-2.2.2/AUTHORS.md
+#	new file:   elisp/elpa/magit-2.2.2/COPYING
+#	new file:   elisp/elpa/magit-2.2.2/dir
+#	new file:   elisp/elpa/magit-2.2.2/git-rebase.el
+#	new file:   elisp/elpa/magit-2.2.2/magit-apply.el
+#	new file:   elisp/elpa/magit-2.2.2/magit-autoloads.el
+#	new file:   elisp/elpa/magit-2.2.2/magit-bisect.el
+#	new file:   elisp/elpa/magit-2.2.2/magit-blame.el
+#	new file:   elisp/elpa/magit-2.2.2/magit-commit.el
+#	new file:   elisp/elpa/magit-2.2.2/magit-core.el
+#	new file:   elisp/elpa/magit-2.2.2/magit-diff.el
+#	new file:   elisp/elpa/magit-2.2.2/magit-ediff.el
+#	new file:   elisp/elpa/magit-2.2.2/magit-extras.el
+#	new file:   elisp/elpa/magit-2.2.2/magit-git.el
+#	new file:   elisp/elpa/magit-2.2.2/magit-log.el
+#	new file:   elisp/elpa/magit-2.2.2/magit-mode.el
+#	new file:   elisp/elpa/magit-2.2.2/magit-pkg.el
+#	new file:   elisp/elpa/magit-2.2.2/magit-process.el
+#	new file:   elisp/elpa/magit-2.2.2/magit-remote.el
+#	new file:   elisp/elpa/magit-2.2.2/magit-section.el
+#	new file:   elisp/elpa/magit-2.2.2/magit-sequence.el
+#	new file:   elisp/elpa/magit-2.2.2/magit-stash.el
+#	new file:   elisp/elpa/magit-2.2.2/magit-utils.el
+#	new file:   elisp/elpa/magit-2.2.2/magit-wip.el
+#	new file:   elisp/elpa/magit-2.2.2/magit.el
+#	new file:   elisp/elpa/magit-2.2.2/magit.info
+#	new file:   elisp/elpa/magit-popup-20150930.1421/dir
+#	new file:   elisp/elpa/magit-popup-20150930.1421/magit-popup-autoloads.el
+#	new file:   elisp/elpa/magit-popup-20150930.1421/magit-popup-pkg.el
+#	new file:   elisp/elpa/magit-popup-20150930.1421/magit-popup.el
+#	new file:   elisp/elpa/magit-popup-20150930.1421/magit-popup.info
+#	new file:   elisp/elpa/mark-multiple-20121118.754/inline-string-rectangle.el
+#	new file:   elisp/elpa/mark-multiple-20121118.754/mark-more-like-this.el
+#	new file:   elisp/elpa/mark-multiple-20121118.754/mark-multiple-autoloads.el
+#	new file:   elisp/elpa/mark-multiple-20121118.754/mark-multiple-pkg.el
+#	new file:   elisp/elpa/mark-multiple-20121118.754/mark-multiple.el
+#	new file:   elisp/elpa/mark-multiple-20121118.754/mm-pabbrev-integration.el
+#	new file:   elisp/elpa/mark-multiple-20121118.754/rename-sgml-tag.el
+#	new file:   elisp/elpa/multi-term-20150220.520/multi-term-autoloads.el
+#	new file:   elisp/elpa/multi-term-20150220.520/multi-term-pkg.el
+#	new file:   elisp/elpa/multi-term-20150220.520/multi-term.el
+#	new file:   elisp/elpa/multiple-cursors-1.3.0/mc-cycle-cursors.el
+#	new file:   elisp/elpa/multiple-cursors-1.3.0/mc-edit-lines.el
+#	new file:   elisp/elpa/multiple-cursors-1.3.0/mc-mark-more.el
+#	new file:   elisp/elpa/multiple-cursors-1.3.0/mc-mark-pop.el
+#	new file:   elisp/elpa/multiple-cursors-1.3.0/mc-separate-operations.el
+#	new file:   elisp/elpa/multiple-cursors-1.3.0/multiple-cursors-autoloads.el
+#	new file:   elisp/elpa/multiple-cursors-1.3.0/multiple-cursors-core.el
+#	new file:   elisp/elpa/multiple-cursors-1.3.0/multiple-cursors-pkg.el
+#	new file:   elisp/elpa/multiple-cursors-1.3.0/multiple-cursors.el
+#	new file:   elisp/elpa/multiple-cursors-1.3.0/rectangular-region-mode.el
+#	new file:   elisp/elpa/open-junk-file-20130130.2320/open-junk-file-autoloads.el
+#	new file:   elisp/elpa/open-junk-file-20130130.2320/open-junk-file-pkg.el
+#	new file:   elisp/elpa/open-junk-file-20130130.2320/open-junk-file.el
+#	new file:   elisp/elpa/pkg-info-20150517.443/pkg-info-autoloads.el
+#	new file:   elisp/elpa/pkg-info-20150517.443/pkg-info-pkg.el
+#	new file:   elisp/elpa/pkg-info-20150517.443/pkg-info.el
+#	new file:   elisp/elpa/point-undo-20100504.129/point-undo-autoloads.el
+#	new file:   elisp/elpa/point-undo-20100504.129/point-undo-pkg.el
+#	new file:   elisp/elpa/point-undo-20100504.129/point-undo.el
+#	new file:   elisp/elpa/popup-20150626.711/popup-autoloads.el
+#	new file:   elisp/elpa/popup-20150626.711/popup-pkg.el
+#	new file:   elisp/elpa/popup-20150626.711/popup.el
+#	new file:   elisp/elpa/py-smart-operator-20150824.1910/py-smart-operator-autoloads.el
+#	new file:   elisp/elpa/py-smart-operator-20150824.1910/py-smart-operator-pkg.el
+#	new file:   elisp/elpa/py-smart-operator-20150824.1910/py-smart-operator.el
+#	new file:   elisp/elpa/pylint-20150123.1600/pylint-autoloads.el
+#	new file:   elisp/elpa/pylint-20150123.1600/pylint-pkg.el
+#	new file:   elisp/elpa/pylint-20150123.1600/pylint.el
+#	new file:   elisp/elpa/python-environment-0.0.2/python-environment-autoloads.el
+#	new file:   elisp/elpa/python-environment-0.0.2/python-environment-pkg.el
+#	new file:   elisp/elpa/python-environment-0.0.2/python-environment.el
+#	new file:   elisp/elpa/python-environment-0.0.2/test-python-environment.el
+#	renamed:    elisp/el-got/python-mode/completion/pycomplete.el -> elisp/elpa/python-mode-20150909.2301/completion/pycomplete.el
+#	renamed:    elisp/el-got/python-mode/completion/pycomplete.py -> elisp/elpa/python-mode-20150909.2301/completion/pycomplete.py
+#	new file:   elisp/elpa/python-mode-20150909.2301/python-mode-autoloads.el
+#	new file:   elisp/elpa/python-mode-20150909.2301/python-mode-pkg.el
+#	new file:   elisp/elpa/python-mode-20150909.2301/python-mode.el
+#	new file:   elisp/elpa/quickrun-2.2.5/quickrun-autoloads.el
+#	new file:   elisp/elpa/quickrun-2.2.5/quickrun-pkg.el
+#	new file:   elisp/elpa/quickrun-2.2.5/quickrun.el
+#	new file:   elisp/elpa/recentf-ext-20130130.1350/recentf-ext-autoloads.el
+#	new file:   elisp/elpa/recentf-ext-20130130.1350/recentf-ext-pkg.el
+#	new file:   elisp/elpa/recentf-ext-20130130.1350/recentf-ext.el
+#	new file:   elisp/elpa/revive-20150417.1555/revive-autoloads.el
+#	new file:   elisp/elpa/revive-20150417.1555/revive-pkg.el
+#	new file:   elisp/elpa/revive-20150417.1555/revive.el
+#	new file:   elisp/elpa/s-20150924.406/s-autoloads.el
+#	new file:   elisp/elpa/s-20150924.406/s-pkg.el
+#	new file:   elisp/elpa/s-20150924.406/s.el
+#	new file:   elisp/elpa/save-sexp-0.2.0/.t.el
+#	new file:   elisp/elpa/save-sexp-0.2.0/save-sexp-autoloads.el
+#	new file:   elisp/elpa/save-sexp-0.2.0/save-sexp-pkg.el
+#	renamed:    elisp/plugin/save-sexp.el -> elisp/elpa/save-sexp-0.2.0/save-sexp.el
+#	new file:   elisp/elpa/savekill-20140417.1934/savekill-autoloads.el
+#	new file:   elisp/elpa/savekill-20140417.1934/savekill-pkg.el
+#	new file:   elisp/elpa/savekill-20140417.1934/savekill.el
+#	new file:   elisp/elpa/scratch-log-20141114.2343/scratch-log-autoloads.el
+#	new file:   elisp/elpa/scratch-log-20141114.2343/scratch-log-pkg.el
+#	new file:   elisp/elpa/scratch-log-20141114.2343/scratch-log.el
+#	new file:   elisp/elpa/sequential-command-20150407.1747/sequential-command-autoloads.el
+#	new file:   elisp/elpa/sequential-command-20150407.1747/sequential-command-config.el
+#	new file:   elisp/elpa/sequential-command-20150407.1747/sequential-command-pkg.el
+#	new file:   elisp/elpa/sequential-command-20150407.1747/sequential-command.el
+#	new file:   elisp/elpa/smartrep-1.0.0/smartrep-autoloads.el
+#	new file:   elisp/elpa/smartrep-1.0.0/smartrep-pkg.el
+#	new file:   elisp/elpa/smartrep-1.0.0/smartrep.el
+#	new file:   elisp/elpa/sudo-ext-20130130.1351/sudo-ext-autoloads.el
+#	new file:   elisp/elpa/sudo-ext-20130130.1351/sudo-ext-pkg.el
+#	new file:   elisp/elpa/sudo-ext-20130130.1351/sudo-ext.el
+#	new file:   elisp/elpa/syslog-mode-20140217.1618/syslog-mode-autoloads.el
+#	new file:   elisp/elpa/syslog-mode-20140217.1618/syslog-mode-pkg.el
+#	new file:   elisp/elpa/syslog-mode-20140217.1618/syslog-mode.el
+#	new file:   elisp/elpa/systemd-1.3.1/systemd-autoloads.el
+#	new file:   elisp/elpa/systemd-1.3.1/systemd-company.el
+#	new file:   elisp/elpa/systemd-1.3.1/systemd-pkg.el
+#	new file:   elisp/elpa/systemd-1.3.1/systemd.el
+#	new file:   elisp/elpa/tabbar-20141109.143/down.png
+#	new file:   elisp/elpa/tabbar-20141109.143/tabbar-autoloads.el
+#	new file:   elisp/elpa/tabbar-20141109.143/tabbar-pkg.el
+#	new file:   elisp/elpa/tabbar-20141109.143/tabbar.el
+#	new file:   elisp/elpa/tabbar-20141109.143/up.png
+#	new file:   elisp/elpa/unbound-20140307.128/unbound-autoloads.el
+#	new file:   elisp/elpa/unbound-20140307.128/unbound-pkg.el
+#	new file:   elisp/elpa/unbound-20140307.128/unbound.el
+#	new file:   elisp/elpa/undo-tree-0.6.5.signed
+#	new file:   elisp/elpa/undo-tree-0.6.5/undo-tree-autoloads.el
+#	new file:   elisp/elpa/undo-tree-0.6.5/undo-tree-pkg.el
+#	new file:   elisp/elpa/undo-tree-0.6.5/undo-tree.el
+#	new file:   elisp/elpa/usage-memo-20110722.851/usage-memo-autoloads.el
+#	new file:   elisp/elpa/usage-memo-20110722.851/usage-memo-pkg.el
+#	new file:   elisp/elpa/usage-memo-20110722.851/usage-memo.el
+#	new file:   elisp/elpa/viewer-20141021.1138/viewer-autoloads.el
+#	new file:   elisp/elpa/viewer-20141021.1138/viewer-pkg.el
+#	new file:   elisp/elpa/viewer-20141021.1138/viewer.el
+#	new file:   elisp/elpa/viewer-readme.txt
+#	new file:   elisp/elpa/virtualenv-20140220.1501/virtualenv-autoloads.el
+#	new file:   elisp/elpa/virtualenv-20140220.1501/virtualenv-pkg.el
+#	new file:   elisp/elpa/virtualenv-20140220.1501/virtualenv.el
+#	new file:   elisp/elpa/vline-20120108.445/vline-autoloads.el
+#	new file:   elisp/elpa/vline-20120108.445/vline-pkg.el
+#	new file:   elisp/elpa/vline-20120108.445/vline.el
+#	renamed:    elisp/el-got/emacs-w3m/bookmark-w3m.el -> elisp/elpa/w3m-20150929.409/bookmark-w3m.el
+#	renamed:    elisp/el-got/emacs-w3m/icons/antenna-up.png -> elisp/elpa/w3m-20150929.409/icons/antenna-up.png
+#	renamed:    elisp/el-got/emacs-w3m/icons/antenna-up.xpm -> elisp/elpa/w3m-20150929.409/icons/antenna-up.xpm
+#	renamed:    elisp/el-got/emacs-w3m/icons/back-disabled.png -> elisp/elpa/w3m-20150929.409/icons/back-disabled.png
+#	renamed:    elisp/el-got/emacs-w3m/icons/back-disabled.xpm -> elisp/elpa/w3m-20150929.409/icons/back-disabled.xpm
+#	renamed:    elisp/el-got/emacs-w3m/icons/back-up.png -> elisp/elpa/w3m-20150929.409/icons/back-up.png
+#	renamed:    elisp/el-got/emacs-w3m/icons/back-up.xpm -> elisp/elpa/w3m-20150929.409/icons/back-up.xpm
+#	renamed:    elisp/el-got/emacs-w3m/icons/copy-up.png -> elisp/elpa/w3m-20150929.409/icons/copy-up.png
+#	renamed:    elisp/el-got/emacs-w3m/icons/copy-up.xpm -> elisp/elpa/w3m-20150929.409/icons/copy-up.xpm
+#	renamed:    elisp/el-got/emacs-w3m/icons/db-history-up.png -> elisp/elpa/w3m-20150929.409/icons/db-history-up.png
+#	renamed:    elisp/el-got/emacs-w3m/icons/db-history-up.xpm -> elisp/elpa/w3m-20150929.409/icons/db-history-up.xpm
+#	renamed:    elisp/el-got/emacs-w3m/icons/forward-disabled.png -> elisp/elpa/w3m-20150929.409/icons/forward-disabled.png
+#	renamed:    elisp/el-got/emacs-w3m/icons/forward-disabled.xpm -> elisp/elpa/w3m-20150929.409/icons/forward-disabled.xpm
+#	renamed:    elisp/el-got/emacs-w3m/icons/forward-up.png -> elisp/elpa/w3m-20150929.409/icons/forward-up.png
+#	renamed:    elisp/el-got/emacs-w3m/icons/forward-up.xpm -> elisp/elpa/w3m-20150929.409/icons/forward-up.xpm
+#	renamed:    elisp/el-got/emacs-w3m/icons/history-up.png -> elisp/elpa/w3m-20150929.409/icons/history-up.png
+#	renamed:    elisp/el-got/emacs-w3m/icons/history-up.xpm -> elisp/elpa/w3m-20150929.409/icons/history-up.xpm
+#	renamed:    elisp/el-got/emacs-w3m/icons/home-up.png -> elisp/elpa/w3m-20150929.409/icons/home-up.png
+#	renamed:    elisp/el-got/emacs-w3m/icons/home-up.xpm -> elisp/elpa/w3m-20150929.409/icons/home-up.xpm
+#	renamed:    elisp/el-got/emacs-w3m/icons/image-up.png -> elisp/elpa/w3m-20150929.409/icons/image-up.png
+#	renamed:    elisp/el-got/emacs-w3m/icons/image-up.xpm -> elisp/elpa/w3m-20150929.409/icons/image-up.xpm
+#	renamed:    elisp/el-got/emacs-w3m/icons/open-up.png -> elisp/elpa/w3m-20150929.409/icons/open-up.png
+#	renamed:    elisp/el-got/emacs-w3m/icons/open-up.xpm -> elisp/elpa/w3m-20150929.409/icons/open-up.xpm
+#	renamed:    elisp/el-got/emacs-w3m/icons/parent-disabled.png -> elisp/elpa/w3m-20150929.409/icons/parent-disabled.png
+#	renamed:    elisp/el-got/emacs-w3m/icons/parent-disabled.xpm -> elisp/elpa/w3m-20150929.409/icons/parent-disabled.xpm
+#	renamed:    elisp/el-got/emacs-w3m/icons/parent-up.png -> elisp/elpa/w3m-20150929.409/icons/parent-up.png
+#	renamed:    elisp/el-got/emacs-w3m/icons/parent-up.xpm -> elisp/elpa/w3m-20150929.409/icons/parent-up.xpm
+#	renamed:    elisp/el-got/emacs-w3m/icons/reload-up.png -> elisp/elpa/w3m-20150929.409/icons/reload-up.png
+#	renamed:    elisp/el-got/emacs-w3m/icons/reload-up.xpm -> elisp/elpa/w3m-20150929.409/icons/reload-up.xpm
+#	renamed:    elisp/el-got/emacs-w3m/icons/save-up.png -> elisp/elpa/w3m-20150929.409/icons/save-up.png
+#	renamed:    elisp/el-got/emacs-w3m/icons/save-up.xpm -> elisp/elpa/w3m-20150929.409/icons/save-up.xpm
+#	renamed:    elisp/el-got/emacs-w3m/icons/search-up.png -> elisp/elpa/w3m-20150929.409/icons/search-up.png
+#	renamed:    elisp/el-got/emacs-w3m/icons/search-up.xpm -> elisp/elpa/w3m-20150929.409/icons/search-up.xpm
+#	renamed:    elisp/el-got/emacs-w3m/icons30/spinner.gif -> elisp/elpa/w3m-20150929.409/icons/spinner.gif
+#	renamed:    elisp/el-got/emacs-w3m/icons30/state-00.png -> elisp/elpa/w3m-20150929.409/icons/state-00.png
+#	renamed:    elisp/el-got/emacs-w3m/icons30/state-00.xpm -> elisp/elpa/w3m-20150929.409/icons/state-00.xpm
+#	renamed:    elisp/el-got/emacs-w3m/icons30/state-01.png -> elisp/elpa/w3m-20150929.409/icons/state-01.png
+#	renamed:    elisp/el-got/emacs-w3m/icons30/state-01.xpm -> elisp/elpa/w3m-20150929.409/icons/state-01.xpm
+#	renamed:    elisp/el-got/emacs-w3m/icons30/state-10.png -> elisp/elpa/w3m-20150929.409/icons/state-10.png
+#	renamed:    elisp/el-got/emacs-w3m/icons30/state-10.xpm -> elisp/elpa/w3m-20150929.409/icons/state-10.xpm
+#	renamed:    elisp/el-got/emacs-w3m/icons30/state-11.png -> elisp/elpa/w3m-20150929.409/icons/state-11.png
+#	renamed:    elisp/el-got/emacs-w3m/icons30/state-11.xpm -> elisp/elpa/w3m-20150929.409/icons/state-11.xpm
+#	renamed:    elisp/el-got/emacs-w3m/icons/weather-up.png -> elisp/elpa/w3m-20150929.409/icons/weather-up.png
+#	renamed:    elisp/el-got/emacs-w3m/icons/weather-up.xpm -> elisp/elpa/w3m-20150929.409/icons/weather-up.xpm
+#	renamed:    elisp/el-got/emacs-w3m/mime-w3m.el -> elisp/elpa/w3m-20150929.409/mime-w3m.el
+#	renamed:    elisp/el-got/emacs-w3m/w3m-antenna.el -> elisp/elpa/w3m-20150929.409/w3m-antenna.el
+#	new file:   elisp/elpa/w3m-20150929.409/w3m-autoloads.el
+#	renamed:    elisp/el-got/emacs-w3m/w3m-bookmark.el -> elisp/elpa/w3m-20150929.409/w3m-bookmark.el
+#	renamed:    elisp/el-got/emacs-w3m/w3m-bug.el -> elisp/elpa/w3m-20150929.409/w3m-bug.el
+#	renamed:    elisp/el-got/emacs-w3m/w3m-ccl.el -> elisp/elpa/w3m-20150929.409/w3m-ccl.el
+#	renamed:    elisp/el-got/emacs-w3m/w3m-cookie.el -> elisp/elpa/w3m-20150929.409/w3m-cookie.el
+#	renamed:    elisp/el-got/emacs-w3m/w3m-dtree.el -> elisp/elpa/w3m-20150929.409/w3m-dtree.el
+#	renamed:    elisp/el-got/emacs-w3m/w3m-ems.el -> elisp/elpa/w3m-20150929.409/w3m-ems.el
+#	renamed:    elisp/el-got/emacs-w3m/w3m-favicon.el -> elisp/elpa/w3m-20150929.409/w3m-favicon.el
+#	new file:   elisp/elpa/w3m-20150929.409/w3m-fb.el
+#	renamed:    elisp/el-got/emacs-w3m/w3m-filter.el -> elisp/elpa/w3m-20150929.409/w3m-filter.el
+#	renamed:    elisp/el-got/emacs-w3m/w3m-form.el -> elisp/elpa/w3m-20150929.409/w3m-form.el
+#	renamed:    elisp/el-got/emacs-w3m/w3m-hist.el -> elisp/elpa/w3m-20150929.409/w3m-hist.el
+#	renamed:    elisp/el-got/emacs-w3m/w3m-image.el -> elisp/elpa/w3m-20150929.409/w3m-image.el
+#	renamed:    elisp/el-got/emacs-w3m/w3m-lnum.el -> elisp/elpa/w3m-20150929.409/w3m-lnum.el
+#	renamed:    elisp/el-got/emacs-w3m/w3m-mail.el -> elisp/elpa/w3m-20150929.409/w3m-mail.el
+#	renamed:    elisp/el-got/emacs-w3m/w3m-namazu.el -> elisp/elpa/w3m-20150929.409/w3m-namazu.el
+#	renamed:    elisp/el-got/emacs-w3m/w3m-perldoc.el -> elisp/elpa/w3m-20150929.409/w3m-perldoc.el
+#	new file:   elisp/elpa/w3m-20150929.409/w3m-pkg.el
+#	renamed:    elisp/el-got/emacs-w3m/w3m-proc.el -> elisp/elpa/w3m-20150929.409/w3m-proc.el
+#	renamed:    elisp/el-got/emacs-w3m/w3m-rss.el -> elisp/elpa/w3m-20150929.409/w3m-rss.el
+#	renamed:    elisp/el-got/emacs-w3m/w3m-save.el -> elisp/elpa/w3m-20150929.409/w3m-save.el
+#	renamed:    elisp/el-got/emacs-w3m/w3m-search.el -> elisp/elpa/w3m-20150929.409/w3m-search.el
+#	renamed:    elisp/el-got/emacs-w3m/w3m-session.el -> elisp/elpa/w3m-20150929.409/w3m-session.el
+#	renamed:    elisp/el-got/emacs-w3m/w3m-symbol.el -> elisp/elpa/w3m-20150929.409/w3m-symbol.el
+#	renamed:    elisp/el-got/emacs-w3m/w3m-tabmenu.el -> elisp/elpa/w3m-20150929.409/w3m-tabmenu.el
+#	renamed:    elisp/el-got/emacs-w3m/w3m-ucs.el -> elisp/elpa/w3m-20150929.409/w3m-ucs.el
+#	renamed:    elisp/el-got/emacs-w3m/w3m-util.el -> elisp/elpa/w3m-20150929.409/w3m-util.el
+#	renamed:    elisp/el-got/emacs-w3m/w3m-weather.el -> elisp/elpa/w3m-20150929.409/w3m-weather.el
+#	new file:   elisp/elpa/w3m-20150929.409/w3m.el
+#	renamed:    elisp/el-got/emacs-w3m/w3mhack.el -> elisp/elpa/w3m-20150929.409/w3mhack.el
+#	new file:   elisp/elpa/window-layout-20150716.2207/window-layout-autoloads.el
+#	new file:   elisp/elpa/window-layout-20150716.2207/window-layout-pkg.el
+#	new file:   elisp/elpa/window-layout-20150716.2207/window-layout.el
+#	new file:   elisp/elpa/with-editor-20150929.1427/dir
+#	new file:   elisp/elpa/with-editor-20150929.1427/with-editor-autoloads.el
+#	new file:   elisp/elpa/with-editor-20150929.1427/with-editor-pkg.el
+#	new file:   elisp/elpa/with-editor-20150929.1427/with-editor.el
+#	new file:   elisp/elpa/with-editor-20150929.1427/with-editor.info
+#	new file:   elisp/elpa/yasnippet-0.8.0.signed
+#	new file:   elisp/elpa/yasnippet-0.8.0/ChangeLog
+#	new file:   elisp/elpa/yasnippet-0.8.0/README
+#	new file:   elisp/elpa/yasnippet-0.8.0/dropdown-list.el
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/c++-mode/.yas-parents
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/c++-mode/beginend
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/c++-mode/class
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/c++-mode/ns
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/c++-mode/template
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/c++-mode/using
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/c-mode/.yas-parents
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/c-mode/fopen
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/c-mode/printf
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/cc-mode/.yas-parents
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/cc-mode/do
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/cc-mode/for
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/cc-mode/if
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/cc-mode/inc
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/cc-mode/inc.1
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/cc-mode/main
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/cc-mode/once
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/cc-mode/struct
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/cperl-mode/.yas-parents
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/csharp-mode/.yas-parents
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/csharp-mode/attrib
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/csharp-mode/attrib.1
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/csharp-mode/attrib.2
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/csharp-mode/class
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/csharp-mode/comment
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/csharp-mode/comment.1
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/csharp-mode/comment.2
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/csharp-mode/comment.3
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/csharp-mode/method
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/csharp-mode/namespace
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/csharp-mode/prop
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/csharp-mode/region
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/csharp-mode/using
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/csharp-mode/using.1
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/csharp-mode/using.2
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/css-mode/.yas-parents
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/css-mode/bg
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/css-mode/bg.1
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/css-mode/bor
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/css-mode/cl
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/css-mode/disp.block
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/css-mode/disp.inline
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/css-mode/disp.none
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/css-mode/ff
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/css-mode/fs
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/css-mode/mar.bottom
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/css-mode/mar.left
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/css-mode/mar.mar
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/css-mode/mar.margin
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/css-mode/mar.right
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/css-mode/mar.top
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/css-mode/pad.bottom
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/css-mode/pad.left
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/css-mode/pad.pad
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/css-mode/pad.padding
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/css-mode/pad.right
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/css-mode/pad.top
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/.read_me
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/.yas-parents
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/add-hook.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/and.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/append.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/apply.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/aref.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/aset.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/assq.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/autoload.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/backward-char.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/beginning-of-line.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/bounds-of-thing-at-point.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/buffer-file-name.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/buffer-modified-p.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/buffer-substring-no-properties.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/buffer-substring.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/car.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/cdr.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/concat.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/cond.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/condition-case.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/cons.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/consp.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/copy-directory.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/copy-file.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/current-buffer.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/custom-autoload.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/defalias.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/defcustom.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/define-key.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/defsubst.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/defun.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/defvar.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/delete-char.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/delete-directory.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/delete-file.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/delete-region.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/directory-files.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/dolist.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/end-of-line.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/eq.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/equal.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/error.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/expand-file-name.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/f.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/fboundp.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/file-name-directory.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/file-name-extension.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/file-name-nondirectory.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/file-name-sans-extension.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/file-relative-name.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/find-file.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/format.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/forward-char.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/forward-line.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/funcall.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/function.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/get.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/global-set-key.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/goto-char.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/if.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/insert-file-contents.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/insert.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/interactive.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/kbd.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/kill-buffer.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/lambda.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/length.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/let.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/line-beginning-position.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/line-end-position.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/list.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/looking-at.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/make-directory.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/make-local-variable.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/mapc.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/mapcar.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/match-beginning.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/match-end.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/match-string.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/memq.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/message.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/not.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/nth.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/null.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/number-to-string.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/or.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/point-max.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/point-min.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/point.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/princ.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/print.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/progn.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/push.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/put.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/re-search-backward.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/re-search-forward.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/region-active-p.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/region-beginning.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/region-end.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/rename-file.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/repeat.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/replace-regexp-in-string.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/replace-regexp.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/require.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/save-buffer.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/save-excursion.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/search-backward-regexp.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/search-backward.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/search-forward-regexp.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/search-forward.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/set-buffer.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/set-file-modes.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/set-mark.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/set.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/setq.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/skip-chars-backward.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/skip-chars-forward.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/split-string.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/string-match.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/string-to-number.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/string.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/string=.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/stringp.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/substring.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/thing-at-point.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/unless.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/vector.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/when.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/while.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/widget-get.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/with-current-buffer.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/x-dired.process_marked.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/x-file.process.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/x-file.read-lines.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/x-find-replace.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/x-grabstring.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/x-grabthing.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/x-traverse_dir.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/x-word-or-region.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/y-or-n-p.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/emacs-lisp-mode/yes-or-no-p.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/erlang-mode/.yas-parents
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/erlang-mode/after
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/erlang-mode/begin
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/erlang-mode/beh
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/erlang-mode/case
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/erlang-mode/compile
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/erlang-mode/def
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/erlang-mode/exp
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/erlang-mode/fun
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/erlang-mode/if
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/erlang-mode/ifdef
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/erlang-mode/ifndef
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/erlang-mode/imp
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/erlang-mode/inc
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/erlang-mode/inc.lib
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/erlang-mode/loop
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/erlang-mode/mod
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/erlang-mode/rcv
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/erlang-mode/rcv.after
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/erlang-mode/rec
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/erlang-mode/try
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/erlang-mode/undef
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/f90-mode/.yas-parents
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/f90-mode/au
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/f90-mode/bd
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/f90-mode/c
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/f90-mode/ch
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/f90-mode/cx
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/f90-mode/dc
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/f90-mode/do
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/f90-mode/dp
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/f90-mode/eq
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/f90-mode/ib
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/f90-mode/ic
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/f90-mode/ich
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/f90-mode/if
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/f90-mode/ii
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/f90-mode/il
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/f90-mode/in
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/f90-mode/inc
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/f90-mode/intr
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/f90-mode/ir
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/f90-mode/l
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/f90-mode/pa
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/f90-mode/pr
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/f90-mode/re
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/f90-mode/st
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/f90-mode/su
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/f90-mode/wr
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/.yas-make-groups
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/.yas-parents
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/b.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/body
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/br
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/code
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/code.class
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/div
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/div.class
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/div.id
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/div.id-class
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/dov
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/form
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/head
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/header/h1
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/header/h2
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/header/h3
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/header/h4
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/header/h5
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/header/h6
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/hr
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/href
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/html
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/html.xmlns
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/i.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/img
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/input
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/link.stylesheet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/link.stylesheet-ie
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/list/dd
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/list/dl
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/list/dl.id
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/list/dt
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/list/li
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/list/li.class
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/list/ol
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/list/ol.class
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/list/ol.id
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/list/ul
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/list/ul.class
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/list/ul.id
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/mailto
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/meta/doctype
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/meta/doctype.xhml1
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/meta/doctype.xhtml1_1
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/meta/doctype.xhtml1_strict
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/meta/doctype.xhtml1_transitional
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/meta/meta
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/meta/meta.http-equiv
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/p
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/pre
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/q.yasnippet
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/quote
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/script.javascript
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/script.javascript-src
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/span
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/span.class
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/span.id
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/style
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/table/table
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/table/td
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/table/th
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/table/tr
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/textarea
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/html-mode/title
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/latex-mode/.yas-parents
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/latex-mode/begin
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/markdown-mode/+
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/markdown-mode/-
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/markdown-mode/.yas-parents
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/markdown-mode/_
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/markdown-mode/__
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/markdown-mode/`
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/markdown-mode/h1.1
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/markdown-mode/h1.2
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/markdown-mode/h2.1
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/markdown-mode/h2.2
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/markdown-mode/h3
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/markdown-mode/h4
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/markdown-mode/h5
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/markdown-mode/h6
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/markdown-mode/hr.1
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/markdown-mode/hr.2
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/markdown-mode/img
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/markdown-mode/link
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/markdown-mode/ol
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/markdown-mode/rimg
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/markdown-mode/rlb
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/markdown-mode/rlink
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/nxml-mode/.yas-make-groups
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/nxml-mode/.yas-parents
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/nxml-mode/body
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/nxml-mode/br
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/nxml-mode/code
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/nxml-mode/div
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/nxml-mode/form
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/nxml-mode/head
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/nxml-mode/header/h1
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/nxml-mode/header/h2
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/nxml-mode/header/h3
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/nxml-mode/header/h4
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/nxml-mode/header/h5
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/nxml-mode/header/h6
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/nxml-mode/hr
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/nxml-mode/href
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/nxml-mode/html
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/nxml-mode/img
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/nxml-mode/input
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/nxml-mode/li
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/nxml-mode/link
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/nxml-mode/meta/doctype
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/nxml-mode/meta/doctype.xhtml1_strict
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/nxml-mode/meta/doctype.xhtml1_transitional
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/nxml-mode/meta/meta
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/nxml-mode/name
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/nxml-mode/ol
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/nxml-mode/p
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/nxml-mode/pre
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/nxml-mode/quote
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/nxml-mode/span
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/nxml-mode/style
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/nxml-mode/table
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/nxml-mode/tag.1l
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/nxml-mode/tag.2l
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/nxml-mode/td
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/nxml-mode/th
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/nxml-mode/title
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/nxml-mode/tr
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/nxml-mode/ul
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/objc-mode/.yas-parents
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/objc-mode/prop
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/perl-mode/.yas-parents
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/perl-mode/eval
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/perl-mode/for
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/perl-mode/fore
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/perl-mode/if
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/perl-mode/ife
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/perl-mode/ifee
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/perl-mode/sub
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/perl-mode/unless
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/perl-mode/while
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/perl-mode/xfore
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/perl-mode/xif
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/perl-mode/xunless
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/perl-mode/xwhile
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/python-mode/.yas-parents
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/python-mode/__
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/python-mode/class
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/python-mode/def
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/python-mode/defm
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/python-mode/for
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/python-mode/ifmain
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/python-mode/prop
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/python-mode/propg
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/python-mode/propsg
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/python-mode/while
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/rst-mode/.yas-parents
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/rst-mode/chap
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/rst-mode/sec
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/rst-mode/tit
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/.yas-make-groups
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/.yas-parents
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/collections/all
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/collections/any
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/collections/classify
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/collections/collect
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/collections/deli
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/collections/det
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/collections/ea
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/collections/eac
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/collections/eai
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/collections/eav
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/collections/eawi
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/collections/inject
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/collections/reject
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/collections/select
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/collections/zip
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/control structure/forin
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/control structure/if
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/control structure/ife
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/control structure/tim
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/control structure/until
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/control structure/upt
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/control structure/when
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/control structure/while
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/definitions/Comp
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/definitions/am
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/definitions/cla
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/definitions/cls
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/definitions/mm
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/definitions/r
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/definitions/rw
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/definitions/w
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/general/#
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/general/=b
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/general/app
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/general/bm
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/general/case
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/general/dee
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/general/rb
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/general/req
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/general/rreq
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/ruby-mode/general/y
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/.yas-parents
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/act
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/act.arg
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/actor
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/ano
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/app
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/arr.new
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/arr.val-new
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/asof
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/ass
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/ass.true
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/at.author
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/at.param
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/at.return
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/at.version
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/bang
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/case
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/case.match-all
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/cast
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/cc
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/cl
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/cl.abs
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/cl.abs-arg
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/cl.arg
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/clof
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/co
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/cons
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/cons.nil
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/def.arg
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/def.arg-body
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/def.arg-ret
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/def.arg-ret-body
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/def.body
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/def.ret
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/def.ret-body
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/def.simple
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/doc.class
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/doc.def
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/doc.file
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/doc.file-scala
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/doc.file-scala-api
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/doc.scaladoc
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/expect
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/ext
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/for.extract
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/for.if
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/for.loop
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/for.multi
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/foreach
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/hmap.new
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/hmap.val-new
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/hset.new
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/hset.val-new
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/if
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/if.else
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/imp
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/intercept
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/isof
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/ls.new
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/ls.val-new
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/main
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/map
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/map.new
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/match
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/match.can
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/match.option
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/mix
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/ob
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/pac
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/pr.newline
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/pr.simple
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/pr.string
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/pr.trace
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/pri
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/pri.param
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/pro
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/pro.param
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/suite
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/test
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/throw
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/tr
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/tr.ext
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/tr.ext-with
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/tr.with
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/try
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/try.catch-finally
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/try.finally
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/tup.arrow
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/tup.paren
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/val
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/val.new
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/val.ret
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/var
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/var.new
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/var.ret
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/whi
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/scala-mode/with
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/snippet-mode/.yas-parents
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/snippet-mode/field
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/snippet-mode/mirror
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/snippet-mode/vars
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/sql-mode/.yas-parents
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/sql-mode/column
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/sql-mode/constraint
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/sql-mode/constraint.1
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/sql-mode/create
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/sql-mode/create.1
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/sql-mode/references
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/text-mode/email
+#	new file:   elisp/elpa/yasnippet-0.8.0/snippets/text-mode/time
+#	new file:   elisp/elpa/yasnippet-0.8.0/yasnippet-autoloads.el
+#	new file:   elisp/elpa/yasnippet-0.8.0/yasnippet-pkg.el
+#	new file:   elisp/elpa/yasnippet-0.8.0/yasnippet.el
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/.gitignore
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/.nosearch
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/CONTRIBUTORS.txt
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/LICENSE
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/README.md
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/antlr-mode/project
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/antlr-mode/property
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/antlr-mode/target
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/applescript-mode/.yas-parents
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/.yas-parents
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/assert
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/beginend
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/boost_require
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/cerr
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/cin
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/class
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/const_[]
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/constructor
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/cout
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/cpp
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/cstd
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/d+=
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/d_operator
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/d_operator[]
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/d_operator[]_const
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/d_operator_istream
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/d_operator_ostream
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/delete
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/delete[]
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/doc
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/dynamic_casting
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/enum
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/fixture
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/fori
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/friend
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/fun_declaration
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/function
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/gtest
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/ignore
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/inline
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/io
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/iterator
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/map
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/module
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/namespace
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/ns
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/operator!=
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/operator+
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/operator+=
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/operator=
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/operator==
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/operator[]
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/operator_istream
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/operator_ostream
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/ostream
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/pack
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/private
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/protected
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/public
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/sstream
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/std
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/std_colon
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/str
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/template
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/test case
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/test_main
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/test_suite
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/this
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/throw
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/try
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/tryw
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/using
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c++-mode/vector
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c-mode/.yas-parents
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c-mode/assert
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c-mode/compile
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c-mode/define
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c-mode/malloc
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c-mode/packed
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c-mode/printf
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c-mode/stdio
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c-mode/stdlib
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c-mode/string
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c-mode/union
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/c-mode/unistd
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cc-mode/case
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cc-mode/do
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cc-mode/else
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cc-mode/file_description
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cc-mode/fopen
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cc-mode/for
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cc-mode/for_n
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cc-mode/function_description
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cc-mode/if
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cc-mode/ifdef
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cc-mode/inc
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cc-mode/inc.1
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cc-mode/main
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cc-mode/math
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cc-mode/member_description
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cc-mode/once
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cc-mode/printf
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cc-mode/struct
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cc-mode/switch
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cc-mode/ternary
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cc-mode/typedef
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cc-mode/while
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/action
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/bash
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/cookbook_file
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/cron
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/cronf
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/deploy
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/directory
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/directoryf
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/env
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/execute
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/executef
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/file
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/filef
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/git
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/group
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/http_request
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/http_requestp
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/ignore_failure
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/inc
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/link
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/linkf
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/log
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/machine
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/meta
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/not_if
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/notifies
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/only_if
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/pac
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/pak
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/provider
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/python
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/remote_file
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/retries
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/role
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/ruby
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/script
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/service
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/servicep
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/subscribes
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/supports
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/template
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/templatev
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/chef-mode/user
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cider-repl-mode
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/clojure-mode/.yas-parents
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/clojure-mode/bench
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/clojure-mode/bp
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/clojure-mode/def
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/clojure-mode/defm
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/clojure-mode/defn
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/clojure-mode/defr
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/clojure-mode/deft
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/clojure-mode/doseq
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/clojure-mode/fn
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/clojure-mode/for
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/clojure-mode/if
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/clojure-mode/ifl
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/clojure-mode/import
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/clojure-mode/is
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/clojure-mode/let
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/clojure-mode/map
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/clojure-mode/map.lambda
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/clojure-mode/mdoc
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/clojure-mode/ns
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/clojure-mode/opts
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/clojure-mode/pr
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/clojure-mode/print
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/clojure-mode/reduce
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/clojure-mode/require
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/clojure-mode/test
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/clojure-mode/try
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/clojure-mode/use
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/clojure-mode/when
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/clojure-mode/whenl
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cmake-mode/add_executable
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cmake-mode/add_library
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cmake-mode/cmake_minimum_required
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cmake-mode/foreach
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cmake-mode/function
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cmake-mode/if
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cmake-mode/ifelse
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cmake-mode/include
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cmake-mode/macro
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cmake-mode/message
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cmake-mode/option
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cmake-mode/project
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cmake-mode/set
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/conf-unix-mode/.yas-parents
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/conf-unix-mode/section
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cperl-mode/.yas-parents
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cpp-omnet-mode/EV
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cpp-omnet-mode/emit_signal
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cpp-omnet-mode/intuniform
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cpp-omnet-mode/math
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cpp-omnet-mode/nan
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cpp-omnet-mode/omnet
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cpp-omnet-mode/parameter_omnetpp
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cpp-omnet-mode/scheduleAt
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/cpp-omnet-mode/uniform
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/csharp-mode/.yas-parents
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/csharp-mode/attrib
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/csharp-mode/attrib.1
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/csharp-mode/attrib.2
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/csharp-mode/class
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/csharp-mode/comment
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/csharp-mode/comment.1
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/csharp-mode/comment.2
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/csharp-mode/comment.3
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/csharp-mode/method
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/csharp-mode/namespace
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/csharp-mode/prop
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/csharp-mode/region
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/csharp-mode/using
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/csharp-mode/using.1
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/csharp-mode/using.2
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/css-mode/bg
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/css-mode/bg.1
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/css-mode/bor
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/css-mode/cl
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/css-mode/disp.block
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/css-mode/disp.inline
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/css-mode/disp.none
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/css-mode/ff
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/css-mode/fs
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/css-mode/mar.bottom
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/css-mode/mar.left
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/css-mode/mar.mar
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/css-mode/mar.margin
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/css-mode/mar.right
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/css-mode/mar.top
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/css-mode/pad.bottom
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/css-mode/pad.left
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/css-mode/pad.pad
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/css-mode/pad.padding
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/css-mode/pad.right
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/css-mode/pad.top
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/css-mode/v
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/elixir-mode/.yas-parents
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/elixir-mode/case
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/elixir-mode/cond
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/elixir-mode/def
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/elixir-mode/defmacro
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/elixir-mode/defmacrop
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/elixir-mode/defmodule
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/elixir-mode/defp
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/elixir-mode/doc
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/elixir-mode/mdoc
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/.read_me
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/add-hook
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/and
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/append
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/apply
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/aref
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/aset
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/assq
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/autoload
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/backward-char
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/beginning-of-line
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/bounds-of-thing-at-point
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/buffer-file-name
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/buffer-modified-p
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/buffer-substring
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/buffer-substring-no-properties
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/car
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/cdr
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/concat
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/cond
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/condition-case
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/cons
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/consp
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/copy-directory
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/copy-file
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/current-buffer
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/custom-autoload
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/defalias
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/defcustom
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/define-key
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/defsubst
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/defun
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/defvar
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/delete-char
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/delete-directory
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/delete-file
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/delete-region
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/directory-files
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/dired.process_marked
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/dolist
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/end-of-line
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/eq
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/equal
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/error
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/ert-deftest
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/expand-file-name
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/f
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/fboundp
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/file-name-directory
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/file-name-extension
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/file-name-nondirectory
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/file-name-sans-extension
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/file-relative-name
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/file.process
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/file.read-lines
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/find-file
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/find-replace
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/format
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/forward-char
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/forward-line
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/funcall
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/function
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/get
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/global-set-key
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/goto-char
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/grabstring
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/grabthing
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/hash
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/if
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/insert
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/insert-file-contents
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/interactive
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/kbd
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/kill-buffer
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/lambda
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/length
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/let
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/line-beginning-position
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/line-end-position
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/list
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/looking-at
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/make-directory
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/make-local-variable
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/mapc
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/mapcar
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/match-beginning
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/match-end
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/match-string
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/memq
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/message
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/minor_mode
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/not
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/nth
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/null
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/number-to-string
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/or
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/point
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/point-max
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/point-min
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/princ
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/print
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/progn
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/push
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/put
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/re-search-backward
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/re-search-forward
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/region-active-p
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/region-beginning
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/region-end
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/rename-file
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/repeat
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/replace-regexp
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/replace-regexp-in-string
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/require
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/save-buffer
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/save-excursion
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/search-backward
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/search-backward-regexp
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/search-forward
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/search-forward-regexp
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/set
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/set-buffer
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/set-file-modes
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/set-mark
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/setq
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/should
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/skip-chars-backward
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/skip-chars-forward
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/split-string
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/string
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/string-match
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/string-to-number
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/string=
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/stringp
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/substring
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/thing-at-point
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/traverse_dir
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/unless
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/vector
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/when
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/while
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/widget-get
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/with-current-buffer
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/word-or-region
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/word_regexp
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/x-dired.process_marked
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/x-file.process
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/x-file.read-lines
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/x-find-replace
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/x-grabstring
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/x-grabthing
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/x-traverse_dir
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/x-word-or-region
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/y-or-n-p
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/emacs-lisp-mode/yes-or-no-p
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/enh-ruby-mode
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ensime-mode
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/erc-mode/blist
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/erc-mode/help
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/erlang-mode/after
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/erlang-mode/begin
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/erlang-mode/beh
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/erlang-mode/case
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/erlang-mode/compile
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/erlang-mode/def
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/erlang-mode/exp
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/erlang-mode/fun
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/erlang-mode/if
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/erlang-mode/ifdef
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/erlang-mode/ifndef
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/erlang-mode/imp
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/erlang-mode/inc
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/erlang-mode/inc.lib
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/erlang-mode/loop
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/erlang-mode/mod
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/erlang-mode/rcv
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/erlang-mode/rcv.after
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/erlang-mode/rec
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/erlang-mode/try
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/erlang-mode/undef
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/f90-mode/bd
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/f90-mode/c
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/f90-mode/ch
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/f90-mode/cx
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/f90-mode/dc
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/f90-mode/do
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/f90-mode/dp
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/f90-mode/forall
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/f90-mode/function
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/f90-mode/if
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/f90-mode/in
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/f90-mode/inc
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/f90-mode/intr
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/f90-mode/l
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/f90-mode/module
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/f90-mode/pa
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/f90-mode/program
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/f90-mode/puref
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/f90-mode/pures
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/f90-mode/re
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/f90-mode/subroutine
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/f90-mode/until
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/f90-mode/where
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/f90-mode/while
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/f90-mode/wr
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/fundamental-mode/.yas-setup.el
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/git-commit-mode/.yas-parents
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/git-commit-mode/fixes
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/git-commit-mode/references
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/go-mode/benchmark
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/go-mode/const
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/go-mode/const(
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/go-mode/dd
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/go-mode/default
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/go-mode/else
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/go-mode/error
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/go-mode/example
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/go-mode/for
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/go-mode/forrange
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/go-mode/func
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/go-mode/if
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/go-mode/iferr
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/go-mode/import
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/go-mode/import(
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/go-mode/lambda
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/go-mode/main
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/go-mode/map
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/go-mode/printf
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/go-mode/select
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/go-mode/switch
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/go-mode/test
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/go-mode/testmain
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/go-mode/type
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/go-mode/var
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/go-mode/var(
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/groovy-mode/.yas-parents
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/groovy-mode/class
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/groovy-mode/def
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/groovy-mode/dict
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/groovy-mode/for
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/groovy-mode/println
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/groovy-mode/times
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/haskell-mode/case
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/haskell-mode/data
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/haskell-mode/doc
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/haskell-mode/efix
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/haskell-mode/function
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/haskell-mode/functione
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/haskell-mode/import
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/haskell-mode/instance
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/haskell-mode/main
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/haskell-mode/module
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/haskell-mode/new class
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/haskell-mode/pragma
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/haskell-mode/print
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/html-mode/.yas-parents
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/html-mode/dd
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/html-mode/dl
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/html-mode/doctype
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/html-mode/doctype.html5
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/html-mode/doctype.xhtml1
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/html-mode/doctype.xhtml1_1
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/html-mode/doctype.xhtml1_strict
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/html-mode/doctype.xhtml1_transitional
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/html-mode/dt
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/html-mode/form
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/html-mode/html
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/html-mode/html.xmlns
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/html-mode/link.stylesheet
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/html-mode/link.stylesheet-ie
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/html-mode/mailto
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/html-mode/meta
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/html-mode/meta.http-equiv
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/html-mode/script.javascript
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/html-mode/script.javascript-src
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/html-mode/textarea
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/html-mode/th
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/java-mode/apr_assert
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/java-mode/assert
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/java-mode/assertEquals
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/java-mode/cls
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/java-mode/constructor
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/java-mode/define test method
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/java-mode/doc
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/java-mode/equals
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/java-mode/file_class
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/java-mode/for
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/java-mode/fori
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/java-mode/getter
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/java-mode/if
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/java-mode/ife
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/java-mode/import
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/java-mode/iterator
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/java-mode/javadoc
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/java-mode/lambda
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/java-mode/main
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/java-mode/main_class
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/java-mode/method
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/java-mode/new
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/java-mode/override
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/java-mode/param
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/java-mode/printf
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/java-mode/println
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/java-mode/return
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/java-mode/test
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/java-mode/testClass
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/java-mode/this
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/java-mode/toString
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/java-mode/try
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/java-mode/value
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/js-mode/al
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/js-mode/class
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/js-mode/com
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/js-mode/debugger
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/js-mode/each
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/js-mode/el
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/js-mode/ev.add
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/js-mode/ev.fire
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/js-mode/for
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/js-mode/function
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/js-mode/if
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/js-mode/init
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/js-mode/log
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/js-mode/req.html
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/js-mode/req.json
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/js2-mode
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/latex-mode/acronym
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/latex-mode/alertblock
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/latex-mode/alg
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/latex-mode/begin
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/latex-mode/block
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/latex-mode/capgls
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/latex-mode/caption
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/latex-mode/cite
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/latex-mode/code
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/latex-mode/columns
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/latex-mode/emph
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/latex-mode/enumerate
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/latex-mode/figure
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/latex-mode/frac
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/latex-mode/frame
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/latex-mode/gls
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/latex-mode/glspl
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/latex-mode/if
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/latex-mode/includegraphics
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/latex-mode/item
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/latex-mode/itemize
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/latex-mode/label
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/latex-mode/listing
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/latex-mode/movie
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/latex-mode/newcommand
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/latex-mode/newglossaryentry
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/latex-mode/note
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/latex-mode/python
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/latex-mode/question
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/latex-mode/section
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/latex-mode/subf
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/latex-mode/subfigure
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/latex-mode/subsec
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/latex-mode/textbf
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/latex-mode/usepackage
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/lisp-interaction-mode/defun
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/lisp-mode/class
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/lisp-mode/comment
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/lisp-mode/defpackage
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/lisp-mode/do
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/lisp-mode/for
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/lisp-mode/foreach
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/lisp-mode/format
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/lisp-mode/if
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/lisp-mode/ifelse
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/lisp-mode/ifnot
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/lisp-mode/slot
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/lisp-mode/switch
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/lisp-mode/typecast
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/lua-mode/fun
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/m4-mode/def
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/makefile-automake-mode/noinst_HEADERS
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/makefile-bsdmake-mode/PHONY
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/makefile-bsdmake-mode/echo
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/makefile-bsdmake-mode/gen
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/makefile-bsdmake-mode/if
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/makefile-bsdmake-mode/var
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/makefile-gmake-mode/patsubst
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/makefile-gmake-mode/phony
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/makefile-gmake-mode/wildcard
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/makefile-mode/all
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/malabar-mode/variable
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/markdown-mode/+
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/markdown-mode/-
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/markdown-mode/_
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/markdown-mode/__
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/markdown-mode/`
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/markdown-mode/h1.1
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/markdown-mode/h1.2
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/markdown-mode/h2.1
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/markdown-mode/h2.2
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/markdown-mode/h3
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/markdown-mode/h4
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/markdown-mode/h5
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/markdown-mode/h6
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/markdown-mode/highlight
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/markdown-mode/hr.1
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/markdown-mode/hr.2
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/markdown-mode/img
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/markdown-mode/link
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/markdown-mode/ol
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/markdown-mode/rimg
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/markdown-mode/rlb
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/markdown-mode/rlink
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/markdown-mode/utf8
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ned-mode/.yas-parents
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ned-mode/chan
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ned-mode/connections
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ned-mode/for
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ned-mode/import
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ned-mode/network
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ned-mode/simple
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ned-mode/submodules
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nesc-mode/.yas-parents
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nesc-mode/TOSSIM
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nesc-mode/command
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nesc-mode/dbg
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nesc-mode/event
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nesc-mode/ifdef
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nesc-mode/interface
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nesc-mode/module
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nesc-mode/nx
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nesc-mode/provides
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nesc-mode/sim
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nesc-mode/uint8_t
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nesc-mode/uses
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nsis-mode/.yas-parents
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nsis-mode/define
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nsis-mode/function
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nsis-mode/if
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nsis-mode/include
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nsis-mode/insert_macro
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nsis-mode/instdir
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nsis-mode/macro
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nsis-mode/message
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nsis-mode/outdir
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nsis-mode/outfile
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nsis-mode/section
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nxml-mode/body
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nxml-mode/br
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nxml-mode/doctype
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nxml-mode/doctype_xhtml1_strict
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nxml-mode/doctype_xhtml1_transitional
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nxml-mode/form
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nxml-mode/href
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nxml-mode/html
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nxml-mode/img
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nxml-mode/input
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nxml-mode/link
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nxml-mode/meta
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nxml-mode/name
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nxml-mode/quote
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nxml-mode/style
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nxml-mode/tag
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nxml-mode/tag_closing
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/nxml-mode/tag_newline
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/octave-mode/for
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/octave-mode/function
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/octave-mode/if
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/org-mode/code
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/org-mode/dot
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/org-mode/elisp
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/org-mode/embedded
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/org-mode/entry
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/org-mode/figure
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/org-mode/img
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/org-mode/latex
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/org-mode/matrix
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/org-mode/verse
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/perl-mode/.yas-parents
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/perl-mode/eval
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/perl-mode/for
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/perl-mode/fore
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/perl-mode/if
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/perl-mode/ife
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/perl-mode/ifee
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/perl-mode/sub
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/perl-mode/unless
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/perl-mode/while
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/perl-mode/xfore
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/perl-mode/xif
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/perl-mode/xunless
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/perl-mode/xwhile
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/prog-mode/.yas-setup.el
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/prog-mode/fixme
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/prog-mode/todo
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/prog-mode/xxx
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/.yas-parents
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/.yas-setup.el
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/__contains__
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/__enter__
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/__exit__
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/__getitem__
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/__len__
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/__new__
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/__setitem__
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/all
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/arg
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/arg_positional
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/ass
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/assertEqual
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/assertFalse
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/assertIn
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/assertNotEqual
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/assertNotIn
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/assertRaises
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/assertRaises.with
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/assertTrue
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/celery_pdb
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/classmethod
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/cls
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/dec
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/deftest
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/django_test_class
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/doc
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/doctest
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/eq
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/for
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/from
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/function
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/function_docstring
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/if
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/ife
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/ifmain
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/import
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/init
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/init_docstring
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/interact
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/ipdbdebug
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/iter
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/lambda
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/list
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/logger_name
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/logging
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/main
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/metaclass
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/method
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/method_docstring
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/not_impl
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/np
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/parse_args
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/parser
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/pass
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/pl
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/print
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/prop
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/reg
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/repr
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/return
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/script
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/self
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/self_without_dot
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/selfassign
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/setdef
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/setup
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/size
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/static
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/str
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/super
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/test_class
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/test_file
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/trace
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/try
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/tryelse
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/unicode
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/utf8
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/while
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/with
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/python-mode/with_statement
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/rename_add_contr.py
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/rst-mode/autoclass
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/rst-mode/autofunction
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/rst-mode/automodule
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/rst-mode/class
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/rst-mode/code
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/rst-mode/digraph
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/rst-mode/function
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/rst-mode/graph
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/rst-mode/graphviz
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/rst-mode/image
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/rst-mode/inheritance
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/rst-mode/literal_include
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/rst-mode/meta
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/rst-mode/module
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/rst-mode/parsed_literal
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/rst-mode/pause
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/rst-mode/term
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/rst-mode/url
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/rst-mode/verbatim
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/rst-mode/warning
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/#
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/=b
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/Comp
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/GLOB
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/all
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/am
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/any
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/app
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/attribute
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/bench
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/bm
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/case
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/cla
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/cls
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/collect
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/dee
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/def
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/deli
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/det
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/dow
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/ea
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/eac
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/eai
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/eav
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/eawi
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/for
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/forin
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/formula
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/if
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/ife
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/init
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/inject
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/mm
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/r
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/rb
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/reject
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/rel
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/req
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/rw
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/select
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/str
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/test class
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/tim
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/to_
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/tu
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/until
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/upt
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/w
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/when
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/while
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/y
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/ruby-mode/zip
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/scala-mode/app
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/scala-mode/case
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/scala-mode/cc
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/scala-mode/co
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/scala-mode/cons
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/scala-mode/def
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/scala-mode/doc
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/scala-mode/for
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/scala-mode/if
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/scala-mode/ls
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/scala-mode/main
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/scala-mode/match
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/scala-mode/ob
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/scala-mode/throw
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/scala-mode/try
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/sh-mode/args
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/sh-mode/bang
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/sh-mode/for loop
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/sh-mode/function
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/sh-mode/if
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/sh-mode/ife
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/snippet-mode/cont
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/snippet-mode/elisp
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/snippet-mode/field
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/snippet-mode/group
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/snippet-mode/mirror
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/snippet-mode/vars
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/snippets/ruby-mode/definitions/mod
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/sql-mode/column
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/sql-mode/constraint
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/sql-mode/constraint.1
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/sql-mode/create
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/sql-mode/create.1
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/sql-mode/references
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/text-mode/.yas-parents
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/tuareg-mode/assert
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/tuareg-mode/docstring
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/tuareg-mode/for
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/tuareg-mode/fun
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/tuareg-mode/guard
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/tuareg-mode/ifthen
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/tuareg-mode/ifthenelse
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/tuareg-mode/let
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/tuareg-mode/list_comprehension
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/tuareg-mode/main
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/tuareg-mode/match
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/tuareg-mode/module
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/tuareg-mode/open
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/tuareg-mode/printf
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/tuareg-mode/rec
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/tuareg-mode/try
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/tuareg-mode/type
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/tuareg-mode/type_type
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/tuareg-mode/val
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/tuareg-mode/while
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/typerex-mode
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/udev-mode/ENV
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/udev-mode/GOTO
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/udev-mode/KERNEL
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/udev-mode/add
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/udev-mode/env$
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/udev-mode/run
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/yaml-mode/entry
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/yaml-mode/list
+#	new file:   elisp/elpa/yasnippet-20150927.1716/snippets/yaml-mode/section
+#	new file:   elisp/elpa/yasnippet-20150927.1716/yasnippet-autoloads.el
+#	new file:   elisp/elpa/yasnippet-20150927.1716/yasnippet-pkg.el
+#	new file:   elisp/elpa/yasnippet-20150927.1716/yasnippet.el
+#	new file:   elisp/elpa/yasnippet-readme.txt
+#	new file:   elisp/elpa/yaxception-20150105.652/yaxception-autoloads.el
+#	new file:   elisp/elpa/yaxception-20150105.652/yaxception-pkg.el
+#	new file:   elisp/elpa/yaxception-20150105.652/yaxception.el
+#	deleted:    elisp/plugin/ahk-mode.el
+#	deleted:    elisp/plugin/anything-auto-install.el
+#	deleted:    elisp/plugin/anything-c-moccur.el
+#	deleted:    elisp/plugin/anything-c-yasnippet.el
+#	deleted:    elisp/plugin/anything-complete.el
+#	deleted:    elisp/plugin/anything-config.el
+#	deleted:    elisp/plugin/anything-grep.el
+#	deleted:    elisp/plugin/anything-gtags.el
+#	deleted:    elisp/plugin/anything-ipython.el
+#	deleted:    elisp/plugin/anything-irfc.el
+#	deleted:    elisp/plugin/anything-match-plugin.el
+#	deleted:    elisp/plugin/anything-menu.el
+#	deleted:    elisp/plugin/anything-migemo.el
+#	deleted:    elisp/plugin/anything-obsolete.el
+#	deleted:    elisp/plugin/anything-search-file.el
+#	deleted:    elisp/plugin/anything-show-completion.el
+#	deleted:    elisp/plugin/anything-startup.el
+#	deleted:    elisp/plugin/anything.el
+#	deleted:    elisp/plugin/ascii.el
+#	deleted:    elisp/plugin/auto-chmod-x.el
+#	deleted:    elisp/plugin/auto-complete-clang.el
+#	deleted:    elisp/plugin/auto-install.el
+#	deleted:    elisp/plugin/auto-yasnippet.el
+#	deleted:    elisp/plugin/autotest-mode.el
+#	deleted:    elisp/plugin/crosshairs.el
+#	deleted:    elisp/plugin/descbinds-anything.el
+#	deleted:    elisp/plugin/edit-list.el
+#	deleted:    elisp/plugin/eldoc-extension.el
+#	deleted:    elisp/plugin/flymake-cursor.el
+#	deleted:    elisp/plugin/fold-dwim-org.el
+#	deleted:    elisp/plugin/frame-cmds.el
+#	deleted:    elisp/plugin/grep-a-lot.el
+#	deleted:    elisp/plugin/helm-pydoc.el
+#	deleted:    elisp/plugin/helm-pydoc.py
+#	deleted:    elisp/plugin/hl-line+.el
+#	deleted:    elisp/plugin/info+.el
+#	deleted:    elisp/plugin/log4j-mode.el
+#	deleted:    elisp/plugin/point-undo.el
+#	deleted:    elisp/plugin/py-smart-operator.el
+#	deleted:    elisp/plugin/scratch-log.el
+#	deleted:    elisp/plugin/sequential-command.el
+#	deleted:    elisp/plugin/sudo-ext.el
+#	deleted:    elisp/plugin/unbound.el
+#	deleted:    elisp/plugin/usage-memo.el
+#	deleted:    elisp/plugin/viewer.el
+#	deleted:    elisp/plugin/virtualenv.el
+#	modified:   elisp/start.d/04_bindings_start.el
+#	deleted:    elisp/start.d/22_anything_plugin_start.el
+#	modified:   elisp/start.d/22_auto-install_plugin_start.el
+#	modified:   elisp/start.d/22_mcomplete_plugin_start.el
+#	modified:   elisp/start.d/23_helm_plugin_start.el
+#	deleted:    elisp/start.d/50_tail_plugin_start.el
+#	deleted:    elisp/start.d/50_text-translator_plugin_start.el
+#	modified:   elisp/start.d/70_w3m_mode_start.el
+#	modified:   elisp/start.d/80_emacs_lisp_mode_start.el
+#	modified:   elisp/start.d/92_face_start.el
+#	deleted:    elisp/start.d/anything-c-moccur_plugin_start.el
+#	deleted:    elisp/start.d/anything-complete_plugin_start.el
+#	deleted:    elisp/start.d/anything_plugin_start.el
+#	modified:   elisp/start.d/auto-install_plugin_start.el
+#	modified:   elisp/start.d/dired_mode_start.el
+#	modified:   elisp/start.d/helm_plugin_start.el
+#	modified:   elisp/start.d/iswitchb_plugin_start.el
+#	modified:   elisp/start.d/python_mode_start.el
+#	modified:   elisp/start.d/test_start.el
+#	deleted:    elisp/start.d/text-translator_plugin_start.el
+#	modified:   elisp/start.d/w3m_mode_start.el
+#	modified:   elisp/start.d/yasnippet_plugin_start.el
+#	modified:   init.el
+#

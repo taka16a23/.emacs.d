@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: mockerreplace
+# key: mockerreplace
+# --
+dummy$1 = self.mocker.replace(\'$2\')
+dummy$1(${3:ANY})
+self.mocker.result($4)
+self.mocker.count(${5:0}, ${6:None})

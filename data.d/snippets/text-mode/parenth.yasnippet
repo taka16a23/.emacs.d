@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: parenth
+# key: /yas/parenth
+# --
+\`(if (eq ?\( (char-after (1- yas/my-pre-marker)))
+     (delete-char 2) (delete-char 1))\`
+$0
+\`(if (eq ?\) (char-after (1- yas/my-post-marker)))
+     (progn (forward-line -1) (delete-char -2)))\`

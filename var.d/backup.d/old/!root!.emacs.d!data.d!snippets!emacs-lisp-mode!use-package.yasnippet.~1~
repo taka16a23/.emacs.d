@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: use-package
+# key: (use-package
+# condition: (not (at-string|comment-p))
+# --
+(use-package ${1:package}
+  :config
+  (message "Loading \\"$1\\"")
+  )

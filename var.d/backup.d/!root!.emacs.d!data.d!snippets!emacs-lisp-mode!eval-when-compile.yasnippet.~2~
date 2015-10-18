@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: eval-when-compile
+# key: (eval-when-compile
+# condition: (not (at-string|comment-p))
+# --
+(eval-when-compile
+  (${1:require}$0)

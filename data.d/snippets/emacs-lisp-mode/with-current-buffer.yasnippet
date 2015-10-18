@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: with-current-buffer
+# key: (with-current-buffer
+# condition: (not (at-string|comment-p))
+# --
+(with-current-buffer ${1:BUFFER-OR-NAME}
+  $0

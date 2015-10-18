@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: _getpass.getpass
+# key: _getpass.getpass
+# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])))
+# --
+_getpass.getpass(${1:\'${2:PROMPT}\'})$0`(py--insert-imports "getpass[ \t]+as[ \t]+_getpass" "import getpass as _getpass")`

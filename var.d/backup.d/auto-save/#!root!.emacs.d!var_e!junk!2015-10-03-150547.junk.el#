@@ -1,0 +1,41 @@
+;; -*- coding: utf-8; mode: emacs-lisp; no-byte-compile: t; no-update-autoloads: t -*-
+;;; 2015-10-03-150547.junk.el ---
+
+(eval-when-compile
+  (require 't1macro "t1macro"))
+
+;;;###autoload
+(defun filename-mode-custom-predefine ()
+  "For `eval-after-load' filename customize."
+  (message "eval-after-load: \"filename\" customizing..")
+  (custom-set-variables
+   '())
+  )
+
+;;;###autoload
+(defun filename-mode-predefine ()
+  "For `eval-after-load' filename function."
+  (message "eval-after-load: \"filename\" setting..")
+  )
+
+;;;###autoload
+(defun filename-mode-map-predefine ()
+  "For filename key bindings."
+  (interactive)
+  (unless (called-interactively-p 'interactive)
+    (message "eval-after-load: \"filename\" keymaping.."))
+  ())
+
+;;;###autoload
+(defun filename-mode-face-predefine ()
+  "For filename face."
+  (message "eval-after-load: \"filename\" Setting faces..")
+  )
+
+(defvar filename-eval-after-load-hook nil
+  "Hook for filename `eval-after-load'.")
+(add-hook 'filename-eval-after-load-hook 'filename-mode-custom-predefine)
+(add-hook 'filename-eval-after-load-hook 'filename-mode-predefine 'append)
+(add-hook 'filename-eval-after-load-hook 'filename-mode-map-predefine 'append)
+(add-hook 'filename-eval-after-load-hook 'filename-mode-face-predefine 'append)
+(run-hooks-after-load "filename" 'filename-eval-after-load-hook

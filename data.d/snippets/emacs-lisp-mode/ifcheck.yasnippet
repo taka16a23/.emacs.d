@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: ifcheck
+# condition: (not (at-string|comment-p))
+# --
+`(if (eq ?\( (char-after (1- yas/my-pre-marker)))
+     (delete-char 2) (delete-char 1))`
+(if ${1:COND}
+	(message "ok")
+  (message "no"))
+`(if (eq ?\) (char-after (1- yas/my-post-marker)))
+     (progn (forward-line -1) (delete-char -2)))`

@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# This was cloned from a TextMate bundle for yasnippet.
+# name: try/except/else
+# key: try
+# condition: (not (py:at-string|comment-p))
+# --
+try:
+	${1:pass}
+except ${2:Exception}, ${3:e}:
+	${4:raise $3}
+else:
+	${5:pass}

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name : list_comprehension
+# key : (x
+# (x for x in os.listdir() if x.startswith('_'))
+# --
+(${1:x} for ${2:$1} in ${3:ITER}${4: if }`(progn (end-of-line) (skip-chars-backward " \t") (unless (eq (char-before) 41) (insert ")")))`

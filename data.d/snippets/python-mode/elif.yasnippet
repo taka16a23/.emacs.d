@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: elif
+# key: elif
+# condition: (not (py:at-string|comment-p))
+# --
+elif $0`(progn (end-of-line) (skip-chars-backward " \t") (unless (eq (char-before) 58) (insert ":")))`

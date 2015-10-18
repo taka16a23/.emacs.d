@@ -1,0 +1,19 @@
+-*- coding: utf-8-unix -*-
+
+
+
+
+| Prefix   | Description                                    |
+|----------+------------------------------------------------|
+| 00~09    | Primary essensial setups                       |
+| 10~19    | Important setups like package, backup, etc     |
+|          |                                                |
+| 50~54    | Misc major mode.                               |
+| 55~59    | Major mode for programming languages.          |
+| 60~64    | Unstable misc major mode.                      |
+| 65~69    | Unstable Major mode for programming languages. |
+| 80~89    | Unstable Packages setup.                       |
+| 90~99    | Finaly setups.                                 |
+| linux-   | For linux setups.                              |
+| macs-    | For macs setups.                               |
+| windows- | For windows setups.                            |

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: frozenset_
+# key: frozenset
+# condition: (and (not (py:at-string|comment-p)) (equal (this-command-keys-vector) [32]) (not (save-excursion (backward-char 9) (looking-back "[.]"))))
+# 32 = ` '
+# --
+frozenset_ $0

@@ -1,0 +1,1919 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="ja">
+<!-- Created on October, 1  2005 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=euc-jp">
+<META NAME="keywords" CONTENT="meadow,mule,emacs,lisp,elisp,gnus,setting,設定,unix,cygwin">
+<META http-equiv="Content-Script-Type" content="text/javascript">
+<META NAME="description" CONTENT="Meadowの設定を紹介するページです">
+<TITLE>GNU Emacs Lispリファレンスマニュアル:  プロセス</TITLE>
+
+<META NAME="description" CONTENT="GNU Emacs Lispリファレンスマニュアル:  プロセス">
+<META NAME="keywords" CONTENT="GNU Emacs Lispリファレンスマニュアル:  プロセス">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+<LINK REL="contents" HREF="elisp_toc.html#SEC_Contents">
+<LINK REL="index" HREF="elisp_48.html#SEC681">
+<LINK REL="next" HREF="elisp_38.html#SEC599">
+<LINK REL="prev" HREF="elisp_36.html#SEC576">
+
+<META http-equiv="Content-Style-Type" content="text/css">
+<!-- 鶯と龜 ←日本語EUC誤判別対策用らしい; -->
+<link rel="StyleSheet" href="../../../../soft/css/midnight.css" type="text/css" id="css1">
+<script type="text/javascript" src="style1.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../soft/css/meadowmemo.css">
+
+</HEAD>
+<BODY LANG="ja" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+<!--Infoseek Analyzer start-->
+<script LANGUAGE="javascript">PgNo=6;</script>
+<script src="http://js1.infoseek.co.jp/bin/57/00170.js"></script>
+<noscript><a href="http://ax1.www.infoseek.co.jp/bin/go?0017057f" target="_blank">
+<img src="http://ax1.www.infoseek.co.jp/bin/logo?0017057f" border=0></a></noscript>
+<!--Infoseek Analyzer end-->
+<a name="top"> </a>
+
+<br><A NAME="SEC583"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_36.html#SEC582"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_37.html#SEC584"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_36.html#SEC576"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_38.html#SEC599"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Processes"></A>
+<H1> 36. プロセス </H1>
+<!--docid::SEC583::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Processes">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Processes</a>"<br>
+"texi/elisp21/プロセス"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D7%A5%ED%A5%BB%A5%B9">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX2752"></A>
+<A NAME="IDX2753"></A>
+<A NAME="IDX2754"></A>
+<A NAME="IDX2755"></A>
+<P>
+
+オペレーティングシステムの用語では、
+<EM>プロセス</EM>（process）とは、プログラムを実行する空間のことです。
+Emacsはプロセスとして動いています。
+Emacs Lispのプログラムでは、
+独自のプロセスとして他のプログラムを起動できます。
+それらは、Emacsプロセスの<EM>サブプロセス</EM>（subprocess）とか
+<EM>子プロセス</EM>（child process）と呼ばれ、
+Emacsプロセスはそれらの<EM>親プロセス</EM>（parent process）です。
+<P>
+
+Emacsのサブプロセスは、それを作成する方法に依存して、
+<EM>同期</EM>（synchronous）であるか<EM>非同期</EM>（asynchronous）です。
+同期サブプロセスを作成すると、
+Lispプログラムは実行を継続するまえにそのサブプロセスの終了を待ちます。
+非同期サブプロセスを作成すると、それはLispプログラムと並行して動作します。
+この種のサブプロセスは、Emacs内部ではやはり『プロセス』と呼ばれる
+Lispオブジェクトで表現されます。
+Lispプログラムはこのオブジェクトを用いて
+サブプロセスと通信したりそれを制御できます。
+たとえば、シグナルを送ったり、状態情報を取得したり、
+プロセスからの出力を受け取ったり、プロセスへ入力を送れます。
+<P>
+
+<A NAME="IDX2756"></A>
+<DL>
+<DT><U>Function:</U> <B>processp</B> <I>object</I>
+<DD>この関数は、<VAR>object</VAR>がプロセスであれば<CODE>t</CODE>を返し、
+さもなければ<CODE>nil</CODE>を返す。
+</DL>
+<P>
+
+<div class="menuindex"><SCRIPT language=JavaScript src="index36.js"></SCRIPT></div><noscript><BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_37.html#SEC584">36.1 サブプロセス作成関数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Functions that start subprocesses.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_37.html#SEC585">36.2 シェル引数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Quoting an argument to pass it to a shell.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_37.html#SEC586">36.3 同期プロセスの作成</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Details of using synchronous subprocesses.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_37.html#SEC587">36.4 非同期プロセスの作成</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Starting up an asynchronous subprocess.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_37.html#SEC588">36.5 プロセスの削除</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Eliminating an asynchronous subprocess.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_37.html#SEC589">36.6 プロセス情報</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Accessing run-status and other attributes.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_37.html#SEC590">36.7 プロセスへ入力を送る</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Sending input to an asynchronous subprocess.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_37.html#SEC591">36.8 プロセスにシグナルを送る</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Stopping, continuing or interrupting
+                               an asynchronous subprocess.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_37.html#SEC592">36.9 プロセスからの出力を受け取る</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Collecting output from an asynchronous subprocess.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_37.html#SEC596">36.10 番兵：プロセスの状態変化の検出</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Sentinels run when process run-status changes.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_37.html#SEC597">36.11 トランザクションキュー</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Transaction-based communication with subprocesses.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_37.html#SEC598">36.12 ネットワーク接続</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Opening network connections.</TD></TR>
+</TABLE></BLOCKQUOTE></noscript>
+<P>
+
+<A NAME="Subprocess Creation"></A>
+<HR SIZE="6">
+<br><A NAME="SEC584"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_37.html#SEC583"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_37.html#SEC585"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Subprocess Creation"></A>
+<H2> 36.1 サブプロセス作成関数 </H2>
+<!--docid::SEC584::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Subprocess%20Creation">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Subprocess%20Creation</a>"<br>
+"texi/elisp21/サブプロセス作成関数"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%B5%A5%D6%A5%D7%A5%ED%A5%BB%A5%B9%BA%EE%C0%AE%B4%D8%BF%F4">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+プログラムを実行するために新たなサブプロセスを作る関数が3つあります。
+その1つ<CODE>start-process</CODE>は、非同期プロセスを作成して
+プロセスオブジェクトを返します（see 節 <A HREF="elisp_37.html#SEC587">36.4 非同期プロセスの作成</A>）。
+残りの2つ、<CODE>call-process</CODE>と<CODE>call-process-region</CODE>は
+同期プロセスを作成しますが、プロセスオブジェクトは返しません
+（see 節 <A HREF="elisp_37.html#SEC586">36.3 同期プロセスの作成</A>）。
+<P>
+
+同期／非同期プロセスについては以下の節に述べます。
+3つの関数の呼び出し方は類似しているので、
+ここではそれらに共通な引数について述べます。
+<P>
+
+<A NAME="IDX2757"></A>
+<A NAME="IDX2758"></A>
+<A NAME="IDX2759"></A>
+<A NAME="IDX2760"></A>
+<A NAME="IDX2761"></A>
+<A NAME="IDX2762"></A>
+いずれの場合でも、関数の引数<VAR>program</VAR>は、
+実行すべきプログラムを指定します。
+そのファイルがみつからなかったり実行できないと、
+エラーを通知します。
+ファイル名が相対名であると、
+変数<CODE>exec-path</CODE>は探索すべきディレクトリのリストを保持しています。
+Emacsは起動時に環境変数<CODE>PATH</CODE>の値に基づいて<CODE>exec-path</CODE>を
+初期化します。
+`<SAMP>~</SAMP>'、`<SAMP>.</SAMP>'、`<SAMP>..</SAMP>'のファイル名の標準的な書き方は、
+<CODE>exec-path</CODE>でも普通どおりに解釈されますが、
+（`<SAMP>$HOME</SAMP>'などの）環境変数の置換は認識しません。
+それには<CODE>substitute-in-file-name</CODE>を使います
+（see 節 <A HREF="elisp_25.html#SEC387">24.8.4 ファイル名を展開する関数</A>）。
+<P>
+
+サブプロセスを作成する各関数には、
+プログラムの標準出力の受け取り場所を指定する
+引数<VAR>buffer-or-name</VAR>があります。
+これはバッファかバッファ名である必要があります。
+バッファ名であると、そのバッファが既存でなければ新たに作成します。
+<CODE>nil</CODE>でもかまいませんが、その場合、
+フィルタ関数で処理しない限り出力を破棄します。
+（<A HREF="elisp_37.html#SEC594">36.9.2 プロセスフィルタ関数</A>とsee 節 <A HREF="elisp_19.html#SEC258">18. Lispオブジェクトの読み取りと表示</A>）。
+通常、複数のプロセスの出力を同じバッファへは送らないようにします。
+それらの出力がでたらめに混ざってしまうからです。
+<P>
+
+<A NAME="IDX2763"></A>
+<A NAME="IDX2764"></A>
+サブプロセスを作成する3つの関数すべてに、
+<CODE>&#38;rest</CODE>引数である<VAR>args</VAR>があります。
+<VAR>args</VAR>はすべてが文字列である必要があり、
+それぞれを区切ってコマンド行引数として<VAR>program</VAR>に与えられます。
+引数全体を指定されたプログラムへ直接渡すため、
+これらの引数ではワイルドカード文字や他のシェル構文の特別な意味はありません。
+<P>
+
+<STRONG>注意</STRONG>：<CODE> </CODE>引数<VAR>program</VAR>にはプログラムの名前だけを指定し、
+コマンド行引数はいっさい指定しない。
+コマンド行引数は<VAR>args</VAR>で与えること。
+<P>
+
+サブプロセスのカレントディレクトリは
+<CODE>default-directory</CODE>の値で決まります（see 節 <A HREF="elisp_25.html#SEC387">24.8.4 ファイル名を展開する関数</A>）。
+<P>
+
+<A NAME="IDX2765"></A>
+<A NAME="IDX2766"></A>
+サブプロセスはEmacsから環境変数を継承しますが、
+優先するものを<CODE>process-environment</CODE>で指定できます。
+See 節 <A HREF="elisp_40.html#SEC645">39.3 オペレーティングシステム環境</A>。
+<P>
+
+<A NAME="IDX2767"></A>
+<DL>
+<DT><U>Variable:</U> <B>exec-directory</B>
+<DD><A NAME="IDX2768"></A>
+この変数の値は、Emaccsが起動することを意図した
+GNU Emacsとともに配布されたプログラム群を収めたディレクトリ名
+（文字列）である。
+プログラム<CODE>movemail</CODE>はそのようなプログラムの例であり、
+inboxから新たなメイルを取り出すためにrmailが利用する。
+</DL>
+<P>
+
+<A NAME="IDX2769"></A>
+<DL>
+<DT><U>User Option:</U> <B>exec-path</B>
+<DD>この変数の値は、サブプロセスで実行するプログラムを探索する
+ディレクトリのリストである。
+各要素はディレクトリ名（文字列）であるか、
+デフォルトディレクトリ（つまり<CODE>default-directory</CODE>の値）
+を意味する<CODE>nil</CODE>である。
+<A NAME="IDX2770"></A>
+<P>
+
+引数<VAR>program</VAR>が絶対ファイル名でないと、
+<CODE>call-process</CODE>と<CODE>start-process</CODE>は
+<CODE>exec-path</CODE>の値を使う。
+</DL>
+<P>
+
+<A NAME="Shell Arguments"></A>
+<HR SIZE="6">
+<br><A NAME="SEC585"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_37.html#SEC584"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_37.html#SEC586"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Shell Arguments"></A>
+<H2> 36.2 シェル引数 </H2>
+<!--docid::SEC585::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Shell%20Arguments">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Shell%20Arguments</a>"<br>
+"texi/elisp21/シェル引数"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%B7%A5%A7%A5%EB%B0%FA%BF%F4">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+Lispプログラムから、
+ユーザーが指定したファイル名を含んだコマンドを指定して
+シェルを実行する必要がときどきあります。
+これらのプログラムでは、任意の正しいファイル名を扱える必要があります。
+しかし、シェルは、特定の文字がファイル名として現れると特別に扱うので、
+そのような文字がシェルに混乱をもたらします。
+そのような文字を扱うには、関数<CODE>shell-quote-argument</CODE>を使います。
+<P>
+
+<A NAME="IDX2771"></A>
+<DL>
+<DT><U>Function:</U> <B>shell-quote-argument</B> <I>argument</I>
+<DD>この関数は、<VAR>argument</VAR>を実際の内容とする
+シェル構文で表した引数を文字列で返す。
+この戻り値をシェルコマンドに連結し、
+実行のためにシェルに渡しても問題を生じないはずである。
+<P>
+
+この関数が行うことの詳細は読者のオペレーティングシステムに依存する。
+この関数は通常のシェル構文に合うように設計してある。
+非標準のシェルを使う場合には、この関数を再定義する必要があろう。
+MS-DOSでは、この関数は<VAR>argument</VAR>を無変更で返す。
+MS-DOSのシェルにはクォートの機能がないため、
+これは本当は正しいことではないが最良のことである。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>;; つぎの例はGNUとUNIXシステムのふるまいである
+(shell-quote-argument "foo > bar")
+     => "foo\\ \\>\\ bar"
+</pre></td></tr></table><P>
+
+シェルコマンドを作る<CODE>shell-quote-argument</CODE>の使用例をつぎに示す。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(concat "diff -c "
+        (shell-quote-argument oldfile)
+        " "
+        (shell-quote-argument newfile))
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="Synchronous Processes"></A>
+<HR SIZE="6">
+<br><A NAME="SEC586"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_37.html#SEC585"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_37.html#SEC587"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Synchronous Processes"></A>
+<H2> 36.3 同期プロセスの作成 </H2>
+<!--docid::SEC586::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Synchronous%20Processes">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Synchronous%20Processes</a>"<br>
+"texi/elisp21/同期プロセスの作成"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%C6%B1%B4%FC%A5%D7%A5%ED%A5%BB%A5%B9%A4%CE%BA%EE%C0%AE">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX2772"></A>
+<A NAME="IDX2773"></A>
+<P>
+
+<EM>同期プロセス</EM>（synchronous process）を作成すると、
+Emacsは実行を続行するまえにそのプロセスが終了するのを待ちます。
+diredはその例です。
+<CODE>ls</CODE>を同期プロセスで実行し、その出力を少々修正します。
+プロセスは同期なので、Emacsがなにかを行おうとするまえに
+ディレクトリ一覧全部がバッファに届きます。
+<P>
+
+Emacsは同期サブプロセスの終了を待ちますが、
+ユーザーは<KBD>C-g</KBD>と打って中断できます。
+<KBD>C-g</KBD>はまずシグナル<CODE>SIGINT</CODE>でサブプロセスをキルしようとしますが、
+中断を完了するまえにサブプロセスが終了するのを待ちます。
+その期間にユーザーがさらに<KBD>C-g</KBD>を打つと、
+<CODE>SIGKILL</CODE>でサブプロセスを即座にキルし、ただちに中断を完了します。
+See 節 <A HREF="elisp_21.html#SEC311">20.9 中断</A>。
+<P>
+
+同期サブプロセス作成関数は、
+そのプロセスがどのように終了したかを表すものを返します。
+<P>
+
+同期サブプロセスからの出力は、ファイルから読むテキストと同様に、
+コーディングシステムを用いて一般には復号化します。
+<CODE>call-process-region</CODE>がサブプロセスへ送る入力は、
+ファイルへ書くテキストと同様に、
+コーディングシステムを用いて符号化します。
+See 節 <A HREF="elisp_33.html#SEC538">32.10 コーディングシステム</A>。
+<P>
+
+<A NAME="IDX2774"></A>
+<DL>
+<DT><U>Function:</U> <B>call-process</B> <I>program &#38;optional infile destination display &#38;rest args</I>
+<DD>この関数は、別のプロセスで<VAR>program</VAR>を呼び出し、
+それが終了するのを待つ。
+<P>
+
+<VAR>infile</VAR>が<CODE>nil</CODE>でなければ
+プロセスへの標準入力は<VAR>infile</VAR>であるが、
+さもなければ`<TT>/dev/null</TT>'である。
+引数<VAR>destination</VAR>でプロセスの出力先をつぎのように指定する。
+<P>
+
+<DL COMPACT>
+<DT>バッファ
+<DD>このバッファのポイントのまえに出力を挿入する。
+これにはプロセスの標準出力と標準エラーの両者を含む。
+<P>
+
+<DT>文字列
+<DD>文字列で指定した名前のバッファのポイントのまえに出力を挿入する。
+<P>
+
+<DT><CODE>t</CODE>
+<DD>カレントバッファのポイントのまえに出力を挿入する。
+<P>
+
+<DT><CODE>nil</CODE>
+<DD>出力を破棄する。
+<P>
+
+<DT>0
+<DD>出力を破棄し、サブプロセスの終了を待たずにただちに戻る。
+<P>
+
+この場合、このプロセスはEmacsと並行して動作するので真のサブプロセスではない。
+しかし、この関数から戻るとEmacsはサブプロセスの処理を本質的には終えたと
+いう意味で同期プロセスと考えることができる。
+<P>
+
+<DT><CODE>(<VAR>real-destination</VAR> <VAR>error-destination</VAR>)</CODE>
+<DD>標準出力と標準エラーを分離し、
+<VAR>real-destination</VAR>の指定に従って通常の出力を扱い、
+<VAR>error-destination</VAR>に従ってエラー出力を処理する。
+<VAR>error-destination</VAR>が<CODE>nil</CODE>であるとエラー出力を破棄し、
+<CODE>t</CODE>であると通常の出力に混ぜ、
+文字列であるとその名前のファイルにエラー出力を振り向ける。
+<P>
+
+エラー出力を入れるバッファを直接に指定することはできない。
+それを実装するのは難しすぎる。
+しかし、エラー出力を一時ファイルへ送ってから
+そのファイルをバッファに挿入すれば、同じ効果を得られる。
+</DL>
+<P>
+
+<VAR>display</VAR>が<CODE>nil</CODE>以外であると、<CODE>call-process</CODE>は、
+出力が挿入されるとバッファを再表示する。
+（しかし、コーディングシステムとして実際のデータから
+コーディングシステムを推定する<CODE>undecided</CODE>を指定していると、
+非ASCII文字に出会うと再表示を継続できない場合もある。
+これを修正するのが困難である根本的な理由がある。）
+さもなければ、関数<CODE>call-process</CODE>は再表示しないので、
+Emacsが通常の過程でそのバッファを再表示するまでは、
+スクリーン上で結果は見えない。
+<P>
+
+残りの引数<VAR>args</VAR>は、プログラムに対する
+コマンド行引数を指定する文字列である。
+<P>
+
+（待たないように指示しない限り）<CODE>call-process</CODE>が返す値は、
+プロセスの終了理由を表す。
+数でサブプロセスの終了状態を表し、
+0は成功、それ以外の値は失敗を意味する。
+プロセスがシグナルで終了すると、
+<CODE>call-process</CODE>はシグナルを記述する文字列を返す。
+<P>
+
+つぎの例では、バッファ`<SAMP>foo</SAMP>'がカレントである。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(call-process "pwd" nil t)
+     => nil
+
+---------- Buffer: foo ----------
+/usr/user/lewis/manual
+---------- Buffer: foo ----------
+
+(call-process "grep" nil "bar" nil "lewis" "/etc/passwd")
+     => nil
+
+---------- Buffer: bar ----------
+lewis:5LTsHm66CSWKg:398:21:Bil Lewis:/user/lewis:/bin/csh
+
+---------- Buffer: bar ----------
+</FONT></pre></td></tr></table><P>
+
+<CODE>insert-directory</CODE>の定義にある<CODE>call-process</CODE>の
+よい使用例をつぎに示す。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(call-process insert-directory-program nil t nil <VAR>switches</VAR>
+              (if full-directory-p
+                  (concat (file-name-as-directory file) ".")
+                file))
+</FONT></pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX2775"></A>
+<DL>
+<DT><U>Function:</U> <B>call-process-region</B> <I>start end program &#38;optional delete destination display &#38;rest args</I>
+<DD>この関数は、<VAR>program</VAR>を動かすプロセスの標準入力として
+<VAR>start</VAR>と<VAR>end</VAR>のあいだのテキストを送る。
+<VAR>delete</VAR>が<CODE>nil</CODE>以外であると、送ったテキストを削除する。
+これは、カレントバッファに送った入力のかわりに出力を挿入することを
+意味する<VAR>destination</VAR>が<CODE>t</CODE>であるときに有用である。
+<P>
+
+引数<VAR>destination</VAR>と<VAR>display</VAR>は、
+サブプロセスからの出力をどのように扱い、
+出力か到着するたびに表示を更新するかどうかを制御する。
+詳しくは、上記の<CODE>call-process</CODE>の記述を参照。
+<VAR>destination</VAR>が整数0であると、
+<CODE>call-process-region</CODE>は、サブプロセスの終了を待たずに
+出力を破棄してただちに<CODE>nil</CODE>を返す。
+<P>
+
+残りの引数<VAR>args</VAR>は、プログラムに対する
+コマンド行引数を指定する文字列である。
+<P>
+
+<CODE>call-process-region</CODE>の戻り値は<CODE>call-process</CODE>と同様であり、
+待たずに戻るように指示すると<CODE>nil</CODE>であり、
+さもなければサブプロセスの終了状態を表す数か文字列である。
+<P>
+
+つぎの例では、
+バッファ`<SAMP>foo</SAMP>'の始めの5文字（単語`<SAMP>input</SAMP>'）を標準入力として
+ユーティリティ<CODE>cat</CODE>を実行するために<CODE>call-process-region</CODE>を使う。
+<CODE>cat</CODE>は、標準入力を標準出力へコピーする。
+引数<VAR>destination</VAR>が<CODE>t</CODE>であるので、
+出力はカレントバッファに挿入される。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>---------- Buffer: foo ----------
+input-!-
+---------- Buffer: foo ----------
+
+(call-process-region 1 6 "cat" nil t)
+     => nil
+
+---------- Buffer: foo ----------
+inputinput-!-
+---------- Buffer: foo ----------
+</FONT></pre></td></tr></table><P>
+
+コマンド<CODE>shell-command-on-region</CODE>は、
+つぎのように<CODE>call-process-region</CODE>を使う。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(call-process-region 
+ start end         
+ shell-file-name      ; プログラムの名前
+ nil                  ; リージョンを削除しない
+ buffer               ; 出力は<CODE>buffer</CODE>へ入れる
+ nil                  ; 出力中は再表示しない
+ "-c" command)        ; シェルに対する引数
+</FONT></pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX2776"></A>
+<DL>
+<DT><U>Function:</U> <B>shell-command-to-string</B> <I>command</I>
+<DD><A NAME="IDX2777"></A>
+この関数は、シェルコマンドとして<VAR>command</VAR>（文字列）を実行し、
+コマンドの出力を文字列として返す。
+</DL>
+<P>
+
+<A NAME="Asynchronous Processes"></A>
+<HR SIZE="6">
+<br><A NAME="SEC587"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_37.html#SEC586"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_37.html#SEC588"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Asynchronous Processes"></A>
+<H2> 36.4 非同期プロセスの作成 </H2>
+<!--docid::SEC587::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Asynchronous%20Processes">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Asynchronous%20Processes</a>"<br>
+"texi/elisp21/非同期プロセスの作成"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%C8%F3%C6%B1%B4%FC%A5%D7%A5%ED%A5%BB%A5%B9%A4%CE%BA%EE%C0%AE">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX2778"></A>
+<A NAME="IDX2779"></A>
+<P>
+
+<EM>非同期プロセス</EM>を作成すると、Emacsとサブプロセスの両者は
+ただちに動作を継続します。
+そしてプロセスはEmacsと並行に動作し、
+両者は以下の節に述べる関数を用いて互いに通信できます。
+しかし、通信は部分的に非同期です。
+特定の関数を呼び出したときにだけEmacsはプロセスへデータを送り、
+Emacsが入力待ちか時間待ちをしているときにだけ
+プロセスからの出力を受け取れます。
+<P>
+
+ここでは、非同期プロセスの作成方法について述べます。
+<P>
+
+<A NAME="IDX2780"></A>
+<DL>
+<DT><U>Function:</U> <B>start-process</B> <I>name buffer-or-name program &#38;rest args</I>
+<DD>この関数は、新たな非同期サブプロセスを作成し、
+そのプロセスでプログラム<VAR>program</VAR>を走らせる。
+Lispにおいて新たなサブプロセスを表すプロセスオブジェクトを返す。
+引数<VAR>name</VAR>はプロセスオブジェクトの名前を指定する。
+その名前のプロセスがすでに存在すると、
+名前を一意にするために（`<SAMP>&#60;1&#62;</SAMP>'などを付加して）<VAR>name</VAR>を修正する。
+バッファ<VAR>buffer-or-name</VAR>は、そのプロセスに対応付けるバッファである。
+<P>
+
+残りの引数<VAR>args</VAR>は、プログラムに対する
+コマンド行引数を指定する文字列である。
+<P>
+
+つぎの例では、最初のプロセスは動き始めると
+100秒間（休止ではなく）動作する。
+そのあいだに2番目のプロセスを動かし始めると、
+一意であるためにそれには名前`<SAMP>my-process&#60;1&#62;</SAMP>'が与えられる。
+2番目のプロセスは、最初のプロセスが終了するまえに
+バッファ`<SAMP>foo</SAMP>'にディレクトリ一覧を挿入する。
+2番目のプロセスが終了するとそれを表すメッセージがバッファに挿入される。
+しばらくして最初のプロセスが終了すると、
+別のメッセージがバッファに挿入される。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(start-process "my-process" "foo" "sleep" "100")
+     => #&#60;process my-process&#62;
+
+(start-process "my-process" "foo" "ls" "-l" "/user/lewis/bin")
+     => #&#60;process my-process&#60;1&#62;&#62;
+
+---------- Buffer: foo ----------
+total 2
+lrwxrwxrwx  1 lewis     14 Jul 22 10:12 gnuemacs --&#62; /emacs
+-rwxrwxrwx  1 lewis     19 Jul 30 21:02 lemon
+
+Process my-process&#60;1&#62; finished
+
+Process my-process finished
+---------- Buffer: foo ----------
+</FONT></pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX2781"></A>
+<DL>
+<DT><U>Function:</U> <B>start-process-shell-command</B> <I>name buffer-or-name command &#38;rest command-args</I>
+<DD>この関数は<CODE>start-process</CODE>と同様であるが、
+指定したコマンドを実行するためにシェルを用いる点が異なる。
+引数<VAR>command</VAR>はシェルコマンドの名前であり、
+<VAR>command-args</VAR>はそのシェルコマンドに対する引数である。
+変数<CODE>shell-file-name</CODE>は、使用するシェルを指定する。
+<P>
+
+<CODE>start-process</CODE>で直接にではなく
+シェルを介してプログラムを実行すると、
+引数のワイルドカードなどのシェルの機能を利用できる。
+つまり、ユーザー指定の任意のファイル名をコマンドに入れる場合には、
+まえもって<CODE>shell-quote-argument</CODE>でクォートし、
+ファイル名内のシェルの特別な文字が
+そのような特別な意味を持た<EM>ない</EM>ようにする。
+see 節 <A HREF="elisp_37.html#SEC585">36.2 シェル引数</A>。
+</DL>
+<P>
+
+<A NAME="IDX2782"></A>
+<DL>
+<DT><U>Variable:</U> <B>process-connection-type</B>
+<DD><A NAME="IDX2783"></A>
+<A NAME="IDX2784"></A>
+この変数は、非同期サブプロセスとの通信に用いる装置の型を制御する。
+これが<CODE>nil</CODE>以外であると疑似端末PTYを利用できる場合にはそれを用る。
+さもなければパイプを用いる。
+<P>
+
+シェル（shell）モードなどのユーザーに見えるプロセス向けには、
+パイプでは不可能なプロセスとその子プロセスとのあいだで
+ジョブ制御（<KBD>C-c</KBD>、<KBD>C-z</KBD>など）を許すので
+疑似端末PTYが望ましい。
+プログラムの内部目的向けに使われるサブプロセスでは、
+効率的なパイプを用いるほうがよい。
+また、多くのシステムでは疑似端末PTYの総数には制約があり、
+それらを浪費しないほうがよい。
+<P>
+
+<CODE>process-connection-type</CODE>の値は
+<CODE>start-process</CODE>を呼び出したときに使われる。
+したがって、<CODE>start-process</CODE>の呼び出しの周りでこの変数を束縛することで、
+1つのサブプロセスに対する通信方法を指定できる。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(let ((process-connection-type nil))  ; パイプを使う
+  (start-process <small>...</small>))
+</FONT></pre></td></tr></table><P>
+
+サブプロセスが実際にはパイプか疑似端末PTYのどちらを
+使っているかを調べるには、関数<CODE>process-tty-name</CODE>を使う
+（see 節 <A HREF="elisp_37.html#SEC589">36.6 プロセス情報</A>）。
+</DL>
+<P>
+
+<A NAME="Deleting Processes"></A>
+<HR SIZE="6">
+<br><A NAME="SEC588"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_37.html#SEC587"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_37.html#SEC589"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Deleting Processes"></A>
+<H2> 36.5 プロセスの削除 </H2>
+<!--docid::SEC588::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Deleting%20Processes">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Deleting%20Processes</a>"<br>
+"texi/elisp21/プロセスの削除"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D7%A5%ED%A5%BB%A5%B9%A4%CE%BA%EF%BD%FC">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX2785"></A>
+<P>
+
+<EM>プロセスを削除する</EM>とは、サブプロセスからEmacsをただちに切り離し、
+サブプロセスを活性なプロセスリストから取り除くことです。
+サブプロセスへシグナルを送ってサブプロセスを終了させますが、
+ただちに終了するとは保証されません。
+プロセスオブジェクトを指すLispオブジェクトがある限り、
+プロセスオブジェクトは存在し続けます。
+プロセスマークは以前と同様に同じ場所
+（プロセスからの出力をバッファに挿入した箇所）を指し続けます。
+<P>
+
+プロセスはいつでも明示的に削除できます。
+プロセスは終了後に自動的に削除されますが、
+終了後ただちにではありません。
+終了したプロセスが自動的に削除されるまえに明示的に削除しても無害です。
+<P>
+
+<A NAME="IDX2786"></A>
+<DL>
+<DT><U>User Option:</U> <B>delete-exited-processes</B>
+<DD>この変数は、（<CODE>exit</CODE>を呼び出すかシグナルのために）終了した
+プロセスの自動削除を制御する。
+<CODE>nil</CODE>であると、ユーザーが<CODE>list-processes</CODE>を
+実行するまで存在し続ける。
+さもなければ、終了後にただちに削除する。
+</DL>
+<P>
+
+<A NAME="IDX2787"></A>
+<DL>
+<DT><U>Function:</U> <B>delete-process</B> <I>name</I>
+<DD>この関数は、<VAR>name</VAR>に対応付けられたプロセスを
+シグナル<CODE>SIGHUP</CODE>でキルし削除する。
+引数は、プロセス、プロセス名、バッファ、バッファ名のいずれかである。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(delete-process "*shell*")
+     => nil
+</FONT></pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX2788"></A>
+<DL>
+<DT><U>Function:</U> <B>process-kill-without-query</B> <I>process &#38;optional do-query</I>
+<DD>この関数は、Emacsを終了するときにプロセス<VAR>process</VAR>が動作中であると、
+ユーザーに問い合わせるかどうかを指定する。
+<VAR>do-query</VAR>が<CODE>nil</CODE>であると、プロセスを黙って削除する。
+さもなければ、Emacsはプロセスのキルに関して問い合わせる。
+<P>
+
+問い合わせるようにしてあったプロセスであると戻り値は<CODE>t</CODE>であり、
+さもなければ戻り値は<CODE>nil</CODE>である。
+新たに作成されたプロセスは、つねに問い合わせ用になっている。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(process-kill-without-query (get-process "shell"))
+     => t
+</FONT></pre></td></tr></table></DL>
+<P>
+
+<A NAME="Process Information"></A>
+<HR SIZE="6">
+<br><A NAME="SEC589"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_37.html#SEC588"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_37.html#SEC590"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Process Information"></A>
+<H2> 36.6 プロセス情報 </H2>
+<!--docid::SEC589::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Process%20Information">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Process%20Information</a>"<br>
+"texi/elisp21/プロセス情報"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D7%A5%ED%A5%BB%A5%B9%BE%F0%CA%F3">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+プロセスに関する情報を返す関数がいくつかあります。
+<CODE>list-processes</CODE>は対話的利用のためにあります。
+<P>
+
+<A NAME="IDX2789"></A>
+<DL>
+<DT><U>コマンド:</U> <B>list-processes</B>
+<DD>このコマンドは、活性なすべてのプロセスの一覧を表示する。
+さらに、`<SAMP>Exited</SAMP>'や`<SAMP>Signaled</SAMP>'である状態の
+プロセスをすべて削除する。
+<CODE>nil</CODE>を返す。
+</DL>
+<P>
+
+<A NAME="IDX2790"></A>
+<DL>
+<DT><U>Function:</U> <B>process-list</B>
+<DD>この関数は、削除されていないすべてのプロセスのリストを返す。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(process-list)
+     => (#&#60;process display-time&#62; #&#60;process shell&#62;)
+</FONT></pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX2791"></A>
+<DL>
+<DT><U>Function:</U> <B>get-process</B> <I>name</I>
+<DD>この関数は<VAR>name</VAR>という名前のプロセスを返す。
+あるいは、そのようなプロセスがなければ<CODE>nil</CODE>を返す。
+<VAR>name</VAR>が文字列でないとエラーを通知する。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(get-process "shell")
+     => #&#60;process shell&#62;
+</FONT></pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX2792"></A>
+<DL>
+<DT><U>Function:</U> <B>process-command</B> <I>process</I>
+<DD>この関数は、プロセス<VAR>process</VAR>を始動するために実行したコマンドを返す。
+これは文字列のリストであり、
+最初の文字列は実行されたプログラム、
+残りの文字列はそのプログラムに与えた引数である。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(process-command (get-process "shell"))
+     => ("/bin/csh" "-i")
+</FONT></pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX2793"></A>
+<DL>
+<DT><U>Function:</U> <B>process-id</B> <I>process</I>
+<DD>この関数は、プロセス<VAR>process</VAR>のプロセス番号PIDを返す。
+これは同じ計算機上で動いている他のすべてのプロセスと
+プロセス<VAR>process</VAR>を区別するための整数である。
+プロセスのPIDは、プロセスを始動したときに
+オペレーティングシステムのカーネルが選び、
+プロセスが終了するまで変わらない。
+</DL>
+<P>
+
+<A NAME="IDX2794"></A>
+<DL>
+<DT><U>Function:</U> <B>process-name</B> <I>process</I>
+<DD>この関数はプロセス<VAR>process</VAR>の名前を返す。
+</DL>
+<P>
+
+<A NAME="IDX2795"></A>
+<DL>
+<DT><U>Function:</U> <B>process-contact</B> <I>process</I>
+<DD><A NAME="IDX2796"></A>
+この関数は、通常の子プロセスに対しては<CODE>t</CODE>を返し、
+ネットワーク接続に対しては<CODE>(<VAR>hostname</VAR> <VAR>service</VAR>)</CODE>を返す
+（see 節 <A HREF="elisp_37.html#SEC598">36.12 ネットワーク接続</A>）。
+</DL>
+<P>
+
+<A NAME="IDX2797"></A>
+<DL>
+<DT><U>Function:</U> <B>process-status</B> <I>process-name</I>
+<DD>この関数は、<VAR>process-name</VAR>の状態をシンボルとして返す。
+引数<VAR>process-name</VAR>は、プロセス、バッファ、プロセス名（文字列）、
+バッファ名（文字列）のいずれかであること。
+<P>
+
+実際のサブプロセスに対して可能な値はつぎのとおり。
+<P>
+
+<DL COMPACT>
+<DT><CODE>run</CODE>
+<DD>実行中のプロセスである。
+<DT><CODE>stop</CODE>
+<DD>一時停止しているが継続可能である。
+<DT><CODE>exit</CODE>
+<DD>終了したプロセス。
+<DT><CODE>signal</CODE>
+<DD>致命的なシグナルを受け取ったプロセスである。
+<DT><CODE>open</CODE>
+<DD>ネットワーク接続を開いている。
+<DT><CODE>closed</CODE>
+<DD>ネットワーク接続は閉じている。
+接続をいったん閉じるとそれを再度開くことはできないが、
+同じ接続先へ新たな接続を開くことはできる。
+<DT><CODE>nil</CODE>
+<DD><VAR>process-name</VAR>は既存プロセスの名前ではない。
+</DL>
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(process-status "shell")
+     => run
+(process-status (get-buffer "*shell*"))
+     => run
+x
+     => #&#60;process xx&#60;1&#62;&#62;
+(process-status x)
+     => exit
+</FONT></pre></td></tr></table><P>
+
+ネットワーク接続では、<CODE>process-status</CODE>は
+シンボル<CODE>open</CODE>か<CODE>closed</CODE>のいずれかを返す。
+後者は、相手側が接続を閉じたか
+Emacsが<CODE>delete-process</CODE>を行ったことを表す。
+</DL>
+<P>
+
+<A NAME="IDX2798"></A>
+<DL>
+<DT><U>Function:</U> <B>process-exit-status</B> <I>process</I>
+<DD>この関数は、プロセス<VAR>process</VAR>の終了状態か、
+プロセスをキルしたシグナル番号を返す。
+（どちらであるかを判定するには、<CODE>process-status</CODE>の結果を用いる。）
+<VAR>process</VAR>が終了していないと値は0である。
+</DL>
+<P>
+
+<A NAME="IDX2799"></A>
+<DL>
+<DT><U>Function:</U> <B>process-tty-name</B> <I>process</I>
+<DD>この関数は、プロセス<VAR>process</VAR>がEmacsとの通信に用いている端末名を返す。
+あるいは、端末のかわりにパイプを用いていれば<CODE>nil</CODE>を返す
+（<A HREF="elisp_37.html#SEC587">36.4 非同期プロセスの作成</A>の<CODE>process-connection-type</CODE>を参照）。
+</DL>
+<P>
+
+<A NAME="IDX2800"></A>
+<DL>
+<DT><U>Function:</U> <B>process-coding-system</B> <I>process</I>
+<DD><A NAME="IDX2801"></A>
+この関数は、プロセス<VAR>process</VAR>からの出力を
+復号化するために用いているコーディングシステムと、
+<VAR>process</VAR>への入力を符号化するために用いている
+コーディングシステムを記述するコンスセルを返す。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(<VAR>coding-system-for-decoding</VAR> . <VAR>coding-system-for-encoding</VAR>)
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX2802"></A>
+<DL>
+<DT><U>Function:</U> <B>set-process-coding-system</B> <I>process decoding-system encoding-system</I>
+<DD><A NAME="IDX2803"></A>
+この関数は、プロセス<VAR>process</VAR>からの以降の出力および入力に用いる
+コーディングシステムを指定する。
+サブプロセスから出力の復号化には<VAR>decoding-system</VAR>を使い、
+サブプロセスの入力の符号化には<VAR>encoding-system</VAR>を使う。
+</DL>
+<P>
+
+<A NAME="Input to Processes"></A>
+<HR SIZE="6">
+<br><A NAME="SEC590"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_37.html#SEC589"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_37.html#SEC591"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Input to Processes"></A>
+<H2> 36.7 プロセスへ入力を送る </H2>
+<!--docid::SEC590::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Input%20to%20Processes">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Input%20to%20Processes</a>"<br>
+"texi/elisp21/プロセスへ入力を送る"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D7%A5%ED%A5%BB%A5%B9%A4%D8%C6%FE%CE%CF%A4%F2%C1%F7%A4%EB">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX2804"></A>
+<A NAME="IDX2805"></A>
+<P>
+
+本節の関数を用いてEmacsが入力を送ると、
+非同期プロセスは入力を受け取ります。
+入力の送先であるプロセスと、送るべき入力データを指定する必要があります。
+そのデータは、サブプロセスの『標準入力』に現れます。
+<P>
+
+疑似端末PTYのバッファ付き入力の容量に上限がある
+オペレーティングシステムもあります。
+そのようなシステムでは、Emacsは他の文字に混ぜて定期的にEOFを送り、
+文字が流れるように強制します。
+ほとんどのプログラムでは、このようなEOFは無害なはずです。
+<P>
+
+ファイルに書き込むテキストと同様に、
+サブプロセスの入力は、サブプロセスがそれを受け取るまえに
+コーディングシステムを用いて普通は符号化されます。
+<CODE>set-process-coding-system</CODE>で
+使用するコーディングシステムを指定できます
+（see 節 <A HREF="elisp_37.html#SEC589">36.6 プロセス情報</A>）。
+さもなければ、<CODE>coding-system-for-write</CODE>が
+<CODE>nil</CODE>以外であればこれを使います。
+それ以外ではデフォルトの機構で決まるものを使います
+（see 節 <A HREF="elisp_33.html#SEC543">32.10.5 デフォルトのコーディングシステム</A>）。
+<P>
+
+<A NAME="IDX2806"></A>
+<DL>
+<DT><U>Function:</U> <B>process-send-string</B> <I>process-name string</I>
+<DD>この関数は、文字列<VAR>string</VAR>の内容を
+標準入力としてプロセス<VAR>process-name</VAR>に送る。
+引数<VAR>process-name</VAR>は、プロセスかプロセス名であること。
+これが<CODE>nil</CODE>であると、カレントバッファのプロセスを用いる。
+<P>
+
+関数は<CODE>nil</CODE>を返す。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(process-send-string "shell<1>" "ls\n")
+     => nil
+
+
+---------- Buffer: *shell* ----------
+...
+introduction.texi               syntax-tables.texi~
+introduction.texi~              text.texi
+introduction.txt                text.texi~
+...
+---------- Buffer: *shell* ----------
+</FONT></pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX2807"></A>
+<DL>
+<DT><U>コマンド:</U> <B>process-send-region</B> <I>process-name start end</I>
+<DD>この関数は、<VAR>start</VAR>と<VAR>end</VAR>で定義される領域内のテキストを
+標準入力としてプロセス<VAR>process-name</VAR>へ送る。
+<VAR>process-name</VAR>はプロセスかプロセス名であること。
+（<CODE>nil</CODE>であると、カレントバッファのプロセスを使う。）
+<P>
+
+<VAR>start</VAR>と<VAR>end</VAR>のどちらかが
+カレントバッファ内の位置を表す整数でもマーカでもないと、
+エラーを通知する。
+（どちらが大きな数であるかは重要ではない。）
+</DL>
+<P>
+
+<A NAME="IDX2808"></A>
+<DL>
+<DT><U>Function:</U> <B>process-send-eof</B> <I>&#38;optional process-name</I>
+<DD>この関数は、プロセス<VAR>process-name</VAR>が入力で
+「ファイルの終りEOF」を見るようにする。
+EOFはそれまでに送ったテキストのあとにある。
+<P>
+
+<VAR>process-name</VAR>を指定しなかったり<CODE>nil</CODE>であると、
+この関数はカレントバッファのプロセスにEOFを送る。
+カレントバッファにプロセスがないとエラーを通知する。
+<P>
+
+関数は<VAR>process-name</VAR>を返す。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(process-send-eof "shell")
+     => "shell"
+</FONT></pre></td></tr></table></DL>
+<P>
+
+<A NAME="Signals to Processes"></A>
+<HR SIZE="6">
+<br><A NAME="SEC591"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_37.html#SEC590"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_37.html#SEC592"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Signals to Processes"></A>
+<H2> 36.8 プロセスにシグナルを送る </H2>
+<!--docid::SEC591::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Signals%20to%20Processes">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Signals%20to%20Processes</a>"<br>
+"texi/elisp21/プロセスにシグナルを送る"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D7%A5%ED%A5%BB%A5%B9%A4%CB%A5%B7%A5%B0%A5%CA%A5%EB%A4%F2%C1%F7%A4%EB">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX2809"></A>
+<A NAME="IDX2810"></A>
+<A NAME="IDX2811"></A>
+<P>
+
+サブプロセスに<EM>シグナルを送る</EM>ことは、
+サブプロセスの動作に割り込む一方法です。
+それぞれ独自の意味を持つ異なるシグナルがいくつかあります。
+一連のシグナルとそれらの名前は、オペレーティングシステムが定義します。
+たとえば、シグナル<CODE>SIGINT</CODE>は、ユーザーが<KBD>C-c</KBD>を打った、
+あるいは、それと同様なことが起こったことを意味します。
+<P>
+
+各シグナルには、サブプロセスに対する標準的な効果があります。
+ほとんどのシグナルはサブプロセスをキルしますが、
+その実行を一時停止したり再開するものもあります。
+プログラムがシグナルを処理している場合には、
+シグナルの効果を一般的に述べることはできません。
+<P>
+
+本節の関数を呼び出してシグナルを明示的に送ることができます。
+また、Emacsは特定の場面で自動的にシグナルを送ります。
+バッファを削除すると、そのバッファに対応付けられているすべての
+プロセスにシグナル<CODE>SIGHUP</CODE>を送ります。
+Emacsを終了するときには、動作しているすべてのサブプロセスに
+シグナル<CODE>SIGHUP</CODE>を送ります。
+（<CODE>SIGHUP</CODE>は、ユーザーが電話を切ったことを普通は表すシグナル。）
+<P>
+
+シグナルを送る各関数は、省略可能な2つの引数、
+<VAR>process-name</VAR>と<VAR>current-group</VAR>を受け付けます。
+<P>
+
+引数<VAR>process-name</VAR>は、プロセス、プロセス名、<CODE>nil</CODE>のいずれかです。
+これが<CODE>nil</CODE>であると、カレントバッファに対応付けられているプロセスが
+デフォルトになります。
+<VAR>process-name</VAR>がプロセスを指定しないとエラーを通知します。
+<P>
+
+引数<VAR>current-group</VAR>は、Emacsのサブプロセスとして
+ジョブ制御可能なシェルを実行しているときに違いが現れるフラグです。
+これが<CODE>nil</CODE>以外であると、
+Emacsがサブプロセスとの通信に用いている端末の現在のプロセスグループに
+シグナルを送ります。
+プロセスがジョブ制御可能なシェルであると、
+これはシェルの現在のサブジョブ
+<A NAME="DOCF10" HREF="elisp_fot.html#FOOT10">(10)</A>
+であることを意味します。
+<CODE>nil</CODE>であると、Emacsのサブプロセスの直接のプロセスグループに
+シグナルを送ります。
+プロセスがジョブ制御可能なシェルであると、これはシェルそのものです。
+<P>
+
+オペレーティングシステムはパイプではプロセスグループを扱わないため、
+サブプロセスとの通信にパイプを用いている場合には、
+フラグ<VAR>current-group</VAR>には効果はありません。
+同じ理由で、パイプを用いている場合には
+ジョブ制御可能なシェル（のジョブ制御機能）は働きません。
+<A HREF="elisp_37.html#SEC587">36.4 非同期プロセスの作成</A>の
+<CODE>process-connection-type</CODE>を参照してください。
+<P>
+
+<A NAME="IDX2812"></A>
+<DL>
+<DT><U>Function:</U> <B>interrupt-process</B> <I>&#38;optional process-name current-group</I>
+<DD>この関数は、プロセス<VAR>process-name</VAR>に
+シグナル<CODE>SIGINT</CODE>を送って割り込む。
+Emacsの外側では、『割り込み文字』（普通、<KBD>C-c</KBD>であるシステムもあり、
+その他のシステムでは<CODE>DEL</CODE>）を打つとこのシグナルを送る。
+引数<VAR>current-group</VAR>が<CODE>nil</CODE>以外であると、
+この関数は、Emacsがサブプロセスと通信している端末上で
+『<KBD>C-c</KBD>を打つ』と考えることができる。
+</DL>
+<P>
+
+<A NAME="IDX2813"></A>
+<DL>
+<DT><U>Function:</U> <B>kill-process</B> <I>&#38;optional process-name current-group</I>
+<DD>この関数は、プロセス<VAR>process-name</VAR>に
+シグナル<CODE>SIGKILL</CODE>を送ってキルする。
+このシグナルはサブプロセスを即座にキルし、
+サブプロセスはこれを処理できない。
+</DL>
+<P>
+
+<A NAME="IDX2814"></A>
+<DL>
+<DT><U>Function:</U> <B>quit-process</B> <I>&#38;optional process-name current-group</I>
+<DD>この関数は、プロセス<VAR>process-name</VAR>にシグナル<CODE>SIGQUIT</CODE>を送る。
+このシグナルは、『中断文字』
+（Emacsの外側では普通は<KBD>C-b</KBD>や<KBD>C-\</KBD>）が
+送るシグナルと同じものである。
+</DL>
+<P>
+
+<A NAME="IDX2815"></A>
+<DL>
+<DT><U>Function:</U> <B>stop-process</B> <I>&#38;optional process-name current-group</I>
+<DD>この関数は、プロセス<VAR>process-name</VAR>に
+シグナル<CODE>SIGTSTP</CODE>を送って一時停止させる。
+その実行を再開させるには<CODE>continue-process</CODE>を使う。
+<P>
+
+Emacsの外側でジョブ制御可能なシステムでは、
+『一時停止文字』（普通は<KBD>C-z</KBD>）が普通はこのシグナルを送る。
+<VAR>current-group</VAR>が<CODE>nil</CODE>以外であると、
+この関数は、Emacsがサブプロセスと通信している端末上で
+『<KBD>C-z</KBD>を打つ』と考えることができる。
+</DL>
+<P>
+
+<A NAME="IDX2816"></A>
+<DL>
+<DT><U>Function:</U> <B>continue-process</B> <I>&#38;optional process-name current-group</I>
+<DD>この関数は、プロセス<VAR>process</VAR>に
+シグナル<CODE>SIGTCONT</CODE>を送って実行を再開させる。
+以前に一時停止させられた<VAR>process</VAR>を再開する。
+</DL>
+<P>
+
+<A NAME="IDX2817"></A>
+<DL>
+<DT><U>Function:</U> <B>signal-process</B> <I>pid signal</I>
+<DD>この関数は、必ずしもEmacsの子プロセスではない
+プロセス<VAR>pid</VAR>にシグナルを送る。
+引数<VAR>signal</VAR>は、送るべきシグナルを整数で指定する。
+</DL>
+<P>
+
+<A NAME="Output from Processes"></A>
+<HR SIZE="6">
+<br><A NAME="SEC592"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_37.html#SEC591"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_37.html#SEC593"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Output from Processes"></A>
+<H2> 36.9 プロセスからの出力を受け取る </H2>
+<!--docid::SEC592::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Output%20from%20Processes">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Output%20from%20Processes</a>"<br>
+"texi/elisp21/プロセスからの出力を受け取る"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D7%A5%ED%A5%BB%A5%B9%A4%AB%A4%E9%A4%CE%BD%D0%CE%CF%A4%F2%BC%F5%A4%B1%BC%E8%A4%EB">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX2818"></A>
+<A NAME="IDX2819"></A>
+<P>
+
+サブプロセスが標準出力に書く出力を受け取る方法は2つあります。
+プロセスに対応付けられたバッファに出力を挿入するか、
+あるいは、<EM>フィルタ関数</EM>（filter function）と呼ばれる関数を
+出力に対して作用させます。
+プロセスにバッファもフィルタ関数もなければ、その出力は破棄します。
+<P>
+
+サブプロセスからの出力は、Emacsが待っている、つまり、
+端末入力を読んでいるとき、
+<CODE>sit-for</CODE>や<CODE>sleep-for</CODE>を実行中のとき（see 節 <A HREF="elisp_21.html#SEC310">20.8 時間待ちと入力待ち</A>）、
+<CODE>accept-process-output</CODE>（see 節 <A HREF="elisp_37.html#SEC595">36.9.3 プロセスからの出力を受け取る</A>）を実行中のときに
+だけ到着します。
+これにより、並行プログラムを普通は悩ますような
+タイミングエラーの問題を最小に抑えます。
+たとえば、安全にプロセスを作成してから、
+バッファかフィルタ関数を指定できます。
+この処理の途中で待つような基本関数を呼び出さなければ、
+出力は到着しません。
+<P>
+
+ファイルから読むテキストと同様に、
+サブプロセスの出力は、バッファやフィルタ関数が受け取るまえに
+コーディングシステムを用いて普通は復号化します。
+<CODE>set-process-coding-system</CODE>で
+使用するコーディングシステムを指定できます
+（see 節 <A HREF="elisp_37.html#SEC589">36.6 プロセス情報</A>）。
+さもなければ、<CODE>coding-system-for-read</CODE>が
+<CODE>nil</CODE>以外であればこれを使います。
+それ以外ではデフォルトの機構で決まるものを使います
+（see 節 <A HREF="elisp_33.html#SEC543">32.10.5 デフォルトのコーディングシステム</A>）。
+<P>
+
+<STRONG>警告：</STRONG><CODE> </CODE>
+データからコーディングシステムを決定する<CODE>undecided</CODE>のような
+コーディングシステムは、非同期サブプロセスの出力に対しては
+完全に信頼性のある動作はできない。
+これは、Emacsが非同期サブプロセスの出力が
+到着するたびに一塊で処理するからである。
+Emacsは1つの塊から正しい変換を検出しようと試みるが、
+これがつねに動作するとは限らない。
+したがって、可能な限り
+文字コード変換と行末変換の両方を指定したコーディングシステムを使う。
+つまり、<CODE>undecided</CODE>や<CODE>latin-1</CODE>などではなく、
+<CODE>latin-1-unix</CODE>のようなものを使う。
+<P>
+
+<BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_37.html#SEC593">36.9.1 プロセスバッファ</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">If no filter, output is put in a buffer.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_37.html#SEC594">36.9.2 プロセスフィルタ関数</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Filter functions accept output from the process.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_37.html#SEC595">36.9.3 プロセスからの出力を受け取る</A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Explicitly permitting subprocess output.
+                            Waiting for subprocess output.</TD></TR>
+</TABLE></BLOCKQUOTE>
+<P>
+
+<A NAME="Process Buffers"></A>
+<HR SIZE="6">
+<br><A NAME="SEC593"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_37.html#SEC592"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_37.html#SEC594"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Process Buffers"></A>
+<H3> 36.9.1 プロセスバッファ </H3>
+<!--docid::SEC593::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Process%20Buffers">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Process%20Buffers</a>"<br>
+"texi/elisp21/プロセスバッファ"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D7%A5%ED%A5%BB%A5%B9%A5%D0%A5%C3%A5%D5%A5%A1">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+プロセスには<EM>対応付けられたバッファ</EM>が（普通は）あります。
+そのバッファはEmacsの普通のバッファであり、2つの目的に使われます。
+プロセスからの出力を保存することと、
+プロセスがキルされたことを判定するためです。
+バッファを用いてそれを操作しているプロセスを識別することもできます。
+普通は1つのバッファに1つのプロセスを対応付けるからです。
+プロセスの多くの応用では、プロセスへ送る入力を編集するために
+バッファを使いますが、これはEmacs Lispに組み込まれたことではありません。
+<P>
+
+プロセスにフィルタ関数（see 節 <A HREF="elisp_37.html#SEC594">36.9.2 プロセスフィルタ関数</A>）がなければ、
+その出力は対応付けられたバッファに挿入されます。
+出力の挿入位置は<CODE>process-mark</CODE>で決定され、
+<CODE>process-mark</CODE>は挿入したばかりのテキストの末尾を
+指すように更新されます。
+<CODE>process-mark</CODE>は普通はバッファの末尾にありますが、
+つねにそうであるとは限りません。
+<P>
+
+<A NAME="IDX2820"></A>
+<DL>
+<DT><U>Function:</U> <B>process-buffer</B> <I>process</I>
+<DD>この関数は、プロセス<VAR>process</VAR>に対応付けられているバッファを返す。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(process-buffer (get-process "shell"))
+     => #&#60;buffer *shell*&#62;
+</FONT></pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX2821"></A>
+<DL>
+<DT><U>Function:</U> <B>process-mark</B> <I>process</I>
+<DD>この関数は、プロセス<VAR>process</VAR>からの出力を挿入する箇所を指定する
+<VAR>process</VAR>のプロセスマーカを返す。
+<P>
+
+<VAR>process</VAR>にバッファがなければ、
+<CODE>process-mark</CODE>はどこも指していないマーカである。
+<P>
+
+バッファにプロセス出力を挿入する際には、
+挿入箇所を決定するためにこのマーカを使用し、
+挿入したテキストの末尾を指すようにこのマーカを更新する。
+これにより、出力の連続した塊を順に挿入できるのである。
+<P>
+
+バッファに出力を直接挿入する場合と同様に、
+フィルタ関数はこのマーカを扱うべきである。
+<CODE>process-mark</CODE>を用いたフィルタ関数の好例は、以下の節にある。
+<P>
+
+プロセスへ送るためにユーザーがプロセスバッファに
+入力することが予想されるときは、
+プロセスマーカは新たな入力とそれ以前の出力を区切る。
+</DL>
+<P>
+
+<A NAME="IDX2822"></A>
+<DL>
+<DT><U>Function:</U> <B>set-process-buffer</B> <I>process buffer</I>
+<DD>この関数は、プロセス<VAR>process</VAR>にバッファ<VAR>buffer</VAR>を対応付ける。
+<VAR>buffer</VAR>が<CODE>nil</CODE>であると、
+プロセスに対応付けられたバッファはない。
+</DL>
+<P>
+
+<A NAME="IDX2823"></A>
+<DL>
+<DT><U>Function:</U> <B>get-buffer-process</B> <I>buffer-or-name</I>
+<DD>この関数は<VAR>buffer-or-name</VAR>に対応付けられたプロセスを返す。
+バッファに複数のプロセスが対応付けられている場合には、
+それらの1つを選ぶ。
+（現状では、もっとも最近に作られたプロセスを選ぶ。）
+同じバッファに複数のプロセスを対応付けることは一般にはよくない。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(get-buffer-process "*shell*")
+     => #&#60;process shell&#62;
+</FONT></pre></td></tr></table><P>
+
+プロセスのバッファを削除すると、
+サブプロセスにシグナル<CODE>SIGHUP</CODE>を送ってプロセスを削除する
+（see 節 <A HREF="elisp_37.html#SEC591">36.8 プロセスにシグナルを送る</A>）。
+</DL>
+<P>
+
+<A NAME="Filter Functions"></A>
+<HR SIZE="6">
+<br><A NAME="SEC594"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_37.html#SEC593"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_37.html#SEC595"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Filter Functions"></A>
+<H3> 36.9.2 プロセスフィルタ関数 </H3>
+<!--docid::SEC594::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Filter%20Functions">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Filter%20Functions</a>"<br>
+"texi/elisp21/プロセスフィルタ関数"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D7%A5%ED%A5%BB%A5%B9%A5%D5%A5%A3%A5%EB%A5%BF%B4%D8%BF%F4">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX2824"></A>
+<A NAME="IDX2825"></A>
+<P>
+
+プロセスの<EM>フィルタ関数</EM>（filter function）は、
+対応付けられたプロセスからの標準出力を受け取る関数です。
+プロセスにフィルタがあると、そのプロセスからの<EM>すべて</EM>の出力は
+フィルタに渡されます。
+プロセスにフィルタがない場合に限って、
+プロセスからの出力向けにプロセスバッファを直接使います。
+<P>
+
+フィルタ関数は、Emacsがなにかを待っているときにのみ呼ばれます。
+そのような期間にのみプロセスの出力が到着するからです。
+Emacsが待つのは、端末入力を読んでいるとき、
+<CODE>sit-for</CODE>や<CODE>sleep-for</CODE>を実行中のとき（see 節 <A HREF="elisp_21.html#SEC310">20.8 時間待ちと入力待ち</A>）、
+<CODE>accept-process-output</CODE>（see 節 <A HREF="elisp_37.html#SEC595">36.9.3 プロセスからの出力を受け取る</A>）を実行中のときです。
+<P>
+
+フィルタ関数は2つの引数、
+対応付けられたプロセスとそのプロセスから受け取ったばかりの出力である文字列を
+受け取ります。
+関数は出力に対してなにを行ってもかまいません。
+<P>
+
+フィルタ関数の内側では中断は普通は禁止されています。
+さもないと、コマンドレベルで打った<KBD>C-g</KBD>の効果や、
+ユーザーコマンドを中断するために打った<KBD>C-g</KBD>の効果は予測できません。
+フィルタ関数の内側で中断を行いたい場合には、
+<CODE>inhibit-quit</CODE>に<CODE>nil</CODE>を束縛します。
+See 節 <A HREF="elisp_21.html#SEC311">20.9 中断</A>。
+<P>
+
+フィルタ関数の実行中にエラーが発生するとそのエラーは自動的に捕捉され、
+フィルタ関数を始動したときに動いていた
+プログラムの実行を停止しないようにします。
+しかし、<CODE>debug-on-error</CODE>が<CODE>nil</CODE>以外であると、
+エラーを捕捉しません。
+これにより、Lispデバッガでフィルタ関数をデバッグできます。
+See 節 <A HREF="elisp_18.html#SEC220">17.1 Lispデバッガ</A>。
+<P>
+
+多くのフィルタ関数は、ときどきあるいはつねに、
+プロセスのバッファにテキストを挿入します。
+これはフィルタ関数がないときのEmacsの動作を模倣するものです。
+そのようなフィルタ関数では、対象のバッファに挿入するために
+<CODE>set-buffer</CODE>を使う必要があります。
+カレントバッファをなかば恒久的に切り替えないように、
+これらのフィルタ関数はカレントバッファを記録／復元する必要があります。
+プロセスマーカを更新し、必要に応じてポイントの値も更新します。
+これらはつぎのように行います。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(defun ordinary-insertion-filter (proc string)
+  (with-current-buffer (process-buffer proc)
+    (let ((moving (= (point) (process-mark proc))))
+      (save-excursion
+        ;; テキストを挿入し、プロセスマーカを進める
+        (goto-char (process-mark proc))
+        (insert string)
+        (set-marker (process-mark proc) (point)))
+      (if moving (goto-char (process-mark proc))))))
+</FONT></pre></td></tr></table><P>
+
+カレントバッファを記録／復元するために<CODE>save-excursion</CODE>ではなく
+<CODE>with-current-buffer</CODE>を使うのは、
+2番目の<CODE>goto-char</CODE>の呼び出しで行うポイントの移動効果を
+有効にするためです。
+<P>
+
+新たにテキストが到着するたびにプロセスバッファが見えるように
+フィルタ関数で強制するには、
+つぎのような行を<CODE>with-current-buffer</CODE>の直前に入れます。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(display-buffer (process-buffer proc))
+</FONT></pre></td></tr></table><P>
+
+ポイント位置に関わらずに新たな出力の末尾にポイントを移動するには、
+変数<CODE>moving</CODE>を削除して、
+無条件に<CODE>goto-char</CODE>を呼び出します。
+<P>
+
+Emacsの初期の版では、正規表現を探索したり一致処理するフィルタ関数では、
+マッチデータを明示的に保存／復元する必要がありました。
+今のEmacsは、フィルタ関数に対してはこれを自動的に行いますから、
+フィルタ関数で明示的に行う必要はありません。
+See 節 <A HREF="elisp_34.html#SEC557">33.6 マッチデータ</A>。
+<P>
+
+プロセスのバッファに出力を書き込むフィルタ関数は、
+そのバッファが有効であるかどうかを検査するべきです。
+無効なバッファに挿入しようとするとエラーになります。
+バッファが無効であれば、
+式<CODE>(buffer-name (process-buffer <VAR>process</VAR>))</CODE>
+を実行すると<CODE>nil</CODE>を返します。
+<P>
+
+関数に渡される出力は任意のサイズの塊できます。
+同じ出力を2回生成するプログラムは、
+あるときには一度に200文字の塊を1つ送る場合もあれば、
+40文字の塊を5つ送る場合もあります。
+サブプロセスの出力から特定のテキスト文字列を探すフィルタでは、
+そのような文字列が2つかそれ以上の出力の塊に分割される場合も
+扱えるようにします。
+<P>
+
+<A NAME="IDX2826"></A>
+<DL>
+<DT><U>Function:</U> <B>set-process-filter</B> <I>process filter</I>
+<DD>この関数は、プロセス<VAR>process</VAR>にフィルタ関数<VAR>filter</VAR>を指定する。
+<VAR>filter</VAR>が<CODE>nil</CODE>であると、プロセスにフィルタはない。
+</DL>
+<P>
+
+<A NAME="IDX2827"></A>
+<DL>
+<DT><U>Function:</U> <B>process-filter</B> <I>process</I>
+<DD>この関数は、プロセス<VAR>process</VAR>のフィルタ関数を返す。
+あるいは、フィルタ関数がなければ<CODE>nil</CODE>を返す。
+</DL>
+<P>
+
+フィルタ関数の使用例をつぎに示します。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(defun keep-output (process output)
+   (setq kept (cons output kept)))
+     => keep-output
+(setq kept nil)
+     => nil
+(set-process-filter (get-process "shell") 'keep-output)
+     => keep-output
+(process-send-string "shell" "ls ~/other\n")
+     => nil
+kept
+     => ("lewis&#64;slug[8] % "
+"FINAL-W87-SHORT.MSS    backup.otl              kolstad.mss~
+address.txt             backup.psf              kolstad.psf
+backup.bib~             david.mss               resume-Dec-86.mss~
+backup.err              david.psf               resume-Dec.psf
+backup.mss              dland                   syllabus.mss
+"
+"#backups.mss#          backup.mss~             kolstad.mss
+")
+</FONT></pre></td></tr></table><P>
+
+<A NAME="Accepting Output"></A>
+<HR SIZE="6">
+<br><A NAME="SEC595"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_37.html#SEC594"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_37.html#SEC596"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Accepting Output"></A>
+<H3> 36.9.3 プロセスからの出力を受け取る </H3>
+<!--docid::SEC595::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Accepting%20Output">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Accepting%20Output</a>"<br>
+"texi/elisp21/プロセスからの出力を受け取る"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D7%A5%ED%A5%BB%A5%B9%A4%AB%A4%E9%A4%CE%BD%D0%CE%CF%A4%F2%BC%F5%A4%B1%BC%E8%A4%EB">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+非同期サブプロセスからの出力は、
+Emacsが時間待ちや端末入力などの
+なんらかの外部事象を待っているときにのみ到着します。
+Lispプログラムから特定の場面で出力の到着を明示的に許したり、
+プロセスの出力が到着するのを待つことができると有用なことがあります。
+<P>
+
+<A NAME="IDX2828"></A>
+<DL>
+<DT><U>Function:</U> <B>accept-process-output</B> <I>&#38;optional process seconds millisec</I>
+<DD>この関数は、Emacsにプロセスからの未処理の出力を読み取ることを許す。
+その出力は、対応付けられたバッファに挿入されるか、
+フィルタ関数に与えられる。
+<VAR>process</VAR>が<CODE>nil</CODE>以外であると、
+この関数は、<VAR>process</VAR>からなんらかの出力を得るまで戻らない。
+<P>
+
+引数<VAR>seconds</VAR>と<VAR>millisec</VAR>は、時間切れを指定する。
+前者は秒単位の時間、後者はミリ秒単位の時間を指定する。
+指定された2つの時間は合計され、
+任意のサブプロセスの出力を受け取ったどうかに関わらず、
+その時間だけ経過すると<CODE>accept-process-output</CODE>は戻ってくる。
+<P>
+
+引数<VAR>seconds</VAR>は整数である必要はない。
+浮動小数点数であると、この関数は秒未満の時間も待つ。
+秒未満を扱えないシステムもある。
+そのようなシステムでは、<VAR>seconds</VAR>を切り下げる。
+<P>
+
+すべてのオペレーティングシステムで秒未満を扱えるわけではない。
+扱えないシステムで<VAR>millisec</VAR>にゼロ以外を指定すると
+エラーになる。
+<P>
+
+関数<CODE>accept-process-output</CODE>は、
+出力を得ると<CODE>nil</CODE>以外を返す。
+あるいは、出力が到着するまえに時間切れすると<CODE>nil</CODE>を返す。
+</DL>
+<P>
+
+<A NAME="Sentinels"></A>
+<HR SIZE="6">
+<br><A NAME="SEC596"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_37.html#SEC595"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_37.html#SEC597"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Sentinels"></A>
+<H2> 36.10 番兵：プロセスの状態変化の検出 </H2>
+<!--docid::SEC596::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Sentinels">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Sentinels</a>"<br>
+"texi/elisp21/番兵：プロセスの状態変化の検出"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%C8%D6%CA%BC%A1%A7%A5%D7%A5%ED%A5%BB%A5%B9%A4%CE%BE%F5%C2%D6%CA%D1%B2%BD%A4%CE%B8%A1%BD%D0">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX2829"></A>
+<A NAME="IDX2830"></A>
+<P>
+
+<EM>プロセスの番兵</EM>（process sentinel）は、
+プロセスを終了／一時停止／継続させる
+（Emacsが送ったかプロセス自身の動作によって生起した）シグナルを含めて
+対応付けられたプロセスの状態が任意の理由で変化したときに
+呼び出される関数です。
+プロセスの番兵は、プロセスが終了しても呼び出されます。
+番兵は2つの引数、事象が発生したプロセスと
+事象の種類を記述する文字列を受け取ります。
+<P>
+
+事象を記述する文字列はつぎのとおりです。
+<P>
+
+<UL>
+<LI>
+<CODE>"finished\n"</CODE>.
+<P>
+
+<LI>
+<CODE>"exited abnormally with code <VAR>exitcode</VAR>\n"</CODE>.
+<P>
+
+<LI>
+<CODE>"<VAR>name-of-signal</VAR>\n"</CODE>.
+<P>
+
+<LI>
+<CODE>"<VAR>name-of-signal</VAR> (core dumped)\n"</CODE>.
+</UL>
+<P>
+
+番兵はEmacsが（たとえば、端末入力や時間経過、プロセスの出力を）
+待っているときにのみ実行されます。
+他のLispプログラムの実行途中で無秩序に番兵を実行した場合に起こる
+タイミングエラーを回避するためです。
+<CODE>sit-for</CODE>や<CODE>sleep-for</CODE>（see 節 <A HREF="elisp_21.html#SEC310">20.8 時間待ちと入力待ち</A>）、あるいは、
+<CODE>accept-process-output</CODE>（see 節 <A HREF="elisp_37.html#SEC595">36.9.3 プロセスからの出力を受け取る</A>）を
+呼び出すとプログラムは待ちに入り、番兵が動けることになります。
+Emacsは、コマンドループで入力を読むときにも番兵の実行を許します。
+<P>
+
+番兵の内側では中断は普通は禁止されています。
+さもないと、コマンドレベルで打った<KBD>C-g</KBD>の効果や、
+ユーザーコマンドを中断するために打った<KBD>C-g</KBD>の効果は予測できません。
+番兵の内側で中断を行いたい場合には、
+<CODE>inhibit-quit</CODE>に<CODE>nil</CODE>を束縛します。
+See 節 <A HREF="elisp_21.html#SEC311">20.9 中断</A>。
+<P>
+
+プロセスのバッファに出力を書き込む番兵は、
+そのバッファが有効であるかどうかを検査するべきです。
+無効なバッファに挿入しようとするとエラーになります。
+バッファが無効であれば、
+式<CODE>(buffer-name (process-buffer <VAR>process</VAR>))</CODE>
+を実行すると<CODE>nil</CODE>を返します。
+<P>
+
+番兵の実行中にエラーが発生するとそのエラーは自動的に捕捉され、
+番兵を始動したときに動いていた
+プログラムの実行を停止しないようにします。
+しかし、<CODE>debug-on-error</CODE>が<CODE>nil</CODE>以外であると、
+エラーを捕捉しません。
+これにより、Lispデバッガで番兵をデバッグできます。
+See 節 <A HREF="elisp_18.html#SEC220">17.1 Lispデバッガ</A>。
+<P>
+
+Emacsの初期の版では、正規表現を探索したり一致処理する番兵では、
+マッチデータを明示的に保存／復元する必要がありました。
+今のEmacsは、番兵に対してはこれを自動的に行いますから、
+番兵で明示的に行う必要はありません。
+See 節 <A HREF="elisp_34.html#SEC557">33.6 マッチデータ</A>。
+<P>
+
+<A NAME="IDX2831"></A>
+<DL>
+<DT><U>Function:</U> <B>set-process-sentinel</B> <I>process sentinel</I>
+<DD>この関数は、プロセス<VAR>process</VAR>に番兵<VAR>sentinel</VAR>を対応付ける。
+<VAR>sentinel</VAR>が<CODE>nil</CODE>であると、プロセスに番兵はない。
+番兵がない場合のデフォルトのふるまいは、
+プロセス状態が変化するとプロセスのバッファにメッセージを挿入する。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(defun msg-me (process event)
+   (princ
+     (format "Process: %s had the event `%s'" process event)))
+(set-process-sentinel (get-process "shell") 'msg-me)
+     => msg-me
+(kill-process (get-process "shell"))
+     -| Process: #&#60;process shell&#62; had the event `killed'
+     => #&#60;process shell&#62;
+</FONT></pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX2832"></A>
+<DL>
+<DT><U>Function:</U> <B>process-sentinel</B> <I>process</I>
+<DD>この関数は、プロセス<VAR>process</VAR>の番兵を返すか、
+番兵がなければ<CODE>nil</CODE>を返す。
+</DL>
+<P>
+
+<A NAME="IDX2833"></A>
+<DL>
+<DT><U>Function:</U> <B>waiting-for-user-input-p</B>
+<DD>番兵やフィルタ関数が動作中にこの関数を呼び出すと、
+番兵やフィルタ関数を呼び出したときにEmacsがユーザーからの
+キーボード入力を待ってると<CODE>nil</CODE>以外を返し、
+それ以外では<CODE>nil</CODE>を返す。
+</DL>
+<P>
+
+<A NAME="Transaction Queues"></A>
+<HR SIZE="6">
+<br><A NAME="SEC597"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_37.html#SEC596"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_37.html#SEC598"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Transaction Queues"></A>
+<H2> 36.11 トランザクションキュー </H2>
+<!--docid::SEC597::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Transaction%20Queues">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Transaction%20Queues</a>"<br>
+"texi/elisp21/トランザクションキュー"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%C8%A5%E9%A5%F3%A5%B6%A5%AF%A5%B7%A5%E7%A5%F3%A5%AD%A5%E5%A1%BC">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX2834"></A>
+<P>
+
+トランザクションを用いたサブプロセスとの通信に
+<EM>トランザクションキュー</EM>（transaction queue）を使えます。
+まず<CODE>tq-create</CODE>を用いて、
+指定したプロセスとの通信用トランザクションキューを作成します。
+そして、トランザクションを送るために<CODE>tq-enqueue</CODE>を呼び出します。
+<P>
+
+<A NAME="IDX2835"></A>
+<DL>
+<DT><U>Function:</U> <B>tq-create</B> <I>process</I>
+<DD>この関数は、プロセス<VAR>process</VAR>との通信用トランザクションキューを
+作成して返す。
+引数<VAR>process</VAR>は、バイトストリームを送受信できる機能を
+有するサブプロセスであること。
+つまり、子プロセスであるか、別のマシン上の可能性もある
+サーバーへのTCP接続である。
+</DL>
+<P>
+
+<A NAME="IDX2836"></A>
+<DL>
+<DT><U>Function:</U> <B>tq-enqueue</B> <I>queue question regexp closure fn</I>
+<DD>この関数はキュー<VAR>queue</VAR>にトランザクションを送る。
+キューを指定することは、
+通信相手のサブプロセスを指定する効果がある。
+<P>
+
+引数<VAR>question</VAR>は、トランザクションを始める送出メッセージである。
+引数<VAR>fn</VAR>は、対応する応答が戻ってきたときに呼び出す関数である。
+その関数は2つの引数、<VAR>closure</VAR>と受け取った応答で呼び出される。
+<P>
+
+引数<VAR>regexp</VAR>は、1つの応答だけに一致する正規表現である。
+<CODE>tq-enqueue</CODE>が応答の末尾を判定するために使う。
+<P>
+
+<CODE>tq-enqueue</CODE>の戻り値そのものに意味はない。
+</DL>
+<P>
+
+<A NAME="IDX2837"></A>
+<DL>
+<DT><U>Function:</U> <B>tq-close</B> <I>queue</I>
+<DD>未処理のトランザクションすべてが完了するのを待ち、
+接続や子プロセスを終了して、
+トランザクションキュー<VAR>queue</VAR>を終える。
+</DL>
+<P>
+
+トランザクションキューはフィルタ関数を用いて実装してあります。
+See 節 <A HREF="elisp_37.html#SEC594">36.9.2 プロセスフィルタ関数</A>。
+<P>
+
+<A NAME="Network"></A>
+<HR SIZE="6">
+<br><A NAME="SEC598"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_37.html#SEC597"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_38.html#SEC599"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Network"></A>
+<H2> 36.12 ネットワーク接続 </H2>
+<!--docid::SEC598::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Network">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Network</a>"<br>
+"texi/elisp21/ネットワーク接続"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%CD%A5%C3%A5%C8%A5%EF%A1%BC%A5%AF%C0%DC%C2%B3">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX2838"></A>
+<A NAME="IDX2839"></A>
+<P>
+
+Emacs Lispプログラムは、同一マシンや別のマシン上の他のプロセスに対して
+TCPネットワーク接続を開くことができます。
+ネットワーク接続は、サブプロセスと同様にLispが扱い、
+プロセスオブジェクトとして表現されます。
+しかし、通信相手のプロセスはEmacsプロセスの子プロセスではありませんから、
+キルしたりシグナルを送ることはできません。
+データの送受信のみが可能です。
+<CODE>delete-process</CODE>は接続を閉じますが、
+もう一方の端のプロセスをキルしません。
+そのプロセスは、接続が閉じた場合の動作を判断する必要があります。
+<P>
+
+ネットワーク接続を表すプロセスオブジェクトと
+サブプロセスを表すプロセスオブジェクトとは、
+関数<CODE>process-status</CODE>を使って区別できます。
+この関数は、ネットワーク接続に対しては
+<CODE>open</CODE>か<CODE>closed</CODE>をつねに返し、
+本当のサブプロセスに対してはこれらのいずれの値もけっして返しません。
+See 節 <A HREF="elisp_37.html#SEC589">36.6 プロセス情報</A>。
+<P>
+
+<A NAME="IDX2840"></A>
+<DL>
+<DT><U>Function:</U> <B>open-network-stream</B> <I>name buffer-or-name host service</I>
+<DD>この関数は、ホストのサーバーに対するTCP接続を開く。
+接続を表すプロセスオブジェクトを返す。
+<P>
+
+引数<VAR>name</VAR>は、プロセスオブジェクトに付ける名前を指定する。
+必要に応じて一意にするために修正される。
+<P>
+
+引数<VAR>buffer-or-name</VAR>は、接続に対応付けるバッファである。
+出力を扱うフィルタ関数を指定しない限り、
+接続からの出力はそのバッファに挿入される。
+<VAR>buffer-or-name</VAR>が<CODE>nil</CODE>であると、
+接続にはバッファを対応付けないことを意味する。
+<P>
+
+引数<VAR>host</VAR>と<VAR>service</VAR>は、接続先を指定する。
+<VAR>host</VAR>はホスト名（文字列）であり、
+<VAR>service</VAR>は定義済みのネットワークサービス（文字列）か
+ポート番号（整数）である。
+</DL>
+<P>
+
+<A NAME="Display"></A>
+<HR SIZE="6">
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<a name="bottom"> </a>
+<script type="text/javascript" src="style2.js"></script>
+<div class="footer">
+    <br>
+    このページはMeadow (Emacs) の紹介ページです <br>
+このWebページの各文書は自由にリンク・複製・再配布・改変していただいて構いません．
+<br>ただし，複製・再配布・改変の場合は Meadow Memo のURLを記載しておいて下さい．<br>
+<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=about%20link">Medow memoへのリンクについて</a>．<br>
+
+間違い，要望等があれば<a href="mailto:akihisa@mail.ne.jp">akihisa@mail.ne.jp</a> か下記でどうぞ<br>
+
+<br>
+
+<FORM METHOD="post" ACTION="http://www.bookshelf.jp/cgi-bin/wwwmail.cgi" >
+お名前：<INPUT TYPE="text" NAME="name" SIZE="30" MAXLENGTH="40" VALUE="ななしさん"><br>
+メールアドレス：<INPUT TYPE="text" NAME="EMAIL" SIZE="25" MAXLENGTH="60" VALUE="secret@mail.adr"><br>
+<input type="hidden" name="HPAGE" value="">
+つっこみ：<br><TEXTAREA NAME="MESSAGE" ROWS="5" COLS="50">
+</TEXTAREA><br><br>
+<INPUT TYPE="submit" VALUE="送信">
+<INPUT TYPE="reset" VALUE="クリア">
+</FORM>
+
+<br><A HREF="http://www.bookshelf.jp/cgi-bin/xct.cgi">ページ別カウンタ</a>
+<br> Since 2002/12/13 <br>
+</div>
+
+</BODY>
+
+</HTML>

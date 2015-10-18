@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: os.path.exists
+# key: os.path.exists
+# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])))
+# --
+os.path.exists(${1:PATH})$0`(py--insert-imports "os" "import os")`

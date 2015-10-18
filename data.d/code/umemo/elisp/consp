@@ -1,0 +1,5 @@
+(setq tes '("hello" "world"))
+(consp tes) == (typep tes 'cons) == (not (typep tes 'atom))
+
+(setq tes2 '("foo"))
+(atomp tes2) => t 

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: reload_
+# key: reload
+# condition: (and (not (py:at-string|comment-p)) (equal (this-command-keys-vector) [32]) (not (save-excursion (backward-char 6) (looking-back "[.]"))))
+# 32 = ` '
+# --
+reload_ $0

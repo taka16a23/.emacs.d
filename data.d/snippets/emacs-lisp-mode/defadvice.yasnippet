@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: defadvice
+# key: (defadvice
+# condition: (not (at-string|comment-p))
+# --
+(defadvice ${1:FUNCTION}
+  (${2:CLASS$$(yas/choose-value '("before" "after" "around"))} ${3:NAME} ${4:FLAGS$$(yas/choose-value '("activate" "protect" "compile" "disable" "preactivate"))})
+$0${5:${2:$(if (string= yas-text "around")
+      "ad-do-it"
+      "")}}
+)
+;; (progn (ad-disable-advice '$1 '$2 '$3) (ad-update '$1)

@@ -1,0 +1,2 @@
+>>> unicodedata.name(u'〒')
+'POSTAL MARK'

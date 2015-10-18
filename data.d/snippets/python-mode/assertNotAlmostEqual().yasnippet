@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: assertNotAlmostEqual()
+# key: assertNotAlmostEqual
+# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])))
+# 32 = ` '
+# --
+assertNotAlmostEqual(${1:first}, ${2:second}${3:, places=${4:None}}${5:, msg=${6:\'${7:Failed: $8}\'}}${9:, delta=${10:None}})

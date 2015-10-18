@@ -1,0 +1,32 @@
+>>> map(str, range(10))
+['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+
+>>> def cube(x): return x*x*x
+...
+>>> map(cube, range(1, 11))
+[1, 8, 27, 64, 125, 216, 343, 512, 729, 1000]
+
+>>> seq = range(8)
+>>> def add(x, y): return x+y
+...
+>>> map(add, seq, seq)
+[0, 2, 4, 6, 8, 10, 12, 14]
+
+
+* timeit
+>>> %%timeit
+... squares=[]
+... for x in range(10):
+...     squares.append(x**2)
+...
+100000 loops, best of 3: 5.51 µs per loop
+
+>>> %%timeit
+... squares=[x**2 for x in range(10)]
+...
+100000 loops, best of 3: 3.79 µs per loop
+
+>>> %%timeit
+... squares=map(lambda x: x**2, range(10))
+...
+100000 loops, best of 3: 7.11 µs per loop

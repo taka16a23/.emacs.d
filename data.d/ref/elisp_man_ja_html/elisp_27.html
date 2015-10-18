@@ -1,0 +1,1547 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="ja">
+<!-- Created on October, 1  2005 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=euc-jp">
+<META NAME="keywords" CONTENT="meadow,mule,emacs,lisp,elisp,gnus,setting,設定,unix,cygwin">
+<META http-equiv="Content-Script-Type" content="text/javascript">
+<META NAME="description" CONTENT="Meadowの設定を紹介するページです">
+<TITLE>GNU Emacs Lispリファレンスマニュアル:  バッファ</TITLE>
+
+<META NAME="description" CONTENT="GNU Emacs Lispリファレンスマニュアル:  バッファ">
+<META NAME="keywords" CONTENT="GNU Emacs Lispリファレンスマニュアル:  バッファ">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+<LINK REL="contents" HREF="elisp_toc.html#SEC_Contents">
+<LINK REL="index" HREF="elisp_48.html#SEC681">
+<LINK REL="next" HREF="elisp_28.html#SEC416">
+<LINK REL="prev" HREF="elisp_26.html#SEC395">
+
+<META http-equiv="Content-Style-Type" content="text/css">
+<!-- 鶯と龜 ←日本語EUC誤判別対策用らしい; -->
+<link rel="StyleSheet" href="../../../../soft/css/midnight.css" type="text/css" id="css1">
+<script type="text/javascript" src="style1.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../soft/css/meadowmemo.css">
+
+</HEAD>
+<BODY LANG="ja" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+<!--Infoseek Analyzer start-->
+<script LANGUAGE="javascript">PgNo=6;</script>
+<script src="http://js1.infoseek.co.jp/bin/57/00170.js"></script>
+<noscript><a href="http://ax1.www.infoseek.co.jp/bin/go?0017057f" target="_blank">
+<img src="http://ax1.www.infoseek.co.jp/bin/logo?0017057f" border=0></a></noscript>
+<!--Infoseek Analyzer end-->
+<a name="top"> </a>
+
+<br><A NAME="SEC403"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_26.html#SEC402"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_27.html#SEC404"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_26.html#SEC395"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_28.html#SEC416"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Buffers"></A>
+<H1> 26. バッファ <EM>(2003/10/30)</EM> </H1>
+<!--docid::SEC403::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Buffers">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Buffers</a>"<br>
+"texi/elisp21/バッファ"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D0%A5%C3%A5%D5%A5%A1">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX1729"></A>
+<P>
+
+<EM>バッファ</EM>（buffer）は、編集するテキストを収めている
+Lispオブジェクトです。
+バッファは、訪問しているファイルのテキストを保持するために使われますが、
+ファイルを訪問していないバッファもあります。
+一度に複数のバッファが存在してかまいませんが、
+ある時点では1つのバッファだけが<EM>カレントバッファ</EM>
+（current buffer）として区別されます。
+ほとんどの編集コマンドは、カレントバッファの内容に作用します。
+カレントバッファを含む各バッファは、ウィンドウに表示されることも
+されないこともあります。
+<P>
+
+<div class="menuindex"><SCRIPT language=JavaScript src="index26.js"></SCRIPT></div><noscript><BLOCKQUOTE><TABLE BORDER=0 CELLSPACING=0> 
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_27.html#SEC404">26.1 バッファの基本 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">What is a buffer?</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_27.html#SEC405">26.2 カレントバッファ <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Designating a buffer as current
+                          so that primitives will access its contents.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_27.html#SEC406">26.3 バッファ名 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Accessing and changing buffer names.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_27.html#SEC407">26.4 バッファファイル名 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">The buffer file name indicates which file is visited.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_27.html#SEC408">26.5 バッファの変更 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">A buffer is <EM>modified</EM> if it needs to be saved.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_27.html#SEC409">26.6 更新時刻の比較 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Determining whether the visited file was changed</TD></TR>
+</TABLE>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"behind&nbsp;Emacs's&nbsp;back".
+<br>
+<TABLE BORDER=0 CELLSPACING=0>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_27.html#SEC410">26.7 読み出し専用バッファ <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Modifying text is not allowed in a read-only buffer.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_27.html#SEC411">26.8 バッファリスト <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">How to look at all the existing buffers.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_27.html#SEC412">26.9 バッファの作成 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Functions that create buffers.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_27.html#SEC413">26.10 バッファの削除 <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">Buffers exist until explicitly killed.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_27.html#SEC414">26.11 間接バッファ <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">An indirect buffer shares text with some other buffer.</TD></TR>
+<TR><TD ALIGN="left" VALIGN="TOP"><A HREF="elisp_27.html#SEC415">26.12 バッファ ギャップ <EM>(2003/10/30)</EM></A></TD><TD>&nbsp;&nbsp;</TD><TD ALIGN="left" VALIGN="TOP">The gap in the buffer.</TD></TR>
+</TABLE></BLOCKQUOTE></noscript>
+<P>
+
+<A NAME="Buffer Basics"></A>
+<HR SIZE="6">
+<br><A NAME="SEC404"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_27.html#SEC403"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_27.html#SEC405"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Buffer Basics"></A>
+<H2> 26.1 バッファの基本 <EM>(2003/10/30)</EM> </H2>
+<!--docid::SEC404::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Buffer%20Basics">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Buffer%20Basics</a>"<br>
+"texi/elisp21/バッファの基本"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D0%A5%C3%A5%D5%A5%A1%A4%CE%B4%F0%CB%DC">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+<EM>バッファ</EM>（buffer）は、編集するテキストを収めている
+Lispオブジェクトです。
+バッファは、訪問しているファイルのテキストを保持するために使われますが、
+ファイルを訪問していないバッファもあります。複数のバッファは普通に存在
+できますが、常に一つのバッファだけが<EM>カレントバッファ</EM>(current
+buffer)となります。
+ほとんどの編集コマンドは、カレントバッファの内容に作用します。
+カレントバッファを含む各バッファは、ウィンドウに表示されることも
+されないこともあります。
+<P>
+
+異なる名前を持ち編集可能なテキストを保持するオブジェクトです。
+バッファは、Lispプログラムには特別なデータ型として見えます。
+バッファの内容は拡張可能な文字列であると考えることができます。
+つまり、バッファのどの部分ででも挿入や削除を行えるのです。
+See 節 <A HREF="elisp_32.html#SEC483">31. テキスト</A>。
+<P>
+
+Lispのバッファオブジェクトには、さまざまな情報が含まれています。
+変数を介してプログラマが直接参照できる情報もあれば、
+特別目的の関数のみを介して参照できる情報もあります。
+たとえば、訪問しているファイルの名前は、変数を介して直接参照できますが、
+ポイントの値は基本関数を介してのみ参照できます。
+<P>
+
+直接参照可能なバッファに固有の情報は、
+<EM>バッファローカル</EM>（buffer-local）な変数束縛、
+つまり、特定のバッファでのみ有効な変数に保持されています。
+この機能により、各バッファでは特定の変数の値を優先できます。
+ほとんどのメジャーモードでは、このようにして、
+<CODE>fill-column</CODE>や<CODE>comment-column</CODE>などの変数を優先させます。
+バッファローカルな変数とそれらに関する関数について詳しくは、
+<A HREF="elisp_11.html#SEC150">10.10 バッファローカルな変数</A>を参照してください。
+<P>
+
+バッファで訪問しているファイルに関する関数や変数については、
+<A HREF="elisp_25.html#SEC370">24.1 ファイルの訪問</A>と<A HREF="elisp_25.html#SEC373">24.2 バッファの保存</A>を参照してください。
+ウィンドウにバッファを表示することに関する関数や変数については、
+<A HREF="elisp_28.html#SEC422">27.6 バッファとウィンドウ</A>を参照してください。
+<P>
+
+<A NAME="IDX1730"></A>
+<DL>
+<DT><U>Function:</U> <B>bufferp</B> <I>object</I>
+<DD>この関数は、<VAR>object</VAR>がバッファであれば<CODE>t</CODE>を返し、
+さもなければ<CODE>nil</CODE>を返す。
+</DL>
+<P>
+
+<A NAME="Current Buffer"></A>
+<HR SIZE="6">
+<br><A NAME="SEC405"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_27.html#SEC404"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_27.html#SEC406"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Current Buffer"></A>
+<H2> 26.2 カレントバッファ <EM>(2003/10/30)</EM> </H2>
+<!--docid::SEC405::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Current%20Buffer">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Current%20Buffer</a>"<br>
+"texi/elisp21/カレントバッファ"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%AB%A5%EC%A5%F3%A5%C8%A5%D0%A5%C3%A5%D5%A5%A1">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX1731"></A>
+<A NAME="IDX1732"></A>
+<A NAME="IDX1733"></A>
+<A NAME="IDX1734"></A>
+<P>
+
+いつの時点でも、それらの1つを<EM>カレントバッファ</EM>
+（current buffer）として区別します。
+バッファ内のテキストを検査したり変更する基本関数は
+暗黙のうちにカレントバッファに作用するため、
+ほとんどの編集はカレントバッファに対して行われます
+（see 節 <A HREF="elisp_32.html#SEC483">31. テキスト</A>）。
+通常、スクリーン上で選択されたウィンドウに表示されているバッファが
+カレントバッファですが、つねにそうとは限りません。
+Lispプログラムでは、スクリーン上の表示は変えずに、
+任意のバッファの内容を操作するために
+一時的に当該バッファをカレントバッファにできます。
+<P>
+
+Lispプログラムでカレントバッファを指定するには、
+<CODE>set-buffer</CODE>を呼び出します。
+新たに指定し直すまで指定したバッファがカレントバッファであり続けます。
+<P>
+
+編集コマンドがエディタコマンドループへ戻ると、
+コマンドループは、混乱を避けるために、選択されているウィンドウに
+表示されているバッファをカレントバッファとします。
+つまり、Emacsがコマンドを読むときにカーソルがあるバッファが
+コマンドが適用されるバッファです。
+（See 節 <A HREF="elisp_21.html#SEC281">20. コマンドループ</A>。）
+したがって、<CODE>set-buffer</CODE>は、
+ユーザーが編集できるように別のバッファへ切り替える方法にはなりません。
+これには、<A HREF="elisp_28.html#SEC423">27.7 ウィンドウへのバッファの表示</A>で述べている関数を使う必要があります。
+<P>
+
+しかし、別のカレントバッファに替えるLisp関数では、
+コマンドループがカレントバッファを
+あとで戻すということに依存してはいけません。
+Emacs Lispで書かれた編集コマンドは、コマンドループに加えて
+別のプログラムからも呼ばれます。
+サブルーティンがカレントバッファを替えないほうが
+（それがサブルーティンの目的でなければ）、
+呼び出し側にとっては便利です。
+したがって、関数の実行が終るともとのカレントバッファに戻す
+フォーム<CODE>save-current-buffer</CODE>や
+<CODE>save-excursion</CODE>（see 節 <A HREF="elisp_30.html#SEC472">29.3 エクスカージョン</A>）の内側で、
+普通は<CODE>set-buffer</CODE>を使います。
+例として、（説明文字列を簡略にして）コマンド<CODE>append-to-buffer</CODE>
+のコードを示します。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(defun append-to-buffer (buffer start end)
+  "Append to specified buffer the text of the region.
+<small>...</small>"
+  (interactive "BAppend to buffer: \nr")
+  (let ((oldbuf (current-buffer)))
+    (save-current-buffer
+      (set-buffer (get-buffer-create buffer))
+      (insert-buffer-substring oldbuf start end))))
+</pre></td></tr></table><P>
+
+この関数では、ローカル変数を束縛してカレントバッファを記録し、
+<CODE>save-current-buffer</CODE>でそれがカレントバッファに戻るようにしています。
+つぎに、<CODE>set-buffer</CODE>で指定したバッファをカレントバッファにします。
+最後に、<CODE>insert-buffer-substring</CODE>でもとのカレントバッファから
+指定された（いまはカレント）バッファに文字列をコピーします。
+<P>
+
+内容を付加したバッファがどれかのウィンドウに表示されていると、
+つぎに表示を更新したときに変更されたテキストが表示されます。
+それ以外では、スクリーン上でただちには変更を見ることはできません。
+コマンドの実行中にはバッファが一時的にカレントバッファになりますが、
+それによりそのバッファが表示されるわけではありません。
+<P>
+
+バッファローカルな束縛を持つ変数を（<CODE>let</CODE>や関数の引数で）
+ローカルに束縛する場合には、ローカルな束縛の有効範囲の開始時と終了時には、
+同じバッファが必ずカレントバッファであるようにします。
+さもないと、あるバッファでは変数を束縛し、
+別のバッファではその束縛を解除してしまうことがあります。
+これには2つの方法があります。
+単純な場合には、束縛の有効範囲内で
+カレントバッファが替わらないを確認します。
+さもなければ、<CODE>save-current-buffer</CODE>や<CODE>save-excursion</CODE>を使って、
+始めにカレントバッファであったバッファが、
+変数束縛が解除されるときにはつねにカレントバッファであるようにします。
+<P>
+
+<CODE>set-buffer</CODE>でカレントバッファに戻すことを期待してはいけません。
+正しくないバッファがカレントバッファであるときに
+中断が起きると戻せないからです。
+しては<EM>いけない</EM>ことをつぎに示します。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(let (buffer-read-only
+      (obuf (current-buffer)))
+  (set-buffer <small>...</small>)
+  <small>...</small>
+  (set-buffer obuf))
+</pre></td></tr></table><P>
+
+つぎのように<CODE>save-current-buffer</CODE>を使えば、
+通常の評価に加えて、中断、エラー、<CODE>throw</CODE>も扱えます。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(let (buffer-read-only)
+  (save-current-buffer
+    (set-buffer <small>...</small>)
+    <small>...</small>))
+</pre></td></tr></table><P>
+
+<A NAME="IDX1735"></A>
+<DL>
+<DT><U>Function:</U> <B>current-buffer</B>
+<DD>この関数はカレントバッファを返す。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(current-buffer)
+     => #&#60;buffer buffers.texi&#62;
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX1736"></A>
+<DL>
+<DT><U>Function:</U> <B>set-buffer</B> <I>buffer-or-name</I>
+<DD>この関数は、<VAR>buffer-or-name</VAR>をカレントバッファにする。
+この関数はどのウィンドウにも
+当該バッファを表示しないので、ユーザーが当該バッファを見られるとは限らない。
+しかし、Lispプログラムはいずれにしても当該バッファを操作できる。
+<P>
+
+この関数は<VAR>buffer-or-name</VAR>で指定されるバッファを返す。
+<VAR>buffer-or-name</VAR>が既存のバッファを指定しなければ、エラーを通知する。
+</DL>
+<P>
+
+<A NAME="IDX1737"></A>
+<DL>
+<DT><U>Special Form:</U> <B>save-current-buffer</B> <I>body...</I>
+<DD>マクロ<CODE>save-current-buffer</CODE>は、
+カレントバッファの識別子を保存し、フォーム<VAR>body</VAR>を評価し、
+最後にもとのカレントバッファに戻す。
+戻り値は、<VAR>body</VAR>の最後のフォームの値である。
+<CODE>throw</CODE>やエラー（see 節 <A HREF="elisp_10.html#SEC127">9.5 非ローカル脱出</A>）による異常終了であっても
+カレントバッファは戻される。
+<P>
+
+<CODE>save-current-buffer</CODE>から抜けるときに、
+もとのカレントバッファとして使われていたバッファが削除されていると、
+もちろん、カレントバッファにはならない。
+そのかわりに、抜けるまえにカレントバッファであったバッファが
+カレントバッファであり続ける。
+</DL>
+<P>
+
+<A NAME="IDX1738"></A>
+<DL>
+<DT><U>Macro:</U> <B>with-current-buffer</B> <I>buffer body...</I>
+<DD>マクロ<CODE>with-current-buffer</CODE>は、
+カレントバッファの識別子を保存し、
+<VAR>buffer</VAR>をカレントバッファにし、フォーム<VAR>body</VAR>を評価し、
+最後にもとのカレントバッファに戻す。
+戻り値は、<VAR>body</VAR>の最後のフォームの値である。
+<CODE>throw</CODE>やエラー（see 節 <A HREF="elisp_10.html#SEC127">9.5 非ローカル脱出</A>）による異常終了であっても
+カレントバッファは戻される。
+</DL>
+<P>
+
+<A NAME="IDX1739"></A>
+<DL>
+<DT><U>Macro:</U> <B>with-temp-buffer</B> <I>body...</I>
+<DD>マクロ<CODE>with-temp-buffer</CODE>は、
+一時的なバッファをカレントバッファとして
+フォーム<VAR>body</VAR>を評価する。
+カレントバッファの識別子を保存し、
+一時的なバッファを作成してそれをカレントバッファにし、
+フォーム<VAR>body</VAR>を評価し、
+最後にもとのカレントバッファに戻すとともに一時的なバッファを削除する。
+<P>
+
+戻り値は、<VAR>body</VAR>の最後のフォームの値である。
+最後のフォームとして<CODE>(buffer-string)</CODE>を使えば、
+一時的なバッファの内容を返せる。
+<P>
+
+<CODE>throw</CODE>やエラー（see 節 <A HREF="elisp_10.html#SEC127">9.5 非ローカル脱出</A>）による異常終了であっても
+カレントバッファは戻される。
+</DL>
+<P>
+
+<A HREF="elisp_25.html#SEC375">24.4 ファイルへの書き出し</A>の<CODE>with-temp-file</CODE>も参照してください。
+<P>
+
+<A NAME="Buffer Names"></A>
+<HR SIZE="6">
+<br><A NAME="SEC406"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_27.html#SEC405"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_27.html#SEC407"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Buffer Names"></A>
+<H2> 26.3 バッファ名 <EM>(2003/10/30)</EM> </H2>
+<!--docid::SEC406::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Buffer%20Names">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Buffer%20Names</a>"<br>
+"texi/elisp21/バッファ名"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D0%A5%C3%A5%D5%A5%A1%CC%BE">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX1740"></A>
+<P>
+
+各バッファには、文字列で一意な名前があります。
+バッファに作用するほとんどの関数は、
+引数としてバッファかバッファ名を受け付けます。
+<VAR>buffer-or-name</VAR>という名前の引数はこの種のものであり、
+当該引数が文字列でもバッファでもないとエラーを通知します。
+<VAR>buffer</VAR>という名前の引数は
+実際のバッファオブジェクトである必要があり、名前ではだめです。
+<P>
+
+短命で一般にはユーザーが関心を示さないバッファの名前は空白で始まり、
+コマンド<CODE>list-buffers</CODE>や<CODE>buffer-menu</CODE>はそれらを表示しません。
+さらに、空白で始まる名前のバッファでは、
+アンドゥ情報の記録も最初は禁止してあります。
+<A HREF="elisp_32.html#SEC497">31.9 アンドゥ</A>を参照してください。
+<P>
+
+<A NAME="IDX1741"></A>
+<DL>
+<DT><U>Function:</U> <B>buffer-name</B> <I>&#38;optional buffer</I>
+<DD>この関数は、<VAR>buffer</VAR>の名前を文字列で返す。
+<VAR>buffer</VAR>を指定しないと、デフォルトはカレントバッファである。
+<P>
+
+<CODE>buffer-name</CODE>が<CODE>nil</CODE>を返す場合、
+<VAR>buffer</VAR>が削除されたことを意味する。
+see 節 <A HREF="elisp_27.html#SEC413">26.10 バッファの削除 <EM>(2003/10/30)</EM></A>。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(buffer-name)
+     => "buffers.texi"
+
+(setq foo (get-buffer "temp"))
+     => #&#60;buffer temp&#62;
+(kill-buffer foo)
+     => nil
+(buffer-name foo)
+     => nil
+foo
+     => #&#60;killed buffer&#62;
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX1742"></A>
+<DL>
+<DT><U>コマンド:</U> <B>rename-buffer</B> <I>newname &#38;optional unique</I>
+<DD>この関数は、カレントバッファを<VAR>newname</VAR>と改名する。
+<VAR>newname</VAR>が文字列でなかったり、
+当該名のバッファがすでに存在していると、エラーを通知する。
+関数は<VAR>newname</VAR>を返す。
+<P>
+
+通常、<VAR>newname</VAR>がすでに使われていると、
+<CODE>rename-buffer</CODE>はエラーを通知する。
+しかし、<VAR>unique</VAR>が<CODE>nil</CODE>以外であると、
+<VAR>newname</VAR>を未使用な名前に修正する。
+対話的に呼び出した場合、数値前置引数を指定すると
+<VAR>unique</VAR>は<CODE>nil</CODE>以外になる。(このように<CODE>rename-uniquely</CODE>
+は実行されるのです)
+<P>
+
+このコマンドの1つの用途は、
+バッファ`<SAMP>*shell*</SAMP>'を別の名前に改名して、
+同じ`<SAMP>*shell*</SAMP>'という名前で別のシェルを作れるようにすることである。
+</DL>
+<P>
+
+<A NAME="IDX1743"></A>
+<DL>
+<DT><U>Function:</U> <B>get-buffer</B> <I>buffer-or-name</I>
+<DD>この関数は、<VAR>buffer-or-name</VAR>で指定したバッファを返す。
+<VAR>buffer-or-name</VAR>が文字列であり、
+そのような名前のバッファが存在しなければ<CODE>nil</CODE>を返す。
+<VAR>buffer-or-name</VAR>がバッファであればそれ自身を返す。
+これは有用ではないので、普通、引数は名前である。
+例を示す。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(setq b (get-buffer "lewis"))
+     => #&#60;buffer lewis&#62;
+(get-buffer b)
+     => #&#60;buffer lewis&#62;
+(get-buffer "Frazzle-nots")
+     => nil
+</pre></td></tr></table><P>
+
+<A HREF="elisp_27.html#SEC412">26.9 バッファの作成 <EM>(2003/10/30)</EM></A>の関数<CODE>get-buffer-create</CODE>も参照。
+</DL>
+<P>
+
+<A NAME="IDX1744"></A>
+<DL>
+<DT><U>Function:</U> <B>generate-new-buffer-name</B> <I>starting-name &#38;rest ignore</I>
+<DD>この関数は、新たなバッファ向けの一意な名前を返すが、バッファは作成しない。
+名前は<VAR>starting-name</VAR>で始まり、
+`<SAMP>&#60;<small>...</small>&#62;</SAMP>'で囲った数を追加することで、
+どのバッファでも現在使っていない名前を作成する。
+<P>
+
+2番目のオプション引数<VAR>ignore</VAR>が<CODE>nil</CODE>でなければ、文字列を与え
+る必要がある。一意な名前を探す時に、<VAR>ignore</VAR>で設定した名前があると
+動作が異なってくる。指定した名前がたとえ既に存在しているバッファの名前
+であったとしても、一意な名前と認識するのである。例えば、`<SAMP>foo</SAMP>',
+`<SAMP>foo&#60;2&#62;</SAMP>', `<SAMP>foo&#60;3&#62;</SAMP>' and `<SAMP>foo&#60;4&#62;</SAMP>' という名前のバッファが
+あるとすると、
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(generate-new-buffer-name "foo")
+     => "foo<5>"
+(generate-new-buffer-name "foo" "foo<3>")
+     => "foo<3>"
+(generate-new-buffer-name "foo" "foo<6>")
+     => "foo<5>"
+</pre></td></tr></table><P>
+
+のように、`<SAMP>foo&#60;3&#62;</SAMP>'というバッファが既に存在していても、
+<VAR>ignore</VAR> で設定すると、一意なバッファ名として`<SAMP>foo&#60;3&#62;</SAMP>' が返っ
+てくるのである。
+<P>
+
+<A HREF="elisp_27.html#SEC412">26.9 バッファの作成 <EM>(2003/10/30)</EM></A>の関連する関数<CODE>generate-new-buffer</CODE>を参照。
+</DL>
+<P>
+
+<A NAME="Buffer File Name"></A>
+<HR SIZE="6">
+<br><A NAME="SEC407"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_27.html#SEC406"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_27.html#SEC408"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Buffer File Name"></A>
+<H2> 26.4 バッファファイル名 <EM>(2003/10/30)</EM> </H2>
+<!--docid::SEC407::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Buffer%20File%20Name">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Buffer%20File%20Name</a>"<br>
+"texi/elisp21/バッファファイル名"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D0%A5%C3%A5%D5%A5%A1%A5%D5%A5%A1%A5%A4%A5%EB%CC%BE">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX1745"></A>
+<A NAME="IDX1746"></A>
+<A NAME="IDX1747"></A>
+<A NAME="IDX1748"></A>
+<P>
+
+<EM>バッファファイル名</EM>（buffer file name）とは、
+当該バッファで訪問しているファイルの名前です。
+バッファでファイルを訪問していないときには、
+バッファファイル名は<CODE>nil</CODE>です。
+ほとんどの場面で、バッファ名は
+バッファファイル名の非ディレクトリ部分と同じですが、
+バッファファイル名とバッファ名は別のものであり個別に設定できます。
+See 節 <A HREF="elisp_25.html#SEC370">24.1 ファイルの訪問</A>。
+<P>
+
+<A NAME="IDX1749"></A>
+<DL>
+<DT><U>Function:</U> <B>buffer-file-name</B> <I>&#38;optional buffer</I>
+<DD>この関数は、<VAR>buffer</VAR>で訪問しているファイルの
+絶対ファイル名を返す。
+<VAR>buffer</VAR>がファイルを訪問していなければ、
+<CODE>buffer-file-name</CODE>は<CODE>nil</CODE>を返す。
+<VAR>buffer</VAR>を指定しないと、
+デフォルトはカレントバッファである。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(buffer-file-name (other-buffer))
+     => "/usr/user/lewis/manual/files.texi"
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX1750"></A>
+<DL>
+<DT><U>Variable:</U> <B>buffer-file-name</B>
+<DD>このバッファローカルな変数は、
+カレントバッファで訪問しているファイルの名前を保持する。
+あるいは、ファイルを訪問していなければ<CODE>nil</CODE>である。
+これは恒久的にバッファローカルな変数であり、
+<CODE>kill-all-local-variables</CODE>に影響されない。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>buffer-file-name
+     => "/usr/user/lewis/manual/buffers.texi"
+</pre></td></tr></table><P>
+
+他のさまざまなことを行わずにこの変数の値だけを変更することは危険である。
+通常、<CODE>set-visited-file-name</CODE>（下記参照）を使うほうがよい。
+バッファ名を変更するなどの重要でないことも行うが、
+Emacsを混乱させないように本質的なことも行うからである。
+</DL>
+<P>
+
+<A NAME="IDX1751"></A>
+<DL>
+<DT><U>Variable:</U> <B>buffer-file-truename</B>
+<DD>このバッファローカルな変数は、
+カレントバッファで訪問しているファイルの実名を保持する。
+あるいは、ファイルを訪問していなければ<CODE>nil</CODE>である。
+これは恒久的にバッファローカルであり、
+<CODE>kill-all-local-variables</CODE>に影響されない。
+see 節 <A HREF="elisp_25.html#SEC380">24.6.3 実名</A>。
+</DL>
+<P>
+
+<A NAME="IDX1752"></A>
+<DL>
+<DT><U>Variable:</U> <B>buffer-file-number</B>
+<DD>このバッファローカルな変数は、
+カレントバッファで訪問しているファイルの
+ファイル番号とディレクトリ装置番号を保持する。
+あるいは、ファイルを訪問していなければ<CODE>nil</CODE>である。
+これは恒久的にバッファローカルであり、
+<CODE>kill-all-local-variables</CODE>に影響されない。
+<P>
+
+この値は、通常、<CODE>(<VAR>filenum</VAR> <VAR>devnum</VAR>)</CODE>の形のリストである。
+この数の対により、システム上のすべての参照可能なファイルを一意に識別できる。
+これらについてより詳しくは、
+<A HREF="elisp_25.html#SEC381">24.6.4 ファイルに関する他の情報</A>の関数<CODE>file-attributes</CODE>を参照。
+</DL>
+<P>
+
+<A NAME="IDX1753"></A>
+<DL>
+<DT><U>Function:</U> <B>get-file-buffer</B> <I>filename</I>
+<DD>この関数は、ファイル<VAR>filename</VAR>を訪問しているバッファを返す。
+そのようなバッファが存在しなければ<CODE>nil</CODE>を返す。
+引数<VAR>filename</VAR>は文字列であり、
+展開（see 節 <A HREF="elisp_25.html#SEC387">24.8.4 ファイル名を展開する関数</A>）してから
+すべてのバッファの訪問しているファイル名と比較する。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(get-file-buffer "buffers.texi")
+    => #&#60;buffer buffers.texi&#62;
+</pre></td></tr></table><P>
+
+稀れな状況では、複数のバッファが同じ名前のファイルを訪問している場合がある。
+そのような場合、この関数はバッファリストで最初にみつかったバッファを返す。
+</DL>
+<P>
+
+<A NAME="IDX1754"></A>
+<DL>
+<DT><U>コマンド:</U> <B>set-visited-file-name</B> <I>filename &#38;optional no-query along-with-file</I>
+<DD><VAR>filename</VAR>が空でない文字列であると、
+この関数はカレントバッファで訪問しているファイルの名前を
+<VAR>filename</VAR>に変える。
+（ファイルを訪問していないバッファでは、
+当該バッファに訪問しているファイル名を指定する。）
+バッファを<EM>つぎに</EM>保存すると、指定した新たなファイルに保存される。
+このコマンドは、バッファに変更済みと印を付ける。
+変更まえの訪問しているファイルの内容とバッファ内容が一致していたとしても
+（Emacsにとっては）
+バッファ内容は<VAR>filename</VAR>の内容と一致しないからである。
+<P>
+
+<VAR>filename</VAR>が<CODE>nil</CODE>だったり空文字列であると、
+『ファイルを訪問していない』ことにする。
+この場合、<CODE>set-visited-file-name</CODE>は、
+当該バッファではファイルを訪問していないと印を付ける。
+<P>
+
+通常、この関数は、指定したファイルが既存の場合には
+ユーザーに確認をとる。
+<VAR>no-query</VAR>が<CODE>nil</CODE>以外であると、確認をとらない。
+<P>
+
+<VAR>along-with-file</VAR>が<CODE>nil</CODE>以外であると、
+それ以前に訪問していたファイルは<VAR>filename</VAR>と改名してあると仮定する。
+<P>
+
+関数<CODE>set-visited-file-name</CODE>を対話的に呼び出すと、
+ミニバッファで<VAR>filename</VAR>を問い合わせる。
+</DL>
+<P>
+
+<A NAME="IDX1755"></A>
+<DL>
+<DT><U>Variable:</U> <B>list-buffers-directory</B>
+<DD>このバッファローカルな変数は、
+訪問しているファイル名を持たないバッファに対して、
+バッファ一覧において訪問しているファイル名を表示する部分に
+表示する文字列を指定する。
+diredのバッファはこの変数を使う。
+</DL>
+<P>
+
+<A NAME="Buffer Modification"></A>
+<HR SIZE="6">
+<br><A NAME="SEC408"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_27.html#SEC407"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_27.html#SEC409"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Buffer Modification"></A>
+<H2> 26.5 バッファの変更 <EM>(2003/10/30)</EM> </H2>
+<!--docid::SEC408::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Buffer%20Modification">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Buffer%20Modification</a>"<br>
+"texi/elisp21/バッファの変更"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D0%A5%C3%A5%D5%A5%A1%A4%CE%CA%D1%B9%B9">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX1756"></A>
+<A NAME="IDX1757"></A>
+<P>
+
+Emacsは、各バッファごとに当該バッファのテキストを変更したかどうかを
+記録する<EM>変更フラグ</EM>（modified flag）と呼ばれるフラグを保持しています。
+バッファの内容が変わるたびにこのフラグは<CODE>t</CODE>に設定され、
+保存するたびに<CODE>nil</CODE>に設定されます。
+つまり、このフラグは未保存の変更があるかどうかを表します。
+このフラグの値は通常モード行（see 節 <A HREF="elisp_23.html#SEC352">22.3.2 モード行に使われる変数</A>）に表示され、
+保存（see 節 <A HREF="elisp_25.html#SEC373">24.2 バッファの保存</A>）と
+自動保存（see 節 <A HREF="elisp_26.html#SEC401">25.2 自動保存 <EM>(2003/10/30)</EM></A>）を制御します。
+<P>
+
+このフラグを明示的に設定するLispプログラムもあります。
+たとえば、関数<CODE>set-visited-file-name</CODE>はこのフラグを<CODE>t</CODE>に設定します。
+ファイルを訪問してから変更していなくても、
+バッファのテキストが新たな訪問しているファイルとは一致しないからです。
+<P>
+
+バッファの内容を変更する関数については<A HREF="elisp_32.html#SEC483">31. テキスト</A>に述べてあります。
+<P>
+
+<A NAME="IDX1758"></A>
+<DL>
+<DT><U>Function:</U> <B>buffer-modified-p</B> <I>&#38;optional buffer</I>
+<DD>この関数は、最後にファイルから読み込んだり保存してから
+バッファ<VAR>buffer</VAR>が変更されていれば<CODE>t</CODE>を返し、
+さもなければ<CODE>nil</CODE>を返す。
+<VAR>buffer</VAR>を指定しないとカレントバッファを調べる。
+</DL>
+<P>
+
+<A NAME="IDX1759"></A>
+<DL>
+<DT><U>Function:</U> <B>set-buffer-modified-p</B> <I>flag</I>
+<DD>この関数は、<VAR>flag</VAR>が<CODE>nil</CODE>以外であれば
+カレントバッファは変更されていると印を付け、
+<CODE>nil</CODE>ならば未変更であると印を付ける。
+<P>
+
+この関数を呼び出した別の効果として、
+カレントバッファのモード行を無条件に再表示する。
+実際、関数<CODE>force-mode-line-update</CODE>はつぎのようにしている。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(set-buffer-modified-p (buffer-modified-p))
+</pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX1760"></A>
+<DL>
+<DT><U>コマンド:</U> <B>not-modified</B>
+<DD>このコマンドは、カレントバッファを未変更であり
+保存する必要がないと印を付ける。
+前置引数を指定すると、バッファに変更されていると印を付け、
+以降の適当な場面で保存される。
+<P>
+
+エコー領域にメッセージを表示するので、
+プログラムからこの関数を使わないこと。
+かわりに<CODE>set-buffer-modified-p</CODE>を使う（上記）。
+</DL>
+<P>
+
+<A NAME="IDX1761"></A>
+<DL>
+<DT><U>Function:</U> <B>buffer-modified-tick</B> <I>&#38;optional buffer</I>
+<DD>この関数は、<VAR>buffer</VAR>の変更回数を返す。
+変更回数はバッファを変更するたびに増やされる。
+<VAR>buffer</VAR>が<CODE>nil</CODE>であると（あるいは省略すると）、
+カレントバッファを使う。
+</DL>
+<P>
+
+<A NAME="Modification Time"></A>
+<HR SIZE="6">
+<br><A NAME="SEC409"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_27.html#SEC408"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_27.html#SEC410"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Modification Time"></A>
+<H2> 26.6 更新時刻の比較 <EM>(2003/10/30)</EM> </H2>
+<!--docid::SEC409::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Modification%20Time">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Modification%20Time</a>"<br>
+"texi/elisp21/更新時刻の比較"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%B9%B9%BF%B7%BB%FE%B9%EF%A4%CE%C8%E6%B3%D3">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX1762"></A>
+<A NAME="IDX1763"></A>
+<P>
+
+ファイルを訪問してそのバッファで変更したとします。
+そのあいだに、ディスク上の当該ファイル自身も変更されたとします。
+ここでバッファを保存すると、ファイルの変更内容を上書きしてしまいます。
+たしかにこれを望む場合もあるでしょうが、
+普通は重要な情報を失うことになります。
+そのため、Emacsは、ファイルに保存するまえに、
+以下に述べる関数を用いてファイルの更新時刻を検査します。
+<P>
+
+<A NAME="IDX1764"></A>
+<DL>
+<DT><U>Function:</U> <B>verify-visited-file-modtime</B> <I>buffer</I>
+<DD>この関数は、<VAR>buffer</VAR>に記録してある
+訪問しているファイルの更新時刻と、
+オペレーティングシステムが記録している
+ファイルの実際の更新時刻を比較する。
+Emacsが当該ファイルを訪問したり保存してから
+他のプロセスが当該ファイルに書いていない限り、
+2つの時刻は同じはずである。
+<P>
+
+実際の更新時刻とEmacsに記録している更新時刻が同じならば<CODE>t</CODE>を返し、
+さもなければ<CODE>nil</CODE>を返す。
+</DL>
+<P>
+
+<A NAME="IDX1765"></A>
+<DL>
+<DT><U>Function:</U> <B>clear-visited-file-modtime</B>
+<DD>この関数は、カレントバッファで訪問しているファイルの
+最終更新時刻の記録を破棄する。
+その結果、つぎにこのバッファを保存しようとしても、
+ファイルの更新時刻のと不一致を報告しない。
+<P>
+
+この関数は、<CODE>set-visited-file-name</CODE>や
+変更されたファイルを上書きしないためのテストを行わない例外的な場面で
+呼び出される。
+</DL>
+<P>
+
+<A NAME="IDX1766"></A>
+<DL>
+<DT><U>Function:</U> <B>visited-file-modtime</B>
+<DD>この関数は、
+バッファに記録されているファイルの最終更新時刻を
+<CODE>(<VAR>high</VAR> . <VAR>low</VAR>)</CODE>の形のリストで返す。
+（これは<CODE>file-attributes</CODE>が時刻を返すために使う形と同じである。
+<A HREF="elisp_25.html#SEC381">24.6.4 ファイルに関する他の情報</A>を参照。）
+</DL>
+<P>
+
+<A NAME="IDX1767"></A>
+<DL>
+<DT><U>Function:</U> <B>set-visited-file-modtime</B> <I>&#38;optional time</I>
+<DD>この関数は、<VAR>time</VAR>が<CODE>nil</CODE>以外であるときには、
+バッファに記録してあるファイルの最終更新時刻を
+<VAR>time</VAR>で指定された時刻にする。
+さもなければ、訪問しているファイルの最終更新時刻にする。
+<P>
+
+<VAR>time</VAR>が<CODE>nil</CODE>でないときには、
+<CODE>(<VAR>high</VAR> . <VAR>low</VAR>)</CODE>か<CODE>(<VAR>high</VAR> <VAR>low</VAR>)</CODE>の形であること。
+いずれの場合も、2つの整数は時刻の16ビットを保持する。
+<P>
+
+この関数は、ファイルから普通に読み込んだのではないバッファや
+ファイル自体が明確な理由で変更された場合に有用である。
+</DL>
+<P>
+
+<A NAME="IDX1768"></A>
+<DL>
+<DT><U>Function:</U> <B>ask-user-about-supersession-threat</B> <I>filename</I>
+<DD><A NAME="IDX1769"></A>
+この関数は、ファイル<VAR>filename</VAR>を訪問している廃れたバッファを
+変更しようとしたときにどのように処理すべきかをユーザーに問い合わせる
+ために用いる。
+<EM>廃れたバッファ</EM>（obsolete buffer）とは、
+未変更のバッファではあるが、対応するディスク上のファイルが
+バッファの最終更新時刻よりも新しいものである。
+つまり、別のプログラムが当該ファイルを変更した可能性があることを意味する。
+<P>
+
+<A NAME="IDX1770"></A>
+ユーザーの応答に依存して、関数は正常に戻る。
+その場合、バッファは変更できる。
+あるいは、データ<CODE>(<VAR>filename</VAR>)</CODE>を付けて
+エラー<CODE>file-supersession</CODE>を通知する。
+その場合、バッファの変更は許されない。
+<P>
+
+この関数は、適切な場面でEmacsが自動的に呼び出す。
+これを再定義することでEmacsをカスタマイズできるようにしている。
+標準定義についてはファイル`<TT>userlock.el</TT>'を参照。
+<P>
+
+<A HREF="elisp_25.html#SEC376">24.5 ファイルロック</A>のファイルロック機構も参照。
+</DL>
+<P>
+
+<A NAME="Read Only Buffers"></A>
+<HR SIZE="6">
+<br><A NAME="SEC410"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_27.html#SEC409"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_27.html#SEC411"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Read Only Buffers"></A>
+<H2> 26.7 読み出し専用バッファ <EM>(2003/10/30)</EM> </H2>
+<!--docid::SEC410::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Read%20Only%20Buffers">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Read%20Only%20Buffers</a>"<br>
+"texi/elisp21/読み出し専用バッファ"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%C6%C9%A4%DF%BD%D0%A4%B7%C0%EC%CD%D1%A5%D0%A5%C3%A5%D5%A5%A1">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX1771"></A>
+<A NAME="IDX1772"></A>
+<P>
+
+バッファが<EM>読み出し専用</EM>（read-only）であると、
+スクロールしたりナロイングしてその内容を眺めることはできますが、
+その内容は変更できません。
+<P>
+
+読み出し専用バッファは、2種類の場面で使われます。
+<P>
+
+<UL>
+<LI>
+書き込み不可のファイルを訪問しているバッファは、通常、読み出し専用である。
+<P>
+
+ここでの目的は、バッファを編集してファイルに保存しようとしても
+それに失敗するか望ましくないことであることをユーザーに伝えることである。
+それにも関わらずバッファのテキストを変更したいユーザーは、
+読み出し専用フラグを<KBD>C-x C-q</KBD>でクリアすれば編集できる。
+<P>
+
+<LI>
+diredやrmailなどのモードは、
+普通の編集コマンドで内容を変更することが誤りであるような
+場合にバッファを読み出し専用にする。
+<P>
+
+これらのモードの特別なコマンドは、
+それら自身がテキストを変更する場面では、
+（<CODE>let</CODE>で）<CODE>buffer-read-only</CODE>に<CODE>nil</CODE>を束縛したり、
+<CODE>inhibit-read-only</CODE>に<CODE>t</CODE>を束縛する。
+</UL>
+<P>
+
+<A NAME="IDX1773"></A>
+<DL>
+<DT><U>Variable:</U> <B>buffer-read-only</B>
+<DD>このバッファローカルな変数は、
+バッファが読み出し専用であるかどうかを指定する。
+この変数が<CODE>nil</CODE>以外であると、バッファは読み出し専用である。
+</DL>
+<P>
+
+<A NAME="IDX1774"></A>
+<DL>
+<DT><U>Variable:</U> <B>inhibit-read-only</B>
+<DD>この変数が<CODE>nil</CODE>以外であると、
+読み出し専用バッファや読み出し専用文字を変更できる。
+バッファ内の読み出し専用文字とは
+（テキスト属性やオーバレイ属性の）
+属性<CODE>read-only</CODE>が<CODE>nil</CODE>以外の文字である。
+テキスト属性について詳しくは、see 節 <A HREF="elisp_32.html#SEC517">31.19.4 特別な意味を持つ属性</A>。
+重ね合わせとそれらの属性について詳しくは、see 節 <A HREF="elisp_38.html#SEC607">37.8 オーバレイ</A>。
+<P>
+
+<CODE>inhibit-read-only</CODE>が<CODE>t</CODE>であると、
+すべての文字の属性<CODE>read-only</CODE>は効果を失う。
+<CODE>inhibit-read-only</CODE>がリストであると、
+文字の属性<CODE>read-only</CODE>が（<CODE>eq</CODE>で比較して）
+リストのメンバであると効果を失う。
+</DL>
+<P>
+
+<A NAME="IDX1775"></A>
+<DL>
+<DT><U>コマンド:</U> <B>toggle-read-only</B>
+<DD>このコマンドは、カレントバッファが読み出し専用かどうかを変更する。
+対話的な使用を意図しており、プログラムからは使わないこと。
+プログラムの任意の箇所で、読み出し専用フラグを
+オンにしたいかオフにしたいかを読者は知っているはずであり、
+そうすれば、読者は<CODE>buffer-read-only</CODE>を
+<CODE>t</CODE>か<CODE>nil</CODE>の正しい値に明示的に設定できる。
+</DL>
+<P>
+
+<A NAME="IDX1776"></A>
+<DL>
+<DT><U>Function:</U> <B>barf-if-buffer-read-only</B>
+<DD>この関数は、カレントバッファが読み出し専用であると
+エラー<CODE>buffer-read-only</CODE>を通知する。
+カレントバッファが読み出し専用であるときに
+エラーを通知する別の方法については、see 節 <A HREF="elisp_21.html#SEC287">20.3 対話的呼び出し</A>。
+</DL>
+<P>
+
+<A NAME="The Buffer List"></A>
+<HR SIZE="6">
+<br><A NAME="SEC411"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_27.html#SEC410"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_27.html#SEC412"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="The Buffer List"></A>
+<H2> 26.8 バッファリスト <EM>(2003/10/30)</EM> </H2>
+<!--docid::SEC411::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=The%20Buffer%20List">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=The%20Buffer%20List</a>"<br>
+"texi/elisp21/バッファリスト"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D0%A5%C3%A5%D5%A5%A1%A5%EA%A5%B9%A5%C8">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX1777"></A>
+<P>
+
+<EM>バッファリスト</EM>（buffer list）は、
+すべてのバッファのリストです。
+バッファを作成すると当該バッファはこのリストに追加され、
+削除するとこのリストから取り除かれます。
+リスト内のバッファの順序は、各バッファが選択されているウィンドウに
+どの程度最近に表示されたかを主な基準にしています。
+バッファが選択されるとリストの先頭に移動し、
+隠されると（下記の<CODE>bury-buffer</CODE>を参照）末尾に移動します。
+<CODE>other-buffer</CODE>をはじめとするいくつかの関数が、この順序を使います。
+ユーザーに表示するバッファ一覧もこの順序を反映しています。
+<P>
+
+Emacs基本バッファリストに加えて、
+各フレームには独自のバッファリストがあります。
+そのリストでは、
+<EM>当該フレームで</EM>もっとも最近に選択されたバッファから順に
+当該フレームで選択されたバッファが先にきます。
+（この順番は、フレームのフレームパラメータ<CODE>buffer-list</CODE>に入っている。
+<A HREF="elisp_29.html#SEC440">28.3.3 ウィンドウフレームのパラメータ</A>を参照。）
+当該フレームで選択されたことがないバッファは、
+Emacs基本バッファリストでの順にうしろに続きます。
+<P>
+
+<A NAME="IDX1778"></A>
+<DL>
+<DT><U>Function:</U> <B>buffer-list</B> <I>&#38;optional frame</I>
+<DD>この関数は、空白で始まる名前のバッファを含めて、
+すべてのバッファを含んだバッファリストを返す。
+要素は実際にバッファであり、それらの名前ではない。
+<P>
+
+<VAR>frame</VAR>がフレームであると、
+この関数はフレーム<VAR>frame</VAR>のバッファリストを返す。
+<VAR>frame</VAR>が<CODE>nil</CODE>であるとEmacs基本バッファリストを使う。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(buffer-list)
+     => (#&#60;buffer buffers.texi&#62;
+         #&#60;buffer  *Minibuf-1*&#62; #&#60;buffer buffer.c&#62;
+         #&#60;buffer *Help*&#62; #&#60;buffer TAGS&#62;)
+
+;; ミニバッファの名前は空白で始まることに注意
+(mapcar (function buffer-name) (buffer-list))
+    => ("buffers.texi" " *Minibuf-1*" 
+        "buffer.c" "*Help*" "TAGS")
+</pre></td></tr></table></DL>
+<P>
+
+<CODE>buffer-list</CODE>が返すリストは<CODE>buffer-list</CODE>が構築したものであり、
+Emacsの内部データ構造ではなく、
+それを変更してもバッファの順序には影響しません。
+フレーム独立なバッファリスト内のバッファ順序を変更するには、
+つぎのような簡単な方法があります。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(defun reorder-buffer-list (new-list)
+  (while new-list
+    (bury-buffer (car new-list))
+    (setq new-list (cdr new-list))))
+</pre></td></tr></table><P>
+
+この方法を使えば、どんな順序でもリストに指定でき、
+しかも、バッファを失ったり正しくないバッファを
+追加してしまう危険はありません。
+<P>
+
+フレームのバッファリストの順序や値を変更するには、
+<CODE>modify-frame-parameters</CODE>（see 節 <A HREF="elisp_29.html#SEC438">28.3.1 フレームパラメータの参照</A>）で、
+フレームのフレームパラメータ<CODE>buffer-list</CODE>に設定します。
+<P>
+
+<A NAME="IDX1779"></A>
+<DL>
+<DT><U>Function:</U> <B>other-buffer</B> <I>&#38;optional buffer visible-ok frame</I>
+<DD>この関数は、バッファリストから<VAR>buffer</VAR>以外の最初のバッファを返す。
+通常、当該バッファは、<VAR>buffer</VAR>を除いて
+（<VAR>frame</VAR>か現在選択されているフレームで、see 節 <A HREF="elisp_29.html#SEC447">28.9 入力フォーカス</A>）
+もっとも最近に選択されたバッファである。
+空白で始まる名前のバッファは完全に除外する。
+<P>
+
+<VAR>buffer</VAR>を指定しないと（あるいはバッファでないと）、
+<CODE>other-buffer</CODE>は、選択されているフレームのバッファリストの中から
+可視フレームのどのウィンドウにも表示されていない最初のバッファを返す。
+<P>
+
+<VAR>frame</VAR>に<CODE>nil</CODE>以外のパラメータ<CODE>buffer-predicate</CODE>があると、
+<CODE>other-buffer</CODE>は当該述語を使って
+どのバッファを考慮に入れるかを決定する。
+各バッファについて当該述語を1回呼び出し、
+その値が<CODE>nil</CODE>であると当該バッファを無視する。
+see 節 <A HREF="elisp_29.html#SEC440">28.3.3 ウィンドウフレームのパラメータ</A>。
+<P>
+
+<VAR>visible-ok</VAR>が<CODE>nil</CODE>であると、
+<CODE>other-buffer</CODE>は可視フレームのいずれかのウィンドウに
+表示されているバッファを可能な限り返さないようにする。
+<VAR>visible-ok</VAR>が<CODE>nil</CODE>以外であると、
+バッファが表示されているかどうかは関係ない。
+<P>
+
+適当なバッファが存在しない場合には、
+バッファ`<SAMP>*scratch*</SAMP>'を（必要ならば作成して）返す。
+</DL>
+<P>
+
+<A NAME="IDX1780"></A>
+<DL>
+<DT><U>コマンド:</U> <B>bury-buffer</B> <I>&#38;optional buffer-or-name</I>
+<DD>この関数は、バッファリストの他のバッファの順序は変えずに
+<VAR>buffer-or-name</VAR>を末尾に置く。
+この結果、当該バッファは、<CODE>other-buffer</CODE>が返す候補としては
+もっとも可能性が低くなる。
+<P>
+
+<CODE>bury-buffer</CODE>は、
+Emacsのフレーム独立なバッファリストに加えて、
+各フレームのパラメータ<CODE>buffer-list</CODE>も操作する。
+したがって、指定したバッファは、
+<CODE>(buffer-list <VAR>frame</VAR>)</CODE>と<CODE>(buffer-list nil)</CODE>の
+いずれの値でも最後になる。
+<P>
+
+<VAR>buffer-or-name</VAR>が<CODE>nil</CODE>であるか省略すると、
+カレントバッファを最後尾に置くことを意味する。
+さらに、当該バッファが選択されているウィンドウに表示されていると、
+そのウィンドウでは（<CODE>other-buffer</CODE>で得られる）
+別のバッファに切り替わる。
+当該バッファが別のウィンドウにも表示されている場合、
+その表示は替わらない。
+<P>
+
+すべてのウィンドウに表示している特定のバッファを置き換えるには、
+<CODE>replace-buffer-in-windows</CODE>を使う。
+see 節 <A HREF="elisp_28.html#SEC422">27.6 バッファとウィンドウ</A>。
+</DL>
+<P>
+
+<A NAME="Creating Buffers"></A>
+<HR SIZE="6">
+<br><A NAME="SEC412"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_27.html#SEC411"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_27.html#SEC413"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Creating Buffers"></A>
+<H2> 26.9 バッファの作成 <EM>(2003/10/30)</EM> </H2>
+<!--docid::SEC412::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Creating%20Buffers">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Creating%20Buffers</a>"<br>
+"texi/elisp21/バッファの作成"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D0%A5%C3%A5%D5%A5%A1%A4%CE%BA%EE%C0%AE">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX1781"></A>
+<A NAME="IDX1782"></A>
+<P>
+
+本節では、バッファを作成するための2つの基本関数を説明します。
+<CODE>get-buffer-create</CODE>は、指定した名前のバッファが
+存在しなければバッファを作成します。
+<CODE>generate-new-buffer</CODE>は、つねに新たなバッファを作成し、
+それに一意な名前を与えます。
+<P>
+
+バッファを作成するために読者が使える他の関数には、
+<CODE>with-output-to-temp-buffer</CODE>（see 節 <A HREF="elisp_38.html#SEC606">37.7 一時的な表示</A>）、
+<CODE>create-file-buffer</CODE>（see 節 <A HREF="elisp_25.html#SEC370">24.1 ファイルの訪問</A>）があります。
+サブプロセスを開始してもバッファを作ります（see 節 <A HREF="elisp_37.html#SEC583">36. プロセス</A>）。
+<P>
+
+<A NAME="IDX1783"></A>
+<DL>
+<DT><U>Function:</U> <B>get-buffer-create</B> <I>name</I>
+<DD>この関数は、<VAR>name</VAR>という名前のバッファを返す。
+その名前のバッファが存在すれば、当該バッファを返す。
+さもなければ、新たなバッファを作成する。
+バッファはカレントバッファにはならない。
+この関数は、どのバッファがカレントバッファであるかは変更しない。
+<P>
+
+<VAR>name</VAR>が文字列でないとエラーを通知する。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(get-buffer-create "foo")
+     => #&#60;buffer foo&#62;
+</pre></td></tr></table><P>
+
+新たなバッファのメジャーモードは基本（fundamental）モードに設定される。
+変数<CODE>default-major-mode</CODE>は、より高いレベルで処理される。
+see 節 <A HREF="elisp_23.html#SEC343">22.1.3 メジャーモードの選択方法</A>。
+</DL>
+<P>
+
+<A NAME="IDX1784"></A>
+<DL>
+<DT><U>Function:</U> <B>generate-new-buffer</B> <I>name</I>
+<DD>この関数は、新たに作成した空のバッファを返すが、
+それをカレントバッファにはしない。
+<VAR>name</VAR>という名前のバッファが存在しなければ、
+新たなバッファの名前は<VAR>name</VAR>である。
+その名前が使われている場合には、
+この関数は、<VAR>n</VAR>を整数として`<SAMP>&#60;<VAR>n</VAR>&#62;</SAMP>'の形の接尾辞を
+<VAR>name</VAR>に付加する。
+<VAR>n</VAR>を2から始めて順に使える名前を探す。
+<P>
+
+<VAR>name</VAR>が文字列でないとエラーを通知する。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(generate-new-buffer "bar")
+     => #&#60;buffer bar&#62;
+(generate-new-buffer "bar")
+     => #&#60;buffer bar&#60;2&#62;&#62;
+(generate-new-buffer "bar")
+     => #&#60;buffer bar&#60;3&#62;&#62;
+</pre></td></tr></table><P>
+
+新たなバッファのメジャーモードは基本（fundamental）モードに設定される。
+変数<CODE>default-major-mode</CODE>は、より高いレベルで処理される。
+see 節 <A HREF="elisp_23.html#SEC343">22.1.3 メジャーモードの選択方法</A>。
+<P>
+
+<A HREF="elisp_27.html#SEC406">26.3 バッファ名 <EM>(2003/10/30)</EM></A>の関連する関数<CODE>generate-new-buffer-name</CODE>を参照。
+</DL>
+<P>
+
+<A NAME="Killing Buffers"></A>
+<HR SIZE="6">
+<br><A NAME="SEC413"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_27.html#SEC412"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_27.html#SEC414"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Killing Buffers"></A>
+<H2> 26.10 バッファの削除 <EM>(2003/10/30)</EM> </H2>
+<!--docid::SEC413::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Killing%20Buffers">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Killing%20Buffers</a>"<br>
+"texi/elisp21/バッファの削除"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D0%A5%C3%A5%D5%A5%A1%A4%CE%BA%EF%BD%FC">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX1785"></A>
+<A NAME="IDX1786"></A>
+<P>
+
+<EM>バッファを削除する</EM>とは、Emacsに当該バッファの名前を忘れさせ、
+それが使っていた場所を他の目的に使えるようにすることです。
+<P>
+
+削除されたバッファを表すバッファオブジェクトは、
+それを指すものが存在する限り存在し続けますが、
+それをカレントバッファにしたり表示できないように特別な印が付いています。
+削除されたバッファの識別子は残っているので、
+異なる2つのバッファを削除しても、
+<CODE>eq</CODE>に関する限りそれらは区別できるのです。
+<P>
+
+カレントバッファやウィンドウに表示しているバッファを削除すると、
+そのかわりにEmacsは別のバッファを選択したり表示します。
+つまり、バッファを削除すると一般にはカレントバッファが
+替わりうることを意味します。
+したがって、バッファを削除するときには、
+（削除するバッファがカレントバッファではないことがわかっていない限り）
+カレントバッファを替える可能性についてあらかじめ注意しておく必要があります。
+See 節 <A HREF="elisp_27.html#SEC405">26.2 カレントバッファ <EM>(2003/10/30)</EM></A>。
+<P>
+
+複数の間接バッファの基底バッファであるバッファを削除すると、
+間接バッファも自動的に削除されます。
+<P>
+
+削除されたバッファの<CODE>buffer-name</CODE>は<CODE>nil</CODE>です。
+これを使えばバッファが削除されているかどうか調べられます。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=example><pre>(defun buffer-killed-p (buffer)
+  "Return t if BUFFER is killed."
+  (not (buffer-name buffer)))
+</pre></td></tr></table><P>
+
+<A NAME="IDX1787"></A>
+<DL>
+<DT><U>コマンド:</U> <B>kill-buffer</B> <I>buffer-or-name</I>
+<DD>この関数はバッファ<VAR>buffer-or-name</VAR>を削除し、
+当該バッファが使用していたすべてのメモリを他の目的に使えるように解放したり、
+オペレーティングシステムに返すために解放する。
+この関数は<CODE>nil</CODE>を返す。
+<P>
+
+当該バッファを<CODE>process-buffer</CODE>としているすべてのプロセスに
+シグナル<CODE>SIGHUP</CODE>を送る。
+このシグナルは、通常、プロセスを終了させる。
+（<CODE>SIGHUP</CODE>の基本的な意味は、接続回線が切断されたである。）
+see 節 <A HREF="elisp_37.html#SEC588">36.5 プロセスの削除</A>。
+<P>
+
+当該バッファがファイルを訪問していて、かつ、未保存の変更があれば、
+<CODE>kill-buffer</CODE>は当該バッファを削除するまえにユーザーに確認をとる。
+確認をとらないようにするには、<CODE>kill-buffer</CODE>を呼び出すまえに
+バッファの変更フラグをクリアしておく。
+see 節 <A HREF="elisp_27.html#SEC408">26.5 バッファの変更 <EM>(2003/10/30)</EM></A>。
+<P>
+
+削除済みのバッファを削除してもなんの効果もない。
+<P>
+
+<TABLE><tr><td>&nbsp;</td><td class=smallexample><FONT SIZE=-1><pre>(kill-buffer "foo.unchanged")
+     => nil
+(kill-buffer "foo.changed")
+
+---------- Buffer: Minibuffer ----------
+Buffer foo.changed modified; kill anyway? (yes or no) <KBD>yes</KBD>
+---------- Buffer: Minibuffer ----------
+
+     => nil
+</FONT></pre></td></tr></table></DL>
+<P>
+
+<A NAME="IDX1788"></A>
+<DL>
+<DT><U>Variable:</U> <B>kill-buffer-query-functions</B>
+<DD>未保存の変更を確認したあとで、<CODE>kill-buffer</CODE>は、
+リスト<CODE>kill-buffer-query-functions</CODE>の関数を現れる順に
+引数なしで呼び出す。
+これらの関数が呼び出されるときには、
+削除対象のバッファがカレントバッファである。
+これらの関数でユーザーの確認をとることがこの機能の目的である。
+いずれかが<CODE>nil</CODE>を返すと、<CODE>kill-buffer</CODE>はバッファを削除しない。
+</DL>
+<P>
+
+<A NAME="IDX1789"></A>
+<DL>
+<DT><U>Variable:</U> <B>kill-buffer-hook</B>
+<DD>これは、<CODE>kill-buffer</CODE>が問い合わせをすべて完了し
+バッファを実際に削除する直前に実行されるノーマルフックである。
+フック関数を実行するときには、削除対象のバッファがカレントバッファである。
+see 節 <A HREF="elisp_23.html#SEC362">22.6 フック</A>。
+</DL>
+<P>
+
+<A NAME="IDX1790"></A>
+<DL>
+<DT><U>Variable:</U> <B>buffer-offer-save</B>
+<DD>この変数が特定のバッファで<CODE>nil</CODE>以外であると、
+<CODE>save-buffers-kill-emacs</CODE>と<CODE>save-some-buffers</CODE>に対して
+ファイルを訪問しているバッファと同様に
+当該バッファを保存する機会を与えるように指示する。
+変数<CODE>buffer-offer-save</CODE>に
+設定すると自動的にバッファローカルになる。
+</DL>
+<P>
+
+<A NAME="Indirect Buffers"></A>
+<HR SIZE="6">
+<br><A NAME="SEC414"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_27.html#SEC413"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_27.html#SEC415"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Indirect Buffers"></A>
+<H2> 26.11 間接バッファ <EM>(2003/10/30)</EM> </H2>
+<!--docid::SEC414::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Indirect%20Buffers">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Indirect%20Buffers</a>"<br>
+"texi/elisp21/間接バッファ"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%B4%D6%C0%DC%A5%D0%A5%C3%A5%D5%A5%A1">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<A NAME="IDX1791"></A>
+<A NAME="IDX1792"></A>
+<P>
+
+<EM>間接バッファ</EM>（indirect buffer）は、
+間接バッファの<EM>基底バッファ</EM>（base buffer）と呼ばれる
+他のバッファのテキストを共有します。
+ある意味で、バッファにおいて
+ファイルのシンボリックリンクに相当するものです。
+基底バッファそのものは間接バッファであってはなりません。
+<P>
+
+間接バッファのテキストは、その基底バッファのテキストとつねに同一です。
+どれかを編集して変更すると、別のものでただちに見えます。
+これには、文字そのものに加えてテキスト属性も含みます。
+<P>
+
+それ以外に関しては、間接バッファと
+その基底バッファは完全に別のものです。
+別の名前を持ち、ポイントの値も別であり、異なったナロイングをでき、
+（いずれかのバッファでテキストを挿入したり削除すると
+マーカと重ね合わせは再配置されるが）マーカやオーバレイも異なり、
+異なるメジャーモードを持ち、バッファローカルな変数も異なります。
+<P>
+
+間接バッファはファイルを訪問できませんが、その基底バッファでは訪問できます。
+間接バッファを保存しようとすると、実際にはその基底バッファを保存します。
+<P>
+
+間接バッファを削除しても、その基底バッファには影響ありません。
+基底バッファを削除すると、その間接バッファを実質的には削除することになり、
+間接バッファをカレントバッファにはけっしてできなくなります。
+<P>
+
+<A NAME="IDX1793"></A>
+<DL>
+<DT><U>コマンド:</U> <B>make-indirect-buffer</B> <I>base-buffer name</I>
+<DD><VAR>base-buffer</VAR>を基底バッファとする<VAR>name</VAR>という名前の
+間接バッファを作成する。
+引数<VAR>base-buffer</VAR>は、バッファか文字列である。
+ 
+<VAR>base-buffer</VAR>が間接バッファであると、
+その基底バッファを新たなバッファの基底バッファとして用いる。
+</DL>
+<P>
+
+<A NAME="IDX1794"></A>
+<DL>
+<DT><U>Function:</U> <B>buffer-base-buffer</B> <I>buffer</I>
+<DD>この関数は<VAR>buffer</VAR>の基底バッファを返す。
+<VAR>buffer</VAR>が間接バッファでなければ、値は<CODE>nil</CODE>である。
+さもなければ、値は間接バッファではない別のバッファである。
+</DL>
+<P>
+
+<A NAME="Buffer Gap"></A>
+<HR SIZE="6">
+<br><A NAME="SEC415"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_27.html#SEC414"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_28.html#SEC416"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Buffer Gap"></A>
+<H2> 26.12 バッファ ギャップ <EM>(2003/10/30)</EM> </H2>
+<!--docid::SEC415::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Buffer%20Gap">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Buffer%20Gap</a>"<br>
+"texi/elisp21/バッファギャップ"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2F%A5%D0%A5%C3%A5%D5%A5%A1%A5%AE%A5%E3%A5%C3%A5%D7">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+Emacsのバッファは挿入や削除を高速にするために、目に見えない<EM>ギャッ
+プ</EM>(gap)を使って実行されます。挿入はギャップの部分を埋めるように、削除
+はギャップを加えるように働きます。もちろん、このことはギャップを挿入や
+削除の軌跡上に最初に動かさなければならないということです。ユーザが挿入
+や削除をしようとすると、Emacsはギャップだけを動かします。大きなバッファ
+の一部だけを素早く編集できる方法であり、先に他の離れた部分を編集した後
+だと、たまに大きな遅延を生じます。
+<P>
+
+この方法は目に触れない状態で動いてますし、Lispコードもギャップの現在一
+に影響されるべきではありません。しかし、ギャップの状態を得るための関数
+は利用できます。
+<P>
+
+<A NAME="IDX1795"></A>
+<DL>
+<DT><U>Function:</U> <B>gap-position</B>
+<DD>カレントバッファで、現在ギャップがある位置を返します
+</DL>
+<P>
+
+<A NAME="IDX1796"></A>
+<DL>
+<DT><U>Function:</U> <B>gap-size</B>
+<DD>カレントバッファで、今のギャップサイズを返します
+</DL>
+<A NAME="Windows"></A>
+<HR SIZE="6">
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[ &lt;&lt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[ &gt;&gt; ]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<a name="bottom"> </a>
+<script type="text/javascript" src="style2.js"></script>
+<div class="footer">
+    <br>
+    このページはMeadow (Emacs) の紹介ページです <br>
+このWebページの各文書は自由にリンク・複製・再配布・改変していただいて構いません．
+<br>ただし，複製・再配布・改変の場合は Meadow Memo のURLを記載しておいて下さい．<br>
+<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=about%20link">Medow memoへのリンクについて</a>．<br>
+
+間違い，要望等があれば<a href="mailto:akihisa@mail.ne.jp">akihisa@mail.ne.jp</a> か下記でどうぞ<br>
+
+<br>
+
+<FORM METHOD="post" ACTION="http://www.bookshelf.jp/cgi-bin/wwwmail.cgi" >
+お名前：<INPUT TYPE="text" NAME="name" SIZE="30" MAXLENGTH="40" VALUE="ななしさん"><br>
+メールアドレス：<INPUT TYPE="text" NAME="EMAIL" SIZE="25" MAXLENGTH="60" VALUE="secret@mail.adr"><br>
+<input type="hidden" name="HPAGE" value="">
+つっこみ：<br><TEXTAREA NAME="MESSAGE" ROWS="5" COLS="50">
+</TEXTAREA><br><br>
+<INPUT TYPE="submit" VALUE="送信">
+<INPUT TYPE="reset" VALUE="クリア">
+</FORM>
+
+<br><A HREF="http://www.bookshelf.jp/cgi-bin/xct.cgi">ページ別カウンタ</a>
+<br> Since 2002/12/13 <br>
+</div>
+
+</BODY>
+
+</HTML>

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: namedtuple
+# key: namedtuple
+# condition: (not (py:at-string|comment-p))
+# --
+$1 = namedtuple(\'$1\', (\'$2\',$0))`(py--insert-imports "collections[[:blank:]]+import[[:blank:]]+namedtuple" "from collections import namedtuple")`

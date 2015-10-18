@@ -1,0 +1,167 @@
+[submodule "elisp/el-got/col-highlight"]
+	path = elisp/el-got/col-highlight
+	url = https://github.com/emacsmirror/col-highlight.git
+	ignore = dirty
+[submodule "elisp/el-got/bm"]
+	path = elisp/el-got/bm
+	url = https://github.com/joodland/bm.git
+[submodule "elisp/el-got/rainbow-delimiters"]
+	path = elisp/el-got/rainbow-delimiters
+	url = https://github.com/Fanael/rainbow-delimiters.git
+[submodule "elisp/el-got/mark-multiple"]
+	path = elisp/el-got/mark-multiple
+	url = https://github.com/magnars/mark-multiple.el.git
+[submodule "elisp/el-got/expand-region"]
+	path = elisp/el-got/expand-region
+	url = https://github.com/magnars/expand-region.el.git
+[submodule "elisp/el-got/helm"]
+	path = elisp/el-got/helm
+	url = https://github.com/emacs-helm/helm.git
+[submodule "elisp/el-got/color-moccur"]
+	path = elisp/el-got/color-moccur
+	url = https://github.com/myuhe/color-moccur.el.git
+	ignore = dirty
+[submodule "elisp/el-got/quickrun"]
+	path = elisp/el-got/quickrun
+	url = https://github.com/syohex/emacs-quickrun.git
+[submodule "elisp/el-got/tabbar"]
+	path = elisp/el-got/tabbar
+	url = https://github.com/dholm/tabbar.git
+	ignore = dirty
+[submodule "elisp/el-got/systemd-mode"]
+	path = elisp/el-got/systemd-mode
+	url = https://github.com/holomorph/systemd-mode.git
+	ignore = dirty
+[submodule "elisp/el-got/hide-lines"]
+	path = elisp/el-got/hide-lines
+	url = https://github.com/vapniks/hide-lines.git
+	ignore = dirty
+[submodule "elisp/el-got/syslog-mode"]
+	path = elisp/el-got/syslog-mode
+	url = https://github.com/vapniks/syslog-mode.git
+	ignore = dirty
+[submodule "elisp/el-got/moccur-edit"]
+	path = elisp/el-got/moccur-edit
+	url = https://github.com/myuhe/moccur-edit.el.git
+	ignore = dirty
+[submodule "elisp/el-got/smartchr"]
+	path = elisp/el-got/smartchr
+	url = https://github.com/imakado/emacs-smartchr.git
+	ignore = dirty
+[submodule "elisp/el-got/org-doing"]
+	path = elisp/el-got/org-doing
+	url = https://github.com/omouse/org-doing.git
+[submodule "elisp/el-got/org-mode"]
+	path = elisp/el-got/org-mode
+	url = git://orgmode.org/org-mode.git
+[submodule "elisp/el-got/smartrep"]
+	path = elisp/el-got/smartrep
+	url = https://github.com/myuhe/smartrep.el.git
+	ignore = dirty
+[submodule "elisp/el-got/smart-operator"]
+	path = elisp/el-got/smart-operator
+	url = https://github.com/xwl/smart-operator.git
+	ignore = dirty
+[submodule "elisp/el-got/init-loader"]
+	path = elisp/el-got/init-loader
+	url = https://github.com/emacs-jp/init-loader.git
+[submodule "elisp/el-got/auto-highlight-symbol"]
+	path = elisp/el-got/auto-highlight-symbol
+	url = https://github.com/emacsmirror/auto-highlight-symbol.git
+	ignore = dirty
+[submodule "elisp/el-got/c-eldoc"]
+	path = elisp/el-got/c-eldoc
+	url = https://github.com/nflath/c-eldoc.git
+	ignore = dirty
+[submodule "elisp/el-got/fold-dwim"]
+	path = elisp/el-got/fold-dwim
+	url = https://github.com/emacsmirror/fold-dwim.git
+	ignore = dirty
+[submodule "elisp/el-got/google-this"]
+	path = elisp/el-got/google-this
+	url = https://github.com/Bruce-Connor/emacs-google-this.git
+[submodule "elisp/el-got/highlight-indentation"]
+	path = elisp/el-got/highlight-indentation
+	url = https://github.com/antonj/Highlight-Indentation-for-Emacs
+	ignore = dirty
+[submodule "elisp/el-got/python-pep8"]
+	path = elisp/el-got/python-pep8
+	url = https://github.com/emacsmirror/python-pep8.git
+	ignore = dirty
+[submodule "elisp/el-got/apache-mode"]
+	path = elisp/el-got/apache-mode
+	url = https://github.com/emacsmirror/apache-mode.git
+	ignore = dirty
+[submodule "elisp/el-got/auto-complete"]
+	path = elisp/el-got/auto-complete
+	url = https://github.com/auto-complete/auto-complete.git
+[submodule "elisp/el-got/ctable"]
+	path = elisp/el-got/ctable
+	url = https://github.com/kiwanami/emacs-ctable.git
+[submodule "elisp/el-got/dash"]
+	path = elisp/el-got/dash
+	url = https://github.com/magnars/dash.el.git
+	ignore = dirty
+[submodule "elisp/el-got/deferred"]
+	path = elisp/el-got/deferred
+	url = https://github.com/kiwanami/emacs-deferred.git
+[submodule "elisp/el-got/e2wm"]
+	path = elisp/el-got/e2wm
+	url = https://github.com/kiwanami/emacs-window-manager.git
+	ignore = dirty
+[submodule "elisp/el-got/epc"]
+	path = elisp/el-got/epc
+	url = https://github.com/kiwanami/emacs-epc.git
+[submodule "elisp/el-got/epl"]
+	path = elisp/el-got/epl
+	url = https://github.com/cask/epl.git
+[submodule "elisp/el-got/f"]
+	path = elisp/el-got/f
+	url = https://github.com/rejeep/f.el.git
+	ignore = dirty
+[submodule "elisp/el-got/flycheck"]
+	path = elisp/el-got/flycheck
+	url = https://github.com/flycheck/flycheck.git
+[submodule "elisp/el-got/fuzzy"]
+	path = elisp/el-got/fuzzy
+	url = https://github.com/auto-complete/fuzzy-el.git
+	ignore = dirty
+[submodule "elisp/el-got/jedi"]
+	path = elisp/el-got/jedi
+	url = https://github.com/tkf/emacs-jedi.git
+[submodule "elisp/el-got/magit"]
+	path = elisp/el-got/magit
+	url = https://github.com/magit/magit.git
+[submodule "elisp/el-got/multiple-cursors"]
+	path = elisp/el-got/multiple-cursors
+	url = https://github.com/magnars/multiple-cursors.el.git
+[submodule "elisp/el-got/pkg-info"]
+	path = elisp/el-got/pkg-info
+	url = https://github.com/lunaryorn/pkg-info.el.git
+[submodule "elisp/el-got/popup"]
+	path = elisp/el-got/popup
+	url = https://github.com/auto-complete/popup-el.git
+[submodule "elisp/el-got/python-environment"]
+	path = elisp/el-got/python-environment
+	url = https://github.com/tkf/emacs-python-environment.git
+[submodule "elisp/el-got/s"]
+	path = elisp/el-got/s
+	url = https://github.com/magnars/s.el.git
+	ignore = dirty
+[submodule "elisp/el-got/undo-tree"]
+	path = elisp/el-got/undo-tree
+	url = http://www.dr-qubit.org/git/undo-tree.git/
+[submodule "elisp/el-got/window-layout"]
+	path = elisp/el-got/window-layout
+	url = https://github.com/kiwanami/emacs-window-layout.git
+	ignore = dirty
+[submodule "elisp/el-got/yasnippet"]
+	path = elisp/el-got/yasnippet
+	url = https://github.com/capitaomorte/yasnippet.git
+[submodule "elisp/plugin/el-get"]
+	path = elisp/plugin/el-get
+	url = https://github.com/dimitri/el-get.git
+[submodule "elisp/el-got/auto-highlight"]
+	ignore = dirty
+[submodule "elisp/el-got/fold-dwin"]
+	ignore = dirty

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: isinstance_
+# key: isinstance
+# condition: (and (not (py:at-string|comment-p)) (equal (this-command-keys-vector) [32]) (not (save-excursion (backward-char 10) (looking-back "[.]"))))
+# 32 = ` '
+# --
+isinstance_ $0

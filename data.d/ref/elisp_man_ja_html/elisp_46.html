@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="ja">
+<!-- Created on October, 1  2005 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=euc-jp">
+<META NAME="keywords" CONTENT="meadow,mule,emacs,lisp,elisp,gnus,setting,設定,unix,cygwin">
+<META http-equiv="Content-Script-Type" content="text/javascript">
+<META NAME="description" CONTENT="Meadowの設定を紹介するページです">
+<TITLE>GNU Emacs Lispリファレンスマニュアル: F. 標準のキーマップ</TITLE>
+
+<META NAME="description" CONTENT="GNU Emacs Lispリファレンスマニュアル: F. 標準のキーマップ">
+<META NAME="keywords" CONTENT="GNU Emacs Lispリファレンスマニュアル: F. 標準のキーマップ">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+<LINK REL="contents" HREF="elisp_toc.html#SEC_Contents">
+<LINK REL="index" HREF="elisp_48.html#SEC681">
+<LINK REL="next" HREF="elisp_47.html#SEC680">
+<LINK REL="prev" HREF="elisp_45.html#SEC678">
+
+<META http-equiv="Content-Style-Type" content="text/css">
+<!-- 鶯と龜 ←日本語EUC誤判別対策用らしい; -->
+<link rel="StyleSheet" href="../../../../soft/css/midnight.css" type="text/css" id="css1">
+<script type="text/javascript" src="style1.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../soft/css/meadowmemo.css">
+
+</HEAD>
+<BODY LANG="ja" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+<!--Infoseek Analyzer start-->
+<script LANGUAGE="javascript">PgNo=6;</script>
+<script src="http://js1.infoseek.co.jp/bin/57/00170.js"></script>
+<noscript><a href="http://ax1.www.infoseek.co.jp/bin/go?0017057f" target="_blank">
+<img src="http://ax1.www.infoseek.co.jp/bin/logo?0017057f" border=0></a></noscript>
+<!--Infoseek Analyzer end-->
+<a name="top"> </a>
+
+<br><A NAME="SEC679"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_45.html#SEC678"> &lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_47.html#SEC680"> &gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_45.html#SEC678"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top"> Up </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_47.html#SEC680"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<A NAME="Standard Keymaps"></A>
+<H1> F. 標準のキーマップ </H1>
+<!--docid::SEC679::-->
+<div class="info">URL="<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Standard%20Keymaps">http://www.bookshelf.jp/cgi-bin/goto.cgi?file=elisp21&node=Standard%20Keymaps</a>"<br>
+"texi/elisp21/F.標準のキーマップ"への<a href="http://www.bookshelf.jp/pukiwiki/pukiwiki.php?refer=Meadow%20memo&cmd=read&page=texi%2Felisp21%2FF%2E%C9%B8%BD%E0%A4%CE%A5%AD%A1%BC%A5%DE%A5%C3%A5%D7">コメント</a>(無し)</div><FORM METHOD="GET" ACTION="http://www.bookshelf.jp/cgi-bin/wwwsrch.cgi"><div class="info">検索<INPUT TYPE=text NAME=WORD SIZE=30><INPUT TYPE=hidden NAME=index VALUE=memo CHECKED><INPUT TYPE=hidden NAME=target VALUE=all CHECKED><INPUT TYPE=hidden NAME="memoall" VALUE="on" CHECKED><INPUT TYPE=hidden NAME=ANDOR VALUE=and CHECKED><INPUT TYPE=radio NAME=lisp VALUE=off CHECKED>全文<INPUT TYPE=radio NAME=lisp VALUE=on>Elisp<INPUT TYPE=submit VALUE="検索"></div></FORM>
+<P>
+
+以下のシンボルは、さまざまなキーマップの名前として使われています。
+これらの一部はEmacsの始動時に存在しますが、
+他のものは関連するモードを使ったときにのみロードされます。
+以下は、完全な一覧ではありません。
+<P>
+
+これらのマップのほとんどすべては、ローカルマップとして使われます。
+もちろん、存在するモードの中で、グローバルキーマップを変更するのは
+Vipモードと端末（terminal）モードだけです。
+<P>
+
+<DL COMPACT>
+<DT><CODE>Buffer-menu-mode-map</CODE>
+<DD><A NAME="IDX3267"></A>
+バッファメニュー（buffer-menu）モードで使う完全なキーマップ。
+<P>
+
+<DT><CODE>c-mode-map</CODE>
+<DD><A NAME="IDX3268"></A>
+Cモードで使う疎なキーマップ。
+<P>
+
+<DT><CODE>command-history-map</CODE>
+<DD><A NAME="IDX3269"></A>
+コマンド履歴（command-history）モードで使う完全なキーマップ。
+<P>
+
+<DT><CODE>ctl-x-4-map</CODE>
+<DD>プレフィックス<KBD>C-x 4</KBD>の下位コマンド用の疎なキーマップ。
+<P>
+
+<DT><CODE>ctl-x-5-map</CODE>
+<DD>プレフィックス<KBD>C-x 5</KBD>の下位コマンド用の疎なキーマップ。
+<P>
+
+<DT><CODE>ctl-x-map</CODE>
+<DD><KBD>C-x</KBD>コマンド用の完全なキーマップ。
+<P>
+
+<DT><CODE>debugger-mode-map</CODE>
+<DD><A NAME="IDX3270"></A>
+デバッガモードで使う完全なキーマップ。
+<P>
+
+<DT><CODE>dired-mode-map</CODE>
+<DD><A NAME="IDX3271"></A>
+<CODE>dired-mode</CODE>バッファで使う完全なキーマップ。
+<P>
+
+<DT><CODE>edit-abbrevs-map</CODE>
+<DD><A NAME="IDX3272"></A>
+<CODE>edit-abbrevs</CODE>で使う疎なキーマップ。
+<P>
+
+<DT><CODE>edit-tab-stops-map</CODE>
+<DD><A NAME="IDX3273"></A>
+<CODE>edit-tab-stops</CODE>で使う疎なキーマップ。
+<P>
+
+<DT><CODE>electric-buffer-menu-mode-map</CODE>
+<DD><A NAME="IDX3274"></A>
+エレクトリックバッファメニュー（electric-buffer-menu）モードで
+使う完全なキーマップ。
+<P>
+
+<DT><CODE>electric-history-map</CODE>
+<DD><A NAME="IDX3275"></A>
+エレクトリックコマンド履歴（electric-command-history）モードで
+使う完全なキーマップ。
+<P>
+
+<DT><CODE>emacs-lisp-mode-map</CODE>
+<DD><A NAME="IDX3276"></A>
+emacs-lispモードで使う疎なキーマップ。
+<P>
+
+<DT><CODE>facemenu-menu</CODE>
+<DD><A NAME="IDX3277"></A>
+テキスト属性メニューを表示するキーマップ。
+<P>
+
+<DT><CODE>facemenu-background-menu</CODE>
+<DD><A NAME="IDX3278"></A>
+テキスト属性メニューのBackground Colorサブメニューを表示するキーマップ。
+<P>
+
+<DT><CODE>facemenu-face-menu</CODE>
+<DD><A NAME="IDX3279"></A>
+テキスト属性メニューのFaceサブメニューを表示するキーマップ。
+<P>
+
+<DT><CODE>facemenu-foreground-menu</CODE>
+<DD><A NAME="IDX3280"></A>
+テキスト属性メニューのForeground Colorを表示するキーマップ。
+<P>
+
+<DT><CODE>facemenu-indentation-menu</CODE>
+<DD><A NAME="IDX3281"></A>
+テキスト属性メニューのIndentaionサブメニューを表示するキーマップ。
+<P>
+
+<DT><CODE>facemenu-justification-menu</CODE>
+<DD><A NAME="IDX3282"></A>
+テキスト属性メニューのJustificationサブメニューを表示するキーマップ。
+<P>
+
+<DT><CODE>facemenu-special-menu</CODE>
+<DD><A NAME="IDX3283"></A>
+テキスト属性メニューのSpecial Propsサブメニューを
+表示するキーマップ。
+<P>
+
+<DT><CODE>function-key-map</CODE>
+<DD>キーパッドやファンクションキーの変換用のキーマップ。<BR>
+それらがなければ、この変数は空の疎なキーマップである。
+see 節 <A HREF="elisp_40.html#SEC652">39.8.2 入力イベントの変換</A>。
+<P>
+
+<DT><CODE>fundamental-mode-map</CODE>
+<DD><A NAME="IDX3284"></A>
+基本（fundamental）モード用のローカルキーマップ。<BR>
+これは空であり、変更すべきでない。
+<P>
+
+<DT><CODE>Helper-help-map</CODE>
+<DD><A NAME="IDX3285"></A>
+ヘルプユーティリティパッケージが使う完全なキーマップ。<BR>
+この変数の値セルと関数セルには同一のキーマップが入っている。
+<P>
+
+<DT><CODE>Info-edit-map</CODE>
+<DD><A NAME="IDX3286"></A>
+infoの<KBD>e</KBD>コマンドで使う疎なキーマップ。
+<P>
+
+<DT><CODE>Info-mode-map</CODE>
+<DD><A NAME="IDX3287"></A>
+infoコマンドを収めた疎なキーマップ。
+<P>
+
+<DT><CODE>isearch-mode-map</CODE>
+<DD><A NAME="IDX3288"></A>
+インクリメンタルサーチ中に打鍵できる文字を定義するキーマップ。
+<P>
+
+<DT><CODE>key-translation-map</CODE>
+<DD>キー変換用のキーマップ。
+これは、<CODE>function-key-map</CODE>と違って、
+もとのキーバインディングに優先する。
+see 節 <A HREF="elisp_40.html#SEC652">39.8.2 入力イベントの変換</A>。
+<P>
+
+<DT><CODE>lisp-interaction-mode-map</CODE>
+<DD><A NAME="IDX3289"></A>
+Lispモードで使う疎なキーマップ。
+<P>
+
+<DT><CODE>lisp-mode-map</CODE>
+<DD><A NAME="IDX3290"></A>
+Lispモードで使う疎なキーマップ。
+<P>
+
+<DT><CODE>menu-bar-edit-menu</CODE>
+<DD><A NAME="IDX3291"></A>
+メニューバーのEditメニューを表示するキーマップ。
+<P>
+
+<DT><CODE>menu-bar-files-menu</CODE>
+<DD><A NAME="IDX3292"></A>
+メニューバーのFilesメニューを表示するキーマップ。
+<P>
+
+<DT><CODE>menu-bar-help-menu</CODE>
+<DD><A NAME="IDX3293"></A>
+メニューバーのHelpメニューを表示するキーマップ。
+<P>
+
+<DT><CODE>menu-bar-mule-menu</CODE>
+<DD><A NAME="IDX3294"></A>
+<A NAME="IDX3295"></A>
+メニューバーのMuleメニューを表示するキーマップ。
+<P>
+
+<DT><CODE>menu-bar-search-menu</CODE>
+<DD><A NAME="IDX3296"></A>
+メニューバーのSearchメニューを表示するキーマップ。
+<P>
+
+<DT><CODE>menu-bar-tools-menu</CODE>
+<DD><A NAME="IDX3297"></A>
+メニューバーのToolsメニューを表示するキーマップ。
+<P>
+
+<DT><CODE>mode-specific-map</CODE>
+<DD><KBD>C-c</KBD>に続く文字用のキーマップ。
+これはグローバルマップの中にあることに注意。
+このマップは実際にはモード固有ではない。
+プレフィックスキー<KBD>C-c</KBD>の主要な使い方を記述する
+<KBD>C-h b</KBD>（<CODE>display-bindings</CODE>）において、
+ユーザーに有益なようにこの名前を選んだ。
+<P>
+
+<DT><CODE>occur-mode-map</CODE>
+<DD><A NAME="IDX3298"></A>
+出現（occur）モードで使うローカルキーマップ。
+<P>
+
+<DT><CODE>query-replace-map</CODE>
+<DD><CODE>query-replace</CODE>やその関連コマンドの応答用に使うキーマップ。
+<CODE>y-or-n-p</CODE>や<CODE>map-y-or-n-p</CODE>もこれを使う。
+このマップを使う関数は、プレフィックスキーを使わない。
+一度に1つのイベントを探す。
+<P>
+
+<DT><CODE>text-mode-map</CODE>
+<DD><A NAME="IDX3299"></A>
+テキスト（text）モードで使う疎なキーマップ。
+<P>
+
+<DT><CODE>view-mode-map</CODE>
+<DD><A NAME="IDX3300"></A>
+閲覧（view）モードで使う完全なキーマップ。
+</DL>
+<A NAME="Standard Hooks"></A>
+<HR SIZE="6">
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_45.html#SEC678"> &lt;&lt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_47.html#SEC680"> &gt;&gt; </A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT"> &nbsp; <TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<a name="bottom"> </a>
+<script type="text/javascript" src="style2.js"></script>
+<div class="footer">
+    <br>
+    このページはMeadow (Emacs) の紹介ページです <br>
+このWebページの各文書は自由にリンク・複製・再配布・改変していただいて構いません．
+<br>ただし，複製・再配布・改変の場合は Meadow Memo のURLを記載しておいて下さい．<br>
+<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=about%20link">Medow memoへのリンクについて</a>．<br>
+
+間違い，要望等があれば<a href="mailto:akihisa@mail.ne.jp">akihisa@mail.ne.jp</a> か下記でどうぞ<br>
+
+<br>
+
+<FORM METHOD="post" ACTION="http://www.bookshelf.jp/cgi-bin/wwwmail.cgi" >
+お名前：<INPUT TYPE="text" NAME="name" SIZE="30" MAXLENGTH="40" VALUE="ななしさん"><br>
+メールアドレス：<INPUT TYPE="text" NAME="EMAIL" SIZE="25" MAXLENGTH="60" VALUE="secret@mail.adr"><br>
+<input type="hidden" name="HPAGE" value="">
+つっこみ：<br><TEXTAREA NAME="MESSAGE" ROWS="5" COLS="50">
+</TEXTAREA><br><br>
+<INPUT TYPE="submit" VALUE="送信">
+<INPUT TYPE="reset" VALUE="クリア">
+</FORM>
+
+<br><A HREF="http://www.bookshelf.jp/cgi-bin/xct.cgi">ページ別カウンタ</a>
+<br> Since 2002/12/13 <br>
+</div>
+
+</BODY>
+
+</HTML>

@@ -1,0 +1,25 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Author:    Atami <taka16a23@gmail.com>
+# Committer: root <root@qu>
+#
+# On branch develop
+# Your branch is ahead of 'origin/develop' by 10 commits.
+#   (use "git push" to publish your local commits)
+#
+# Changes to be committed:
+#	deleted:    elisp/elpa/py-smart-operator-20150824.1910/py-smart-operator-autoloads.el
+#	deleted:    elisp/elpa/py-smart-operator-20150824.1910/py-smart-operator-pkg.el
+#	deleted:    elisp/elpa/py-smart-operator-20150824.1910/py-smart-operator.el
+#	deleted:    elisp/start.d/30_smart-operator_plugin_start.el
+#	deleted:    elisp/start.d/smart-operator_plugin_start.el
+#
+# Changes not staged for commit:
+#	modified:   allinone.org
+#	modified:   allinone.org_archive
+#	modified:   data_e/code/python/interpreter/.pythistory
+#	modified:   data_e/log/Emacs_2015_10.log
+#	modified:   data_e/log/kill-ring-log_2015_10.org
+#

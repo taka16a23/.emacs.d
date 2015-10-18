@@ -1,0 +1,1 @@
+document.writeln('<ul> <li> <a href="#SEC258">18. Lispオブジェクトの読み取りと表示</a><ul><li> <a href="#SEC259">18.1 読み取りと表示の概要</a><li> <a href="#SEC260">18.2 入力ストリーム</a><li> <a href="#SEC261">18.3 入力関数</a><li> <a href="#SEC262">18.4 出力ストリーム</a><li> <a href="#SEC263">18.5 出力関数</a><li> <a href="#SEC264">18.6 出力に影響する変数</a></ul></ul>');

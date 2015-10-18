@@ -1,0 +1,349 @@
+;;; binding-setup.el ---   key bind setting
+;;
+;; Copyright (C) 2012 Atami
+;;
+;; Author:       Atami
+;; Maintainer:   Atami
+;; Version:      1.0
+;; Created:      Sun Dec  9 18:25:06 2012 (+0900)
+;; Last-Updated:2015/10/16 16:50:48 (+0900)
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; This file is part of Emacs.
+;;
+;; This file is free software: you can redistribute it and/or modify it under
+;; the terms of the GNU General Public License as published by the Free
+;; Software Foundation, either version 3 of the License, or (at your option)
+;; any later version.
+;;
+;; This program is distributed in the hope that it will be useful, but WITHOUT
+;; ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+;; FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+;; more details.
+;;
+;; You should have received a copy of the GNU General Public License along
+;; with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Commentary:
+;;  ===========
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Change Log:
+;;  ===========
+;;
+;; 2015/07/31    Atami
+;;    Added: ctrl-: "h" or "C-h" `switch-hotstring'
+;;
+;; 2015/02/01    Atami
+;;    Added: keybind "C-e C-w", "C-e w" to `query-replace' in `ctl-e-map'
+;;
+;; 2015/02/01    Atami
+;;    Removed: remove keybind "C-e C-w", "C-e w" `ispell-complete-word'
+;;    in `ctl-e-map'
+;;
+;; 2015/02/01    Atami
+;;    Added: "C-e C-SPC", "C-e SPC" bind `remark' in `ctl-e-map'
+;;
+;; 2014/03/24    Atami
+;;    Added: Prefix C-e map
+;;
+;; 2013/09/22    Atami
+;;    Added: ctrl-: `switch-ipython'
+;;
+;; 2012/12/12    Atami
+;;    Added: Ctrl+tab mapped to Alt+tab
+;;
+;; 2012/12/09    Atami
+;;    Created this header.
+;;
+;;
+;;; Code:
+
+
+;; (eval-when-compile
+;;   (require 't1macro "t1macro" 'noerror))
+
+(eval-when-compile
+  (require 'bind-key "bind-key" 'noerr)
+  )
+(require 'bind-key "bind-key" 'noerr)
+
+(keyboard-translate ?\C-x ?\C-d) ;C-x => C-d
+(keyboard-translate ?\C-d ?\C-x) ;C-d => C-x
+
+;;;; Undefine control-digits.
+;;
+(let ((i ?0))
+  (while (<= i ?9)
+    (global-unset-key (read (format "[?\\C-%c]" i)))
+    (setq i (1+ i))))
+
+;;;; Remap Universal argument
+;;
+;; (setq universal-argument-map
+;;       '(keymap
+;;         (57 . digit-argument)
+;;         (56 . digit-argument)
+;;         (55 . digit-argument)
+;;         (54 . digit-argument)
+;;         (53 . digit-argument)
+;;         (52 . digit-argument)
+;;         (51 . digit-argument)
+;;         (50 . digit-argument)
+;;         (49 . digit-argument)
+;;         (48 . digit-argument)
+;;         (45 . universal-argument-minus)
+;;         (6 . universal-argument-more)  ;; 6 is ^F, and (old) 21 is ^U
+;;         (switch-frame)
+;;         (27 keymap
+;;             (t . universal-argument-other-key))
+;;         (t . universal-argument-other-key)))
+
+;; Ctrl+tab mapped to Alt+tab
+(define-key function-key-map [(control tab)] [?\M-\t])
+
+;;;; Prefix C-: map
+;;
+(defvar ctl-colon-map nil ;;(make-keymap)
+  "Default keymap for C-: commands.")
+(define-prefix-command 'ctl-colon-map)
+(bind-keys :map ctl-colon-map
+           ;; number
+           ("_" . launch-or-switch-term)
+           ("!" . launch-or-switch-term)
+           ("\"" . launch-or-switch-term)
+           ("#" . launch-or-switch-term)
+           ("$" . launch-or-switch-term)
+           ("%" . launch-or-switch-term)
+           ("&" . launch-or-switch-term)
+           ("'" . launch-or-switch-term)
+           ("(" . launch-or-switch-term)
+           (")" . launch-or-switch-term)
+           ("1" . launch-or-switch-term)
+           ("2" . launch-or-switch-term)
+           ("3" . launch-or-switch-term)
+           ("4" . launch-or-switch-term)
+           ("5" . launch-or-switch-term)
+           ("6" . launch-or-switch-term)
+           ("7" . launch-or-switch-term)
+           ("8" . launch-or-switch-term)
+           ("9" . launch-or-switch-term)
+           ;;
+           ("C-s" . switch-scratch)
+           ("C-t" . switch-test_start)
+           ("C-b" . t1-switch-04_bindings_start)
+           ("b" . t1-switch-04_bindings_start)
+           ;; ([(control :)] . iswitchb-buffer)
+           ("m" . switch-message)
+           ("a" . switch-allinone)
+           ("C-a" . switch-allinone)
+           ;; ("C-b" . next-buffer)
+           ("C-f" . previous-buffer)
+           ("@" . find-file-conf)
+           ("C-@" . find-file-conf)
+           ("d" . switch-dired)
+           ("C-x" . switch-dired)
+           ("C-j" . switch-junk)
+           ("j" . switch-junk)
+           ("C-p" . switch-snippets)
+           ("p" . switch-snippets)
+           ("w" . w3m)
+           ("C-w" . w3m)
+           ("C-u" . register-buffer)
+           ("C-e" . register-buffer)
+           ("i" . switch-ipython)
+           ("I" . switch-ipython)
+           ("C-i" . switch-ipython)
+           ("M-s" . switch-start-dir)
+           ("C-h" . switch-hotstring)
+           ("h" . switch-hotstring)
+           ("H" . switch-hotstring)
+           )
+
+;;;; Prefix C-e map
+;;
+;; (defvar ctl-e-map nil ;(make-keymap)
+;;   "Default keymap for <control>-<e> commands.")
+;; (define-prefix-command 'ctl-e-map)
+;; (bind-keys :map ctl-e-map
+;;            ("c" . make-revision)
+;;            ("C" . make-revision)
+;;            ("R" . make-revision)
+;;            (":" . timestamp-insert)
+;;            ("*" . toggle-let-astah)
+;;            ("C-q" . quoted-insert)
+;;            ("C-a" . align-regexp)
+;;            ("a" . align-regexp)
+;;            ("C-g" . keyboard-quit)
+;;            ("C-b" . delete-blank-lines)
+;;            ("C-f" . fixup-whitespace)
+;;            ("C-w" . query-replace)
+;;            ("w" . query-replace)
+;;            ;; CAPITALIZE & lower
+;;            ("C-u" . upcase-word)
+;;            ("C-l" . downcase-word)
+;;            ("u" . upcase-region)
+;;            ("l" . downcase-region)
+;;            ;; trans-regions
+;;            ("M-t" . trans-regions)
+;;            ;; remark region
+;;            ([67108896] . remark) ; C-SPC
+;;            (" " . remark) ;SPC
+;;            )
+
+;;;; Prefix C-c map
+;;
+(bind-keys :map mode-specific-map
+           ("l" . info-lookup-symbol)
+           ("d" . delete-indentation)
+           ("i" . imenu)
+           ("C-g" . keyboard-quit)
+           )
+
+;;;; Prefix C-x map
+;;
+(define-key ctl-x-map "\C-n" nil) ;Disable Goal Colum On
+(bind-keys :map ctl-x-map
+           ([f4] . kmacro-start-macro-or-insert-counter)
+           ("M-d" . dired-jump-other-window)
+           ("D" . dired-jump-other-window)
+           ("M-p" . backward-page)
+           ("M-b" . forward-page)
+           ("C-s" . rename-old-del)
+           ("C-c" . kill-emacs)
+           ("k" . kill-this-buffer)
+           ("C-k" . kill-this-buffer)
+           ("C-g" . keyboard-quit)
+           ("C-b" . bs-show)
+           ("f" . find-file)
+           ("t" . swap-screen-with-cursor)
+           ("r" . recenter)
+           ("M-f" . query-replace-regexp)
+           ("o" . moccur)
+           ("M-o" . dmoccur)
+           ("h" . help-command)
+           ;; ("z" . winner-undo)
+           ;; ("Z" . winner-redo)
+           ("C-b" . make-backup-revision)
+           ("b" . make-backup-revision)
+           ("F" . revert-buffer)
+           )
+
+;;;; common view bind
+;;
+(defvar my-view-map (make-keymap))
+(define-prefix-command 'my-view-map)
+(bind-keys :map my-view-map
+  ("w" . whitespace-mode)
+  ("v" . column-highlight-mode)
+  ("n" . column-highlight-mode)
+  ([134217741] . view-mode))
+(defvar common-view-map-list
+  `( ;; Left hand
+    ("v" . next-line)
+    ("f" . forward-char)
+    ("d" . previous-line)
+    ("s" . backward-char)
+    ("g" . my-forward-seq)
+    ("e" . cua-scroll-down)
+    ;; common
+    ("a" . my-backward-seq)
+    ("\d" . nil)
+    ("c" . nil)
+    (" " . my-view-map)
+    ("b" . cua-scroll-up)
+    ("y" . sdic-describe-word-at-point)
+    ;; Right hand
+    ("n" . next-line)
+    ("l" . forward-char)
+    ("j" . backward-char)
+    ("k" . previous-line)
+    ("-" . my-forward-seq)
+    ("o" . other-window)
+    ("p" . cua-scroll-down)
+    ("h" . my-backward-seq)
+    ("i" . turn-off-view-mode)
+    ("." . tabbar-forward-tab)
+    ("," . tabbar-backward-tab)
+    ;;
+    ;; ("\C-e" . ctl-e-map)
+    ("\C-n" . next-line)
+    ("\C-l" . forward-char)
+    ("\C-j" . backward-char)
+    ("\C-k" . previous-line)
+    ("\C-\M-n" . cua-scroll-up)
+    ("\C-\M-k" . cua-scroll-down)
+    ("\C-h" . my-backward-seq)
+    ("\C-m" . nil)
+    ([(control -)] . my-forward-seq)
+    ;; ( [(control ?\s)] . seq-set-mark)
+    ("E" . text-translator-all-by-auto-selection)
+    ))
+
+;;;; global map
+;
+(global-unset-key (kbd "M-<down-mouse-1>"))
+(bind-keys :map global-map
+  ;; prefix
+  ;; ("C-e" . ctl-e-map)
+  ([(control ?:)] . ctl-colon-map)
+  ("C-j" . backward-char)
+  ("C-l" . forward-char)
+  ("C-M-k" . scroll-down)
+  ("C-M-n" . scroll-up)
+  ("M-B" . scroll-other-window)
+  ;; simple.el
+  ("C-k" . previous-line)
+  ("M-j" . backward-word)
+  ("M-l" . forward-word)
+  ("C-M-g" . keyboard-escape-quit)
+  ("C-d" . kill-region)
+  ("M-g" . goto-line)
+  ;; ("C-M-t" . transpose-chars)
+  ("C-M-t" . transpose-lines)
+  ([C-return] . open-line)
+  ("C-m" . default-indent-new-line)
+  ;; paragraphs.el
+  ("M-k" . backward-sentence)
+  ("M-n" . forward-sentence)
+  ("M-p" . backward-paragraph)
+  ("M-b" . forward-paragraph)
+  ;; files.el
+  ("C-s" . save-buffer)
+  ;; mule-cmds.el
+  ([zenkaku-hankaku] . toggle-input-method)
+  ;; annotation
+  ("C-M-o" . annotation)
+  )
+
+;;;; for putty
+;;
+;; (bind-keys :map global-map
+;;   ("" . end-of-line)
+;;   ("C-^" . open-line)
+;;   ((kbd "M-&") . return-on-line)
+;;   ("M-$" . cua-set-rectangle-mark)
+;;   )
+
+
+;;;; Prefix C-e map
+;;
+(bind-keys :map ctl-e-map
+  ;; auto-yasnippet
+  ("Y" . create-auto-yasnippet)
+  ("y" . auto-yasnippet-ext)
+  ("C-y" . auto-yasnippet-ext)
+  )
+
+
+
+(provide 'binding-setup)
+;; For Emacs
+;; Local Variables:
+;; coding: utf-8
+;; End:
+;;; binding-setup.el ends here

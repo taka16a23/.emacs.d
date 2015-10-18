@@ -1,0 +1,62 @@
+>>> from collections import OrderedDict
+>>> d = OrderedDict([('tes', 'hello'), ('world', 'yahoo'), ('google', 'bing')])
+>>> for k, v in d.iteritems():
+....:     print(k + ": " + v)
+tes: hello
+world: yahoo
+google: bing
+
+# default
+>>> d = dict(tes='hello', world='yahoo', google='bing')
+{'google': 'bing', 'tes': 'hello', 'world': 'yahoo'}
+>>> for k, v in d.iteritems():
+....:     print(k + ": " + v)
+world: yahoo
+google: bing
+tes: hello
+
+# alternate example
+>>> d = collections.OrderedDict()
+>>> d['a'] = 'A'
+>>> d['b'] = 'B'
+>>> d['c'] = 'C'
+>>> for k, v in d.items():
+...     print k, v
+a A
+c C
+b B
+
+# default
+>>> d = {}
+>>> d['a'] = 'A'
+>>> d['b'] = 'B'
+>>> d['c'] = 'C'
+>>> for k, v in d.items():
+...         print k, v
+b B
+a A
+c C
+
+# compare
+>>> d1 = collections.OrderedDict()
+>>> d1['a'] = 'A'
+>>> d1['b'] = 'B'
+>>> d1['c'] = 'C'
+>>> d2 = collections.OrderedDict()
+>>> d2['c'] = 'C'
+>>> d2['b'] = 'B'
+>>> d2['a'] = 'A'
+>>> d1==d2
+False
+
+>>> d1 = {}
+>>> d1['a'] = 'A'
+>>> d1['b'] = 'B'
+>>> d1['c'] = 'C'
+>>> d2 = {}
+>>> d2['c'] = 'C'
+>>> d2['b'] = 'B'
+>>> d2['a'] = 'A'
+>>> print d1 == d2
+>>> d1 == d2
+True

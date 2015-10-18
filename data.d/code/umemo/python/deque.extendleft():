@@ -1,0 +1,4 @@
+>>> q = deque(['hello', 'world', 'yahoo'])
+>>> q.extendleft(['japan', 'china'])
+>>> q
+deque(['china', 'japan', 'hello', 'world', 'yahoo'])

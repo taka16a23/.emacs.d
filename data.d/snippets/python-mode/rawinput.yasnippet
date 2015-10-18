@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: rawinput
+# key: rawinput
+# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])))
+# 40 = `('
+# --
+raw_input(${1:\'prompt\'})

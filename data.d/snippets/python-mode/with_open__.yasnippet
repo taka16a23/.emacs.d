@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: with_open__
+# key: with_open
+# --
+with open(${1:FILE}, \'${2:$$(yas/choose-value \'(\"r\" \"w\" \"a\" \"r+\" \"rb\" \"wb\" \"r+b\"))}\') as ${3:ALIAS}:
+    $0

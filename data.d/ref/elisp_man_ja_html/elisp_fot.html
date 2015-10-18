@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML lang="ja">
+<!-- Created on October, 1  2005 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=euc-jp">
+<META NAME="keywords" CONTENT="meadow,mule,emacs,lisp,elisp,gnus,setting,設定,unix,cygwin">
+<META http-equiv="Content-Script-Type" content="text/javascript">
+<META NAME="description" CONTENT="Meadowの設定を紹介するページです">
+<TITLE>GNU Emacs Lispリファレンスマニュアル: 旧版以降の新しいシンボル</TITLE>
+
+<META NAME="description" CONTENT="GNU Emacs Lispリファレンスマニュアル: 旧版以降の新しいシンボル">
+<META NAME="keywords" CONTENT="GNU Emacs Lispリファレンスマニュアル: 旧版以降の新しいシンボル">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+<LINK REL="contents" HREF="elisp_toc.html#SEC_Contents">
+<LINK REL="index" HREF="elisp_48.html#SEC681">
+<LINK REL="next" HREF="elisp_1.html#SEC1">
+<LINK REL="prev" HREF="elisp_48.html#SEC681">
+
+<META http-equiv="Content-Style-Type" content="text/css">
+<!-- 鶯と龜 ←日本語EUC誤判別対策用らしい; -->
+<link rel="StyleSheet" href="../../../../soft/css/midnight.css" type="text/css" id="css1">
+<script type="text/javascript" src="style1.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../soft/css/meadowmemo.css">
+
+</HEAD>
+<BODY LANG="ja" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+<!--Infoseek Analyzer start-->
+<script LANGUAGE="javascript">PgNo=6;</script>
+<script src="http://js1.infoseek.co.jp/bin/57/00170.js"></script>
+<noscript><a href="http://ax1.www.infoseek.co.jp/bin/go?0017057f" target="_blank">
+<img src="http://ax1.www.infoseek.co.jp/bin/logo?0017057f" border=0></a></noscript>
+<!--Infoseek Analyzer end-->
+<a name="top"> </a>
+
+<br><A NAME="elisp_fot.html"> </A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp.html#SEC_Top">表紙</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_toc.html#SEC_Contents">目次</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="elisp_48.html#SEC681">索引</A>]</TD>
+<TD> [<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=search">検索</a>] [<a href="#top">上端</a> / <a href="#bottom">下端</a>]</TD></TR></TABLE>
+<H1>脚注</H1>
+<H3><A NAME="FOOT1" HREF="elisp_1.html#DOCF1">(1)</A></H3>
+<P>【注意】
+現在、このバージョン2の発行者(FSF)住所は、正式に新しい住所の <BR>
+　59 Temple Place, Suite 330, Boston, MA 02111-1307, USA <BR>
+に変わっている。
+<H3><A NAME="FOOT2" HREF="elisp_1.html#DOCF2">(2)</A></H3>
+<P>【注意】現在、このバージョン2の発行者(FSF)住所は、
+正式に新しい住所の
+59 Temple Place, Suite 330, Boston, MA 02111-1307, USA に変わっている。
+<H3><A NAME="FOOT3" HREF="elisp_2.html#DOCF3">(3)</A></H3>
+<P>【訳注】日本語訳：
+『Emacs Lispプログラミング入門』、アスキー出版局、ISBN 4-7561-1805-4
+<H3><A NAME="FOOT4" HREF="elisp_2.html#DOCF4">(4)</A></H3>
+<P>【訳注】日本語訳：
+『GNU Emacsマニュアル』、アスキー出版局、ISBN 4-7561-3002-X
+<H3><A NAME="FOOT5" HREF="elisp_3.html#DOCF5">(5)</A></H3>
+<P>【訳注】ベクトルのみの誤り？
+<H3><A NAME="FOOT6" HREF="elisp_6.html#DOCF6">(6)</A></H3>
+<P>この『キー』の使い方は、『キー列』とは無関係。
+キーとは、表の項目を探すために使う値を意味する。
+ここでは、表は連想リストであり、項目は連想リストの連想値である。
+<H3><A NAME="FOOT7" HREF="elisp_9.html#DOCF7">(7)</A></H3>
+<P>『環境』のこの定義は、プログラムの結果に影響する
+すべてのデータを含むことは意図していない。
+<H3><A NAME="FOOT8" HREF="elisp_21.html#DOCF8">(8)</A></H3>
+<P>「ボタン押し下げ」は、「ドラッグ」の対句。
+<H3><A NAME="FOOT9" HREF="elisp_28.html#DOCF9">(9)</A></H3>
+<P><VAR>right</VAR>は垂直の区切り行やスクロールバーを含むが、
+<CODE>(window-width)</CODE>はそれらを含まないため、
+完全に等しくはない。
+<H3><A NAME="FOOT10" HREF="elisp_37.html#DOCF10">(10)</A></H3>
+<P>【訳注】シェルのもとで動いているプロセス群
+<H3><A NAME="FOOT11" HREF="elisp_39.html#DOCF11">(11)</A></H3>
+<P>omer：
+過ぎ越しの祝い（Passover）の二日目から七週の祭（Shabuoth）の前日
+までの49日間
+<H3><A NAME="FOOT12" HREF="elisp_40.html#DOCF12">(12)</A></H3>
+<P>【訳注】協定世界時。旧グリニッジ標準時に相当。
+<H3><A NAME="FOOT13" HREF="elisp_40.html#DOCF13">(13)</A></H3>
+<P>【訳注】fortnightは2週間のこと。
+<HR SIZE=1>
+<a name="bottom"> </a>
+<script type="text/javascript" src="style2.js"></script>
+<div class="footer">
+    <br>
+    このページはMeadow (Emacs) の紹介ページです <br>
+このWebページの各文書は自由にリンク・複製・再配布・改変していただいて構いません．
+<br>ただし，複製・再配布・改変の場合は Meadow Memo のURLを記載しておいて下さい．<br>
+<a href="http://www.bookshelf.jp/cgi-bin/goto.cgi?file=meadow&node=about%20link">Medow memoへのリンクについて</a>．<br>
+
+間違い，要望等があれば<a href="mailto:akihisa@mail.ne.jp">akihisa@mail.ne.jp</a> か下記でどうぞ<br>
+
+<br>
+
+<FORM METHOD="post" ACTION="http://www.bookshelf.jp/cgi-bin/wwwmail.cgi" >
+お名前：<INPUT TYPE="text" NAME="name" SIZE="30" MAXLENGTH="40" VALUE="ななしさん"><br>
+メールアドレス：<INPUT TYPE="text" NAME="EMAIL" SIZE="25" MAXLENGTH="60" VALUE="secret@mail.adr"><br>
+<input type="hidden" name="HPAGE" value="">
+つっこみ：<br><TEXTAREA NAME="MESSAGE" ROWS="5" COLS="50">
+</TEXTAREA><br><br>
+<INPUT TYPE="submit" VALUE="送信">
+<INPUT TYPE="reset" VALUE="クリア">
+</FORM>
+
+<br><A HREF="http://www.bookshelf.jp/cgi-bin/xct.cgi">ページ別カウンタ</a>
+<br> Since 2002/12/13 <br>
+</div>
+
+</BODY>
+
+</HTML>

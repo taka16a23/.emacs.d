@@ -1,0 +1,3 @@
+#!/bin/sh
+
+/opt/emacs25/bin/emacs --reverse-video $@

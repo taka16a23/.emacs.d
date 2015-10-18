@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: shutil.rmtree
+# key: shutil.rmtree
+# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])))
+# --
+shutil.rmtree(${1:PATH})$0`(py--insert-imports "shutil" "import shutil")`

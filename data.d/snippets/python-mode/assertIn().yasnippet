@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: assertIn()
+# key: assertIn
+# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])))
+# 32 = ` '
+# --
+assertIn(${1:target}, ${2:in contains}${3:, msg=${4:\'${5:Failed: $6}\'}})

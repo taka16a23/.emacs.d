@@ -1,0 +1,3 @@
+* ex..
+(process-status (get-buffer-process "*terminal<1>*"))
+=> run

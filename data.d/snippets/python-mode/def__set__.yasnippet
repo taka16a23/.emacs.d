@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: __set__(self, instance, value):
+# key: defset
+# condition: (not (py:at-string|comment-p))
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
+# --
+def __set__(self, instance, value):
+    $0

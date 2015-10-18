@@ -1,0 +1,28 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Author:    Atami <taka16a23@gmail.com>
+# Committer: root <root@qu>
+#
+# On branch release-v1.2.0
+# Your branch is ahead of 'develop' by 5 commits.
+#   (use "git push" to publish your local commits)
+#
+# Changes to be committed:
+#	modified:   allinone.org
+#	modified:   allinone.org_archive
+#	deleted:    doing.org
+#	deleted:    doing.org_archive
+#	modified:   elisp/el-got/.loaddefs.el
+#	modified:   elisp/el-got/.status.el
+#	deleted:    elisp/el-got/org-doing
+#	modified:   elisp/mylisp/switch-buffer.el
+#	modified:   elisp/start.d/subroutines_start.el
+#	modified:   elisp/start.d/test_start.el
+#
+# Changes not staged for commit:
+#	modified:   data_e/log/Emacs_2015_10.log
+#	modified:   data_e/log/kill-ring-log_2015_10.org
+#	modified:   data_e/multi-cursor-list.el
+#

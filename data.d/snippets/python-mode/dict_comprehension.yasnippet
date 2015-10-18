@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name : set_comprehension
+# key : dict((
+# dict((value, str(value)) for value in range(10) if value > 5)
+# --
+dict((str(${1:value}), $1) for $1 in ${3:ITER}${4: if }`(progn (end-of-line) (skip-chars-backward " \t") (unless (eq (char-before) 41) (insert ")")))`

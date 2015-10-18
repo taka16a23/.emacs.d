@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: coerce()
+# key: coerce
+# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])))
+# 32 = ` '
+# --
+coerce(${1:x}, ${2:y})

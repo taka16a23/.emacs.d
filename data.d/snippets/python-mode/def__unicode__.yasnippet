@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: __unicode__(self):
+# key: defunicode
+# condition: (not (py:at-string|comment-p))
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
+# --
+def __unicode__(self):
+    return unicode($0)

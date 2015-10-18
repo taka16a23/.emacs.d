@@ -1,0 +1,116 @@
+>>> '{0[tes]}  {0[world]}'.format({'tes': 'hello', 'world': 'yahoo'})
+'hello  yahoo'
+
+* syntax
+    replacement_field ::=  "{" [field_name] ["!" conversion] [":" format_spec] "}"
+    field_name        ::=  arg_name ("." attribute_name | "[" element_index "]")*
+    arg_name          ::=  [identifier | integer]
+    attribute_name    ::=  identifier
+    element_index     ::=  integer | index_string
+    index_string      ::=  <any source character except "]"> +
+    conversion        ::=  "r" | "s" | "a"
+    format_spec       ::=  <described in the next section>
+
+* normal use
+>>> a, b, d = 'google', 'yahoo', 'bing'
+>>> "hello {0}, {1}, and {c}".format(a, b, c=d)
+'hello google, yahoo, and bing'
+
+>>> '{2}, {1}, {0}'.format('a', 'b', 'c')
+'c, b, a'
+
+>>> '{name} {age}'.format(age=18, name='hello')
+'hello 18'
+
+>>> '{name[1]}'.format(name=['hello', 'joe'])
+'joe'
+
+* Escape
+>>> '{0} {{escaped}}'.format('joe')
+'joe {escaped}'
+
+* Adjust
+>>> 'hello {0:8}'.format('joe')
+'hello joe     '
+
+>>> 'hello {0:{1}}'.format('yahoo', 8)
+'hello yahoo   '
+
+* Format specifier
+# [[fill]align][sign][#][0][minimumwidth][.precision][type]
+>>> 'google {0:<10}'.format('yahoo')
+'google yahoo     '
+
+>>> 'google {0:>10}'.format('yahoo')
+'google      yahoo'
+
+>>> 'google {0:^10}'.format('yahoo')
+'google   yahoo   '
+
+>>> 'google {0:*<10}'.format('yahoo')
+'google yahoo*****'
+
+>>> 'google {0:=>10}'.format('yahoo')
+'google =====yahoo'
+
+>>> 'google {0:?^10}'.format('yahoo')
+'google ??yahoo???'
+
+>>> 'hello {0:{1}{2}}'.format('yahoo', '>', 8)
+'hello    yahoo'
+
+>>> 'hello {0:=}'.format(8)
+'hello 8'
+
+>>> 'hello {0:=10}'.format(0.8)
+'hello        0.8'
+
+>>> 'hello {0:0=+10}'.format(0.8)
+'hello +0000000.8'
+
+>>> 'hello {0:0=-10}'.format(8)
+'hello 0000000008'
+
+>>> 'hello {0:>10s}'.format('8')
+'hello          8'
+
+>>> '{:,}'.format(1000000)
+'1,000,000'
+
+
+* '[]' (index)
+>>> index = ['hello', 'world', 'hoge', 'foo', 'bar', 'yahoo', 'google', 'bing']
+>>> '{[1]}'.format(index)
+'world'
+
+>>> '{0[1]}'.format(index)
+'world'
+
+* '.' (getattr) 
+>>> '{.platform}'.format(sys)
+'linux2'
+
+>>> '{0.platform} {0.maxint}'.format(sys)
+'linux2 2147483647'
+
+>>> '{0.title} {1.title}'.format(w, ww)
+'emacs@qu Inbox - takahiroatsumi0517@gmail.com - Icedove Mail/News'
+
+* '[]' (getitem)
+>>> '{0[name]} world'.format(dict(name='yahoo'))
+'yahoo world'
+
+>>> '{0[name]} world {0[age]}'.format(dict(name='yahoo', age=17))
+'yahoo world 17'
+
+* Explicit Conversion Flag !r, !s, !a
+# !r - repr().
+# !s - str().
+# !a - ascii().
+>>> '{0!r:20}'.format('hello\nworld')
+"'hello\\nworld'      "
+
+* ref
+PEP3101 http://www.python.org/dev/peps/pep-3101/
+doc     http://docs.python.org/library/stdtypes.html#string-formatting-operations
+http://docs.python.org/dev/library/string.html#formatstrings

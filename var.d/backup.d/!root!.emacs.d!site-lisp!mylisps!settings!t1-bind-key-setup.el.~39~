@@ -1,0 +1,103 @@
+;;; t1-bind-key-setup.el ---   key bind setting
+;;
+;; Copyright (C) 2012 Atami
+;;
+;; Author:       Atami
+;; Maintainer:   Atami
+;; Version:      1.0
+;; Created:      Sun Dec  9 18:25:06 2012 (+0900)
+;; Last-Updated:2015/10/18 03:01:17 (+0900)
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; This file is part of Emacs.
+;;
+;; This file is free software: you can redistribute it and/or modify it under
+;; the terms of the GNU General Public License as published by the Free
+;; Software Foundation, either version 3 of the License, or (at your option)
+;; any later version.
+;;
+;; This program is distributed in the hope that it will be useful, but WITHOUT
+;; ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+;; FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+;; more details.
+;;
+;; You should have received a copy of the GNU General Public License along
+;; with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Commentary:
+;;  ===========
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Change Log:
+;;  ===========
+;;
+;;
+;;
+;;; Code:
+
+
+(eval-when-compile
+  (require 'use-package "use-package" 'noerr)
+  (require 't1-bind-key "t1-bind-key" 'noerr))
+
+(use-package t1-bind-key
+  ;; :disabled
+  :init
+  :config
+  (message "Loading \"t1-bind-key\"")
+  (t1-edit-bind-keys
+   '(("C-g" . keyboard-quit)
+     ("*" . toggle-let-astah)
+     ("C-q" . quoted-insert)
+     ("C-b" . delete-blank-lines)
+     ("C-f" . fixup-whitespace)
+     ("C-w" . query-replace)
+     ("w" . query-replace)
+     ))
+  (t1-ctl-x-bind-keys
+   '(("C-g" . keyboard-quit)
+     ("r" . recenter)
+     ("C-c" . kill-emacs)
+     ("f" . find-file)
+     ("M-d" . dired-jump-other-window)
+     ("D" . dired-jump-other-window)
+     ("k" . kill-this-buffer)
+     ("C-k" . kill-this-buffer)
+     ("M-f" . query-replace-regexp)
+     ("F" . revert-buffer)))
+  (common-view-map-many-register
+   '(;; Left hand
+     ("v" . next-line)
+     ("f" . forward-char)
+     ("s" . backward-char)
+     ("d" . previous-line)
+     ;; common
+     ("\d" . nil)
+     ("c" . nil)
+     ;; Right hand
+     ("n" . next-line)
+     ("l" . forward-char)
+     ("j" . backward-char)
+     ("k" . previous-line)
+     ("o" . other-window)
+     ;;
+     ("C-n" . next-line)
+     ("C-l" . forward-char)
+     ("C-j" . backward-char)
+     ("C-k" . previous-line)
+     ("C-m" . nil)
+     ))
+  )
+
+
+
+(provide 't1-bind-key-setup)
+;; For Emacs
+;; Local Variables:
+;; coding: utf-8
+;; End:
+;;; t1-bind-key-setup.el ends here

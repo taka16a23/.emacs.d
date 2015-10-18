@@ -1,0 +1,1043 @@
+list(T_GoodsDetails.query.outerjoin(T_Maker, T_GoodsDetails.c_goods_detail_maker_id == T_Maker.c_maker_id))
+list(T_GoodsDetails.query.outerjoin(T_Maker, T_GoodsDetails.c_goods_detail_maker_id == T_Maker.c_maker_id))[0]
+D list(T_GoodsDetails.query.outerjoin(T_Maker, T_GoodsDetails.c_goods_detail_maker_id == T_Maker.c_maker_id))[0]
+D list(T_GoodsDetails.query.outerjoin(T_Maker, T_GoodsDetails.c_goods_detail_maker_id == T_Maker.c_maker_id))
+D T_GoodsDetails.query.outerjoin(T_Maker, T_GoodsDetails.c_goods_detail_maker_id == T_Maker.c_maker_id)
+T_GoodsDetails.query.outerjoin(T_Maker, T_GoodsDetails.c_goods_detail_maker_id == T_Maker.c_maker_id).all()
+T_GoodsDetails.query.outerjoin(T_Maker, T_GoodsDetails.c_goods_detail_maker_id == T_Maker.c_maker_id).all()[0]
+D T_GoodsDetails.query.outerjoin(T_Maker, T_GoodsDetails.c_goods_detail_maker_id == T_Maker.c_maker_id).all()[0]
+D T_GoodsDetails.query.outerjoin(T_Maker, T_GoodsDetails.c_goods_detail_maker_id == T_Maker.c_maker_id)
+T_GoodsDetails.query.outerjoin(T_Maker, T_GoodsDetails.c_goods_detail_maker_id == T_Maker.c_maker_id).merge_result?
+T_GoodsDetails.query.outerjoin(T_Maker, T_GoodsDetails.c_goods_detail_maker_id == T_Maker.c_maker_id).merge_resultT_GoodsDetails.query.outerjoin(T_Maker, T_GoodsDetails.c_goods_detail_maker_id == T_Maker.c_maker_id).merge_result()
+T_GoodsDetails.query.outerjoin(T_Maker, T_GoodsDetails.c_goods_detail_maker_id == T_Maker.c_maker_id).merge_result()
+a=T_GoodsDetails.query.outerjoin(T_Maker, T_GoodsDetails.c_goods_detail_maker_id == T_Maker.c_maker_id)
+a.merge_result?
+import mysql.connector
+cnx=mysql.connector.connect(user='root', password='toor', host="localhost", db='coop', buffered=True)
+cur=cnx.cursor()
+cur.execute('SELECT * FROM t_makers')
+res=cur.fetchall()
+res
+mysql.connector.connect?
+cur.execute('SELECT t_goods_details.c_goods_detail_code,
+       c_goods_detail_jancode,
+       t_goods_details.c_goods_detail_name,
+       t_makers.c_maker_name,
+       c_country_ja_name,
+       c_goods_detail_explain
+FROM t_goods_details
+LEFT OUTER JOIN t_makers ON t_goods_details.c_goods_detail_maker_id=t_makers.c_maker_id
+LEFT OUTER JOIN t_countries ON t_goods_details.c_goods_detail_origin_country=t_countries.c_country_code;
+')
+cur.execute('SELECT * FROM t_goods_details')
+cur.fetchall()
+cur.execute('SELECT t_makers.c_maker_name FROM t_goods_details LEFT OUTER JOIN t_makers ON t_goods_details.c_goods_detail_maker_id=t_makers.c_maker_id')
+cur.fetchall()
+cur.execute('SELECT c_country_ja_name FROM c_country_ja_name = アルバニア共和国')
+cur.execute('SELECT c_country_ja_name FROM t_countries WHERE c_country_ja_name = アルバニア共和国')
+cur.execute("SELECT c_country_ja_name FROM t_countries WHERE c_country_ja_name='アルバニア共和国'")
+cur.fetchall()
+D cur
+cur.execute("SELECT c_country_ja_name FROM t_countries WHERE c_country_ja_name='アルバニア共和国a'")
+cur.fetchall()
+cur.execute?
+cur.execute("SELECT c_country_code FROM t_countries WHERE c_country_ja_name='アルバニア共和国a'")
+cur.execute("SELECT c_country_code FROM t_countries WHERE c_country_ja_name='アルバニア共和国'")
+cur.fetchall()
+        query = (u"SELECT c_country_ja_name FROM t_countries "
+                 u"WHERE c_country_code = {}".format(8))
+query
+cursor.execute(query)
+cur.execute(query)
+cur.fetchall()
+query = u"SELECT c_country_code FROM t_countries "
+cur.execute(query)
+cur.fetchall()
+[x[0] for x in cur.fetchall()]
+query = u"SELECT c_country_ja_name FROM t_countries "
+cur.execute(query)
+cur.fetchall()
+[x[0] for x in cur.fetchall()]
+for name in [x[0] for x in cur.fetchall()]:
+        print name
+query = u"SELECT c_country_code, c_country_ja_name FROM t_countries "
+cur.fetchall()
+cur.execute(query)
+cur.fetchall()
+execfile(r'/tmp/ipython-3552ocj.py') # PYTHON-MODE
+c=CoopCountries(cur)
+c.get_country_code('アルバニア共和国')
+c.get_country_code(u'アルバニア共和国')
+c.get_country_name(8)
+print c.get_country_name(8)
+c.list_countries_code()
+c.list_countries_name()
+c.as_dict()
+execfile(r'/tmp/ipython-3552Cxv.py') # PYTHON-MODE
+m=CoopMakers(cur)
+m.get_maker_id(1)
+execfile(r'/tmp/ipython-3552BFF.py') # PYTHON-MODE
+m=CoopMakers(cur)
+m.get_maker_id(1)
+m.list_makers_name()
+m.list_makers_id()
+        query = (u"SELECT c_maker_name FROM t_makers "
+                 u"WHERE c_maker_id = {}".format(1))
+query
+cur.execute(query)
+cur.fetchall()
+m.get_maker_name(1)
+m.get_maker_id(u'ケンミン食品')
+m.get_makers_id()
+m.list_makers_id()
+m.list_makers_name()
+m.ad_dict()
+m.as_dict()
+D cur
+cc=cnx.cursor()
+maker_names=['hello', 'world', 'yahoo']
+        names = []
+        fmt = "('{}')"
+        for name in maker_names:
+                names.append(fmt.format(name))
+names
+query = u"INSERT INTO t_makers VALUES {}".format(', '.join(names))
+query
+query=query.replace('hello', 'foo')
+query=query.replace('world', 'bar')
+query=query.replace('yahoo', 'hoge')
+query
+c.execute(query)
+cur.execute(query)
+query
+query=u"INSERT INTO t_makers (c_maker_name) VALUES ('foo'), ('bar'), ('hoge')"
+cur.execute(query)
+cnx
+query='SELECT * FROM t_makers'
+cur.execute(query)
+cur.fetchall()
+cur.close()
+cnx.close()
+cc.close()
+__pyfile = open('''/tmp/psss-temp.py''');exec(compile(__pyfile.read(), '''/tmp/psss-temp.py''', 'exec'));__pyfile.close()
+import mysql.connector as connection
+his -g connect
+con=connection.connect(host='localhost', password='toor', user='root', db='coop', buffered=True)
+execfile(r'/tmp/ipython-3201--v.py') # PYTHON-MODE
+maker=CoopMakers(con)
+con.cursor?
+execfile(r'/tmp/ipython-32019SF.py') # PYTHON-MODE
+maker=CoopMakers(con)
+maker.list_maker_name()
+maker.list_makers_name()
+maker.get_maker_id('hello')
+maker.get_maker_id('hello', True)
+__pyfile = open('''/tmp/psss-temp.py''');exec(compile(__pyfile.read(), '''/tmp/psss-temp.py''', 'exec'));__pyfile.close()
+import mysql.connector as connection
+con=connection.connect(user='root', password='toor', db='coop', buffered=True, host='localhost')
+execfile(r'/tmp/ipython-3201XnR.py') # PYTHON-MODE
+g=GoodsDetailTable(con)
+execfile(r'/tmp/ipython-3201x7d.py') # PYTHON-MODE
+g=GoodsDetailTable(con)
+g.list_goods_detail()
+execfile(r'/tmp/ipython-3201LQq.py') # PYTHON-MODE
+g=GoodsDetailTable(con)
+g.list_goods_detail()
+g.list_goods_detail()[0]
+g.list_goods_detail()[0].code
+g.list_goods_detail()[0].jancode
+g.list_goods_detail()[0].name
+print g.list_goods_detail()[0].name
+g.list_goods_detail()[0].maker
+print g.list_goods_detail()[0].maker
+g.list_goods_detail()[0].origin_country
+g.list_goods_detail()[1].origin_country
+g.list_goods_detail()[2].origin_country
+g.list_goods_detail()[3].origin_country
+g.list_goods_detail()[4].origin_country
+execfile(r'/tmp/ipython-3201lk2.py') # PYTHON-MODE
+g=GoodsDetailTable(con)
+g.has_goods_detail(8)
+con
+cur=con.cursor()
+        query = (u"SELECT "
+                 "t_goods_details.c_goods_detail_code,"
+                 "c_goods_detail_jancode,"
+                 "t_goods_details.c_goods_detail_name,"
+                 "t_makers.c_maker_name,"
+                 "c_goods_detail_origin_country,"
+                 "c_goods_detail_explain"
+                 " FROM t_goods_details "
+                 "LEFT OUTER JOIN t_makers ON "
+                 "t_goods_details.c_goods_detail_maker_id=t_makers.c_maker_id"
+                 "WHERE t_goods_details.c_goods_detail_code={}".format(8))
+query
+class GoodsDetailTable(object):
+        """Class GoodsDetailTable
+        """
+        # Attributes:
+        def __init__(self, conn):
+                r"""
+                """
+                self._conn = conn
+                self._cursor = conn.cursor(buffered=True)
+    # Operations
+    def add_goods_detail(self, goodsdetail):
+            """function add_goods_detail
+    
+            goodsdetail:
+    
+            returns
+            """
+                self.add_goods_details([goodsdetail])
+    def add_goods_details(self, goodsdetails):
+            r"""SUMMARY
+    
+            add_goods_details(goodsdetails)
+    
+            @Arguments:
+            - `goodsdetails`:
+    
+            @Return:
+    
+            @Error:
+            """
+                makers = CoopMakers(self._conn)
+                # countries = CoopCountries(self._conn)
+                recodes = []
+                fmt = ("({0.code}, {0.jancode}, '{0.name}',"
+                       " {1}, {0.origin_country}, '{0.explain}')")
+                for goodsdetail in goodsdetails:
+                        maker_id, country_code = 'null', 'null'
+                        if goodsdetails.maker != 'null':
+                                maker_id = makers.get_maker_id(goodsdetails.maker)
+                            recodes.append(fmt.format(goodsdetail, maker_id, country_code))
+                        query = u"INSERT INTO t_makers (c_maker_name) VALUES {}".format(
+                            ', '.join(recodes))
+                        self._cursor.execute(query)
+                        self._conn.commit()
+    def list_goods_detail(self):
+            """function list_goods_detail
+    
+            returns
+            """
+            query = (u"SELECT "
+                     "t_goods_details.c_goods_detail_code,"
+                     "c_goods_detail_jancode,"
+                     "t_goods_details.c_goods_detail_name,"
+                     "t_makers.c_maker_name,"
+                     "c_goods_detail_origin_country,"
+                     "c_goods_detail_explain"
+                     " FROM t_goods_details "
+                     "LEFT OUTER JOIN t_makers ON "
+                     "t_goods_details.c_goods_detail_maker_id=t_makers.c_maker_id")
+            if self._cursor.execute(query) == 0:
+                    return []
+            results = self._cursor.fetchall()
+            if not results:
+                    return []
+            return [GoodsDetail(x[0], x[1], x[2], x[3], x[4], x[5]) for x in results]
+    def get_goods_detail(self, code):
+            """function get_goods_detail
+    
+            code:
+    
+            returns
+            """
+                query = (u"SELECT "
+                         "t_goods_details.c_goods_detail_code,"
+                         "c_goods_detail_jancode,"
+                         "t_goods_details.c_goods_detail_name,"
+                         "t_makers.c_maker_name,"
+                         "c_goods_detail_origin_country,"
+                         "c_goods_detail_explain"
+                         " FROM t_goods_details "
+                         "LEFT OUTER JOIN t_makers ON "
+                         "t_goods_details.c_goods_detail_maker_id=t_makers.c_maker_id"
+                         " WHERE t_goods_details.c_goods_detail_code={}".format(code))
+                if self._cursor.execute(query) == 0:
+                        return None
+                results = self._cursor.fetchall()
+                if not results:
+                        return None
+                x = results[0]
+                return GoodsDetail(x[0], x[1], x[2], x[3], x[4], x[5])
+    def has_goods_detail(self, code):
+            """function has_goods_detail
+    
+            code:
+    
+            returns
+            """
+                return self.get_goods_detail(code) is not None
+execfile(r'/tmp/ipython-3201k4L.py') # PYTHON-MODE
+g=GoodsDetailTable(con)
+g.has_goods_detail(8)
+g.get_goods_detail(8)
+execfile(r'/tmp/ipython-3201-MY.py') # PYTHON-MODE
+g.get_goods_detail(8)
+execfile(r'/tmp/ipython-3201Yhk.py') # PYTHON-MODE
+g.get_goods_detail(8)
+execfile(r'/tmp/ipython-3201y1w.py') # PYTHON-MODE
+g.get_goods_detail(8)
+execfile(r'/tmp/ipython-3201xJG.py') # PYTHON-MODE
+g.get_goods_detail(8)
+m=g.get_goods_detail(8)
+m.name
+print m.name
+print m.origin_country
+print m.explain
+ m.explain
+ '{}'.format(m.explain)
+'null'.encode('utf-8')
+execfile(r'/tmp/ipython-3201LeS.py') # PYTHON-MODE
+m=g.get_goods_detail(8)
+m
+g.list_goods_detail()
+execfile(r'/tmp/ipython-3201lye.py') # PYTHON-MODE
+g.list_goods_detail()[0]
+g=GoodsDetailTable(con)
+g.list_goods_detail()[0]
+goo=g.list_goods_detail()[0]
+goo.name
+goo.name=u'焼とうもろこし'
+goo
+g.update(goo)
+execfile(r'/tmp/ipython-3201_Gr.py') # PYTHON-MODE
+g=GoodsDetailTable(con)
+g.update(goo)
+execfile(r'/tmp/ipython-3201-aA.py') # PYTHON-MODE
+g=GoodsDetailTable(con)
+g.update(goo)
+g.list_goods_detail()
+__pyfile = open('''/tmp/psss-temp.py''');exec(compile(__pyfile.read(), '''/tmp/psss-temp.py''', 'exec'));__pyfile.close()
+memit []
+memit {}
+his -g connect
+import mysql.connector as connection
+con=connection.connect(user='root', password='toor', db='coop', buffered=True, host='localhost')
+cur=con.cursor(buffered=True)
+cur.execute('SELECT * FROM t_makers')
+list(cur)
+cur.execute('SELECT * FROM t_makers', dictionary=True)
+import mysql
+mysql.__version__
+mysql
+D mysql
+mysql.__package__
+mysql.__path__
+sbp.__path__
+D sbp
+PH
+pathhandler
+import pathhandler
+D pathhandler
+pathhandler.__path__
+con.cursor?
+D con
+connector
+connect
+connection
+D connection
+connection.__version__
+import mysql.connector
+class MySQLCursorDict(mysql.connector.cursor.MySQLCursor):
+        def _row_to_python(self, rowdata, desc=None):
+                row = super(MySQLCursorDict, self)._row_to_python(rowdata, desc)
+                if row:
+                        return dict(zip(self.column_names, row))
+                return None
+cur=con.cursor(cursor_class=MySQLCursorDict)
+cur.execute('SELECT * FROM t_makers')
+cur.fetchall()
+cur.execute('SELECT * FROM t_goods_details')
+cur.fetchall()
+cur.description
+cur.close()
+cur=con.cursor(cursor_class=MySQLCursorDict)
+cur.execute('SELECT * FROM t_goods_details')
+i=iter(cur)
+i.nect()
+i.next()
+execfile(r'/tmp/ipython-3208faN.py') # PYTHON-MODE
+cur=con.cursor(cursor_class=MySQLCursorDict)
+cur.execute('SELECT * FROM t_goods_details')
+i=iter(cur)
+i.next()
+'hello' in iter(['hello', 'world'])
+cur
+list(cur)
+cur.execute('SELECT * FROM t_goods_details')
+list(cur)
+cur.execute('SELECT * FROM t_goods_details')
+i=iter(cur)
+cur.close()
+i.nect()
+D i
+i
+cur.fetchone
+iter?
+yield None
+def tes():
+        yield None
+tes()
+list(tes())
+def tes():
+        raise StopIteration
+tes()
+execfile(r'/tmp/ipython-32085uZ.py') # PYTHON-MODE
+m=CoopMaker(con)
+m=CoopMakers(con)
+m.get_maker_name(1)
+__pyfile = open('''/tmp/psss-temp.py''');exec(compile(__pyfile.read(), '''/tmp/psss-temp.py''', 'exec'));__pyfile.close()
+his -g connection
+execfile(r'/tmp/ipython-3208TDm.py') # PYTHON-MODE
+m=CoopMakers(db)
+m.as_dict()
+print m.as_dict()
+m.as_dict()
+m.iter_makers_name()
+list(m.iter_makers_name())
+list(m.iter_makers_id())
+list(m.list_makers_id())
+m.as_dict()
+m.get_maker_name(1)
+print '\u30b1\u30f3\u30df\u30f3\u98df\u54c1'
+print u'\u30b1\u30f3\u30df\u30f3\u98df\u54c1'
+m.get_maker_id(u'ケンミン食品')
+m
+__pyfile = open('''/tmp/psss-temp.py''');exec(compile(__pyfile.read(), '''/tmp/psss-temp.py''', 'exec'));__pyfile.close()
+execfile(r'/tmp/ipython-3208tXy.py') # PYTHON-MODE
+m=CoopMakers(db)
+m.as_dict()
+[x or 'null' for ['hello', None, 'world']]
+[x or 'null' for x in ('hello', None, 'world')]
+__pyfile = open('''/tmp/psss-temp.py''');exec(compile(__pyfile.read(), '''/tmp/psss-temp.py''', 'exec'));__pyfile.close()
+import mypcs
+D mypcs
+mypcs.King?
+from sleep_progress import sleep_progress
+PRINTFORMAT = '[ {0:<16} ]  {1}'
+sleep_progress(60, PRINTFORMAT.format('Waiting Wakeup', '%-2d seconds'))
+k=mypcs.King()
+k
+D k
+k.macaddr
+print k.macaddr
+from mypcs.king import KingDisk
+kd=KingDisk()
+D kd
+kd.disk_name
+kd.disk_path
+kd.archive_path
+D k
+time
+time()
+time.time()
+time.time() - 1440746121.010217
+wol
+k
+k.macaddr
+D k.macaddr
+k.macaddr.pack()
+import struct as _struct
+    ''.join([
+
+        _struct.pack('B', int(x, 16)) for x in '0:1:80:61:d8:47'.split(':')])
+from wakeonlan import wakeonlan
+wakeonlan('0:1:80:61:d8:47')
+from bruteforce import bruteforce
+bruteforce('abcdefg', 1, 5)
+g=bruteforce('abcdefg', 1, 5)
+g.next()
+T iter([])
+execfile(r'/tmp/ipython-32051ni.py') # PYTHON-MODE
+execfile(r'/tmp/ipython-3205P8u.py') # PYTHON-MODE
+                            CoopGoods(code=9999999997,
+                                     jancode=9999999999997,
+                                     name='dummy_name3',
+                                     maker=u'dummy_maker3',
+                                     origin_country=u'カナダ',
+                                     explain='dummy_explain3',
+                                     period=2014011,
+                                     price=300,
+                                     totalprice=324,
+                                     order_no=000003,
+                                     standard=u'300g',
+                                     calorie=u'300cal'),
+  g=                          CoopGoods(code=9999999997,
+
+                                     jancode=9999999999997,
+                                     name='dummy_name3',
+                                     maker=u'dummy_maker3',
+                                     origin_country=u'カナダ',
+                                     explain='dummy_explain3',
+                                     period=2014011,
+                                     price=300,
+                                     totalprice=324,
+                                     order_no=000003,
+                                     standard=u'300g',
+                                     calorie=u'300cal'),
+g
+memit g
+a=[                            CoopGoods(code=9999999997,
+                                     jancode=9999999999997,
+                                     name='dummy_name3',
+                                     maker=u'dummy_maker3',
+                                     origin_country=u'カナダ',
+                                     explain='dummy_explain3',
+                                     period=2014011,
+                                     price=300,
+                                     totalprice=324,
+                                     order_no=000003,
+                                     standard=u'300g',
+                                     calorie=u'300cal') for x in range(100)]
+a
+memit a
+a
+memit a
+memit?
+mem
+import guppy
+sys.getsizeof
+sys.getsizeof(a)
+sys.getsizeof?
+a=[                            CoopGoods(code=9999999997,
+                                     jancode=9999999999997,
+                                     name='dummy_name3',
+                                     maker=u'dummy_maker3',
+                                     origin_country=u'カナダ',
+                                     explain='dummy_explain3',
+                                     period=2014011,
+                                     price=300,
+                                     totalprice=324,
+                                     order_no=000003,
+                                     standard=u'300g',
+                                     calorie=u'300cal') for x in range(10000)]
+sys.getsizeof(a)
+a=[                            CoopGoods(code=9999999997,
+                                     jancode=9999999999997,
+                                     name='dummy_name3',
+                                     maker=u'dummy_maker3',
+                                     origin_country=u'カナダ',
+                                     explain='dummy_explain3',
+                                     period=2014011,
+                                     price=300,
+                                     totalprice=324,
+                                     order_no=000003,
+                                     standard=u'300g',
+                                     calorie=u'300cal') for x in range(20000)]
+sys.getsizeof(a)
+del a
+�ǥХ���̾             A15--22
+print �ǥХ���̾             A15--22
+'�ǥХ���̾             A15--22           '
+print '�ǥХ���̾             A15--22           '
+print '�ǥХ���̾             A15--22           '.decode('utf-8')
+print '�ǥХ���̾             A15--22           '.decode('shift-jis')
+print '�ǥХ���̾             A15--22           '.decode('ascii')
+print u'�ǥХ���̾             A15--22           '
+import fcntl
+__pyfile = open('''/tmp/psss-temp.py''');exec(compile(__pyfile.read(), '''/tmp/psss-temp.py''', 'exec'));__pyfile.close()
+import mypcs
+with mypcs.King() as ki:
+        ki
+D mypcs.King
+PH('/tmp')
+PH('/tmp').listdir('*.torrent')
+PH('/tmp').listdir(u'*.torrent')
+PH('/tmp').listdir(r'*.torrent')
+re.compile('*.torrent')
+his -g compile
+re.compile('[0-9]+')
+re.compile('.+\.torrent')
+sbp.Popen((sys.executable, '/root/.pylib/weekly/exe/aptupgrade.py'))
+sbp.Popen((sys.executable, '/root/.pylib/weekly2/exe/aptupgrade.py'))
+__pyfile = open('''/tmp/psss-temp.py''');exec(compile(__pyfile.read(), '''/tmp/psss-temp.py''', 'exec'));__pyfile.close()
+sbp.Popen((sys.executable, '/root/.pylib/weekly2/exe/aptupgrade.py'), shell=True)
+__pyfile = open('''/tmp/psss-temp.py''');exec(compile(__pyfile.read(), '''/tmp/psss-temp.py''', 'exec'));__pyfile.close()
+sbp.Popen((sys.executable, '/root/.pylib/weekly2/exe/aptupgrade.sh'), shell=True)
+__pyfile = open('''/tmp/psss-temp.py''');exec(compile(__pyfile.read(), '''/tmp/psss-temp.py''', 'exec'));__pyfile.close()
+sbp.Popen((sys.executable, '/root/.pylib/weekly2/exe/aptupgrade.sh'))
+sbp.Popen('ls -l')
+sys.executable
+sbp.Popen('/bin/ls -l')
+sbp.Popen(('ls', '-l'))
+sbp.Popen(('/usr/bin/xfce4-terminal', '--hold', '--command={} {}'.format(sys.executable, '/root/.pylib/weekly2/exe/aptupgrade.sh')))
+sbp.Popen(('/usr/bin/xfce4-terminal', '--hold', '--command={} {}'.format(sys.executable, '/root/.pylib/weekly2/exe/aptupgrade.py')))
+import xahk
+xahk.list_windows()
+__pyfile = open('''/tmp/psss-temp.py''');exec(compile(__pyfile.read(), '''/tmp/psss-temp.py''', 'exec'));__pyfile.close()
+import fcntl
+import struct
+f=open('/dev/sda1', 'rb')
+hd_driveid_format_str = "@ 10H 20s 3H 8s 40s 2B H 2B H 4B 6H 2B I 36H I Q 152H"
+HDIO_GET_IDENTITY = 0x030d
+sizeof_hd_driveid = struct.calcsize(hd_driveid_format_str)
+assert sizeof_hd_driveid == 512
+buf = fcntl.ioctl(fd, HDIO_GET_IDENTITY, " " * sizeof_hd_driveid)
+buf = fcntl.ioctl(f, HDIO_GET_IDENTITY, " " * sizeof_hd_driveid)
+fields = struct.unpack(hd_driveid_format_str, buf)
+field
+fields
+fields[10]
+fields[10].strip()
+fields[15].strip()
+fnctl
+fcnctl
+fcntl
+f=open('/tmp/locked', 'w')
+fcntl.flock(f, fctl.LOCK_EX)
+fcntl.flock(f, fcntl.LOCK_EX)
+f2=open('/tmp/locked', 'w')
+f2.write('hello')
+f.close()
+f2.close()
+f=open('/tmp/locked', 'w')
+fcntl.flock(f.fileno(), fcntl.LOCK_EX)
+f2=open('/tmp/locked', 'w')
+f2.write('hello')
+f2.write('helloworld')
+f2.close()
+f.close()
+his
+f=open('/tmp/locked', 'w')
+fcntl.flock(f.fileno(), fcntl.LOCK_EX)
+f2=open('/tmp/locked', 'w')
+f2.write('hello')
+f2.write('helloworld')
+f2.close()
+f=open('/tmp/locked', 'w')
+fcntl.flock(f.fileno(), fcntl.LOCK_EX)
+f2=open('/tmp/locked', 'w')
+f2.write('hello')
+f2.write('helloworld')
+f2.write('yahoo')
+f2.close()
+fcntl.flock(f.fileno(), fcntl.LOCK_EX|fcntl.LOCK_NB)
+os.getpgrp()
+buf = array.array('h', [0])
+import array
+buf = array.array('h', [0])
+buf
+import termios
+fcntl.ioctl(0, termios.TIOCGPGRP, buf, 1)
+buf
+import platform
+platform.uname()
+platform.linux_distribution()
+execfile(r'/tmp/ipython-6441wKM.py') # PYTHON-MODE
+tes.hello
+tes.hello.name
+str(tes.hello)
+tes.hello
+hash(tes.hello)
+hash('hello')
+a={tes.hello: 1}
+a['hello']
+tes.hello=='hello'
+execfile(r'/tmp/ipython-6441KfY.py') # PYTHON-MODE
+tes2
+tes2.hello
+tes2.world
+tes2.world == 'world'
+hash(tes2.world)
+hash('wolrd')
+hash('world')
+a
+import future
+D future
+form future import platform
+import cpuinfo
+D cpuinfo
+from cpuinfo import cpuinfo
+D cpuinfo
+cpuinfo.get_cpu_info()
+import pycpuid
+D pycpuid
+pycpuid.cpuid()
+pycpuid.cpuid?
+pycpuid.features()
+pycpuid.brand_string()
+D pycpuid
+pycpuid.bendor()
+pycpuid.vendor()
+pycpuid.HAS_SSE2
+D pycpuid
+pycpuid.vendor()
+print pycpuid.vendor()
+pycpuid.features()
+pycpuid
+Dpycpuid
+D pycpuid
+pycpuid.HAS_CLFLSH
+pycpuid.vendor()
+f=open('/tmp/locked', 'w')
+f.write('google')
+f.close(
+)
+f=open('/tmp/locked', 'w')
+f.write('hoge')
+f.close()
+__pyfile = open('''/tmp/psss-temp.py''');exec(compile(__pyfile.read(), '''/tmp/psss-temp.py''', 'exec'));__pyfile.close()
+import ctypes
+D ctypes
+__pyfile = open('''/tmp/psss-temp.py''');exec(compile(__pyfile.read(), '''/tmp/psss-temp.py''', 'exec'));__pyfile.close()
+import ssl
+D ssl
+import requests
+requests.get('https://shop.nanairo.coop/front/bb/shiga/top/top', verify=False)
+requests.__version__
+requests.get('https://shop.nanairo.coop/front/bb/shiga/top/top', verify=False)
+__pyfile = open('''/tmp/psss-temp.py''');exec(compile(__pyfile.read(), '''/tmp/psss-temp.py''', 'exec'));__pyfile.close()
+import request
+import requests
+requests.get('https://shop.nanairo.coop/front/bb/shiga/top/top', verify=False)
+__pyfile = open('''/tmp/psss-temp.py''');exec(compile(__pyfile.read(), '''/tmp/psss-temp.py''', 'exec'));__pyfile.close()
+import requests
+his -g reguests
+his -g reguests.get
+requests.get('https://shop.nanairo.coop/front/bb/shiga/top/top')
+import requests
+requests.get('https://shop.nanairo.coop/front/bb/shiga/top/top')
+__pyfile = open('''/tmp/psss-temp.py''');exec(compile(__pyfile.read(), '''/tmp/psss-temp.py''', 'exec'));__pyfile.close()
+import requests
+requests.get('https://shop.nanairo.coop/front/bb/shiga/top/top')
+__pyfile = open('''/tmp/psss-temp.py''');exec(compile(__pyfile.read(), '''/tmp/psss-temp.py''', 'exec'));__pyfile.close()
+import requests
+requests.get('https://shop.nanairo.coop/front/bb/shiga/top/top')
+requests.get('https://shop.nanairo.coop/front/bb/shiga/top/top', verify=False)
+__pyfile = open('''/tmp/psss-temp.py''');exec(compile(__pyfile.read(), '''/tmp/psss-temp.py''', 'exec'));__pyfile.close()
+import requests
+requests.get('https://shop.nanairo.coop/front/bb/shiga/top/top')
+__pyfile = open('''/tmp/psss-temp.py''');exec(compile(__pyfile.read(), '''/tmp/psss-temp.py''', 'exec'));__pyfile.close()
+import requests
+__pyfile = open('''/tmp/psss-temp.py''');exec(compile(__pyfile.read(), '''/tmp/psss-temp.py''', 'exec'));__pyfile.close()
+import requests
+requests.get('https://shop.nanairo.coop/front/bb/shiga/top/top')
+__pyfile = open('''/tmp/psss-temp.py''');exec(compile(__pyfile.read(), '''/tmp/psss-temp.py''', 'exec'));__pyfile.close()
+import requests
+requests.get('https://shop.nanairo.coop/front/bb/shiga/top/top')
+__pyfile = open('''/tmp/psss-temp.py''');exec(compile(__pyfile.read(), '''/tmp/psss-temp.py''', 'exec'));__pyfile.close()
+import requests
+his
+__pyfile = open('''/tmp/psss-temp.py''');exec(compile(__pyfile.read(), '''/tmp/psss-temp.py''', 'exec'));__pyfile.close()
+import requests
+__pyfile = open('''/tmp/psss-temp.py''');exec(compile(__pyfile.read(), '''/tmp/psss-temp.py''', 'exec'));__pyfile.close()
+import requests
+requests.get('https://shop.nanairo.coop/front/bb/shiga/top/top')
+import pyOpenssl
+requests.pyopenssl
+requests.pyopenssl.__version__
+D requests.pyopenssl
+__pyfile = open('''/tmp/psss-temp.py''');exec(compile(__pyfile.read(), '''/tmp/psss-temp.py''', 'exec'));__pyfile.close()
+import requests
+def fileno(self):
+        return self.socket.fileno()
+def close(self):
+        return self.connection.shutdown()
+requests.pyopenssl.WrappedSocket.close = close
+requests.pyopenssl.WrappedSocket.fileno = fileno
+requests.get('https://shop.nanairo.coop/front/bb/shiga/top/top')
+__pyfile = open('''/tmp/psss-temp.py''');exec(compile(__pyfile.read(), '''/tmp/psss-temp.py''', 'exec'));__pyfile.close()
+import requests
+requests.get('https://shop.nanairo.coop/front/bb/shiga/top/top')
+requests.packages.urllib3.util.ssl_.DEFAULT_CIPHERS
+requests.packages.urllib3.util.ssl_.DEFAULT_CIPHERS = 'ALL:!aNULL:!SSLv2:!LOW:!EXP:!MD5'
+requests.get('https://shop.nanairo.coop/front/bb/shiga/top/top')
+requests.packages.urllib3.contrib.pyopenssl.DEFAULT_SSL_CIPHER_LIST
+requests.packages.urllib3.contrib.pyopenssl.DEFAULT_SSL_CIPHER_LIST = 'ALL:!aNULL:!SSLv2:!LOW:!EXP:!MD5'
+requests.get('https://shop.nanairo.coop/front/bb/shiga/top/top')
+requests.packages.urllib3.contrib.pyopenssl.DEFAULT_SSL_CIPHER_LIST = 'ALL:!aNULL:!SSLv3:!LOW:!EXP:!MD5'
+requests.get('https://shop.nanairo.coop/front/bb/shiga/top/top')
+requests.get('https://shop.nanairo.coop/front/bb/shiga/top/top', verify=False)
+import httplib
+httplib.HTTPSConnection('shop.nanairo.coop/front/bb/shiga/top/top'
+
+
+)
+c=httplib.HTTPSConnection('shop.nanairo.coop/front/bb/shiga/top/top'
+
+
+)
+c.requests('GET', '')
+c=httplib.HTTPSConnection('shop.nanairo.coop'
+
+
+)
+c.requests('GET', '/front/bb/shiga/top/top')
+c.request('GET', '/front/bb/shiga/top/top')
+re=c.getresponse()
+re
+re.status
+response.reason
+re.reason
+re.read()
+__pyfile = open('''/tmp/psss-temp.py''');exec(compile(__pyfile.read(), '''/tmp/psss-temp.py''', 'exec'));__pyfile.close()
+import urllib3
+import requests
+requests.get('https://shop.nanairo.coop/front/bb/shiga/top/top')
+import xcb
+D xcb
+from xcb import xinerama
+xinerama.key
+c=xcb.connect()
+xi=c(xinerama.key)
+D xi
+xi.QueryScreens()
+xi.QueryScreens().reply()
+D xi.QueryScreens().reply()
+xi.QueryScreens().reply().screen_info
+list(xi.QueryScreens().reply().screen_info)
+list(xi.QueryScreens().reply().screen_info)[0]
+D list(xi.QueryScreens().reply().screen_info)[0]
+list(xi.QueryScreens().reply().screen_info)[0].height
+list(xi.QueryScreens().reply().screen_info)[0].width
+__pyfile = open('''/tmp/psss-temp.py''');exec(compile(__pyfile.read(), '''/tmp/psss-temp.py''', 'exec'));__pyfile.close()
+':'.join('hello', world)
+':'.join('hello', 'world')
+':'.join(('hello', 'world'))
+PH('/usr/bin/macchanger')
+sbp.check_call((PH('/usr/bin/macchanger'), 'eth0', '-m', '00:00:00:00:00:00'))
+sbp.check_call((str(PH('/usr/bin/macchanger')), 'eth0', '-m', '00:00:00:00:00:00'))
+sbp.check_call((str(PH('/usr/bin/macchanger')), 'eth0', '-m', '5C:51:4F:00:00:00'))
+p=sbp.check_call((str(PH('/usr/bin/macchanger')), 'eth0', '-m', '5C:51:4F:00:00:00'))
+p
+p=sbp.Popen((str(PH('/usr/bin/macchanger')), 'eth0', '-m', '5C:51:4F:00:00:00'))
+p=sbp.Popen((str(PH('/usr/bin/macchanger')), 'eth0', '-m', '5C:51:4F:01:00:00'))
+p
+__pyfile = open('''/tmp/psss-temp.py''');exec(compile(__pyfile.read(), '''/tmp/psss-temp.py''', 'exec'));__pyfile.close()
+D []
+['a', 'b', 'c'].count('a')
+__pyfile = open('''/tmp/psss-temp.py''');exec(compile(__pyfile.read(), '''/tmp/psss-temp.py''', 'exec'));__pyfile.close()
+from runlevel import RunLevel
+RunLevel().get_current_level()
+__pyfile = open('''/tmp/psss-temp.py''');exec(compile(__pyfile.read(), '''/tmp/psss-temp.py''', 'exec'));__pyfile.close()
+import jedi
+D jedi
+jedi.__version__
+__pyfile = open('''/tmp/psss-temp.py''');exec(compile(__pyfile.read(), '''/tmp/psss-temp.py''', 'exec'));__pyfile.close()
+from weekly2 import weekly
+b=weekly.BackupQueen()
+b.execute()
+import weekly2
+b=weekly2.weekly.BackupKing()
+from weekly2 import weekly
+b=weekly.BackupKing()
+b.execute()
+__pyfile = open('''/tmp/psss-temp.py''');exec(compile(__pyfile.read(), '''/tmp/psss-temp.py''', 'exec'));__pyfile.close()
+from collections import *
+deque()
+D deque()
+D {}
+d=deque(['a', 'b', 'c'])
+D d
+d.pop?
+d.pop(2)
+__pyfile = open('''/tmp/psss-temp.py''');exec(compile(__pyfile.read(), '''/tmp/psss-temp.py''', 'exec'));__pyfile.close()
+import argparse
+D argparse
+ArgumentParser
+argparse.ArgumentParser
+argparse.ArgumentParser?
+p=argparse.ArgumentParser()
+D p
+p.add_argument?
+p.add_argument()
+p.add_argument('hello')
+file?
+__pyfile = open('''/tmp/psss-temp.py''');exec(compile(__pyfile.read(), '''/tmp/psss-temp.py''', 'exec'));__pyfile.close()
+p=PathHandler('/mnt/data/MYTEMP/dw')
+D p
+p.listdir?
+p.listdir()
+p
+D p
+p.listdir()[1]
+p.listdir()[1].get_basename()
+D p
+p.move?
+p.listdir()[1].splitext()
+D p
+p.get_basename
+p.get_basename()
+sbp.check_call('ls')
+import vlc_converter
+import vlc_converters
+ls
+import vlc_converters
+vlc_converters.convert('/mnt/data/MYTEMP/dw/tsk/122312-kabukichogirls-143-HDwhole.wmv', '/mnt/data/MYTEMP')
+vlc_converters.convert(PathHandler('/mnt/data/MYTEMP/dw/tsk/122312-kabukichogirls-143-HDwhole.wmv'), PathHandler('/mnt/data/MYTEMP'))
+'{{} {}'.format('hello')
+'{{hello}} {}'.format('hello')
+'{{hello} {}'.format('hello')
+'{\{} {}'.format('hello')
+'\\{ {}'.format('hello')
+import vlc_converters
+vlc_converters.convert(PathHandler('/mnt/data/MYTEMP/dw/tsk/122312-kabukichogirls-143-HDwhole.wmv'), PathHandler('/mnt/data/MYTEMP'))
+import vlc_converters
+vlc_converters.convert(PathHandler('/mnt/data/MYTEMP/dw/tsk/122312-kabukichogirls-143-HDwhole.wmv'), PathHandler('/mnt/data/MYTEMP'))
+import vlc_converters
+vlc_converters.convert(PathHandler('/mnt/data/MYTEMP/dw/tsk/122312-kabukichogirls-143-HDwhole.wmv'), PathHandler('/mnt/data/MYTEMP'))
+import vlc_converters
+vlc_converters.convert(PathHandler('/mnt/data/MYTEMP/dw/tsk/122312-kabukichogirls-143-HDwhole.wmv'), PathHandler('/mnt/data/MYTEMP'))
+import vlc_converters
+vlc_converters.convert(PathHandler('/mnt/data/MYTEMP/dw/tsk/122312-kabukichogirls-143-HDwhole.wmv'), PathHandler('/mnt/data/MYTEMP'))
+import vlc_converters
+vlc_converters.convert(PathHandler('/mnt/data/MYTEMP/dw/tsk/122312-kabukichogirls-143-HDwhole.wmv'), PathHandler('/mnt/data/MYTEMP'))
+import vlc_converters
+vlc_converters.convert(PathHandler('/mnt/data/MYTEMP/dw/tsk/122312-kabukichogirls-143-HDwhole.wmv'), PathHandler('/mnt/data/MYTEMP'))
+import vlc_converters
+vlc_converters.convert(PathHandler('/mnt/data/MYTEMP/dw/tsk/122312-kabukichogirls-143-HDwhole.wmv'), PathHandler('/mnt/data/MYTEMP'))
+import vlc_converters
+vlc_converters.convert(PathHandler('/mnt/data/MYTEMP/dw/tsk/122312-kabukichogirls-143-HDwhole.wmv'), PathHandler('/mnt/data/MYTEMP'))
+import vlc_converters
+vlc_converters.convert(PathHandler('/mnt/data/MYTEMP/dw/tsk/122312-kabukichogirls-143-HDwhole.wmv'), PathHandler('/mnt/data/MYTEMP'))
+p.mkdir?
+pt=PathHandler('/tmp/tes')
+pt.mkdir('777')
+pt.mkdir(777)
+__pyfile = open('''/tmp/psss-temp.py''');exec(compile(__pyfile.read(), '''/tmp/psss-temp.py''', 'exec'));__pyfile.close()
+D PathHandler
+__pyfile = open('''/tmp/psss-temp.py''');exec(compile(__pyfile.read(), '''/tmp/psss-temp.py''', 'exec'));__pyfile.close()
+exec(compile(open('/tmp/py-shell-completion-setup-code.py').read(), '/tmp/py-shell-completion-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-ffap-setup-code.py').read(), '/tmp/py-ffap-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-eldoc-setup-code.py').read(), '/tmp/py-eldoc-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-ipython-module-completion.py').read(), '/tmp/py-ipython-module-completion.py', 'exec')) # PYTHON-MODE
+'\u6708'
+print '\u6708'
+print u'\u6708'
+ import requests
+rep=requests.get(
+        'https://shop.nanairo.coop/front/bb/shiga/top/top', verify=False)
+from lxml import html
+tree=html.fromstring(rep.text)
+string = tree.xpath("//*[@class='date-order']")[0].text_content()
+string
+print string
+string.encode('utf-8')
+string.decode('utf-8')
+string.encode('utf-8')
+string.encode('utf-8')[0]
+print string.encode('utf-8')[0]
+print string.encode('utf-8')[1]
+print string[1]
+print string[0]
+ print string[0:1]
+print string[0:2]
+int(string[0:2])
+rep = requests.get('https://shop.nanairo.coop/front/bb/shiga/product/productlist?ps=30')
+tree = html.fromstring(rep.text)
+s=tree.xpath('//*[@id="main"]/div[2]/div[3]/a')
+s
+s=tree.xpath('//*[@id="main"]/div[2]/div[3]')
+ s
+s[0]
+D s[0]
+s[0].text
+string.split('月')
+string.split(u'月')
+ string.split(u'月')[0]
+ int(string.split(u'月')[0])
+ string.split(u'月')[0]
+ string.split(u'月')[1]
+ string.split(u'月')[1].split(u'日')
+ string.split(u'月')[1].split(u'回')
+ string.split(u'月')[1].split(u'回')[0]
+ int(string.split(u'月')[1].split(u'回')[0])
+exec(compile(open('/tmp/py-shell-completion-setup-code.py').read(), '/tmp/py-shell-completion-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-ffap-setup-code.py').read(), '/tmp/py-ffap-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-eldoc-setup-code.py').read(), '/tmp/py-eldoc-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-ipython-module-completion.py').read(), '/tmp/py-ipython-module-completion.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-shell-completion-setup-code.py').read(), '/tmp/py-shell-completion-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-ffap-setup-code.py').read(), '/tmp/py-ffap-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-eldoc-setup-code.py').read(), '/tmp/py-eldoc-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-ipython-module-completion.py').read(), '/tmp/py-ipython-module-completion.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-shell-completion-setup-code.py').read(), '/tmp/py-shell-completion-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-ffap-setup-code.py').read(), '/tmp/py-ffap-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-eldoc-setup-code.py').read(), '/tmp/py-eldoc-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-ipython-module-completion.py').read(), '/tmp/py-ipython-module-completion.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-shell-completion-setup-code.py').read(), '/tmp/py-shell-completion-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-ffap-setup-code.py').read(), '/tmp/py-ffap-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-eldoc-setup-code.py').read(), '/tmp/py-eldoc-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-ipython-module-completion.py').read(), '/tmp/py-ipython-module-completion.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-shell-completion-setup-code.py').read(), '/tmp/py-shell-completion-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-ffap-setup-code.py').read(), '/tmp/py-ffap-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-eldoc-setup-code.py').read(), '/tmp/py-eldoc-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-ipython-module-completion.py').read(), '/tmp/py-ipython-module-completion.py', 'exec')) # PYTHON-MODE
+__file__
+os.__file__
+os.path.basedir(os.__file__)
+D os.path
+os.path.dirname(os.__file__)
+os.path.abspath
+os.path.abspath(os.__file__)
+exec(compile(open('/tmp/py-shell-completion-setup-code.py').read(), '/tmp/py-shell-completion-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-ffap-setup-code.py').read(), '/tmp/py-ffap-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-eldoc-setup-code.py').read(), '/tmp/py-eldoc-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-ipython-module-completion.py').read(), '/tmp/py-ipython-module-completion.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-shell-completion-setup-code.py').read(), '/tmp/py-shell-completion-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-ffap-setup-code.py').read(), '/tmp/py-ffap-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-eldoc-setup-code.py').read(), '/tmp/py-eldoc-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-ipython-module-completion.py').read(), '/tmp/py-ipython-module-completion.py', 'exec')) # PYTHON-MODE
+os.walk('/root')
+_, _, files = os.walk('/root')
+g=os.walk('/root')
+_,_,files=g.next()
+files
+os.path.abspath(files[0])
+_,dirs,files=g.next()
+dirs
+os.path.walk?
+top,dirs,files=g.next()
+top
+dirs
+files
+import os;os.chdir("/root/.emacs.d/")
+exec(compile(open('/tmp/ipython-1725vJ1.py').read(), '/tmp/ipython-1725vJ1.py', 'exec')) # PYTHON-MODE
+iter_el_files
+iter_el_files('/root/.emacs.d')
+g=iter_el_files('/root/.emacs.d')
+g.next()
+a=g.next()
+os.path.splitext(a)
+D os.path
+os.path.getmtime(a)
+D {}
+D []
+exec(compile(open('/tmp/py-shell-completion-setup-code.py').read(), '/tmp/py-shell-completion-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-ffap-setup-code.py').read(), '/tmp/py-ffap-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-eldoc-setup-code.py').read(), '/tmp/py-eldoc-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-ipython-module-completion.py').read(), '/tmp/py-ipython-module-completion.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-shell-completion-setup-code.py').read(), '/tmp/py-shell-completion-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-ffap-setup-code.py').read(), '/tmp/py-ffap-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-eldoc-setup-code.py').read(), '/tmp/py-eldoc-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-ipython-module-completion.py').read(), '/tmp/py-ipython-module-completion.py', 'exec')) # PYTHON-MODE
+sbp.Popen('/opt/v2c/v2c')
+exec(compile(open('/tmp/py-shell-completion-setup-code.py').read(), '/tmp/py-shell-completion-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-ffap-setup-code.py').read(), '/tmp/py-ffap-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-eldoc-setup-code.py').read(), '/tmp/py-eldoc-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-ipython-module-completion.py').read(), '/tmp/py-ipython-module-completion.py', 'exec')) # PYTHON-MODE
+os.system('/opt/v2c/v2c')
+exec(compile(open('/tmp/py-shell-completion-setup-code.py').read(), '/tmp/py-shell-completion-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-ffap-setup-code.py').read(), '/tmp/py-ffap-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-eldoc-setup-code.py').read(), '/tmp/py-eldoc-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-ipython-module-completion.py').read(), '/tmp/py-ipython-module-completion.py', 'exec')) # PYTHON-MODE
+ls
+exec(compile(open('/tmp/py-shell-completion-setup-code.py').read(), '/tmp/py-shell-completion-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-ffap-setup-code.py').read(), '/tmp/py-ffap-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-eldoc-setup-code.py').read(), '/tmp/py-eldoc-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-ipython-module-completion.py').read(), '/tmp/py-ipython-module-completion.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-shell-completion-setup-code.py').read(), '/tmp/py-shell-completion-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-ffap-setup-code.py').read(), '/tmp/py-ffap-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-eldoc-setup-code.py').read(), '/tmp/py-eldoc-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-ipython-module-completion.py').read(), '/tmp/py-ipython-module-completion.py', 'exec')) # PYTHON-MODE
+ls
+exec(compile(open('/tmp/py-shell-completion-setup-code.py').read(), '/tmp/py-shell-completion-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-ffap-setup-code.py').read(), '/tmp/py-ffap-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-eldoc-setup-code.py').read(), '/tmp/py-eldoc-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-ipython-module-completion.py').read(), '/tmp/py-ipython-module-completion.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-shell-completion-setup-code.py').read(), '/tmp/py-shell-completion-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-ffap-setup-code.py').read(), '/tmp/py-ffap-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-eldoc-setup-code.py').read(), '/tmp/py-eldoc-setup-code.py', 'exec')) # PYTHON-MODE
+exec(compile(open('/tmp/py-ipython-module-completion.py').read(), '/tmp/py-ipython-module-completion.py', 'exec')) # PYTHON-MODE

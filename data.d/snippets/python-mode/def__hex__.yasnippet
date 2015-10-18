@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: __hex__(self):
+# key: defhex
+# condition: (not (py:at-string|comment-p))
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
+# --
+def __hex__(self):
+    super(${1:`(save-excursion
+  (cond ((re-search-backward py:class-name-re nil 'noerr) (match-string 1))
+         (t "CLASS")))`}, self).${2:`(save-excursion
+  (cond ((re-search-backward py:def-name-re nil 'noerr) (match-string 1))
+        (t "CLASS")))`}()
+    return $0

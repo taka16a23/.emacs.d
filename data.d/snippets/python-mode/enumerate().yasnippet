@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: enumerate()
+# key: enumerate
+# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])))
+# 32 = ` '
+# --
+enumerate(${1:${20:SEQUENCE}${30:, ${40:start=${50:0}}}})

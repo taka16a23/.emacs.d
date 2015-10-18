@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name : while ... : ...
+# key: while
+# condition: (not (py:at-string|comment-p))
+# --
+while $1`(progn (end-of-line) (skip-chars-backward " \t") (unless (eq (char-before) 58) (insert ":")))`
+    $0

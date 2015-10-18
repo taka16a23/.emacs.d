@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: sys.exit
+# key: sys.exit
+# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])))
+# --
+sys.exit(${1:os.EX_OK})$0`(py--insert-imports "sys" "import sys")`

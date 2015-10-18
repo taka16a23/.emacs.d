@@ -1,0 +1,18 @@
+[Unit]
+# Description=
+
+[Timer]
+# OnActiveSec=
+# OnBootSec=
+# OnStartupSec=
+# OnUnitActiveSec=
+# OnUnitInactiveSec=
+# AccuracySec=
+# OnCalendar=
+# TimerSlackNSec=
+# Unit=
+# Persistent=
+# WakeSystem=
+
+[Install]
+WantedBy=timers.target

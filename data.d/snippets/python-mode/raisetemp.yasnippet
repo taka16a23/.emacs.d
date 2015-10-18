@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: raisetemp
+# key: raisetemp
+# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])))
+# --
+raise TemporaryError($1)`(py--insert-imports-regexp "[ \t]+from[ \t]+t1.errorutil[ \t]+import[ \t]+TemporaryError" "from t1.errorutil import TemporaryError" 't)`

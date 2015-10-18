@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: OrderedDict
+# key: OrderedDict
+# condition: (not (py:at-string|comment-p))
+# --
+OrderedDict(${1:[(${2:key}, ${3:value}),$0]})`(py--insert-imports "collections[[:blank:]]+import[[:blank:]]+OrderedDict" "from collections import OrderedDict")`
