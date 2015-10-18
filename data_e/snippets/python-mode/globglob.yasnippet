@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: glob.glob
-# key: glob.glob
-# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])))
-# --
-glob.glob(${1:PATHNAME})$0`(py--insert-imports "glob" "import glob")`

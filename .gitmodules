@@ -40,14 +40,6 @@
 	path = elisp/el-got/syslog-mode
 	url = https://github.com/vapniks/syslog-mode.git
 	ignore = dirty
-[submodule "elisp/el-got/moccur-edit"]
-	path = elisp/el-got/moccur-edit
-	url = https://github.com/myuhe/moccur-edit.el.git
-	ignore = dirty
-[submodule "elisp/el-got/smartchr"]
-	path = elisp/el-got/smartchr
-	url = https://github.com/imakado/emacs-smartchr.git
-	ignore = dirty
 [submodule "elisp/el-got/org-doing"]
 	path = elisp/el-got/org-doing
 	url = https://github.com/omouse/org-doing.git
@@ -83,10 +75,6 @@
 [submodule "elisp/el-got/highlight-indentation"]
 	path = elisp/el-got/highlight-indentation
 	url = https://github.com/antonj/Highlight-Indentation-for-Emacs
-	ignore = dirty
-[submodule "elisp/el-got/python-pep8"]
-	path = elisp/el-got/python-pep8
-	url = https://github.com/emacsmirror/python-pep8.git
 	ignore = dirty
 [submodule "elisp/el-got/apache-mode"]
 	path = elisp/el-got/apache-mode
@@ -158,6 +146,3 @@
 [submodule "elisp/el-got/yasnippet"]
 	path = elisp/el-got/yasnippet
 	url = https://github.com/capitaomorte/yasnippet.git
-[submodule "elisp/plugin/el-get"]
-	path = elisp/plugin/el-get
-	url = https://github.com/dimitri/el-get.git

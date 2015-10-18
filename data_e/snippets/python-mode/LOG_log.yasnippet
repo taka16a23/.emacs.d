@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: log      (LOG)
-# key: LOG
-# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])))
-# --
-LOG.log(logging.${1:$$(yas/choose-value \'(\"DEBUG\" \"INFO\" \"WARN\" \"ERROR\" \"FATAL\"))}, ${2:\'${3:TEXT}\'${4:.format($5)}})
-$0

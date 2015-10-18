@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: _os.path.realpath
-# key: _os.path.realpath
-# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])))
-# --
-_os.path.realpath(${1:FILENAME})$0`(py--insert-imports "os[ \t]+as _os" "import os as _os")`

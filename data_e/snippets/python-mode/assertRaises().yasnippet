@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: assertRaises()
-# key: self.assertRaises
-# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])))
-# 32 = ` '
-# --
-with self.assertRaises(${1:ExcClass}):
-    $0

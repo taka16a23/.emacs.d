@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: add-hook
-# key: (add-hook
-# condition: (not (at-string|comment-p))
-# --
-(add-hook '${1:VAR-HOOK} '${2:(lambda () $0)})
-;; (remove-hook '$1 '$2

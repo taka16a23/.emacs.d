@@ -1,2 +1,0 @@
-ex..  (process-mark (get-buffer-process "*terminal<1>*"))
-=> #<marker at 115 in *terminal<1>*>

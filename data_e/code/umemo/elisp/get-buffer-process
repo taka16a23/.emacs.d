@@ -1,3 +1,0 @@
-* ex..
-(get-buffer-process "*terminal<1>*")
-=> #<process terminal<1>>

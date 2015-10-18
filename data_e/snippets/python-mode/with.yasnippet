@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: with
-# key: with
-# condition: (not (py:at-string|comment-p))
-# --
-with $1${2: as}$0`(progn (end-of-line) (skip-chars-backward " \t") (insert ":"))`

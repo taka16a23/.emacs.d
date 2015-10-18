@@ -1,9 +1,0 @@
-# -*- mode: snippet -*-
-# name: if not os.get.uid
-# key: root_only_if_not_os_get_uid
-# condition: (not (py:at-string|comment-p))
-# --
-# check root
-if not os.getuid() == 0:
-    sys.exit('Error: You are not "root"\nRun this script as "root"\n')
-$0`(py--insert-imports "os" "import os")`

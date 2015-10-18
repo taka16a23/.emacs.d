@@ -1,1 +1,0 @@
-(macroexpand '(defe2wm:command show hide))

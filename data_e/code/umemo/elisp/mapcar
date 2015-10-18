@@ -1,5 +1,0 @@
-(mapcar #'(lambda (x y) (+ x y)) '(1 2 3 4) '(10 20 30 40)) [ctrl-j]
-(11 22 33 44)
-
-(mapcar #'(lambda (x y) `(,x ,y)) '(foo hoge bar baz) '(red white blue green)) [ctrl-j]
-((foo red) (hoge white) (bar blue) (baz green))

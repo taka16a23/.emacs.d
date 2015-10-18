@@ -1,9 +1,0 @@
->>> ord('a')
-97
->>> ord('aa')
-----> 1 ord('aa')
-
-TypeError: ord() expected a character, but string of length 2 found
-
->>> ord('A')
-65
