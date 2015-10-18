@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: with_closing
-# key: with_closing
-# condition: (not (py:at-string|comment-p))
-# --
-with closing(${1:FUNC}(${2:ARG})) ${3:as}$0:`(py--insert-imports "contextlib[ \t]+import[ \t]+closing" "from contextlib import closing")``(py--insert-imports-regexp "[ \t]+from[ \t]+__future__[ \t]+import[ \t]+with_statement" "if sys.version_info <= (2, 5):\n    from __future__ import with_statement\n" 't)`

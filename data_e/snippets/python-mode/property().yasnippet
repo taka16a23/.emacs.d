@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: property()
-# key: property
-# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])) (not (looking-at "^[ ]@property")))
-# 32 = ` '
-# --
-property(${1:${20:fget}${30:, ${40:${50:fset}${60:, ${70:${80:fdel}${90:, ${100:${110:\"${120:doc}\"}}}}}}}})

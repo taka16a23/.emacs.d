@@ -1,1 +1,0 @@
-document.writeln('<ul> <li> <a href="#SEC363">23. 説明文</a><ul><li> <a href="#SEC364">23.1 説明文の基本</a><li> <a href="#SEC365">23.2 説明文字列の参照</a><li> <a href="#SEC366">23.3 説明文内のキーバインディングの置換</a><li> <a href="#SEC367">23.4 ヘルプメッセージ用の文字変換</a><li> <a href="#SEC368">23.5 ヘルプ機能</a></ul></ul>');

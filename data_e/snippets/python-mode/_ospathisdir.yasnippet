@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: _os.path.isdir
-# key: _os.path.isdir
-# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])))
-# --
-_os.path.isdir(${1:PATH})$0`(py--insert-imports "os[ \t]+as _os" "import os as _os")`

@@ -1,2 +1,0 @@
-Equivalent to:
->>> a[len(a):] = [x]

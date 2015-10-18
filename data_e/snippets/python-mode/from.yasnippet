@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: from
-# key: from
-# condition: (and (not (py:at-string|comment-p)) (not (save-excursion (save-restriction (narrow-to-line) (beginning-of-line) (re-search-forward "import" nil 'noerror)))))
-# --
-from ${1:MODULE} import $0

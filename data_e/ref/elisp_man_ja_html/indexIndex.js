@@ -1,1 +1,0 @@
-document.writeln('<ul> <li> <a href="#SEC681">Index</a></ul>');

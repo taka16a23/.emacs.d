@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name : set_comprehension
-# key : {x:
-# {x: x for x in os.listdir() if x.startswith('_')}
-# --
-{str(${1:x}): $1 for $1 in ${3:ITER}${4: if }`(progn (end-of-line) (skip-chars-backward " \t") (unless (eq (char-before) 125) (insert "}")))`

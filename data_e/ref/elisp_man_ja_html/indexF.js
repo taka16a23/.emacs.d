@@ -1,1 +1,0 @@
-document.writeln('<ul> <li> <a href="#SEC679">F. 標準のキーマップ</a></ul>');

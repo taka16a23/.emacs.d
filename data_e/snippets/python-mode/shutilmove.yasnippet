@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: shutil.move
-# key: shutil.move
-# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])))
-# --
-shutil.move(${1:SRC}, ${2:DST})$0`(py--insert-imports "shutil" "import shutil")`

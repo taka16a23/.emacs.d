@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: _os.path.walk
-# key: _os.path.walk
-# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])))
-# --
-_os.path.walk(${1:TOP}, ${2:FUNC}, ${3:ARG})$0`(py--insert-imports "os[ \t]+as _os" "import os as _os")`

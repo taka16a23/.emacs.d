@@ -1,1 +1,0 @@
-document.writeln('<ul> <li> <a href="#SEC661">B. ヒントと慣習</a><ul><li> <a href="#SEC662">B.1 Emacs Lispのコーディングの慣習</a><li> <a href="#SEC663">B.2 コンパイル済みコードを速くするヒント</a><li> <a href="#SEC664">B.3 説明文字列に関するヒント</a><li> <a href="#SEC665">B.4 コメントの書き方のヒント</a><li> <a href="#SEC666">B.5 Emacsライブラリのヘッダの慣習</a></ul></ul>');

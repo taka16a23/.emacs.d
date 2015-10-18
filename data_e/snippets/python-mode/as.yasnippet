@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: as
-# key: as
-# condition: (progn (save-excursion (forward-symbol -2) (setq yas/before-word (symbol-at-point))) (not (py:at-string|comment-p)))
-# --
-as ${1:`(concat "_" (symbol-name yas/before-word))`}

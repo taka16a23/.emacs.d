@@ -1,1 +1,0 @@
-document.writeln('<ul> <li> <a href="#SEC474">30. マーカ</a><ul><li> <a href="#SEC475">30.1 マーカの概要</a><li> <a href="#SEC476">30.2 マーカ向けの述語</a><li> <a href="#SEC477">30.3 マーカ作成関数</a><li> <a href="#SEC478">30.4 マーカの情報</a><li> <a href="#SEC479">30.5 マーカの挿入型</a><li> <a href="#SEC480">30.6 マーカ位置の移動</a><li> <a href="#SEC481">30.7 マーク</a><li> <a href="#SEC482">30.8 リージョン</a></ul></ul>');

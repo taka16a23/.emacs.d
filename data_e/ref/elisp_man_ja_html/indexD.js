@@ -1,1 +1,0 @@
-document.writeln('<ul> <li> <a href="#SEC677">D. 標準のエラー</a></ul>');
