@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2015/09/15 22:51:36 (+0900)
-;; Last-Updated:2015/10/15 03:31:39 (+0900)
+;; Last-Updated:2015/10/19 13:36:31 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -43,15 +43,15 @@
   (require 'auto-complete "auto-complete" 'noerr)
   (require 'use-package "use-package" 'noerr)
   (require 'systemd "systemd" 'noerr)
-  (require 'yasnippet "yasnippet" 'noerr))
-
-(declare-function package-bundle "package-setup.el")
-(when (require 'package-setup "package-setup" 'noerr)
-  (ignore-errors (package-bundle 'systemd)))
+  (require 'yasnippet "yasnippet" 'noerr)
+  (require 'package "package" 'noerr)
+  (package-initialize)
+  )
 
 (use-package systemd
   ;; :disabled
   :defer
+  :ensure t
   :mode
   (("\\.device\\'" . systemd-mode)
    ("\\.path\\'" . systemd-mode)

@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/11/01 18:21:10 (+0900)
-;; Last-Updated:2015/10/14 22:25:07 (+0900)
+;; Last-Updated:2015/10/19 13:45:33 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -44,15 +44,15 @@
 
 (eval-when-compile
   (require 'use-package "use-package" 'noerr)
-  (require 'popup "popup" 'noerr))
-
-(declare-function package-bundle "package-setup.el")
-(when (require 'package-setup "package-setup" 'noerr)
-  (ignore-errors (package-bundle 'popup)))
+  (require 'popup "popup" 'noerr)
+  (require 'package "package" 'noerr)
+  (package-initialize)
+  )
 
 (use-package popup
   ;; :disabled
   :defer
+  :ensure t
   :init
   :config
   (message "Loading \"popup\"")

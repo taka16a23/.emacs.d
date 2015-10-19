@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:25:19 2012 (+0900)
-;; Last-Updated:2015/10/14 11:27:40 (+0900)
+;; Last-Updated:2015/10/19 13:45:13 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -43,14 +43,14 @@
 
 
 (eval-when-compile
-  (require 'use-package "use-package" 'noerr))
-
-(declare-function package-bundle "package-setup.el")
-(when (require 'package-setup "package-setup" 'noerr)
-  (ignore-errors (package-bundle 'auto-install)))
+  (require 'use-package "use-package" 'noerr)
+  (require 'package "package" 'noerr)
+  (package-initialize)
+  )
 
 (use-package auto-async-byte-compile
   :defer 3
+  :ensure t
   :commands (enable-auto-async-byte-compile-mode)
   :init
   :config

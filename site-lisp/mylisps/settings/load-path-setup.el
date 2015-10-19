@@ -1,4 +1,4 @@
-;;; load-path-setup.el --- 
+;;; load-path-setup.el ---
 ;;
 ;; Copyright (C) 2015 Atami
 ;;
@@ -6,7 +6,7 @@
 ;; Maintainer:
 ;; Version:
 ;; Created: 2015/10/10 18:48:52 (+0900)
-;; Last-Updated:2015/10/13 17:28:01 (+0900)
+;; Last-Updated:2015/10/19 13:52:03 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -49,12 +49,6 @@
     (setq load-path (cons top-dir load-path))
     (normal-top-level-add-subdirs-to-load-path)))
 
-(let* ((top-dir (my-inits-dir-get))
-       (default-directory top-dir))
-  (unless (member top-dir load-path)
-    (setq load-path (cons top-dir load-path))
-    (normal-top-level-add-subdirs-to-load-path)))
-
 (setq load-path (delete-dups load-path))
 
 
@@ -65,4 +59,3 @@
 ;; coding: utf-8
 ;; End:
 ;;; load-path-setup.el ends here
-

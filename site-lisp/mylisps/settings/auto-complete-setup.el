@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:25:50 2012 (+0900)
-;; Last-Updated:2015/10/18 16:12:00 (+0900)
+;; Last-Updated:2015/10/19 13:36:01 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -49,11 +49,9 @@
   (declare-function auto-complete "auto-complete")
   (declare-function ac-config-default "auto-complete-config")
   (declare-function my-var-dir-join "environment-setup")
-  (declare-function package-bundle "package-setup.el")
+  (require 'package "package" 'noerr)
+  (package-initialize)
   )
-
-(when (require 'package-setup "package-setup" 'noerr)
-  (ignore-errors (package-bundle 'auto-complete)))
 
 (defun auto-complete-emacs-lisp-mode-hook () ;[2015/10/18]
   ""
@@ -80,6 +78,7 @@
 (use-package auto-complete
   ;; :disabled
   :defer 5
+  :ensure t
   :commands
   (auto-complete-mode auto-complete-mode-maybe global-auto-complete-mode ac-stop)
   :init

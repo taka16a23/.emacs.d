@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:29:12 2012 (+0900)
-;; Last-Updated:2015/10/18 00:32:31 (+0900)
+;; Last-Updated:2015/10/19 13:33:10 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -55,15 +55,14 @@
 (eval-when-compile
   (require 'bind-key)
   (require 'use-package "use-package" 'noerr)
+  (require 'package "package" 'noerr)
+  (package-initialize)
   )
-
-(declare-function package-bundle "package-setup.el")
-(when (require 'package-setup "package-setup" 'noerr)
-  (ignore-errors (package-bundle 'w3m)))
 
 (use-package w3m
   ;; :disabled
   :defer
+  :ensure t
   :commands
   (w3m
    w3m-search

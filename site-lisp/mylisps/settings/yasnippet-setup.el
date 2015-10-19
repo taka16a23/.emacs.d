@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:26:29 2012 (+0900)
-;; Last-Updated:2015/10/15 02:42:57 (+0900)
+;; Last-Updated:2015/10/19 13:44:33 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -47,11 +47,10 @@
 
 (eval-when-compile
   (require 'use-package "use-package" 'noerr)
+  (require 'package "package" 'noerr)
+  (package-initialize)
   )
 
-(declare-function package-bundle "package-setup.el")
-(when (require 'package-setup "package-setup" 'noerr)
-  (ignore-errors (package-bundle 'yasnippet)))
 
 (defvar flycheck-isactive-flag nil)
 (defadvice yas-expand-snippet
@@ -136,17 +135,19 @@
 (use-package yasnippet
   ;; :disabled
   :defer
+  :ensure t
   :commands
   (snippet-mode
    yas-expand
    yas-new-snippet
    yas-visit-snippet-file
    )
-  :init
   :mode
   (("\\.yasnippet\\'" . snippet-mode)
    ("emacs.+/snippets/" . snippet-mode)
    ("emacs.+/snippets/.+\\.el$" . emacs-lisp-mode))
+  :diminish yas-minor-mode ;hide from modeline
+  :init
   :config
   (message "Loading \"yasnippet\"")
   (custom-set-variables

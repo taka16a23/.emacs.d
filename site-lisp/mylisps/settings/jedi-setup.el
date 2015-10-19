@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/11/02 05:06:17 (+0900)
-;; Last-Updated:2015/10/15 03:15:25 (+0900)
+;; Last-Updated:2015/10/19 13:41:36 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -44,11 +44,10 @@
 
 (eval-when-compile
   (require 'python "python" 'noerr)
-  (require 'use-package "use-package" 'noerr))
-
-(declare-function package-bundle "package-setup.el")
-(when (require 'package-setup "package-setup" 'noerr)
-  (ignore-errors (package-bundle 'jedi)))
+  (require 'use-package "use-package" 'noerr)
+  (require 'package "package" 'noerr)
+  (package-initialize)
+  )
 
 (use-package jedi-core
   ;; :disabled
@@ -65,6 +64,7 @@
 (use-package jedi
   ;; :disabled
   :defer
+  :ensure t
   :commands
   (jedi:setup)
   :init

@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2015/10/05 10:33:36 (+0900)
-;; Last-Updated:2015/10/16 13:39:15 (+0900)
+;; Last-Updated:2015/10/19 02:12:43 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -145,7 +145,6 @@ On nonblank line, kill whole line."
   (setq-default font-lock-fontify-buffer-function 'jit-lock-refontify)
   (require '__python__ "__python__" 'noerr)
   (python-setenv)
-  (add-hook 'python-mode-hook 'hotstring-mode)
   (when (require 'auto-complete-yasnippet "auto-complete-yasnippet" 'noerr)
     (add-to-list 'ac-sources ac-source-yasnippet 'append))
   (when (require 'pymacs "pymacs" 'noerr)
@@ -157,17 +156,17 @@ On nonblank line, kill whole line."
         (let ((text (buffer-substring (point)
                                       (save-excursion (end-of-line) (point)))))
           (replace-regexp-in-string "\s" "_" text)))))
-  (setq python-shell-interpreter "/usr/bin/ipython"
-        ;; python-shell-interpreter "ipython"
-        python-shell-interpreter-args ""
-        python-shell-prompt-regexp "In \\[[0-9]+\\]: "
-        python-shell-prompt-output-Regexp "Out\\[[0-9]+\\]: "
-        python-shell-completion-setup-code
-        "from IPython.core.completerlib import module_completion"
-        python-shell-completion-module-string-code
-        "';'.join(module_completion('''%s'''))\n"
-        python-shell-completion-string-code
-        "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
+  (custom-set-variables
+   '(python-shell-interpreter "/usr/bin/ipython")
+   '(python-shell-prompt-regexp "In \\[[0-9]+\\]: ")
+   '(python-shell-prompt-output-Regexp "Out\\[[0-9]+\\]: ")
+   '(python-shell-completion-setup-code
+     "from IPython.core.completerlib import module_completion")
+   '(python-shell-completion-module-string-code
+     "';'.join(module_completion('''%s'''))\n")
+   '(python-shell-completion-string-code
+     "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
+     )
   (defvar ctl-c-n-map nil ;;(make-keymap)
     "Default keymap for C-cn commands.")
   (define-prefix-command 'ctl-c-n-map)
@@ -378,14 +377,14 @@ On nonblank line, kill whole line."
              ("d" . nosetests-run-dir)
              ("N" . nosetests-run-it)
              ("M-N" . nosetests-run-all+))
-  (smartrep-define-key
-      python-mode-map "C-c C-e" '(("C-l" . py:refact-list-toggle)
-                                  ("C-k" . py:move-up-method)
-                                  ("C-n" . py:move-down-method)
-                                  ))
-  (smartrep-define-key
-      python-mode-map "C-e" '(("M-k" . py:move-up-method)
-                              ("M-n" . py:move-down-method)))
+  ;; (smartrep-define-key
+  ;;     python-mode-map "C-c C-e" '(("C-l" . py:refact-list-toggle)
+  ;;                                 ("C-k" . py:move-up-method)
+  ;;                                 ("C-n" . py:move-down-method)
+  ;;                                 ))
+  ;; (smartrep-define-key
+  ;;     python-mode-map "C-e" '(("M-k" . py:move-up-method)
+  ;;                             ("M-n" . py:move-down-method)))
   (font-lock-add-keywords
    'python-mode
    '(("#\\([a-z \t]*\\(?:TODO\\|BUG\\|FIXME\\|KLUDGE\\|WARNING\\)\\)"

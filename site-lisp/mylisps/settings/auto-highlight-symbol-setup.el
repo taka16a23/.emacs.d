@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/11/02 16:07:41 (+0900)
-;; Last-Updated:2015/10/16 16:43:34 (+0900)
+;; Last-Updated:2015/10/19 13:42:25 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -46,15 +46,15 @@
   (require 'use-package "use-package" 'noerr)
   (require 'bind-key "bind-key" 'noerr)
   (require 't1-bind-key "t1-bind-key" 'noerr)
-  (require 'auto-highlight-symbol "auto-highlight-symbol" 'noerr))
-
-(declare-function package-bundle "package-setup.el")
-(when (require 'package-setup "package-setup" 'noerr)
-  (ignore-errors (package-bundle 'auto-highlight-symbol)))
+  (require 'auto-highlight-symbol "auto-highlight-symbol" 'noerr)
+  (require 'package "package" 'noerr)
+  (package-initialize)
+  )
 
 (use-package auto-highlight-symbol
   ;; :disabled
   :defer 30
+  :ensure t
   :commands
   (auto-highlight-symbol-mode
    global-auto-highlight-symbol-mode

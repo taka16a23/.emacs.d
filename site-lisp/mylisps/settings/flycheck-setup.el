@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/12/05 18:28:52 (+0900)
-;; Last-Updated:2015/10/18 10:36:10 (+0900)
+;; Last-Updated:2015/10/19 13:44:10 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -44,11 +44,10 @@
   (require 'use-package "use-package" 'noerr)
   (require 'flycheck)
   (require 's "s" 'noerr)
+  (require 'package "package" 'noerr)
+  (package-initialize)
   )
 
-(declare-function package-bundle "package-setup.el")
-(when (require 'package-setup "package-setup" 'noerr)
-  (ignore-errors (package-bundle 'flycheck)))
 
 (defun flycheck-emacs-lisp-mode-hook () ;[2015/10/18]
   ""
@@ -59,8 +58,10 @@
 (use-package flycheck
   ;; :disabled
   :defer
+  :ensure t
   :commands
   (flycheck-mode)
+  :diminish flycheck-mode ;hide from modeline
   :init
   (add-hook 'c-mode-common-hook 'flycheck-mode 'append)
   (add-hook 'python-mode-hook 'flycheck-mode 'append)

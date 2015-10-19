@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:25:35 2012 (+0900)
-;; Last-Updated:2015/10/16 13:37:56 (+0900)
+;; Last-Updated:2015/10/19 13:44:52 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -48,15 +48,14 @@
   (require 'use-package "use-package" 'noerror)
   (require 'bind-key "bind-key" 'noerr)
   (require 'environment-setup "environment-setup" 'noerr)
+  (require 'package "package" 'noerr)
+  (package-initialize)
   )
-
-(declare-function package-bundle "package-setup.el")
-(when (require 'package-setup "package-setup" 'noerr)
-  (ignore-errors (package-bundle 'auto-install)))
 
 (use-package auto-install
   ;; :disabled
   :defer
+  :ensure t
   :commands (auto-install-compatibility-setup)
   :init
   :config

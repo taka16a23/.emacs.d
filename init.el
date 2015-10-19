@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:33:26 2012 (+0900)
-;; Last-Updated:2015/10/18 10:42:17 (+0900)
+;; Last-Updated:2015/10/19 02:37:12 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -163,13 +163,6 @@
 (add-to-list 'package-archives
              '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 (package-initialize)
-
-;;;; Constraction loaddefs
-;; (unless (file-exists-p (expand-file-name "06_loaddefs_start.el" my-settings-dir))
-;;   (setq make-loaddefs-flag t))
-;; (when make-loaddefs-flag
-;;   (require 'constraction-loaddefs nil 'noerr)
-;;   (call-interactively 'constraction-loaddefs))
 
 ;;;; Load from directory
 (require 'init-loader "init-loader" 'noerr)

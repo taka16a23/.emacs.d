@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/11/02 16:13:20 (+0900)
-;; Last-Updated:2015/10/15 02:23:54 (+0900)
+;; Last-Updated:2015/10/19 13:24:09 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -43,65 +43,21 @@
 
 
 (eval-when-compile
-  (require 'use-package "use-package" 'noerr))
-
-(declare-function package-bundle "package-setup.el")
-(when (require 'package-setup "package-setup" 'noerr)
-  (ignore-errors (package-bundle 'dired+)))
-
-(use-package dired+
-             ;; :disabled
-             :defer
-             :init
-             :config
-             (message "Loading \"dired+\"")
-             (custom-set-variables
-              '(diredp-hide-details-initially-flag t)
-              '(diredp-wrap-around-flag nil))
-             (bind-keys :map dired-mode-map
-                        ("C-h" . my-backward-seq)
-                        ((kbd "M-+") . e2wm:toggle-start-stop))
-             (face-spec-set
-              'diredp-file-name
-              '((((background dark)) (:foreground "White"))
-                (t (:foreground "Black"))))
-             (face-spec-set
-              'diredp-file-suffix
-              '((((background dark)) (:foreground "Yellow"))
-                (t (:foreground "DarkMagenta"))))
-             (face-spec-set
-              'diredp-dir-heading
-              '((((background dark)) (:foreground "Green"))
-                (t (:foreground "Blue" :background "Pink"))))
-             (face-spec-set
-              'diredp-dir-name
-              '((((background dark)) (:foreground "Green"))
-                (t (:foreground "Blue" :background "Pink"))))
-             (face-spec-set
-              'diredp-dir-priv
-              '((((background dark)) (:foreground "LimeGreen" :background))
-                (t (:foreground "DarkRed" :background "LightGray"))))
-             ;; (face-spec-set
-             ;;  'diredp-link-priv
-             ;;  '((((background dark)) (:foreground "cyan"))
-             ;;    (t (:foreground "DarkOrange"))))
-             (face-spec-set
-              'diredp-symlink
-              '((((background dark)) (:foreground "cyan")) ; dark cyan
-                (t (:foreground "DarkOrange"))))
-             (face-spec-set
-              'diredp-date-time
-              '((((background dark)) (:foreground "LightGray"))
-                (t (:foreground "DarkGoldenrod4"))))
-             (face-spec-set
-              'diredp-compressed-file-suffix
-              '((((background dark)) (:foreground "Magenta"))
-                (t (:foreground "DarkMagenta"))))
-             (face-spec-set
-              'diredp-number
-              '((((background dark)) (:foreground "Pink"))
-                (t (:foreground "DarkMagenta"))))
-             )
+  (require 'use-package "use-package" 'noerr)
+  (require 'subroutines "subroutines" 'noerr)
+  (declare-function windows-p "subroutines")
+  (require 'dired "dired" 'noerr)
+  (declare-function dired-mark "dired")
+  (declare-function dired-read-dir-and-switche "dired")
+  (declare-function dired-find-file "dired")
+  (declare-function dired-current-directory "dired")
+  (declare-function dired-goto-subdir "dired")
+  (require 'dired+ "dired+" 'noerr)
+  (declare-function dired-get-filename "dired+")
+  (declare-function dired-goto-file "dired+")
+  (require 'package "package" 'noerr)
+  (package-initialize)
+  )
 
 (use-package dired
   ;; :disabled
@@ -109,11 +65,7 @@
   :init
   :config
   (message "Loading \"dired\"")
-  (require 'dired+ "dired+" 'noerr)
-  (defface my-face-f-2 '((t (:foreground "Red"))) nil :group 'dired)
-  (defvar my-face-f-2 'my-face-f-2)
-  (font-lock-add-keywords major-mode
-                          (list '(my-dired-today-search . my-face-f-2)))
+  (require 'subroutines "subroutines" 'noerr)
   (unless (windows-p)
     (custom-set-variables
      '(dired-listing-switches
@@ -121,22 +73,16 @@
   (custom-set-variables
    '(ls-lisp-dirs-first t)
    '(ls-lisp-verbosity nil)
-   '(dired-no-confirm (quote (byte-compile
-    						  chmod chown compress copy hardlink load
-    						  move print shell symlink touch uncompress))))
-  ;; (face-spec-set
-  ;;  'dired-directory
-  ;;  '((t (:inherit font-lock-function-name-face :foreground "LimeGreen"))))
+   '(dired-no-confirm '(byte-compile
+                        chmod chown compress copy hardlink load
+                        move print shell symlink touch uncompress)))
   (custom-set-faces
    '(dired-header ((t (:foreground "Green"))))
-   '(dired-directory ((t :foreground "Green")))
    '(dired-directory ((t (:inherit font-lock-function-name-face
-                                   :foreground "LimeGreen"))))
-   )
+                                   :foreground "LimeGreen")))))
   (bind-keys :map dired-mode-map
              ([C-return] . dired-my-advertised-find-file)
              ("r" . revert-buffer)
-             ("w" . wdired-change-to-wdired-mode)
              ("k" . dired-previous-line)
              ("C-k" . dired-previous-line)
              ("C-m" . dired-my-advertised-find-file)
@@ -151,22 +97,55 @@
              ("G" . find-grep)
              ;; test
              ("C-e +" . py:dired-create-directory))
-  )
-
-(use-package wdired
-  ;; :disabled
-  :defer
-  :commands
-  (wdired-change-to-wdired-mode)
-  :init
-  :config
-  (message "Loading \"wdired\"")
-  (custom-set-variables
-   '(wdired-allow-to-change-permissions (quote advanced)))
-  (bind-keys :map wdired-mode-map
-             ("C-j" .  backward-char)
-             ("C-s" .  wdired-finish-edit)
-             ("C-c C-q" . wdired-abort-changes))
+  (use-package dired+
+    ;; :disabled
+    :ensure t
+    :init
+    :config
+    (message "Loading \"dired+\"")
+    (custom-set-variables
+     '(diredp-hide-details-initially-flag t)
+     '(diredp-wrap-around-flag nil))
+    (bind-keys :map dired-mode-map
+               ("C-h" . my-backward-seq)
+               ((kbd "M-+") . e2wm:toggle-start-stop))
+    (custom-set-faces
+     '(diredp-file-name ((((background dark)) (:foreground "White"))
+                      (t (:foreground "Black"))))
+     '(diredp-file-suffix ((((background dark)) (:foreground "Yellow"))
+                           (t (:foreground "DarkMagenta"))))
+     '(diredp-dir-heading ((((background dark)) (:foreground "Green"))
+                           (t (:foreground "Blue" :background "Pink"))))
+     '(diredp-dir-name ((((background dark)) (:foreground "Green"))
+                        (t (:foreground "Blue" :background "Pink"))))
+     '(diredp-dir-priv ((((background dark)) (:foreground "LimeGreen" :background))
+                        (t (:foreground "DarkRed" :background "LightGray"))))
+     '(diredp-symlink ((((background dark)) (:foreground "cyan")) ; dark cyan
+                       (t (:foreground "DarkOrange"))))
+     '(diredp-date-time ((((background dark)) (:foreground "cyan")) ; dark cyan
+                         (t (:foreground "DarkOrange"))))
+     '(diredp-compressed-file-suffix ((((background dark)) (:foreground "Magenta"))
+                                      (t (:foreground "DarkMagenta"))))
+     '(diredp-number ((((background dark)) (:foreground "Pink"))
+                      (t (:foreground "DarkMagenta"))))
+     )
+    )
+  (use-package wdired
+    ;; :disabled
+    :defer
+    :commands wdired-change-to-wdired-mode
+    :init
+    (bind-keys :map dired-mode-map
+               ("w" . wdired-change-to-wdired-mode))
+    :config
+    (message "Loading \"wdired\"")
+    (custom-set-variables
+     '(wdired-allow-to-change-permissions (quote advanced)))
+    (bind-keys :map wdired-mode-map
+               ("C-j" .  backward-char)
+               ("C-s" .  wdired-finish-edit)
+               ("C-c C-q" . wdired-abort-changes))
+    )
   )
 
 ;;;; スペースでマークをtoggle (FD like)

@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:26:12 2012 (+0900)
-;; Last-Updated:2015/10/14 22:40:22 (+0900)
+;; Last-Updated:2015/10/19 12:56:41 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -54,7 +54,6 @@
   (message "Loading \"undo-tree\"")
   (custom-set-variables
    '(undo-tree-auto-save-history nil))
-  (setcar (cdr (assq 'undo-tree-mode minor-mode-alist)) "") ;set nil at modeline
   (global-undo-tree-mode 1)
   :bind
   (("C-M-z" . undo-tree-visualize)
@@ -62,6 +61,7 @@
    ("M-/" . undo-tree-redo)
    ([201326639] . undo-tree-visualize)
    )
+  :diminish undo-tree-mode ;hide from modeline
   )
 
 

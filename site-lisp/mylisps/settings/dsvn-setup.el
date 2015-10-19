@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:27:59 2012 (+0900)
-;; Last-Updated:2015/10/15 05:19:33 (+0900)
+;; Last-Updated:2015/10/19 13:35:07 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -47,15 +47,15 @@
 
 
 (eval-when-compile
-  (require 'use-package "use-package" 'noerr))
-
-(declare-function package-bundle "package-setup.el")
-(when (require 'package-setup "package-setup" 'noerr)
-  (ignore-errors (package-bundle 'dsvn)))
+  (require 'use-package "use-package" 'noerr)
+  (require 'package "package" 'noerr)
+  (package-initialize)
+  )
 
 (use-package dsvn
   ;; :disabled
   :defer
+  :ensure t
   :commands
   (svn-status svn-update)
   :init

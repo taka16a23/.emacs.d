@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/10/03 00:14:44 (+0900)
-;; Last-Updated:2015/10/14 18:36:27 (+0900)
+;; Last-Updated:2015/10/19 01:48:02 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -52,6 +52,7 @@
   :defer 20
   :commands (hotstring-global-mode hotstring-mode)
   :init
+  (add-hook 'python-mode-hook 'hotstring-mode)
   :config
   (message "Loading \"hotstring\"")
   (custom-set-variables

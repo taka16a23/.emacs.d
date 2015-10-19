@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2015/09/30 08:25:36 (+0900)
-;; Last-Updated:2015/10/15 02:24:58 (+0900)
+;; Last-Updated:2015/10/19 13:38:49 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -40,30 +40,29 @@
 
 
 (eval-when-compile
-  (require 'use-package "use-package" 'noerr))
-
-(declare-function package-bundle "package-setup.el")
-(when (require 'package-setup "package-setup" 'noerr)
-  (ignore-errors (package-bundle 'magit)))
+  (require 'use-package "use-package" 'noerr)
+  (require 'package "package" 'noerr)
+  (package-initialize)
+  )
 
 (use-package magit
   ;; :disabled
   :defer
+  :ensure t
   :commands
   (magit-status)
   :init
   :config
   (message "Loading \"magit\"")
-  )
-
-(use-package with-editor
-  ;; :disabled
-  :defer
-  :init
-  :config
-  (message "Loading \"with-editor\"")
-  (bind-keys :map with-editor-mode-map
-             ("C-s" . with-editor-finish))
+  (use-package with-editor
+    ;; :disabled
+    :defer
+    :init
+    :config
+    (message "Loading \"with-editor\"")
+    (bind-keys :map with-editor-mode-map
+               ("C-s" . with-editor-finish))
+    )
   )
 
 

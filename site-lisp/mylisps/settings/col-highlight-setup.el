@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:26:15 2012 (+0900)
-;; Last-Updated:2015/10/14 22:23:06 (+0900)
+;; Last-Updated:2015/10/19 13:37:53 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -44,15 +44,15 @@
 
 (eval-when-compile
   (require 'use-package "use-package" 'noerr)
-  (require 'col-highlight "col-highlight" 'noerr))
-
-(declare-function package-bundle "package-setup.el")
-(when (require 'package-setup "package-setup" 'noerr)
-  (ignore-errors (package-bundle 'col-highlight)))
+  (require 'col-highlight "col-highlight" 'noerr)
+    (require 'package "package" 'noerr)
+    (package-initialize)
+    )
 
 (use-package col-highlight
   ;; :disabled
   :defer
+  :ensure t
   :commands
   (column-highlight-mode)
   :init
