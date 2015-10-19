@@ -8,7 +8,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:30:34 2012 (+0900)
-;; Last-Updated:2015/10/15 15:13:35 (+0900)
+;; Last-Updated:2015/10/19 02:15:41 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -191,10 +191,10 @@ REGEXP: Regular Expression."
 (defun switch-ipython ()
   "Switch Ipythn."
   (interactive)
-  (let ((ipython-buf "*IPython*"))
+  (let ((ipython-buf "*Python*"))
     (if (get-buffer ipython-buf)
         (switch-to-buffer ipython-buf)
-      (ipython)
+      (run-python)
       (switch-to-buffer ipython-buf)
       )))
 

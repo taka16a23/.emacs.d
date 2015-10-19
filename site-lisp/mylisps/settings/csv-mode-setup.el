@@ -6,7 +6,7 @@
 ;; Maintainer:
 ;; Version:
 ;; Created: 2015/10/15 04:35:18 (+0900)
-;; Last-Updated:2015/10/15 04:38:55 (+0900)
+;; Last-Updated:2015/10/19 13:43:47 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -42,15 +42,15 @@
 
 
 (eval-when-compile
-  (require 'use-package "use-package" 'noerr))
-
-(declare-function package-bundle "package-setup.el")
-(when (require 'package-setup "package-setup" 'noerr)
-  (ignore-errors (package-bundle 'csv-mode)))
+  (require 'use-package "use-package" 'noerr)
+  (require 'package "package" 'noerr)
+  (package-initialize)
+  )
 
 (use-package csv-mode
   ;; :disabled
   :defer
+  :ensure t
   :commands
   (csv-mode)
   :init

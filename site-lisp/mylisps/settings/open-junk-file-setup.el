@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:26:50 2012 (+0900)
-;; Last-Updated:2015/10/16 13:35:48 (+0900)
+;; Last-Updated:2015/10/19 13:43:20 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -46,11 +46,10 @@
   (require 'use-package "use-package" 'noerr)
   (require 'bind-key)
   (require 'view "view" 'noerr)
-  (declare-function my-var-dir-join "environment-setup"))
-
-(declare-function package-bundle "package-setup.el")
-(when (require 'package-setup "package-setup" 'noerr)
-  (ignore-errors (package-bundle 'open-junk-file)))
+  (declare-function my-var-dir-join "environment-setup")
+  (require 'package "package" 'noerr)
+  (package-initialize)
+  )
 
 (defvar open-junk-file-dir-path (my-var-dir-join "junk"))
 
@@ -69,6 +68,7 @@
 (use-package open-junk-file
   ;; :disabled
   :defer
+  :ensure t
   :commands
   (open-junk-file)
   :init

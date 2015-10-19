@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:28:05 2012 (+0900)
-;; Last-Updated:2015/10/18 01:07:51 (+0900)
+;; Last-Updated:2015/10/19 12:55:27 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -64,6 +64,7 @@
   :defer
   :commands
   (view-mode)
+  :diminish view-mode ;hide from modeline
   :init
   (require 't1-bind-key "t1-bind-key" 'noerr)
   (common-view-map-many-register
@@ -73,7 +74,6 @@
   (custom-set-variables
    '(view-mode-by-exclude-regexp
      "\\(\\.loaddefs.el\\|\\*auto-async-byte-compile\\*\\)"))
-  (setcar (cdr (assq 'view-mode minor-mode-alist)) "") ;no name on modeline
   (defadvice view-mode-by-default-setup
       (around exclude-viewer activate)
     (unless (string-match view-mode-by-exclude-regexp buffer-file-name)

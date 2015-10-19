@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:27:08 2012 (+0900)
-;; Last-Updated:2015/10/16 13:35:37 (+0900)
+;; Last-Updated:2015/10/19 13:42:50 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -44,15 +44,15 @@
 
 (eval-when-compile
   (require 'bind-key)
-  (require 'use-package "use-package" 'noerr))
-
-(declare-function package-bundle "package-setup.el")
-(when (require 'package-setup "package-setup" 'noerr)
-  (ignore-errors (package-bundle 'fold-dwim)))
+  (require 'use-package "use-package" 'noerr)
+  (require 'package "package" 'noerr)
+  (package-initialize)
+  )
 
 (use-package fold-dwim
   ;; :disabled
   :defer
+  :ensure t
   :commands
   (fold-dwim-toggle fold-dwim--hide-all fold-dwim-show-all)
   :init

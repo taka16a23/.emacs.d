@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:28:01 2012 (+0900)
-;; Last-Updated:2015/10/15 04:14:17 (+0900)
+;; Last-Updated:2015/10/19 13:34:08 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -53,6 +53,8 @@
   (declare-function windows-p "subroutines")
   (require 'term "term" 'noerr)
   (declare-function term-send-raw-string "term")
+  (require 'package "package" 'noerr)
+  (package-initialize)
   )
 
 ;; Do not prompt "Active processes exit; kill them and exit anyway?"
@@ -118,13 +120,10 @@
              ([M-backspace] . term-send-raw-meta))
   )
 
-(declare-function package-bundle "package-setup.el")
-(when (require 'package-setup "package-setup" 'noerr)
-  (ignore-errors (package-bundle 'multi-term)))
-
 (use-package multi-term
   ;; :disabled
   :defer
+  :ensure t
   :init
   :config
   (message "Loading \"multi-term\"")

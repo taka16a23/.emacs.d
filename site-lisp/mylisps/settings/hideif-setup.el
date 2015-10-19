@@ -6,7 +6,7 @@
 ;; Maintainer:
 ;; Version:
 ;; Created: 2015/10/13 15:09:25 (+0900)
-;; Last-Updated:2015/10/15 01:41:54 (+0900)
+;; Last-Updated:2015/10/19 12:55:18 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -48,10 +48,10 @@
 (use-package hideif
   ;; :disabled
   :defer
+  :diminish hide-ifdef-hiding ;hide from modeline
   :init
   :config
-  (message "Loading \"hideif\"")
-  (setcar (cdr (assq 'hide-ifdef-hiding minor-mode-alist)) " hid"))
+  (message "Loading \"hideif\""))
 
 
 

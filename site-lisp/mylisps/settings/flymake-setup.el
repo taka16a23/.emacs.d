@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/11/02 05:30:55 (+0900)
-;; Last-Updated:2015/10/15 00:27:10 (+0900)
+;; Last-Updated:2015/10/19 12:56:14 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -49,10 +49,10 @@
   ;; :disabled
   :defer
   :init
+  :diminish flymake-mode ;hide from modeline
   :config
   (message "Loading \"flymake\"")
   ;; (load "flymake-patch" 'noerr)
-  (setcar (cdr (assq 'flymake-mode minor-mode-alist)) " fly")
   (add-to-list 'flymake-allowed-file-name-masks
                '("\\.py\\'" flymake-pyflakes-init))
   (defface flymake-message-face

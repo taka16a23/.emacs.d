@@ -5,7 +5,7 @@
 ;; Author:       Atami
 ;; Maintainer:   Atami
 ;; Version:      1.0
-;; Last-Updated:2015/10/18 12:13:35 (+0900)
+;; Last-Updated:2015/10/19 13:39:34 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -41,17 +41,16 @@
 
 (eval-when-compile
   (require 'use-package "use-package" 'noerr)
+  (require 'package "package" 'noerr)
+  (package-initialize)
   )
 
 (declare-function 't1-edit-bind-keys "t1-bind-key")
 
-(when (require 'package-setup "package-setup" 'noerr)
-  (ignore-errors (package-bundle 'auto-yasnippet)))
-
-
 (use-package auto-yasnippet
   ;; :disabled
   :defer
+  :ensure t
   :commands
   (aya-create aya-expand)
   :init

@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:
-;; Last-Updated:2015/10/15 14:51:47 (+0900)
+;; Last-Updated:2015/10/19 12:49:07 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -72,7 +72,7 @@
                 "%z"   ; mode-line-mule-info
                 "%2@"  ; mode-line-remote
                 mode-name
-                ;; minor-mode-alist
+                minor-mode-alist
                 (vc-mode vc-mode)
                 ))
 

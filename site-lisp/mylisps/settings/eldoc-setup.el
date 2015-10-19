@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:27:04 2012 (+0900)
-;; Last-Updated:2015/10/18 17:06:56 (+0900)
+;; Last-Updated:2015/10/19 12:51:42 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -55,6 +55,7 @@
   :defer 2
   :commands
   (eldoc-mode)
+  :diminish eldoc-mode ;hide form modeline
   :init
   (add-hook 'emacs-lisp-mode-hook 'eldoc-emacs-lisp-mode-hook)
   (add-hook 'lisp-interaction-mode-hook 'eldoc-mode)

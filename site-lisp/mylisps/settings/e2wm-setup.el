@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Tue Dec 11 23:33:01 2012 (+0900)
-;; Last-Updated:2015/10/16 13:38:52 (+0900)
+;; Last-Updated:2015/10/19 13:45:52 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -46,15 +46,15 @@
   (require 'bind-key "bind-key" 'noerr)
   (require 'use-package "use-package" 'noerr)
   (require 'e2wm "e2wm" 'noerr)
-  (require 'e2wm_macro "e2wm_macro" 'noerr))
-
-(declare-function package-bundle "package-setup.el")
-(when (require 'package-setup "package-setup" 'noerr)
-  (ignore-errors (package-bundle 'e2wm)))
+  (require 'e2wm_macro "e2wm_macro" 'noerr)
+  (require 'package "package" 'noerr)
+  (package-initialize)
+  )
 
 (use-package e2wm
   ;; :disabled
   :defer
+  :ensure t
   :commands
   (e2wm:start-management e2wm:stop-management defe2wm:navi-simple-command)
   :init

@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/02/14 05:49:31 (+0900)
-;; Last-Updated:2015/10/18 01:04:46 (+0900)
+;; Last-Updated:2015/10/19 13:46:17 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -44,15 +44,14 @@
 
 (eval-when-compile
   (require 'use-package "use-package" 'noerr)
+  (require 'package "package" 'noerr)
+  (package-initialize)
   )
-
-(declare-function package-bundle "package-setup.el")
-(when (require 'package-setup "package-setup" 'noerr)
-  (ignore-errors (package-bundle 'tabbar)))
 
 (use-package tabbar
   ;; :disabled
   :defer 10
+  :ensure t
   :commands
   (tabbar-forward-tab
    tabbar-backward-tab
