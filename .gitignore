@@ -1,3 +1,4 @@
 *.elc
 *.pyc
 var.d/*
+*/backup.d/*
