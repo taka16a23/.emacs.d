@@ -5,7 +5,7 @@
 ;; Author:       Atami
 ;; Maintainer:   Atami
 ;; Version:      1.0
-;; Last-Updated:2015/10/16 23:45:57 (+0900)
+;; Last-Updated:2015/10/19 23:53:04 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -40,13 +40,13 @@
 
 (eval-when-compile
   (require 'use-package "use-package" 'noerr)
-  (require 't1-bind-key "t1-bind-key" 'noerr))
+  (require 't1-bind-key "t1-bind-key" 'noerr)
+  (declare-function t1-switch-bind-keys "t1-bind-key"))
 
 (use-package window
   ;; :disabled
   :defer
-  :commands
-  (previous-buffer)
+  :commands previous-buffer
   :init
   (t1-switch-bind-keys '(("C-f" . previous-buffer)))
   :config

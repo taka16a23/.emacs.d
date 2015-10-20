@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:25:06 2012 (+0900)
-;; Last-Updated:2015/10/16 10:58:43 (+0900)
+;; Last-Updated:2015/10/20 01:24:31 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -51,7 +51,7 @@
   :config
   (message "Loading \"x-win\"")
   :bind
-  (("C-v" . x-clipboard-yank)
+  (("C-v" . clipboard-yank)
    ))
 
 

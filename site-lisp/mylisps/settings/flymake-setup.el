@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/11/02 05:30:55 (+0900)
-;; Last-Updated:2015/10/19 12:56:14 (+0900)
+;; Last-Updated:2015/10/19 15:42:47 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -43,7 +43,9 @@
 
 
 (eval-when-compile
-  (require 'use-package "use-package" 'noerr))
+  (require 'use-package "use-package" 'noerr)
+  (require 'flymake "flymake" 'noerr)
+  (declare-function flymake-init-create-temp-buffer-copy "flymake"))
 
 (use-package flymake
   ;; :disabled

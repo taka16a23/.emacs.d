@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Thu Dec 13 23:04:18 2012 (+0900)
-;; Last-Updated:2015/10/15 02:22:42 (+0900)
+;; Last-Updated:2015/10/19 15:57:30 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -51,25 +51,20 @@
   :init
   :config
   (message "Loading \"gnu-art\"")
-  (face-spec-set 'gnus-emphasis-bold '((t (:bold t))))
-  (face-spec-set 'gnus-emphasis-bold-italic '((t (:italic t :bold t))))
-  (face-spec-set 'gnus-emphasis-highlight-words
-                 '((t (:background "black" :foreground "yellow"))))
-  (face-spec-set 'gnus-emphasis-italic '((t (:italic t))))
-  (face-spec-set 'gnus-emphasis-underline '((t (:underline t))))
-  (face-spec-set 'gnus-emphasis-underline-bold '((t (:underline t :bold t))))
-  (face-spec-set 'gnus-emphasis-underline-bold-italic
-                 '((t (:underline t :italic t :bold t))))
-  (face-spec-set 'gnus-emphasis-underline-italic '((t (:underline t :italic t))))
-  (face-spec-set 'gnus-header-content-face
-                 '((t (:italic t :foreground "forest green"))))
-  (face-spec-set 'gnus-header-from-face
-                 '((t (:bold t :foreground "spring green"))))
-  (face-spec-set 'gnus-header-name-face '((t (:foreground "deep sky blue"))))
-  (face-spec-set 'gnus-header-newsgroups-face
-                 '((t (:italic t :bold t :foreground "purple"))))
-  (face-spec-set 'gnus-header-subject-face '((t (:bold t :foreground "orange"))))
-  (face-spec-set 'gnus-signature-face '((t (:bold t :foreground "khaki"))))
+  (custom-set-faces
+   '(gnus-emphasis-bold ((t (:bold t))))
+   '(gnus-emphasis-bold-italic ((t (:italic t :bold t))))
+   '(gnus-emphasis-highlight-words ((t (:italic t :bold t))))
+   '(gnus-emphasis-italic ((t (:italic t))))
+   '(gnus-emphasis-underline ((t (:underline t))))
+   '(gnus-emphasis-underline-bold ((t (:underline t :bold t))))
+   '(gnus-emphasis-underline-bold-italic ((t (:underline t :italic t :bold t))))
+   '(gnus-emphasis-underline-italic ((t (:underline t :italic t))))
+   '(gnus-header-content-face ((t (:italic t :foreground "forest green"))))
+   '(gnus-header-from-face ((t (:italic t :foreground "forest green"))))
+   '(gnus-header-name-face ((t (:bold t :foreground "spring green"))))
+   '(gnus-header-subject-face ((t (:bold t :foreground "orange"))))
+   '(gnus-signature-face ((t (:bold t :foreground "khaki")))))
   )
 
 

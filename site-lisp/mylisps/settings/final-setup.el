@@ -1,4 +1,4 @@
-;;; final-setup.el ---  
+;;; final-setup.el ---
 ;;
 ;; Copyright (C) 2012 Atami
 ;;
@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:28:44 2012 (+0900)
-;; Last-Updated:2015/10/13 22:34:31 (+0900)
+;; Last-Updated:2015/10/19 23:34:35 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -48,6 +48,7 @@
 
 ;;;; chmod-x
 ;;
+(require 'subroutines "subroutines" 'noerr)
 (unless (windows-p)
   (add-hook 'after-save-hook 'make-file-executable))
 
@@ -59,5 +60,3 @@
 ;; coding: utf-8
 ;; End:
 ;;; final-setup.el ends here
-
-

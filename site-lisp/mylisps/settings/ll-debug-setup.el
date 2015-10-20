@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:26:00 2012 (+0900)
-;; Last-Updated:2015/10/14 18:49:34 (+0900)
+;; Last-Updated:2015/10/21 04:33:57 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -44,7 +44,8 @@
 
 (eval-when-compile
   (require 'use-package "use-package" 'noerr)
-  )
+  (require 't1-bind-key "t1-bind-key" 'noerr)
+  (declare-function t1-ctl-x-bind-keys "t1-bind-key"))
 
 ;;;; if last-command equal 'yank' then comment or uncomment region
 (defun my-ll-debug-toggle-comment-region-or-line ()
@@ -70,7 +71,9 @@
    ll-debug-register-mode
    )
   :init
-  (global-set-key "\C-o" 'my-ll-debug-toggle-comment-region-or-line)
+  (bind-key "C-o" 'my-ll-debug-toggle-comment-region-or-line)
+  ;; (t1-ctl-x-bind-keys
+   ;; '(("C-o" . my-ll-debug-toggle-comment-region-or-line)))
   :config
   (message "Loading \"ll-debug\"")
   (ll-debug-register-mode 'python-mode
@@ -86,6 +89,15 @@
    ("C-x M-o" . ll-debug-revert)
    )
   )
+
+(defun t1-py-delete-debug-print ()
+  "delete-debug-print"
+  (interactive)
+  (save-excursion
+    (goto-char (point-min))
+    (while (re-search-forward "print('.*\\[[[:digit:]]*\\].*#.*Debug" nil 'noerror)
+      (kill-whole-line)
+      )))
 
 
 

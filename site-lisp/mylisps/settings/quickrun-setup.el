@@ -6,7 +6,7 @@
 ;; Maintainer:
 ;; Version:
 ;; Created: 2015/10/15 05:00:50 (+0900)
-;; Last-Updated:2015/10/15 05:04:42 (+0900)
+;; Last-Updated:2015/10/20 15:06:59 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -42,13 +42,16 @@
 
 
 (eval-when-compile
-  (require 'use-package "use-package" 'noerr))
+  (require 'use-package "use-package" 'noerr)
+  (require 'python "python" 'noerr)
+  (require 'package "package" 'noerr)
+  (package-initialize))
 
 (use-package quickrun
   ;; :disabled
   :defer
-  :commands
-  (quickrun)
+  :ensure t
+  :commands quickrun quickrun-add-command
   :init
   :config
   (message "Loading \"quickrun\"")
@@ -59,7 +62,6 @@
                (:remove  . ("%e"))
                (:description . "Compile C++ file with g++ and execute"))
    :override t)
-
   (quickrun-add-command
    "c++/clang++" '((:command . "clang++")
                    (:exec    . ("%c -std=c++11 -x c++ %o -o %e %s" "%e %a"))
@@ -67,6 +69,9 @@
                    (:remove  . ("%e"))
                    (:description . "Compile C++ file with llvm/clang++ and execute"))
    :override t)
+  (bind-keys :map python-mode-map
+             ("C-c C-q" . quickrun)
+             ("C-c q" . quickrun))
   )
 
 

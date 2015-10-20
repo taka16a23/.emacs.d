@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/11/02 15:47:18 (+0900)
-;; Last-Updated:2015/10/15 01:37:38 (+0900)
+;; Last-Updated:2015/10/19 15:39:47 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -64,7 +64,6 @@
              ("d" . image-previous-line)
              ("b" . image-next-file)
              ("o" . other-window)
-             ("E" . text-translator-all-by-auto-selection)
              ))
 
 

@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:25:06 2012 (+0900)
-;; Last-Updated:2015/10/18 01:16:51 (+0900)
+;; Last-Updated:2015/10/19 23:48:38 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -43,13 +43,13 @@
 (eval-when-compile
   (require 'use-package "use-package" 'noerr))
 
+(require 't1-bind-key "t1-bind-key" 'noerr)
+
 (use-package column-highlight
   ;; :disabled
   :defer
-  :commands
-  (column-highlight-mode)
+  :commands column-highlight-mode
   :init
-  (require 't1-bind-key "t1-bind-key" 'noerr)
   (common-view-map-many-register
    '(("V" . column-highlight-mode)
      ("N" . column-highlight-mode)))

@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:25:19 2012 (+0900)
-;; Last-Updated:2015/10/19 13:45:13 (+0900)
+;; Last-Updated:2015/10/19 15:09:09 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -55,7 +55,16 @@
   :init
   :config
   (message "Loading \"auto-async-byte-compile\"" )
-  (add-hook 'emacs-lisp-mode-hook 'enable-auto-async-byte-compile-mode))
+  (add-hook 'emacs-lisp-mode-hook 'enable-auto-async-byte-compile-mode)
+  (defadvice auto-async-byte-compile
+      (before kill-buffer-before-auto-async-byte-compile activate)
+    (let ((buf (get-buffer aabc/result-buffer)))
+      (when buf
+        (kill-buffer buf))
+      )
+    )
+  ;; (progn (ad-disable-advice 'auto-async-byte-compile 'before 'kill-buffer-before-auto-async-byte-compile) (ad-update 'auto-async-byte-compile))
+  )
 
 
 

@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:26:15 2012 (+0900)
-;; Last-Updated:2015/10/19 13:37:53 (+0900)
+;; Last-Updated:2015/10/19 15:40:17 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -53,8 +53,7 @@
   ;; :disabled
   :defer
   :ensure t
-  :commands
-  (column-highlight-mode)
+  :commands column-highlight-mode
   :init
   :config
   (message "Loading \"col-highlight\"")

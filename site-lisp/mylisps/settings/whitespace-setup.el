@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:25:06 2012 (+0900)
-;; Last-Updated:2015/10/18 01:53:37 (+0900)
+;; Last-Updated:2015/10/19 23:52:25 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -43,13 +43,13 @@
 (eval-when-compile
   (require 'use-package "use-package" 'noerr))
 
+(require 't1-bind-key "t1-bind-key" 'noerr)
+
 (use-package whitespace
   ;; :disabled
   :defer
-  :commands
-  (whitespace-mode)
+  :commands whitespace-mode
   :init
-  (require 't1-bind-key "t1-bind-key" 'noerr)
   (common-view-map-many-register
    '(("W" . whitespace-mode)))
   :config

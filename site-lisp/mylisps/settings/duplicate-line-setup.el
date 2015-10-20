@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:25:57 2012 (+0900)
-;; Last-Updated:2015/10/16 16:43:05 (+0900)
+;; Last-Updated:2015/10/19 15:18:07 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -44,8 +44,8 @@
 
 (eval-when-compile
   (require 'use-package "use-package" 'noerr)
-  ;; (require 'binding-setup "binding-setup" 'noerr)
-  (require 't1-bind-key "t1-bind-key" 'noerr))
+  (require 't1-bind-key "t1-bind-key" 'noerr)
+  (declare-function t1-edit-bind-keys "t1-bind-key"))
 
 (use-package duplicate-line
   ;; :disabled
@@ -59,10 +59,6 @@
      ("n" . duplicate-following-line)
      ("C-n" . duplicate-following-line)
      ))
-  ;; (define-key ctl-e-map "k" 'duplicate-previous-line)
-  ;; (define-key ctl-e-map "\C-k" 'duplicate-previous-line)
-  ;; (define-key ctl-e-map "n" 'duplicate-following-line)
-  ;; (define-key ctl-e-map "\C-n" 'duplicate-following-line)
   :config
   (message "Loading \"duplicate-line\"")
   (defadvice duplicate-line

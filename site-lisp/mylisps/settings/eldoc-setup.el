@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:27:04 2012 (+0900)
-;; Last-Updated:2015/10/19 12:51:42 (+0900)
+;; Last-Updated:2015/10/19 15:31:30 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -43,7 +43,8 @@
 
 
 (eval-when-compile
-  (require 'use-package "use-package" 'noerr))
+  (require 'use-package "use-package" 'noerr)
+  (defvar during-init-p nil))
 
 (defun eldoc-emacs-lisp-mode-hook () ;[2015/10/18]
   ""

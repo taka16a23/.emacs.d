@@ -1,4 +1,4 @@
-;;; elisp-mode-setup.el ---    Setting for Emacs Lisp mode
+;;; elisp-setup.el ---     Setting for Emacs Lisp mode
 ;;
 ;; Copyright (C) 2012 Atami
 ;;
@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:28:19 2012 (+0900)
-;; Last-Updated:2015/10/18 22:01:46 (+0900)
+;; Last-Updated:2015/10/21 02:09:39 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -72,9 +72,10 @@
 
 
 
-(provide 'elisp-mode-setup)
+(provide 'elisp-setup)
 ;; For Emacs
 ;; Local Variables:
 ;; coding: utf-8
 ;; End:
-;;; elisp-mode-setup.el ends here
+;;; elisp-setup.el ends here
+

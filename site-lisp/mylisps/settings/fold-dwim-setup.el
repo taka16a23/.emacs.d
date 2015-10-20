@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:27:08 2012 (+0900)
-;; Last-Updated:2015/10/19 13:42:50 (+0900)
+;; Last-Updated:2015/10/19 15:52:25 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -53,8 +53,7 @@
   ;; :disabled
   :defer
   :ensure t
-  :commands
-  (fold-dwim-toggle fold-dwim--hide-all fold-dwim-show-all)
+  :commands fold-dwim-toggle fold-dwim--hide-all fold-dwim-show-all
   :init
   :config
   (message "Loading \"fold-dwim\"")

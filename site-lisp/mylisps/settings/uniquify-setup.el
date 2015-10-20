@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Wed Dec 12 01:03:58 2012 (+0900)
-;; Last-Updated:2015/10/15 12:24:38 (+0900)
+;; Last-Updated:2015/10/19 15:48:03 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -55,8 +55,7 @@
   (message "Loading \"uniquify\"")
   (custom-set-variables
    '(uniquify-buffer-name-style 'forward)
-   '(uniquify-ignore-buffers-re "*[^*]+*")
-   )
+   '(uniquify-ignore-buffers-re "*[^*]+*"))
   )
 
 

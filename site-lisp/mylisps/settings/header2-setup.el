@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2012/12/09 18:25:57 (+0900)
-;; Last-Updated:2015/10/16 22:54:26 (+0900)
+;; Last-Updated:2015/10/19 23:20:03 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -289,7 +289,7 @@ This is normally overwritten with each file save."
 
 
 (use-package header2
-  :defer t
+  :defer 5
   :commands (auto-update-file-header)
   :init
   (add-hook 'write-file-hooks 'auto-update-file-header)

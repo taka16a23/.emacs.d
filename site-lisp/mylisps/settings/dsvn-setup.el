@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:27:59 2012 (+0900)
-;; Last-Updated:2015/10/19 13:35:07 (+0900)
+;; Last-Updated:2015/10/19 16:07:18 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -50,14 +50,15 @@
   (require 'use-package "use-package" 'noerr)
   (require 'package "package" 'noerr)
   (package-initialize)
+  (require 'dsvn "dsvn" 'noerr)
+  (declare-function svn-set-mark "dsvn")
   )
 
 (use-package dsvn
   ;; :disabled
   :defer
   :ensure t
-  :commands
-  (svn-status svn-update)
+  :commands svn-status svn-update
   :init
   :config
   (message "Loading \"dsvn\"")

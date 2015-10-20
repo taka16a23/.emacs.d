@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Thu Dec 13 22:03:09 2012 (+0900)
-;; Last-Updated:2015/10/13 21:53:05 (+0900)
+;; Last-Updated:2015/10/19 18:33:59 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -43,7 +43,9 @@
 
 
 (eval-when-compile
-  (require 'use-package "use-package" 'noerr))
+  (require 'use-package "use-package" 'noerr)
+  (require 'environment-setup "environment-setup" 'noerr)
+  (declare-function my-var-dir-join "environment-setup"))
 
 (use-package cus-edit
   ;; :disabled
@@ -51,26 +53,23 @@
   :init
   :config
   (message "Loading \"cus-edit\"")
+  (require 'environment-setup "environment-setup" 'noerr)
   (setq-default custom-file (my-var-dir-join "custom_temp.el"))
-  (face-spec-set 'custom-button-face '((t (nil))))
-  (face-spec-set 'custom-changed-face
-                 '((t (:background "blue" :foreground "white"))))
-  (face-spec-set 'custom-documentation-face '((t (nil))))
-  (face-spec-set 'custom-face-tag-face '((t (:underline t))))
-  (face-spec-set 'custom-group-tag-face
-                 '((t (:underline t :foreground "light blue"))))
-  (face-spec-set 'custom-group-tag-face-1 '((t (:underline t :foreground "pink"))))
-  (face-spec-set 'custom-invalid-face
-                 '((t (:background "red" :foreground "yellow"))))
-  (face-spec-set 'custom-modified-face
-                 '((t (:background "blue" :foreground "white"))))
-  (face-spec-set 'custom-rogue-face '((t (:background "black" :foreground "pink"))))
-  (face-spec-set 'custom-saved-face '((t (:underline t))))
-  (face-spec-set 'custom-set-face '((t (:background "white" :foreground "blue"))))
-  (face-spec-set 'custom-state-face '((t (:foreground "lime green"))))
-  (face-spec-set 'custom-variable-button-face '((t (:underline t :bold t))))
-  (face-spec-set 'custom-variable-tag-face
-                 '((t (:underline t :foreground "light blue"))))
+  (custom-set-faces
+   '(custom-button-face ((t (nil))))
+   '(custom-changed-face ((t (:background "blue" :foreground "white"))))
+   '(custom-documentation-face ((t (nil))))
+   '(custom-face-tag-face ((t (:underline t))))
+   '(custom-group-tag-face ((t (:underline t :foreground "light blue"))))
+   '(custom-group-tag-face-1 ((t (:underline t :foreground "pink"))))
+   '(custom-invalid-face ((t (:background "red" :foreground "yellow"))))
+   '(custom-modified-face ((t (:background "blue" :foreground "white"))))
+   '(custom-rogue-face ((t (:background "black" :foreground "pink"))))
+   '(custom-saved-face ((t (:underline t))))
+   '(custom-set-face ((t (:background "white" :foreground "blue"))))
+   '(custom-state-face ((t (:foreground "lime green"))))
+   '(custom-variable-button-face ((t (:underline t :bold t))))
+   '(custom-variable-tag-face ((t (:underline t :foreground "light blue")))))
   )
 
 
@@ -81,5 +80,3 @@
 ;; coding: utf-8
 ;; End:
 ;;; cus-edit-setup.el ends here
-
-

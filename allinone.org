@@ -15245,8 +15245,6 @@ for /L %i in (1,1,254) do ping -w 500 -n 1 192.168.1.%i > nul && arp -a 192.168.
 import collections
 d = collections.defaultdict (lambda:collections.defaultdict (float))
 d['poko']['hoge'] += 1.0
-**  test
-**  test
 **  coding live streaming
 coding を live で流してお金を得る。
 支払いは見ている人が払う形式。
@@ -15398,7 +15396,96 @@ like 'http://' file name cannot create unix file name.
 use imenu or py:
     
     [[file:/usr/lib/python2.7/dist-packages/wx-2.8-gtk2-unicode/wx/_core.py]]
-
+** TODO safe kill-emacs save-buffer find-file
+  <2015-10-14 Wed 22:43>
+** TODO managing keybind for emacs
+  <2015-10-14 Wed 12:22>
+** TODO database を多重化
+  <2015-10-12 Mon 20:55>
+** TODO create emacs keybind utility package
+  <2015-10-12 Mon 10:22>
+** TODO Create king server clone on VirtualBox
+  <2015-10-07 Wed 09:04>
+** TODO coop mysql
+  <2015-10-06 Tue 14:02>
+** TODO magit perspective
+  <2015-10-05 Mon 05:57>
+** TODO fix woman
+  <2015-10-02 Fri 13:42>
+** TODO fix dmacro
+  <2015-10-02 Fri 13:15>
+** TODO .zsh history merge
+   <2015-10-02 Fri 12:35>
+** TODO systemd ssh tunnel
+   <2015-10-02 Fri 12:33>
+** TODO auto construct dotfile from king server 
+   <2015-10-02 Fri 12:32>
+** TODO emacs package make minimize
+   <2015-10-02 Fri 12:22>
+** TODO disable view mode on magit commit buffer
+   <2015-10-02 Fri 11:48>
+** TODO insert magit commit template
+   <2015-10-02 Fri 11:45>
+** TODO python elisp_compileall.py wait close all process
+   <2015-10-02 Fri 10:59>
+** TODO org-todo rotate sequence TODO => DONE => LATER
+   <2015-10-02 Fri 10:16>
+** TODO make function some-buffer-save-kill
+   <2015-10-02 Fri 08:30>
+** TODO pymacs package manage by el-get
+   <2015-09-30 Wed 12:59>
+** TODO lock desktop
+   <2015-09-28 Mon 02:34>
+** TODO kernel crash dump
+   <2015-09-27 Sun 02:00>
+** TODO upgrade python3
+   <2015-09-26 Sat 11:09>
+** TODO king kernel config
+   <2015-09-26 Sat 11:07>
+** TODO recover usb linux
+   <2015-09-26 Sat 11:07>
+** TODO king auto halt "halt" to "poweroff"
+   <2015-09-12 Sat 03:15>
+** TODO systemd bluetooth device detected to active bluetooth
+   <2015-09-11 Fri 05:04>
+** TODO remove tty63
+   <2015-09-11 Fri 03:48>
+** TODO mac addr change at network interface connected
+   <2015-09-11 Fri 03:48>
+** TODO remove "wellcome kali linux on boot"
+   <2015-09-11 Fri 03:47>
+** TODO xahk
+   <2015-08-30 Sun 17:43>
+** TODO 多重起動防止
+   <2015-08-30 Sun 11:58>
+** TODO bus timetable watch dog for monthly
+   <2015-08-19 Wed 08:30>
+** TODO exception_hook_pdb
+   <2015-08-07 Fri 09:53>
+** TODO all recipe package to one
+   <2015-08-07 Fri 00:57>
+** TODO seikyo 最安値 excel 化
+   <2015-08-06 Thu 21:26>
+** TODO autohalt.py to king/fordeamon
+   <2015-08-06 Thu 07:41>
+** TODO king server connection object
+   mirroring object
+   <2015-08-06 Thu 07:13>
+** TODO oil price calculate in japan 
+   <2015-08-06 Thu 02:50>
+** TODO yearly
+   <2015-08-06 Thu 02:27>
+** TODO 4monthly
+   <2015-08-06 Thu 02:26>
+** TODO monthly
+   <2015-08-06 Thu 02:26>
+** TODO currency exchange show daily
+   <2015-08-06 Thu 02:14>
+** TODO create chrome object
+   <2015-08-05 Wed 22:41>
+** POSTPONES sleipnir copy url and open chrome
+   <2015-08-05 Wed 23:04>
+* DOING:
 * Emacs:
 ** TODO code reading
    pymacs.el pymacs-round-trip ()
@@ -15958,7 +16045,7 @@ usable yasnippet write format string
 
 5) 結果
 6) time/ref
-    / cf. [[file:~/.pylib/xahk/remap/builder/mainbuilder.py]]
+   / cf. [[file:~/.pylib/xahk/remap/builder/mainbuilder.py]]
 * python:
 ** create init script by python
 ** TODO [#C] rope を読む
@@ -20312,93 +20399,3 @@ or force open on right display
 
 ** 風変わりな解決策
    - Adapter によるインターフェースの統合
-* ----- DOING -----
-** TODO safe kill-emacs save-buffer find-file
-  <2015-10-14 Wed 22:43>
-** TODO managing keybind for emacs
-  <2015-10-14 Wed 12:22>
-** TODO database を多重化
-  <2015-10-12 Mon 20:55>
-** TODO create emacs keybind utility package
-  <2015-10-12 Mon 10:22>
-** TODO Create king server clone on VirtualBox
-  <2015-10-07 Wed 09:04>
-** TODO coop mysql
-  <2015-10-06 Tue 14:02>
-** TODO magit perspective
-  <2015-10-05 Mon 05:57>
-** TODO fix woman
-  <2015-10-02 Fri 13:42>
-** TODO fix dmacro
-  <2015-10-02 Fri 13:15>
-** TODO .zsh history merge
-   <2015-10-02 Fri 12:35>
-** TODO systemd ssh tunnel
-   <2015-10-02 Fri 12:33>
-** TODO auto construct dotfile from king server 
-   <2015-10-02 Fri 12:32>
-** TODO emacs package make minimize
-   <2015-10-02 Fri 12:22>
-** TODO disable view mode on magit commit buffer
-   <2015-10-02 Fri 11:48>
-** TODO insert magit commit template
-   <2015-10-02 Fri 11:45>
-** TODO python elisp_compileall.py wait close all process
-   <2015-10-02 Fri 10:59>
-** TODO org-todo rotate sequence TODO => DONE => LATER
-   <2015-10-02 Fri 10:16>
-** TODO make function some-buffer-save-kill
-   <2015-10-02 Fri 08:30>
-** TODO pymacs package manage by el-get
-   <2015-09-30 Wed 12:59>
-** TODO lock desktop
-   <2015-09-28 Mon 02:34>
-** TODO kernel crash dump
-   <2015-09-27 Sun 02:00>
-** TODO upgrade python3
-   <2015-09-26 Sat 11:09>
-** TODO king kernel config
-   <2015-09-26 Sat 11:07>
-** TODO recover usb linux
-   <2015-09-26 Sat 11:07>
-** TODO king auto halt "halt" to "poweroff"
-   <2015-09-12 Sat 03:15>
-** TODO systemd bluetooth device detected to active bluetooth
-   <2015-09-11 Fri 05:04>
-** TODO remove tty63
-   <2015-09-11 Fri 03:48>
-** TODO mac addr change at network interface connected
-   <2015-09-11 Fri 03:48>
-** TODO remove "wellcome kali linux on boot"
-   <2015-09-11 Fri 03:47>
-** TODO xahk
-   <2015-08-30 Sun 17:43>
-** TODO 多重起動防止
-   <2015-08-30 Sun 11:58>
-** TODO bus timetable watch dog for monthly
-   <2015-08-19 Wed 08:30>
-** TODO exception_hook_pdb
-   <2015-08-07 Fri 09:53>
-** TODO all recipe package to one
-   <2015-08-07 Fri 00:57>
-** TODO seikyo 最安値 excel 化
-   <2015-08-06 Thu 21:26>
-** TODO autohalt.py to king/fordeamon
-   <2015-08-06 Thu 07:41>
-** TODO king server connection object
-   mirroring object
-   <2015-08-06 Thu 07:13>
-** TODO oil price calculate in japan 
-   <2015-08-06 Thu 02:50>
-** TODO yearly
-   <2015-08-06 Thu 02:27>
-** TODO 4monthly
-   <2015-08-06 Thu 02:26>
-** TODO monthly
-   <2015-08-06 Thu 02:26>
-** TODO currency exchange show daily
-   <2015-08-06 Thu 02:14>
-** TODO create chrome object
-   <2015-08-05 Wed 22:41>
-** POSTPONES sleipnir copy url and open chrome
-   <2015-08-05 Wed 23:04>

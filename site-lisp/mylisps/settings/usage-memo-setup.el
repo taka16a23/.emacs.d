@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:26:57 2012 (+0900)
-;; Last-Updated:2015/10/14 02:01:09 (+0900)
+;; Last-Updated:2015/10/21 00:28:55 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -44,19 +44,29 @@
 
 (eval-when-compile
   (require 'use-package "use-package" 'noerr)
-  (require 'usage-memo "usage-memo" 'noerr))
+  (require 'usage-memo "usage-memo" 'noerr)
+  (require 'environment-setup "environment-setup" 'noerr)
+  (declare-function my-data-dir-join "environment-setup"))
+
+(require 'bind-key "bind-key" 'noerr)
+(require 'environment-setup "environment-setup" 'noerr)
 
 (use-package usage-memo
   ;; :disabled
   :defer 30
-  :commands
-  (umemo-initialize)
+  :commands umemo-initialize
   :init
   :config
   (message "Loading \"usage-memo\"")
   (setq umemo-base-directory (my-data-dir-join "code/umemo"))
-  (define-key usage-memo-mode-map "\C-s" 'umemo-save)
+  (bind-keys :map usage-memo-mode-map
+             ("C-s" . umemo-save))
   (umemo-initialize)
+  (define-usage-memo rope-show-doc "python" 0 "*rope-pydoc*"
+    (lambda (arg) (goto-char (point-min))
+      (let ((text (buffer-substring (point)
+                                    (save-excursion (end-of-line) (point)))))
+        (replace-regexp-in-string "\s" "_" text))))
   )
 
 

@@ -5,7 +5,7 @@
 ;; Author:       Atami
 ;; Maintainer:   Atami
 ;; Version:      1.0
-;; Last-Updated:2015/10/16 14:15:20 (+0900)
+;; Last-Updated:2015/10/19 23:49:20 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -42,11 +42,12 @@
   (require 'bind-key "bind-key" 'noerr)
   (require 'use-package "use-package" 'noerr))
 
+(require 'bind-key "bind-key" 'noerr)
+
 (use-package minibuffer
   ;; :disabled
   ;; :defer
   :init
-  (require 'bind-key "bind-key" 'noerr)
   :config
   (message "Loading \"minibuffer\"")
   (bind-keys :map minibuffer-local-map

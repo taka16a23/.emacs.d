@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/11/02 16:43:59 (+0900)
-;; Last-Updated:2015/10/18 00:33:46 (+0900)
+;; Last-Updated:2015/10/19 16:02:43 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -43,15 +43,20 @@
 
 
 (eval-when-compile
-  (require 'use-package "use-package" 'noerr))
+  (require 'use-package "use-package" 'noerr)
+  (require 'environment-setup "environment-setup" 'noerr)
+  (declare-function my-data-dir-join "environment-setup")
+  (require 't1-bind-key "t1-bind-key" 'noerr)
+  (declare-function common-view-map-bind-keys "t1-bind-key")
+  (require 'info "info" 'noerr)
+  )
 
-(use-package Info-mode
+(use-package info
   ;; :disabled
   :defer
   :init
-
   :config
-  (message "Loading \"Info-mode\"")
+  (message "Loading \"info\"")
   ;; (default-view-bind-set Info-mode-map)
   (require 't1-bind-key "t1-bind-key" 'noerr)
   (common-view-map-bind-keys Info-mode-map)

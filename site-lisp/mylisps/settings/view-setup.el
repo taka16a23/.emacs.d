@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:28:05 2012 (+0900)
-;; Last-Updated:2015/10/19 12:55:27 (+0900)
+;; Last-Updated:2015/10/20 22:54:33 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -49,10 +49,11 @@
 
 (eval-when-compile
   (require 'use-package "use-package" 'noerr)
-  (require 'viewer "viewer" 'noerr))
+  (require 'viewer "viewer" 'noerr)
+  (declare-function viewer-stay-in-setup "viewer")
+  (declare-function viewer-change-modeline-color-setup "viewer"))
 
-;; (add-hook 'after-init-hook '(lambda () (require 'viewer "viewer" 'noerr)))
-;; (remove-hook 'after-init-hook '(lambda () ))
+(require 't1-bind-key "t1-bind-key" 'noerr)
 
 (defcustom view-mode-by-exclude-regexp ""
   "Document"
@@ -62,11 +63,9 @@
 (use-package view
   ;; :disabled
   :defer
-  :commands
-  (view-mode)
+  :commands view-mode
   :diminish view-mode ;hide from modeline
   :init
-  (require 't1-bind-key "t1-bind-key" 'noerr)
   (common-view-map-many-register
    '(("i" . turn-off-view-mode)))
   :config
@@ -79,8 +78,6 @@
     (unless (string-match view-mode-by-exclude-regexp buffer-file-name)
       ad-do-it
       ))
-  ;; (default-view-bind-set view-mode-map)
-  (require 't1-bind-key "t1-bind-key" 'noerr)
   (common-view-map-bind-keys view-mode-map)
   )
 
@@ -115,6 +112,7 @@
       ))
   (viewer-stay-in-setup)
   (viewer-change-modeline-color-setup)
+  (remove-hook 'find-file-hook 'view-mode-by-default-setup)
   :bind
   (([M-return] . view-mode)
    ([f6] . view-mode)

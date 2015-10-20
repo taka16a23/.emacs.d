@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/01/15 21:12:31 (+0900)
-;; Last-Updated:2015/10/18 12:12:14 (+0900)
+;; Last-Updated:2015/10/19 15:38:15 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -45,6 +45,7 @@
 (eval-when-compile
   (require 'use-package "use-package" 'noerr)
   (require 't1-bind-key "t1-bind-key" 'noerr)
+  (declare-function t1-edit-bind-keys "t1-bind-key")
   (require 'rotate-text "rotate-text" 'noerr))
 
 (defun rotate-text-emacs-lisp-mode-hook () ;[2015/10/18]
@@ -65,10 +66,8 @@
   (rotate-word-at-point)
   :init
   (add-hook 'emacs-lisp-mode-hook 'rotate-text-emacs-lisp-mode-hook)
-  ;; (remove-hook 'emacs-lisp-mode-hook 'rotate-text-emacs-lisp-mode-hook)
   (t1-edit-bind-keys
    '(("C-r" . rotate-word-at-point)))
-  ;; (define-key ctl-e-map "\C-r" 'rotate-word-at-point)
   :config
   (message "Loading \"rotate-text\"")
   )

@@ -1,0 +1,1 @@
+../site-lisp/mylisps/settings/smartrep-setup.el

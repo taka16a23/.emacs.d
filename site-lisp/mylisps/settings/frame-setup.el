@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2015/09/15 05:18:58 (+0900)
-;; Last-Updated:2015/10/15 13:34:51 (+0900)
+;; Last-Updated:2015/10/19 23:36:19 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -40,9 +40,9 @@
 
 
 (eval-when-compile
-  (require 'cl "cl" 'noerr))
-
-(require 'dash "dash" 'noerr)
+  (require 'cl "cl" 'noerr)
+  (require 'dash "dash" 'noerr)
+  )
 
 (defun main-frame-monitor-attributes () ;[2015/09/15]
   ""
@@ -90,8 +90,7 @@
 
 ;; move to main monitor if not in.
 (when (not (frame-in-main-monitor-p))
-  (frame-move-main-monitor (selected-frame))
-  )
+  (frame-move-main-monitor (selected-frame)))
 (when (>= 1 (running-emacs-count))
   (set-frame-parameter nil 'fullscreen 'maximized))
 

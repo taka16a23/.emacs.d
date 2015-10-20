@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2015/09/13 22:16:43 (+0900)
-;; Last-Updated:2015/10/18 00:34:51 (+0900)
+;; Last-Updated:2015/10/19 16:30:10 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -41,17 +41,19 @@
 
 
 (eval-when-compile
-  (require 'use-package "use-package" 'noerr))
+  (require 'use-package "use-package" 'noerr)
+  (require 'eww "eww" 'noerr)
+  (declare-function eww-reload "eww")
+  (require 't1-bind-key "t1-bind-key" 'noerr)
+  (declare-function common-view-map-bind-keys "eww"))
 
 (use-package eww
   ;; :disabled
   :defer
-  :commands
-  (eww-search-words)
+  :commands eww-search-words
   :init
   :config
   (message "Loading \"eww\"")
-  ;; (default-view-bind-set eww-mode-map)
   (require 't1-bind-key "t1-bind-key" 'noerr)
   (common-view-map-bind-keys eww-mode-map)
   (custom-set-variables

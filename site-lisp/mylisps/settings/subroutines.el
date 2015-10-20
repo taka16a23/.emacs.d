@@ -6,7 +6,7 @@
 ;; Maintainer:
 ;; Version:
 ;; Created: 2015/10/11 10:19:02 (+0900)
-;; Last-Updated:2015/10/18 00:32:45 (+0900)
+;; Last-Updated:2015/10/20 02:32:49 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -43,7 +43,7 @@
 
 (eval-when-compile
   (require 't1macro "t1macro" 'noerr)
-  (require '00_environment_setup "00_environment_setup" 'noerr)
+  (require 'environment-setup "environment-setup" 'noerr)
   (require 'cl nil 'noerr)
   (defvar common-view-map-list)
   (defvar before-init-el-time))
@@ -132,14 +132,6 @@ ELT:"
 
 ;; SUB ROUTINES
 ;; ============================================================================
-;;;; view bind
-;;
-;; (defun default-view-bind-set (keymap)
-;;   "Default view map common define.
-;; KEYMAP:"
-;;   (dolist (keycmd common-view-map-list)
-;;     (define-key keymap (car keycmd) (cdr keycmd))))
-
 ;;;; Benchmark
 ;;
 (defsubst time-lag (usetime)
@@ -253,6 +245,67 @@ DIRS: directory"
     (when (string-match regexp (buffer-name buffer))
       (kill-buffer buffer)
       )))
+
+(defun file-root-p (filename)
+  "Return t if file FILENAME created by root."
+  (eq 0 (nth 2 (file-attributes filename))))
+
+(defun change-as-root ()
+  "Opens FILE with root privileges."
+  (interactive)
+  (set-buffer (find-file (concat "/sudo::" buffer-file-name))))
+
+(defun insert-buffer-file-name ()
+  (interactive)
+  (insert (buffer-file-name)))
+
+(defun insert-file-name-nondirectory ()
+  (interactive)
+  (insert (file-name-nondirectory (buffer-file-name))))
+
+(defun insert-capitalize-file-name-nondirectory-nonextension ()
+  (interactive)
+  (insert (upcase (file-name-sans-extension (file-name-nondirectory (buffer-file-name))))))
+
+(defun insert-capitalize-file-name-nondirectory ()
+  (interactive)
+  (insert (upcase (file-name-nondirectory (buffer-file-name)))))
+
+(defun flatten (list)
+  (cond ((null list) nil)
+        ((atom list) (list list))
+        (t
+         (append (flatten (car list)) (flatten (cdr list))))))
+
+(defun recursive-files (dir &optional regexp) ;[2013/11/24]
+  "DIR
+REGEXP"
+  (flatten (mapcar
+            (lambda (d) (directory-files d 'full regexp))
+            (recursive-directory dir))))
+
+(defun walk-edit (func dir &optional regexp exclude save kill) ;[2013/11/25]
+  "DIR
+REGEXP"
+  (let ((co-check-type-miss t))
+    (dolist (file (recursive-files dir regexp))
+      (unless (and exclude (string-match exclude file))
+        (with-current-buffer (find-file-noselect file)
+          (read-only-mode -1)
+          (goto-char (point-min))
+          (widen)
+          (funcall func)
+          (and save (save-buffer))
+          (and (not (buffer-modified-p)) kill (kill-this-buffer)))))))
+
+(defun myrecompile-recursively (dirs)
+  "Recompile recursively.
+DIRS: directory."
+  (interactive)
+  (dolist (dir (recursive-directory dirs))
+    (dolist (f (directory-files dir 'full "\\.el\\`"))
+      (unless (file-accessible-directory-p f)
+        (batch-byte-compile-file f)))))
 
 
 

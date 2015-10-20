@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:25:23 2012 (+0900)
-;; Last-Updated:2015/10/13 17:48:01 (+0900)
+;; Last-Updated:2015/10/19 14:17:08 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -45,11 +45,20 @@
 ;;; Code:
 
 
+(eval-when-compile
+  (require 'use-package "use-package" 'noerr))
+
 (require 'subroutines "subroutines" 'noerr)
 
 (defvar no-autorecover-init-time-flag (parse-command-line "--no-autorecover"))
 
-(unless no-autorecover-init-time-flag
+(use-package auto-recover
+  ;; :disabled
+  ;; :defer
+  :if (not no-autorecover-init-time-flag)
+  :init
+  :config
+  (message "Loading \"auto-recover\"")
   (add-hook 'after-init-hook 'auto-recover-startup)
   (add-hook 'kill-emacs-hook 'before-kill-emacs-cleanup-autosave)
   )
@@ -62,5 +71,3 @@
 ;; coding: utf-8
 ;; End:
 ;;; auto-recover-setup.el ends here
-
-

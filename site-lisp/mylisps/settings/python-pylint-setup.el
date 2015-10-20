@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/11/02 05:18:48 (+0900)
-;; Last-Updated:2015/10/13 21:41:56 (+0900)
+;; Last-Updated:2015/10/20 14:48:50 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -43,11 +43,13 @@
 
 
 (eval-when-compile
-  (require 'use-package "use-package" 'noerr))
+  (require 'use-package "use-package" 'noerr)
+  (require 'python "python" 'noerr))
 
 (use-package python-pylint
   ;; :disabled
   :defer
+  :commands pylint
   :init
   :config
   (message "Loading \"python-pylint\"")
@@ -56,6 +58,9 @@
   (when (windows-p)
     (custom-set-variables
      '(python-pylint-command "pylint.bat")))
+  (bind-keys :map python-mode-map
+             ("C-c C-s" . pylint)
+             )
   )
 
 
@@ -66,4 +71,3 @@
 ;; coding: utf-8
 ;; End:
 ;;; python-pylint-setup.el ends here
-

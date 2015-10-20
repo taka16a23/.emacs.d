@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:25:06 2012 (+0900)
-;; Last-Updated:2015/10/17 00:27:16 (+0900)
+;; Last-Updated:2015/10/19 23:50:15 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -42,15 +42,16 @@
 
 (eval-when-compile
   (require 'use-package "use-package" 'noerr)
-  (require 't1-bind-key "t1-bind-key" 'noerr))
+  (require 't1-bind-key "t1-bind-key" 'noerr)
+  (declare-function t1-ctl-x-bind-keys "t1-bind-key"))
+
+(require 't1-bind-key "t1-bind-key" 'noerr)
 
 (use-package rename-old-del
   ;; :disabled
   :defer
-  :commands
-  (rename-old-del)
+  :commands rename-old-del
   :init
-  (require 't1-bind-key "t1-bind-key" 'noerr)
   (t1-ctl-x-bind-keys '(("C-s" . rename-old-del)))
   :config
   (message "Loading \"rename-old-del\"")

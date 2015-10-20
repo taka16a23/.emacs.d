@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/02/14 05:49:31 (+0900)
-;; Last-Updated:2015/10/19 13:46:17 (+0900)
+;; Last-Updated:2015/10/19 15:26:51 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -46,6 +46,8 @@
   (require 'use-package "use-package" 'noerr)
   (require 'package "package" 'noerr)
   (package-initialize)
+  (require 't1-bind-key "t1-bind-key" 'noerr)
+  (declare-function common-view-map-many-register "t1-bind-key")
   )
 
 (use-package tabbar
@@ -56,7 +58,8 @@
   (tabbar-forward-tab
    tabbar-backward-tab
    tabbar-backward-group
-   tabbar-backward-group)
+   tabbar-backward-group
+   tabbar-mode)
   :init
   (require 't1-bind-key "t1-bind-key" 'noerr)
   (common-view-map-many-register

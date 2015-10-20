@@ -6,7 +6,7 @@
 ;; Maintainer:
 ;; Version:
 ;; Created: 2015/10/11 16:37:37 (+0900)
-;; Last-Updated:2015/10/13 23:20:42 (+0900)
+;; Last-Updated:2015/10/19 14:04:08 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -42,7 +42,8 @@
 
 
 (eval-when-compile
-  (require 'user-loaddefs "user-loaddefs" 'noerr))
+  (require 'user-loaddefs "user-loaddefs" 'noerr)
+  (declare-function user-generate-loaddefs "user-loaddefs"))
 
 (require 'environment-setup "environment-setup" 'noerr)
 

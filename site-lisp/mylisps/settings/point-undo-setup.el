@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:26:03 2012 (+0900)
-;; Last-Updated:2015/10/16 13:37:27 (+0900)
+;; Last-Updated:2015/10/19 15:37:10 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -44,14 +44,13 @@
 
 (eval-when-compile
   (require 'use-package "use-package" 'noerr)
+  (require 'package "package" 'noerr)
+  (package-initialize)
   (require 'bind-key))
-
-(when (not (package-installed-p 'use-package))
-  (package-refresh-contents)
-  (package-install 'use-package))
 
 (use-package point-undo
   :defer 3
+  :ensure t
   :init
   :bind (("C-]" . point-undo)
          ("C-}" . point-redo))

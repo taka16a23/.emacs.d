@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:26:29 2012 (+0900)
-;; Last-Updated:2015/10/19 13:44:33 (+0900)
+;; Last-Updated:2015/10/19 23:47:08 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -49,8 +49,10 @@
   (require 'use-package "use-package" 'noerr)
   (require 'package "package" 'noerr)
   (package-initialize)
+  (defvar yas-buffer-local-condition nil)
+  (defvar yas--guessed-modes nil)
+  (defvar yas-active-field-overlay nil)
   )
-
 
 (defvar flycheck-isactive-flag nil)
 (defadvice yas-expand-snippet
@@ -140,8 +142,7 @@
   (snippet-mode
    yas-expand
    yas-new-snippet
-   yas-visit-snippet-file
-   )
+   yas-visit-snippet-file)
   :mode
   (("\\.yasnippet\\'" . snippet-mode)
    ("emacs.+/snippets/" . snippet-mode)
@@ -161,29 +162,28 @@
    ;; '(yas-prev-field-key '("<backtab>" "<S-tab>"))
    ;; '(yas-skip-and-clear-key "M-i")
    )
-  ;; (add-hook 'snippet-mode-hook '(lambda () (auto-fill-mode -1)))
-  (require 'auto-complete-yasnippet "auto-complete-yasnippet" 'noerr)
-  ;; (add-hook 'python-mode-hook 'yasnippet-local-condition-predefine)
-  ;; (remove-hook 'python-mode-hook 'yasnippet-local-condition-predefine)
-  ;; (add-hook 'python-mode-hook 'yasnippet-mode-map-predefine)
-  (yas-initialize)
   (add-to-list 'yas-key-syntaxes "(w_.)" t)
+  (require 'auto-complete-yasnippet "auto-complete-yasnippet" 'noerr)
   (add-hook 'yas-before-expand-snippet-hook 'yas-my-save-marker)
   (add-hook 'flyspell-incorrect-hook ;yasnippet on flyspell
 			#'(lambda (dummy1 dummy2 dymmy3)
 				(and yas-active-field-overlay
 					 (overlay-buffer yas-active-field-overlay))))
   (add-hook 'yas-after-exit-snippet-hook 'recover-flycheck-after-exit-from-yas)
-  (define-key yas-keymap "\C-\M-i" 'yas-skip-and-clear-or-delete-char)
-  (define-key yas-keymap "," 'self-insert-command)
-  (define-key yas-keymap [(tab)] 'yas-next-field-or-maybe-expand)
-  (define-key yas-keymap [(shift ?\t)] 'yas-prev-field)
-  (define-key yas-minor-mode-map (kbd "<tab>") nil)
-  (define-key yas-minor-mode-map (kbd "TAB") nil)
-  ;; (define-key yas-minor-mode-map (kbd "<the new key>") 'yas-expand)
-  (define-key yas-minor-mode-map "(" 'yas-expand)
-  ;; (define-key yas-minor-mode-map "SPC" 'yas-expand)
-  (define-key yas-minor-mode-map " " 'yas-expand)
+  (require 'bind-key "bind-key" 'noerr)
+  (bind-keys :map yas-keymap
+             ("C-M-i" . yas-skip-and-clear-or-delete-char)
+             ("," . self-insert-command)
+             ([(tab)] . yas-next-field-or-maybe-expand)
+             ([(shift ?\t)] . yas-prev-field))
+  (bind-keys :map yas-minor-mode-map
+             ("<tab>" . nil)
+             ("TAB" . nil)
+             ("(" . yas-expand)
+             ("SPC" . yas-expand)
+             )
+  (bind-keys :map snippet-mode-map
+             ("C-s" 'yas-load-snippet-buffer))
   (defadvice yas-load-snippet-buffer
       (before save-yas-load-snippet-buffer activate)
     (when (buffer-modified-p)
@@ -191,18 +191,8 @@
     )
   ;; (progn (ad-disable-advice 'yas-load-snippet-buffer 'before 'save-yas-load-snippet-buffer) (ad-update 'yas-load-snippet-buffer))
   ;; snippet mode
-  (define-key snippet-mode-map "\C-s" 'yas-load-snippet-buffer)
-  (setq next-line-add-newlines t))
-
-(use-package auto-yasnippet
-  ;; :disabled
-  :defer
-  :commands
-  (create-auto-yasnippet expand-auto-yasnippet)
-  :init
-  :config
-  (message "Loading \"auto-yasnippet\"")
-  )
+  ;; (setq next-line-add-newlines t)
+  (yas-global-mode 1))
 
 
 

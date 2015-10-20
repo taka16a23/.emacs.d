@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:26:12 2012 (+0900)
-;; Last-Updated:2015/10/19 12:56:41 (+0900)
+;; Last-Updated:2015/10/19 15:47:44 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -49,6 +49,7 @@
 (use-package undo-tree
   ;; :disabled
   ;; :defer
+  :commands global-undo-tree-mode undo-tree-mode
   :init
   :config
   (message "Loading \"undo-tree\"")

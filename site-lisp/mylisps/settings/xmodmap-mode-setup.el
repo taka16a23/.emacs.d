@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:29:16 2012 (+0900)
-;; Last-Updated:2015/10/13 22:31:26 (+0900)
+;; Last-Updated:2015/10/19 16:04:07 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -48,14 +48,12 @@
 (use-package xmodmap-mode
   ;; :disabled
   :defer
-  :commands
-  (xmodmap-mode)
+  :commands xmodmap-mode
   :init
   :mode
   ((".Xmodmap" . xmodmap-mode))
   :config
   (message "Loading \"xmodmap-mode\"")
-
   )
 
 
@@ -66,5 +64,3 @@
 ;; coding: utf-8
 ;; End:
 ;;; xmodmap-mode-setup.el ends here
-
-

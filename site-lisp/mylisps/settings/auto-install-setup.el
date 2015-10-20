@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:25:35 2012 (+0900)
-;; Last-Updated:2015/10/19 13:44:52 (+0900)
+;; Last-Updated:2015/10/19 14:24:53 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -50,6 +50,7 @@
   (require 'environment-setup "environment-setup" 'noerr)
   (require 'package "package" 'noerr)
   (package-initialize)
+  (declare-function eieio--generic-subclass-specializers "eieio")
   )
 
 (use-package auto-install

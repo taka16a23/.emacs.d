@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:26:18 2012 (+0900)
-;; Last-Updated:2015/10/14 23:32:39 (+0900)
+;; Last-Updated:2015/10/20 01:28:57 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -56,16 +56,6 @@
   (require 'grep "grep" 'noerr)
   (require 'use-package "use-package" 'noerr))
 
-(use-package grep-edit
-  ;; :disabled
-  :defer
-  :commands
-  (grep-edit-finish-edit grep-edit-remove-change grep-edit-remove-all-change)
-  :init
-  :config
-  (message "Loading \"grep-edit\"")
-  )
-
 (use-package grep
   ;; :disabled
   :defer
@@ -74,7 +64,6 @@
   :init
   :config
   (message "Loading \"grep\"")
-  (require 'grep-edit)
   (setq grep-host-defaults-alist nil)
   (custom-set-variables
    '(grep-find-command
@@ -82,13 +71,30 @@
    '(grep-edit-change-readonly-file t))
   (bind-keys :map grep-mode-map
              ("C-c C-c" . grep-edit-finish-save)
-             ("C-s" . grep-edit-finish-save)
              ("C-c C-r" . grep-edit-remove-change)
              ("C-c C-a" . grep-edit-remove-all-change)
              ("n" . next-line)
              ("v" . next-line)
              ("k" . previous-line)
              ("d" . previous-line))
+  (use-package grep-edit
+    ;; :disabled
+    ;; :defer
+    :commands
+    (grep-edit-finish-edit grep-edit-remove-change grep-edit-remove-all-change)
+    :init
+    (bind-keys :map grep-mode-map
+               ("C-s" . grep-edit-finish-save))
+    :config
+    (message "Loading \"grep-edit\"")
+    (defun grep-edit-finish-save (save) ;[2014/09/05]
+      "SAVE"
+      (interactive "p")
+      (grep-edit-finish-edit)
+      (when (or (= save 4) (y-or-n-p "Save some buffer? "))
+        (let ((inhibit-read-only t))
+          (save-some-buffers 'noquetion))))
+    )
   )
 
 

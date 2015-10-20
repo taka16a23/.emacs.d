@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/11/02 16:07:41 (+0900)
-;; Last-Updated:2015/10/19 13:42:25 (+0900)
+;; Last-Updated:2015/10/21 03:30:12 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -46,10 +46,49 @@
   (require 'use-package "use-package" 'noerr)
   (require 'bind-key "bind-key" 'noerr)
   (require 't1-bind-key "t1-bind-key" 'noerr)
+  (declare-function t1-edit-bind-keys "t1-bind-key")
   (require 'auto-highlight-symbol "auto-highlight-symbol" 'noerr)
   (require 'package "package" 'noerr)
   (package-initialize)
   )
+
+(defun py:def-start-point () ;[2015/07/25]
+  ""
+  (car (py:region-def)))
+
+(defun py:def-end-point () ;[2015/07/25]
+  ""
+  (cdr (py:region-def)))
+
+(defun py:class-start-point () ;[2015/07/25]
+  ""
+  (car (py:region-class)))
+
+(defun py:class-end-point () ;[2015/07/25]
+  ""
+  (cdr (py:region-class)))
+
+;;;###autoload
+(defun ahs-edit-mode-tmp-whole-buffer () ;[2015/07/25]
+  "ARG
+%OPTIONAL
+TEMPORARY"
+  (interactive)
+  (ahs-onekey-edit-function 'whole-buffer nil)
+  )
+
+;;;###autoload
+(defun py:ahs-edit-mode-def-region () ;[2015/07/25]
+  ""
+  (interactive)
+  (ahs-onekey-edit-function 'pythondef nil)
+  )
+
+;;;###autoload
+(defun py:ahs-edit-mode-class-region () ;[2015/07/25]
+  ""
+  (interactive)
+  (ahs-onekey-edit-function 'pythonclass nil))
 
 (use-package auto-highlight-symbol
   ;; :disabled
@@ -59,6 +98,9 @@
   (auto-highlight-symbol-mode
    global-auto-highlight-symbol-mode
    ahs-edit-mode
+   ahs-change-range
+   ahs-called-interactively-p
+   ahs-idle-function
    ahs-onekey-edit-function)
   :init
   (t1-edit-bind-keys
@@ -92,30 +134,6 @@
    'ahs-plugin-defalt-face '((t (:forground "Black" :background "skyblue"))))
   (global-auto-highlight-symbol-mode 1)
   )
-
-;; auto-highlight-symbol
-;; ahs-edit-mode
-;;;###autoload
-(defun ahs-edit-mode-tmp-whole-buffer () ;[2015/07/25]
-  "ARG
-%OPTIONAL
-TEMPORARY"
-  (interactive)
-  (ahs-onekey-edit-function 'whole-buffer nil)
-  )
-
-;;;###autoload
-(defun py:ahs-edit-mode-def-region () ;[2015/07/25]
-  ""
-  (interactive)
-  (ahs-onekey-edit-function 'pythondef nil)
-  )
-
-;;;###autoload
-(defun py:ahs-edit-mode-class-region () ;[2015/07/25]
-  ""
-  (interactive)
-  (ahs-onekey-edit-function 'pythonclass nil))
 
 
 

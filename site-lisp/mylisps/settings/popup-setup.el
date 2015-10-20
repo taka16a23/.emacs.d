@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/11/01 18:21:10 (+0900)
-;; Last-Updated:2015/10/19 13:45:33 (+0900)
+;; Last-Updated:2015/10/19 15:45:20 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -56,7 +56,9 @@
   :init
   :config
   (message "Loading \"popup\"")
-  (define-key popup-menu-keymap "\C-k" 'popup-previous)
+  (require 'bind-key "bind-key" 'noerr)
+  (bind-keys :map popup-menu-keymap
+             ("C-k" . popup-previous))
   )
 
 

@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/11/02 16:13:20 (+0900)
-;; Last-Updated:2015/10/19 13:24:09 (+0900)
+;; Last-Updated:2015/10/21 04:12:37 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -57,6 +57,27 @@
   (declare-function dired-goto-file "dired+")
   (require 'package "package" 'noerr)
   (package-initialize)
+  )
+
+;; borrow from dired-aux.el
+(defun py:dired-create-directory (directory) ;[2014/01/16]
+  "DIRECTORY"
+  (interactive
+   (list (read-file-name "Create directory: " (dired-current-directory))))
+  (let* ((expanded (directory-file-name (expand-file-name directory)))
+         (try expanded) new)
+    (if (file-exists-p expanded)
+        (error "Cannot create directory %s: file exists" expanded))
+    ;; Find the topmost nonexistent parent dir (variable `new')
+    (while (and try (not (file-exists-p try)) (not (equal new try)))
+      (setq new try
+            try (directory-file-name (file-name-directory try))))
+    ;; (make-directory expanded t)
+    (make-directory (concat (file-name-as-directory expanded) "tests") t)
+    (shell-command
+     (concat "touch " (file-name-as-directory expanded) "tests/__init__.py"))
+    (find-file (expand-file-name "__init__.py" expanded))
+    )
   )
 
 (use-package dired

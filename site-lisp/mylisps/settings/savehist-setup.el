@@ -5,7 +5,7 @@
 ;; Author:       Atami
 ;; Maintainer:   Atami
 ;; Version:      1.0
-;; Last-Updated:2015/10/15 17:00:47 (+0900)
+;; Last-Updated:2015/10/19 14:39:47 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -47,7 +47,6 @@
   :commands
   (savehist-mode)
   :init
-
   :config
   (message "Loading \"savehist\"")
   (savehist-mode 1)

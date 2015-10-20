@@ -5,7 +5,7 @@
 ;; Author:       Atami
 ;; Maintainer:   Atami
 ;; Version:      1.0
-;; Last-Updated:2015/10/15 16:22:16 (+0900)
+;; Last-Updated:2015/10/19 16:03:28 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -44,8 +44,7 @@
 (use-package syslog-mode
   ;; :disabled
   :defer
-  :commands
-  (syslog-mode)
+  :commands syslog-mode
   :mode
   (("\\(messages\\(\\.[0-9]\\)?\\|SYSLOG\\)\\'" . syslog-mode))
   :init

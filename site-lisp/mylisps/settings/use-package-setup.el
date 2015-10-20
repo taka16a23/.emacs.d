@@ -5,7 +5,7 @@
 ;; Author:       Atami
 ;; Maintainer:   Atami
 ;; Version:      1.0
-;; Last-Updated:2015/10/16 01:41:13 (+0900)
+;; Last-Updated:2015/10/19 18:38:17 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -44,8 +44,7 @@
 (use-package use-package
   ;; :disabled
   :defer 200
-  :commands
-  (use-package)
+  :commands use-package
   :init
   :config
   (message "Loading \"use-package\"")

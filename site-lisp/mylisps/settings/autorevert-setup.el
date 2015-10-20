@@ -5,7 +5,7 @@
 ;; Author:       Atami
 ;; Maintainer:   Atami
 ;; Version:      1.0
-;; Last-Updated:2015/10/15 17:08:17 (+0900)
+;; Last-Updated:2015/10/19 15:38:51 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -41,15 +41,14 @@
 (eval-when-compile
   (require 'use-package "use-package" 'noerr))
 
-(use-package authorevert
+(use-package autorevert
   ;; :disabled
   :defer 30
-  :commands
-  (global-auto-revert-mode)
+  :commands global-auto-revert-mode
   :init
   :config
   (message "Loading \"authorevert\"")
-  (global-auto-revert-mode)
+  (global-auto-revert-mode 1)
   )
 
 

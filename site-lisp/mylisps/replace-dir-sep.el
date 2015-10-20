@@ -1,12 +1,12 @@
-;;; isearch-setup.el ---   snippet
+;;; replace-dir-sep.el ---   key bind setting
 ;;
 ;; Copyright (C) 2012 Atami
 ;;
 ;; Author:       Atami
 ;; Maintainer:   Atami
 ;; Version:      1.0
-;; Created:      Sun Dec  9 18:26:29 2012 (+0900)
-;; Last-Updated:2015/10/16 13:37:40 (+0900)
+;; Created:      Sun Dec  9 18:25:06 2012 (+0900)
+;; Last-Updated:2015/10/20 02:43:25 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -36,24 +36,40 @@
 ;;  ===========
 ;;
 ;;
+;;
 ;;; Code:
 
 
-(eval-when-compile
-  (require 'bind-key "bind-key" 'noerr))
+;;;###autoload
+(defun replace-dir-sep ()
+  "replace-dir-sep"
+  (interactive)
+  (query-replace "\\" "\\\\"))
 
-(bind-keys :map global-map
-          ("C-f" . isearch-forward))
-(bind-keys :map isearch-mode-map
-           ("C-f" . isearch-repeat-forward)
-           ("C-j" . isearch-delete-char)
-           ("C-t" . isearch-toggle-regexp))
+;;;; replace directory separator
+;;
+(autoload 'replace-string "replace")
+;;;###autoload
+(defun rep-dir-sep (start end)
+  "Replace directory separator.
+START: start of region
+END: end of region"
+  (interactive "r")
+  (save-excursion
+    (cond
+     ((save-excursion (search-backward "\\\\" start 'noerror))
+      (replace-string "\\\\" "/" nil start end))
+     ((save-excursion (search-backward "\\" start 'noerror))
+      (replace-string "\\" "\\\\" nil start end))
+     ((save-excursion (search-backward "/" start 'noerror))
+      (replace-string "/" "\\" nil start end))
+     )))
 
 
 
-(provide 'isearch-setup)
+(provide 'replace-dir-sep)
 ;; For Emacs
 ;; Local Variables:
 ;; coding: utf-8
 ;; End:
-;;; isearch-setup.el ends here
+;;; replace-dir-sep.el ends here

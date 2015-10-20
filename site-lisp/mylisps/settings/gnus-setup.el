@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Thu Dec 13 23:14:00 2012 (+0900)
-;; Last-Updated:2015/10/13 22:12:02 (+0900)
+;; Last-Updated:2015/10/19 18:36:19 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -49,53 +49,46 @@
   ;; :disabled
   :defer
   :init
-
   :config
   (message "Loading \"gnus\"")
-  (face-spec-set 'gnus-group-mail-1-empty-face '((t (:foreground "aquamarine1"))))
-  (face-spec-set 'gnus-group-mail-1-face '((t (:bold t :foreground "aquamarine1"))))
-  (face-spec-set 'gnus-group-mail-2-empty-face '((t (:foreground "aquamarine2"))))
-  (face-spec-set 'gnus-group-mail-2-face '((t (:bold t :foreground "aquamarine2"))))
-  (face-spec-set 'gnus-group-mail-3-empty-face '((t (:foreground "aquamarine3"))))
-  (face-spec-set 'gnus-group-mail-3-face '((t (:bold t :foreground "aquamarine3"))))
-  (face-spec-set 'gnus-group-mail-low-empty-face '((t (:foreground "aquamarine4"))))
-  (face-spec-set 'gnus-group-mail-low-face '((t (:bold t :foreground "aquamarine4"))))
-  (face-spec-set 'gnus-group-news-1-empty-face '((t (:foreground "PaleTurquoise"))))
-  (face-spec-set 'gnus-group-news-1-empty-face '((t (:foreground "PaleTurquoise"))))
-  (face-spec-set 'gnus-group-news-2-empty-face '((t (:foreground "turquoise"))))
-  (face-spec-set 'gnus-group-news-2-face '((t (:bold t :foreground "turquoise"))))
-  (face-spec-set 'gnus-group-news-3-empty-face '((t (nil))))
-  (face-spec-set 'gnus-group-news-3-face '((t (:bold t))))
-  (face-spec-set 'gnus-group-news-4-empty-face '((t (nil))))
-  (face-spec-set 'gnus-group-news-4-face '((t (:bold t))))
-  (face-spec-set 'gnus-group-news-5-empty-face '((t (nil))))
-  (face-spec-set 'gnus-group-news-5-face '((t (:bold t))))
-  (face-spec-set 'gnus-group-news-6-empty-face '((t (nil))))
-  (face-spec-set 'gnus-group-news-6-face '((t (:bold t))))
-  (face-spec-set 'gnus-group-news-low-empty-face
-                 '((t (:foreground "DarkTurquoise"))))
-  (face-spec-set 'gnus-group-news-low-face
-                 '((t (:bold t :foreground "DarkTurquoise"))))
-  (face-spec-set 'gnus-splash-face '((t (:foreground "Brown"))))
-  (face-spec-set 'gnus-summary-cancelled-face
-                 '((t (:background "black" :foreground "yellow"))))
-  (face-spec-set 'gnus-summary-high-ancient-face
-                 '((t (:bold t :foreground "SkyBlue"))))
-  (face-spec-set 'gnus-summary-high-read-face
-                 '((t (:bold t :foreground "PaleGreen"))))
-  (face-spec-set 'gnus-summary-high-ticked-face '((t (:bold t :foreground "pink"))))
-  (face-spec-set 'gnus-summary-high-unread-face '((t (:bold t))))
-  (face-spec-set 'gnus-summary-low-ancient-face
-                 '((t (:italic t :foreground "SkyBlue"))))
-  (face-spec-set 'gnus-summary-low-read-face
-                 '((t (:italic t :foreground "PaleGreen"))))
-  (face-spec-set 'gnus-summary-low-ticked-face '((t (:italic t :foreground "pink"))))
-  (face-spec-set 'gnus-summary-low-unread-face '((t (:italic t))))
-  (face-spec-set 'gnus-summary-normal-ancient-face '((t (:foreground "SkyBlue"))))
-  (face-spec-set 'gnus-summary-normal-read-face '((t (:foreground "PaleGreen"))))
-  (face-spec-set 'gnus-summary-normal-ticked-face '((t (:foreground "pink"))))
-  (face-spec-set 'gnus-summary-normal-unread-face '((t (nil))))
-  (face-spec-set 'gnus-summary-selected-face '((t (:underline t))))
+  (custom-set-faces
+   '(gnus-group-mail-1-empty-face ((t (:foreground "aquamarine1"))))
+   '(gnus-group-mail-1-face ((t (:bold t :foreground "aquamarine1"))))
+   '(gnus-group-mail-2-empty-face ((t (:foreground "aquamarine2"))))
+   '(gnus-group-mail-2-face ((t (:bold t :foreground "aquamarine2"))))
+   '(gnus-group-mail-3-empty-face ((t (:foreground "aquamarine3"))))
+   '(gnus-group-mail-3-face ((t (:bold t :foreground "aquamarine3"))))
+   '(gnus-group-mail-low-empty-face ((t (:foreground "aquamarine4"))))
+   '(gnus-group-mail-low-face ((t (:bold t :foreground "aquamarine4"))))
+   '(gnus-group-news-1-empty-face ((t (:foreground "PaleTurquoise"))))
+   '(gnus-group-news-1-empty-face ((t (:foreground "PaleTurquoise"))))
+   '(gnus-group-news-2-empty-face ((t (:foreground "turquoise"))))
+   '(gnus-group-news-2-face ((t (:bold t :foreground "turquoise"))))
+   '(gnus-group-news-3-empty-face ((t (nil))))
+   '(gnus-group-news-3-face ((t (:bold t))))
+   '(gnus-group-news-4-empty-face ((t (nil))))
+   '(gnus-group-news-4-face ((t (:bold t))))
+   '(gnus-group-news-5-empty-face ((t (nil))))
+   '(gnus-group-news-5-face ((t (:bold t))))
+   '(gnus-group-news-6-empty-face ((t (nil))))
+   '(gnus-group-news-6-face ((t (:bold t))))
+   '(gnus-group-news-low-empty-face ((t (:foreground "DarkTurquoise"))))
+   '(gnus-group-news-low-face ((t (:bold t :foreground "DarkTurquoise"))))
+   '(gnus-splash-face ((t (:foreground "Brown"))))
+   '(gnus-summary-cancelled-face ((t (:background "black" :foreground "yellow"))))
+   '(gnus-summary-high-ancient-face ((t (:bold t :foreground "SkyBlue"))))
+   '(gnus-summary-high-read-face ((t (:bold t :foreground "PaleGreen"))))
+   '(gnus-summary-high-ticked-face ((t (:bold t :foreground "pink"))))
+   '(gnus-summary-high-unread-face ((t (:bold t))))
+   '(gnus-summary-low-ancient-face ((t (:italic t :foreground "SkyBlue"))))
+   '(gnus-summary-low-read-face ((t (:italic t :foreground "PaleGreen"))))
+   '(gnus-summary-low-ticked-face ((t (:italic t :foreground "pink"))))
+   '(gnus-summary-low-unread-face ((t (:italic t))))
+   '(gnus-summary-normal-ancient-face ((t (:foreground "SkyBlue"))))
+   '(gnus-summary-normal-read-face ((t (:foreground "PaleGreen"))))
+   '(gnus-summary-normal-ticked-face ((t (:foreground "pink"))))
+   '(gnus-summary-normal-unread-face ((t (nil))))
+   '(gnus-summary-selected-face ((t (:underline t)))))
   )
 
 
@@ -106,5 +99,3 @@
 ;; coding: utf-8
 ;; End:
 ;;; gnus-setup.el ends here
-
-

@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/12/05 18:28:52 (+0900)
-;; Last-Updated:2015/10/19 13:44:10 (+0900)
+;; Last-Updated:2015/10/19 15:41:00 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -59,8 +59,7 @@
   ;; :disabled
   :defer
   :ensure t
-  :commands
-  (flycheck-mode)
+  :commands flycheck-mode
   :diminish flycheck-mode ;hide from modeline
   :init
   (add-hook 'c-mode-common-hook 'flycheck-mode 'append)

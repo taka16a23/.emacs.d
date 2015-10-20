@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Fri Dec 28 18:19:29 2012 (+0900)
-;; Last-Updated:2015/10/15 02:38:27 (+0900)
+;; Last-Updated:2015/10/21 01:54:05 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -44,6 +44,9 @@
 
 (eval-when-compile
   (require 'use-package "use-package" 'noerr))
+
+(require 'environment-setup "environment-setup" 'noerr)
+(require 'py-environment-setup "py-environment-setup" 'noerr)
 
 (use-package pylookup
   ;; :disabled

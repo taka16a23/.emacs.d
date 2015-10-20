@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:28:55 2012 (+0900)
-;; Last-Updated:2015/10/13 21:50:43 (+0900)
+;; Last-Updated:2015/10/19 16:06:12 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -51,8 +51,7 @@
 (use-package crontab-mode
   ;; :disabled
   :defer
-  :commands
-  (crontab-mode)
+  :commands crontab-mode
   :init
   :mode
   (("\\.cron\\(tab\\)?\\'" . crontab-mode)
@@ -69,5 +68,3 @@
 ;; coding: utf-8
 ;; End:
 ;;; crontab-mode-setup.el ends here
-
-

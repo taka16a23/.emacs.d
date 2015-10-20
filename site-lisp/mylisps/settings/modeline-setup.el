@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:
-;; Last-Updated:2015/10/19 12:49:07 (+0900)
+;; Last-Updated:2015/10/19 23:34:01 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -77,19 +77,12 @@
                 ))
 
 ;; mode-line
-(face-spec-set 'modeline
-               '((t (:bold t :background "chartreuse1" :foreground "black"))))
-(face-spec-set 'mode-line-inactive
-               '((t (:bold nil :background "grey30" :foreground "grey80"))))
-;; (face-spec-set 'modeline-buffer-id
-;; '((t (:bold nil :background "black" :foreground "white"))))
-;; (face-spec-set 'modeline-buffer-id
-;; '((t (:bold t :foreground "black"))))
-(face-spec-set 'modeline-mousable
-               '((t (:background "white" :foreground "white"))))
-(face-spec-set 'modeline-mousable-minor-mode
-               '((t (:background "white" :foreground "white"))))
-
+(custom-set-faces
+ '(modeline ((t (:bold t :background "chartreuse1" :foreground "black"))))
+ '(mode-line-inactive ((t (:bold nil :background "grey30" :foreground "grey80"))))
+ ;; '(modeline-buffer-id ((t (:bold nil :background "black" :foreground "white")))))
+ '(modeline-mousable ((t (:background "white" :foreground "white"))))
+ '(modeline-mousable-minor-mode ((t (:background "white" :foreground "white")))))
 
 (defun mode-line-point-on ()
   "Set viewable point in mode line."
@@ -124,8 +117,6 @@
 		  "%2@"  ;mode-line-remote
 		  mode-name
 		  )))
-
-(defvar orig-mode-line-format nil)
 
 (defun toggle-mode-line ()
   "Toggle-mode-line."
