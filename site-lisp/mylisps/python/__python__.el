@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/09/28 04:25:07 (+0900)
-;; Last-Updated: 2015/10/06 12:56:41 (+0900)
+;; Last-Updated:2015/10/21 04:12:28 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -2530,7 +2530,6 @@ CONTRACT: If non-nil, contract to internal paren."
         ;; for bug fix that cannot return def position
         (or (looking-at "\\_<def\\_>") (py:beginning-of-def 1))))))
 
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;; refact
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -2789,7 +2788,6 @@ NAMES"
             (delete-region (match-beginning 0) (match-end 0))
             (insert import)))))))
 
-
 (defun py:refact-list-flat (&optional nospace)
   ""
   (interactive "*")
@@ -2929,18 +2927,18 @@ MAXLEN: Maximum line length, default 80 by PEP8."
   ""
   )
 
-(defun py:yas/format ()
+(defun py:yas-format ()
   ""
   (interactive "*")
   (insert "strformat")
-  (yas/expand))
+  (yas-expand))
 
 (defun py:string-cmd ()
   ""
   (interactive "*")
   (cond ((eq (py:what-face-at) 'font-lock-string-face)
          (py:quote|double-toggle))
-        ((looking-at "[ \t]") (py:yas/format))
+        ((looking-at "[ \t]") (py:yas-format))
         (t (py:wrap-byquote))))
 
 ;;; merge functions
@@ -3016,7 +3014,6 @@ MAXLEN: Maximum line length, default 80 by PEP8."
                (setq in t))))
       (when in
         symbol))))
-
 
 ;; TODO: (Atami) [2013/10/31]
 (defvar py:seq-point)
@@ -3101,12 +3098,9 @@ MAXLEN: Maximum line length, default 80 by PEP8."
                             (pop-mark)))
                    )))))))
 
-
-
 (defun py:edit-parm-in-minibuffer ()
   ""
   (interactive))
-
 
 (defmacro line-column ()
   "Return line end point column."
@@ -3142,7 +3136,6 @@ MAXLEN: Maximum line length, default 80 by PEP8."
         (insert char "\n" (make-string indent 32) char)
         ))))
 
-
 (defun py:extract-variable (varname start end) ;[2013/11/03]
   "VARNAME"
   (interactive "MVariables name: \nr")
@@ -3176,8 +3169,6 @@ MAXLEN: Maximum line length, default 80 by PEP8."
       (when (and (save-excursion (search-forward assignment nil 'noerr))
                  (y-or-n-p (concat "replace " assignment " => " varname)))
         (query-replace assignment varname)))))
-
-
 
 (defun py:is-acceptable-varname (names) ;[2013/11/04]
   "NAMES"
@@ -3235,7 +3226,6 @@ MAXLEN: Maximum line length, default 80 by PEP8."
            ;; (py-newline-and-indent)
            )))
 
-
 (defun py:refact-join-multi-assign () ;[2013/11/27]
   ""
   (interactive "*")
@@ -3288,6 +3278,37 @@ MAXLEN: Maximum line length, default 80 by PEP8."
       (and region
            (< (car region) orig)
            (< orig (cdr region))))))
+
+(defun py:current-defname () ;[2015/02/11]
+  ""
+  (when (py:in-def-p)
+    (py:beginning-of-def 1))
+  (when (py:at-beginning-of-def-p)
+    (re-search-forward py:def-name-re nil 'noerror)
+    (match-string-no-properties 1)))
+
+(defun py:kill-line (arg)
+  "If line is blank, delete all surrounding blank lines, leaving just one.
+ARG:
+On isolated blank line, delete that one.
+On nonblank line, kill whole line."
+  (interactive "P*")
+  (cond (mark-active
+         (cua-cut-region arg))
+        ((progn (beginning-of-line) (looking-at "\\(?:def\\|class\\)"))
+         (kill-whole-line))
+        ((save-excursion
+           (re-search-backward "[^ \t\n]" nil 'noerror)
+           (forward-line 1)
+           (looking-at "^[ \t\n]+[\n\r]\\(?:def\\|class\\)"))
+         (if (eq last-command this-command)
+             (progn (delete-blank-lines) (kill-whole-line))
+           (delete-blank-lines)
+           (save-excursion (insert "\n"))))
+        ((progn (beginning-of-line) (looking-at "[ \t]*$"))
+         (delete-blank-lines))
+        (t
+         (kill-whole-line))))
 
 
 

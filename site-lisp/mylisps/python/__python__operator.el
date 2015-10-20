@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2015/10/05 13:03:20 (+0900)
-;; Last-Updated: 2015/10/06 12:38:45 (+0900)
+;; Last-Updated:2015/10/21 03:13:39 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -247,6 +247,89 @@ N"
           ((looking-back "|" 1)
            (insert "| "))
           (t (insert " | ")))))
+
+;;;###autoload
+(defun py:: (n)
+  "ARGS"
+  (interactive "p")
+  (cond ((py:at-string|comment-p)
+         (insert (make-string n ?:)))
+        ((py:in-curly-p)
+         (save-restriction
+           (py:narrow-to-curly t)
+           (save-excursion
+             (end-of-line)
+             (skip-chars-backward " \t")
+             (when (not (looking-back ","))
+               (insert ",")))
+           (insert ": ")
+           (fixup-whitespace)
+           (skip-chars-forward " \t"))
+         )
+        (t (insert (make-string n ?:))))
+  )
+
+
+;; TODO: (Atami) [2015/10/21]
+;; not completed impremented
+(defun py:transpose-ope ()
+  (interactive)
+  (cond ((member (thing-at-point 'symbol) '("and" "is" "or"))
+         (py:-transpose-by-operation2))
+        ((looking-at
+          "\\(+\\|=\\|-\\|*\\|&\\|%\\||\\|\\^\\|>>\\|<<\\|<\\|<=\\|>\\|>=\\|==\\|!=\\)")
+         (py:-transpose-by-operation))
+        (t (message "tes"))))
+
+(defvar skip-ope "\\(+\\|=\\|-\\|*\\|&\\|%\\||\\|\\^\\|>>\\|<<\\|<\\|<=\\|>\\|>=\\|==\\|!=\\)")
+(defvar py-trance-re "[ \t]*\\(+\\|=\\|:\\|-\\|*\\|&\\|%\\||\\|\\^\\|>>\\|<<\\|<\\|<=\\|>\\|>=\\|==\\|!=\\|\\_<\\(?:\\(?:and\\|el\\(?:if\\|se\\)\\|if\\|not\\|or\\)\\)\\_>\\)[ \t]*")
+
+(defun py:-transpose-by-operation ()
+  "by-operation"
+  (let (startr1 endr1 startr2 endr2)
+    (save-excursion
+      (setq endr1 (progn
+                    (skip-chars-backward skip-ope)
+                    (skip-chars-backward "[ \t]")
+                    (point)))
+      (setq startr1 (progn
+                      (re-search-backward py-trance-re nil 'noerror)
+                      (match-end 0))))
+    (save-excursion
+      (setq startr2 (progn
+                      (skip-chars-forward skip-ope)
+                      (skip-chars-forward "[ \t]")
+                      (point)))
+      (setq endr2 (progn
+                    (re-search-forward py-trance-re nil 'noerror)
+                    (match-beginning 0))))
+    (transpose-regions startr1 endr1 startr2 endr2)
+    ))
+
+(defvar py-trance-re2 "[ \t]*\\(:\\|\\_<\\(?:\\(?:and\\|el\\(?:if\\|se\\)\\|if\\|or\\)\\)\\_>\\)[ \t]*")
+
+(defun py:-transpose-by-operation2 ()
+  "by-operation"
+  (let (startr1 endr1 startr2 endr2)
+    (save-excursion
+      (setq endr1 (progn
+                    (unless (looking-at "\\_<")
+                      (backward-sexp))
+                    (skip-chars-backward "[ \t]")
+                    (point)))
+      (setq startr1 (progn
+                      (re-search-backward py-trance-re2 nil 'noerror)
+                      (match-end 0))))
+    (save-excursion
+      (setq startr2 (progn
+                      (forward-sexp)
+                      (skip-chars-forward "[ \t]")
+                      (point)))
+      (setq endr2 (progn
+                    (re-search-forward py-trance-re2 nil 'noerror)
+                    (match-beginning 0))))
+    (transpose-regions startr1 endr1 startr2 endr2)
+    ))
 
 
 
