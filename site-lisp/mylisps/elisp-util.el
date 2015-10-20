@@ -5,7 +5,7 @@
 ;; Author:       Atami
 ;; Maintainer:   Atami
 ;; Version:      1.0
-;; Last-Updated:2015/10/18 21:58:08 (+0900)
+;; Last-Updated:2015/10/20 01:42:54 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -82,6 +82,27 @@ N"
     (self-insert-command n)
     (indent-for-tab-command)
     ))
+
+(defalias 'symf 'symbol-file)
+(defalias 're-in-string 'string-match)
+(defalias 'symbol-to-string 'symbol-name)
+(defalias 'expandmacro 'macroexpand)
+(defalias 'expand-macro 'macroexpand)
+(defalias 'macro-expand 'macroexpand)
+
+;;;; for debug
+;;
+;;;###autoload
+(defun debug-on ()
+  "Debug mode on."
+  (interactive)
+  (setq debug-on-error t))
+
+;;;###autoload
+(defun degug-off ()
+  "Debug mode off."
+  (interactive)
+  (setq debug-on-error nil))
 
 
 

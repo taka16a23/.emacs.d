@@ -6,7 +6,7 @@
 ;; Maintainer:
 ;; Version:
 ;; Created: 2015/10/11 07:41:15 (+0900)
-;; Last-Updated:2015/10/17 00:39:32 (+0900)
+;; Last-Updated:2015/10/20 02:06:59 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -42,6 +42,7 @@
 
 
 (require 'environment-setup "environment-setup" 'noerr)
+(require 't1-bind-key "t1-bind-key" 'noerr)
 
 (custom-set-variables
  '(backup-by-copying t)
@@ -65,7 +66,8 @@
             (list (cons "" (my-backup-dir-get)))))
 
 ;; Copy linked files, don't rename.
-(setq backup-by-copying-when-linked t)
+(custom-set-variables
+ '(backup-by-copying-when-linked t))
 
 (defsubst force-backup-of-buffer ()
   "Force backup buffer."
@@ -74,6 +76,13 @@
       (backup-buffer))))
 
 (add-hook 'before-save-hook 'force-backup-of-buffer)
+
+(defadvice save-buffer
+    (before save-buffer-make-backup activate)
+  (when (called-interactively-p 'interactive)
+    (setq backup-inhibited nil))
+  )
+;; (progn (ad-disable-advice 'save-buffer 'before 'save-buffer-make-backup) (ad-update 'save-buffer)))
 
 (defvar avoid-old-backup-re "\\(png\\|jpg\\)$")
 
@@ -108,7 +117,6 @@
             (file-error (message "IO error in: %s" dir)))))
     (reverse tmp)))
 
-(require 't1-bind-key "t1-bind-key" 'noerr)
 (t1-ctl-x-bind-keys '(("C-b" . make-backup-revision)
                       ("b" . make-backup-revision)))
 

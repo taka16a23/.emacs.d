@@ -6,7 +6,7 @@
 ;; Maintainer:
 ;; Version:
 ;; Created: 2015/10/15 03:18:25 (+0900)
-;; Last-Updated:2015/10/15 03:22:38 (+0900)
+;; Last-Updated:2015/10/19 16:23:09 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -43,6 +43,8 @@
 
 (eval-when-compile
   (require 'use-package "use-package" 'noerr)
+  (require 'subroutines "subroutines" 'noerr)
+  (declare-function windows-p "subroutines")
   )
 
 (require 'subroutines "subroutines" 'noerr)
@@ -50,10 +52,8 @@
 (use-package bat-mode
   ;; :disabled
   :defer
-  :commands
-  (bat-mode)
-  :if
-  (windows-p)
+  :commands bat-mode
+  :if (windows-p)
   :mode
   (("\\.[bB][aA][tT]$" . bat-mode)
    ("CONFIG\\." . bat-mode)

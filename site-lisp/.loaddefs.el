@@ -1041,6 +1041,35 @@ Try window move up. If not exist window then split it vertically
 
 ;;;***
 
+;;;### (autoloads nil "mylisps/elisp-util" "mylisps/elisp-util.el"
+;;;;;;  (22053 7566 786901 17000))
+;;; Generated autoloads from mylisps/elisp-util.el
+
+(autoload 't1-elisp-find-tag "mylisps/elisp-util" "\
+In Emacs Lisp mode, one of these functions is called:
+`find-library', `find-variable', `find-face-definition',
+`find-function' and `find-tag'.
+
+\(fn)" t nil)
+
+(autoload 'right-parentheses-indent "mylisps/elisp-util" "\
+Insert right-parentheses then indent.
+N
+
+\(fn N)" t nil)
+
+(autoload 'debug-on "mylisps/elisp-util" "\
+Debug mode on.
+
+\(fn)" t nil)
+
+(autoload 'degug-off "mylisps/elisp-util" "\
+Debug mode off.
+
+\(fn)" t nil)
+
+;;;***
+
 ;;;### (autoloads nil "mylisps/filecache-ext" "mylisps/filecache-ext.el"
 ;;;;;;  (22043 9225 856326 511000))
 ;;; Generated autoloads from mylisps/filecache-ext.el
@@ -1236,7 +1265,7 @@ Purge package functions.
 ;;;***
 
 ;;;### (autoloads nil "mylisps/python-extensions" "mylisps/python-extensions.el"
-;;;;;;  (22029 57720 588050 931000))
+;;;;;;  (22053 10210 135102 423000))
 ;;; Generated autoloads from mylisps/python-extensions.el
 
 (autoload 'py-make-__all__-from-buffer "mylisps/python-extensions" "\
@@ -1410,6 +1439,53 @@ If rename, prompt delete old file.
 
 ;;;***
 
+;;;### (autoloads nil "mylisps/renumber" "mylisps/renumber.el" (22053
+;;;;;;  9557 664052 709000))
+;;; Generated autoloads from mylisps/renumber.el
+
+(autoload 'renumber "mylisps/renumber" "\
+Renumber the list items in the current paragraph,
+    starting at point.
+
+\(fn &optional NUM)" t nil)
+
+(autoload 'renumber-list "mylisps/renumber" "\
+Renumber the list items in the current START..END region.
+    If optional prefix arg NUM is given, start numbering from that number
+    instead of 1.
+
+\(fn START END &optional NUM)" t nil)
+
+(autoload 'increment-number-at-point "mylisps/renumber" "\
+
+
+\(fn)" t nil)
+
+(autoload 'decrement-number-at-point "mylisps/renumber" "\
+
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "mylisps/replace-dir-sep" "mylisps/replace-dir-sep.el"
+;;;;;;  (22053 11197 207177 632000))
+;;; Generated autoloads from mylisps/replace-dir-sep.el
+
+(autoload 'replace-dir-sep "mylisps/replace-dir-sep" "\
+replace-dir-sep
+
+\(fn)" t nil)
+
+(autoload 'rep-dir-sep "mylisps/replace-dir-sep" "\
+Replace directory separator.
+START: start of region
+END: end of region
+
+\(fn START END)" t nil)
+
+;;;***
+
 ;;;### (autoloads nil "mylisps/rest-room" "mylisps/rest-room.el"
 ;;;;;;  (22029 57720 589050 930000))
 ;;; Generated autoloads from mylisps/rest-room.el
@@ -1501,7 +1577,7 @@ Launch server after init.
 ;;;***
 
 ;;;### (autoloads nil "mylisps/settings/auto-complete-setup" "mylisps/settings/auto-complete-setup.el"
-;;;;;;  (22051 17984 32707 901000))
+;;;;;;  (22053 25284 409250 986000))
 ;;; Generated autoloads from mylisps/settings/auto-complete-setup.el
 
 (autoload 'auto-complete-stop&save "mylisps/settings/auto-complete-setup" "\
@@ -1512,8 +1588,8 @@ Auto complete stop and save.
 ;;;***
 
 ;;;### (autoloads nil "mylisps/settings/auto-highlight-symbol-setup"
-;;;;;;  "mylisps/settings/auto-highlight-symbol-setup.el" (22048
-;;;;;;  43686 713111 16000))
+;;;;;;  "mylisps/settings/auto-highlight-symbol-setup.el" (22052
+;;;;;;  36271 666094 723000))
 ;;; Generated autoloads from mylisps/settings/auto-highlight-symbol-setup.el
 
 (autoload 'ahs-edit-mode-tmp-whole-buffer "mylisps/settings/auto-highlight-symbol-setup" "\
@@ -1536,7 +1612,7 @@ TEMPORARY
 ;;;***
 
 ;;;### (autoloads nil "mylisps/settings/check-default-setup" "mylisps/settings/check-default-setup.el"
-;;;;;;  (22044 50087 705740 909000))
+;;;;;;  (22052 31783 322752 740000))
 ;;; Generated autoloads from mylisps/settings/check-default-setup.el
 
 (autoload 'default-el-update-var "mylisps/settings/check-default-setup" "\
@@ -1546,27 +1622,8 @@ update 09_check_default_start.el setting variables.
 
 ;;;***
 
-;;;### (autoloads nil "mylisps/settings/elisp-mode-setup" "mylisps/settings/elisp-mode-setup.el"
-;;;;;;  (22051 23483 849126 952000))
-;;; Generated autoloads from mylisps/settings/elisp-mode-setup.el
-
-(autoload 'my-find-tag "mylisps/settings/elisp-mode-setup" "\
-In Emacs Lisp mode, one of these functions is called:
-`find-library', `find-variable', `find-face-definition',
-`find-function' and `find-tag'.
-
-\(fn)" t nil)
-
-(autoload 'right-parentheses-indent "mylisps/settings/elisp-mode-setup" "\
-Insert right-parentheses then indent.
-N
-
-\(fn N)" t nil)
-
-;;;***
-
 ;;;### (autoloads nil "mylisps/settings/face-setup" "mylisps/settings/face-setup.el"
-;;;;;;  (22047 9799 128454 48000))
+;;;;;;  (22053 7859 294923 304000))
 ;;; Generated autoloads from mylisps/settings/face-setup.el
 
 (autoload 'toggle-max-window "mylisps/settings/face-setup" "\
@@ -1577,7 +1634,7 @@ N
 ;;;***
 
 ;;;### (autoloads nil "mylisps/settings/helm-setup" "mylisps/settings/helm-setup.el"
-;;;;;;  (22051 17322 639657 507000))
+;;;;;;  (22053 59799 689880 828000))
 ;;; Generated autoloads from mylisps/settings/helm-setup.el
 
 (autoload 'helm-my-edit "mylisps/settings/helm-setup" "\
@@ -1588,7 +1645,7 @@ N
 ;;;***
 
 ;;;### (autoloads nil "mylisps/settings/nosetests-setup" "mylisps/settings/nosetests-setup.el"
-;;;;;;  (22044 54184 154053 32000))
+;;;;;;  (22053 24015 528154 305000))
 ;;; Generated autoloads from mylisps/settings/nosetests-setup.el
 
 (autoload 'nosetests-mode-predefine "mylisps/settings/nosetests-setup" "\
@@ -1619,7 +1676,7 @@ ARGS
 ;;;***
 
 ;;;### (autoloads nil "mylisps/settings/open-junk-file-setup" "mylisps/settings/open-junk-file-setup.el"
-;;;;;;  (22048 32420 497252 603000))
+;;;;;;  (22052 39421 153334 693000))
 ;;; Generated autoloads from mylisps/settings/open-junk-file-setup.el
 
 (autoload 'cleanup-open-junk-files "mylisps/settings/open-junk-file-setup" "\
@@ -1641,7 +1698,7 @@ Python set environment.
 ;;;***
 
 ;;;### (autoloads nil "mylisps/settings/sdic-setup" "mylisps/settings/sdic-setup.el"
-;;;;;;  (22050 35646 722060 263000))
+;;;;;;  (22052 37318 699174 500000))
 ;;; Generated autoloads from mylisps/settings/sdic-setup.el
 
 (autoload 'my-sdic-describe-word-with-popup "mylisps/settings/sdic-setup" "\
@@ -1652,7 +1709,7 @@ Display the meaning of word.
 ;;;***
 
 ;;;### (autoloads nil "mylisps/settings/subroutines" "mylisps/settings/subroutines.el"
-;;;;;;  (22050 27165 976414 85000))
+;;;;;;  (22053 10561 804129 218000))
 ;;; Generated autoloads from mylisps/settings/subroutines.el
 
 (autoload 'list-matched-buffers "mylisps/settings/subroutines" "\
@@ -1663,7 +1720,7 @@ RE
 ;;;***
 
 ;;;### (autoloads nil "mylisps/settings/text-adjust-setup" "mylisps/settings/text-adjust-setup.el"
-;;;;;;  (22044 53649 287012 279000))
+;;;;;;  (22052 37340 837176 186000))
 ;;; Generated autoloads from mylisps/settings/text-adjust-setup.el
 
 (autoload 'text-adjust-space-before-save-if-needed "mylisps/settings/text-adjust-setup" "\
@@ -1674,7 +1731,7 @@ RE
 ;;;***
 
 ;;;### (autoloads nil "mylisps/settings/w3m-setup" "mylisps/settings/w3m-setup.el"
-;;;;;;  (22050 27151 975413 18000))
+;;;;;;  (22052 40105 116386 807000))
 ;;; Generated autoloads from mylisps/settings/w3m-setup.el
 
 (autoload 'w3m-browse-url-new-tab "mylisps/settings/w3m-setup" "\
@@ -1685,7 +1742,7 @@ RE
 ;;;***
 
 ;;;### (autoloads nil "mylisps/settings/yasnippet-setup" "mylisps/settings/yasnippet-setup.el"
-;;;;;;  (22046 37921 762316 350000))
+;;;;;;  (22053 620 244371 735000))
 ;;; Generated autoloads from mylisps/settings/yasnippet-setup.el
 
 (autoload 'yas-popup-isearch-prompt "mylisps/settings/yasnippet-setup" "\
@@ -1705,7 +1762,7 @@ RE
 ;;;***
 
 ;;;### (autoloads nil "mylisps/switch-buffer" "mylisps/switch-buffer.el"
-;;;;;;  (22047 17423 836271 197000))
+;;;;;;  (22051 54205 756467 763000))
 ;;; Generated autoloads from mylisps/switch-buffer.el
 
 (autoload 'switch-message "mylisps/switch-buffer" "\
@@ -1810,7 +1867,7 @@ MAPS
 ;;;***
 
 ;;;### (autoloads nil "mylisps/t1-simple" "mylisps/t1-simple.el"
-;;;;;;  (22047 55243 498998 147000))
+;;;;;;  (22053 7197 850872 906000))
 ;;; Generated autoloads from mylisps/t1-simple.el
 
 (autoload 'my-backward-seq "mylisps/t1-simple" "\
@@ -2008,6 +2065,16 @@ ARG
 
 \(fn ARG)" t nil)
 
+(autoload 'clear-overlays "mylisps/t1-simple" "\
+
+
+\(fn)" t nil)
+
+(autoload 'open-line-indent "mylisps/t1-simple" "\
+
+
+\(fn N)" t nil)
+
 ;;;***
 
 ;;;### (autoloads nil "mylisps/timestamp-insert" "mylisps/timestamp-insert.el"
@@ -2198,7 +2265,8 @@ Return t if FILE contains binary data.  If optional FULL is non-nil,
 ;;;;;;  "grep-edit.el" "initchart/initchart.el" "jaspace.el" "jedi-eldoc.el"
 ;;;;;;  "ll-debug.el" "mell.el" "mylisps/e2wm/e2wm_macro.el" "mylisps/linux-face.el"
 ;;;;;;  "mylisps/python/__python__.el" "mylisps/refactoring-elisp.el"
-;;;;;;  "mylisps/settings/Info-mode-setup.el" "mylisps/settings/align-setup.el"
+;;;;;;  "mylisps/settings/Info-mode-setup.el" "mylisps/settings/__python__-operator-setup.el"
+;;;;;;  "mylisps/settings/__python__-setup.el" "mylisps/settings/align-setup.el"
 ;;;;;;  "mylisps/settings/annotation-setup.el" "mylisps/settings/apropos-setup.el"
 ;;;;;;  "mylisps/settings/ascii-setup.el" "mylisps/settings/asm-mode-setup.el"
 ;;;;;;  "mylisps/settings/auto-async-byte-compile-setup.el" "mylisps/settings/auto-insert-setup.el"
@@ -2216,6 +2284,7 @@ Return t if FILE contains binary data.  If optional FULL is non-nil,
 ;;;;;;  "mylisps/settings/e2wm-setup.el" "mylisps/settings/edebug-setup.el"
 ;;;;;;  "mylisps/settings/edit-list-setup.el" "mylisps/settings/eldoc-setup.el"
 ;;;;;;  "mylisps/settings/elisp-mode-bind-key-setup.el" "mylisps/settings/elisp-mode-hooks-setup.el"
+;;;;;;  "mylisps/settings/elisp-mode-setup.el" "mylisps/settings/elisp-util-setup.el"
 ;;;;;;  "mylisps/settings/environment-setup.el" "mylisps/settings/eww-setup.el"
 ;;;;;;  "mylisps/settings/filecache-setup.el" "mylisps/settings/final-setup.el"
 ;;;;;;  "mylisps/settings/flycheck-setup.el" "mylisps/settings/flymake-setup.el"
@@ -2224,9 +2293,9 @@ Return t if FILE contains binary data.  If optional FULL is non-nil,
 ;;;;;;  "mylisps/settings/gnus-cite-setup.el" "mylisps/settings/gnus-setup.el"
 ;;;;;;  "mylisps/settings/grep-setup.el" "mylisps/settings/header2-setup.el"
 ;;;;;;  "mylisps/settings/help-mode-setup.el" "mylisps/settings/hideif-setup.el"
-;;;;;;  "mylisps/settings/hl-line-setup.el" "mylisps/settings/hotstring-setup.el"
-;;;;;;  "mylisps/settings/icomplete-setup.el" "mylisps/settings/image-mode-setup.el"
-;;;;;;  "mylisps/settings/isearch-setup.el" "mylisps/settings/ispell-setup.el"
+;;;;;;  "mylisps/settings/hideshow-setup.el" "mylisps/settings/hl-line-setup.el"
+;;;;;;  "mylisps/settings/hotstring-setup.el" "mylisps/settings/icomplete-setup.el"
+;;;;;;  "mylisps/settings/image-mode-setup.el" "mylisps/settings/ispell-setup.el"
 ;;;;;;  "mylisps/settings/iswitchb-setup.el" "mylisps/settings/javascript-mode-setup.el"
 ;;;;;;  "mylisps/settings/jedi-setup.el" "mylisps/settings/kmacro-setup.el"
 ;;;;;;  "mylisps/settings/linum-setup.el" "mylisps/settings/linux-face-setup.el"
@@ -2242,15 +2311,16 @@ Return t if FILE contains binary data.  If optional FULL is non-nil,
 ;;;;;;  "mylisps/settings/paren-setup.el" "mylisps/settings/point-stack-setup.el"
 ;;;;;;  "mylisps/settings/point-undo-setup.el" "mylisps/settings/popup-setup.el"
 ;;;;;;  "mylisps/settings/pylookup-setup.el" "mylisps/settings/pymacs-setup.el"
-;;;;;;  "mylisps/settings/python-misc-setup.el" "mylisps/settings/python-mode-setup.el"
-;;;;;;  "mylisps/settings/python-pep8-setup.el" "mylisps/settings/python-pylint-setup.el"
-;;;;;;  "mylisps/settings/quickrun-setup.el" "mylisps/settings/recentf-setup.el"
-;;;;;;  "mylisps/settings/recover-last-killed-file-setup.el" "mylisps/settings/refactoring-elisp-setup.el"
-;;;;;;  "mylisps/settings/register-setup.el" "mylisps/settings/rename-old-del-setup.el"
-;;;;;;  "mylisps/settings/rotate-text-setup.el" "mylisps/settings/s-setup.el"
-;;;;;;  "mylisps/settings/savehist-setup.el" "mylisps/settings/savekill-setup.el"
-;;;;;;  "mylisps/settings/saveplace-setup.el" "mylisps/settings/scratch-ext-setup.el"
-;;;;;;  "mylisps/settings/server-setup.el" "mylisps/settings/sh-script-mode-setup.el"
+;;;;;;  "mylisps/settings/python-misc-setup.el" "mylisps/settings/python-mode-bind-key-setup.el"
+;;;;;;  "mylisps/settings/python-mode-setup.el" "mylisps/settings/python-pep8-setup.el"
+;;;;;;  "mylisps/settings/python-pylint-setup.el" "mylisps/settings/quickrun-setup.el"
+;;;;;;  "mylisps/settings/recentf-setup.el" "mylisps/settings/recover-last-killed-file-setup.el"
+;;;;;;  "mylisps/settings/refactoring-elisp-setup.el" "mylisps/settings/register-setup.el"
+;;;;;;  "mylisps/settings/rename-old-del-setup.el" "mylisps/settings/rotate-text-setup.el"
+;;;;;;  "mylisps/settings/s-setup.el" "mylisps/settings/savehist-setup.el"
+;;;;;;  "mylisps/settings/savekill-setup.el" "mylisps/settings/saveplace-setup.el"
+;;;;;;  "mylisps/settings/scratch-ext-setup.el" "mylisps/settings/server-setup.el"
+;;;;;;  "mylisps/settings/sh-script-mode-setup.el" "mylisps/settings/smartparens-setup.el"
 ;;;;;;  "mylisps/settings/smartrep-setup.el" "mylisps/settings/sql-setup.el"
 ;;;;;;  "mylisps/settings/sudo-ext-setup.el" "mylisps/settings/switch-buffer-setup.el"
 ;;;;;;  "mylisps/settings/syslog-mode-setup.el" "mylisps/settings/systemd-mode-setup.el"
@@ -2267,12 +2337,12 @@ Return t if FILE contains binary data.  If optional FULL is non-nil,
 ;;;;;;  "mylisps/settings/windows-everything-setup.el" "mylisps/settings/windows-face-setup.el"
 ;;;;;;  "mylisps/settings/windows-setup.el" "mylisps/settings/woman-setup.el"
 ;;;;;;  "mylisps/settings/x-win-setup.el" "mylisps/settings/xmodmap-mode-setup.el"
-;;;;;;  "mylisps/settings/yama-find-binary-setup.el" "mylisps/t1macro.el"
-;;;;;;  "pylit.el" "sdic/sdic-compat.el" "sdic/sdic-gene.el" "sdic/sdic.el"
-;;;;;;  "sdic/sdicf-client.el" "sdic/sdicf.el" "sdic/stem.el" "sequential-command-config.el"
-;;;;;;  "systemd-company.el" "text-adjust.el" "toggle-let-astah.el"
-;;;;;;  "trash-settings.el" "yasnippet-config.el") (22051 23789 794150
-;;;;;;  263000))
+;;;;;;  "mylisps/settings/yama-find-binary-setup.el" "mylisps/sort-ext.el"
+;;;;;;  "mylisps/t1macro.el" "pylit.el" "sdic/sdic-compat.el" "sdic/sdic-gene.el"
+;;;;;;  "sdic/sdic.el" "sdic/sdicf-client.el" "sdic/sdicf.el" "sdic/stem.el"
+;;;;;;  "sequential-command-config.el" "systemd-company.el" "text-adjust.el"
+;;;;;;  "toggle-let-astah.el" "trash-settings.el" "yasnippet-config.el")
+;;;;;;  (22054 19181 380779 396000))
 
 ;;;***
 

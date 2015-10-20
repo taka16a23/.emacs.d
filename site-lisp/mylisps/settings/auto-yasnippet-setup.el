@@ -5,7 +5,7 @@
 ;; Author:       Atami
 ;; Maintainer:   Atami
 ;; Version:      1.0
-;; Last-Updated:2015/10/19 13:39:34 (+0900)
+;; Last-Updated:2015/10/19 23:47:43 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -43,25 +43,23 @@
   (require 'use-package "use-package" 'noerr)
   (require 'package "package" 'noerr)
   (package-initialize)
+  (declare-function 't1-edit-bind-keys "t1-bind-key")
   )
 
-(declare-function 't1-edit-bind-keys "t1-bind-key")
+(require 't1-bind-key "t1-bind-key" 'noerr)
 
 (use-package auto-yasnippet
   ;; :disabled
   :defer
   :ensure t
-  :commands
-  (aya-create aya-expand)
+  :commands aya-create aya-expand
   :init
-  (require 't1-bind-key "t1-bind-key" 'noerr)
   (t1-edit-bind-keys '(("Y" . aya-create)
                        ("y" . aya-expand)
                        ("C-y" . aya-expand)
                        ))
   :config
   (message "Loading \"auto-yasnippet\"")
-  (require 'yasnippet "yasnippet" 'noerr)
   (custom-set-variables
    '(aya-persist-snippets-dir yas-snippet-dirs))
   )

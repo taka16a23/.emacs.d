@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:28:40 2012 (+0900)
-;; Last-Updated:2015/10/15 13:06:31 (+0900)
+;; Last-Updated:2015/10/20 01:47:47 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -51,6 +51,8 @@
 ;;
 ;;; Code:
 
+
+(require 'bind-key "bind-key" 'noerr)
 
 (defgroup my-faces nil
   "Customize my default faces."
@@ -191,7 +193,7 @@
 
 ;;;; 色付け速度
 ;; (global-font-lock-mode t)
-(setq font-lock-maximum-size (* 1024 1024))
+;; (setq font-lock-maximum-size (* 1024 1024))
 
 ;; (if (>= emacs-major-version 21)
 ;; (setq font-lock-support-mode 'jit-lock-mode)   ; Just-In-Timeな文字装飾方式
@@ -221,9 +223,16 @@
                            (scroll-bar-mode -1)
                            'fullboth))))
 
+(bind-key [(shift f10)] 'toggle-max-window)
+(bind-key [f10] 'toggle-frame-maximized)
 
-(global-set-key [(shift f10)] 'toggle-max-window)
-(global-set-key [f10] 'toggle-frame-maximized)
+
+;; 透明
+;; (set-frame-parameter nil 'alpha '(75 65))
+;; (set-frame-parameter nil 'alpha '(100 65))
+;; (set-frame-parameter (selected-frame) 'alpha '(70 50))
+;; (set-frame-parameter (selected-frame) 'alpha '(100 10))
+;; (set-frame-parameter nil 'alpha '80)
 
 
 

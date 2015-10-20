@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:26:34 2012 (+0900)
-;; Last-Updated:2015/10/13 18:41:30 (+0900)
+;; Last-Updated:2015/10/19 15:40:03 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -48,8 +48,7 @@
 (use-package ascii
   ;; :disabled
   :defer
-  :commands
-  (ascii-on ascii-off ascii-display ascii-customize)
+  :commands ascii-on ascii-off ascii-display ascii-customize
   :init
   :config
   (message "Loading \"ascii\"")
@@ -65,5 +64,3 @@
 ;; coding: utf-8
 ;; End:
 ;;; ascii-setup.el ends here
-
-

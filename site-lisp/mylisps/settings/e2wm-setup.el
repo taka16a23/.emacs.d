@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Tue Dec 11 23:33:01 2012 (+0900)
-;; Last-Updated:2015/10/19 13:45:52 (+0900)
+;; Last-Updated:2015/10/19 16:28:34 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -55,34 +55,33 @@
   ;; :disabled
   :defer
   :ensure t
-  :commands
-  (e2wm:start-management e2wm:stop-management defe2wm:navi-simple-command)
+  :commands e2wm:start-management e2wm:stop-management defe2wm:navi-simple-command
   :init
-  (global-set-key (kbd "M-+") 'e2wm:toggle-start-stop)
-  (global-set-key (kbd "M-P") 'e2wm:start-direct-pycode)
+  (bind-keys ("M-+" . e2wm:toggle-start-stop)
+             ("M-P" . e2wm:start-direct-pycode))
   :config
   (message "Loading \"e2wm\"")
   (bind-keys :map e2wm:pst-minor-mode-keymap
-             ((kbd "M-P") . e2wm:dp-pycode)
-             ((kbd "M-E") . e2wm:dp-elispcode)
-             ((kbd "M-T") . e2wm:dp-two)
-             ((kbd "M-Z") . e2wm:dp-term)
-             ((kbd "M-&") . e2wm:dp-doc)
-             ((kbd "M-B") . e2wm:dp-book)
-             ((kbd "M-W") . e2wm:dp-web)
-             ((kbd "M-!") . e2wm:dp-svn)
-             ((kbd "M-)") . e2wm:dp-code)
-             ((kbd "M-C") . e2wm:dp-code)
-             ((kbd "M-V") . e2wm:dp-magit)
+             ("M-P" . e2wm:dp-pycode)
+             ("M-E" . e2wm:dp-elispcode)
+             ("M-T" . e2wm:dp-two)
+             ("M-Z" . e2wm:dp-term)
+             ("M-&" . e2wm:dp-doc)
+             ("M-B" . e2wm:dp-book)
+             ("M-W" . e2wm:dp-web)
+             ("M-!" . e2wm:dp-svn)
+             ("M-)" . e2wm:dp-code)
+             ("M-C" . e2wm:dp-code)
+             ("M-V" . e2wm:dp-magit)
              ("M-N" . e2wm:windmove-down-or-splitmove)
              ("M-K" . e2wm:windmove-up-or-splitmove)
              )
   (bind-keys :map e2wm:def-plugin-files-mode-map
              ([backspace] . e2wm:def-plugin-files-updir-command)
-             (        "D" . e2wm:def-plugin-files-delete-command)
-             (        "+" . e2wm:def-plugin-files-mkdir-command)
-             (        "r" . e2wm:def-plugin-files-rename-command)
-             (    "C-c d" . e2wm:def-plugin-files-open-dired-command))
+             ("D" . e2wm:def-plugin-files-delete-command)
+             ("+" . e2wm:def-plugin-files-mkdir-command)
+             ("r" . e2wm:def-plugin-files-rename-command)
+             ("C-c d" . e2wm:def-plugin-files-open-dired-command))
   (setf (e2wm:$pst-class-main (e2wm:pst-class-get 'magit)) 'status)
   ;; navi
   (defe2wm:navi-simple-command main)

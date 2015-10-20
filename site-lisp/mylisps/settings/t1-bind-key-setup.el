@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:25:06 2012 (+0900)
-;; Last-Updated:2015/10/18 18:00:16 (+0900)
+;; Last-Updated:2015/10/20 14:33:47 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -42,9 +42,23 @@
 
 (eval-when-compile
   (require 'use-package "use-package" 'noerr)
-  (require 't1-bind-key "t1-bind-key" 'noerr))
+  (require 't1-bind-key "t1-bind-key" 'noerr)
+  (declare-function t1-edit-bind-keys "t1-bind-key")
+  (declare-function t1-ctl-x-bind-keys "t1-bind-key")
+  (declare-function common-view-map-many-register "t1-bind-key")
+  (declare-function common-view-map-bind-keys "t1-bind-key")
+  (require 'package "package" 'noerr)
+  (package-initialize)
+  )
 
-(require 'bind-key "bind-key" 'noerr)
+(use-package bind-key
+  ;; :disabled
+  ;; :defer
+  :ensure t
+  :init
+  :config
+  (message "Loading \"bind-key\"")
+  )
 
 ;; translate key
 (keyboard-translate ?\C-x ?\C-d) ;C-x => C-d
@@ -80,6 +94,7 @@
            ("M-g" . goto-line)
            ("C-M-t" . transpose-lines)
            ([C-return] . open-line)
+           ([S-backspace] . kill-line)
            ("C-m" . default-indent-new-line)
            ;; paragraphs.el
            ("M-k" . backward-sentence)
@@ -90,7 +105,15 @@
            ("C-s" . save-buffer)
            ;; mule-cmds.el
            ([zenkaku-hankaku] . toggle-input-method)
+           ;; isearch.el not provided
+           ("C-f" . isearch-forward)
+           ("s-<f4>" . kmacro-edit-macro)
            )
+
+(bind-keys :map isearch-mode-map
+           ("C-f" . isearch-repeat-forward)
+           ("C-j" . isearch-delete-char)
+           ("C-t" . isearch-toggle-regexp))
 
 (use-package t1-bind-key
   ;; :disabled
@@ -116,7 +139,10 @@
      ("k" . kill-this-buffer)
      ("C-k" . kill-this-buffer)
      ("M-f" . query-replace-regexp)
-     ("F" . revert-buffer)))
+     ("F" . revert-buffer)
+     ("<f4>" . name-last-kbd-macro)
+     ("s-<f4>" . insert-kbd-macro)
+     ))
 
   (common-view-map-many-register
    '(;; Left hand
@@ -141,6 +167,8 @@
      ("C-m" . nil)
      ))
   )
+
+(common-view-map-bind-keys messages-buffer-mode-map)
 
 
 

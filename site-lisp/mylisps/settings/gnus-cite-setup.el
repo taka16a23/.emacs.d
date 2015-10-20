@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Thu Dec 13 22:14:50 2012 (+0900)
-;; Last-Updated:2015/10/13 22:11:19 (+0900)
+;; Last-Updated:2015/10/19 18:34:53 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -51,18 +51,19 @@
   :init
   :config
   (message "Loading \"gnus-cite\"")
-  (face-spec-set 'gnus-cite-attribution-face '((t (:italic t))))
-  (face-spec-set 'gnus-cite-face-1 '((t (:bold t :foreground "deep sky blue"))))
-  (face-spec-set 'gnus-cite-face-10 '((t (:foreground "medium purple"))))
-  (face-spec-set 'gnus-cite-face-11 '((t (:foreground "turquoise"))))
-  (face-spec-set 'gnus-cite-face-2 '((t (:bold t :foreground "cyan"))))
-  (face-spec-set 'gnus-cite-face-3 '((t (:bold t :foreground "gold"))))
-  (face-spec-set 'gnus-cite-face-4 '((t (:foreground "light pink"))))
-  (face-spec-set 'gnus-cite-face-5 '((t (:foreground "pale green"))))
-  (face-spec-set 'gnus-cite-face-6 '((t (:bold t :foreground "chocolate"))))
-  (face-spec-set 'gnus-cite-face-7 '((t (:foreground "orange"))))
-  (face-spec-set 'gnus-cite-face-8 '((t (:foreground "magenta"))))
-  (face-spec-set 'gnus-cite-face-9 '((t (:foreground "violet"))))
+  (custom-set-faces
+   '(gnus-cite-attribution-face ((t (:italic t))))
+   '(gnus-cite-face-1 ((t (:bold t :foreground "deep sky blue"))))
+   '(gnus-cite-face-10 ((t (:foreground "medium purple"))))
+   '(gnus-cite-face-11 ((t (:foreground "turquoise"))))
+   '(gnus-cite-face-2 ((t (:bold t :foreground "cyan"))))
+   '(gnus-cite-face-3 ((t (:bold t :foreground "gold"))))
+   '(gnus-cite-face-4 ((t (:foreground "light pink"))))
+   '(gnus-cite-face-5 ((t (:foreground "pale green"))))
+   '(gnus-cite-face-6 ((t (:bold t :foreground "chocolate"))))
+   '(gnus-cite-face-7 ((t (:foreground "orange"))))
+   '(gnus-cite-face-8 ((t (:foreground "magenta"))))
+   '(gnus-cite-face-9 ((t (:foreground "violet")))))
   )
 
 
@@ -73,5 +74,3 @@
 ;; coding: utf-8
 ;; End:
 ;;; gnus-cite-setup.el ends here
-
-

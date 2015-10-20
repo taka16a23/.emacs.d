@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:25:06 2012 (+0900)
-;; Last-Updated:2015/10/15 17:24:01 (+0900)
+;; Last-Updated:2015/10/20 01:34:27 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -63,7 +63,6 @@
 (set-clipboard-coding-system  'utf-8)
 (set-default-coding-systems   'utf-8)
 
-
 ;; CUSTOM
 ;; ============================================================================
 ;;;; "yes or no"  =>  "y or n"
@@ -87,8 +86,6 @@
 
 ;;;; Customize
 ;;
-;; for output
-
 (when (equal window-system 'x)
   (custom-set-variables
    '(x-select-enable-clipboard     1)   ; Copy Send To Clipboard
@@ -155,6 +152,26 @@
              set-goal-column
              narrow-to-page))
   (put s 'disabled nil))
+
+;;;; beep
+;;
+(defun my-bell-function ()
+  (unless (memq this-command
+                '(isearch-abort
+                  abort-recursive-edit
+                  exit-minibuffer
+                  keyboard-quit
+                  mwheel-scroll
+                  down
+                  up
+                  next-line
+                  previous-line
+                  backward-char
+                  forward-char))
+    (ding)))
+
+(custom-set-variables
+ '(ring-bell-function 'my-bell-function))
 
 
 

@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:29:12 2012 (+0900)
-;; Last-Updated:2015/10/19 13:33:10 (+0900)
+;; Last-Updated:2015/10/19 16:32:57 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -57,6 +57,12 @@
   (require 'use-package "use-package" 'noerr)
   (require 'package "package" 'noerr)
   (package-initialize)
+  (require 't1-bind-key "t1-bind-key" 'noerr)
+  (declare-function t1-switch-bind-keys "t1-bind-key")
+  (declare-function common-view-map-bind-keys "t1-bind-key")
+  (require 'subroutines "subroutines" 'noerr)
+  (declare-function windows-p "subroutines")
+  (defvar usb-home-dir nil)
   )
 
 (use-package w3m
@@ -64,14 +70,14 @@
   :defer
   :ensure t
   :commands
-  (w3m
-   w3m-search
-   w3m-find-file
-   w3m-browse-url
-   w3m-db-history
-   w3m-search-new-session
-   w3m-goto-url-new-session
-   w3m-copy-buffer)
+  w3m
+  w3m-search
+  w3m-find-file
+  w3m-browse-url
+  w3m-db-history
+  w3m-search-new-session
+  w3m-goto-url-new-session
+  w3m-copy-buffer
   :init
   (t1-switch-bind-keys '(("w" . w3m)
                          ("C-w" . w3m)
@@ -94,6 +100,7 @@
   (require 'w3m-bookmark nil 'noerr)
   ;; (define-sequential-command seq-w3m-forward
     ;; w3m-end-of-line end-of-window end-of-buffer seq-return)
+  (require 'subroutines "subroutines" 'noerr)
   (when (windows-p)
     (setq-default w3m-command (expand-file-name "bin/w3m.exe" usb-home-dir)))
   ;; (default-view-bind-set w3m-mode-map)

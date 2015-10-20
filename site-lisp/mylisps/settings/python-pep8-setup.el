@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/11/02 05:22:43 (+0900)
-;; Last-Updated:2015/10/13 21:40:12 (+0900)
+;; Last-Updated:2015/10/20 14:50:43 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -43,16 +43,20 @@
 
 
 (eval-when-compile
-  (require 'use-package "use-package" 'noerr))
+  (require 'use-package "use-package" 'noerr)
+  (require 'python "python" 'noerr))
 
 (use-package python-pep8
   ;; :disabled
   :defer
+  :commands
   :init
   :config
   (message "Loading \"python-pep8\"")
   (custom-set-variables
    '(python-pep8-command "python -m pep8"))
+  (bind-keys :map python-mode-map
+             ("C-c s" . pep8))
   (defun python-pep8 ()
     "Run PEP8, and collect output in a buffer.
 While pep8 runs asynchronously, you can use \\[next-error] (M-x next-error),
@@ -84,5 +88,3 @@ output buffer, to go to the lines where pep8 found matches."
 ;; coding: utf-8
 ;; End:
 ;;; python-pep8-setup.el ends here
-
-

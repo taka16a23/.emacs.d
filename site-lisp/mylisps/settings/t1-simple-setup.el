@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Wed Dec 12 00:34:37 2012 (+0900)
-;; Last-Updated:2015/10/18 12:23:01 (+0900)
+;; Last-Updated:2015/10/20 02:45:42 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -40,7 +40,13 @@
 
 
 (eval-when-compile
-  (require 'use-package "use-package" 'noerr))
+  (require 'use-package "use-package" 'noerr)
+  (require 't1-bind-key "t1-bind-key" 'noerr)
+  (declare-function t1-ctl-x-bind-keys "t1-bind-key")
+  (declare-function common-view-map-many-register "t1-bind-key")
+  )
+
+(require 't1-bind-key "t1-bind-key" 'noerr)
 
 (defun t1-simple-emacs-lisp-mode-hook () ;[2015/10/18]
   ""
@@ -53,7 +59,6 @@
   (delete-trailing-blank-lines)
   :init
   (add-hook 'emacs-mode-hook 't1-simple-emacs-lisp-mode-hook)
-  (require 't1-bind-key "t1-bind-key" 'noerr)
   (t1-ctl-x-bind-keys '(("t" . swap-screen-with-cursor)))
   (common-view-map-many-register
    '(("a" . my-backward-seq)
@@ -85,8 +90,28 @@
    ([C-backspace] . backward-kill-line)
    ("C-t" . move-text-up)
    ("M-R" . scroll-window-to-top)
+   ("(" . t1-parence)
    )
   )
+
+(dolist (command '(yank yank-pop))
+  (eval `(defadvice ,command (after indent-region activate)
+           (and (not current-prefix-arg)
+                (member major-mode '(emacs-lisp-mode
+                                     lisp-mode lisp-interaction-mode
+                                     clojure-mode    scheme-mode
+                                     haskell-mode    ruby-mode
+                                     rspec-mode      ;python-mode
+                                     c-mode          c++-mode
+                                     objc-mode       latex-mode
+                                     plain-tex-mode))
+                (let ((mark-even-if-inactive transient-mark-mode))
+                  (indent-region (region-beginning) (region-end) nil))))))
+
+(defun uniq-region (start end)
+  ""
+  (interactive "*r")
+  (shell-command-on-region start end "uniq" nil 'replace))
 
 
 

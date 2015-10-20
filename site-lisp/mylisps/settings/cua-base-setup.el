@@ -6,7 +6,7 @@
 ;; Maintainer:
 ;; Version:
 ;; Created: 2015/10/14 12:03:44 (+0900)
-;; Last-Updated:2015/10/18 17:44:51 (+0900)
+;; Last-Updated:2015/10/19 14:32:59 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -44,7 +44,9 @@
 (eval-when-compile
   (require 'use-package "use-package" 'noerr)
   (require 'edebug "edebug" 'noerr)
-  (declare-function cua-base "cua-base"))
+  (declare-function cua-base "cua-base")
+  (require 't1-bind-key "t1-bind-key" 'noerr)
+  (declare-function common-view-map-many-register "t1-bind-key"))
 
 (use-package cua-base
   ;; :disabled
@@ -52,6 +54,7 @@
   :commands
   (cua--prefix-override-handler)
   :init
+  (require 't1-bind-key "t1-bind-key" 'noerr)
   (common-view-map-many-register
    '(("b" . cua-scroll-up)
      ("p" . cua-scroll-down)
@@ -66,22 +69,6 @@
   :bind
   (([(control meta ?\s)] . cua-set-rectangle-mark))
   )
-
-(defun open-line-indent (n)
-  (interactive "*p")
-  (open-line n)
-  (when (member major-mode '(emacs-lisp-mode
-                             lisp-mode lisp-interaction-mode
-                             clojure-mode    scheme-mode
-                             haskell-mode    ruby-mode
-                             rspec-mode      ;python-mode
-                             c-mode          c++-mode
-                             objc-mode       latex-mode
-                             ;; plain-tex-mode
-                             ))
-    (save-excursion
-      (forward-line n)
-      (indent-for-tab-command))))
 
 
 

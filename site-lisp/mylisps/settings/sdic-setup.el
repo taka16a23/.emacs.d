@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:26:53 2012 (+0900)
-;; Last-Updated:2015/10/18 02:54:06 (+0900)
+;; Last-Updated:2015/10/19 15:46:30 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -44,7 +44,8 @@
 
 (eval-when-compile
   (require 'use-package "use-package" 'noerr)
-  (require 'sdic "sdic" 'noerr))
+  (require 'sdic "sdic" 'noerr)
+  (declare-function sdic-select-search-function "sdic"))
 
 ;;;###autoload
 (defun my-sdic-describe-word-with-popup (word &optional search-function)
@@ -75,8 +76,7 @@
 (use-package sdic
   ;; :disabled
   :defer
-  :commands
-  (sdic-describe-word sdic-describe-word-at-point)
+  :commands sdic-describe-word sdic-describe-word-at-point sdic-mode
   :init
   :config
   (message "Loading \"sdic\"")

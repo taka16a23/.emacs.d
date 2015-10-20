@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:25:06 2012 (+0900)
-;; Last-Updated:2015/10/16 18:16:48 (+0900)
+;; Last-Updated:2015/10/19 23:52:06 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -43,13 +43,13 @@
 (eval-when-compile
   (require 'use-package "use-package" 'noerr))
 
+(require 't1-bind-key "t1-bind-key" 'noerr)
+
 (use-package timestamp-insert
   ;; :disabled
   :defer
-  :commands
-  (timestamp-insert)
+  :commands timestamp-insert
   :init
-  (require 't1-bind-key "t1-bind-key" 'noerr)
   (t1-switch-bind-keys '((":" . timestamp-insert)))
   :config
   (message "Loading \"timestamp-insert\"")

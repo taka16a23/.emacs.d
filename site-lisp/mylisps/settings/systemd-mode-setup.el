@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2015/09/15 22:51:36 (+0900)
-;; Last-Updated:2015/10/19 13:36:31 (+0900)
+;; Last-Updated:2015/10/19 16:19:31 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -40,7 +40,6 @@
 
 
 (eval-when-compile
-  (require 'auto-complete "auto-complete" 'noerr)
   (require 'use-package "use-package" 'noerr)
   (require 'systemd "systemd" 'noerr)
   (require 'yasnippet "yasnippet" 'noerr)
@@ -64,7 +63,6 @@
   (message "Loading \"systemd\"")
   (custom-set-variables
    '(systemd-man-function 'woman))
-  (add-hook 'systemd-mode-hook 'auto-complete-mode)
   (require 'yasnippet "yasnippet" 'noerr)
   (define-key yas-minor-mode-map "=" 'yas-expand)
   (bind-keys :map systemd-mode-map

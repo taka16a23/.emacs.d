@@ -6,8 +6,9 @@
 (use-package ${1:package}
   ;; :disabled
   ${10::defer$(yas/choose-value '(":defer" ";; :defer" ))}
-  ${20::commands
-  ${21:(${22:autoload})}
+  ${15::ensure t
+  }${20::commands
+  ${22:autoload}
   }${30::if
   (${34:})
   }:init

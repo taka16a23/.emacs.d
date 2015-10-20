@@ -1,4 +1,4 @@
-;;; auto-save-setup.el --- 
+;;; auto-save-setup.el ---
 ;;
 ;; Copyright (C) 2015 Atami
 ;;
@@ -6,7 +6,7 @@
 ;; Maintainer:
 ;; Version:
 ;; Created: 2015/10/11 07:48:28 (+0900)
-;; Last-Updated:2015/10/13 17:39:33 (+0900)
+;; Last-Updated:2015/10/19 14:18:13 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -173,4 +173,3 @@
 ;; coding: utf-8
 ;; End:
 ;;; auto-save-setup.el ends here
-

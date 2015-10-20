@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/11/02 05:06:17 (+0900)
-;; Last-Updated:2015/10/19 13:41:36 (+0900)
+;; Last-Updated:2015/10/21 00:30:04 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -49,27 +49,13 @@
   (package-initialize)
   )
 
-(use-package jedi-core
-  ;; :disabled
-  :defer
-  :commands
-  (jedi:goto-definition jedi:show-doc)
-  :init
-  :config
-  (message "Loading \"jedi-core\"")
-  (define-key python-mode-map "\C-cf" 'jedi:goto-definition)
-  (define-key python-mode-map "\C-c\C-f" 'jedi:goto-definition)
-  )
-
 (use-package jedi
   ;; :disabled
   :defer
   :ensure t
-  :commands
-  (jedi:setup)
+  :commands jedi:setup
   :init
   (add-hook 'python-mode-hook 'jedi:setup)
-  ;; (remove-hook 'python-mode-hook 'jedi:setup)
   :config
   (message "Loading \"jedi\"")
   (custom-set-variables
@@ -79,49 +65,20 @@
    '(jedi:key-goto-definition (kbd "C-c C-f"))
    '(jedi:key-show-doc (kbd "C-c C-x"))
    )
-  (require 'auto-complete-yasnippet "auto-complete-yasnippet" 'noerr)
-  (add-to-list 'ac-sources ac-source-yasnippet 'append)
   (set-face-attribute 'jedi:highlight-function-argument nil :foreground "yellow")
   )
 
-;; OVERIDE inhibited read only
-;; can't resolve by defadvice.
-(defun jedi:show-doc ()
-  "Show the documentation of the object at point."
-  (interactive)
-  (deferred:nextc (jedi:call-deferred 'get_definition)
-    (lambda (reply)
-      (with-current-buffer (get-buffer-create jedi:doc-buffer-name)
-        (let ((inhibit-read-only t)) ;; here
-          (erase-buffer)
-          (loop with has-doc = nil
-                with first = t
-                for def in reply
-                do (destructuring-bind
-                       (&key doc desc_with_module line_nr module_path
-                             &allow-other-keys)
-                       def
-                     (unless (or (null doc) (equal doc ""))
-                       (if first
-                           (setq first nil)
-                         (insert "\n\n---\n\n"))
-                       (insert "Docstring for " desc_with_module "\n\n" doc)
-                       (setq has-doc t)))
-                finally do
-                (if (not has-doc)
-                    (message "Document not found.")
-                  (progn
-                    (goto-char (point-min))
-                    (when (fboundp jedi:doc-mode)
-                      (funcall jedi:doc-mode))
-                    (run-hooks 'jedi:doc-hook)
-                    (funcall jedi:doc-display-buffer (current-buffer))))))))))
-
-(defadvice jedi:goto-definition
-    (before stack-point-jedi:goto-definition activate)
-  (stack-point)
-  )
-;; (progn (ad-disable-advice 'jedi:goto-definition 'before 'stack-point-jedi:goto-definition) (ad-update 'jedi:goto-definition))
+(use-package jedi-core
+  ;; :disabled
+  :defer
+  :commands jedi:goto-definition jedi:show-doc
+  :init
+  :config
+  (message "Loading \"jedi-core\"")
+  (bind-keys :map python-mode-map
+             ("C-c f" . jedi:goto-definition)
+             ("C-c C-f" . jedi:goto-definition)
+             ))
 
 
 

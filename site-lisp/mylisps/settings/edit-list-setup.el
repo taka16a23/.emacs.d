@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Wed Dec 12 18:39:49 2012 (+0900)
-;; Last-Updated:2015/10/19 13:37:31 (+0900)
+;; Last-Updated:2015/10/19 15:30:27 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -60,7 +60,9 @@
   :init
   :config
   (message "Loading \"edit-list\"")
-  (define-key edit-list-mode-map "\C-s" 'edit-list-done)
+  (require 'bind-key "bind-key" 'noerr)
+  (bind-keys :map edit-list-mode-map
+             ("C-s" . edit-list-done))
   )
 
 

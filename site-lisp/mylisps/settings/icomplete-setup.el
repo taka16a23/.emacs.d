@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2015/10/04 15:39:59 (+0900)
-;; Last-Updated:2015/10/16 14:13:32 (+0900)
+;; Last-Updated:2015/10/19 14:42:01 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -46,17 +46,17 @@
 
 (use-package icomplete
   ;; :disabled
-  :defer 1
+  :defer 3
   :commands
   (icomplete-mode)
   :init
-  (require 'bind-key "bind-key" 'noerr)
   :config
   (message "Loading \"icomplete\"")
   (icomplete-mode 1)
   (custom-set-faces
    '(icomplete-first-match ((((class color) (background dark))
                              :whight bold :foreground "cyan"))))
+  (require 'bind-key "bind-key" 'noerr)
   (bind-keys :map icomplete-minibuffer-map
              ("C-l" . icomplete-forward-completions)
              ("C-j" . icomplete-backward-completions))

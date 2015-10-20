@@ -6,7 +6,7 @@
 ;; Maintainer:
 ;; Version:
 ;; Created: 2015/10/15 01:47:58 (+0900)
-;; Last-Updated:2015/10/15 12:27:12 (+0900)
+;; Last-Updated:2015/10/19 15:39:26 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -47,8 +47,7 @@
 (use-package hl-line
   ;; :disabled
   :defer
-  :commands
-  (hl-line-mode)
+  :commands hl-line-mode
   :init
   (add-hook 'dired-mode-hook 'hl-line-mode)
   :config

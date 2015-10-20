@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:28:22 2012 (+0900)
-;; Last-Updated:2015/10/13 22:14:32 (+0900)
+;; Last-Updated:2015/10/19 16:35:38 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -52,8 +52,7 @@
 (use-package javascript
   ;; :disabled
   :defer
-  :commands
-  (javascript-mode)
+  :commands javascript-mode
   :mode (("\\.js\\'" . javascript-mode)
          ("\\.as\\'" . javascript-mode)
          ("\\.json\\'" . javascript-mode)
@@ -73,5 +72,3 @@
 ;; coding: utf-8
 ;; End:
 ;;; javascript-mode-setup.el ends here
-
-

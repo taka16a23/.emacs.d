@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:28:01 2012 (+0900)
-;; Last-Updated:2015/10/19 13:34:08 (+0900)
+;; Last-Updated:2015/10/19 16:20:16 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -83,7 +83,6 @@
   :config
   (message "Loading \"term\"")
   (add-hook 'term-mode-hook 'term-0scroll-margin)
-  ;; (remove-hook 'term-mode-hook 'term-0-margin)
   (face-spec-set 'term '((t (:foreground "white" :background "black"))))
   (bind-keys :map term-raw-map
              ("C-h" .  term-send-raw)
@@ -118,22 +117,21 @@
              ("M-l" . term-send-forward-word)
              ([C-return] . term-spawn)
              ([M-backspace] . term-send-raw-meta))
-  )
-
-(use-package multi-term
-  ;; :disabled
-  :defer
-  :ensure t
-  :init
-  :config
-  (message "Loading \"multi-term\"")
-  (custom-set-variables
-   '(multi-term-program "/bin/zsh")
-   '(multi-term-scroll-to-bottom-on-output 'all)
-   '(multi-term-scroll-show-maximum-output t) ;for zsh complete
-   '(multi-term-dedicated-window-height 30)
-   '(multi-term-dedicated-max-window-height 40))
-  (add-to-list 'term-unbind-key-list '"C-c")
+  (use-package multi-term
+    ;; :disabled
+    :defer
+    :ensure t
+    :init
+    :config
+    (message "Loading \"multi-term\"")
+    (custom-set-variables
+     '(multi-term-program "/bin/zsh")
+     '(multi-term-scroll-to-bottom-on-output 'all)
+     '(multi-term-scroll-show-maximum-output t) ;for zsh complete
+     '(multi-term-dedicated-window-height 30)
+     '(multi-term-dedicated-max-window-height 40))
+    (add-to-list 'term-unbind-key-list '"C-c")
+    )
   )
 
 

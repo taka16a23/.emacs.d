@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/03/03 22:24:21 (+0900)
-;; Last-Updated:2015/10/16 10:31:52 (+0900)
+;; Last-Updated:2015/10/20 15:59:29 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -43,7 +43,10 @@
 
 
 (eval-when-compile
-  (require 'use-package "use-package" 'noerr))
+  (require 'use-package "use-package" 'noerr)
+  (require 'python "python" 'noerr)
+  (require 'smartrep "smartrep" 'noerr)
+  (declare-function smartrep-define-key "smartrep"))
 
 (use-package smartrep
   ;; :disabled

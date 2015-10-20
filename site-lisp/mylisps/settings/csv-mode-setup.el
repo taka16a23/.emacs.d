@@ -6,7 +6,7 @@
 ;; Maintainer:
 ;; Version:
 ;; Created: 2015/10/15 04:35:18 (+0900)
-;; Last-Updated:2015/10/19 13:43:47 (+0900)
+;; Last-Updated:2015/10/19 15:52:43 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -51,8 +51,7 @@
   ;; :disabled
   :defer
   :ensure t
-  :commands
-  (csv-mode)
+  :commands csv-mode
   :init
   :mode
   (("\\.[Cc][Ss][Vv]\\'" . csv-mode))

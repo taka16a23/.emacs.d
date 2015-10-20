@@ -6,7 +6,7 @@
 ;; Maintainer:
 ;; Version:
 ;; Created: 2015/10/15 03:24:32 (+0900)
-;; Last-Updated:2015/10/15 03:25:57 (+0900)
+;; Last-Updated:2015/10/19 18:37:05 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -50,7 +50,8 @@
   :init
   :config
   (message "Loading \"log-edit\"")
-  (define-key log-edit-mode-map "\C-s" 'log-edit-done)
+  (bind-keys :map log-edit-mode-map
+             ("C-s" . log-edit-done))
   (defadvice log-edit
       (around override-log-edit activate)
     (let ((parent (current-buffer)))

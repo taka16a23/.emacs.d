@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:25:06 2012 (+0900)
-;; Last-Updated:2015/10/17 00:10:04 (+0900)
+;; Last-Updated:2015/10/19 23:46:37 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -46,8 +46,7 @@
 (use-package annotation
   ;; :disabled
   :defer
-  :commands
-  (annotation)
+  :commands annotation
   :init
   :config
   (message "Loading \"annotation\"")

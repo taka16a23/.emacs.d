@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:26:25 2012 (+0900)
-;; Last-Updated:2015/10/13 18:40:33 (+0900)
+;; Last-Updated:2015/10/19 15:46:52 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -90,5 +90,3 @@
 ;; coding: utf-8
 ;; End:
 ;;; text-adjust-setup.el ends here
-
-

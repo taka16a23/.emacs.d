@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/02/14 08:04:49 (+0900)
-;; Last-Updated:2015/10/16 18:03:01 (+0900)
+;; Last-Updated:2015/10/19 15:03:22 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -68,7 +68,12 @@
   (require 'use-package "use-package" 'noerr)
   (require 'bind-key "bind-key" 'noerr)
   (declare-function iswitchb-set-matches "iswitchb")
-  (require 't1-bind-key "t1-bind-key" 'noerr))
+  (require 't1-bind-key "t1-bind-key" 'noerr)
+  (require 'switch-buffer "switch-buffer" 'noerr)
+  (declare-function t1-switch-bind-keys "switch-buffer")
+  (require 'helm "helm" 'noerr)
+  (declare-function helm "helm")
+  )
 
 ;; TODO: (Atami) [2015/10/14]
 ;; iswitchb-exit

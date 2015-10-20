@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/11/02 16:52:41 (+0900)
-;; Last-Updated:2015/10/16 13:34:29 (+0900)
+;; Last-Updated:2015/10/20 05:34:04 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -45,6 +45,10 @@
 (eval-when-compile
   (require 'use-package "use-package" 'noerr)
   (require 'bind-key "bind-key" 'noerr)
+  (require 'subroutines "subroutines" 'noerr)
+  (declare-function windows-p "subroutnes")
+  (require 'environment-setup "environment-setup" 'noerr)
+  (declare-function my-data-dir-join "environment-setup")
   )
 
 (use-package org
@@ -73,14 +77,12 @@
              ([201326637] . org-insert-heading) ;(kbd "C-M--")
              ("C-h" . my-backward-seq)
              ([S-return] . org-meta-return))
-  (if (windows-p)
-      (custom-set-variables
-       '(org-log-done nil))
-    (custom-set-variables
-     '(org-log-done 'time)))
+  (require 'subroutines "subroutines" 'noerr)
+  (require 'environment-setup "environment-setup" 'noerr)
   (custom-set-variables
+   '(org-log-done (if (windows-p) nil 'time))
    '(org-directory "~/")
-   '(org-default-notes-file (expand-file-name "allinone.org" my-emacs-dir))
+   '(org-default-notes-file (my-emacs-dir-join "allinone.org"))
    '(org-todo-keywords '("TODO" "DONE" "WAIT" "POSTPONES"))
    '(org-todo-interpretation 'sequence)
    '(browse-url-browser-function 'w3m-browse-url-new-tab)
@@ -89,8 +91,6 @@
        ("WAIT"      . shadow)
        ("POSTPONES" . (:foreground "blueviolet" :weight bold))))
    )
-  (when (require 'auto-complete "auto-complete" 'noerr)
-    (add-to-list 'ac-user-dictionary-files (my-data-dir-join "words")))
   (setq text-adjust-rule-space
         '((("\\cj"        "" "[0-9a-zA-Z]")   " ")
           (("[0-9a-zA-Z]" "" "\\cj")          " ")))
@@ -105,87 +105,67 @@
     (add-to-list 'rotate-text-rotations el))
   )
 
-(use-package org-remember
+(use-package org-capture
   ;; :disabled
   :defer
-  :commands (org-remember)
   :init
+  :bind
+  (("C-M-c" . org-capture))
   :config
-  (message "Loading \"org-remember\"")
-  (custom-set-variables
-   '(org-id-locations-file (my-data-dir-join ".org-id-locations"))
-   '(org-remember-templates
-     '(("Note"     ?n "**  %?\n    %i\n    %a\n    " nil "Note:")
-       ("Todo"     ?t "** TODO [#C] %?\n    %i\n    %a\n    " nil "Todo:")
-       ("Emacs" ?e
-        "\
-** TODO [#C] %?
-
-1\) 背景(問題点)
-
-2\) 対応方法
-
-3\) 優先順位の根拠
-
-4\) 備考
-
-5\) 結果
-6\) time/ref
-    / cf. %a
-   %i" nil "Emacs:")
-       ("Python"   ?p "\
-** TODO [#C] %?
-
-1\) 背景(問題点)
-
-2\) 対応方法
-
-3\) 優先順位の根拠
-
-4\) 備考
-
-5\) 結果
-6\) time/ref
-    / cf. %a
-   %i" nil "python:")
-       ("Bug"   ?b"\
-** TODO [#C] %?
-
-1\) 背景(問題点)
-
-2\) 対応方法
-
-3\) 優先順位の根拠
-
-4\) 備考
-
-5\) 結果
-6\) time/ref
-    / cf. %a
-   %i" nil "Bug:")
-
-       ("lisp"     ?l "** TODO [#C] %?\n    %i\n    %a\n    " nil "Lisp:")
-       ("C C++"    ?c "** TODO [#C] %?\n    %i\n    %a\n    " nil "C C++:")
-       ("Assenbly" ?a "** TODO [#C] %?\n    %i\n    %a\n    " nil "assembly:")
-       ("Stack"    ?s "** TODO [#C] %?\n    %i\n    %a\n    " nil "Stack:")
-       ;; %a           アノテーション(C-c lで保存したリンク)
-       ;; %i           選択されたリージョンの内容
-       ;; %t           タイムスタンプ(年月日)
-       ;; %T           タイムスタンプ(年月日と時間)
-       ;; %u           非活性なタイムスタンプ(年月日)
-       ;; %U           非活性なタイムスタンプ(年月日と時間)
-       ;; %n           ユーザ名
-       ;; %x           クリップボードの内容
-       ;; %?           カーソルの位置
-       )))
-  (org-remember-insinuate)
-  (define-key org-remember-mode-map "\C-c\C-c" 'org-remember-finalize)
-  (define-key org-remember-mode-map "\C-s" 'org-remember-finalize)
-  (defadvice org-remember-finalize
-      (around inhibit-read-only-remember-finalize activate)
+  (message "Loading \"org-capture\"")
+  (defadvice org-capture
+      (before before-find-file-org-capture activate)
+    (with-current-buffer (find-file-noselect org-default-notes-file)
+      (view-mode -1)
+      )
+    )
+  ;; (progn (ad-disable-advice 'org-capture 'before 'before-find-file-org-capture) (ad-update 'org-capture))
+  (defadvice org-capture-finalize
+      (around inhibit-read-only-org-capture-finalize activate)
     (let ((inhibit-read-only t))
       ad-do-it
       ))
+  (bind-keys :map org-capture-mode-map
+             ("C-s" . org-capture-finalize))
+  (defun org-capture-default-template () ;[2015/10/20]
+    ""
+    "\
+** TODO [#C] %?
+
+1\) 背景(問題点)
+
+2\) 対応方法
+
+3\) 優先順位の根拠
+
+4\) 備考
+
+5\) 結果
+6\) time/ref
+    / cf. %a
+   %i
+   %U
+")
+  (setq org-capture-templates
+        '(("n" "Note" entry (file+headline nil "Note:")
+           "**  %?\n    %i\n    %a\n    %U\n")
+          ("t" "TODO" entry (file+headline nil "TODO:")
+           (function org-capture-default-template))
+          ("d" "DOING" entry (file+headline nil "DOING:")
+           (function org-capture-default-template))
+          ("b" "Bug" entry (file+headline nil "Bug:")
+           (function org-capture-default-template))
+          ("p" "Python" entry (file+headline nil "python:")
+           (function org-capture-default-template))
+          ("l" "lisp" entry (file+headline nil "Lisp:")
+           (function org-capture-default-template))
+          ("c" "C C++" entry (file+headline nil "C C++:")
+           (function org-capture-default-template))
+          ("a" "Assenbly" entry (file+headline nil "assembly:")
+           (function org-capture-default-template))
+          ("s" "Stack" entry (file+headline nil "Stack:")
+           (function org-capture-default-template))
+          ))
   )
 
 

@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/11/02 15:35:33 (+0900)
-;; Last-Updated:2015/10/18 00:31:53 (+0900)
+;; Last-Updated:2015/10/19 18:40:24 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -43,22 +43,21 @@
 
 
 (eval-when-compile
-  (require 'use-package "use-package" 'noerr))
+  (require 'use-package "use-package" 'noerr)
+  (require 't1-bind-key "t1-bind-key" 'noerr)
+  (declare-function common-view-map-bind-keys "t1-bind-key"))
 
 (use-package woman
   ;; :disabled
   :defer
   :init
-
   :config
   (message "Loading \"woman\"")
   (custom-set-variables
    '(woman-use-own-frame nil)
    ;; refresh "C-u woman"
-   '(woman-cache-filename (my-var-dir-join "woman_cache.el"))
-   )
+   '(woman-cache-filename (my-var-dir-join "woman_cache.el")))
   (require 't1-bind-key "t1-bind-key" 'noerr)
-  ;; (default-view-bind-set woman-mode-map)
   (common-view-map-bind-keys woman-mode-map)
   )
 

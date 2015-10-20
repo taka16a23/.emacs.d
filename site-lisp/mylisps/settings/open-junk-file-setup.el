@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:26:50 2012 (+0900)
-;; Last-Updated:2015/10/19 13:43:20 (+0900)
+;; Last-Updated:2015/10/19 16:21:33 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -49,6 +49,8 @@
   (declare-function my-var-dir-join "environment-setup")
   (require 'package "package" 'noerr)
   (package-initialize)
+  (require 't1-bind-key "t1-bind-key" 'noerr)
+  (declare-function t1-ctl-x-bind-keys "t1-bind-key")
   )
 
 (defvar open-junk-file-dir-path (my-var-dir-join "junk"))
@@ -69,11 +71,12 @@
   ;; :disabled
   :defer
   :ensure t
-  :commands
-  (open-junk-file)
+  :commands open-junk-file
   :init
-  (global-set-key "\C-xj" 'open-junk-file-disable-view-mode)
-  (global-set-key "\C-x\C-j" 'open-junk-file-disable-view-mode)
+  (require 't1-bind-key "t1-bind-key" 'noerr)
+  (t1-ctl-x-bind-keys
+   '(("j" . open-junk-file-disable-view-mode)
+     ("C-j" . open-junk-file-disable-view-mode)))
   :config
   (message "Loading \"open-junk-file\"")
   (custom-set-variables

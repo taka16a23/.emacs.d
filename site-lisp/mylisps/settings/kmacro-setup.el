@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:25:06 2012 (+0900)
-;; Last-Updated:2015/10/17 00:36:40 (+0900)
+;; Last-Updated:2015/10/19 23:49:03 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -43,13 +43,13 @@
 (eval-when-compile
   (require 'use-package "use-package" 'noerr))
 
+(require 't1-bind-key "t1-bind-key" 'noerr)
+
 (use-package kmacro
   ;; :disabled
   :defer
-  :commands
-  (kmacro-start-macro-or-insert-counter)
+  :commands kmacro-start-macro-or-insert-counter
   :init
-  (require 't1-bind-key "t1-bind-key" 'noerr)
   (t1-ctl-x-bind-keys '(([f4] . kmacro-start-macro-or-insert-counter)))
   :config
   (message "Loading \"kmacro\"")

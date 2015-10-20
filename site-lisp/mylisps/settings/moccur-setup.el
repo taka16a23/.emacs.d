@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Tue Dec 11 01:25:50 2012 (+0900)
-;; Last-Updated:2015/10/17 00:31:55 (+0900)
+;; Last-Updated:2015/10/19 16:56:30 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -46,7 +46,13 @@
   (require 'use-package "use-package" 'noerr)
   (require 'bind-key "bind-key" 'noerr)
   (require 'color-moccur "color-moccur" 'noerr)
-  (require 'moccur-edit "moccur-edit" 'noerr))
+  (require 'moccur-edit "moccur-edit" 'noerr)
+  (require 't1-bind-key "t1-bind-key" 'noerr)
+  (declare-function t1-ctl-x-bind-keys "t1-bind-key")
+  (defvar moccur-edit-mode-map nil))
+
+(require 't1-bind-key "t1-bind-key" 'noerr)
+(require 'bind-key "bind-key" 'noerr)
 
 (use-package color-moccur
   ;; :disabled
@@ -85,24 +91,23 @@
    '(*moccur-buffer-name-exclusion-list*
      '(".+TAGS.+" "*Completions*" "*Messages*"))
    )
-  )
-
-(use-package moccur-edit
-  ;; :disabled
-  :defer
-  :commands
-  (moccur-edit-finish-edit
-   moccur-edit-remove-change
-   moccur-edit-kill-all-change
-   moccur-edit-mode-in)
-  :init
-  :config
-  (message "Loading \"moccur-edit\"")
-  (bind-keys :map moccur-edit-mode-map
-             ("C-s" . moccur-edit-finish-edit)
-             ("C-c C-c" . moccur-edit-finish-edit)
-             ("C-c C-q" . moccur-edit-remove-change)
-             ("C-c C-k" . moccur-edit-kill-all-change))
+  (use-package moccur-edit
+    ;; :disabled
+    :defer
+    :commands
+    (moccur-edit-finish-edit
+     moccur-edit-remove-change
+     moccur-edit-kill-all-change
+     moccur-edit-mode-in)
+    :init
+    :config
+    (message "Loading \"moccur-edit\"")
+    (bind-keys :map moccur-edit-mode-map
+               ("C-s" . moccur-edit-finish-edit)
+               ("C-c C-c" . moccur-edit-finish-edit)
+               ("C-c C-q" . moccur-edit-remove-change)
+               ("C-c C-k" . moccur-edit-kill-all-change))
+    )
   )
 
 

@@ -6,7 +6,7 @@
 ;; Maintainer:
 ;; Version:
 ;; Created: 2015/10/15 01:16:51 (+0900)
-;; Last-Updated:2015/10/15 01:19:56 (+0900)
+;; Last-Updated:2015/10/21 01:40:03 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -43,24 +43,26 @@
 
 (require 'environment-setup "environment-setup" 'noerr)
 
-(defconst my-pylib-dir
-  (replace-regexp-in-string "/" "\\\\" (my-data-dir-join "pylib"))
-  "Location of parsonal python library.Do not add '/'.")
+(define-my-path my-pylib-dir (my-data-dir-join "pylib"))
 
-;;;###autoload
-(defun python-setenv ()
-  "Python set environment."
-  (interactive)
-  (let ((python-path (getenv "PYTHONPATH")))
-    (if (and python-path
-             (not (string= python-path "")))
-        (when (not (string-match
-                    (replace-regexp-in-string "\\\\" "\\\\\\\\" my-pylib-dir)
-                    python-path))
-          (setenv "PYTHONPATH" (concat python-path path-separator my-pylib-dir))
-          (message (concat "PYTHONPATH: " (getenv "PYTHONPATH"))))
-      (setenv "PYTHONPATH" my-pylib-dir)
-      (message "PYTHONPATH false"))))
+(defun pythonpath-get () ;[2015/10/21]
+  ""
+  (getenv "PYTHONPATH"))
+
+(defun pythonpath-list () ;[2015/10/21]
+  ""
+  (s-split ":" (pythonpath-get)))
+
+(defun pythonpath-append (path &optional head) ;[2015/10/21]
+  "PATH"
+  (let ((path-list (if head
+                       (append (list path) (pythonpath-list))
+                     (append (pythonpath-list) (list path)))))
+    (setenv "PYTHONPATH" (s-join ":" (delete-dups path-list)))))
+
+(defun pythonpath-remove (path) ;[2015/10/21]
+  "PATH"
+  (setenv "PYTHONPATH" (s-join ":" (-remove-item path (pythonpath-list)))))
 
 
 

@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/11/02 05:46:45 (+0900)
-;; Last-Updated:2015/10/16 13:40:03 (+0900)
+;; Last-Updated:2015/10/20 15:12:29 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -45,11 +45,15 @@
 (eval-when-compile
   (require 'use-package "use-package" 'noerr)
   (require 'bind-key "bind-key" 'noerr)
+  (require 'doctest-mode "doctest-mode" 'noerr)
+  (defvar doctest-mode-map)
+  (require 'python "python" 'noerr)
   )
 
 (use-package doctest-mode
   ;; :disabled
   :defer
+  :commands doctest-mode doctest-execute-buffer
   :init
   :config
   (message "Loading \"doctest-mode\"")
@@ -58,6 +62,9 @@
              ("C-c P" . python-mode)
              ("C-c p" . python-mode)
              ("C-c C-p" . python-mode))
+  (bind-keys :map python-mode-map
+             ("C-c D" . doctest-execute-buffer)
+             ("C-c C-c D" . doctest-mode))
   )
 
 

@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:25:50 2012 (+0900)
-;; Last-Updated:2015/10/19 13:36:01 (+0900)
+;; Last-Updated:2015/10/20 06:38:12 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -51,6 +51,9 @@
   (declare-function my-var-dir-join "environment-setup")
   (require 'package "package" 'noerr)
   (package-initialize)
+  (require 'environment-setup "environment-setup" 'noerr)
+  (declare-function my-data-dir-join "environment-setup")
+  (declare-function my-var-dir-join "environment-setup")
   )
 
 (defun auto-complete-emacs-lisp-mode-hook () ;[2015/10/18]
@@ -80,18 +83,23 @@
   :defer 5
   :ensure t
   :commands
-  (auto-complete-mode auto-complete-mode-maybe global-auto-complete-mode ac-stop)
+  auto-complete-mode
+  auto-complete-mode-maybe
+  global-auto-complete-mode
+  ac-stop
   :init
   (add-hook 'emacs-lisp-mode-hook 'auto-complete-emacs-lisp-mode-hook)
   (add-hook 'lisp-interaction-mode-hook 'auto-complete-lisp-interaction-mode-hook)
+  (add-hook 'systemd-mode-hook 'auto-complete-mode)
+  (add-hook 'python-mode-hook 'auto-complete-mode)
   :config
   (message "Loading \"auto-complete\"")
   (require 'auto-complete-config)
-  (setq-default ac-comphist-file (my-var-dir-join "ac-comphist.dat")
-                ac-sources '(ac-source-yasnippet
-                             ac-source-words-in-same-mode-buffers)
-                )
   (ac-config-default)
+  (setq-default ac-sources '(ac-source-yasnippet
+                             ac-source-words-in-same-mode-buffers))
+  (require 'environment-setup "environment-setup" 'noerr)
+  (add-to-list 'ac-user-dictionary-files (my-data-dir-join "words"))
   (custom-set-variables
    '(ac-auto-show-menu    0.4)
    '(ac-use-comphist      t)
@@ -99,7 +107,8 @@
    '(ac-menu-height       8)
    '(ac-quick-help-height 15)
    '(ac-use-menu-map      t)
-   '(ac-disable-faces     nil))
+   '(ac-disable-faces     nil)
+   '(ac-comphist-file (my-var-dir-join "ac-comphist.dat")))
   (global-auto-complete-mode 1)
   (bind-keys :map ac-complete-mode-map
              ("C-h" . ac-persist-help)

@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Thu Dec 13 23:26:48 2012 (+0900)
-;; Last-Updated:2015/10/13 22:28:34 (+0900)
+;; Last-Updated:2015/10/19 18:45:37 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -51,12 +51,13 @@
   :init
   :config
   (message "Loading \"wid-edit\"")
-  (face-spec-set 'widget-button-face            '((t (:bold t))))
-  (face-spec-set 'widget-button-pressed-face    '((t (:foreground "red"))))
-  (face-spec-set 'widget-documentation-face     '((t (:foreground "lime green"))))
-  (face-spec-set 'widget-field-face             '((t (:background "dim gray"))))
-  (face-spec-set 'widget-inactive-face          '((t (:foreground "light gray"))))
-  (face-spec-set 'widget-single-line-field-face '((t (:background "dim gray"))))
+  (custom-set-faces
+   '(widget-button-face            ((t (:bold t))))
+   '(widget-button-pressed-face    ((t (:foreground "red"))))
+   '(widget-documentation-face     ((t (:foreground "lime green"))))
+   '(widget-field-face             ((t (:background "dim gray"))))
+   '(widget-inactive-face          ((t (:foreground "light gray"))))
+   '(widget-single-line-field-face ((t (:background "dim gray")))))
   )
 
 
@@ -67,5 +68,3 @@
 ;; coding: utf-8
 ;; End:
 ;;; wid-edit-setup.el ends here
-
-

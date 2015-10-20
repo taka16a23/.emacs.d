@@ -6,7 +6,7 @@
 ;; Maintainer:
 ;; Version:
 ;; Created: 2015/10/15 04:52:05 (+0900)
-;; Last-Updated:2015/10/17 14:03:28 (+0900)
+;; Last-Updated:2015/10/20 02:20:58 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -44,7 +44,16 @@
 (eval-when-compile
   (require 'bind-key "bind-key" 'noerr)
   (require 'use-package "use-package" 'noerr)
-  (require 't1-bind-key "t1-bind-key" 'noerr))
+  (require 't1-bind-key "t1-bind-key" 'noerr)
+  (declare-function t1-edit-bind-keys "t1-bind-key")
+  (declare-function t1-ctl-x-bind-keys "t1-bind-key")
+  )
+
+(defun insert-register-disable-exchange (register) ;[2014/06/12]
+  "REGISTER"
+  (interactive "*cInsert register: ")
+  (insert-register register t)
+  )
 
 (use-package register
   ;; :disabled

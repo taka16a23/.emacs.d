@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/03/01 13:29:58 (+0900)
-;; Last-Updated:2015/10/18 16:00:58 (+0900)
+;; Last-Updated:2015/10/20 16:13:27 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -45,8 +45,11 @@
 (eval-when-compile
   (require 'bind-key "bind-key" 'noerr)
   (require 'use-package "use-package" 'noerr)
-  ;; (require 'binding-setup "binding-setup" 'noerr)
-  (require 't1-bind-key "t1-bind-key" 'noerr))
+  (require 't1-bind-key "t1-bind-key" 'noerr)
+  (declare-function t1-edit-bind-keys "t1-bind-key")
+  (declare-function t1-ctl-x-bind-keys "t1-bind-key"))
+
+(require 'bind-key "bind-key" 'noerr)
 
 ;;;###autoload
 (defun helm-my-edit () ;[2015/10/03]
@@ -65,12 +68,11 @@
 (use-package helm
   ;; :disabled
   :defer
-  :commands
-  (helm)
+  :commands helm
   :init
+  (require 't1-bind-key "t1-bind-key" 'noerr)
   (t1-edit-bind-keys
    '(("C-e" . helm-my-edit)))
-  ;; (define-key ctl-e-map "\C-e" 'helm-my-edit)
   :config
   (message "Loading \"helm\"")
   (custom-set-faces
@@ -109,10 +111,9 @@
 (use-package helm-buffers
   ;; :disabled
   :defer
-  :commands
-  (helm-mini)
+  :commands helm-mini
   :init
-  (global-set-key "\C-x\C-x" 'helm-mini)
+  (t1-ctl-x-bind-keys '(("C-x" . helm-mini)))
   :config
   (message "Loading \"helm-buffers\"")
   (custom-set-variables
@@ -141,6 +142,10 @@
    '(helm-buffer-not-saved ((((class color) (background dark))
                              :foreground "yellow")))
    )
+  (bind-keys :map helm-buffer-map
+             ("M-d" . helm-buffer-run-kill-buffers)
+             ("M-SPC" . helm-toggle-all-marks)
+             )
   )
 
 
@@ -149,7 +154,7 @@
   ;; :disabled
   :defer
   :init
-  (define-key ctl-x-map "\C-f" 'helm-find-files)
+  (t1-ctl-x-bind-keys '(("C-f" . helm-find-files)))
   :config
   (message "Loading \"helm-files\"")
   (custom-set-faces
@@ -178,7 +183,6 @@
   ;; :disabled
   :defer
   :init
-
   :config
   (message "Loading \"helm-utils\"")
   (custom-set-faces
@@ -192,15 +196,16 @@
 (use-package helm-command
   ;; :disabled
   :defer
-  :commands
-  (helm-M-x)
+  :commands helm-M-x
   :init
-  (global-set-key "\M-d" 'helm-M-x)
   :config
   (message "Loading \"helm-command\"")
   (custom-set-faces
    '(helm-M-x-key ((((class color) (background dark))
-                    :foreground "orange")))))
+                    :foreground "orange"))))
+  :bind
+  (("M-d" . helm-M-x))
+  )
 
 ;; helm-grep.el
 (use-package helm-grep
@@ -229,10 +234,10 @@
 (use-package helm-man
   ;; :disabled
   :defer
-  :commands
-  (helm-woman)
+  :commands helm-woman
   :init
-  (global-set-key "\C-xm" 'helm-man-woman)
+  (t1-ctl-x-bind-keys '(("m" . helm-man-woman)))
+  ;; (global-set-key "\C-xm" 'helm-man-woman)
   :config
   (message "Loading \"helm-man\"")
   )
@@ -240,19 +245,19 @@
 (use-package helm-ring
   ;; :disabled
   :defer
-  :commands
-  (helm-show-kill-ring)
+  :commands helm-show-kill-ring
   :init
-  (global-set-key "\M-y" 'helm-show-kill-ring)
+  ;; (global-set-key "\M-y" 'helm-show-kill-ring)
   :config
   (message "Loading \"helm-ring\"")
+  :bind
+  (("M-y" . helm-show-kill-ring))
   )
 
 (use-package helm-elisp
   ;; :disabled
   :defer
-  :commands
-  (helm-apropos)
+  :commands helm-apropos
   :init
   (bind-keys :map emacs-lisp-mode-map
              ("C-c C-a" . helm-apropos)
@@ -268,10 +273,8 @@
 (use-package helm-imenu
   ;; :disabled
   :defer
-  :commands
-  (helm-imenu)
+  :commands helm-imenu
   :init
-  (require 'bind-key "bind-key" 'noerr)
   (bind-keys :map emacs-lisp-mode-map
              ("C-c j" . helm-imenu)
              ("C-c C-j" . helm-imenu))

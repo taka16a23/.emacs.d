@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Wed Dec 12 17:23:45 2012 (+0900)
-;; Last-Updated:2015/10/16 13:34:43 (+0900)
+;; Last-Updated:2015/10/19 15:44:12 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -44,7 +44,9 @@
 
 (eval-when-compile
   (require 'bind-key)
-  (require 'use-package "use-package" 'noerr))
+  (require 'use-package "use-package" 'noerr)
+  (require 'environment-setup "environment-setup" 'noerr)
+  (declare-function my-data-dir-join "environment-setup"))
 
 (use-package ispell
   ;; :disabled
@@ -52,6 +54,7 @@
   :init
   :config
   (message "Loading \"ispell\"")
+  (require 'environment-setup "environment-setup" 'noerr)
   (if (file-exists-p (my-data-dir-join "words"))
       (setenv "DICTIONARY" (my-data-dir-join "words"))
     (if (file-exists-p "/usr/share/dict/words")

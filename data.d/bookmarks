@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("backup.d"
+(("org-capture-last-stored"
+ (filename . "~/.emacs.d/allinone.org")
+ (front-context-string . "** TODO [#C] hel")
+ (rear-context-string . "8-05 Wed 23:04>\n")
+ (position . 471827))
+("backup.d"
  (filename . "~/.emacs.d/var.d/backup.d/")
  (front-context-string . "auto-save\n  drwx")
  (rear-context-string . "0K Oct 10 23:41 ")

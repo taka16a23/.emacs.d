@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:25:12 2012 (+0900)
-;; Last-Updated:2015/10/15 18:19:49 (+0900)
+;; Last-Updated:2015/10/19 14:10:15 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -84,10 +84,6 @@
   (require 'use-package "use-package" 'noerr)
   (require 'cl-macs "cl-macs" 'noerr))
 
-(require 'mysimple "mysimple" 'noerr)
-
-(define-key global-map "\C-\M-j" 'my-backward-whitespace)
-
 ;;;; auto indent when yank
 ;;
 (dolist (command '(yank yank-pop))
@@ -105,16 +101,8 @@
                   (indent-region (region-beginning) (region-end) nil))))))
 
 
-;;;; clear overlays for interactive
-;;
-(defun clear-overlays ()
-  (interactive)
-  (remove-overlays)
-  )
 
-(global-set-key (kbd "C-SPC") 't1-mark)
-
-(global-set-key "(" 't1-parence)
+;; (global-set-key "(" 't1-parence)
 
 ;; (defun mark-wrap (n) ;[2013/11/04]
 ;;   "Wrap marked statements.

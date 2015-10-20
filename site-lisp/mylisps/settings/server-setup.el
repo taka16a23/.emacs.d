@@ -6,7 +6,7 @@
 ;; Maintainer:
 ;; Version:
 ;; Created: 2015/10/11 08:11:20 (+0900)
-;; Last-Updated:2015/10/15 11:43:22 (+0900)
+;; Last-Updated:2015/10/19 14:22:54 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -43,15 +43,13 @@
 
 (eval-when-compile
   (require 'server)
-  (require 'use-package "use-package" 'noerr))
+  (require 'use-package "use-package" 'noerr)
+  (declare-function server-running-p "server"))
 
 (use-package server
   :defer 1
-  :if
-  (if window-system t nil)
+  :if window-system
   :init
-  ;; (add-hook 'after-init-hook 'after-init-server)
-  ;; (remove-hook 'after-init-hook 'after-init-server)
   :config
   (message "Loading \"server-utils\"")
   (custom-set-variables

@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:25:06 2012 (+0900)
-;; Last-Updated:2015/10/16 18:08:13 (+0900)
+;; Last-Updated:2015/10/19 23:46:20 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -42,15 +42,16 @@
 
 (eval-when-compile
   (require 'use-package "use-package" 'noerr)
-  (require 't1-bind-key "t1-bind-key" 'noerr))
+  (require 't1-bind-key "t1-bind-key" 'noerr)
+  (declare-function t1-edit-bind-keys "t1-bind-key"))
+
+(require 't1-bind-key "t1-bind-key" 'noerr)
 
 (use-package align
   ;; :disabled
   :defer
-  :commands
-  (align-regexp)
+  :commands align-regexp
   :init
-  (require 't1-bind-key "t1-bind-key" 'noerr)
   (t1-edit-bind-keys '(("C-a" . align-regexp)
                        ("a" . align-regexp)
                        ))

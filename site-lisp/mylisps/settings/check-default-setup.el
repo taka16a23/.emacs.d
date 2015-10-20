@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:25:15 2012 (+0900)
-;; Last-Updated:2015/10/13 17:41:11 (+0900)
+;; Last-Updated:2015/10/19 14:14:15 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -42,12 +42,10 @@
 ;;; Code:
 
 
-;; (eval-when-compile
-  ;; (require 'check_default_start))
+(require 'environment-setup "environment-setup" 'noerr)
 
 ;; TODO: uniq list
-(defvar default-el-setting '(("ni" . t)
-							 ))
+(defvar default-el-setting '(("ni" . t)))
 
 (when (locate-library "default")
   (let ((predefine nil))
@@ -138,5 +136,3 @@ N  -- to ignore, and permanently ignore setting on this system.
 ;; coding: utf-8
 ;; End:
 ;;; check-default-setup.el ends here
-
-
