@@ -8,7 +8,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/01/25 01:02:44 (+0900)
-;; Last-Updated: 2013/11/17 09:24:15 (+0900)
+;; Last-Updated:2015/10/20 02:26:58 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -411,6 +411,45 @@ TAIL: if non-nill then insert string tail of imports block.
 
 ;;;; indirect import region
 ;;
+;;;; indirect region
+;;
+;; [2013/09/27]
+;; copied from http://www.emacswiki.org/emacs/IndirectBuffers and modified.
+(defvar indirect-mode-name nil
+  "Mode to set for indirect buffers.")
+(make-variable-buffer-local 'indirect-mode-name)
+
+(defun indirect-region (start end &optional buffname)
+  "Edit the current region in another buffer.
+START:start of region.
+END:end of region.
+BUFFNAME:extention buffer name.
+    If the buffer-local variable `indirect-mode-name' is not set, prompt
+    for mode name to choose for the indirect buffer interactively.
+    Otherwise, use the value of said variable as argument to a funcall."
+  (interactive "r")
+  (if buffname
+      (setq buffname (concat " " buffname))
+    (setq buffname ""))
+  (let ((buffer-name (generate-new-buffer-name (concat "*indirect" buffname "*")))
+        (mode
+         (if (not indirect-mode-name)
+             (setq indirect-mode-name
+                   (intern
+                    (completing-read
+                     "Mode: "
+                     (mapcar (lambda (e)
+                               (list (symbol-name e)))
+                             (apropos-internal "-mode$" 'commandp))
+                     nil t)))
+           indirect-mode-name)))
+    (pop-to-buffer (make-indirect-buffer (current-buffer) buffer-name))
+    (funcall mode)
+    (narrow-to-region start end)
+    (goto-char (point-min))
+    ;; (shrink-window-if-larger-than-buffer)
+    ))
+
 ;;;###autoload
 (defun py-indirect-import ()
   "Indirect import region."
