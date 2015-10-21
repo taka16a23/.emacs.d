@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:28:01 2012 (+0900)
-;; Last-Updated:2015/10/19 16:20:16 (+0900)
+;; Last-Updated:2015/10/21 17:17:58 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -69,6 +69,41 @@
   (term-send-raw-string "")
   )
 
+(defun term-mode-hook () ;[2015/10/21]
+  "Can't bind C-n to term-send-raw in use-package :config."
+  (bind-keys :map term-raw-map
+             ("C-h" . term-send-raw)
+             ("M-j" . term-send-raw)
+             ("M-l" . term-send-raw)
+             ("M-k" . term-send-raw)
+             ("M-n" . term-send-raw)
+             ("C-r" . term-send-raw)
+             ("C-y" . term-send-raw)
+             ("C-s" . term-send-raw)
+             ("C-z" . term-send-raw)
+             ("C-a" . term-send-raw)
+             ("C-o" . term-send-raw)
+             ("C-b" . term-send-raw)
+             ("" . term-send-raw) ;(kbd "C-_")
+             ("M-x" . term-send-raw)
+             ("C-e" . term-send-raw)
+             ([67108909] . term-send-raw) ;(kbd "C--")
+             ([67108923] . term-send-raw) ;(kbd "C-;")
+             ("C-c C-p" . clipboard-kill-ring-save)
+             ("C-c C-v" . term-paste)
+             ([(control -)] . term-send-raw)
+             ("C-c C-q" .  term-send-raw-meta)
+             ("C-t" .  set-mark-command)
+             ("C-c C-a" . sdic-describe-word-at-point)
+             ("C-c M-a" . dabbrev-expand)
+             ("M-N" .  windmove-down)
+             ("M-j" . term-send-backward-word)
+             ("M-l" . term-send-forward-word)
+             ([C-return] . term-spawn)
+             ([M-backspace] . term-send-raw-meta)
+             ("C-n" . term-send-raw))
+  )
+
 (defun term-0scroll-margin () ;[2015/10/15]
   ""
   (make-local-variable 'scroll-margin)
@@ -83,40 +118,8 @@
   :config
   (message "Loading \"term\"")
   (add-hook 'term-mode-hook 'term-0scroll-margin)
+  (add-hook 'term-mode-hook 'term-mode-hook)
   (face-spec-set 'term '((t (:foreground "white" :background "black"))))
-  (bind-keys :map term-raw-map
-             ("C-h" .  term-send-raw)
-             ("C-n" .  term-send-raw)
-             ("M-j" .  term-send-raw)
-             ("M-l" .  term-send-raw)
-             ("M-k" .  term-send-raw)
-             ("M-n" .  term-send-raw)
-             ("C-r" .  term-send-raw)
-             ("C-y" .  term-send-raw)
-             ("C-s" .  term-send-raw)
-             ("C-z" .  term-send-raw)
-             ("C-a" .  term-send-raw)
-             ("C-o" .  term-send-raw)
-             ("C-b" .  term-send-raw)
-             ("" .  term-send-raw) ;(kbd "C-_")
-             ("M-x" .  term-send-raw)
-             ("C-e" .  term-send-raw)
-             ([67108909] .  term-send-raw) ;(kbd "C--")
-             ([67108923] .  term-send-raw) ;(kbd "C-;")
-             ;; other
-             ("C-c C-p" .  clipboard-kill-ring-save)
-             ("C-c C-v" .  term-paste)
-             ([(control -)] .  term-send-raw)
-             ("C-c C-q" .  term-send-raw-meta)
-             ("C-t" .  set-mark-command)
-             ("C-c C-a" .  sdic-describe-word-at-point)
-             ("C-c M-a" .  dabbrev-expand)
-             ("M-N" .  windmove-down)
-             ;; ("C-r" . term-send-input)
-             ("M-j" . term-send-backward-word)
-             ("M-l" . term-send-forward-word)
-             ([C-return] . term-spawn)
-             ([M-backspace] . term-send-raw-meta))
   (use-package multi-term
     ;; :disabled
     :defer
@@ -130,7 +133,7 @@
      '(multi-term-scroll-show-maximum-output t) ;for zsh complete
      '(multi-term-dedicated-window-height 30)
      '(multi-term-dedicated-max-window-height 40))
-    (add-to-list 'term-unbind-key-list '"C-c")
+    (add-to-list 'term-unbind-key-list "C-c")
     )
   )
 
