@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/09/28 04:25:07 (+0900)
-;; Last-Updated:2015/10/21 04:12:28 (+0900)
+;; Last-Updated:2015/10/21 14:29:55 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -3202,17 +3202,32 @@ MAXLEN: Maximum line length, default 80 by PEP8."
   "ARGS"
   )
 
+;;;###autoload
+(defun py:auto-colon ()
+  "Python auto insert ':'."
+  (interactive "*")
+  (back-to-indentation)
+  (when (and (looking-at py:block-start-re)
+             (not (py:at-string|comment-p)))
+    (esc-comment-end-of-line)
+    (skip-chars-backward " \t")
+    (unless (looking-back ":")
+      (insert ":"))))
+
+;;;###autoload
 (defun py:auto-colon-return-on-line ()
   "Auto insert ':' and newline at end of lines."
   (interactive "*")
   (py:auto-colon)
   (py:return-on-line))
 
+;;;###autoload
 (defun py:return-on-line()
   (interactive "*")
   (end-of-line)
   (newline-and-indent))
 
+;;;###autoload
 (defun py:newline ()
   "Auto insert ':' and newline."
   (interactive)
