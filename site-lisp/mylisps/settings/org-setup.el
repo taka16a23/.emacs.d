@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/11/02 16:52:41 (+0900)
-;; Last-Updated:2015/10/20 05:34:04 (+0900)
+;; Last-Updated:2015/10/23 06:27:18 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -89,7 +89,8 @@
    '(org-todo-keyword-faces
      '(("TODO"      . org-warning)
        ("WAIT"      . shadow)
-       ("POSTPONES" . (:foreground "blueviolet" :weight bold))))
+       ("POSTPONES" . (:foreground "blueviolet" :weight bold))
+       ("DONE" . (:foreground "green"))))
    )
   (setq text-adjust-rule-space
         '((("\\cj"        "" "[0-9a-zA-Z]")   " ")
