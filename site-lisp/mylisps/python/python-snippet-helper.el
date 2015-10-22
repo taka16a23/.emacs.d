@@ -5,7 +5,7 @@
 ;; Author:       Atami
 ;; Maintainer:   Atami
 ;; Version:      1.0
-;; Last-Updated:2015/10/21 03:39:19 (+0900)
+;; Last-Updated:2015/10/23 02:17:54 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -80,6 +80,31 @@
     (if (re-search-backward "class +\\(.+?\\) *[(:]" nil t)
         (match-string 1))))
 
+(defun py--go-to-paren-class ()
+  "go-to-paren-class"
+  (while (and (not (looking-at "^\\_<\\(def\\|class\\)\\_>[ \n\t]"))
+              (re-search-backward
+               "[ \t]*\\_<\\(def\\|class\\)\\_>[ \n\t]" nil 'noerror))))
+
+;;;###autoload
+(defun py-in-class-block-p ()
+  "Return t if point in class block.
+Also end of block has indented return t."
+  (and (save-excursion
+         (py--go-to-paren-class)
+         (looking-at "^\\_<\\(class\\)\\_>[ \n\t]"))
+       (or (<= 4 (current-indentation))
+           (looking-at "^\\_<\\(class\\)\\_>[ \n\t]")
+           (save-excursion
+             (while (and (or (blank-line-p)
+                             (eq (what-face-at-point)
+                                 (or 'font-lock-string-face
+                                     'font-lock-comment-face)))
+                         (not (eobp)))
+               (forward-line 1))
+             (<= 4 (current-indentation)))
+           )))
+
 
 
 (provide 'python-snippet-helper)
@@ -88,4 +113,3 @@
 ;; coding: utf-8
 ;; End:
 ;;; python-snippet-helper.el ends here
-
