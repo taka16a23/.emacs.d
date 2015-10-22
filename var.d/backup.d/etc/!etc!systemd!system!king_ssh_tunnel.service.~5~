@@ -1,8 +1,0 @@
-[Unit]
-Description=Service for SSH tunneling to king server.
-After=nertwork.target
-
-[Service]
-Type=forking
-ExecStart=/usr/bin/ssh -N -i /root/.ssh/kagi -p 12316 -L 12316:192.168.1.123:12316 root@taka16.no-ip.info
-KillMode=process
