@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:25:06 2012 (+0900)
-;; Last-Updated:2015/10/20 14:33:47 (+0900)
+;; Last-Updated:2015/10/23 04:49:26 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -142,6 +142,7 @@
      ("F" . revert-buffer)
      ("<f4>" . name-last-kbd-macro)
      ("s-<f4>" . insert-kbd-macro)
+     ("C-M-c" . force-kill-emacs)
      ))
 
   (common-view-map-many-register

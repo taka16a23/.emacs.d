@@ -6,7 +6,7 @@
 ;; Maintainer:
 ;; Version:
 ;; Created: 2015/10/11 10:19:02 (+0900)
-;; Last-Updated:2015/10/20 02:32:49 (+0900)
+;; Last-Updated:2015/10/23 05:55:18 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -306,6 +306,14 @@ DIRS: directory."
     (dolist (f (directory-files dir 'full "\\.el\\`"))
       (unless (file-accessible-directory-p f)
         (batch-byte-compile-file f)))))
+
+(defun force-kill-emacs () ;[2015/10/23]
+  ""
+  (interactive)
+  (ignore-errors
+    (let (kill-emacs-hook)
+      (kill-emacs)))
+  (call-process "kill" nil nil nil "-9" (number-to-string (emacs-pid))))
 
 
 
