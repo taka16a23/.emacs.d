@@ -15392,7 +15392,7 @@ like 'http://' file name cannot create unix file name.
     windows
 ** TODO [#C] king rook refactoring
 ** TODO [#C] Leukocyte program
-** TODO [#C] generate test code for python
+** DONE [#C] generate test code for python
 use imenu or py:
     
     [[file:/usr/lib/python2.7/dist-packages/wx-2.8-gtk2-unicode/wx/_core.py]]
@@ -15485,6 +15485,21 @@ use imenu or py:
    <2015-08-05 Wed 22:41>
 ** POSTPONES sleipnir copy url and open chrome
    <2015-08-05 Wed 23:04>
+** TODO [#C] weekly backup
+
+1) 背景(問題点)
+
+2) 対応方法
+
+3) 優先順位の根拠
+
+4) 備考
+
+5) 結果
+6) time/ref
+    / cf. [[file:~/.emacs.d/allinone.org::*safe%20kill-emacs%20save-buffer%20find-file][safe kill-emacs save-buffer find-file]]
+   
+   [2015-10-21 Wed 14:32]
 * DOING:
 * Emacs:
 ** TODO code reading
