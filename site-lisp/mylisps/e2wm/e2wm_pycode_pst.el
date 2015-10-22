@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2015/10/01 11:01:20 (+0900)
-;; Last-Updated: 2015/10/01 12:36:34 (+0900)
+;; Last-Updated:2015/10/23 02:33:13 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -110,13 +110,13 @@
          e2wm:pycode-winfo))
        (buf (or e2wm:prev-selected-buffer
                 (e2wm:history-get-main-buffer)))
-       (ipython-buf (get-buffer "*IPython*"))
+       (ipython-buf (get-buffer "*Python*"))
        (w3m-buffers (w3m-list-buffers t))
        (pylib-dired (dired-noselect (expand-file-name "~/.pylib")))
        )
     ;; set ipython in sub
     (unless ipython-buf
-      (setq ipython-buf (funcall 'ipython)))
+      (setq ipython-buf (funcall 'run-python)))
     (wlf:set-buffer code-wm 'sub ipython-buf)
     ;; set w3m in right if exists
     (when w3m-buffers
@@ -137,15 +137,12 @@
       (let ((buf-name (buffer-name buf))
             (wm (e2wm:pst-get-wm)))
         (cond ((string-match "\\*w3m\\*" buf-name)
-               (e2wm:pst-buffer-set 'right buf)
-               t)
+               (e2wm:pst-buffer-set 'right buf))
               ((eq (selected-window) (wlf:get-window wm 'right))
-               (e2wm:pst-buffer-set 'right buf)
-               t)
+               (e2wm:pst-buffer-set 'right buf))
               ((eql (get-buffer buf) (wlf:get-buffer wm 'main))
                (e2wm:pst-update-windows)
-               (e2wm:pst-buffer-set 'main buf)
-               t)
+               (e2wm:pst-buffer-set 'main buf))
               (t (e2wm:pst-show-history-main)
                  (e2wm:pst-window-select-main))))))
 
@@ -216,14 +213,10 @@
   (interactive)
   (let ((wm (e2wm:pst-get-wm))
         (winfo-name 'sub)
-        (ipython-buf (get-buffer "*IPython*")))
+        (ipython-buf (get-buffer "*Python*")))
     (unless ipython-buf
-      (setq ipython-buf (funcall 'ipython)))
-    (e2wm:pst-buffer-set winfo-name ipython-buf)
-    (unless (wlf:window-shown-p
-             (wlf:get-winfo winfo-name (wlf:wset-winfo-list wm)))
-      (wlf:show wm winfo-name))
-    (e2wm:pst-window-select winfo-name))
+      (setq ipython-buf (funcall 'run-python)))
+    (e2wm:pst-buffer-set winfo-name ipython-buf 'show 'select))
   ;; no query exit process
   (when (process-list)
     (dolist (p (process-list))
@@ -233,7 +226,7 @@
 (defun e2wm:dp-pycode-navi-relaunch-sub-ipython () ;[2014/12/28]
   ""
   (interactive)
-  (let ((buf (get-buffer "*IPython*")))
+  (let ((buf (get-buffer "*Python*")))
     (when buf
       (kill-buffer buf))
     (e2wm:dp-pycode-navi-sub-ipython)))

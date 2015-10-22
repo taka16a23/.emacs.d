@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2015/10/01 12:37:41 (+0900)
-;; Last-Updated: 2015/10/01 12:38:58 (+0900)
+;; Last-Updated:2015/10/23 05:44:03 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -46,39 +46,6 @@
   `(defun ,(intern (concat "e2wm:dp-" (symbol-name dpname))) ()
      (interactive)
      (e2wm:pst-change ',dpname)))
-
-;;;; navi command
-;;
-(defmacro defe2wm:navi-simple-command (winname) ;[2013/11/29]
-  "Macro to create e2wm navigation command."
-  `(defun ,(intern (concat "e2wm:navi-" (symbol-name winname) "-command")) ()
-     (interactive)
-     (e2wm:pst-window-select ',winname)))
-
-(defmacro defe2wm:navi&show-command (winname) ;[2013/11/29]
-  "Macro to create e2wm show and navigation command."
-  `(defun ,(intern (concat "e2wm:navi-" (symbol-name winname) "-command")) ()
-     (interactive)
-     (let ((wm (e2wm:pst-get-wm))
-           (winfo-name ',winname))
-       (unless (wlf:window-shown-p
-                (wlf:get-winfo winfo-name (wlf:wset-winfo-list wm)))
-         (wlf:show wm winfo-name))
-       (wlf:select wm winfo-name)
-       (e2wm:pst-update-windows))))
-
-;;;; display command
-;;
-(defmacro defe2wm:win-command (action pstname)
-  "Macro to create e2wm show command."
-  `(defun ,(intern
-            (concat "e2wm:"
-                    (symbol-name action) "-"
-                    (symbol-name pstname) "-command")) ()
-     (interactive)
-     (,(intern (concat "wlf:" (symbol-name action)))
-      (e2wm:pst-get-wm) ',pstname)
-     (e2wm:pst-update-windows)))
 
 
 
