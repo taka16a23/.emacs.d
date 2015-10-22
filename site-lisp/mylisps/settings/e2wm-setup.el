@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Tue Dec 11 23:33:01 2012 (+0900)
-;; Last-Updated:2015/10/19 16:28:34 (+0900)
+;; Last-Updated:2015/10/23 00:56:49 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -66,13 +66,13 @@
              ("M-E" . e2wm:dp-elispcode)
              ("M-T" . e2wm:dp-two)
              ("M-Z" . e2wm:dp-term)
-             ("M-&" . e2wm:dp-doc)
              ("M-B" . e2wm:dp-book)
+             ("M-D" . e2wm:dp-doc)
              ("M-W" . e2wm:dp-web)
-             ("M-!" . e2wm:dp-svn)
+             ;; ("M-!" . e2wm:dp-svn)
              ("M-)" . e2wm:dp-code)
              ("M-C" . e2wm:dp-code)
-             ("M-V" . e2wm:dp-magit)
+             ("M-G" . e2wm:dp-magit)
              ("M-N" . e2wm:windmove-down-or-splitmove)
              ("M-K" . e2wm:windmove-up-or-splitmove)
              )
@@ -198,47 +198,13 @@
   :init
   :config
   (message "Loading \"e2wm-vcs\"")
-  (setq e2wm:c-magit-recipe
-        '(| (:left-size-ratio 0.3)
-            (- (:upper-size-ratio 0.6)
-               status branches)
-            (| (:left-size-ratio 0.2)
-               (- (:upper-size-ratio 0.5)
-                  logs
-                  (- (:upper-size-ratio 0.5)
-                     main sub))
-               diff)))
-
-  (setq e2wm:c-magit-winfo
-        '((:name status   :plugin magit-status)
-          (:name branches :plugin magit-branches)
-          (:name logs     :plugin magit-logs)
-          (:name diff     :buffer "*magit-diff*" :default-hide t)
-          (:name main)
-          (:name sub      :buffer nil :default-hide t)))
-  ;; override
-  (defun e2wm:def-plugin-magit-status (frame wm winfo)
-    (e2wm:def-plugin-vcs-with-window
-     'magit-toplevel
-     (lambda (dir topdir)
-       (magit-status (file-name-as-directory dir)))
-     (lambda () (e2wm:history-get-main-buffer))))
-
-  (defun e2wm:def-plugin-magit-branches (frame wm winfo)
-    (e2wm:def-plugin-vcs-with-window
-     'magit-toplevel
-     (if (fboundp 'magit-branch-manager)
-         (lambda (dir topdir) (magit-branch-manager))
-       (lambda (dir topdir) (magit-show-branches)))
-     (lambda () (e2wm:def-plugin-vcs-na-buffer "Git N/A"))))
-
-  (defun e2wm:def-plugin-magit-logs (frame wm winfo)
-    (e2wm:def-plugin-vcs-with-window
-     'magit-toplevel
-     (lambda (dir topdir)
-       (magit-log nil))
-     (lambda () (e2wm:def-plugin-vcs-na-buffer "Git N/A"))))
-
+  (setq e2wm:c-magit-recipe '(| (:left-max-size 30)
+                                (- (:upper-size-ratio 0.7)
+                                   files history)
+                                (| (:right-max-size 80)
+                                   (- status (- main sub))
+                                   (- (:upper-size-ratio 0.4) branches logs))))
+  (defalias 'magit-get-top-dir 'magit-toplevel) ;fixed void "magit-get-top-dir"
   (defun e2wm:dp-magit-popup (buf)
     (let ((cb (current-buffer)))
       (e2wm:message "#DP MAGIT popup : %s (current %s / backup %s)"
@@ -249,24 +215,28 @@
             (not-minibufp (= 0 (minibuffer-depth))))
         (e2wm:with-advice
          (cond
-          ((equal buf-name "COMMIT_EDITMSG")
+          ((string-match "^COMMIT_EDITMSG" buf-name)
            ;; displaying commit objects in the main window
            (e2wm:pst-buffer-set 'main buf t nil))
           ((string-match "^\\*magit: .*\\*$" buf-name)
            ;; displaying status object in the status window
            (e2wm:pst-buffer-set 'status buf t t))
+          ((string-match "^\\*magit-diff: .+\\*$" buf-name)
+           ;; displaying diff object in the logs window
+           (e2wm:pst-buffer-set 'logs buf t nil))
           ((buffer-file-name buf)
            ;; displaying file buffer in the main window
            (e2wm:pst-buffer-set 'main buf t t))
           (t
+           (princ buf-name)
            ;; displaying other objects in the sub window
            (e2wm:pst-buffer-set 'sub buf t not-minibufp)))))))
-  (defadvice e2wm:dp-magit-popup (around ~e2wm:mng-diff activate)
-    (if (string= (buffer-name (ad-get-arg 0)) "*magit-diff*")
-        (e2wm:with-advice
-         (e2wm:pst-buffer-set 'diff (ad-get-arg 0) t t))
-      ad-do-it))
-
+  (defun e2wm:dp-magit-switch (buf)
+    (e2wm:message "#DP MAGIT switch : %s" buf)
+    (let ((bufname (buffer-name buf)))
+      (cond ((string-match "^COMMIT_EDITMSG" bufname)
+             (e2wm:pst-buffer-set 'main buf t t))
+            (t (e2wm:vcs-select-if-plugin buf)))))
   )
 
 (defun e2wm:dp-pycode-navi-relaunch-sub-ipython () ;[2014/12/28]
