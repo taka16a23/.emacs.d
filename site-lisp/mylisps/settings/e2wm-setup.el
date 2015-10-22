@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Tue Dec 11 23:33:01 2012 (+0900)
-;; Last-Updated:2015/10/23 05:46:48 (+0900)
+;; Last-Updated:2015/10/23 06:00:49 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -85,7 +85,6 @@
              ("+" . e2wm:def-plugin-files-mkdir-command)
              ("r" . e2wm:def-plugin-files-rename-command)
              ("C-c d" . e2wm:def-plugin-files-open-dired-command))
-  (setf (e2wm:$pst-class-main (e2wm:pst-class-get 'magit)) 'status)
   (face-spec-set 'e2wm:face-history-list-normal '((t :foreground "White")))
   (use-package e2wm-t1code-pst
     ;; :disabled
