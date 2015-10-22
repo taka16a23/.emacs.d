@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Tue Dec 11 23:33:01 2012 (+0900)
-;; Last-Updated:2015/10/23 00:56:49 (+0900)
+;; Last-Updated:2015/10/23 01:17:30 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -117,7 +117,7 @@
   (if (and (boundp 'e2wm:pst-minor-mode)
            e2wm:pst-minor-mode)
       (e2wm:stop-management)
-    (e2wm:start-management)
+    (e2wm:start-management '(elispcode pycode two htwo doc dashboard magit monky))
     ;; (e2wm:pst-window-plugin-set (e2wm:pst-get-wm) 'right nil)
     (e2wm:pst-update-windows)))
 
@@ -205,6 +205,7 @@
                                    (- status (- main sub))
                                    (- (:upper-size-ratio 0.4) branches logs))))
   (defalias 'magit-get-top-dir 'magit-toplevel) ;fixed void "magit-get-top-dir"
+  ;; override
   (defun e2wm:dp-magit-popup (buf)
     (let ((cb (current-buffer)))
       (e2wm:message "#DP MAGIT popup : %s (current %s / backup %s)"
