@@ -1,15 +1,0 @@
-;;
-;;
-;;
-;;
-
-
-
-
-
-(provide 'emacs-lisp-mode-bind-key-setup)
-;; For Emacs
-;; Local Variables:
-;; coding: utf-8
-;; End:
-;;; emacs-lisp-mode-bind-key-setup.el ends here

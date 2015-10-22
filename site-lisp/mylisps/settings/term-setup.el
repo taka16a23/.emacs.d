@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:28:01 2012 (+0900)
-;; Last-Updated:2015/10/21 17:17:58 (+0900)
+;; Last-Updated:2015/10/21 17:52:31 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -76,7 +76,7 @@
              ("M-j" . term-send-raw)
              ("M-l" . term-send-raw)
              ("M-k" . term-send-raw)
-             ("M-n" . term-send-raw)
+             ("M-n" . term-send-down)
              ("C-r" . term-send-raw)
              ("C-y" . term-send-raw)
              ("C-s" . term-send-raw)
