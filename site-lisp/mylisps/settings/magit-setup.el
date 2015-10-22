@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2015/09/30 08:25:36 (+0900)
-;; Last-Updated:2015/10/19 16:07:33 (+0900)
+;; Last-Updated:2015/10/22 17:06:21 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -49,7 +49,7 @@
   ;; :disabled
   :defer
   :ensure t
-  :commands magit-status
+  :commands magit-status magit-get-top-dir
   :init
   :config
   (message "Loading \"magit\"")
