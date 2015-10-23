@@ -1380,3 +1380,25 @@ reboot
   :ARCHIVE_TODO: DONE
   :END:
  <2015-10-02 Fri 21:21>
+
+* DONE [#C] e2wm C-: C-i move cursor sub ipython 
+   CLOSED: [2013-12-03 Tue 16:47]
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2015-10-23 Fri 06:07
+  :ARCHIVE_FILE: ~/.emacs.d/allinone.org
+  :ARCHIVE_OLPATH: Emacs:
+  :ARCHIVE_CATEGORY: allinone
+  :ARCHIVE_TODO: DONE
+  :END:
+
+1) 背景 (問題点)
+
+2) 対応方法
+
+3) 優先順位の根拠
+
+4) 備考
+
+5) 結果
+6) time/ref
+    / cf.

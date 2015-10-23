@@ -11128,7 +11128,7 @@ anything などで説明付きの正規表現を選んで insert する。
 
 5) 備考
 
-******* TODO [#B] 決った形に分割
+******* DONE [#B] 決った形に分割
 
 1) 結果
 
@@ -15396,7 +15396,7 @@ like 'http://' file name cannot create unix file name.
 use imenu or py:
     
     [[file:/usr/lib/python2.7/dist-packages/wx-2.8-gtk2-unicode/wx/_core.py]]
-** TODO safe kill-emacs save-buffer find-file
+** TODO safe save-buffer find-file
   <2015-10-14 Wed 22:43>
 ** TODO managing keybind for emacs
   <2015-10-14 Wed 12:22>
@@ -15408,7 +15408,7 @@ use imenu or py:
   <2015-10-07 Wed 09:04>
 ** TODO coop mysql
   <2015-10-06 Tue 14:02>
-** TODO magit perspective
+** DONE magit perspective
   <2015-10-05 Mon 05:57>
 ** TODO fix woman
   <2015-10-02 Fri 13:42>
@@ -15428,7 +15428,7 @@ use imenu or py:
    <2015-10-02 Fri 11:45>
 ** TODO python elisp_compileall.py wait close all process
    <2015-10-02 Fri 10:59>
-** TODO org-todo rotate sequence TODO => DONE => LATER
+** DONE org-todo rotate sequence TODO => DONE => LATER
    <2015-10-02 Fri 10:16>
 ** TODO make function some-buffer-save-kill
    <2015-10-02 Fri 08:30>
@@ -15985,20 +15985,6 @@ usable yasnippet write format string
 
 2) 対応方法
    write elisp
-
-3) 優先順位の根拠
-
-4) 備考
-
-5) 結果
-6) time/ref
-    / cf.
-** DONE [#C] e2wm C-: C-i move cursor sub ipython 
-   CLOSED: [2013-12-03 Tue 16:47]
-
-1) 背景 (問題点)
-
-2) 対応方法
 
 3) 優先順位の根拠
 
