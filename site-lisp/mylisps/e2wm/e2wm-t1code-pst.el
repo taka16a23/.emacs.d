@@ -6,7 +6,7 @@
 ;; Maintainer:
 ;; Version:
 ;; Created: 2015/10/23 03:33:31 (+0900)
-;; Last-Updated:2015/10/23 05:45:58 (+0900)
+;; Last-Updated:2015/10/24 17:34:29 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -144,7 +144,7 @@
                (e2wm:pst-buffer-set 'right buf)
                t)
               ((equal buf-name e2wm:python-shell-buffer-name)
-               (e2wm:pst-buffer-set 'sub buf 'show 'select)
+               (e2wm:pst-buffer-set 'sub buf t t)
                t)
               ((eq (selected-window) (wlf:get-window wm 'right))
                (e2wm:pst-buffer-set 'right buf)
@@ -218,7 +218,7 @@
         (python-shell-buf (get-buffer e2wm:python-shell-buffer-name)))
     (unless python-shell-buf
       (setq python-shell-buf (funcall 'run-python)))
-    (e2wm:pst-buffer-set winfo-name python-shell-buf 'show 'select))
+    (e2wm:pst-buffer-set winfo-name python-shell-buf t t))
   ;; no query exit process
   (when (process-list)
     (dolist (p (process-list))
