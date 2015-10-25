@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:26:29 2012 (+0900)
-;; Last-Updated:2015/10/19 23:47:08 (+0900)
+;; Last-Updated:2015/10/25 21:55:05 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -187,11 +187,8 @@
   (defadvice yas-load-snippet-buffer
       (before save-yas-load-snippet-buffer activate)
     (when (buffer-modified-p)
-      (save-buffer))
-    )
+      (sav-buffer)))
   ;; (progn (ad-disable-advice 'yas-load-snippet-buffer 'before 'save-yas-load-snippet-buffer) (ad-update 'yas-load-snippet-buffer))
-  ;; snippet mode
-  ;; (setq next-line-add-newlines t)
   (yas-global-mode 1))
 
 

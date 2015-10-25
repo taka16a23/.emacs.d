@@ -15501,6 +15501,21 @@ use imenu or py:
    
    [2015-10-21 Wed 14:32]
 * DOING:
+** TODO [#C] mark-expand bind to C-SPC
+
+1) 背景(問題点)
+
+2) 対応方法
+
+3) 優先順位の根拠
+
+4) 備考
+
+5) 結果
+6) time/ref
+    / cf. [[file:~/.pylib/daily2/exe/create_recipe.py::window.add_observer(self)]]
+   
+   [2015-10-23 Fri 14:14]
 * Emacs:
 ** TODO code reading
    pymacs.el pymacs-round-trip ()
@@ -16239,6 +16254,39 @@ auto test writer
 5) 結果
 6) time/ref
     / cf.
+** TODO [#C] show weekly past recipes
+
+1) 背景(問題点)
+
+2) 対応方法
+
+3) 優先順位の根拠
+
+4) 備考
+
+5) 結果
+6) time/ref
+    / cf. [[file:~/.pylib/diary/database_client.py::"""]]
+   
+   [2015-10-23 Fri 16:29]
+** TODO [#C] __python__ py:= failed in function 
+
+1) 背景(問題点)
+   ! is pointer.
+   mkdir(parents!) => mkdir(parents == )
+   I expect to mkdir(parents=)
+
+2) 対応方法
+
+3) 優先順位の根拠
+
+4) 備考
+
+5) 結果
+6) time/ref
+    / cf. [[file:~/.pylib/recipe/coop/cache_request.py]]
+   
+   [2015-10-25 Sun 01:49]
 * assembly:
 * C C++:
 ** code_reading
