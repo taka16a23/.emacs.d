@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:25:06 2012 (+0900)
-;; Last-Updated:2015/10/23 14:38:13 (+0900)
+;; Last-Updated:2015/10/25 22:09:44 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -127,6 +127,8 @@
      ("C-f" . fixup-whitespace)
      ("C-w" . query-replace)
      ("w" . query-replace)
+     ("C-u" . upcase-word)
+     ("C-l" . downcase-word)
      ))
 
   (t1-ctl-x-bind-keys
