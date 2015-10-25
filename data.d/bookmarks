@@ -4,9 +4,9 @@
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("org-capture-last-stored"
  (filename . "~/.emacs.d/allinone.org")
- (front-context-string . "** TODO [#C] wee")
- (rear-context-string . "8-05 Wed 23:04>\n")
- (position . 471827))
+ (front-context-string . "** TODO [#C] __p")
+ (rear-context-string . "0-23 Fri 16:29]\n")
+ (position . 488357))
 ("backup.d"
  (filename . "~/.emacs.d/var.d/backup.d/")
  (front-context-string . "auto-save\n  drwx")

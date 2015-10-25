@@ -7,29 +7,15 @@
         fixup-whitespace
         forward-whitespace
         indent-for-tab-command
+        jedi:dot-complete
         my-backward-delete-word
         my-backward-seq
         my-forward-seq
+        py:=
         right-parentheses-indent
         yas-expand
         ))
 
 (setq mc/cmds-to-run-once
       '(
-        my-mc/backward-char
-        my-mc/backward-char
-        my-mc/backward-char
-        my-mc/backward-char
-        my-mc/forward-char
-        my-mc/forward-char
-        my-mc/forward-char
-        my-mc/forward-char
-        my-mc/next-line
-        my-mc/next-line
-        my-mc/next-line
-        my-mc/next-line
-        my-mc/previous-line
-        my-mc/previous-line
-        my-mc/previous-line
-        my-mc/previous-line
         ))
