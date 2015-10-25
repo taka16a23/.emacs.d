@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2015/10/05 10:33:36 (+0900)
-;; Last-Updated:2015/10/23 14:27:03 (+0900)
+;; Last-Updated:2015/10/25 18:30:17 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -95,6 +95,29 @@
       (select-window w-script))
     ))
 
+;; test
+(defun python-fit-tail ()
+  "ARGS"
+  (let ((inhibit-read-only t))
+    (save-excursion
+      (goto-char (point-max))
+      (when (and (re-search-backward "" nil 'noerror)
+                 (or (looking-back "\n\n\n\n")
+                     (not (looking-back "\n\n\n"))))
+        (forward-char -1)
+        (delete-blank-lines) ;for no blank line
+        (delete-blank-lines)
+        (insert "\n\n"))))
+  )
+
+(defun refactoring-python-mode-hook () ;[2015/10/25]
+  ""
+  (add-hook 'before-save-hook 'python-fit-tail 'append 'local))
+
+(defun inferior-python-mode-hook () ;[2015/10/25]
+  ""
+  (setq truncate-lines nil))
+
 (use-package python
   ;; :disabled
   :defer
@@ -106,6 +129,8 @@
   (require '__python__operator "__python__operator" 'noerr)
   (require 'pymacs "pymacs" 'noerr)
   (require 'python-debug "python-debug" 'noerr)
+  (add-hook 'python-mode-hook 'refactoring-python-mode-hook)
+  (add-hook 'inferior-python-mode-hook 'inferior-python-mode-hook)
   (custom-set-variables
    '(python-shell-interpreter "/usr/bin/ipython")
    '(python-shell-prompt-regexp "In \\[[0-9]+\\]: ")
