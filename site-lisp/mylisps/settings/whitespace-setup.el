@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:25:06 2012 (+0900)
-;; Last-Updated:2015/10/19 23:52:25 (+0900)
+;; Last-Updated:2015/10/26 18:57:53 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -48,7 +48,7 @@
 (use-package whitespace
   ;; :disabled
   :defer
-  :commands whitespace-mode
+  :commands whitespace-mode whitespace-cleanup
   :init
   (common-view-map-many-register
    '(("W" . whitespace-mode)))
