@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/12/05 18:28:52 (+0900)
-;; Last-Updated:2015/10/19 15:41:00 (+0900)
+;; Last-Updated:2015/10/27 05:37:02 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -70,8 +70,8 @@
   (message "Loading \"flycheck\"")
   (custom-set-variables
    '(flycheck-highlighting-mode 'lines)
-   '(flycheck-display-errors-delay 1.5)
-   '(flycheck-idle-change-delay 1.0)
+   '(flycheck-display-errors-delay 1.8)
+   '(flycheck-idle-change-delay 1.5)
    ;; '(flycheck-clang-language-standard "c++11")
    '(flycheck-clang-language-standard "gnu++11")
    ;; disabled display errors to window
