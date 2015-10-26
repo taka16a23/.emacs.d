@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Tue Dec 11 23:33:01 2012 (+0900)
-;; Last-Updated:2015/10/23 06:00:49 (+0900)
+;; Last-Updated:2015/10/27 04:04:34 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -148,6 +148,10 @@
         (cond ((string-match "^COMMIT_EDITMSG" bufname)
                (e2wm:pst-buffer-set 'main buf t t))
               (t (e2wm:vcs-select-if-plugin buf)))))
+    (defadvice e2wm:dp-magit
+        (after select-after-e2wm:dp-magit activate)
+      (wlf:select (e2wm:pst-get-wm) 'status))
+    ;; (progn (ad-disable-advice 'e2wm:dp-magit 'after 'select-after-e2wm:dp-magit) (ad-update 'e2wm:dp-magit))
     )
   )
 
