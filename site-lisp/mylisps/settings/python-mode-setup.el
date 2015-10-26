@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2015/10/05 10:33:36 (+0900)
-;; Last-Updated:2015/10/25 18:30:17 (+0900)
+;; Last-Updated:2015/10/26 18:59:27 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -112,7 +112,9 @@
 
 (defun refactoring-python-mode-hook () ;[2015/10/25]
   ""
-  (add-hook 'before-save-hook 'python-fit-tail 'append 'local))
+  (add-hook 'before-save-hook 'python-fit-tail 'append 'local)
+  (add-hook 'before-save-hook 'whitespace-cleanup 'append 'local)
+  )
 
 (defun inferior-python-mode-hook () ;[2015/10/25]
   ""
