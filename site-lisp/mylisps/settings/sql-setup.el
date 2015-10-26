@@ -6,7 +6,7 @@
 ;; Maintainer:
 ;; Version:
 ;; Created: 2015/10/15 04:01:05 (+0900)
-;; Last-Updated:2015/10/19 16:17:31 (+0900)
+;; Last-Updated:2015/10/27 03:56:44 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -57,7 +57,7 @@
         sql-port 3306
         truncate-lines t)
   (bind-keys :map sql-interactive-mode-map
-             ("\C-j" . backward-char)
+             ("C-j" . backward-char)
              ([C-return] . sql-interactive-auto-semicolon))
   )
 
