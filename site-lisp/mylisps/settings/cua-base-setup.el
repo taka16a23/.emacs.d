@@ -6,7 +6,7 @@
 ;; Maintainer:
 ;; Version:
 ;; Created: 2015/10/14 12:03:44 (+0900)
-;; Last-Updated:2015/10/19 14:32:59 (+0900)
+;; Last-Updated:2015/10/27 05:41:28 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -68,6 +68,12 @@
   (define-key cua-global-keymap [C-return] 'open-line-indent)
   :bind
   (([(control meta ?\s)] . cua-set-rectangle-mark))
+  (defadvice cua-paste
+      (before delete-active-region-before-cua-paste activate)
+    (when mark-active
+      (delete-region (region-beginning) (region-end)))
+    )
+  ;; (progn (ad-disable-advice 'cua-paste 'before 'delete-active-region-before-cua-paste) (ad-update 'cua-paste))
   )
 
 
