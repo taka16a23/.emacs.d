@@ -5,7 +5,7 @@
 ;; Author:       Atami
 ;; Maintainer:   Atami
 ;; Version:      1.0
-;; Last-Updated:2015/10/20 05:43:09 (+0900)
+;; Last-Updated:2015/10/27 16:42:42 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -39,16 +39,27 @@
 
 
 (eval-when-compile
-  (require 'use-package "use-package" 'noerr))
+  (require 'use-package "use-package" 'noerr)
+  (require 'package "package" 'noerr)
+  (package-initialize)
+  )
 
 (use-package smartparens
+  ;; :disabled
+  :defer
+  :ensure t
+  :init
+  :config
+  (message "Loading \"smartparens\"")
+  (smartparens-global-mode t)
+  )
+
+(use-package smartparens-config
   ;; :disabled
   :defer 2
   :init
   :config
-  (message "Loading \"smartparens\"")
-  (require 'smartparens-config "smartparens-config" 'noerr)
-  (smartparens-global-mode t)
+  (message "Loading \"smartparens-config\"")
   )
 
 
