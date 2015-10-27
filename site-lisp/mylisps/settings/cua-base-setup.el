@@ -6,7 +6,7 @@
 ;; Maintainer:
 ;; Version:
 ;; Created: 2015/10/14 12:03:44 (+0900)
-;; Last-Updated:2015/10/27 05:41:28 (+0900)
+;; Last-Updated:2015/10/27 15:01:33 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -44,15 +44,15 @@
 (eval-when-compile
   (require 'use-package "use-package" 'noerr)
   (require 'edebug "edebug" 'noerr)
-  (declare-function cua-base "cua-base")
+  ;; (declare-function cua-base "cua-base")
   (require 't1-bind-key "t1-bind-key" 'noerr)
-  (declare-function common-view-map-many-register "t1-bind-key"))
+  (declare-function common-view-map-many-register "t1-bind-key")
+  (require 'cua-base "cua-base" 'noerr))
 
 (use-package cua-base
   ;; :disabled
   :defer 1
-  :commands
-  (cua--prefix-override-handler)
+  :commands cua--prefix-override-handler cua-paste
   :init
   (require 't1-bind-key "t1-bind-key" 'noerr)
   (common-view-map-many-register
@@ -66,14 +66,13 @@
   (custom-set-variables
    '(cua-mode t nil (cua-base)))
   (define-key cua-global-keymap [C-return] 'open-line-indent)
-  :bind
-  (([(control meta ?\s)] . cua-set-rectangle-mark))
   (defadvice cua-paste
       (before delete-active-region-before-cua-paste activate)
     (when mark-active
       (delete-region (region-beginning) (region-end)))
     )
-  ;; (progn (ad-disable-advice 'cua-paste 'before 'delete-active-region-before-cua-paste) (ad-update 'cua-paste))
+  :bind
+  (([(control meta ?\s)] . cua-set-rectangle-mark))
   )
 
 
