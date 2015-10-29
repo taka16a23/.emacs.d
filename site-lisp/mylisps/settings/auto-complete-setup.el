@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:25:50 2012 (+0900)
-;; Last-Updated:2015/10/20 06:38:12 (+0900)
+;; Last-Updated:2015/10/30 07:46:25 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -101,6 +101,7 @@
   (require 'environment-setup "environment-setup" 'noerr)
   (add-to-list 'ac-user-dictionary-files (my-data-dir-join "words"))
   (custom-set-variables
+   '(ac-trigger-key nil)
    '(ac-auto-show-menu    0.4)
    '(ac-use-comphist      t)
    '(ac-use-quick-help    t)
@@ -112,12 +113,15 @@
   (global-auto-complete-mode 1)
   (bind-keys :map ac-complete-mode-map
              ("C-h" . ac-persist-help)
-             ("\t"  . ac-stop)
              ("C-f" . ac-isearch)
+             ("\t"  . ac-stop)
+             ([tab]  . ac-stop)
              ("C-l" . ac-stop)
              ("C-s" . auto-complete-stop&save))
   (bind-keys :map ac-menu-map
              ("C-n" . ac-next)
+             ("\t"  . ac-stop)
+             ([tab]  . ac-stop)
              ("C-k" . ac-previous))
   )
 
