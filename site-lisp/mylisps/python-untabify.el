@@ -5,7 +5,7 @@
 ;; Author:       Atami
 ;; Maintainer:   Atami
 ;; Version:      1.0
-;; Last-Updated:2015/10/21 02:55:23 (+0900)
+;; Last-Updated:2015/10/31 04:15:44 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -43,7 +43,7 @@
 (defun python-untabify ()
   "ARGS"
   (interactive)
-  (save-restriction
+  (save-excursion
     (goto-char (point-min))
     (and (re-search-forward "^\t" nil 'noerror)
          (y-or-n-p "This buffer using tab.  replace to space? ")
@@ -57,4 +57,3 @@
 ;; coding: utf-8
 ;; End:
 ;;; python-untabify.el ends here
-
