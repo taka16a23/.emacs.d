@@ -112,7 +112,8 @@ def _main():
     # parser = _predef_options()
     # opts = parser.parse_args()
     curdir = os.path.dirname(os.path.abspath(__file__))
-    targetdir = os.path.join(curdir, 'site-lisp')
+    # targetdir = os.path.join(curdir, 'site-lisp')
+    targetdir = curdir
     candidates = []
     append = candidates.append
     for f in iter_el_files(targetdir):

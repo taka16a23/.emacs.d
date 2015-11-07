@@ -11,11 +11,28 @@
         my-backward-delete-word
         my-backward-seq
         my-forward-seq
+        py:\,
+        py::
         py:=
+        python-indent-dedent-line-backspace
+        python-mark-defun
         right-parentheses-indent
+        sp--self-insert-command
         yas-expand
         ))
 
 (setq mc/cmds-to-run-once
       '(
+        my-mc/backward-char
+        my-mc/backward-char
+        my-mc/backward-char
+        my-mc/forward-char
+        my-mc/forward-char
+        my-mc/forward-char
+        my-mc/next-line
+        my-mc/next-line
+        my-mc/next-line
+        my-mc/previous-line
+        my-mc/previous-line
+        my-mc/previous-line
         ))

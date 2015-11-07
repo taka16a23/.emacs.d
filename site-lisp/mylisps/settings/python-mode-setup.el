@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2015/10/05 10:33:36 (+0900)
-;; Last-Updated:2015/10/26 18:59:27 (+0900)
+;; Last-Updated:2015/10/31 22:58:06 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -126,7 +126,7 @@
   :init
   :config
   (message "Loading \"python\"")
-  ;; (setq-default font-lock-fontify-buffer-function 'jit-lock-refontify)
+  (setq-default font-lock-fontify-buffer-function 'jit-lock-refontify)
   (require '__python__ "__python__" 'noerr)
   (require '__python__operator "__python__operator" 'noerr)
   (require 'pymacs "pymacs" 'noerr)
@@ -160,6 +160,10 @@
              ("C-e C-\ M-h" . py:ahs-edit-mode-class-region)
              ("C-e M-h" . py:ahs-edit-mode-class-region)
              )
+  (bind-keys :map inferior-python-mode-map
+             ("C-M-n" . scroll-up))
+  (bind-keys :map compilation-shell-minor-mode-map
+             ("C-M-n" . scroll-up))
   (when (require 'smartrep "" 'noerr)
     (smartrep-define-key
      python-mode-map "C-c C-e" '(("C-l" . py:refact-list-toggle)
