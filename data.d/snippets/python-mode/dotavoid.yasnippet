@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: dotavoid
+# key: dotavoid
+# condition: (and (not (py:at-string|comment-p)) (not (equal (this-command-keys-vector) [32])))
+# --
+dotavoid($0)`(py--insert-imports "dotavoider[ \t]+import[ \t]+dotavoid" "from dotavoider import dotavoid")`
