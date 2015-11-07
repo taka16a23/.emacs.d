@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/03/01 13:29:58 (+0900)
-;; Last-Updated:2015/10/20 16:13:27 (+0900)
+;; Last-Updated:2015/11/03 03:53:49 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -157,6 +157,8 @@
   (t1-ctl-x-bind-keys '(("C-f" . helm-find-files)))
   :config
   (message "Loading \"helm-files\"")
+  (custom-set-variables
+   '(helm-ff-newfile-prompt-p nil))
   (custom-set-faces
    ;; '(helm-ff-prefix)
    '(helm-ff-executable ((((class color) (background dark))

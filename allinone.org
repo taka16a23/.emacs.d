@@ -15256,6 +15256,20 @@ my local web server
 search like google my log
 history web 
 add local my server
+**  django initialize
+    $ django-admin startproject mysite
+    $ cd ./mysite
+    $ python manage.py startapp Coop
+    $ mysql -u root -p
+    > CREATE DATABASE Coop_db;
+    > exit
+    $ nano mysite/settings.py
+    $ python manage.py makemigrations Coop # if edited models
+    $ python manage.py syncdb
+    $ python manage.py migrate
+    
+    [[file:~/work/mysite/mysite/settings.py]]
+    [2015-10-31 Sat 04:47]
 * Todo:
 *** 設計の設計
 **** TODO なぜ 5
@@ -15500,6 +15514,21 @@ use imenu or py:
     / cf. [[file:~/.emacs.d/allinone.org::*safe%20kill-emacs%20save-buffer%20find-file][safe kill-emacs save-buffer find-file]]
    
    [2015-10-21 Wed 14:32]
+** TODO [#C] Fix auto-save location
+
+1) 背景(問題点)
+
+2) 対応方法
+
+3) 優先順位の根拠
+
+4) 備考
+
+5) 結果
+6) time/ref
+    / cf. [[file:~/.emacs.d/inits/11-auto-save-setup.el::%3B%3B%20(add-to-list%20'auto-save-file-name-transforms][file:~/.emacs.d/inits/11-auto-save-setup.el::;; (add-to-list 'auto-save-file-name-transforms]]
+   
+   [2015-10-28 Wed 06:40]
 * DOING:
 ** TODO [#C] mark-expand bind to C-SPC
 
@@ -20448,3 +20477,20 @@ or force open on right display
 
 ** 風変わりな解決策
    - Adapter によるインターフェースの統合
+* Lisp:
+** TODO [#C] upcase-region if region active
+
+1) 背景(問題点)
+   binding "C-e C-u"
+
+2) 対応方法
+
+3) 優先順位の根拠
+
+4) 備考
+
+5) 結果
+6) time/ref
+    / cf. [[file:~/.emacs.d/inits/02-t1-bind-key-setup.el::("w"%20.%20query-replace)][file:~/.emacs.d/inits/02-t1-bind-key-setup.el::("w" . query-replace)]]
+   
+   [2015-10-25 Sun 22:10]

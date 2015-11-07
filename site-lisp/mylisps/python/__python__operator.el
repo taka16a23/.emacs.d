@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2015/10/05 13:03:20 (+0900)
-;; Last-Updated:2015/10/21 03:13:39 (+0900)
+;; Last-Updated:2015/11/02 09:04:34 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -61,7 +61,14 @@ Else nil."
 
 ;;;###autoload
 (defun py:= (n) ;[2015/10/05]
-  "N"
+  "N
+"
+  ;; TODO
+  ;; in comment
+  ;; in string
+  ;; in if condition
+  ;; in definition parameter
+  ;; in parameter
   (interactive "p")
   (if (or (py:at-string|comment-p)
           (looking-back "^[[:blank:]]*" 1))

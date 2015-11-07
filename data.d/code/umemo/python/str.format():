@@ -111,6 +111,11 @@
 >>> '{0!r:20}'.format('hello\nworld')
 "'hello\\nworld'      "
 
+* datetime
+>>> import datetime
+>>> d = datetime.datetime(2010, 7, 4, 12, 15, 58)
+>>> '{:%Y-%m-%d %H:%M:%S}'.format(d)
+'2010-07-04 12:15:58'
 * ref
 PEP3101 http://www.python.org/dev/peps/pep-3101/
 doc     http://docs.python.org/library/stdtypes.html#string-formatting-operations
