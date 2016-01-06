@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/02/14 05:49:31 (+0900)
-;; Last-Updated:2015/10/19 15:26:51 (+0900)
+;; Last-Updated:2016/01/06 09:51:44 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -101,6 +101,27 @@
                  tabbar-scroll-right-button))
     (set btn (cons (cons "" nil)
                    (cons "" nil))))
+  ;; from http://www.emacswiki.org/emacs/TabBarMode
+  (defun my-tabbar-buffer-groups ()
+    "Return the list of group names BUFFER belongs to.
+    Return only one group for each buffer."
+    (cond
+     ((or (get-buffer-process (current-buffer)) (memq major-mode '(comint-mode compilation-mode))) '("Term"))
+     ((string-equal "*" (substring (buffer-name) 0 1)) '("Misc"))
+     ((memq major-mode '(emacs-lisp-mode python-mode emacs-lisp-mode c-mode c++-mode makefile-mode lua-mode vala-mode)) '("Coding"))
+     ((memq major-mode '(javascript-mode js-mode nxhtml-mode html-mode css-mode)) '("HTML"))
+     ((memq major-mode '(org-mode calendar-mode diary-mode)) '("Org"))
+     ((memq major-mode '(dired-mode)) '("Dir"))
+     (t '("Main"))))
+  (defun my-buffer-eproject-name ()
+    (when eproject-root
+      (catch 'loop
+        (let ((lst (eproject-projects)))
+          (while lst
+            (let ((proj (pop lst)))
+              (if (string= eproject-root (cdr proj))
+                  (throw 'loop (car proj)))))))))
+  (setq tabbar-buffer-groups-function 'my-tabbar-buffer-groups)
   (tabbar-mode 1)
   :bind
   (("M->" . tabbar-forward-tab)
