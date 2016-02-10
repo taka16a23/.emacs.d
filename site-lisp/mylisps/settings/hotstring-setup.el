@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/10/03 00:14:44 (+0900)
-;; Last-Updated:2015/10/19 15:19:22 (+0900)
+;; Last-Updated:2016/02/11 07:20:04 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -2150,7 +2150,7 @@
                                    ("incarcirated"         . "incarcerated")
                                    ("incidentially"        . "incidentally")
                                    ("incidently"           . "incidentally")
-                                   ("includ"               . "include")
+                                   ;; ("includ"               . "include")
                                    ("includng"             . "including")
                                    ("incuding"             . "including")
                                    ("incomptable"          . "incompatible")
