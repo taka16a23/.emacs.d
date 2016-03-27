@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:28:40 2012 (+0900)
-;; Last-Updated:2015/10/20 01:47:47 (+0900)
+;; Last-Updated:2016/03/27 22:27:46 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -88,6 +88,8 @@
         (vertical-scroll-bars . nil )
         (cursor-type          . box ))
       )
+(menu-bar-mode -1)
+(tool-bar-mode -1)
 
 (if (string-equal (system-name) "qu")
     nil
@@ -192,18 +194,29 @@
 (add-hook 'input-method-inactivate-hook 'set-cursor-yellow)
 
 ;;;; 色付け速度
+;; (custom-set-variables
+;;  '(font-lock-support-mode '(;; (c-mode . fast-lock-mode)
+;;                             ;; (c++-mode . fast-lock-mode)
+;;                             (python-mode . jit-lock-mode)
+;;                             (t . jit-lock-mode)))
+;;  ;; '(jit-lock-context-time 0.3) ;0.5
+;;  ;; '(jit-lock-defer-time 0.02) ;0.25
+;;  ;; '(jit-lock-stealth-time 1)
+;;  ;; '(jit-lock-stealth-verbose nil)
+;;  ;; '(jit-lock-stealth-nice 0.4)
+;;  ;; '(jit-lock-stealth-load 50)
+;;  '(jit-lock-chunk-size 3000)
+;;  '(font-lock-maximum-decoration '((c-mode . 1)
+;;                                   (c++-mode . 1)
+;;                                   (org-mode . 1)
+;;                                   (python-mode . 1)))
+;;  ;; 値を越えるバッファについてはフォント表示化を抑制
+;;  '(font-lock-maximum-size (* 1024 1024))
+;;  ;; fast-lock-mode で値以下のバッファについては cache を作成しない
+;;  '(fast-lock-minimum-size (* 30 1024))
+;;  )
 ;; (global-font-lock-mode t)
-;; (setq font-lock-maximum-size (* 1024 1024))
 
-;; (if (>= emacs-major-version 21)
-;; (setq font-lock-support-mode 'jit-lock-mode)   ; Just-In-Timeな文字装飾方式
-;; (setq font-lock-support-mode 'lazy-lock-mode)  ; Emacs20以前では古い方式
-;; )
-;; (set font-lock-support-mode 'lazy-lock-mode)
-;; (set font-lock-support-mode 'fast-lock-mode)
-;; (setq font-lock-support-mode
-;; '((c-mode . fast-lock-mode) (c++-mode . fast-lock-mode)
-;; (t . lazy-lock-mode)))
 
 (defun default-frame-width ()
   "Set width of selected frame."
