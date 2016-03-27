@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2015/10/05 13:03:20 (+0900)
-;; Last-Updated:2015/11/02 09:04:34 (+0900)
+;; Last-Updated:2015/11/09 01:23:41 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -75,6 +75,8 @@ Else nil."
       (insert (make-string n ?=))
     (delete-horizontal-space)
     (cond ((py:in-parameter-p)
+           (insert (make-string n ?=)))
+          ((py:in-round-p)
            (insert (make-string n ?=)))
           ((or (py:in-brackets-p)
                (py--in-condition-p))

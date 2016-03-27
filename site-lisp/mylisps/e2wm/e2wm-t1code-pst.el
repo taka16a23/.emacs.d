@@ -6,7 +6,7 @@
 ;; Maintainer:
 ;; Version:
 ;; Created: 2015/10/23 03:33:31 (+0900)
-;; Last-Updated:2015/10/24 17:34:29 (+0900)
+;; Last-Updated:2015/12/01 10:05:40 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -217,7 +217,9 @@
         (winfo-name 'sub)
         (python-shell-buf (get-buffer e2wm:python-shell-buffer-name)))
     (unless python-shell-buf
-      (setq python-shell-buf (funcall 'run-python)))
+      (setq python-shell-buf (funcall 'run-python (python-shell-parse-command)))
+      (sit-for 3 'nodisp) ;wait for buffer
+      )
     (e2wm:pst-buffer-set winfo-name python-shell-buf t t))
   ;; no query exit process
   (when (process-list)

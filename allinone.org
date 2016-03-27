@@ -729,7 +729,7 @@ manual:
 ## それを行っているのが下記の script のコマンド。
 ## それをコメントアウトする。
 	   - [[ntpstats/$year/$month][logrotate ntp]]
-
+         
 ***** /etc/hosts
       :PROPERTIES:
       :SUMMARY:  etc-hosts
@@ -745,7 +745,7 @@ manual:
 	  192.168.1.111   pa
 	  192.168.1.112   pa2
 	  192.168.1.113   pa3
-
+      
 **** Log
 ***** log の重要性
 ****** 不正アクセス
@@ -15260,9 +15260,6 @@ add local my server
     $ django-admin startproject mysite
     $ cd ./mysite
     $ python manage.py startapp Coop
-    $ mysql -u root -p
-    > CREATE DATABASE Coop_db;
-    > exit
     $ nano mysite/settings.py
     $ python manage.py makemigrations Coop # if edited models
     $ python manage.py syncdb
@@ -15270,6 +15267,9 @@ add local my server
     
     [[file:~/work/mysite/mysite/settings.py]]
     [2015-10-31 Sat 04:47]
+** sato homepage 作業記録
+- pip install pytz
+
 * Todo:
 *** 設計の設計
 **** TODO なぜ 5
@@ -15529,6 +15529,22 @@ use imenu or py:
     / cf. [[file:~/.emacs.d/inits/11-auto-save-setup.el::%3B%3B%20(add-to-list%20'auto-save-file-name-transforms][file:~/.emacs.d/inits/11-auto-save-setup.el::;; (add-to-list 'auto-save-file-name-transforms]]
    
    [2015-10-28 Wed 06:40]
+** TODO [#C] Fix xahk change window 
+
+1) 背景(問題点)
+   Failed keybind if changed window by alt-tab.
+
+2) 対応方法
+
+3) 優先順位の根拠
+
+4) 備考
+
+5) 結果
+6) time/ref
+    / cf. [[file:~/.emacs.d/site-lisp/mylisps/settings/face-setup.el::%3B%3B%20(set%20font-lock-support-mode%20'fast-lock-mode)][file:~/.emacs.d/site-lisp/mylisps/settings/face-setup.el::;; (set font-lock-support-mode 'fast-lock-mode)]]
+   
+   [2015-11-11 Wed 09:51]
 * DOING:
 ** TODO [#C] mark-expand bind to C-SPC
 
