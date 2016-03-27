@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/11/02 16:52:41 (+0900)
-;; Last-Updated:2015/10/23 06:27:18 (+0900)
+;; Last-Updated:2016/02/29 13:36:08 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -65,6 +65,7 @@
              ("M-n" . outline-next-visible-heading)
              ("M-h" . org-metaleft)
              ("M--" . org-metaright)
+             ("C-y" . t1-kill-line)
              ([24 return] . org-meta-return) ;(kbd "C-x <return>")
              ("M-a" . ispell-complete-word)
              ;; ("C-y" . my-kill-line)

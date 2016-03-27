@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2015/10/05 10:33:36 (+0900)
-;; Last-Updated:2015/10/31 22:58:06 (+0900)
+;; Last-Updated:2015/11/11 10:50:55 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -126,7 +126,6 @@
   :init
   :config
   (message "Loading \"python\"")
-  (setq-default font-lock-fontify-buffer-function 'jit-lock-refontify)
   (require '__python__ "__python__" 'noerr)
   (require '__python__operator "__python__operator" 'noerr)
   (require 'pymacs "pymacs" 'noerr)

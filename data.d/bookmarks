@@ -4,9 +4,9 @@
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("org-capture-last-stored"
  (filename . "~/.emacs.d/allinone.org")
- (front-context-string . "**  django initi")
- (rear-context-string . "local my server\n")
- (position . 466179))
+ (front-context-string . "** TODO [#C] Fix")
+ (rear-context-string . "0-28 Wed 06:40]\n")
+ (position . 472741))
 ("backup.d"
  (filename . "~/.emacs.d/var.d/backup.d/")
  (front-context-string . "auto-save\n  drwx")

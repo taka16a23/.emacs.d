@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2015/10/01 11:01:20 (+0900)
-;; Last-Updated:2015/10/24 17:35:01 (+0900)
+;; Last-Updated:2015/12/01 09:59:01 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -215,7 +215,7 @@
         (winfo-name 'sub)
         (ipython-buf (get-buffer "*Python*")))
     (unless ipython-buf
-      (setq ipython-buf (funcall 'run-python)))
+      (setq ipython-buf (funcall 'run-python (python-shell-parse-command))))
     (e2wm:pst-buffer-set winfo-name ipython-buf t t))
   ;; no query exit process
   (when (process-list)
