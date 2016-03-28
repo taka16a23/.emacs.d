@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:28:40 2012 (+0900)
-;; Last-Updated:2016/03/27 22:27:46 (+0900)
+;; Last-Updated:2016/03/28 11:13:55 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -90,6 +90,7 @@
       )
 (menu-bar-mode -1)
 (tool-bar-mode -1)
+(scroll-bar-mode -1)
 
 (if (string-equal (system-name) "qu")
     nil
