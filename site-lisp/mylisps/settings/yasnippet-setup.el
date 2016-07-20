@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:26:29 2012 (+0900)
-;; Last-Updated:2015/10/25 21:55:05 (+0900)
+;; Last-Updated:2016/06/30 08:08:18 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -183,11 +183,11 @@
              ("SPC" . yas-expand)
              )
   (bind-keys :map snippet-mode-map
-             ("C-s" 'yas-load-snippet-buffer))
+             ("C-s" . yas-load-snippet-buffer))
   (defadvice yas-load-snippet-buffer
       (before save-yas-load-snippet-buffer activate)
     (when (buffer-modified-p)
-      (sav-buffer)))
+      (save-buffer)))
   ;; (progn (ad-disable-advice 'yas-load-snippet-buffer 'before 'save-yas-load-snippet-buffer) (ad-update 'yas-load-snippet-buffer))
   (yas-global-mode 1))
 
