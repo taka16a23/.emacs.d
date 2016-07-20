@@ -9,9 +9,9 @@
 # contributor: Yasser González Fernández <yglez@uh.cu>
 # --
 class ${1:CLASS$(replace-regexp-in-string \"[[:punct:][:blank:]]\" \"_\" yas-text)}(${2:object}):
-    r\"\"\"$1
+    \"\"\"$1
 
     $1 is a $2.
     Responsibility: 
     \"\"\"
-    ${30:$2.__init__(self, $40)}$0
+    $0

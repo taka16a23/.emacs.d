@@ -88,7 +88,7 @@ def ${1:name$(replace-regexp-in-string \"[[:punct:][:blank:]]\" \"_\" yas-text)}
                                           (setq result (cdr (car namemap))))
                            (setq namemap (cdr namemap)))))
                 result)}$2):
-    r\"\"\"SUMMARY
+    \"\"\"SUMMARY
 
     $1($2)
     ${2:$
@@ -119,6 +119,12 @@ def ${1:name$(replace-regexp-in-string \"[[:punct:][:blank:]]\" \"_\" yas-text)}
          (make-string 3 34))
          indent)))
     }
+    # require
+    $0
+    # do
+      
+    # ensure
+    
     ${1:$(let*
     ((namemap \'((\"__abs__\"     . \"return \")
                 (\"__add__\"     . \"return \")
@@ -201,4 +207,6 @@ def ${1:name$(replace-regexp-in-string \"[[:punct:][:blank:]]\" \"_\" yas-text)}
                                           (setq result (cdr (car namemap))))
                            (setq namemap (cdr namemap)))))
                 result)}${1:$(cond ((not (eq (string-match \"^get\" yas-text) nil)) \"return \")
-      (t \"\"))}$0
+      ((not (eq (string-match \"^list\" yas-text) nil)) \"return \")
+      ((not (eq (string-match \"^is_\" yas-text) nil)) \"return \")
+      (t \"\"))}
