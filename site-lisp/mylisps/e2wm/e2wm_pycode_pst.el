@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2015/10/01 11:01:20 (+0900)
-;; Last-Updated:2016/07/20 16:02:49 (+0900)
+;; Last-Updated:2016/11/08 14:28:01 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -116,7 +116,8 @@
        )
     ;; set ipython in sub
     (unless ipython-buf
-      (setq ipython-buf (funcall 'run-python (python-shell-parse-command))))
+      ;; (setq ipython-buf (funcall 'run-python (python-shell-parse-command))))
+      (setq ipython-buf (funcall 'run-python)))
     (wlf:set-buffer code-wm 'sub ipython-buf)
     ;; set w3m in right if exists
     (when w3m-buffers
