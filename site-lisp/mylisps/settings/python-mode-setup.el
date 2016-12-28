@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2015/10/05 10:33:36 (+0900)
-;; Last-Updated:2015/11/11 10:50:55 (+0900)
+;; Last-Updated:2016/12/29 05:57:58 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -134,6 +134,7 @@
   (add-hook 'inferior-python-mode-hook 'inferior-python-mode-hook)
   (custom-set-variables
    '(python-shell-interpreter "/usr/bin/ipython")
+   '(python-shell-interpreter-args "--simple-prompt -i")
    '(python-shell-prompt-regexp "In \\[[0-9]+\\]: ")
    '(python-shell-prompt-output-Regexp "Out\\[[0-9]+\\]: ")
    '(python-shell-completion-setup-code
