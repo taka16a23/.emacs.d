@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2015/10/05 11:11:51 (+0900)
-;; Last-Updated:2015/10/21 01:47:50 (+0900)
+;; Last-Updated:2017/06/30 22:25:50 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -59,8 +59,6 @@
   ;; :disabled
   :defer
   :commands pymacs-load pymacs-call pymacs-eval pymacs-exec pymacs-load
-  :init
-  (pythonpath-append (my-pylib-dir-get))
   :config
   (message "Loading \"pymacs\"")
   (setq pymacs-timeout-at-start 45
