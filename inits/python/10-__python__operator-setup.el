@@ -1,1 +1,0 @@
-../../site-lisp/mylisps/settings/__python__-operator-setup.el

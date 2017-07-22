@@ -1,1 +1,0 @@
-../site-lisp/mylisps/settings/check-default-setup.el

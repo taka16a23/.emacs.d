@@ -1,1 +1,0 @@
-../site-lisp/mylisps/settings/t1-simple-setup.el
