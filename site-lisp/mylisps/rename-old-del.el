@@ -8,7 +8,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Mon Dec 17 19:49:59 2012 (+0900)
-;; Last-Updated: 2015/07/19 23:44:42 (+0900)
+;; Last-Updated:2017/06/30 22:40:56 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -45,8 +45,6 @@
 
 
 (require 's nil 'noerror)
-(eval-when-compile
-  (require '30_header2_plugin_start))
 
 ;;;###autoload
 (defun rename-old-del (filename &optional confirm)
