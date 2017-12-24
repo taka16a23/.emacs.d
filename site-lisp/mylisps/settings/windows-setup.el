@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Wed Dec 12 00:34:37 2012 (+0900)
-;; Last-Updated:2015/10/15 03:07:09 (+0900)
+;; Last-Updated:2017/12/23 19:22:22 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -45,12 +45,15 @@
 (setq
  file-name-coding-system 'sjis
  locale-coding-system    'utf-8
+ set-clipboard-coding-system  'utf-8
+
  ;; w32-pass-lwindow-to-system nil
  ;; w32-pass-rwindow-to-system nil
  w32-pass-apps-to-system nil
  ;; w32-lwindow-modifier 'super ; Left Windows key
  ;; w32-rwindow-modifier 'super ; Right Windows key
- w32-apps-modifier 'hyper) ; Menu key
+ w32-apps-modifier 'hyper
+ ) ; Menu key
 
 (setq w32-ime-buffer-switch-p nil)
 (setq-default w32-hide-mouse-on-key t)

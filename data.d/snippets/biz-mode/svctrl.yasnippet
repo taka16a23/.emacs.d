@@ -1,0 +1,22 @@
+# -*- mode: snippet -*-
+# name: SvCtrl
+# key: svctrl
+# --
+try
+{
+
+    /* サーバーURLセット */
+    $1.SvCtrl.SetServerURL("/gyoumu/$10/$20");
+
+    /* パラメーターセット */
+    $1.SvCtrl.AddParam("$30", $40);
+    
+    /* 通信 */
+    $1.SvCtrl.connect();
+
+    $0
+}
+catch
+{
+    
+}

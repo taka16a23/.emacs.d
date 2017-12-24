@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: messagebox
+# key: messagebox
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
+# --
+MessageBox( ${1:MESSAGE}, ${20:TITLE}, ${30: $$(yas-choose-value \'(\"$IconInformation\" "$IconQuestion" "$IconExclamation" "$IconStop"))} )
