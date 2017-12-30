@@ -1,0 +1,23 @@
+# -*- mode: snippet -*-
+# name: SvCtrl
+# key: SvCtrl
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
+# --
+try
+{
+
+    /* サーバーURLセット */
+    ${1:frm_main}.SvCtrl.SetServerURL("/gyoumu/$10/$20");
+
+    /* パラメーターセット */
+    $1.SvCtrl.AddParam("$30", $40);
+    
+    /* 通信 */
+    $1.SvCtrl.connect();
+
+    $0
+}
+catch ( exp )
+{
+    
+}

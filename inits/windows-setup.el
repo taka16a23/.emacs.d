@@ -55,6 +55,7 @@
 (setq w32-ime-buffer-switch-p nil)
 (setq-default w32-hide-mouse-on-key t)
 
+
 (when (windows-p)
   ;; (setenv "PATH" (format "I:\\Dos\\unixutils\\;%s" (getenv "PATH")))
   (setq find-dired-find-program (concat (substring usb-drive-letter 0 2)

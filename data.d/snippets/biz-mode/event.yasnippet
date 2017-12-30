@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: Event
+# key: event
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
+# --
+/* ユーザーイベントを作成 */
+var userEvent = new Event( UserEvent + 1, "${1:EventName}" )
+{
+    ${10: ${20: String ${30:data1}}};
+    
+}
+userEvent.$30 = ${40: "${50:string}"};
+
+/* イベント発行 */
+PostEvent(userEvent);
