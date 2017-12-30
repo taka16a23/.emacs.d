@@ -71,7 +71,8 @@ END"
         (insert "t_soSql.AddSQL(\"")
         (end-of-line)
         (insert "\");")
-        (next-line)
+        (nex
+         t-line)
         ))))
 
 

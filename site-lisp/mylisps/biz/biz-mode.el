@@ -1,3 +1,4 @@
+
 ;;; biz-mode.el --- For biz mode
 ;;
 ;; Copyright (C) 2017 Atami
@@ -6,7 +7,7 @@
 ;; Maintainer:
 ;; Version: 1.0
 ;; Created: 2017/12/23 20:05:49 (+0900)
-;; Last-Updated:2017/12/24 00:51:20 (+0900)
+;; Last-Updated:2017/12/30 22:55:35 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -44,14 +45,14 @@
 (require 'generic "generic" 'noerr)
 
 (define-derived-mode biz-mode prog-mode "Biz"
-  
+
   )
 
 (define-generic-mode biz-mode
-  
+
   ;; comment
   '(("/*" . "*/"))
-  
+
   ;; highlight keyword
   '("peekevent" "break" "case"
     "catch" "continue" "default" "delete"
@@ -68,24 +69,24 @@
     "debugger" "enum" "goto" "native"
     "protected" "synchronized" "throws" "transient"
     "volatile"
-    
+
     )
-  
+
   ;; syntax color
   '(
     ("String" . font-lock-type-face)
     ("tes" . font-lock-type-face)
     )
-  
+
   ;; file name for auto mode when open it
   '("\\.crs\\'")
-  
+
   ;; hook function
-  nil 
-  
+  nil
+
   ;; Description mode
   "Major mode for biz designer"
-  
+
   )
 
 (provide 'biz-mode)
