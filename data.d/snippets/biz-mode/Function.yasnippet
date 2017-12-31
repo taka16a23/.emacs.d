@@ -3,15 +3,19 @@
 # key: Function
 # expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
 # --
-/* <Summary><Summary> */
+/* <Summary> */
 /* $3 */
+/* </Summary> */
 /* <param></param> */
 /* <return></return> */
 Function ${1:name}(${2:args})
 {
 
-    debugMessage("IN:$1\n");
+    debugMessage( "IN:$1\n" );
+    /* 引数チェック */
+
     $0
-    debugMessage("OUT:$1\n");
+    
+    debugMessage( "OUT:$1\n" );
     
 }
