@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:25:50 2012 (+0900)
-;; Last-Updated:2015/10/30 07:46:25 (+0900)
+;; Last-Updated:2017/12/31 19:17:11 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -92,6 +92,7 @@
   (add-hook 'lisp-interaction-mode-hook 'auto-complete-lisp-interaction-mode-hook)
   (add-hook 'systemd-mode-hook 'auto-complete-mode)
   (add-hook 'python-mode-hook 'auto-complete-mode)
+  (add-hook 'biz-mode-hook 'auto-complete-mode)
   :config
   (message "Loading \"auto-complete\"")
   (require 'auto-complete-config)
