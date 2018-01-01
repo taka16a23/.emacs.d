@@ -1,4 +1,3 @@
-
 ;;; biz-mode.el --- For biz mode
 ;;
 ;; Copyright (C) 2017 Atami
@@ -7,7 +6,7 @@
 ;; Maintainer:
 ;; Version: 1.0
 ;; Created: 2017/12/23 20:05:49 (+0900)
-;; Last-Updated:2017/12/30 22:55:35 (+0900)
+;; Last-Updated:2018/01/01 00:59:07 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -44,9 +43,34 @@
 
 (require 'generic "generic" 'noerr)
 
-(define-derived-mode biz-mode prog-mode "Biz"
 
+;;;; 定数
+;;
+
+(defconst line-start-curly-brace
+  (rx line-start (* blank) symbol-start "{" symbol-end)
+  "Regexp for match line start curly brace. ({)"
   )
+
+
+;;;; 関数
+;;
+(defun refact-to-newline-curly-brace () ;[2018/01/01]
+  "文字列の末尾にある波括弧を改行します"
+  (interactive)
+  (save-excursion
+    (goto-char (point-min))
+    (while (re-search-forward "{" nil 'noerror)
+      (when (and (not (member (what-face-at-point) '(font-lock-string-face)))
+                 (not (looking-back line-start-curly-brace))
+                 )
+        (backward-char)
+        (default-indent-new-line)
+        (forward-char)
+        ))))
+
+
+(define-derived-mode biz-mode prog-mode "Biz")
 
 (define-generic-mode biz-mode
 
