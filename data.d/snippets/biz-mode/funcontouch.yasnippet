@@ -1,10 +1,10 @@
 # -*- mode: snippet -*-
 # name: OnTouch
-# key: funcontouch
+# key: ftouch
 # expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
 # --
 /* (yas-expand-link "comment" t) */
-Function OnTouch( e )
+Function OnTouch( event )
 {
     try
     {
@@ -12,6 +12,6 @@ Function OnTouch( e )
     }
     catch( exp )
     {
-    
+        debugMessage( "例外" + exp.message + "が" + exp.Method + "で発生しました" );
     }
 }

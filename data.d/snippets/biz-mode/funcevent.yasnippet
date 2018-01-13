@@ -1,13 +1,10 @@
 # -*- mode: snippet -*-
 # name: Function event( event )
-# key: funcevent
+# key: fevent
 # expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
 # --
-/* <Summary></Summary> */
-/* $2 */
-/* <param "event">イベントオブジェクト</param> */
-/* <return></return> */
-Function ${1:name}( event )
+/* (yas-expand-link "comment" t) */
+Function ${1:OnChange}( event )
 {
     $0
 }
