@@ -4,14 +4,12 @@
 # expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
 # --
 /* (yas-expand-link "comment" t) */
-Function ${1:name}(${2:args})
+Function ${1:name}( ${2:args} )
 {
 
     debugMessage( "IN:$1\n" );
-
     /* 引数チェック */
-
-    $0
+    $2$0
     
     debugMessage( "OUT:$1\n" );
     
