@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:25:06 2012 (+0900)
-;; Last-Updated:2018/01/14 00:32:29 (+0900)
+;; Last-Updated:2019/09/28 17:01:22 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -106,7 +106,7 @@
            ;; mule-cmds.el
            ([zenkaku-hankaku] . toggle-input-method)
            ;; isearch.el not provided
-           ("C-f" . isearch-forward-symbol-at-point)
+           ("C-f" . isearch-forward)
            ("s-<f4>" . kmacro-edit-macro)
            )
 
