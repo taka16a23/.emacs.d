@@ -6,7 +6,7 @@
 ;; Maintainer:
 ;; Version:
 ;; Created: 2015/10/11 08:07:16 (+0900)
-;; Last-Updated:2015/10/11 08:08:07 (+0900)
+;; Last-Updated:2020/01/05 21:22:27 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -44,6 +44,11 @@
 (require 'ucs-normalize)
 (setq file-name-coding-system 'utf-8-hfs
       locale-coding-system    'utf-8-hfs )
+
+
+(message "setup mac" )
+(require 'ls-lisp "ls-lisp" 'noerr)
+(setq ls-lisp-use-insert-directory-program nil)
 
 
 

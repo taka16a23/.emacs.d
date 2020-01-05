@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:33:26 2012 (+0900)
-;; Last-Updated:2020/01/05 21:16:07 (+0900)
+;; Last-Updated:2020/01/05 21:27:26 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -170,11 +170,16 @@
   (setq init-loader-show-log-after-init nil))
 (setq init-loader-byte-compile t)
 (init-loader-load)
-(when (string-equal system-type "darwin")
-  (require 'ls-lisp "ls-lisp" 'noerr)
-  (setq ls-lisp-use-insert-directory-program nil)
-  )
-
+;; for mac
+(defcustom init-loader-mac-regexp "\\`mac-"
+  "Regular expression of Mac specific configuration file names."
+  :group 'init-loader
+  :type 'regexp)
+(let ((init-dir (init-loader-follow-symlink init-loader-directory))
+      )
+  (when (string-equal system-type "darwin")
+    (init-loader-re-load init-loader-mac-regexp init-dir))
+)
 
 ;; (run-with-timer      15 nil 'run-after-init-timer)
 ;; (run-with-idle-timer 30 nil 'run-after-init-idle-timer)
