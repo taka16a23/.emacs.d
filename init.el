@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:33:26 2012 (+0900)
-;; Last-Updated:2020/01/05 20:44:15 (+0900)
+;; Last-Updated:2020/01/05 20:48:38 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -175,7 +175,6 @@
   :group 'init-loader
   :type 'regexp)
 (let ((init-dir (init-loader-follow-symlink init-loader-directory)))
-  (init-loader-re-load init-loader-default-regexp init-dir t)
   ;; Mac
   (when (featurep 'darwin)
     (init-loader-re-load init-loader-mac-regexp init-dir))
