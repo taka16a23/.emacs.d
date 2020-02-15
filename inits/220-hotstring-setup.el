@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/10/03 00:14:44 (+0900)
-;; Last-Updated:2016/02/11 07:20:04 (+0900)
+;; Last-Updated:2020/02/16 00:51:22 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -1765,7 +1765,7 @@
                                    ("firey"                . "fiery")
                                    ("fightings"            . "fighting")
                                    ("filiament"            . "filament")
-                                   ("fiel"                 . "file")
+                                   ;; ("fiel"                 . "file")
                                    ("fiels"                . "files")
                                    ("fianlly"              . "finally")
                                    ("finaly"               . "finally")
