@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:29:09 2012 (+0900)
-;; Last-Updated:2020/06/07 17:52:53 (+0900)
+;; Last-Updated:2020/06/07 18:13:59 (+0900)
 ;; Last-Updated: 2015/10/12 21:59:39 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -47,10 +47,13 @@
   ""
   (interactive)
   (save-excursion
-    (replace-regexp "\\.\\./\\.\\." "/static")
-    )
-  (save-excursion
-    (replace-regexp "\\.\\./" "/static/")
+    (goto-char (point-min))
+    (save-excursion
+      (replace-regexp "\\.\\./\\.\\." "/static")
+      )
+    (save-excursion
+      (replace-regexp "\\.\\./" "/static/")
+      )
     )
   )
 
