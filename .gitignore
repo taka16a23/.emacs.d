@@ -2,3 +2,10 @@
 *.pyc
 var.d/*
 */backup.d/*
+elpa/gnupg/tofu.db
+eshell/
+history
+kkcrc
+image-dired/
+session.*
+.python-environments/
