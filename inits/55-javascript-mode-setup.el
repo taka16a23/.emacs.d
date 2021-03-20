@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:28:22 2012 (+0900)
-;; Last-Updated:2015/10/19 16:35:38 (+0900)
+;; Last-Updated:2021/03/20 09:29:45 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -47,7 +47,9 @@
 
 
 (eval-when-compile
-  (require 'use-package "use-package" 'noerr))
+  (require 'use-package "use-package" 'noerr)
+  (require 'll-debug "ll-debug" 'noerr)
+  )
 
 (use-package javascript
   ;; :disabled
@@ -58,10 +60,21 @@
          ("\\.json\\'" . javascript-mode)
          ("\\.jsn\\'" . javascript-mode))
   :init
+  (require 'll-debug "ll-debug" 'noerr)
+  (ll-debug-register-mode 'javascript-mode
+                          "console.log(" ")"
+                          '(nil "\"" (ll-debug-create-next-debug-string) "\"")
+                          '(nil "\"" (ll-debug-create-next-debug-string) "\""
+                                ("Variable name: ""\"  " str "\"" str)))
+  (ll-debug-register-mode 'js-mode
+                          "console.log(" ")"
+                          '(nil "\"" (ll-debug-create-next-debug-string) "\"")
+                          '(nil "\"" (ll-debug-create-next-debug-string) "\""
+                                ("Variable name: ""\"  " str "\"" str)))
   :config
   (message "Loading \"javascript\"")
   (custom-set-variables
-   '(js-indent-level 4))
+   '(js-indent-level 2))
   )
 
 
