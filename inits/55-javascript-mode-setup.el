@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:28:22 2012 (+0900)
-;; Last-Updated:2021/03/20 09:29:45 (+0900)
+;; Last-Updated:2021/03/20 09:48:13 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -48,33 +48,27 @@
 
 (eval-when-compile
   (require 'use-package "use-package" 'noerr)
+  (require 'js "js" 'noerr)
   (require 'll-debug "ll-debug" 'noerr)
   )
 
-(use-package javascript
+(use-package js
   ;; :disabled
   :defer
-  :commands javascript-mode
-  :mode (("\\.js\\'" . javascript-mode)
-         ("\\.as\\'" . javascript-mode)
-         ("\\.json\\'" . javascript-mode)
-         ("\\.jsn\\'" . javascript-mode))
+  :commands js-mode
+  :mode (("\\.js\\'" . js-mode)
+         ("\\.as\\'" . js-mode)
+         ("\\.json\\'" . js-mode)
+         ("\\.jsn\\'" . js-mode))
   :init
-  (require 'll-debug "ll-debug" 'noerr)
-  (ll-debug-register-mode 'javascript-mode
-                          "console.log(" ")"
-                          '(nil "\"" (ll-debug-create-next-debug-string) "\"")
-                          '(nil "\"" (ll-debug-create-next-debug-string) "\""
-                                ("Variable name: ""\"  " str "\"" str)))
-  (ll-debug-register-mode 'js-mode
-                          "console.log(" ")"
-                          '(nil "\"" (ll-debug-create-next-debug-string) "\"")
-                          '(nil "\"" (ll-debug-create-next-debug-string) "\""
-                                ("Variable name: ""\"  " str "\"" str)))
   :config
   (message "Loading \"javascript\"")
   (custom-set-variables
    '(js-indent-level 2))
+  :bind
+  (("M-o" . ll-debug-insert)
+   ("C-x M-o" . ll-debug-revert)
+   )
   )
 
 

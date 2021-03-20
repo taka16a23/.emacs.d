@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:26:00 2012 (+0900)
-;; Last-Updated:2015/10/21 04:33:57 (+0900)
+;; Last-Updated:2021/03/20 09:38:20 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -84,6 +84,17 @@
                                  "  " str ":%s"
                                  '(progn (setq v1 (concat v1 " " str)) nil))
                                 "' %" v1))
+  (ll-debug-register-mode 'javascript-mode
+                          "console.log(" ")"
+                          '(nil "\"" (ll-debug-create-next-debug-string) "\"")
+                          '(nil "\"" (ll-debug-create-next-debug-string) "\""
+                                ("Variable name: ""\"  " str "\"" str)))
+  (ll-debug-register-mode 'js-mode
+                          "console.log(" ")"
+                          '(nil "\"" (ll-debug-create-next-debug-string) "\"")
+                          '(nil "\"" (ll-debug-create-next-debug-string) "\""
+                                ("Variable name: ""\"  " str "\"" str)))
+  )
   :bind
   (("M-o" . ll-debug-insert)
    ("C-x M-o" . ll-debug-revert)
