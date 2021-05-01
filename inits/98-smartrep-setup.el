@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/03/03 22:24:21 (+0900)
-;; Last-Updated:2015/10/20 15:59:29 (+0900)
+;; Last-Updated:2021/05/01 09:13:41 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -56,11 +56,13 @@
   (message "Loading \"smartrep\"")
   (smartrep-define-key
       global-map "C-e" '(
-                          ;; ("\\" . rep-dir-sep)
-                          ("K" . move-text-up)
-                          ("N" . move-text-down)
-                          ("C-i" . indent-and-next)
-                          ("M-@" . mc/mark-next-like-this)
+                         ;; ("\\" . rep-dir-sep)
+                         ("K" . move-text-up)
+                         ("N" . move-text-down)
+                         ("C-i" . indent-and-next)
+                         ("M-@" . mc/mark-next-like-this)
+                         ("C-." . increment-number-at-point)
+                         ("C-," . decrement-number-at-point)
                          ))
   )
 
