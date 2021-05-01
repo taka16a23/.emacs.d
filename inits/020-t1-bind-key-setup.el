@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:25:06 2012 (+0900)
-;; Last-Updated:2019/09/28 17:01:22 (+0900)
+;; Last-Updated:2021/05/01 09:03:52 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -129,6 +129,8 @@
      ("w" . query-replace)
      ("C-u" . upcase-word)
      ("C-l" . downcase-word)
+     ("C-." . increment-number-at-point)
+     ("C-," . increment-number-at-point)
      ))
 
   (t1-ctl-x-bind-keys
