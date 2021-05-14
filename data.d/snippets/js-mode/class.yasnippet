@@ -1,0 +1,19 @@
+# -*- mode: snippet; coding: utf-8 -*-
+# name: class:
+# key: class
+# for react snippet
+# condition: (not (py:at-string|comment-p))
+# --
+${1:default export }${10:CLASS} ${20:extends ${22:Component}} {
+  ${30:constructor(props) \{
+    super(props)
+    this.state = \{
+      $0
+    \}
+  \}}
+
+  render() {
+    return (
+    )
+  }
+}
