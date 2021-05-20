@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:29:09 2012 (+0900)
-;; Last-Updated:2021/05/20 12:37:59 (+0900)
+;; Last-Updated:2021/05/20 12:43:57 (+0900)
 ;; Last-Updated: 2015/10/12 21:59:39 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -59,6 +59,7 @@
 
 (defun mc/mark-next-last-line () ;[2021/05/20]
   ""
+  (interactive)
   (let ((lines (count-lines (point-min) (point-max))))
     (dotimes (number lines)
       (mc/mark-next-like-this (point))
