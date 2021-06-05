@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:28:22 2012 (+0900)
-;; Last-Updated:2021/03/20 09:48:13 (+0900)
+;; Last-Updated:2021/06/06 03:13:59 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -61,14 +61,18 @@
          ("\\.json\\'" . js-mode)
          ("\\.jsn\\'" . js-mode))
   :init
-  :config
-  (message "Loading \"javascript\"")
-  (custom-set-variables
-   '(js-indent-level 2))
   :bind
   (("M-o" . ll-debug-insert)
    ("C-x M-o" . ll-debug-revert)
    )
+  :config
+  (message "Loading \"javascript\"")
+  (custom-set-variables
+   '(js-indent-level 2))
+  ;; rotate-text
+  (dolist (el '(("true"     "false")
+                ))
+    (add-to-list 'rotate-text-rotations el))
   )
 
 
