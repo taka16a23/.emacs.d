@@ -4,6 +4,8 @@
 (setq mc/cmds-to-run-for-all
       '(
         backward-kill-line
+        count-words-region
+        cua--prefix-override-handler
         cua-cut-region
         cua-paste
         fixup-whitespace
@@ -13,6 +15,8 @@
         my-backward-delete-word
         my-backward-seq
         my-forward-seq
+        org-insert-heading
+        org-metaright
         org-self-insert-command
         point-undo
         py:\,
@@ -34,6 +38,12 @@
 (setq mc/cmds-to-run-once
       '(
         down-list
+        helm-M-x
+        iswitchb-buffer
+        my-mc/backward-char
+        my-mc/backward-char
+        my-mc/backward-char
+        my-mc/backward-char
         my-mc/backward-char
         my-mc/backward-char
         my-mc/backward-char
@@ -64,6 +74,10 @@
         my-mc/forward-char
         my-mc/forward-char
         my-mc/forward-char
+        my-mc/forward-char
+        my-mc/forward-char
+        my-mc/forward-char
+        my-mc/forward-char
         my-mc/next-line
         my-mc/next-line
         my-mc/next-line
@@ -79,6 +93,14 @@
         my-mc/next-line
         my-mc/next-line
         my-mc/next-line
+        my-mc/next-line
+        my-mc/next-line
+        my-mc/next-line
+        my-mc/next-line
+        my-mc/previous-line
+        my-mc/previous-line
+        my-mc/previous-line
+        my-mc/previous-line
         my-mc/previous-line
         my-mc/previous-line
         my-mc/previous-line
