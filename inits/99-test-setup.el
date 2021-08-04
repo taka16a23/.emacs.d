@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:29:09 2012 (+0900)
-;; Last-Updated:2021/05/20 12:43:57 (+0900)
+;; Last-Updated:2021/05/23 10:26:58 (+0900)
 ;; Last-Updated: 2015/10/12 21:59:39 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -61,7 +61,7 @@
   ""
   (interactive)
   (let ((lines (count-lines (point-min) (point-max))))
-    (dotimes (number lines)
+    (dotimes (number (- lines 1))
       (mc/mark-next-like-this (point))
       )
     )
