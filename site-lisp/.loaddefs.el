@@ -2,8 +2,7 @@
 ;;
 ;;; Code:
 
-;;;### (autoloads nil "align-let" "align-let.el" (22054 47663 540949
-;;;;;;  553000))
+;;;### (autoloads nil "align-let" "align-let.el" (0 0 0 0))
 ;;; Generated autoloads from align-let.el
 
 (let ((loads (get 'align-let 'custom-loads))) (if (member '"align-let" loads) nil (put 'align-let 'custom-loads (cons '"align-let" loads))))
@@ -72,9 +71,7 @@ then the bindings are the 3rd argument and you set
 
 ----------------------------------------------------------------
 The align-let.el home page is
-URL `http://user42.tuxfamily.org/align-let/index.html'
-
-\(fn)" t nil)
+URL `http://user42.tuxfamily.org/align-let/index.html'" t nil)
 
 (autoload 'align-let-keybinding "align-let" "\
 Bind C-c C-a to `align-let' in the current mode keymap.
@@ -85,9 +82,7 @@ In the current implementation, if you `unload-feature' to remove
 `align-let' the key bindings made here are not removed.  If you
 use the `autoload' recommended in the align-let.el Install
 \(manually or generated) then Emacs automatically re-loads on a
-later `C-c C-a'.
-
-\(fn)" nil nil)
+later `C-c C-a'." nil nil)
 
 (custom-add-option 'emacs-lisp-mode-hook 'align-let-keybinding)
 
@@ -113,16 +108,60 @@ indent and align-let will both insert or delete characters.
 
 \(fn START END)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "align-let" '("align-let-")))
+
 ;;;***
 
-;;;### (autoloads nil "c-includes" "c-includes.el" (22054 47663 541949
-;;;;;;  553000))
+;;;### (autoloads nil "approx-isearch" "approx-isearch.el" (0 0 0
+;;;;;;  0))
+;;; Generated autoloads from approx-isearch.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "approx-isearch" '("approx-isearch-")))
+
+;;;***
+
+;;;### (autoloads nil "approx-old-isearch" "approx-old-isearch.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from approx-old-isearch.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "approx-old-isearch" '("approx-isearch-")))
+
+;;;***
+
+;;;### (autoloads nil "approx-search" "approx-search.el" (0 0 0 0))
+;;; Generated autoloads from approx-search.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "approx-search" '("approx-")))
+
+;;;***
+
+;;;### (autoloads nil "ascii-table" "ascii-table.el" (0 0 0 0))
+;;; Generated autoloads from ascii-table.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ascii-table" '("ascii-table")))
+
+;;;***
+
+;;;### (autoloads nil "auto-complete-yasnippet" "auto-complete-yasnippet.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from auto-complete-yasnippet.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "auto-complete-yasnippet" '("ac-")))
+
+;;;***
+
+;;;### (autoloads nil "bat-mode" "bat-mode.el" (0 0 0 0))
+;;; Generated autoloads from bat-mode.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "bat-mode" '("bat-")))
+
+;;;***
+
+;;;### (autoloads nil "c-includes" "c-includes.el" (0 0 0 0))
 ;;; Generated autoloads from c-includes.el
 
 (autoload 'c-includes-add-binding "c-includes" "\
-Set binding for C-c C-i in cc-mode.
-
-\(fn)" nil nil)
+Set binding for C-c C-i in cc-mode." nil nil)
 
 (autoload 'c-includes-current-file "c-includes" "\
 Find all of the header file included by the current file.
@@ -138,10 +177,12 @@ you determine order of occurrence.
 
 \(fn FILENAME &optional REGEXP)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "c-includes" '("c-")))
+
 ;;;***
 
 ;;;### (autoloads nil "color-theme-6.6.0/color-theme" "color-theme-6.6.0/color-theme.el"
-;;;;;;  (22054 47663 561949 555000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from color-theme-6.6.0/color-theme.el
 
 (autoload 'color-theme-select "color-theme-6.6.0/color-theme" "\
@@ -157,9 +198,7 @@ libraries are mainly useful for color theme authors.
 Describe color theme listed at point.
 This shows the documentation of the value of text-property color-theme
 at point.  The text-property color-theme should be a color theme
-function.  See `color-themes'.
-
-\(fn)" t nil)
+function.  See `color-themes'." t nil)
 
 (autoload 'color-theme-install-at-mouse "color-theme-6.6.0/color-theme" "\
 Install color theme clicked upon using the mouse.
@@ -171,9 +210,7 @@ First argument EVENT is used to set point.  Then
 (autoload 'color-theme-install-at-point-for-current-frame "color-theme-6.6.0/color-theme" "\
 Install color theme at point for current frame only.
 Binds `color-theme-is-global' to nil and calls
-`color-theme-install-at-point'.
-
-\(fn)" t nil)
+`color-theme-install-at-point'." t nil)
 
 (autoload 'color-theme-print "color-theme-6.6.0/color-theme" "\
 Print the current color theme function.
@@ -208,15 +245,11 @@ Example:
 Once you have a color-theme printed, check for missing faces.
 This is used by maintainers who receive a color-theme submission
 and want to make sure it follows the guidelines by the color-theme
-author.
-
-\(fn)" t nil)
+author." t nil)
 
 (autoload 'color-theme-make-snapshot "color-theme-6.6.0/color-theme" "\
 Return the definition of the current color-theme.
-The function returned will recreate the color-theme in use at the moment.
-
-\(fn)" nil nil)
+The function returned will recreate the color-theme in use at the moment." nil nil)
 
 (autoload 'color-theme-compare "color-theme-6.6.0/color-theme" "\
 Compare two color themes.
@@ -265,31 +298,33 @@ frame-parameter settings of previous color themes.
 \(fn THEME)" nil nil)
 
 (autoload 'color-theme-submit "color-theme-6.6.0/color-theme" "\
-Submit your color-theme to the maintainer.
-
-\(fn)" t nil)
+Submit your color-theme to the maintainer." t nil)
 
 (autoload 'color-theme-initialize "color-theme-6.6.0/color-theme" "\
-Initialize the color theme package by loading color-theme-libraries.
+Initialize the color theme package by loading color-theme-libraries." t nil)
 
-\(fn)" t nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "color-theme-6.6.0/color-theme" '("color-theme" "define-color-theme")))
+
+;;;***
+
+;;;### (autoloads nil "color-theme-6.6.0/color-theme-autoloads" "color-theme-6.6.0/color-theme-autoloads.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from color-theme-6.6.0/color-theme-autoloads.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "color-theme-6.6.0/color-theme-autoloads" '("color-theme-generate-autoloads")))
 
 ;;;***
 
 ;;;### (autoloads nil "color-theme-6.6.0/color-theme-other" "color-theme-6.6.0/color-theme-other.el"
-;;;;;;  (22054 47663 559949 555000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from color-theme-6.6.0/color-theme-other.el
 
 (autoload 'color-theme-black "color-theme-6.6.0/color-theme-other" "\
 Black background.
-Doesn't mess with most faces, but does turn on dark background mode.
-
-\(fn)" t nil)
+Doesn't mess with most faces, but does turn on dark background mode." t nil)
 
 (autoload 'color-theme-black-calm-forest "color-theme-6.6.0/color-theme-other" "\
-Color theme by Artur Hefczyc, created 2003-04-18.
-
-\(fn)" t nil)
+Color theme by Artur Hefczyc, created 2003-04-18." t nil)
 
 (autoload 'color-theme-black-hober "color-theme-6.6.0/color-theme-other" "\
 Does all sorts of crazy stuff.
@@ -302,21 +337,15 @@ other ones; I hope you like it.
 
 (autoload 'color-theme-white-katester "color-theme-6.6.0/color-theme-other" "\
 Color theme by walterh@rocketmail.com, created 2001-12-12.
-A pastelly-mac like color-theme.
-
-\(fn)" t nil)
+A pastelly-mac like color-theme." t nil)
 
 (autoload 'color-theme-black-lawrence-hackers-like "color-theme-6.6.0/color-theme-other" "\
 Color theme by lawrence mitchell <wence@gmx.li>.
 Mainly shades of green.
-Contains faces for erc, gnus, most of jde.
-
-\(fn)" t nil)
+Contains faces for erc, gnus, most of jde." t nil)
 
 (autoload 'color-theme-black-matrix-hackers-like "color-theme-6.6.0/color-theme-other" "\
-Color theme by walterh@rocketmail.com, created 2003-10-16.
-
-\(fn)" t nil)
+Color theme by walterh@rocketmail.com, created 2003-10-16." t nil)
 
 (autoload 'color-theme-black-lethe "color-theme-6.6.0/color-theme-other" "\
 Color theme by Ivica Loncar, created 2002-08-02.
@@ -349,20 +378,14 @@ Emacs*dialog*XmPushButton.translations:#override
        <LeaveWindow>:      Leave()
 
 
-Bonus: do not use 3D modeline.
-
-\(fn)" t nil)
+Bonus: do not use 3D modeline." t nil)
 
 (autoload 'color-theme-black-ld-dark "color-theme-6.6.0/color-theme-other" "\
-Dark Color theme by Linh Dang, created 2001-11-06.
-
-\(fn)" t nil)
+Dark Color theme by Linh Dang, created 2001-11-06." t nil)
 
 (autoload 'color-theme-black-renegade "color-theme-6.6.0/color-theme-other" "\
 Renegade BBS styled color theme. Works well in X and terminals.
-Created by Dave Benjamin <ramen@ramenfest.com> Dec 23 2005.
-
-\(fn)" t nil)
+Created by Dave Benjamin <ramen@ramenfest.com> Dec 23 2005." t nil)
 
 (autoload 'color-theme-black-retro-green-hackers-like "color-theme-6.6.0/color-theme-other" "\
 Plain green on black faces for those longing for the good old days.
@@ -371,15 +394,11 @@ Plain green on black faces for those longing for the good old days.
 
 (autoload 'color-theme-white-sitaramv-nt "color-theme-6.6.0/color-theme-other" "\
 Black foreground on white background.
-Includes faces for font-lock, widget, custom, speedbar.
-
-\(fn)" t nil)
+Includes faces for font-lock, widget, custom, speedbar." t nil)
 
 (autoload 'color-theme-white-standard "color-theme-6.6.0/color-theme-other" "\
 Emacs default colors.
-If you are missing standard faces in this theme, please notify the maintainer.
-
-\(fn)" t nil)
+If you are missing standard faces in this theme, please notify the maintainer." t nil)
 
 (autoload 'color-theme-white-emacs-21 "color-theme-6.6.0/color-theme-other" "\
 Color theme used by Emacs 21.1.
@@ -391,9 +410,7 @@ viper-init enriched em-ls em-prompt esh-test faces font-lock generic-x
 gnus-art gnus-cite gnus message hilit-chg hi-lock info isearch log-view
 paren pcvs-info antlr-mode cperl-mode ebrowse idlwave idlw-shell
 make-mode sh-script vhdl-mode smerge-mode speedbar strokes artist
-flyspell texinfo tex-mode tooltip vcursor wid-edit woman term man
-
-\(fn)" t nil)
+flyspell texinfo tex-mode tooltip vcursor wid-edit woman term man" t nil)
 
 (autoload 'color-theme-white-emacs-nw "color-theme-6.6.0/color-theme-other" "\
 Follow emacs21's color-theme, with -nw getting 100% compatibility.
@@ -410,21 +427,15 @@ scheme, and as much compability default emacs21's X as possble.
 Bugs to deego@gnufans.org.
 
 TODO: Try to make this theme relative to color-theme-emacs-21 rather
-than absolute, viz: call that first and then tweak minor stuff.
-
-\(fn)" t nil)
+than absolute, viz: call that first and then tweak minor stuff." t nil)
 
 (autoload 'color-theme-white-subtle-hacker "color-theme-6.6.0/color-theme-other" "\
 Subtle Hacker Color Theme.
 Based on gnome2, but uses white for important things like comments,
-and less of the unreadable tomato.  By Colin Walters <levanti@verbum.org>
-
-\(fn)" t nil)
+and less of the unreadable tomato.  By Colin Walters <levanti@verbum.org>" t nil)
 
 (autoload 'color-theme-white-vim-colors "color-theme-6.6.0/color-theme-other" "\
-Color theme by Michael Soulier, created 2003-03-26.
-
-\(fn)" t nil)
+Color theme by Michael Soulier, created 2003-03-26." t nil)
 
 (autoload 'color-theme-gnome2 "color-theme-6.6.0/color-theme-other" "\
 Wheat on darkslategrey scheme.
@@ -441,25 +452,29 @@ This is what you should put in your .Xdefaults file, if you want to
 change the colors of the menus in Emacs 20 as well:
 
 emacs*Background:		DarkSlateGray
-emacs*Foreground:		Wheat
+emacs*Foreground:		Wheat" t nil)
 
-\(fn)" t nil)
+;;;***
+
+;;;### (autoloads nil "color-theme-6.6.0/themes/color-theme-dark-laptop"
+;;;;;;  "color-theme-6.6.0/themes/color-theme-dark-laptop.el" (0
+;;;;;;  0 0 0))
+;;; Generated autoloads from color-theme-6.6.0/themes/color-theme-dark-laptop.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "color-theme-6.6.0/themes/color-theme-dark-laptop" '("color-theme-dark-laptop")))
 
 ;;;***
 
 ;;;### (autoloads nil "color-theme-6.6.0/themes/color-theme-t1" "color-theme-6.6.0/themes/color-theme-t1.el"
-;;;;;;  (22054 47663 561949 555000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from color-theme-6.6.0/themes/color-theme-t1.el
 
 (autoload 'color-theme-t1 "color-theme-6.6.0/themes/color-theme-t1" "\
-Color theme by t1
-
-\(fn)" t nil)
+Color theme by t1" t nil)
 
 ;;;***
 
-;;;### (autoloads nil "columnize" "columnize.el" (22054 47663 561949
-;;;;;;  555000))
+;;;### (autoloads nil "columnize" "columnize.el" (0 0 0 0))
 ;;; Generated autoloads from columnize.el
 
 (autoload 'columnize-strings "columnize" "\
@@ -501,10 +516,26 @@ See also `columnize-strings'.
 
 \(fn BEGIN END &optional PILLAR-WIDTH)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "columnize" '("columnize-")))
+
 ;;;***
 
-;;;### (autoloads nil "doctest-mode" "doctest-mode.el" (22054 47663
-;;;;;;  563949 555000))
+;;;### (autoloads nil "dmacro" "dmacro.el" (0 0 0 0))
+;;; Generated autoloads from dmacro.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "dmacro" '("*dmacro-arry" "dmacro-")))
+
+;;;***
+
+;;;### (autoloads nil "doc-view-extension" "doc-view-extension.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from doc-view-extension.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "doc-view-extension" '("doc-view-")))
+
+;;;***
+
+;;;### (autoloads nil "doctest-mode" "doctest-mode.el" (0 0 0 0))
 ;;; Generated autoloads from doctest-mode.el
 
 (add-to-list 'auto-mode-alist '("\\.doctest$" . doctest-mode))
@@ -534,10 +565,19 @@ treated differently:
 
 \(fn)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "doctest-mode" '("column-at-char" "doctest-" "find-doctest-output-line" "font-lock-defaults-alist" "hide-example-source" "on-")))
+
 ;;;***
 
-;;;### (autoloads nil "eval-expr" "eval-expr.el" (22054 47663 563949
-;;;;;;  555000))
+;;;### (autoloads nil "duplicate-line" "duplicate-line.el" (0 0 0
+;;;;;;  0))
+;;; Generated autoloads from duplicate-line.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "duplicate-line" '("duplicate-")))
+
+;;;***
+
+;;;### (autoloads nil "eval-expr" "eval-expr.el" (0 0 0 0))
 ;;; Generated autoloads from eval-expr.el
 
 (defvar eval-expr-error-message-delay 3 "\
@@ -590,9 +630,7 @@ or `prin1' for unformatted results.")
 (custom-autoload 'eval-expr-print-function "eval-expr" t)
 
 (autoload 'eval-expr-install "eval-expr" "\
-Replace standard eval-expression command with enhanced eval-expr.
-
-\(fn)" t nil)
+Replace standard eval-expression command with enhanced eval-expr." t nil)
 
 (autoload 'eval-expr "eval-expr" "\
 Evaluate EXPRESSION and print value in minibuffer, temp, or current buffer.
@@ -605,31 +643,29 @@ Value is also consed on to front of the variable `values'.
 
 \(fn EE::EXPRESSION &optional EE::INSERT-VALUE)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "eval-expr" '("eval-expr-")))
+
 ;;;***
 
-;;;### (autoloads nil "everything" "everything.el" (22054 47663 564949
-;;;;;;  555000))
+;;;### (autoloads nil "everything" "everything.el" (0 0 0 0))
 ;;; Generated autoloads from everything.el
 
 (defalias 'everything 'everything-find-file)
 
 (autoload 'everything-find-file "everything" "\
 Prompt for a search string, let the user choose one of the returned files and
-open it.
-
-\(fn)" t nil)
+open it." t nil)
 
 (autoload 'everything-find-prompt "everything" "\
 Prompt for a query and return the chosen filename.
 If the current major mode is dired or (e)shell-mode limit the search to
-the current directory and its sub-directories.
+the current directory and its sub-directories." nil nil)
 
-\(fn)" nil nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "everything" '("everything-" "files-response-handler" "generic-response-handler")))
 
 ;;;***
 
-;;;### (autoloads nil "flymake-patch" "flymake-patch.el" (22054 47663
-;;;;;;  568949 555000))
+;;;### (autoloads nil "flymake-patch" "flymake-patch.el" (0 0 0 0))
 ;;; Generated autoloads from flymake-patch.el
 
 (autoload 'flymake-mode "flymake-patch" "\
@@ -640,19 +676,37 @@ With arg, turn Flymake mode on if and only if arg is positive.
 \(fn &optional ARG)" t nil)
 
 (autoload 'flymake-mode-on "flymake-patch" "\
-Turn flymake mode on.
-
-\(fn)" nil nil)
+Turn flymake mode on." nil nil)
 
 (autoload 'flymake-mode-off "flymake-patch" "\
-Turn flymake mode off.
+Turn flymake mode off." nil nil)
 
-\(fn)" nil nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "flymake-patch" '("flymake-" "one-true" "string-match-multi")))
 
 ;;;***
 
-;;;### (autoloads nil "javascript" "javascript.el" (22054 47663 570949
-;;;;;;  555000))
+;;;### (autoloads nil "gccsense" "gccsense.el" (0 0 0 0))
+;;; Generated autoloads from gccsense.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "gccsense" '("ac-" "gccsense-")))
+
+;;;***
+
+;;;### (autoloads nil "grep-edit" "grep-edit.el" (0 0 0 0))
+;;; Generated autoloads from grep-edit.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "grep-edit" '("grep-")))
+
+;;;***
+
+;;;### (autoloads nil "jaspace" "jaspace.el" (0 0 0 0))
+;;; Generated autoloads from jaspace.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "jaspace" '("jaspace-")))
+
+;;;***
+
+;;;### (autoloads nil "javascript" "javascript.el" (0 0 0 0))
 ;;; Generated autoloads from javascript.el
 
 (autoload 'javascript-mode "javascript" "\
@@ -660,54 +714,71 @@ Major mode for editing JavaScript source text.
 
 Key bindings:
 
-\\{javascript-mode-map}
+\\{javascript-mode-map}" t nil)
 
-\(fn)" t nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "javascript" '("javascript-" "js-")))
+
+;;;***
+
+;;;### (autoloads nil "jedi-eldoc" "jedi-eldoc.el" (0 0 0 0))
+;;; Generated autoloads from jedi-eldoc.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "jedi-eldoc" '("jedi-eldoc")))
+
+;;;***
+
+;;;### (autoloads nil "ll-debug" "ll-debug.el" (0 0 0 0))
+;;; Generated autoloads from ll-debug.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "ll-debug" '("ll-debug-")))
 
 ;;;***
 
 ;;;### (autoloads nil "make-file-executable" "make-file-executable.el"
-;;;;;;  (22054 47663 571949 555000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from make-file-executable.el
 
 (autoload 'make-file-executable "make-file-executable" "\
-Make the file of this buffer executable, when it is a script source.
+Make the file of this buffer executable, when it is a script source." nil nil)
 
-\(fn)" nil nil)
+;;;***
+
+;;;### (autoloads nil "mell" "mell.el" (0 0 0 0))
+;;; Generated autoloads from mell.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mell" '("mell-")))
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/annotation" "mylisps/annotation.el"
-;;;;;;  (22054 47663 571949 555000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/annotation.el
 
 (autoload 'annotation "mylisps/annotation" "\
-Insert Annotation tag from `annotation-list'.
+Insert Annotation tag from `annotation-list'." t nil)
 
-\(fn)" t nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/annotation" '("annotation-" "which-in-list")))
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/anything-info-python" "mylisps/anything-info-python.el"
-;;;;;;  (22054 47663 571949 555000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/anything-info-python.el
 
 (autoload 'anything-info-python-at-point "mylisps/anything-info-python" "\
-Preconfigured `anything' for search info at point.
+Preconfigured `anything' for search info at point." t nil)
 
-\(fn)" t nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/anything-info-python" '("anything-c-")))
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/auto-install-ext" "mylisps/auto-install-ext.el"
-;;;;;;  (22054 47663 586949 557000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/auto-install-ext.el
 
 (autoload 'auto-install-save&erase "mylisps/auto-install-ext" "\
 Auto install erase after save as one command.
-`auto-install-buffer-save', `erase-auto-install-buffer'
-
-\(fn)" t nil)
+`auto-install-buffer-save', `erase-auto-install-buffer'" t nil)
 
 (autoload 'auto-install-handle-emacswiki-package-name "mylisps/auto-install-ext" "\
 Handle elisp package name from `EmacsWiki'.
@@ -716,10 +787,7 @@ PROMPT-INSTALL is non-nil, will prompt package name for install.
 
 \(fn DOWNLOAD-BUFFER &optional PROMPT-INSTALL)" nil nil)
 
-(autoload 'erase-auto-install-buffer "mylisps/auto-install-ext" "\
-
-
-\(fn)" nil nil)
+(autoload 'erase-auto-install-buffer "mylisps/auto-install-ext" nil nil nil)
 
 (autoload 'auto-install-download-by-wget "mylisps/auto-install-ext" "\
 
@@ -729,16 +797,14 @@ PROMPT-INSTALL is non-nil, will prompt package name for install.
 ;;;***
 
 ;;;### (autoloads nil "mylisps/auto-recover" "mylisps/auto-recover.el"
-;;;;;;  (22054 47663 586949 557000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/auto-recover.el
 
 (defvar auto-recover-exclude-re "\\.junk\\.")
 
 (autoload 'auto-recover-startup "mylisps/auto-recover" "\
 Auto recover from auto save.
-If auto save file is old, then will delete it.
-
-\(fn)" nil nil)
+If auto save file is old, then will delete it." nil nil)
 
 (autoload 'cleanup-autosave "mylisps/auto-recover" "\
 Clean up auto save file.
@@ -747,40 +813,31 @@ If auto save file is old, then will delete it.
 \(fn &optional FORCE)" t nil)
 
 (autoload 'force-cleanup-autosave "mylisps/auto-recover" "\
-ARGS
+ARGS" t nil)
 
-\(fn)" t nil)
+(autoload 'before-kill-emacs-cleanup-autosave "mylisps/auto-recover" nil nil nil)
 
-(autoload 'before-kill-emacs-cleanup-autosave "mylisps/auto-recover" "\
-
-
-\(fn)" nil nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/auto-recover" '("file-name-from-auto-save")))
 
 ;;;***
 
-;;;### (autoloads nil "mylisps/auto-svn" "mylisps/auto-svn.el" (22054
-;;;;;;  47663 586949 557000))
+;;;### (autoloads nil "mylisps/auto-svn" "mylisps/auto-svn.el" (0
+;;;;;;  0 0 0))
 ;;; Generated autoloads from mylisps/auto-svn.el
 
 (autoload 'svn-status-pylib "mylisps/auto-svn" "\
-
-
-\(fn)" t nil)
+" t nil)
 
 (autoload 'svn-status-emacsd "mylisps/auto-svn" "\
-
-
-\(fn)" t nil)
+" t nil)
 
 (autoload 'svn-status-zsh "mylisps/auto-svn" "\
-
-
-\(fn)" t nil)
+" t nil)
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/auto-yasnippet-extension" "mylisps/auto-yasnippet-extension.el"
-;;;;;;  (22054 47663 586949 557000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/auto-yasnippet-extension.el
 
 (autoload 'auto-yasnippet-ext "mylisps/auto-yasnippet-extension" "\
@@ -794,7 +851,7 @@ ARGS: prefix
 ;;;***
 
 ;;;### (autoloads nil "mylisps/autoinsert-yas" "mylisps/autoinsert-yas.el"
-;;;;;;  (22054 47663 587949 557000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/autoinsert-yas.el
 
 (autoload 'yas-expand-link "mylisps/autoinsert-yas" "\
@@ -811,76 +868,52 @@ Optional argument KEYS .
 
 \(fn DEL &rest KEYS)" nil nil)
 
-(autoload 'my-auto-insert-elisp "mylisps/autoinsert-yas" "\
+(autoload 'my-auto-insert-elisp "mylisps/autoinsert-yas" nil nil nil)
 
-
-\(fn)" nil nil)
-
-(autoload 'my-auto-insert-cpp "mylisps/autoinsert-yas" "\
-
-
-\(fn)" nil nil)
+(autoload 'my-auto-insert-cpp "mylisps/autoinsert-yas" nil nil nil)
 
 (autoload 'my-auto-insert-shscripts "mylisps/autoinsert-yas" "\
+" nil nil)
 
-
-\(fn)" nil nil)
-
-(autoload 'my-auto-insert-init-python "mylisps/autoinsert-yas" "\
-
-
-\(fn)" nil nil)
+(autoload 'my-auto-insert-init-python "mylisps/autoinsert-yas" nil nil nil)
 
 (autoload 'my-auto-insert-main-python "mylisps/autoinsert-yas" "\
+" nil nil)
 
+(autoload 'my-junk-auto-insert-python "mylisps/autoinsert-yas" nil nil nil)
 
-\(fn)" nil nil)
+(autoload 'my-test-auto-insert-python "mylisps/autoinsert-yas" nil nil nil)
 
-(autoload 'my-junk-auto-insert-python "mylisps/autoinsert-yas" "\
+(autoload 'my-junk-auto-insert-elisp "mylisps/autoinsert-yas" nil nil nil)
 
+(autoload 'my-setup-auto-insert-python "mylisps/autoinsert-yas" nil nil nil)
 
-\(fn)" nil nil)
+(autoload 'my-auto-insert-python "mylisps/autoinsert-yas" nil nil nil)
 
-(autoload 'my-test-auto-insert-python "mylisps/autoinsert-yas" "\
-
-
-\(fn)" nil nil)
-
-(autoload 'my-junk-auto-insert-elisp "mylisps/autoinsert-yas" "\
-
-
-\(fn)" nil nil)
-
-(autoload 'my-setup-auto-insert-python "mylisps/autoinsert-yas" "\
-
-
-\(fn)" nil nil)
-
-(autoload 'my-auto-insert-python "mylisps/autoinsert-yas" "\
-
-
-\(fn)" nil nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/autoinsert-yas" '("auto-insert-choose" "choose-input" "shell-auto-insert-choose")))
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/balle-python-shift" "mylisps/balle-python-shift.el"
-;;;;;;  (22054 47663 587949 557000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/balle-python-shift.el
 
-(autoload 'balle-python-shift-left "mylisps/balle-python-shift" "\
+(autoload 'balle-python-shift-left "mylisps/balle-python-shift" nil t nil)
 
+(autoload 'balle-python-shift-right "mylisps/balle-python-shift" nil t nil)
 
-\(fn)" t nil)
+;;;***
+
+;;;### (autoloads nil "mylisps/biz/biz-mode" "mylisps/biz/biz-mode.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from mylisps/biz/biz-mode.el
 
-(autoload 'balle-python-shift-right "mylisps/balle-python-shift" "\
-
-
-\(fn)" t nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/biz/biz-mode" '("biz-mode" "line-start-curly-brace" "refact-to-newline-curly-brace")))
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/check-misspell" "mylisps/check-misspell.el"
-;;;;;;  (22054 47663 587949 557000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/check-misspell.el
 
 (defvar no-check-type-miss nil)
@@ -889,148 +922,150 @@ Optional argument KEYS .
 
 (make-variable-buffer-local 'typemiss-list)
 
-(autoload 'check-misspell "mylisps/check-misspell" "\
-
-
-\(fn)" t nil)
+(autoload 'check-misspell "mylisps/check-misspell" nil t nil)
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/clean-backup" "mylisps/clean-backup.el"
-;;;;;;  (22054 47663 587949 557000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/clean-backup.el
 
 (autoload 'clean-backup-files "mylisps/clean-backup" "\
-Delete backup-files if not exists sources.
+Delete backup-files if not exists sources." t nil)
 
-\(fn)" t nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/clean-backup" '("clean--backup-files")))
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/constraction-loaddefs" "mylisps/constraction-loaddefs.el"
-;;;;;;  (22054 47663 588949 557000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/constraction-loaddefs.el
 
 (autoload 'constraction-loaddefs "mylisps/constraction-loaddefs" "\
-Make 06_loaddefs_start.el file that parsed autoload.
+Make 06_loaddefs_start.el file that parsed autoload." t nil)
 
-\(fn)" t nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/constraction-loaddefs" '("init-update-directory-autoloads" "loaddefs-init-file" "make-loaddefs_start")))
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/delete-file-if-no-contents" "mylisps/delete-file-if-no-contents.el"
-;;;;;;  (22054 47663 588949 557000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/delete-file-if-no-contents.el
 
 (autoload 'delete-file-if-no-contents "mylisps/delete-file-if-no-contents" "\
-Delete buffer if no contents.
+Delete buffer if no contents." nil nil)
 
-\(fn)" nil nil)
+;;;***
+
+;;;### (autoloads nil "mylisps/e2wm/e2wm-minor-commands" "mylisps/e2wm/e2wm-minor-commands.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from mylisps/e2wm/e2wm-minor-commands.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/e2wm/e2wm-minor-commands" '("defe2wm:" "e2wm" "hide" "show" "toggle")))
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/e2wm/e2wm-t1code-pst" "mylisps/e2wm/e2wm-t1code-pst.el"
-;;;;;;  (22057 17712 289518 523000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/e2wm/e2wm-t1code-pst.el
 
 (autoload 'e2wm:dp-t1code "mylisps/e2wm/e2wm-t1code-pst" "\
-
-
-\(fn)" t nil)
+" t nil)
 
 (autoload 'e2wm:dp-t1code-navi-sub-ipython "mylisps/e2wm/e2wm-t1code-pst" "\
-
-
-\(fn)" t nil)
+" t nil)
 
 (autoload 'e2wm:dp-t1code-navi-relaunch-sub-ipython "mylisps/e2wm/e2wm-t1code-pst" "\
+" t nil)
 
-
-\(fn)" t nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/e2wm/e2wm-t1code-pst" '("e2wm:")))
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/e2wm/e2wm_book_pst" "mylisps/e2wm/e2wm_book_pst.el"
-;;;;;;  (22054 47663 588949 557000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/e2wm/e2wm_book_pst.el
 
 (autoload 'e2wm:dp-book "mylisps/e2wm/e2wm_book_pst" "\
+" t nil)
 
-
-\(fn)" t nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/e2wm/e2wm_book_pst" '("e2wm:")))
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/e2wm/e2wm_c_code_pst" "mylisps/e2wm/e2wm_c_code_pst.el"
-;;;;;;  (22054 47663 589949 557000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/e2wm/e2wm_c_code_pst.el
 
 (autoload 'e2wm:dp-C-code "mylisps/e2wm/e2wm_c_code_pst" "\
+" t nil)
 
-
-\(fn)" t nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/e2wm/e2wm_c_code_pst" '("e2wm:")))
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/e2wm/e2wm_elisp_pst" "mylisps/e2wm/e2wm_elisp_pst.el"
-;;;;;;  (22054 47663 589949 557000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/e2wm/e2wm_elisp_pst.el
 
 (autoload 'e2wm:dp-elispcode "mylisps/e2wm/e2wm_elisp_pst" "\
+" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/e2wm/e2wm_elisp_pst" '("e2wm")))
 
-\(fn)" t nil)
+;;;***
+
+;;;### (autoloads nil "mylisps/e2wm/e2wm_macro" "mylisps/e2wm/e2wm_macro.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from mylisps/e2wm/e2wm_macro.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/e2wm/e2wm_macro" '("defe2wm:pst-change")))
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/e2wm/e2wm_pycode_pst" "mylisps/e2wm/e2wm_pycode_pst.el"
-;;;;;;  (22057 7641 844760 26000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/e2wm/e2wm_pycode_pst.el
 
 (autoload 'e2wm:dp-pycode "mylisps/e2wm/e2wm_pycode_pst" "\
-
-
-\(fn)" t nil)
+" t nil)
 
 (autoload 'e2wm:start-direct-pycode "mylisps/e2wm/e2wm_pycode_pst" "\
+" t nil)
 
-
-\(fn)" t nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/e2wm/e2wm_pycode_pst" '("e2wm:")))
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/e2wm/e2wm_term_pst" "mylisps/e2wm/e2wm_term_pst.el"
-;;;;;;  (22054 47663 589949 557000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/e2wm/e2wm_term_pst.el
 
-(autoload 'e2wm:dp-term "mylisps/e2wm/e2wm_term_pst" "\
+(autoload 'e2wm:dp-term "mylisps/e2wm/e2wm_term_pst" nil t nil)
 
-
-\(fn)" t nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/e2wm/e2wm_term_pst" '("e2wm:" "re-search-buffers")))
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/e2wm/e2wm_web_pst" "mylisps/e2wm/e2wm_web_pst.el"
-;;;;;;  (22054 47663 589949 557000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/e2wm/e2wm_web_pst.el
 
 (autoload 'e2wm:dp-web "mylisps/e2wm/e2wm_web_pst" "\
+" t nil)
 
-
-\(fn)" t nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/e2wm/e2wm_web_pst" '("e2wm:web-")))
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/elisp-util" "mylisps/elisp-util.el"
-;;;;;;  (22054 47663 590949 557000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/elisp-util.el
 
 (autoload 't1-elisp-find-tag "mylisps/elisp-util" "\
 In Emacs Lisp mode, one of these functions is called:
 `find-library', `find-variable', `find-face-definition',
-`find-function' and `find-tag'.
-
-\(fn)" t nil)
+`find-function' and `find-tag'." t nil)
 
 (autoload 'right-parentheses-indent "mylisps/elisp-util" "\
 Insert right-parentheses then indent.
@@ -1039,19 +1074,17 @@ N
 \(fn N)" t nil)
 
 (autoload 'debug-on "mylisps/elisp-util" "\
-Debug mode on.
-
-\(fn)" t nil)
+Debug mode on." t nil)
 
 (autoload 'degug-off "mylisps/elisp-util" "\
-Debug mode off.
+Debug mode off." t nil)
 
-\(fn)" t nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/elisp-util" '("expand" "macro-expand" "re-in-string" "sym")))
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/filecache-ext" "mylisps/filecache-ext.el"
-;;;;;;  (22054 47663 590949 557000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/filecache-ext.el
 
 (autoload 'file-cache-save-cache-to-file "mylisps/filecache-ext" "\
@@ -1066,30 +1099,32 @@ The file cache can be saved to a file using `file-cache-save-cache-to-file'.
 
 \(fn FILE)" t nil)
 
-(autoload 'file-cache-add-this-file "mylisps/filecache-ext" "\
+(autoload 'file-cache-add-this-file "mylisps/filecache-ext" nil nil nil)
 
-
-\(fn)" nil nil)
-
-(autoload 'filecache-cleaning "mylisps/filecache-ext" "\
-
-
-\(fn)" t nil)
+(autoload 'filecache-cleaning "mylisps/filecache-ext" nil t nil)
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/hotstring" "mylisps/hotstring.el"
-;;;;;;  (22054 47663 590949 557000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/hotstring.el
 
 (autoload 'hotstring-mode "mylisps/hotstring" "\
 Hotstring mode
 
+If called interactively, enable Hotstring mode if ARG is
+positive, and disable it if ARG is zero or negative.  If called
+from Lisp, also enable the mode if ARG is omitted or nil, and
+toggle it if ARG is `toggle'; disable the mode otherwise.
+
 \(fn &optional ARG)" t nil)
+
+(put 'hotstring-global-mode 'globalized-minor-mode t)
 
 (defvar hotstring-global-mode nil "\
 Non-nil if Hotstring-Global mode is enabled.
-See the command `hotstring-global-mode' for a description of this minor mode.
+See the `hotstring-global-mode' command
+for a description of this minor mode.
 Setting this variable directly does not take effect;
 either customize it (see the info node `Easy Customization')
 or call the function `hotstring-global-mode'.")
@@ -1108,21 +1143,22 @@ See `hotstring-mode' for more information on Hotstring mode.
 
 \(fn &optional ARG)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/hotstring" '("hots")))
+
 ;;;***
 
 ;;;### (autoloads nil "mylisps/join-one-start" "mylisps/join-one-start.el"
-;;;;;;  (22054 47663 591949 557000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/join-one-start.el
 
-(autoload 'joinone-start-files "mylisps/join-one-start" "\
+(autoload 'joinone-start-files "mylisps/join-one-start" nil t nil)
 
-
-\(fn)" t nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/join-one-start" '("joinone-")))
 
 ;;;***
 
-;;;### (autoloads nil "mylisps/maintain" "mylisps/maintain.el" (22054
-;;;;;;  47663 613949 559000))
+;;;### (autoloads nil "mylisps/maintain" "mylisps/maintain.el" (0
+;;;;;;  0 0 0))
 ;;; Generated autoloads from mylisps/maintain.el
 
 (autoload 'do-directory-files "mylisps/maintain" "\
@@ -1132,19 +1168,18 @@ Do function each file in directory.
 
 ;;;***
 
-;;;### (autoloads nil "mylisps/mini" "mylisps/mini.el" (22054 47663
-;;;;;;  613949 559000))
+;;;### (autoloads nil "mylisps/mini" "mylisps/mini.el" (0 0 0 0))
 ;;; Generated autoloads from mylisps/mini.el
 
 (autoload 't1-mini-toggle "mylisps/mini" "\
-mini toggle
+mini toggle" t nil)
 
-\(fn)" t nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/mini" '("t1-mini-")))
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/nosetests" "mylisps/nosetests.el"
-;;;;;;  (22054 47663 613949 559000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/nosetests.el
 
 (autoload 'nosetests-run-buffer "mylisps/nosetests" "\
@@ -1188,49 +1223,35 @@ ARGS
 \(fn ARGS)" t nil)
 
 (autoload 'nosetests-turn-on-pdb "mylisps/nosetests" "\
-
-
-\(fn)" t nil)
+" t nil)
 
 (autoload 'nosetests-turn-off-pdb "mylisps/nosetests" "\
-
-
-\(fn)" t nil)
+" t nil)
 
 (autoload 'nosetests-turn-on-coverage "mylisps/nosetests" "\
-ARGS
-
-\(fn)" t nil)
+ARGS" t nil)
 
 (autoload 'nosetests-turn-off-coverage "mylisps/nosetests" "\
-ARGS
-
-\(fn)" t nil)
+ARGS" t nil)
 
 (autoload 'nosetests-turn-on-profile "mylisps/nosetests" "\
-ARGS
-
-\(fn)" t nil)
+ARGS" t nil)
 
 (autoload 'nosetests-turn-off-profile "mylisps/nosetests" "\
-ARGS
-
-\(fn)" t nil)
+ARGS" t nil)
 
 (autoload 'nosetests-turn-on-doctest "mylisps/nosetests" "\
-
-
-\(fn)" t nil)
+" t nil)
 
 (autoload 'nosetests-turn-off-doctest "mylisps/nosetests" "\
+" t nil)
 
-
-\(fn)" t nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/nosetests" '("colorize-compilation-buffer" "inner-testable" "nose" "outer-testable")))
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/purge-package" "mylisps/purge-package.el"
-;;;;;;  (22054 47663 614949 559000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/purge-package.el
 
 (defvar purge-package-list nil)
@@ -1245,18 +1266,14 @@ Purge package functions.
 ;;;***
 
 ;;;### (autoloads nil "mylisps/python-extensions" "mylisps/python-extensions.el"
-;;;;;;  (22054 47663 614949 559000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/python-extensions.el
 
 (autoload 'py-make-__all__-from-buffer "mylisps/python-extensions" "\
-Create __all__ statements from buffer.
-
-\(fn)" t nil)
+Create __all__ statements from buffer." t nil)
 
 (autoload 'py-add-to-__all__ "mylisps/python-extensions" "\
-add-to-__all__
-
-\(fn)" t nil)
+add-to-__all__" t nil)
 
 (autoload 'py--insert-imports "mylisps/python-extensions" "\
 
@@ -1275,51 +1292,42 @@ TAIL: if non-nill then insert string tail of imports block.
 \(fn REGEXP STR &optional TAIL)" nil nil)
 
 (autoload 'py-indirect-import "mylisps/python-extensions" "\
-Indirect import region.
+Indirect import region." t nil)
 
-\(fn)" t nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/python-extensions" '("indirect-" "py-")))
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/python-untabify" "mylisps/python-untabify.el"
-;;;;;;  (22054 47663 614949 559000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/python-untabify.el
 
 (autoload 'python-untabify "mylisps/python-untabify" "\
-ARGS
-
-\(fn)" t nil)
+ARGS" t nil)
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/python/__python__" "mylisps/python/__python__.el"
-;;;;;;  (22055 8915 955990 658000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/python/__python__.el
 
 (autoload 'py:auto-colon "mylisps/python/__python__" "\
-Python auto insert ':'.
-
-\(fn)" t nil)
+Python auto insert ':'." t nil)
 
 (autoload 'py:auto-colon-return-on-line "mylisps/python/__python__" "\
-Auto insert ':' and newline at end of lines.
+Auto insert ':' and newline at end of lines." t nil)
 
-\(fn)" t nil)
-
-(autoload 'py:return-on-line "mylisps/python/__python__" "\
-
-
-\(fn)" t nil)
+(autoload 'py:return-on-line "mylisps/python/__python__" nil t nil)
 
 (autoload 'py:newline "mylisps/python/__python__" "\
-Auto insert ':' and newline.
+Auto insert ':' and newline." t nil)
 
-\(fn)" t nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/python/__python__" '("line-column" "py:")))
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/python/__python__operator" "mylisps/python/__python__operator.el"
-;;;;;;  (22054 47663 616949 559000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/python/__python__operator.el
 
 (autoload 'py:= "mylisps/python/__python__operator" "\
@@ -1392,37 +1400,37 @@ ARGS
 
 \(fn N)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/python/__python__operator" '("py-" "py:" "skip-ope")))
+
 ;;;***
 
 ;;;### (autoloads nil "mylisps/python/python-clonedigger" "mylisps/python/python-clonedigger.el"
-;;;;;;  (22054 47663 616949 559000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/python/python-clonedigger.el
 
 (autoload 'py:clonedigger "mylisps/python/python-clonedigger" "\
-
-
-\(fn)" t nil)
+" t nil)
 
 (autoload 'py:clonedigger-project "mylisps/python/python-clonedigger" "\
+" t nil)
 
-
-\(fn)" t nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/python/python-clonedigger" '("py:clonedigger-run")))
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/python/python-debug" "mylisps/python/python-debug.el"
-;;;;;;  (22054 47663 616949 559000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/python/python-debug.el
 
 (autoload 'py:insert-pdb-set-trace "mylisps/python/python-debug" "\
-Python insert-pdb-set-trace.
+Python insert-pdb-set-trace." t nil)
 
-\(fn)" t nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/python/python-debug" '("pdb-this-buffer")))
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/python/python-snippet-helper" "mylisps/python/python-snippet-helper.el"
-;;;;;;  (22057 6722 407782 75000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/python/python-snippet-helper.el
 
 (autoload 'py-snippet:argparse-add_argument-convert-dest-name "mylisps/python/python-snippet-helper" "\
@@ -1430,31 +1438,22 @@ ARGS
 
 \(fn TEXT)" nil nil)
 
-(autoload 'prev-def-name "mylisps/python/python-snippet-helper" "\
+(autoload 'prev-def-name "mylisps/python/python-snippet-helper" nil nil nil)
 
+(autoload 'prev-def-args "mylisps/python/python-snippet-helper" nil nil nil)
 
-\(fn)" nil nil)
-
-(autoload 'prev-def-args "mylisps/python/python-snippet-helper" "\
-
-
-\(fn)" nil nil)
-
-(autoload 'prev-class-name "mylisps/python/python-snippet-helper" "\
-
-
-\(fn)" nil nil)
+(autoload 'prev-class-name "mylisps/python/python-snippet-helper" nil nil nil)
 
 (autoload 'py-in-class-block-p "mylisps/python/python-snippet-helper" "\
 Return t if point in class block.
-Also end of block has indented return t.
+Also end of block has indented return t." nil nil)
 
-\(fn)" nil nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/python/python-snippet-helper" '("py--go-to-paren-class")))
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/python/python-test-generator" "mylisps/python/python-test-generator.el"
-;;;;;;  (22054 47663 617949 559000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/python/python-test-generator.el
 
 (autoload 'py:testsmethod-insert-kill-ring "mylisps/python/python-test-generator" "\
@@ -1462,52 +1461,52 @@ CLS
 
 \(fn &optional CLS)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/python/python-test-generator" '("py:" "testsmethod-template")))
+
 ;;;***
 
 ;;;### (autoloads nil "mylisps/recover-last-killed-file" "mylisps/recover-last-killed-file.el"
-;;;;;;  (22054 47663 617949 559000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/recover-last-killed-file.el
 
 (defvar last-killed-file nil)
 
-(autoload 'set-last-killed-file "mylisps/recover-last-killed-file" "\
+(autoload 'set-last-killed-file "mylisps/recover-last-killed-file" nil nil nil)
 
-
-\(fn)" nil nil)
-
-(autoload 'get-last-killed-file "mylisps/recover-last-killed-file" "\
-
-
-\(fn)" t nil)
+(autoload 'get-last-killed-file "mylisps/recover-last-killed-file" nil t nil)
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/recover-version" "mylisps/recover-version.el"
-;;;;;;  (22054 47663 617949 559000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/recover-version.el
 
 (autoload 'recover-version "mylisps/recover-version" "\
-Recover from backup versions.
-
-\(fn)" t nil)
+Recover from backup versions." t nil)
 
 (defalias 'back-to-revision 'recover-version)
 
 ;;;***
 
-;;;### (autoloads nil "mylisps/remark" "mylisps/remark.el" (22054
-;;;;;;  47663 618949 559000))
+;;;### (autoloads nil "mylisps/refactoring-elisp" "mylisps/refactoring-elisp.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from mylisps/refactoring-elisp.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/refactoring-elisp" '("elisp-fit-tail")))
+
+;;;***
+
+;;;### (autoloads nil "mylisps/remark" "mylisps/remark.el" (0 0 0
+;;;;;;  0))
 ;;; Generated autoloads from mylisps/remark.el
 
 (autoload 'remark "mylisps/remark" "\
-Revive marked region.
-
-\(fn)" t nil)
+Revive marked region." t nil)
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/rename-old-del" "mylisps/rename-old-del.el"
-;;;;;;  (22054 47663 618949 559000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/rename-old-del.el
 
 (autoload 'rename-old-del "mylisps/rename-old-del" "\
@@ -1531,8 +1530,8 @@ If rename, prompt delete old file.
 
 ;;;***
 
-;;;### (autoloads nil "mylisps/renumber" "mylisps/renumber.el" (22054
-;;;;;;  47663 618949 559000))
+;;;### (autoloads nil "mylisps/renumber" "mylisps/renumber.el" (0
+;;;;;;  0 0 0))
 ;;; Generated autoloads from mylisps/renumber.el
 
 (autoload 'renumber "mylisps/renumber" "\
@@ -1548,26 +1547,18 @@ Renumber the list items in the current START..END region.
 
 \(fn START END &optional NUM)" t nil)
 
-(autoload 'increment-number-at-point "mylisps/renumber" "\
+(autoload 'increment-number-at-point "mylisps/renumber" nil t nil)
 
-
-\(fn)" t nil)
-
-(autoload 'decrement-number-at-point "mylisps/renumber" "\
-
-
-\(fn)" t nil)
+(autoload 'decrement-number-at-point "mylisps/renumber" nil t nil)
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/replace-dir-sep" "mylisps/replace-dir-sep.el"
-;;;;;;  (22054 47663 618949 559000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/replace-dir-sep.el
 
 (autoload 'replace-dir-sep "mylisps/replace-dir-sep" "\
-replace-dir-sep
-
-\(fn)" t nil)
+replace-dir-sep" t nil)
 
 (autoload 'rep-dir-sep "mylisps/replace-dir-sep" "\
 Replace directory separator.
@@ -1579,20 +1570,17 @@ END: end of region
 ;;;***
 
 ;;;### (autoloads nil "mylisps/rest-room" "mylisps/rest-room.el"
-;;;;;;  (22054 47663 618949 559000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/rest-room.el
 
 (defvar rest-room-hook nil)
 
-(autoload 'rest-room "mylisps/rest-room" "\
-
-
-\(fn)" t nil)
+(autoload 'rest-room "mylisps/rest-room" nil t nil)
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/rotate-text" "mylisps/rotate-text.el"
-;;;;;;  (22054 47663 618949 559000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/rotate-text.el
 
 (defvar rotate-text-rotations 'nil "\
@@ -1635,120 +1623,296 @@ Example:
 \(fn LIST-OF-LISTS)" nil nil)
 
 (autoload 'rotate-word-at-point "mylisps/rotate-text" "\
-Rotate word at point based on sets in `rotate-text-rotations'.
-
-\(fn)" t nil)
+Rotate word at point based on sets in `rotate-text-rotations'." t nil)
 
 (autoload 'indent-or-rotate "mylisps/rotate-text" "\
-If point is at end of a word, then else indent the line.
-
-\(fn)" t nil)
+If point is at end of a word, then else indent the line." t nil)
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/scrap-code" "mylisps/scrap-code.el"
-;;;;;;  (22054 47663 618949 559000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/scrap-code.el
 
 (autoload 'scrap-code "mylisps/scrap-code" "\
-Scraping current buffer to scrap directory.
-
-\(fn)" t nil)
+Scraping current buffer to scrap directory." t nil)
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/server-utils" "mylisps/server-utils.el"
-;;;;;;  (22054 47663 619949 559000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/server-utils.el
 
 (autoload 'after-init-server "mylisps/server-utils" "\
-Launch server after init.
-
-\(fn)" nil nil)
+Launch server after init." nil nil)
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/settings/auto-complete-setup" "mylisps/settings/auto-complete-setup.el"
-;;;;;;  (22054 47663 623949 559000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/settings/auto-complete-setup.el
 
 (autoload 'auto-complete-stop&save "mylisps/settings/auto-complete-setup" "\
-Auto complete stop and save.
+Auto complete stop and save." t nil)
 
-\(fn)" t nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/settings/auto-complete-setup" '("auto-complete-")))
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/settings/auto-highlight-symbol-setup"
-;;;;;;  "mylisps/settings/auto-highlight-symbol-setup.el" (22054
-;;;;;;  47663 624949 559000))
+;;;;;;  "mylisps/settings/auto-highlight-symbol-setup.el" (0 0 0
+;;;;;;  0))
 ;;; Generated autoloads from mylisps/settings/auto-highlight-symbol-setup.el
 
 (autoload 'ahs-edit-mode-tmp-whole-buffer "mylisps/settings/auto-highlight-symbol-setup" "\
 ARG
 %OPTIONAL
-TEMPORARY
-
-\(fn)" t nil)
+TEMPORARY" t nil)
 
 (autoload 'py:ahs-edit-mode-def-region "mylisps/settings/auto-highlight-symbol-setup" "\
-
-
-\(fn)" t nil)
+" t nil)
 
 (autoload 'py:ahs-edit-mode-class-region "mylisps/settings/auto-highlight-symbol-setup" "\
+" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/settings/auto-highlight-symbol-setup" '("py:")))
 
-\(fn)" t nil)
+;;;***
+
+;;;### (autoloads nil "mylisps/settings/auto-recover-setup" "mylisps/settings/auto-recover-setup.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from mylisps/settings/auto-recover-setup.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/settings/auto-recover-setup" '("no-autorecover-init-time-flag")))
+
+;;;***
+
+;;;### (autoloads nil "mylisps/settings/auto-save-setup" "mylisps/settings/auto-save-setup.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from mylisps/settings/auto-save-setup.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/settings/auto-save-setup" '("my-auto-save-dir")))
+
+;;;***
+
+;;;### (autoloads nil "mylisps/settings/backup-setup" "mylisps/settings/backup-setup.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from mylisps/settings/backup-setup.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/settings/backup-setup" '("avoid-old-backup-re" "backup-first-change" "force-backup-of-buffer" "make-backup-")))
+
+;;;***
+
+;;;### (autoloads nil "mylisps/settings/base-setup" "mylisps/settings/base-setup.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from mylisps/settings/base-setup.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/settings/base-setup" '("message-box" "my-bell-function")))
+
+;;;***
+
+;;;### (autoloads nil "mylisps/settings/c-mode-setup" "mylisps/settings/c-mode-setup.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from mylisps/settings/c-mode-setup.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/settings/c-mode-setup" '("gtags-mode-predefine" "insert-include")))
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/settings/check-default-setup" "mylisps/settings/check-default-setup.el"
-;;;;;;  (22054 47663 636949 560000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/settings/check-default-setup.el
 
 (autoload 'default-el-update-var "mylisps/settings/check-default-setup" "\
-update 09_check_default_start.el setting variables.
+update 09_check_default_start.el setting variables." nil nil)
 
-\(fn)" nil nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/settings/check-default-setup" '("default-el-")))
+
+;;;***
+
+;;;### (autoloads nil "mylisps/settings/dired-setup" "mylisps/settings/dired-setup.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from mylisps/settings/dired-setup.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/settings/dired-setup" '("dired-" "my-dired-today-search" "py:dired-create-directory")))
+
+;;;***
+
+;;;### (autoloads nil "mylisps/settings/dsvn-setup" "mylisps/settings/dsvn-setup.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from mylisps/settings/dsvn-setup.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/settings/dsvn-setup" '("svn-")))
+
+;;;***
+
+;;;### (autoloads nil "mylisps/settings/e2wm-setup" "mylisps/settings/e2wm-setup.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from mylisps/settings/e2wm-setup.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/settings/e2wm-setup" '("e2wm:toggle-start-stop")))
+
+;;;***
+
+;;;### (autoloads nil "mylisps/settings/eldoc-setup" "mylisps/settings/eldoc-setup.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from mylisps/settings/eldoc-setup.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/settings/eldoc-setup" '("eldoc-emacs-lisp-mode-hook")))
+
+;;;***
+
+;;;### (autoloads nil "mylisps/settings/elisp-mode-hooks-setup" "mylisps/settings/elisp-mode-hooks-setup.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from mylisps/settings/elisp-mode-hooks-setup.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/settings/elisp-mode-hooks-setup" '("emacs-lisp-mode-hook" "lisp-interaction-mode-hook")))
+
+;;;***
+
+;;;### (autoloads nil "mylisps/settings/environment-setup" "mylisps/settings/environment-setup.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from mylisps/settings/environment-setup.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/settings/environment-setup" '("define-my-path" "my-")))
+
+;;;***
+
+;;;### (autoloads nil "mylisps/settings/eww-setup" "mylisps/settings/eww-setup.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from mylisps/settings/eww-setup.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/settings/eww-setup" '("eww-" "shr-")))
+
+;;;***
+
+;;;### (autoloads nil "mylisps/settings/expand-region-setup" "mylisps/settings/expand-region-setup.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from mylisps/settings/expand-region-setup.el
+
+(autoload 't1-mark "mylisps/settings/expand-region-setup" "\
+ARG
+
+\(fn ARG)" t nil)
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/settings/face-setup" "mylisps/settings/face-setup.el"
-;;;;;;  (22054 47663 672949 563000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/settings/face-setup.el
 
-(autoload 'toggle-max-window "mylisps/settings/face-setup" "\
+(autoload 'toggle-max-window "mylisps/settings/face-setup" nil t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/settings/face-setup" '("color" "default-frame-width" "list-colors" "set-cursor-")))
 
-\(fn)" t nil)
+;;;***
+
+;;;### (autoloads nil "mylisps/settings/final-setup" "mylisps/settings/final-setup.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from mylisps/settings/final-setup.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/settings/final-setup" '("bfn" "space-to-tab" "tab-to-space")))
+
+;;;***
+
+;;;### (autoloads nil "mylisps/settings/flycheck-setup" "mylisps/settings/flycheck-setup.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from mylisps/settings/flycheck-setup.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/settings/flycheck-setup" '("flycheck-emacs-lisp-mode-hook")))
+
+;;;***
+
+;;;### (autoloads nil "mylisps/settings/frame-setup" "mylisps/settings/frame-setup.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from mylisps/settings/frame-setup.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/settings/frame-setup" '("frame-" "main-" "running-emacs-count")))
+
+;;;***
+
+;;;### (autoloads nil "mylisps/settings/gdb-setup" "mylisps/settings/gdb-setup.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from mylisps/settings/gdb-setup.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/settings/gdb-setup" '("kill-some-gud-buffers")))
+
+;;;***
+
+;;;### (autoloads nil "mylisps/settings/header2-setup" "mylisps/settings/header2-setup.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from mylisps/settings/header2-setup.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/settings/header2-setup" '("header-" "make-revision" "update-")))
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/settings/helm-setup" "mylisps/settings/helm-setup.el"
-;;;;;;  (22054 47663 674949 563000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/settings/helm-setup.el
 
 (autoload 'helm-my-edit "mylisps/settings/helm-setup" "\
+" t nil)
 
+;;;***
+
+;;;### (autoloads nil "mylisps/settings/iswitchb-setup" "mylisps/settings/iswitchb-setup.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from mylisps/settings/iswitchb-setup.el
 
-\(fn)" t nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/settings/iswitchb-setup" '("iswitchb-")))
+
+;;;***
+
+;;;### (autoloads nil "mylisps/settings/linux-keyrate-setup" "mylisps/settings/linux-keyrate-setup.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from mylisps/settings/linux-keyrate-setup.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/settings/linux-keyrate-setup" '("keyrate-" "my-set-keyrate")))
+
+;;;***
+
+;;;### (autoloads nil "mylisps/settings/ll-debug-setup" "mylisps/settings/ll-debug-setup.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from mylisps/settings/ll-debug-setup.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/settings/ll-debug-setup" '("my-ll-debug-toggle-comment-region-or-line" "t1-py-delete-debug-print")))
+
+;;;***
+
+;;;### (autoloads nil "mylisps/settings/loaddefs-setup" "mylisps/settings/loaddefs-setup.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from mylisps/settings/loaddefs-setup.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/settings/loaddefs-setup" '("loaddefs-name" "update-loaddefs-site-lisp")))
+
+;;;***
+
+;;;### (autoloads nil "mylisps/settings/modeline-setup" "mylisps/settings/modeline-setup.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from mylisps/settings/modeline-setup.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/settings/modeline-setup" '("mode-line-point-o" "toggle-mode-line")))
+
+;;;***
+
+;;;### (autoloads nil "mylisps/settings/multiple-cursors-setup" "mylisps/settings/multiple-cursors-setup.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from mylisps/settings/multiple-cursors-setup.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/settings/multiple-cursors-setup" '("my-mc/")))
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/settings/nosetests-setup" "mylisps/settings/nosetests-setup.el"
-;;;;;;  (22054 47663 713949 566000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/settings/nosetests-setup.el
 
 (autoload 'nosetests-mode-predefine "mylisps/settings/nosetests-setup" "\
-For `eval-after-load' nosetests function.
-
-\(fn)" nil nil)
+For `eval-after-load' nosetests function." nil nil)
 
 (autoload 'nosetests-mode-face-predefine "mylisps/settings/nosetests-setup" "\
-For nosetests face.
-
-\(fn)" nil nil)
+For nosetests face." nil nil)
 
 (autoload 'nosetests-run-all+ "mylisps/settings/nosetests-setup" "\
 
@@ -1768,18 +1932,74 @@ ARGS
 ;;;***
 
 ;;;### (autoloads nil "mylisps/settings/open-junk-file-setup" "mylisps/settings/open-junk-file-setup.el"
-;;;;;;  (22054 47663 713949 566000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/settings/open-junk-file-setup.el
 
 (autoload 'cleanup-open-junk-files "mylisps/settings/open-junk-file-setup" "\
+" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/settings/open-junk-file-setup" '("open-junk-file-di")))
 
-\(fn)" t nil)
+;;;***
+
+;;;### (autoloads nil "mylisps/settings/package-setup" "mylisps/settings/package-setup.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from mylisps/settings/package-setup.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/settings/package-setup" '("package-bundle")))
+
+;;;***
+
+;;;### (autoloads nil "mylisps/settings/py-environment-setup" "mylisps/settings/py-environment-setup.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from mylisps/settings/py-environment-setup.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/settings/py-environment-setup" '("my-pylib-dir" "pythonpath-")))
+
+;;;***
+
+;;;### (autoloads nil "mylisps/settings/pymacs-setup" "mylisps/settings/pymacs-setup.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from mylisps/settings/pymacs-setup.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/settings/pymacs-setup" '("rope-open-current-or-parent")))
+
+;;;***
+
+;;;### (autoloads nil "mylisps/settings/python-mode-setup" "mylisps/settings/python-mode-setup.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from mylisps/settings/python-mode-setup.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/settings/python-mode-setup" '("inferior-python-mode-hook" "my-python-" "python-" "refactoring-python-mode-hook")))
+
+;;;***
+
+;;;### (autoloads nil "mylisps/settings/refactoring-elisp-setup"
+;;;;;;  "mylisps/settings/refactoring-elisp-setup.el" (0 0 0 0))
+;;; Generated autoloads from mylisps/settings/refactoring-elisp-setup.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/settings/refactoring-elisp-setup" '("refactoring-elisp-emacs-lisp-mode-hook")))
+
+;;;***
+
+;;;### (autoloads nil "mylisps/settings/register-setup" "mylisps/settings/register-setup.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from mylisps/settings/register-setup.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/settings/register-setup" '("insert-register-disable-exchange")))
+
+;;;***
+
+;;;### (autoloads nil "mylisps/settings/rotate-text-setup" "mylisps/settings/rotate-text-setup.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from mylisps/settings/rotate-text-setup.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/settings/rotate-text-setup" '("rotate-text-emacs-lisp-mode-hook")))
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/settings/sdic-setup" "mylisps/settings/sdic-setup.el"
-;;;;;;  (22054 47663 747949 569000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/settings/sdic-setup.el
 
 (autoload 'my-sdic-describe-word-with-popup "mylisps/settings/sdic-setup" "\
@@ -1789,8 +2009,16 @@ Display the meaning of word.
 
 ;;;***
 
+;;;### (autoloads nil "mylisps/settings/sql-setup" "mylisps/settings/sql-setup.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from mylisps/settings/sql-setup.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/settings/sql-setup" '("sql-interactive-auto-semicolon")))
+
+;;;***
+
 ;;;### (autoloads nil "mylisps/settings/subroutines" "mylisps/settings/subroutines.el"
-;;;;;;  (22057 16244 914553 713000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/settings/subroutines.el
 
 (autoload 'list-matched-buffers "mylisps/settings/subroutines" "\
@@ -1798,21 +2026,44 @@ RE
 
 \(fn RE)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/settings/subroutines" '("at-string|comment-p" "benchmark-load" "carbon-p" "change-as-root" "colinux-p" "cygwin-p" "darwin-p" "delete-buffer-regexp" "emacs2" "file-root-p" "flatten" "force-kill-emacs" "insert-" "kill-some-buffers-by-" "linux-p" "meadow-p" "myrecompile-recursively" "narrow-to-line" "ns-p" "nt-p" "parse-command-line" "recursive-" "startup-" "time-lag" "walk-edit" "windows-p" "x->bool")))
+
+;;;***
+
+;;;### (autoloads nil "mylisps/settings/t1-simple-setup" "mylisps/settings/t1-simple-setup.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from mylisps/settings/t1-simple-setup.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/settings/t1-simple-setup" '("t1-simple-emacs-lisp-mode-hook" "uniq-region")))
+
+;;;***
+
+;;;### (autoloads nil "mylisps/settings/term-setup" "mylisps/settings/term-setup.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from mylisps/settings/term-setup.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/settings/term-setup" '("term-")))
+
 ;;;***
 
 ;;;### (autoloads nil "mylisps/settings/text-adjust-setup" "mylisps/settings/text-adjust-setup.el"
-;;;;;;  (22054 47663 751949 569000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/settings/text-adjust-setup.el
 
-(autoload 'text-adjust-space-before-save-if-needed "mylisps/settings/text-adjust-setup" "\
+(autoload 'text-adjust-space-before-save-if-needed "mylisps/settings/text-adjust-setup" nil nil nil)
 
+;;;***
+
+;;;### (autoloads nil "mylisps/settings/view-setup" "mylisps/settings/view-setup.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from mylisps/settings/view-setup.el
 
-\(fn)" nil nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/settings/view-setup" '("turn-o" "view-mode-by-exclude-regexp")))
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/settings/w3m-setup" "mylisps/settings/w3m-setup.el"
-;;;;;;  (22054 47663 775949 571000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/settings/w3m-setup.el
 
 (autoload 'w3m-browse-url-new-tab "mylisps/settings/w3m-setup" "\
@@ -1820,10 +2071,12 @@ RE
 
 \(fn URL &optional NEW-SESSION)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/settings/w3m-setup" '("my-w3m-" "rand-w3m-view-this-url-background-session" "w3m-")))
+
 ;;;***
 
 ;;;### (autoloads nil "mylisps/settings/yasnippet-setup" "mylisps/settings/yasnippet-setup.el"
-;;;;;;  (22054 47663 785949 572000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/settings/yasnippet-setup.el
 
 (autoload 'yas-popup-isearch-prompt "mylisps/settings/yasnippet-setup" "\
@@ -1835,76 +2088,59 @@ RE
 
 (defvar yas-my-post-marker nil)
 
-(autoload 'yas-my-save-marker "mylisps/settings/yasnippet-setup" "\
+(autoload 'yas-my-save-marker "mylisps/settings/yasnippet-setup" nil nil nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/settings/yasnippet-setup" '("decrement-yas-number" "flycheck-isactive-flag" "increment-yas-number" "recover-flycheck-after-exit-from-yas" "snippet-finalize" "yasnippet-local-condition-predefine")))
 
-\(fn)" nil nil)
+;;;***
+
+;;;### (autoloads nil "mylisps/sort-ext" "mylisps/sort-ext.el" (0
+;;;;;;  0 0 0))
+;;; Generated autoloads from mylisps/sort-ext.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/sort-ext" '("reverse-" "sort-")))
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/switch-buffer" "mylisps/switch-buffer.el"
-;;;;;;  (22054 47663 790949 572000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/switch-buffer.el
 
 (autoload 'switch-message "mylisps/switch-buffer" "\
-Switch *Messages* buffer.
-
-\(fn)" t nil)
+Switch *Messages* buffer." t nil)
 
 (autoload 't1-switch-04_bindings_start "mylisps/switch-buffer" "\
-Switch 04_bindings_start or find file.
-
-\(fn)" t nil)
+Switch 04_bindings_start or find file." t nil)
 
 (autoload 'switch-test_start "mylisps/switch-buffer" "\
-Switch test_start.el or find file.
-
-\(fn)" t nil)
+Switch test_start.el or find file." t nil)
 
 (autoload 'switch-hotstring "mylisps/switch-buffer" "\
-Switch to 30_hotstring_plugin_start.el
-
-\(fn)" t nil)
+Switch to 30_hotstring_plugin_start.el" t nil)
 
 (autoload 'switch-allinone "mylisps/switch-buffer" "\
-Switch allinone.org or find file.
-
-\(fn)" t nil)
+Switch allinone.org or find file." t nil)
 
 (autoload 'switch-scratch "mylisps/switch-buffer" "\
-Switch *scratch*.
-
-\(fn)" t nil)
+Switch *scratch*." t nil)
 
 (autoload 'switch-start-dir "mylisps/switch-buffer" "\
-
-
-\(fn)" t nil)
+" t nil)
 
 (autoload 'switch-dired "mylisps/switch-buffer" "\
-Switch Dired.
-
-\(fn)" t nil)
+Switch Dired." t nil)
 
 (autoload 'switch-junk "mylisps/switch-buffer" "\
-Switch funk file.
-
-\(fn)" t nil)
+Switch funk file." t nil)
 
 (autoload 'switch-snippets "mylisps/switch-buffer" "\
-switch snippets directory as dired.
-
-\(fn)" t nil)
+switch snippets directory as dired." t nil)
 
 (autoload 'switch-ipython "mylisps/switch-buffer" "\
-Switch Ipythn.
-
-\(fn)" t nil)
+Switch Ipythn." t nil)
 
 (autoload 'find-file-conf "mylisps/switch-buffer" "\
-Find file startup config.
-
-\(fn)" t nil)
+Find file startup config." t nil)
 
 (autoload 'match-dir-file "mylisps/switch-buffer" "\
 Return first matched file name by STRING in DIRECTORY.
@@ -1919,14 +2155,14 @@ EXCUDE is exclude regexp to match file name
 
 (autoload 'launch-or-switch-term "mylisps/switch-buffer" "\
 If exists term buffer then switch it.
-If not exists term buffer then create term buffer.
+If not exists term buffer then create term buffer." t nil)
 
-\(fn)" t nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/switch-buffer" '("register-buffer" "switch--regexp" "t1-switch--findfile")))
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/t1-bind-key" "mylisps/t1-bind-key.el"
-;;;;;;  (22054 47663 791949 572000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/t1-bind-key.el
 
 (autoload 't1-edit-bind-keys "mylisps/t1-bind-key" "\
@@ -1945,10 +2181,12 @@ MAPS
 
 \(fn MAPS)" nil nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/t1-bind-key" '("bind-from-table" "common-view-map-" "t1-")))
+
 ;;;***
 
 ;;;### (autoloads nil "mylisps/t1-simple" "mylisps/t1-simple.el"
-;;;;;;  (22054 47663 791949 572000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/t1-simple.el
 
 (autoload 'my-backward-seq "mylisps/t1-simple" "\
@@ -1970,24 +2208,16 @@ Args:  4 = start point
 \(fn &optional ARGS)" t nil)
 
 (autoload 'esc-comment-end-of-line "mylisps/t1-simple" "\
-Skip backward comment when end-of-line
-
-\(fn)" t nil)
+Skip backward comment when end-of-line" t nil)
 
 (autoload 'seq-esc-comment-end-of-line "mylisps/t1-simple" "\
-
-
-\(fn)" t nil)
+" t nil)
 
 (autoload 'swap-screen "mylisps/t1-simple" "\
-Swap two screen,leaving cursor at current window.
-
-\(fn)" t nil)
+Swap two screen,leaving cursor at current window." t nil)
 
 (autoload 'swap-screen-with-cursor "mylisps/t1-simple" "\
-Swap two screen,with cursor in same buffer.
-
-\(fn)" t nil)
+Swap two screen,with cursor in same buffer." t nil)
 
 (autoload 'scroll-window-to-top "mylisps/t1-simple" "\
 Scroll window up to top.
@@ -1996,29 +2226,17 @@ POINT:
 \(fn POINT)" t nil)
 
 (autoload 'text-scale-decrease "mylisps/t1-simple" "\
-Zoom out.
-
-\(fn)" t nil)
+Zoom out." t nil)
 
 (autoload 'text-scale-enlarge "mylisps/t1-simple" "\
-Zoom up.
-
-\(fn)" t nil)
+Zoom up." t nil)
 
 (autoload 'text-scale-default "mylisps/t1-simple" "\
-Reset zoom in or out.
+Reset zoom in or out." t nil)
 
-\(fn)" t nil)
+(autoload 'return-on-line "mylisps/t1-simple" nil t nil)
 
-(autoload 'return-on-line "mylisps/t1-simple" "\
-
-
-\(fn)" t nil)
-
-(autoload 'beginning-of-line-or-indentation "mylisps/t1-simple" "\
-
-
-\(fn)" t nil)
+(autoload 'beginning-of-line-or-indentation "mylisps/t1-simple" nil t nil)
 
 (autoload 'backward-kill-line "mylisps/t1-simple" "\
 Delete characters beginning of line from point.
@@ -2043,9 +2261,7 @@ With argument, do this that many times.
 \(fn ARG)" t nil)
 
 (autoload 'delete-trailing-blank-lines "mylisps/t1-simple" "\
-Deletes all blank lines at the end of the file.
-
-\(fn)" t nil)
+Deletes all blank lines at the end of the file." t nil)
 
 (autoload 'my-backward-delete-word "mylisps/t1-simple" "\
 Delete backward word.
@@ -2086,9 +2302,7 @@ ARG lines up.
 \(fn ARG)" t nil)
 
 (autoload 'blank-line-p "mylisps/t1-simple" "\
-Return non-nil if and only if current line is blank.
-
-\(fn)" nil nil)
+Return non-nil if and only if current line is blank." nil nil)
 
 (autoload 'my-forward-whitespace "mylisps/t1-simple" "\
 
@@ -2106,9 +2320,7 @@ Move back to whitespace.
 \(fn ARG)" t nil)
 
 (autoload 'just-one-blank-line "mylisps/t1-simple" "\
-On blank line, delete all surrounding blank lines, leaving just one.
-
-\(fn)" t nil)
+On blank line, delete all surrounding blank lines, leaving just one." t nil)
 
 (autoload 'indent-and-next "mylisps/t1-simple" "\
 Indent and forward line.
@@ -2116,25 +2328,14 @@ ARGS: dotimes number.
 
 \(fn ARGS)" t nil)
 
-(autoload 't1-mark "mylisps/t1-simple" "\
-ARG
-
-\(fn ARG)" t nil)
-
 (autoload 't1-parence "mylisps/t1-simple" "\
-
-
-\(fn)" t nil)
+" t nil)
 
 (autoload 'forward-skip-string-regexp "mylisps/t1-simple" "\
-
-
-\(fn)" t nil)
+" t nil)
 
 (autoload 'backward-skip-string-regexp "mylisps/t1-simple" "\
-
-
-\(fn)" t nil)
+" t nil)
 
 (autoload 't1-forward-thing "mylisps/t1-simple" "\
 ARG
@@ -2146,31 +2347,38 @@ ARG
 
 \(fn ARG)" t nil)
 
-(autoload 'clear-overlays "mylisps/t1-simple" "\
-
-
-\(fn)" t nil)
+(autoload 'clear-overlays "mylisps/t1-simple" nil t nil)
 
 (autoload 'open-line-indent "mylisps/t1-simple" "\
 
 
 \(fn N)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/t1-simple" '("dolist-member" "seq-start-point" "skip-fontlocks" "what-face-at-point")))
+
+;;;***
+
+;;;### (autoloads nil "mylisps/t1macro" "mylisps/t1macro.el" (0 0
+;;;;;;  0 0))
+;;; Generated autoloads from mylisps/t1macro.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/t1macro" '("append-to-list" "define-many-keys" "defvar-local" "run-hooks-after-load" "save-")))
+
 ;;;***
 
 ;;;### (autoloads nil "mylisps/timestamp-insert" "mylisps/timestamp-insert.el"
-;;;;;;  (22054 47663 791949 572000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/timestamp-insert.el
 
 (autoload 'timestamp-insert "mylisps/timestamp-insert" "\
-timestamp insert from popup menu
+timestamp insert from popup menu" t nil)
 
-\(fn)" t nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/timestamp-insert" '("time-format-list")))
 
 ;;;***
 
 ;;;### (autoloads nil "mylisps/user-loaddefs" "mylisps/user-loaddefs.el"
-;;;;;;  (22054 47663 792949 572000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/user-loaddefs.el
 
 (autoload 'user-generate-loaddefs "mylisps/user-loaddefs" "\
@@ -2179,10 +2387,12 @@ DIR
 
 \(fn NAME TOP-DIR)" nil nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/user-loaddefs" '("loaddefs-name" "user-loaddefs-recursive-directory-candidates")))
+
 ;;;***
 
 ;;;### (autoloads nil "mylisps/windmove-or-split" "mylisps/windmove-or-split.el"
-;;;;;;  (22054 47663 792949 572000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from mylisps/windmove-or-split.el
 
 (autoload 'windmove-or-splitmove "mylisps/windmove-or-split" "\
@@ -2214,10 +2424,11 @@ Try window move right. If not exist window then split it horizontally
 
 \(fn &optional ARGS)" t nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/windmove-or-split" '("windmove-")))
+
 ;;;***
 
-;;;### (autoloads nil "pydoc-info" "pydoc-info.el" (22054 47663 792949
-;;;;;;  572000))
+;;;### (autoloads nil "pydoc-info" "pydoc-info.el" (0 0 0 0))
 ;;; Generated autoloads from pydoc-info.el
 
 (require 'info-look)
@@ -2235,9 +2446,18 @@ MORE-SPECS are additional or overriding values passed to
 
 (pydoc-info-add-help '("python"))
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "pydoc-info" '("pydoc-info-")))
+
 ;;;***
 
-;;;### (autoloads nil "pymacs" "pymacs.el" (22054 47663 793949 572000))
+;;;### (autoloads nil "pylit" "pylit.el" (0 0 0 0))
+;;; Generated autoloads from pylit.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "pylit" '("pylit-")))
+
+;;;***
+
+;;;### (autoloads nil "pymacs" "pymacs.el" (0 0 0 0))
 ;;; Generated autoloads from pymacs.el
 
 (autoload 'pymacs-load "pymacs" "\
@@ -2288,36 +2508,120 @@ equivalents, other structures are converted into Lisp handles.
 
 \(fn FUNCTION ARGUMENTS)" nil nil)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "pymacs" '("pymacs-")))
+
 ;;;***
 
-;;;### (autoloads nil "python-pylint" "python-pylint.el" (22054 47663
-;;;;;;  793949 572000))
+;;;### (autoloads nil "python-pylint" "python-pylint.el" (0 0 0 0))
 ;;; Generated autoloads from python-pylint.el
 
 (autoload 'python-pylint "python-pylint" "\
 Run PYLINT, and collect output in a buffer.
 While pylint runs asynchronously, you can use \\[next-error] (M-x next-error),
-or \\<python-pylint-mode-map>\\[compile-goto-error] in the grep output buffer, to go to the lines where pylint found matches.
-
-\(fn)" t nil)
+or \\<python-pylint-mode-map>\\[compile-goto-error] in the grep output buffer, to go to the lines where pylint found matches." t nil)
 
 (defalias 'pylint 'python-pylint)
 
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "python-pylint" '("python-pylint-")))
+
 ;;;***
 
-;;;### (autoloads nil "xmodmap-mode" "xmodmap-mode.el" (22054 47663
-;;;;;;  797949 573000))
+;;;### (autoloads nil "sdic/sdic" "sdic/sdic.el" (0 0 0 0))
+;;; Generated autoloads from sdic/sdic.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "sdic/sdic" '("sdic")))
+
+;;;***
+
+;;;### (autoloads nil "sdic/sdic-compat" "sdic/sdic-compat.el" (0
+;;;;;;  0 0 0))
+;;; Generated autoloads from sdic/sdic-compat.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "sdic/sdic-compat" '("sdic-compat-")))
+
+;;;***
+
+;;;### (autoloads nil "sdic/sdic-gene" "sdic/sdic-gene.el" (0 0 0
+;;;;;;  0))
+;;; Generated autoloads from sdic/sdic-gene.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "sdic/sdic-gene" '("sdic-gene-")))
+
+;;;***
+
+;;;### (autoloads nil "sdic/sdicf" "sdic/sdicf.el" (0 0 0 0))
+;;; Generated autoloads from sdic/sdicf.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "sdic/sdicf" '("sdicf-")))
+
+;;;***
+
+;;;### (autoloads nil "sdic/sdicf-client" "sdic/sdicf-client.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from sdic/sdicf-client.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "sdic/sdicf-client" '("sdicf-client-")))
+
+;;;***
+
+;;;### (autoloads nil "sdic/stem" "sdic/stem.el" (0 0 0 0))
+;;; Generated autoloads from sdic/stem.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "sdic/stem" '("stem")))
+
+;;;***
+
+;;;### (autoloads nil "sequential-command-config" "sequential-command-config.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from sequential-command-config.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "sequential-command-config" '("seq")))
+
+;;;***
+
+;;;### (autoloads nil "systemd-company" "systemd-company.el" (0 0
+;;;;;;  0 0))
+;;; Generated autoloads from systemd-company.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "systemd-company" '("systemd-company-")))
+
+;;;***
+
+;;;### (autoloads nil "text-adjust" "text-adjust.el" (0 0 0 0))
+;;; Generated autoloads from text-adjust.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "text-adjust" '("text-adjust")))
+
+;;;***
+
+;;;### (autoloads nil "toggle-let-astah" "toggle-let-astah.el" (0
+;;;;;;  0 0 0))
+;;; Generated autoloads from toggle-let-astah.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "toggle-let-astah" '("toggle-let-astah")))
+
+;;;***
+
+;;;### (autoloads nil "trash-settings" "trash-settings.el" (0 0 0
+;;;;;;  0))
+;;; Generated autoloads from trash-settings.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "trash-settings" '("call-process-discard-output" "file-excluded-from-system-trash-p" "string-begins-with-p" "system-" "trash-or-rm")))
+
+;;;***
+
+;;;### (autoloads nil "xmodmap-mode" "xmodmap-mode.el" (0 0 0 0))
 ;;; Generated autoloads from xmodmap-mode.el
 
 (autoload 'xmodmap-mode "xmodmap-mode" "\
-Major mode for editing ~/.xmodmaprc
+Major mode for editing ~/.xmodmaprc" t nil)
 
-\(fn)" t nil)
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "xmodmap-mode" '("xmodmap-")))
 
 ;;;***
 
 ;;;### (autoloads nil "yama-find-file-binary" "yama-find-file-binary.el"
-;;;;;;  (22054 47663 799949 573000))
+;;;;;;  (0 0 0 0))
 ;;; Generated autoloads from yama-find-file-binary.el
 
 (defvar YAMA-file-not-binary-extensions '("el" "ahk") "\
@@ -2338,95 +2642,75 @@ Return t if FILE contains binary data.  If optional FULL is non-nil,
 
 ;;;***
 
-;;;### (autoloads nil nil ("approx-isearch.el" "approx-old-isearch.el"
-;;;;;;  "approx-search.el" "ascii-table.el" "auto-complete-yasnippet.el"
-;;;;;;  "bat-mode.el" "color-theme-6.6.0/color-theme-autoloads.el"
-;;;;;;  "color-theme-6.6.0/themes/color-theme-dark-laptop.el" "dmacro.el"
-;;;;;;  "doc-view-extension.el" "duplicate-line.el" "gccsense.el"
-;;;;;;  "grep-edit.el" "initchart/initchart.el" "jaspace.el" "jedi-eldoc.el"
-;;;;;;  "ll-debug.el" "mell.el" "mylisps/e2wm/e2wm_macro.el" "mylisps/linux-face.el"
-;;;;;;  "mylisps/refactoring-elisp.el" "mylisps/settings/Info-mode-setup.el"
+;;;### (autoloads nil "yasnippet-config" "yasnippet-config.el" (0
+;;;;;;  0 0 0))
+;;; Generated autoloads from yasnippet-config.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "yasnippet-config" '("flymake-is-active-flag" "yas")))
+
+;;;***
+
+;;;### (autoloads nil nil ("mylisps/linux-face.el" "mylisps/settings/Info-mode-setup.el"
 ;;;;;;  "mylisps/settings/__python__-operator-setup.el" "mylisps/settings/__python__-setup.el"
 ;;;;;;  "mylisps/settings/align-setup.el" "mylisps/settings/annotation-setup.el"
 ;;;;;;  "mylisps/settings/apropos-setup.el" "mylisps/settings/ascii-setup.el"
 ;;;;;;  "mylisps/settings/asm-mode-setup.el" "mylisps/settings/auto-async-byte-compile-setup.el"
 ;;;;;;  "mylisps/settings/auto-insert-setup.el" "mylisps/settings/auto-install-setup.el"
-;;;;;;  "mylisps/settings/auto-recover-setup.el" "mylisps/settings/auto-save-setup.el"
 ;;;;;;  "mylisps/settings/auto-yasnippet-setup.el" "mylisps/settings/autorevert-setup.el"
-;;;;;;  "mylisps/settings/backup-setup.el" "mylisps/settings/base-setup.el"
 ;;;;;;  "mylisps/settings/bat-mode-setup.el" "mylisps/settings/binding-setup.el"
-;;;;;;  "mylisps/settings/c-mode-setup.el" "mylisps/settings/check-misspell-setup.el"
-;;;;;;  "mylisps/settings/col-highlight-setup.el" "mylisps/settings/column-highlight-setup.el"
-;;;;;;  "mylisps/settings/crontab-mode-setup.el" "mylisps/settings/csv-mode-setup.el"
-;;;;;;  "mylisps/settings/cua-base-setup.el" "mylisps/settings/cus-edit-setup.el"
-;;;;;;  "mylisps/settings/dired-setup.el" "mylisps/settings/dmacro-setup.el"
-;;;;;;  "mylisps/settings/doctest-mode-setup.el" "mylisps/settings/dsvn-setup.el"
-;;;;;;  "mylisps/settings/duplicate-line-setup.el" "mylisps/settings/e2wm-setup.el"
+;;;;;;  "mylisps/settings/check-misspell-setup.el" "mylisps/settings/col-highlight-setup.el"
+;;;;;;  "mylisps/settings/column-highlight-setup.el" "mylisps/settings/crontab-mode-setup.el"
+;;;;;;  "mylisps/settings/csv-mode-setup.el" "mylisps/settings/cua-base-setup.el"
+;;;;;;  "mylisps/settings/cus-edit-setup.el" "mylisps/settings/dmacro-setup.el"
+;;;;;;  "mylisps/settings/doctest-mode-setup.el" "mylisps/settings/duplicate-line-setup.el"
 ;;;;;;  "mylisps/settings/edebug-setup.el" "mylisps/settings/edit-list-setup.el"
-;;;;;;  "mylisps/settings/eldoc-setup.el" "mylisps/settings/elisp-mode-bind-key-setup.el"
-;;;;;;  "mylisps/settings/elisp-mode-hooks-setup.el" "mylisps/settings/elisp-setup.el"
-;;;;;;  "mylisps/settings/elisp-util-setup.el" "mylisps/settings/environment-setup.el"
-;;;;;;  "mylisps/settings/eww-setup.el" "mylisps/settings/filecache-setup.el"
-;;;;;;  "mylisps/settings/final-setup.el" "mylisps/settings/flycheck-setup.el"
+;;;;;;  "mylisps/settings/elisp-mode-bind-key-setup.el" "mylisps/settings/elisp-setup.el"
+;;;;;;  "mylisps/settings/elisp-util-setup.el" "mylisps/settings/filecache-setup.el"
 ;;;;;;  "mylisps/settings/flymake-setup.el" "mylisps/settings/fold-dwim-setup.el"
-;;;;;;  "mylisps/settings/frame-setup.el" "mylisps/settings/gdb-setup.el"
 ;;;;;;  "mylisps/settings/gnu-art-setup.el" "mylisps/settings/gnus-cite-setup.el"
 ;;;;;;  "mylisps/settings/gnus-setup.el" "mylisps/settings/grep-setup.el"
-;;;;;;  "mylisps/settings/header2-setup.el" "mylisps/settings/help-mode-setup.el"
-;;;;;;  "mylisps/settings/hideif-setup.el" "mylisps/settings/hideshow-setup.el"
-;;;;;;  "mylisps/settings/hl-line-setup.el" "mylisps/settings/hotstring-setup.el"
+;;;;;;  "mylisps/settings/help-mode-setup.el" "mylisps/settings/hideif-setup.el"
+;;;;;;  "mylisps/settings/hideshow-setup.el" "mylisps/settings/hl-line-setup.el"
+;;;;;;  "mylisps/settings/host-bishop-setup.el" "mylisps/settings/hotstring-setup.el"
 ;;;;;;  "mylisps/settings/icomplete-setup.el" "mylisps/settings/image-mode-setup.el"
-;;;;;;  "mylisps/settings/ispell-setup.el" "mylisps/settings/iswitchb-setup.el"
-;;;;;;  "mylisps/settings/javascript-mode-setup.el" "mylisps/settings/jedi-setup.el"
-;;;;;;  "mylisps/settings/kmacro-setup.el" "mylisps/settings/linum-setup.el"
-;;;;;;  "mylisps/settings/linux-face-setup.el" "mylisps/settings/linux-keyrate-setup.el"
-;;;;;;  "mylisps/settings/linux-setup.el" "mylisps/settings/ll-debug-setup.el"
-;;;;;;  "mylisps/settings/load-path-setup.el" "mylisps/settings/loaddefs-setup.el"
+;;;;;;  "mylisps/settings/ispell-setup.el" "mylisps/settings/javascript-mode-setup.el"
+;;;;;;  "mylisps/settings/jedi-setup.el" "mylisps/settings/kmacro-setup.el"
+;;;;;;  "mylisps/settings/linum-setup.el" "mylisps/settings/linux-face-setup.el"
+;;;;;;  "mylisps/settings/linux-setup.el" "mylisps/settings/load-path-setup.el"
 ;;;;;;  "mylisps/settings/log-edit-setup.el" "mylisps/settings/mac-setup.el"
 ;;;;;;  "mylisps/settings/magit-setup.el" "mylisps/settings/message-setup.el"
 ;;;;;;  "mylisps/settings/midnight-setup.el" "mylisps/settings/minibuffer-setup.el"
-;;;;;;  "mylisps/settings/moccur-setup.el" "mylisps/settings/modeline-setup.el"
-;;;;;;  "mylisps/settings/mule-cmds-setup.el" "mylisps/settings/multiple-cursors-setup.el"
+;;;;;;  "mylisps/settings/moccur-setup.el" "mylisps/settings/mule-cmds-setup.el"
 ;;;;;;  "mylisps/settings/mysimple-setup.el" "mylisps/settings/org-setup.el"
-;;;;;;  "mylisps/settings/package-setup.el" "mylisps/settings/paren-setup.el"
+;;;;;;  "mylisps/settings/paren-setup.el" "mylisps/settings/php-mode-setup.el"
 ;;;;;;  "mylisps/settings/point-stack-setup.el" "mylisps/settings/point-undo-setup.el"
-;;;;;;  "mylisps/settings/popup-setup.el" "mylisps/settings/py-environment-setup.el"
-;;;;;;  "mylisps/settings/pylookup-setup.el" "mylisps/settings/pymacs-setup.el"
+;;;;;;  "mylisps/settings/popup-setup.el" "mylisps/settings/pylookup-setup.el"
 ;;;;;;  "mylisps/settings/python-clonedigger-setup.el" "mylisps/settings/python-debug-setup.el"
-;;;;;;  "mylisps/settings/python-mode-bind-key-setup.el" "mylisps/settings/python-mode-setup.el"
-;;;;;;  "mylisps/settings/python-pep8-setup.el" "mylisps/settings/python-pylint-setup.el"
-;;;;;;  "mylisps/settings/python-setup.el" "mylisps/settings/python-snippet-helper-setup.el"
-;;;;;;  "mylisps/settings/python-test-generator-setup.el" "mylisps/settings/python-untabify-setup.el"
-;;;;;;  "mylisps/settings/quickrun-setup.el" "mylisps/settings/recentf-setup.el"
-;;;;;;  "mylisps/settings/recover-last-killed-file-setup.el" "mylisps/settings/refactoring-elisp-setup.el"
-;;;;;;  "mylisps/settings/register-setup.el" "mylisps/settings/rename-old-del-setup.el"
-;;;;;;  "mylisps/settings/rotate-text-setup.el" "mylisps/settings/s-setup.el"
+;;;;;;  "mylisps/settings/python-mode-bind-key-setup.el" "mylisps/settings/python-pep8-setup.el"
+;;;;;;  "mylisps/settings/python-pylint-setup.el" "mylisps/settings/python-setup.el"
+;;;;;;  "mylisps/settings/python-snippet-helper-setup.el" "mylisps/settings/python-test-generator-setup.el"
+;;;;;;  "mylisps/settings/python-untabify-setup.el" "mylisps/settings/quickrun-setup.el"
+;;;;;;  "mylisps/settings/recentf-setup.el" "mylisps/settings/recover-last-killed-file-setup.el"
+;;;;;;  "mylisps/settings/rename-old-del-setup.el" "mylisps/settings/s-setup.el"
 ;;;;;;  "mylisps/settings/savehist-setup.el" "mylisps/settings/savekill-setup.el"
 ;;;;;;  "mylisps/settings/saveplace-setup.el" "mylisps/settings/scratch-ext-setup.el"
 ;;;;;;  "mylisps/settings/server-setup.el" "mylisps/settings/sh-script-mode-setup.el"
 ;;;;;;  "mylisps/settings/smartparens-setup.el" "mylisps/settings/smartrep-setup.el"
-;;;;;;  "mylisps/settings/sql-setup.el" "mylisps/settings/sudo-ext-setup.el"
-;;;;;;  "mylisps/settings/switch-buffer-setup.el" "mylisps/settings/syslog-mode-setup.el"
-;;;;;;  "mylisps/settings/systemd-mode-setup.el" "mylisps/settings/t1-bind-key-setup.el"
-;;;;;;  "mylisps/settings/t1-simple-setup.el" "mylisps/settings/tabbar-setup.el"
-;;;;;;  "mylisps/settings/term-setup.el" "mylisps/settings/test-setup.el"
-;;;;;;  "mylisps/settings/text-mode-setup.el" "mylisps/settings/thumbs-setup.el"
-;;;;;;  "mylisps/settings/timestamp-insert-setup.el" "mylisps/settings/toggle-let-astah-setup.el"
-;;;;;;  "mylisps/settings/tramp-setup.el" "mylisps/settings/undo-tree-setup.el"
-;;;;;;  "mylisps/settings/uniquify-setup.el" "mylisps/settings/usage-memo-setup.el"
-;;;;;;  "mylisps/settings/use-package-setup.el" "mylisps/settings/view-setup.el"
-;;;;;;  "mylisps/settings/whitespace-setup.el" "mylisps/settings/wid-edit-setup.el"
-;;;;;;  "mylisps/settings/windmove-or-split-setup.el" "mylisps/settings/window-setup.el"
-;;;;;;  "mylisps/settings/windows-ahk-mode-setup.el" "mylisps/settings/windows-everything-setup.el"
-;;;;;;  "mylisps/settings/windows-face-setup.el" "mylisps/settings/windows-setup.el"
-;;;;;;  "mylisps/settings/woman-setup.el" "mylisps/settings/x-win-setup.el"
-;;;;;;  "mylisps/settings/xmodmap-mode-setup.el" "mylisps/settings/yama-find-binary-setup.el"
-;;;;;;  "mylisps/sort-ext.el" "mylisps/t1macro.el" "pylit.el" "sdic/sdic-compat.el"
-;;;;;;  "sdic/sdic-gene.el" "sdic/sdic.el" "sdic/sdicf-client.el"
-;;;;;;  "sdic/sdicf.el" "sdic/stem.el" "sequential-command-config.el"
-;;;;;;  "systemd-company.el" "text-adjust.el" "toggle-let-astah.el"
-;;;;;;  "trash-settings.el" "yasnippet-config.el") (22057 17468 847524
-;;;;;;  361000))
+;;;;;;  "mylisps/settings/sudo-ext-setup.el" "mylisps/settings/switch-buffer-setup.el"
+;;;;;;  "mylisps/settings/syslog-mode-setup.el" "mylisps/settings/systemd-mode-setup.el"
+;;;;;;  "mylisps/settings/t1-bind-key-setup.el" "mylisps/settings/tabbar-setup.el"
+;;;;;;  "mylisps/settings/test-setup.el" "mylisps/settings/text-mode-setup.el"
+;;;;;;  "mylisps/settings/thumbs-setup.el" "mylisps/settings/timestamp-insert-setup.el"
+;;;;;;  "mylisps/settings/toggle-let-astah-setup.el" "mylisps/settings/tramp-setup.el"
+;;;;;;  "mylisps/settings/undo-tree-setup.el" "mylisps/settings/uniquify-setup.el"
+;;;;;;  "mylisps/settings/usage-memo-setup.el" "mylisps/settings/use-package-setup.el"
+;;;;;;  "mylisps/settings/web-mode-setup.el" "mylisps/settings/whitespace-setup.el"
+;;;;;;  "mylisps/settings/wid-edit-setup.el" "mylisps/settings/windmove-or-split-setup.el"
+;;;;;;  "mylisps/settings/window-setup.el" "mylisps/settings/windows-ahk-mode-setup.el"
+;;;;;;  "mylisps/settings/windows-everything-setup.el" "mylisps/settings/windows-face-setup.el"
+;;;;;;  "mylisps/settings/windows-setup.el" "mylisps/settings/woman-setup.el"
+;;;;;;  "mylisps/settings/x-win-setup.el" "mylisps/settings/xmodmap-mode-setup.el"
+;;;;;;  "mylisps/settings/yama-find-binary-setup.el") (0 0 0 0))
 
 ;;;***
 

@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/11/02 16:13:20 (+0900)
-;; Last-Updated:2015/10/21 04:12:37 (+0900)
+;; Last-Updated:2021/08/06 04:03:15 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -101,6 +101,8 @@
    '(dired-header ((t (:foreground "Green"))))
    '(dired-directory ((t (:inherit font-lock-function-name-face
                                    :foreground "LimeGreen")))))
+  ;; dired-find-alternate-file の有効化
+  (put 'dired-find-alternate-file 'disabled nil)
   (bind-keys :map dired-mode-map
              ([C-return] . dired-my-advertised-find-file)
              ("r" . revert-buffer)
@@ -116,6 +118,8 @@
              ([backspace] . dired-my-up-directory)
              (" " . dired-toggle-mark)
              ("G" . find-grep)
+             ([return] . dired-find-alternate-file)
+             ("a" . dired-find-file)
              ;; test
              ("C-e +" . py:dired-create-directory))
   (use-package dired+
