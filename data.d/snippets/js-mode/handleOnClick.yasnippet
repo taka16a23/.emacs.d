@@ -1,0 +1,16 @@
+# -*- mode: snippet; coding: utf-8 -*-
+# name: handleOnClick:
+# key: handleOnClick
+# for react snippet
+# condition: (not (py:at-string|comment-p))
+# --
+handleOnClick(ev) {
+  if (this.props.disabled) {
+    ev.preventDefault();
+    return;
+  }
+  if(this.props.onClick) {
+    this.props.onClick(ev);
+  }
+  $0
+}
