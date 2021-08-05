@@ -6,7 +6,7 @@
 ;; Maintainer:
 ;; Version:
 ;; Created: 2015/10/23 03:33:31 (+0900)
-;; Last-Updated:2015/12/01 10:05:40 (+0900)
+;; Last-Updated:2021/08/06 00:20:06 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -185,9 +185,10 @@
            ;;(prefix) C-lなどで元のバッファに戻すため
            (set-window-buffer (wlf:get-window wm 'right) buf)
            t)
-          (t
-           (e2wm:dp-t1code-popup-sub buf)
-           t))))
+          ;; (t
+          ;;  (e2wm:dp-t1code-popup-sub buf)
+          ;;  t)
+          )))
 
 (e2wm:pst-class-register
  (make-e2wm:$pst-class
