@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2015/10/01 11:01:20 (+0900)
-;; Last-Updated:2016/11/08 14:28:01 (+0900)
+;; Last-Updated:2021/08/05 15:58:24 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -179,9 +179,10 @@
                 (string-match e2wm:c-code-show-main-regexp buf-name))
            (e2wm:pst-buffer-set 'main buf t)
            t)
-          (t
-           (e2wm:dp-pycode-popup-sub buf)
-           t))))
+          ;; (t
+          ;;  (e2wm:dp-pycode-popup-sub buf)
+          ;;  t)
+          )))
 
 (defun e2wm:dp-pycode-start (wm) ;[2013/11/15]
   "WM"
