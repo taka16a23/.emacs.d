@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:25:06 2012 (+0900)
-;; Last-Updated:2015/10/20 01:34:27 (+0900)
+;; Last-Updated:2021/08/08 04:17:34 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -136,6 +136,7 @@
  ;; non-nil = 改行コードの変換を許さない
  '(inhibit-eol-conversion nil)
  '(resize-mini-windows t)
+ '(css-indent-offset 2)
  )
 
 (dolist (path (split-string (getenv "PATH") ":"))
