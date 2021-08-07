@@ -6,16 +6,38 @@
 # --
 ${1:export default }class ${10:CLASS} ${20:extends ${22:Component}} {
   ${24:static propTypes = \{
-    type: PropTypes.string,
   \}
   static defaultProps = \{
-    type: 'number',
   \}}
-  
+
   ${30:constructor(props) \{
     super(props)
     this.state = \{
     \}
+  \}}
+
+  ${40:componentDidMount() \{
+    // async data fetch
+    // edit dom
+    // set timer
+    // set event listener
+  \}}
+
+  ${50:componentDidUpdate(prevProps: Props, prevState: State) \{
+    // async data fetch
+    // edit dom
+  \}}
+
+  ${60:shouldComponentUpdate(nextProps: Props, nextState: State) \{
+  \}}
+
+  ${70:getSnapshotBeforeUpdate() \{
+  \}}
+
+  ${80:componentWillUnmount() \{
+    // clear timer
+    // clear event listener
+    // clear async
   \}}
 
   render() {
