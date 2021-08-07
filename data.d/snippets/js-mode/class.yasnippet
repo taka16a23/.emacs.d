@@ -5,15 +5,22 @@
 # condition: (not (py:at-string|comment-p))
 # --
 ${1:export default }class ${10:CLASS} ${20:extends ${22:Component}} {
+  ${24:static propTypes = \{
+    type: PropTypes.string,
+  \}
+  static defaultProps = \{
+    type: 'number',
+  \}}
+  
   ${30:constructor(props) \{
     super(props)
     this.state = \{
-      $0
     \}
   \}}
 
   render() {
     return (
+      $0
     );
   };
 }
