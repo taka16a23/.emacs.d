@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:28:22 2012 (+0900)
-;; Last-Updated:2021/08/10 02:27:55 (+0900)
+;; Last-Updated:2022/03/06 03:33:23 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -50,6 +50,7 @@
   (require 'use-package "use-package" 'noerr)
   (require 'js "js" 'noerr)
   (require 'll-debug "ll-debug" 'noerr)
+  (require 'hotstring "hotstring" 'noerr)
   )
 
 (defun refactoring-js-mode-hook () ;[2021/08/10]
@@ -80,6 +81,7 @@
     (add-to-list 'rotate-text-rotations el))
   ;; hook
   (add-hook 'js-mode-hook 'refactoring-python-mode-hook)
+  (add-hook 'js-mode-hook 'hotstring-mode)
   )
 
 
