@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/10/03 00:14:44 (+0900)
-;; Last-Updated:2020/02/16 00:51:22 (+0900)
+;; Last-Updated:2022/03/06 03:16:50 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -65,6 +65,8 @@
                                    ("windwos"              . "windows")
                                    ("deufn"                . "defun")
                                    ("calss"                . "class")
+                                   ("couint"               . "count")
+                                   ("coiunt"               . "count")
                                    ("startwith"            . "startswith")
                                    ("endwith"              . "endswith")
                                    ("slef"                 . "self")
