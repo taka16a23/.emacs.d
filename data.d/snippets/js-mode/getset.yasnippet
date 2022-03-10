@@ -8,7 +8,7 @@ get${1:name$(replace-regexp-in-string \"[[:punct:][:blank:]]\" \"_\" yas-text)}(
   return this.${1:$(downcase yas-text)};
 }
 
-set$1($30) {
+set$1(${30:a_sValue}) {
   this.${1:$(downcase yas-text)} = $30;
   ${50:return this}$0;
 }
