@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/11/02 16:13:20 (+0900)
-;; Last-Updated:2021/08/06 04:03:15 (+0900)
+;; Last-Updated:2022/03/10 19:22:35 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -195,24 +195,14 @@
     (if (file-directory-p check-file)
         (kill-buffer kill-target))))
 
-(defun dired-my-up-directory (&optional other-window)
-  "Run dired on parent directory of current directory.
-  Find the parent directory either in this buffer or another buffer.
-  Creates a buffer if necessary."
-  (interactive "P")
+(defun dired-my-up-directory ()
+  (interactive)
   (let* ((dir (dired-current-directory))
-         (up (file-name-directory (directory-file-name dir))))
-    (or (dired-goto-file (directory-file-name dir))
-        ;; Only try dired-goto-subdir if buffer has more than one
-        (and (cdr dired-subdir-alist)
-             (dired-goto-subdir up))
-        (progn
-          (if other-window
-              (dired-other-window up)
-            (progn
-              (kill-buffer (current-buffer))
-              (dired up))
-            (dired-goto-file dir))))))
+         (up (concat dir "..")))
+    (progn
+      (set-buffer-modified-p nil)
+      (find-alternate-file up)
+      )))
 
 (defun my-dired-today-search (arg)
   "Fontlock search function for dired.
