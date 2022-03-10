@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: createservice
+# key: createservice
+# condition: (not (py:at-string|comment-p))
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
+# --
+static create$1Service() {
+  if(!ServiceFactory._cache['$1Service']) {
+    let klass = require('./$1.service.js').default;
+    ServiceFactory._cache['$1Service'] = new klass();
+  }
+  return ServiceFactory._cache['$1Service'];
+}
+$0
