@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: createapi
+# key: createapi
+# condition: (not (py:at-string|comment-p))
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
+# --
+static create$1API() {
+  if(!APIFactory._cache['$1API']) {
+    let klass = require('./$1.api.js').default;
+    APIFactory._cache['$1API'] = new klass();
+  }
+  return APIFactory._cache['$1API'];
+}
+$0
