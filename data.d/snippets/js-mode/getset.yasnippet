@@ -5,9 +5,10 @@
 # expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
 # --
 get${1:name$(replace-regexp-in-string \"[[:punct:][:blank:]]\" \"_\" yas-text)}($20) {
-  return $25
+  return this.${1:$(downcase yas-text)};
 }
 
 set$1($30) {
-  ${50:return this}$0
+  this.${1:$(downcase yas-text)} = $30;
+  ${50:return this}$0;
 }
