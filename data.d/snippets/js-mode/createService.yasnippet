@@ -1,8 +1,6 @@
 # -*- mode: snippet -*-
 # name: createservice
 # key: createservice
-# condition: (not (py:at-string|comment-p))
-# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
 # --
 static create$1Service() {
   if(!ServiceFactory._cache['$1Service']) {

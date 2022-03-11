@@ -1,8 +1,6 @@
 # -*- mode: snippet -*-
 # name: createrepository
 # key: createrepository
-# condition: (not (py:at-string|comment-p))
-# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
 # --
 static create$1Repository() {
   if(!RepositoryFactory._cache['$1Repository']) {
