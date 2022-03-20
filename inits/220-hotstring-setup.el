@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/10/03 00:14:44 (+0900)
-;; Last-Updated:2022/03/06 03:16:50 (+0900)
+;; Last-Updated:2022/03/20 19:10:27 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -56,7 +56,8 @@
   :config
   (message "Loading \"hotstring\"")
   (custom-set-variables
-   '(hots-global-table-predefine '(("eamcs"                . "emacs")
+   '(hots-global-table-predefine '(("accouint"             . "account")
+                                   ("eamcs"                . "emacs")
                                    ("laungage"             . "language")
                                    ("defualt"              . "default")
                                    ("formart"              . "format")
