@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2013/11/02 15:54:56 (+0900)
-;; Last-Updated:2015/10/19 14:40:05 (+0900)
+;; Last-Updated:2022/04/30 12:19:33 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -56,6 +56,7 @@
              my-junk-auto-insert-elisp
              my-setup-auto-insert-python
              my-auto-insert-python
+             my-auto-insert-django-urls
              ))
 
 (use-package autoinsert
@@ -79,6 +80,7 @@
                         '(("\\.junk\\.py$" . my-junk-auto-insert-python))
                         '(("test_.+\\.py$" . my-test-auto-insert-python))
                         '(("setup\\.py$" . my-setup-auto-insert-python))
+                        '(("urls\\.py$" . my-auto-insert-django-urls))
                         '(("\\.py$" . my-auto-insert-python))
                         '(("\\.pyx$" . my-auto-insert-python))
                         '(("\\.cc$" . my-auto-insert-cpp))

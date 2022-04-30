@@ -890,6 +890,8 @@ Optional argument KEYS .
 
 (autoload 'my-auto-insert-python "mylisps/autoinsert-yas" nil nil nil)
 
+(autoload 'my-auto-insert-django-urls "mylisps/autoinsert-yas" nil nil nil)
+
 (if (fboundp 'register-definition-prefixes) (register-definition-prefixes "mylisps/autoinsert-yas" '("auto-insert-choose" "choose-input" "shell-auto-insert-choose")))
 
 ;;;***

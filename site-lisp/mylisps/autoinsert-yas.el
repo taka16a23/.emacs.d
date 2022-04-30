@@ -1,4 +1,4 @@
-;;; autoinsert-yas.el --- 
+;;; autoinsert-yas.el ---
 ;;
 ;; Copyright (C) 2015 Atami
 ;;
@@ -6,7 +6,7 @@
 ;; Maintainer:
 ;; Version:
 ;; Created: 2015/10/12 09:07:53 (+0900)
-;; Last-Updated:2015/10/12 09:37:34 (+0900)
+;; Last-Updated:2022/04/30 12:40:50 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -152,10 +152,21 @@ Optional argument KEYS ."
                              (?S "setup" "setup_auto-insert")
                              (?b "blank" "blank_auto-insert")))
 
+(defvar auto-insert-choose-urls '((?D "default" "auto-insert_urls_default")
+                                  (?r "rest" "auto-insert_urls_rest")
+                                  (?d "django" "auto-insert_urls_django")
+                                  ))
+
 ;;;###autoload
 (defun my-auto-insert-python ()
   (view-mode -1)
   (insert (choose-input auto-insert-choose))
+  (yas-expand))
+
+;;;###autoload
+(defun my-auto-insert-django-urls ()
+  (view-mode -1)
+  (insert (choose-input auto-insert-choose-urls))
   (yas-expand))
 
 
@@ -166,4 +177,3 @@ Optional argument KEYS ."
 ;; coding: utf-8
 ;; End:
 ;;; autoinsert-yas.el ends here
-

@@ -1,0 +1,30 @@
+# -*- mode: snippet -*-
+# name: auto-insert_urls_rest
+# key: auto-insert_urls_rest
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
+# 末尾の`'は"Local Variables"用。改頁前には"\n"を入れること。fileの読込を早くする。
+# 'r' charactor before the first triple-quote for doctest
+# don't want escape sequences - e.g '\n'
+# --
+`(view-mode -1)`#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+r\"\"\"`(file-name-sans-extension (file-name-nondirectory (buffer-file-name)))` -- ${1:DESCRIPTION}
+
+\"\"\"
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+
+$2
+
+router = DefaultRouter()
+router.register(${3:r'$4'}, $5)
+
+urlpatterns = router.urls
+
+
+
+# For Emacs
+# Local Variables:
+# coding: utf-8
+# End:
+# `(file-name-nondirectory (buffer-file-name))` ends here
