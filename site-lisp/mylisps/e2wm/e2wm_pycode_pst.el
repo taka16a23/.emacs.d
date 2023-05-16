@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2015/10/01 11:01:20 (+0900)
-;; Last-Updated:2021/08/06 03:55:20 (+0900)
+;; Last-Updated:2023/05/17 06:37:19 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -45,13 +45,13 @@
 (require 'e2wm "e2wm" 'noerr)
 (autoload 'w3m-list-buffers "w3m-util")
 
-(defvar e2wm:pycode-recipe '(| (:left-max-size 32)
+(defvar e2wm:pycode-recipe '(| (:left-max-size 42)
                                ;; left
                                (- (:upper-max-size 50)
                                   files
                                   (- (:upper-max-size 20)
                                      imenu history))
-                               (| (:left-max-size 88) ;linum +4
+                               (| (:left-max-size 100)
                                   ;; center
                                   (- (:upper-max-size 20) upsub main)
                                   ;; right

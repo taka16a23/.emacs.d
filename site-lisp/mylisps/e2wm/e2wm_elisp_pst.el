@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      2015/10/01 11:59:55 (+0900)
-;; Last-Updated: 2015/10/01 12:36:26 (+0900)
+;; Last-Updated:2023/05/17 06:37:42 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -43,13 +43,13 @@
 (require 'e2wm "e2wm" 'noerr)
 
 (defvar e2wm:elisp-code-recipe
-  '(| (:left-max-size 32)
+  '(| (:left-max-size 42)
       ;; left
       (- (:upper-max-size 50)
          files
          (- (:upper-max-size 20)
             imenu history))
-      (| (:left-max-size 88) ;linum +4
+      (| (:left-max-size 100)
          ;; center
          main
          ;; right
