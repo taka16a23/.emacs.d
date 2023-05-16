@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Tue Dec 11 23:33:01 2012 (+0900)
-;; Last-Updated:2015/10/27 04:04:34 (+0900)
+;; Last-Updated:2023/05/17 06:28:11 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -108,10 +108,10 @@
     :init
     :config
     (message "Loading \"e2wm-vcs\"")
-    (setq e2wm:c-magit-recipe '(| (:left-max-size 30)
+    (setq e2wm:c-magit-recipe '(| (:left-max-size 40)
                                   (- (:upper-size-ratio 0.7)
                                      files history)
-                                  (| (:right-max-size 80)
+                                  (| (:right-max-size 60)
                                      (- status (- main sub))
                                      (- (:upper-size-ratio 0.4) branches logs))))
     (defalias 'magit-get-top-dir 'magit-toplevel) ;fixed void "magit-get-top-dir"

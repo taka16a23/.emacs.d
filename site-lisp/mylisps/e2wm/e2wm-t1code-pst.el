@@ -6,7 +6,7 @@
 ;; Maintainer:
 ;; Version:
 ;; Created: 2015/10/23 03:33:31 (+0900)
-;; Last-Updated:2021/08/06 03:55:29 (+0900)
+;; Last-Updated:2023/05/17 06:31:59 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -48,13 +48,13 @@
 (require 's "s" 'noerr)
 
 (defvar e2wm:t1code-recipe
-  '(| (:left-max-size 32)
+  '(| (:left-max-size 42)
       ;; left
       (- (:upper-max-size 50)
          files
          (- (:upper-max-size 20)
             imenu history))
-      (| (:left-max-size 88) ;linum +4
+      (| (:left-max-size 100)
          ;; center
          (- (:upper-max-size 20) upsub main)
          ;; right
