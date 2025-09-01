@@ -6,7 +6,7 @@
 ;; Maintainer:   Atami
 ;; Version:      1.0
 ;; Created:      Sun Dec  9 18:25:06 2012 (+0900)
-;; Last-Updated:2021/05/01 09:05:51 (+0900)
+;; Last-Updated:2025/09/01 10:07:56 (+0900)
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -108,6 +108,9 @@
            ;; isearch.el not provided
            ("C-f" . isearch-forward)
            ("s-<f4>" . kmacro-edit-macro)
+           ("C-z" . undo)
+           ("C-c" . clipboard-kill-ring-save)
+           ("C-M-c" . clipboard-kill-ring-save)
            )
 
 (bind-keys :map isearch-mode-map
@@ -140,8 +143,8 @@
      ("f" . find-file)
      ("M-d" . dired-jump-other-window)
      ("D" . dired-jump-other-window)
-     ("k" . kill-this-buffer)
-     ("C-k" . kill-this-buffer)
+     ("k" . kill-current-buffer)
+     ("C-k" . kill-current-buffer)
      ("M-f" . query-replace-regexp)
      ("F" . revert-buffer)
      ("<f4>" . name-last-kbd-macro)
